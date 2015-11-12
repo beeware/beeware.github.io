@@ -125,14 +125,108 @@ with regard to the reporter of an incident.</p>
       <hr>
 
 
-      <h2 id='libraries'>Contributing to BeeWare</h2>
-	<p>Have you found a bug in a BeeWare tool? Do you want to contribute code to any of the BeeWare tools? All development takes places on Github.</p>
-	<p>Even if it's something small:
-	<ul>
-	  <li> a question
-	  <li> a spelling error in some of the documentation
-          <li> missing documentation
-	</ul></p>
+      <h1 id='libraries'>Contributing to BeeWare</h1>
+        <p><i>This GitHub tutorial is lovingly based on the <a href="https://github.com/DjangoGirls/tutorial/">DjangoGirls How To Contribute Tutorial</a>, which is available under a Creative Commons Attribution-ShareAlike 4.0 license.</i>
+
+
+	<p>For this tutorial, we will be using the <a href="https://github.com/pybee/voc">VOC</a> repository as a bases for the links and references</p>
+<h2>Getting started and prerequisites</h2>
+
+<p>For contributing to BeeWare, the following is needed to get started:</p>
+
+<ul>
+<li>a <a href="https://github.com">Github account</a></li>
+<li>in the case of complex edits familiarity with <a href="https://help.github.com/articles/set-up-git">Git command line basics</a> or familiarity with an app (<a href="https://windows.github.com/">Windows</a>, <a href="https://mac.github.com/">Mac</a>) to push your edits made on your computer to Github.</li>
+</ul>
+
+<h3>Fork the repository</h3>
+
+<p>First fork the <a href="https://github.com/pybee/voc">VOC</a> repository to your personal Github account:</p>
+
+<p><img src="../static/images/fork.png" alt="Fork button"></p>
+
+<h2>Editing Documentation</h2>
+
+<h3>Simple changes</h3>
+
+<p>For simple changes like typo corrections you can use the Github online editor:</p>
+
+<ul>
+<li>Open your local fork page on Github,</li>
+<li>go to <em>README.md</em> file in any chapter,</li>
+<li>press the <em>Edit</em> icon (pen)</li>
+</ul>
+
+<p>and you can edit the chapter directly on github.com.</p>
+
+<p><img src="../static/images/edit.png" alt="Edit button"></p>
+
+<p>Markdown syntax is used to edit the individual pages of the documentation.</p>
+
+<p><img src="../static/images/github_editor.png" alt="Github editor"></p>
+
+<p>Save your changes and create a pull request as explained below.</p>
+
+<h3>New code and complex changes</h3>
+
+<p>For adding new code, extending classes, or complex changes, you need to get a copy of the code to your local computer.</p>
+
+<p>Either use the Github app for your operating system (mentioned above) or <code>git</code> command line to get the repository locally. You get the repository address from the front page of your own Github repository fork:</p>
+
+<pre><code>git clone git@github.com:yourusername/voc.git
+</code></pre>
+
+<p>Then, create a branch for your new changes to sit in. It helps to call the branch something related to the changes you are going to make.</p>
+
+<pre><code>git checkout -b update_documentation
+</code></pre>
+
+<p>Make any changes in the code, and ensure they are tested, and saved locally.</p>
+
+<p>Then commit the changes using <code>git</code> and push the changes to your remote Github repository.</p>
+
+<p>Example:</p>
+
+<pre><code>$ git status
+On branch update_documentation
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+
+    README.md
+
+$ git add README.md
+
+$ git commit -m "Update README.md documentation for VOC"
+[update_documentation fe36152] Added gitbook screenshot
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.md
+
+$ git push
+Counting objects: 11, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 266.37 KiB | 0 bytes/s, done.
+Total 5 (delta 1), reused 0 (delta 0)
+To git@github.com:yourusername/voc.git
+   b37ca59..fe36152  update_documentation -&gt; update_documentation
+</code></pre>
+
+<h2>Making a pull request</h2>
+
+<p>After you have finished your changes you need to create <a href="https://help.github.com/articles/using-pull-requests">a pull request</a>  on Github. PyBee will get notified about the pull request, review your changes, suggest any corrections if needed and then <em>pull</em> your changes to the master version.</p>
+
+<p>In your own repository on Github press do <em>Compare &amp; pull request</em></p>
+
+<p><img src="../static/images/pull_request.png"></p>
+
+<p>Fill in the information <em>why</em> this change is being made. The reviewer can see the details of the actual change, so you don't need repeat the content of the change.</p>
+
+<p>Then press <em>Create pull request</em>.</p>
+
+<p>Github emails will notify you for the follow up process.</p>
+
+<hr>
+<h3>Learn more about the git process</h3>
 	<p>There are many useful resources to help you learn how to log issues and raise Pull Requests in GitHub</p>
 	<p><ul>
 	  <li> <a href="https://guides.github.com/activities/contributing-to-open-source/#contributing">Contributing to Open Source</a> from GitHub.com
