@@ -4,7 +4,7 @@ This is an alternative to the management of python environments and project virt
 ## Python Versions in a Mac development environment
 
 Using different versions of python can be easy and can be hard....
-All Mac OS X system come with a version of python - an old version of python - that you should forget about and never use unless you are not doing environment.... This means in general, there are some system administration and tools 
+All Mac OS X system come with a version of python - an old version of python - that you should forget about and never use unless you are not doing environment.... This means in general, there are some system administration and tools
 
 Here is one example of the system level pythons on a Mac OS X 10.10.5 ( Yosemite ) machine
 
@@ -46,9 +46,9 @@ Thus we need to create a development environment to use other pythons and to kee
 
 ## How to get started
 
-If you are on a Mac, the preferred package management system for terminal applications is Homebrew. 
+If you are on a Mac, the preferred package management system for terminal applications is Homebrew.
 
-To install homebrew can be easy 
+To install homebrew can be easy
 It is the preferred and most trouble free method to use two homebrew installed terminal tools to manage your python versions and your python virtual environments - pyenv and pyenv-virtualenv.
 
 The install is easy.
@@ -121,6 +121,8 @@ _=/usr/bin/env
 ```
 
 [Testing URL to pybee's github account](http://pybee.github.io)
+
+
 ^^^^^^
 Edited stuff above here
 ^^^^^^
@@ -156,7 +158,7 @@ python setup.py build
 export PYTHONPATH=`pwd`:$PYTHONPATH
 ```
 
-This is fine for the occasional module, but it quickly becomes tiresome. 
+This is fine for the occasional module, but it quickly becomes tiresome.
 
 How do we install a python module without "compiling" something?
 
@@ -166,7 +168,7 @@ Originally, the answer was `easy_install`. This was a packaging tools that had t
 The new hotness is a tool called pip. Pip also lets you install packages packaged in the new <code>wheel</code> format described in [PEP 427](https://www.python.org/dev/peps/pep-0427 PEP 427). If you really want to know, you can look here for the differences between [wheel and egg](http://python-packaging-user-guide.readthedocs.io/en/latest/wheel_egg/ wheel and egg).
 
 ### Installing Modules from Anaconda
-There's a new kid on the block. It's called `conda`, and in a lot of cases, it is a vast improvement over both of these. Conda is aimed at scientific computing and data science, and is absolutely essential if your code has non-python depencies, but it's a fantastic packaging tool in its own right, and we think you should give it a try. 
+There's a new kid on the block. It's called `conda`, and in a lot of cases, it is a vast improvement over both of these. Conda is aimed at scientific computing and data science, and is absolutely essential if your code has non-python depencies, but it's a fantastic packaging tool in its own right, and we think you should give it a try.
 
 ```
  conda install packagename
@@ -224,10 +226,10 @@ This file will contain a list of all the packages in your environment, and their
 
 ### Conda virtual environments
 
-Of course, anaconda has these too. 
+Of course, anaconda has these too.
 ```
  conda create -n data3 python=3.5
- source activate data3 
+ source activate data3
  conda install jupyter matplotlib seaborn numpy
  # ...  do work
  source deactivate
