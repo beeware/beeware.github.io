@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p><a href="/">Home</a></p>
+    <h1>Projects</h1>
+    <p>What is in the BeeWare suite of tools?</p>
+  </div>
+</div>
+{% endblock %}
+{% block body %}
+{% for child in this.children %}
+<h2><a href="{{ child|url }}">{{ child.name }}</a></h2>
+<p>{{ child.short_description }}
+{% endfor %}
+{% endblock %}

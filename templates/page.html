@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>
+        <a href="/">Home</a>
+        {% block breadcrumbs %}{% endblock %}
+    </p>
+    <h1>{{ this.title }}</h1>
+    <p>{{ this.summary }}</p>
+  </div>
+</div>
+{% endblock %}
+{% block body %}
+{{ this.body }}
+{% for child in this.children %}
+<h2><a href="{{ child|url }}">{{ child.title }}</a></h2>
+<p>{{ child.summary }}</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "page.html" %}
+{% block title %}{{ this.name }}{% endblock %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>
+        <a href="/">Home</a>
+        {% block breadcrumbs %}{% endblock %}
+    </p>
+    <h1>{{ this.name }}</h1>
+    <p>{{ this.summary }}</p>
+  </div>
+</div>
+{% endblock %}
+{% block body %}
+{% for child in this.children %}
+<a href="{{ child|url }}">{{ child.name }}</a>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "page.html" %}
+{% from "macros/blog.html" import render_blog_post %}
+{% from "macros/pagination.html" import render_pagination %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>
+        <a href="/">Home</a> >
+        <a href="/news/">News</a>
+    </p>
+    <h1>The Buzz</h1>
+    <p>A blog about BeeWare</p>
+  </div>
+</div>
+{% endblock %}
+{% block body %}
+  {% for child in this.pagination.items %}
+    {{ render_blog_post(child, from_index=true) }}
+  {% endfor %}
+
+  {{ render_pagination(this.pagination) }}
+{% endblock %}
