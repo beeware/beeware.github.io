@@ -1,14 +1,12 @@
 {% extends "page.html" %}
 {% from "macros/blog.html" import render_blog_post %}
 {% from "macros/pagination.html" import render_pagination %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
 {% block title %}{{ this.title }}{% endblock %}
 {% block preamble %}
 <div class="banner">
   <div class="container">
-    <p>
-        <a href="/">Home</a> >
-        <a href="/news/">News</a>
-    </p>
+    <p>{{ breadcrumbs(this) }}</p>
     <h1>The Buzz</h1>
     <p>A blog about BeeWare</p>
   </div>

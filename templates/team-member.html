@@ -1,12 +1,10 @@
 {% extends "page.html" %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
 {% block title %}{{ this.name }}{% endblock %}
 {% block preamble %}
 <div class="banner">
   <div class="container">
-    <p>
-        <a href="/">Home</a>
-        {% block breadcrumbs %}{% endblock %}
-    </p>
+    <p>{{ breadcrumbs(this) }}</p>
     <h1>{{ this.name }}</h1>
     <p>{{ this.summary }}</p>
   </div>

@@ -1,14 +1,11 @@
 {% extends "layout.html" %}
 {% from "macros/blog.html" import render_blog_post %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
 {% block title %}{{ this.title }}{% endblock %}
 {% block preamble %}
 <div class="banner">
   <div class="container">
-    <p>
-        <a href="/">Home</a> >
-        <a href="/news/">News</a>
-        <a href="/news/buzz">The Buzz</a>
-    </p>
+    <p>{{ breadcrumbs(this) }}</p>
     <h1>{{ this.title }}</h1>
     <p>posted by
         {% if this.twitter_handle %}

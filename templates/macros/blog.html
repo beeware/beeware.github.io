@@ -1,4 +1,6 @@
 {% macro render_blog_post(post, from_index=false) %}
+  {% if from_index %}
+  <h2><a href="{{ post|url }}">{{ post.title }}</a></h2>
   <p class="meta">
     posted by
     {% if post.twitter_handle %}
@@ -9,5 +11,6 @@
     {% endif %}
     on {{ post.pub_date }}
   </p>
+  {% endif %}
   {{ post.body }}
 {% endmacro %}

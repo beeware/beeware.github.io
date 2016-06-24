@@ -1,0 +1,8 @@
+{% macro breadcrumbs(page) %}
+{% if not page.parent.parent %}
+  <a href="/">Home</a>
+{% else %}
+  {{ breadcrumbs(page.parent) }} >
+  <a href="{{ page.parent|url }}">{{ page.parent.title }}</a>
+{% endif %}
+{% endmacro %}

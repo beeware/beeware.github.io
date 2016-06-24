@@ -1,13 +1,10 @@
 {% extends "layout.html" %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
 {% block title %}{{ this.title }}{% endblock %}
 {% block preamble %}
 <div class="banner">
   <div class="container">
-    <p>
-        <a href="/">Home</a>
-        {% for part in this.path %} ({{ part }}) {% endfor %}
-        {% block breadcrumbs %}{% endblock %}
-    </p>
+    <p>{{ breadcrumbs(this) }}</p>
     <h1>{{ this.title }}</h1>
     <p>{{ this.summary }}</p>
   </div>
