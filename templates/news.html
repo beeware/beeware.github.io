@@ -3,12 +3,12 @@
 {% block body %}
 {% set blog = site.query('/news/blog').all() %}
 {% set events = site.query('/news/events').all() %}
-<h2><a href="/news/blog/">Blog</a></h2>
-{% for child in blog %}
-    {{ child.title }}
+<h2><a href="/news/buzz/">The Buzz</a></h2>
+{% for child in blog[:1] %}
+    <a href="{{ child|url }}">{{ child.title }}</a>
 {% endfor %}
 <h2><a href="/news/events/">Upcoming events</a></h2>
-{% for child in events %}
+{% for child in events[:1] %}
     {{ child.title }}
 {% endfor %}
 {% endblock %}

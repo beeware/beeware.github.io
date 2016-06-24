@@ -1,6 +1,25 @@
 {% extends "layout.html" %}
 {% from "macros/blog.html" import render_blog_post %}
 {% block title %}{{ this.title }}{% endblock %}
-{% block body %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>
+        <a href="/">Home</a> >
+        <a href="/news/">News</a>
+        <a href="/news/buzz">The Buzz</a>
+    </p>
+    <h1>{{ this.title }}</h1>
+    <p>posted by
+        {% if this.twitter_handle %}
+        <a href="https://twitter.com/{{ this.twitter_handle }}">{{ post.author or post.twitter_handle }}</a>
+        {% else %}
+        {{ this.author }}
+        {% endif %}
+        on {{ this.pub_date }}
+    </p>
+  </div>
+</div>
+{% endblock %}{% block body %}
   {{ render_blog_post(this) }}
 {% endblock %}
