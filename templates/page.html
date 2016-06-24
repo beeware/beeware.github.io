@@ -5,8 +5,12 @@
   <div class="container">
     <p>
         <a href="/">Home</a>
-        {% for part in this.path %} ({{ part }}) {% endfor %}
-        {% block breadcrumbs %}{% endblock %}
+        {% block breadcrumbs %}
+        {% set link = "" %} 
+        {% for part in this.path.split("/")[1:-1] %} 
+            {% set link = link + "/" + part %} / <a href="{{ link }}">{{ part }}</a>
+        {% endfor %}
+        {% endblock %}
     </p>
     <h1>{{ this.title }}</h1>
     <p>{{ this.summary }}</p>
