@@ -2,6 +2,15 @@
 {% block body %}
 {{ this.body }}
 {% for child in this.children %}
-<h3><a href="{{ child|url }}">{{ child.name }}</a></h3>
+<div class="row" style="padding-bottom: 20px">
+  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-9">
+    <h3>{{ child.name }}</h3>
+    <p>{{ child.description }}</p>
+  </div>
+  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 gutter">
+    <img src="{{child._id}}/{{ child._id}}.png" width="100%">
+    <img src="twitter.png" alt="Twitter"><a href="https://twitter.com/{{child.twitter_handle}}">{{child.twitter_handle}}</a> 
+  </div>
+</div>
 {% endfor %}
 {% endblock %}
