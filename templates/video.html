@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
+{% block title %}{{this.event_name}} - {{ this.name }}{% endblock %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>{{ breadcrumbs(this) }}</p>
+    <h1>{{ this.event_name}}</h1>
+    <h2>{{ this.title }}</h2>
+  </div>
+</div>
+{% endblock %}
+{% block body %}
+<p align="center">{{ this.embed_video}}</p>
+<p>{{ this.description }}</p>
+<p><a href="{{ this.event_url }}">As seen at {{ this.event_name }}</a></p>
+{% endblock %}
