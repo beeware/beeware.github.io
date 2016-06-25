@@ -1,0 +1,9 @@
+{% macro badge(type, name) %}
+{% if name is string  %}
+    {{type}}: {{name}}.
+{% else %}
+    {{type}}: {{name|join(', ')}}.
+{% endif %}
+    
+<!-- <img src="badges/{{type}}/{{name}}"> -->
+{% endmacro %}
