@@ -1,8 +1,9 @@
 {% macro badge(type, name) %}
+
 {% if name is string  %}
-    {{type}}: {{name}}.
+    {{type}}: {{ bag('labels', name) }}.
 {% else %}
-    {{type}}: {{name|join(', ')}}.
+    {{type}}: {% for n in name %} {{ bag('labels', n)}}, {% endfor %}
 {% endif %}
     
 <!-- <img src="badges/{{type}}/{{name}}"> -->
