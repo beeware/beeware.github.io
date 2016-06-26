@@ -1,5 +1,6 @@
 {% extends "page.html" %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
+{% from "macros/member-badge.html" import member_badge %}
 {% block title %}{{ this.name }}{% endblock %}
 {% block preamble %}
 <div class="banner">
@@ -16,11 +17,6 @@
   <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-9">
     <p>{{ this.description }}</p>
   </div>
-  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 gutter">
-    <img src="./{{ this._id}}.png" width="100%">
-    <p><img src="../twitter-64.png" alt="Twitter" style="height: 32px; padding-right: 10px" ><a href="https://twitter.com/{{this.twitter_handle}}">{{this.twitter_handle}}</a>
-    <br>
-    <img src="../GitHub-Mark-64px.png" alt="GitHub" style="height: 32px; padding-right: 10px"><a href="https://github.com/{{this.github_handle}}">{{this.github_handle}}</a></p>
-  </div>
+  {{ member_badge(this) }}
 </div>
 {% endblock %}

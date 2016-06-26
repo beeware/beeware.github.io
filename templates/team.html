@@ -1,4 +1,5 @@
 {% extends "page.html" %}
+{% from "macros/member-badge.html" import member_badge %}
 {% block body %}
 {{ this.body }}
 {% for child in this.children %}
@@ -7,10 +8,7 @@
     <h3>{{ child.name }}</h3>
     <p>{{ child.description }}</p>
   </div>
-  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 gutter">
-    <img src="{{child._id}}/{{ child._id}}.png" width="100%">
-    <img src="twitter.png" alt="Twitter"><a href="https://twitter.com/{{child.twitter_handle}}">{{child.twitter_handle}}</a> 
-  </div>
+  {{ member_badge(child) }}
 </div>
 {% endfor %}
 {% endblock %}
