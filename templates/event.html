@@ -10,5 +10,15 @@
 </div>
 {% endblock %}
 {% block body %}
+{% if this.event_type == "talk" %}
+    <p>{{ this.speaker|join(" and ")}} will be speaking at {{this.title}}, giving a presentation entitled "<a href="{{event_url}}">{{this.talk_title}}"</a>.
+{% elif this.event_type == "sprint" %}
+    <p>BeeWare will be running a sprint at {{this.title}}.</p>
+  <p>{{ this.speaker|join(" and ") }} will be at the sprints, and will be more than willing to help First Time Contributors earn their own shiny  <a href="/contributing/challenge-coins/">Challenge Coin</a>.
+  <h3>What is a Sprint?</h3>
+  <p>A code sprint is ... . </p>
+  <p>For more information, check the <a href="{{this.url}}">{{this.title}} website</a></p>
+{% else %}
 <p>{{ this.description }}</p>
+{% endif %}
 {% endblock %}
