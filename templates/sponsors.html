@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>{{ breadcrumbs(this) }}</p>
+    <h1>{{ this.title }}</h1>
+    <p>{{ this.summary }}</p>
+  </div>
+</div>
+{% endblock %}
+{% block body %}
+{{ this.body }}
+{% for child in this.children %}
+<h2><a href="{{ child|url }}"><img src="./{{ child._id }}/{{ child._id }}-small.png"></a></h2>
+<p>{{ child.summary }}</p>
+{% endfor %}
+{% endblock %}
