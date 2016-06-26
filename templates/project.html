@@ -16,11 +16,19 @@
 {% block body %}
 <div class="row">
   <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-9">
-    <p>{{ this.description }}</p>
 
     {% if this.project_type == "template" %}
     <p>This project is a <a href="https://github.com/audreyr/cookiecutter">CookieCutter</a> template. Explain what CookieCutter is here</p>
+    <hr>
     {% endif %}
+    {% if this.project_type == "support" %}
+    <p>This project is a support library. It's to be used in conjunction with the Template project of the same name.</p>
+    <hr>
+    {% endif %}
+
+
+    <p>{{ this.description }}</p>
+
     {% if this.help_required %}
     <h3>How to help</h3>
     <p>{{ this.help_required }}</p>
@@ -32,7 +40,7 @@
     {% endif %}
   </div>
   <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 gutter">
-    <a href="https://github.com/pybee/{{this.name}}">GitHub Source Code</a>
+    <a href="https://github.com/pybee/{{this._id}}">GitHub Source Code</a>
     <hr>
     <li>{{ badge("Project Type", this.project_type) }}
     <li>{{ badge("Maturity", this.maturity) }}
