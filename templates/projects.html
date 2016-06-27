@@ -53,14 +53,14 @@
   <div class="col-sm-12 col-md-8">
     <h2 class="clearfix">The BeeWare Projects</h2>
 {% for child in this.children %}
-    <div class="clearfix">
+    <div class="clearfix type-{{ child.project_type}}{% for lang in child.languages %} lang-{{ lang }}{% endfor %} {% for plat in child.platforms %} plat-{{ plat }}{% endfor %} maturity-{{ child.maturity }}">
       <img src="./{{ child._id }}/{{ child._id }}-72.png" class="pull-xs-left">
       <h2><a href="{{ child|url }}">{{ child.name }}</a></h2>
       <p>{{ child.short_description }}</p>
     </div>
 {% endfor %}
   </div>
-  <div class="col-sm-12 col-md-4 gutter">
+  <div class="col-sm-12 col-md-4 gutter projects-gutter">
     <h6>Project type</h6>
     <ul>
       <li onclick="toggle('app')">Application</a>

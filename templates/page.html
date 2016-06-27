@@ -19,6 +19,13 @@
     <p>{{ child.summary }}</p>
     {% endfor %}
   </div>
-  <div class="hidden-sm-down col-md-4"></div>
+  {% if this.gutter %}
+  <div class="col-sm-12 col-md-4">
+    {{ this.gutter }}
+  </div>
+  {% else %}
+  <div class="hidden-sm-down col-md-4">
+  </div>
+  {% endif %}
 </div>
 {% endblock %}
