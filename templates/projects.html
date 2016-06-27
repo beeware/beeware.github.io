@@ -12,17 +12,97 @@
 {% endblock %}
 {% block body %}
 <div class="row">
-  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-9">
+  <div class="col-sm-12 col-md-8">
+    <p>BeeWare isn't a single package or tool. It's an entire <em>suite</em> of tools. Each tool performs exactly one task in the app development process, with the output of one tool forming the input to the next.</p>
+
+    <p>Each project of the BeeWare suite fills one of the following 6 roles:</p>
+  </div>
+  <div class="hidden-sm-down col-md-4"></div>
+</div>
+
+<div class="row project-type">
+  <div class="col-md-4">
+    <h6>Application</h6>
+    <p>A standalone end-user application. Although applications are written in Python, this is an implementation detail - you shouldn't ever be aware of this fact. Applications are installed and run the same way as any other end-user application on your computer.</p>
+  </div>
+  <div class="col-md-4">
+    <h6>Tools</h6>
+    <p>A special class of application that is installed into a Python virtual environment. Tools are used to assist when developing standalone applications, in roles from debugging and testing to packaging.</p>
+  </div>
+  <div class="col-md-4">
+    <h6>Libraries</h6>
+    <p>A re-usable block of code that can be used in a project. Libraries will usually be installed as dependencies of tools, applications, or other libraries.</p>
+  </div>
+</div>
+<div class="row project-type">
+  <div class="col-md-4">
+    <h6>Bridge</h6>
+    <p>A bridge is a combination tool &amp; library that is used to run Python code where the CPython runtime cannot be used. The bridge provides the mechanism to run Python code in a different runtime environment.</p>
+  </div>
+  <div class="col-md-4">
+    <h6>Templates</h6>
+    <p><a href="">Cookiecutter</a> templates for the boilerplate code needed to get a Python project running as an application on a particular platform.</p>
+  </div>
+  <div class="col-md-4">
+    <h6>Support</h6>
+    <p>Pre-packaged bundles of compiled artefacts that are needed to run on a particular platform.</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 col-md-8">
+    <h2 class="clearfix">The BeeWare Projects</h2>
 {% for child in this.children %}
     <div class="clearfix">
-      <img src="./{{ child._id }}/{{ child._id }}-72.png" class="pull-xs-left pull-sm-left pull-md-left pull-lg-left pull-xl-left">
+      <img src="./{{ child._id }}/{{ child._id }}-72.png" class="pull-xs-left">
       <h2><a href="{{ child|url }}">{{ child.name }}</a></h2>
       <p>{{ child.short_description }}</p>
     </div>
 {% endfor %}
   </div>
-  <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 gutter">
-    Filters over here...
+  <div class="col-sm-12 col-md-4 gutter">
+    <h6>Project type</h6>
+    <ul>
+      <li onclick="toggle('app')">Application</a>
+      <li onclick="toggle('tool')">Tool</a>
+      <li onclick="toggle('library')">Library</a>
+      <li onclick="toggle('bridge')">Bridge</a>
+      <li onclick="toggle('template')">Template</a>
+      <li onclick="toggle('support')">Support</a>
+    </ul>
+
+    <h6>Platform</h6>
+    <ul>
+      <li onclick="toggle('independent')">Platform independent</a>
+      <li onclick="toggle('macOS')"><i class="fa fa-apple" aria-hidden="true"></i> macOS</a>
+      <li onclick="toggle('linux')"><i class="fa fa-linux" aria-hidden="true"></i> Linux</a>
+      <li onclick="toggle('win')"><i class="fa fa-windows" aria-hidden="true"></i> Windows</a>
+      <li onclick="toggle('iOS')"><i class="fa fa-apple" aria-hidden="true"></i> iOS</a>
+      <li onclick="toggle('android')"><i class="fa fa-android" aria-hidden="true"></i> Android</a>
+      <li onclick="toggle('tvOS')"><i class="fa fa-apple" aria-hidden="true"></i> tvOS</a>
+      <li onclick="toggle('watchOS')"><i class="fa fa-apple" aria-hidden="true"></i> watchOS</a>
+      <li onclick="toggle('browser')"><i class="fa fa-chrome" aria-hidden="true"></i> Browser</a>
+    </ul>
+
+    <h6>Language</h6>
+    <ul>
+      <li onclick="toggle('py')">Python</a>
+      <li onclick="toggle('c')">C</a>
+      <li onclick="toggle('m')">Objective C</a>
+      <li onclick="toggle('cpp')">C++</a>
+      <li onclick="toggle('java')">Java</a>
+      <li onclick="toggle('js')">JavaScript</a>
+    </ul>
+
+    <h6>Maturity</h6>
+    <ul>
+      <li onclick="toggle('production')">Stable</a>
+      <li onclick="toggle('beta')">In development</a>
+      <li onclick="toggle('alpha')">Early development</a>
+      <li onclick="toggle('experimental')">Experimental</a>
+      <li onclick="toggle('attic')">Attic</a>
+    </ul>
+
   </div>
 </div>
 {% endblock %}
