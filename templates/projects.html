@@ -14,8 +14,11 @@
 <div class="row">
   <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-9">
 {% for child in this.children %}
-    <h2><img src="./{{ child._id }}/{{ child._id }}-72.png" style="padding: 10px"><a href="{{ child|url }}">{{ child.name }}</a></h2>
-    <p>{{ child.short_description }}</p>
+    <div class="clearfix">
+      <img src="./{{ child._id }}/{{ child._id }}-72.png" class="pull-xs-left pull-sm-left pull-md-left pull-lg-left pull-xl-left">
+      <h2><a href="{{ child|url }}">{{ child.name }}</a></h2>
+      <p>{{ child.short_description }}</p>
+    </div>
 {% endfor %}
   </div>
   <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 gutter">
