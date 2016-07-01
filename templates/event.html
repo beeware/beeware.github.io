@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "page.html" %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
 {% block title %}{{ this.title }}{% endblock %}
 {% block preamble %}
@@ -6,19 +6,36 @@
   <div class="container">
     <p>{{ breadcrumbs(this) }}</p>
     <h1>{{ this.title }}</h1>
+    <p>{{ this.date.strftime("%a, %b %-m %Y") }}</p>
   </div>
 </div>
 {% endblock %}
-{% block body %}
+{% block main %}
 {% if this.event_type == "talk" %}
-    <p>{{ this.speaker|join(" and ")}} will be speaking at {{this.title}}, giving a presentation entitled "<a href="{{event_url}}">{{this.talk_title}}"</a>.
+    <p>{{ this.speaker|join(" and ")}} will be speaking at {{ this.title }}, giving a presentation entitled "<a href="{{ this.url }}">{{ this.talk_title }}"</a>.
 {% elif this.event_type == "sprint" %}
-    <p>BeeWare will be running a sprint at {{this.title}}.</p>
+    <p>BeeWare will be running a sprint at {{ this.title }}.</p>
   <p>{{ this.speaker|join(" and ") }} will be at the sprints, and will be more than willing to help First Time Contributors earn their own shiny  <a href="/contributing/challenge-coins/">Challenge Coin</a>.
   <h3>What is a Sprint?</h3>
   <p>A code sprint is ... . </p>
-  <p>For more information, check the <a href="{{this.url}}">{{this.title}} website</a></p>
+  <p>For more information, check the <a href="{{ this.url }}">{{ this.title }} website</a></p>
 {% else %}
 <p>{{ this.description }}</p>
 {% endif %}
+{% endblock %}
+{% block gutter %}
+  <div class="col-sm-12 col-md-4 gutter">
+    <dl>
+      <dt>Date:</dt>
+      <dd>{{ this.date.strftime("%b %-m %Y")}}</dd>
+
+      <dt>Speakers:</dt>
+      <dd>
+        <ul>
+        {% for name in this.speaker %}<li>{{ name }}</li>{% endfor %}
+        </ul>
+      </dd>
+
+    </dl>
+  </div>
 {% endblock %}

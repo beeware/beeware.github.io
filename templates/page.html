@@ -13,19 +13,25 @@
 {% block body %}
 <div class="row-fluid">
   <div class="col-sm-12 col-md-8">
+  {% block main %}
     {{ this.body }}
     {% for child in this.children %}
+      {% if not child.hide_from_index %}
     <h2><a href="{{ child|url }}">{{ child.title }}</a></h2>
     <p>{{ child.summary }}</p>
+      {% endif %}
     {% endfor %}
+  {% endblock %}
   </div>
-  {% if this.gutter %}
-  <div class="col-sm-12 col-md-4">
+  {% block gutter %}
+    {% if this.gutter %}
+  <div class="col-sm-12 col-md-4 gutter">
     {{ this.gutter }}
   </div>
-  {% else %}
+    {% else %}
   <div class="hidden-sm-down col-md-4">
   </div>
-  {% endif %}
+    {% endif %}
+  {% endblock %}
 </div>
 {% endblock %}
