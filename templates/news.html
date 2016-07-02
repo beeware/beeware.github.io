@@ -5,8 +5,7 @@
 {% set events = site.query('/news/events').all() %}
 <div class="row">
   <div class="col-md-12 col-lg-8">
-    <h2><a href="/news/buzz/">The Buzz</a></h2>
-    {% for child in blog[:3] %}
+    {% for child in blog[:10] %}
     <h3><a href="{{ child|url }}">{{ child.title }}</a></h3>
     <p>posted by
       {% if child.twitter_handle %}
@@ -17,6 +16,7 @@
       on {{ child.pub_date }}
     </p>
     {% endfor %}
+    <a href="/news/buzz/">... more articles</a>
   </div>
   <div class="col-md-12 col-lg-4 gutter">
     <h2><a href="/news/events/">Upcoming events</a></h2>
