@@ -13,7 +13,7 @@
         {% else %}
         {{ this.author }}
         {% endif %}
-        on {{ this.pub_date }}
+        on {{ this.pub_date.strftime('%B %-m %Y')}}
     </p>
   </div>
 </div>
@@ -28,12 +28,12 @@
   <div class="col-sm-12 col-md-4 gutter">
     <dl>
       {% if this.has_prev() %}
-      <dt>Next</dt>
+      <dt>Next entry</dt>
       <dd><a href="{{ this.get_siblings().prev_page|url }}">{{ this.get_siblings().prev_page.title }}</a></dd>
       {% endif %}
 
       {% if this.has_next() %}
-      <dt>Previous</dt>
+      <dt>Previous entry</dt>
       <dd><a href="{{ this.get_siblings().next_page|url }}">{{ this.get_siblings().next_page.title }}</a></dd>
       {% endif %}
     </dl>
