@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
 {% from "macros/badge.html" import badge %}
+{% from "macros/incomplete.html" import incomplete %}
 {% block title %}{{ this.name }}{% endblock %}
 {% block preamble %}
 <div class="banner">
@@ -16,7 +17,7 @@
 {% block body %}
 <div class="row">
   <div class="col-sm-12 col-md-8">
-
+    {{ incomplete(this) }}
     {% if this.project_type == "template" %}
     <p>This project is a <a href="https://github.com/audreyr/cookiecutter">CookieCutter</a> template. Explain what CookieCutter is here</p>
     <hr>
