@@ -24,5 +24,18 @@
   {{ render_blog_post(this) }}
   </div>
   <div class="hidden-sm-down col-md-2 col-lg-4"></div>
-</div>
+
+  <div class="col-sm-12 col-md-4 gutter">
+    <dl>
+      {% if this.has_prev() %}
+      <dt>Next</dt>
+      <dd><a href="{{ this.get_siblings().prev_page|url }}">{{ this.get_siblings().prev_page.title }}</a></dd>
+      {% endif %}
+
+      {% if this.has_next() %}
+      <dt>Previous</dt>
+      <dd><a href="{{ this.get_siblings().next_page|url }}">{{ this.get_siblings().next_page.title }}</a></dd>
+      {% endif %}
+    </dl>
+  </div></div>
 {% endblock %}

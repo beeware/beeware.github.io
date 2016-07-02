@@ -13,9 +13,15 @@
 </div>
 {% endblock %}
 {% block body %}
+<div class="row-fluid">
+  <div class="col-sm-12 col-md-8">
   {% for child in this.pagination.items %}
     {{ render_blog_post(child, from_index=true) }}
   {% endfor %}
-
-  {{ render_pagination(this.pagination) }}
+  </div>
+  <div class="col-sm-12 col-md-4 gutter">
+    <h2>Archive</h2>
+    {{ render_pagination(this.pagination) }}
+  </div>
+</div>
 {% endblock %}
