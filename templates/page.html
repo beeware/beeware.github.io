@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
+{% from "macros/incomplete.html" import incomplete %}
 {% block title %}{{ this.title }}{% endblock %}
 {% block preamble %}
 <div class="banner">
@@ -13,6 +14,7 @@
 {% block body %}
 <div class="row-fluid">
   <div class="col-sm-12 col-md-8">
+  {{ incomplete(this) }}
   {% block main %}
     {{ this.body }}
     {% for child in this.children %}
