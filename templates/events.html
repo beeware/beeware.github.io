@@ -1,6 +1,25 @@
-{% extends "layout.html" %}
+{% extends "page.html" %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
 {% block title %}{{ this.title }}{% endblock %}
+{% block extra_script %}
+<script>
+(function() {
+    var today = new Date();
+    $('.upcoming.event').each(function() {
+        var event_date = new Date($(this).data('date'));
+        if (event_date >= today) {
+            $(this).show();
+        }
+    });
+    $('.past.event').each(function() {
+        var event_date = new Date($(this).data('date'));
+        if (event_date < today) {
+            $(this).show();
+        }
+    });
+})();
+</script>
+{% endblock %}
 {% block preamble %}
 <div class="banner">
   <div class="container">
@@ -10,8 +29,19 @@
   </div>
 </div>
 {% endblock %}
-{% block body %}
+{% block main %}
+<h2>Upcoming events</h2>
 {% for child in this.children %}
-<h3><a href="{{ child|url }}">{{ child.title }}</a></h3>
+<p class="upcoming event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }} <a href="{{ child|url }}">{{ child.title }}</a></p>
 {% endfor %}
+<h2>Past events</h2>
+{% for child in this.children.order_by('-date') %}
+<p class="past event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }} <a href="{{ child|url }}">{{ child.title }}</a></p>
+{% endfor %}
+{% endblock %}
+{% block gutter %}
+  <div class="col-sm-12 col-md-4 gutter">
+    <h6>Want BeeWare at your event?</h6>
+    <p>Would you like someone from the BeeWare to speak at your event? <a href="russell@pybee.org">Get in touch!</a> We'd love to come along and tell more people about BeeWare.</p>
+  </div>
 {% endblock %}
