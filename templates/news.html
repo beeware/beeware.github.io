@@ -3,6 +3,19 @@
 {% block body %}
 {% set blog = site.query('/news/buzz').all() %}
 {% set events = site.query('/news/events').all() %}
+{% block extra_script %}
+<script>
+(function() {
+    var today = new Date();
+    $('.upcoming.event').each(function() {
+        var event_date = new Date($(this).data('date'));
+        if (event_date >= today) {
+            $(this).show();
+        }
+    });
+})();
+</script>
+{% endblock %}
 <div class="row">
   <div class="col-md-12 col-lg-8">
     {% for child in blog[:10] %}
@@ -22,7 +35,7 @@
     <h2><a href="/news/events/">Upcoming events</a></h2>
     <ul>
     {% for child in events[:10] %}
-      <li>{{ child.date.strftime("%b %m %Y") }}: <a href="{{ child|url }}">{{ child.title }}</a></li>
+      <li class="upcoming event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }}: <a href="{{ child|url }}">{{ child.title }}</a></li>
     {% endfor %}
     </ul>
   </div>
