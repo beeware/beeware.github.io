@@ -8,13 +8,7 @@
     $('.upcoming.event').each(function() {
         var event_date = new Date($(this).data('date'));
         if (event_date >= today) {
-            $(this).show();
-        }
-    });
-    $('.past.event').each(function() {
-        var event_date = new Date($(this).data('date'));
-        if (event_date < today) {
-            $(this).show();
+            // $(this).hide();
         }
     });
 })();
@@ -31,11 +25,11 @@
 {% endblock %}
 {% block main %}
 <h2>Upcoming events</h2>
-{% for child in this.children %}
+{% for child in this.children.filter(F.upcoming == True) %}
 <p class="upcoming event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }} <a href="{{ child|url }}">{{ child.title }}</a></p>
 {% endfor %}
 <h2>Past events</h2>
-{% for child in this.children.order_by('-date') %}
+{% for child in this.children.filter(F.upcoming == False).order_by('-date') %}
 <p class="past event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }} <a href="{{ child|url }}">{{ child.title }}</a></p>
 {% endfor %}
 {% endblock %}

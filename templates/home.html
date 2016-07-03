@@ -98,7 +98,7 @@
     <hr/>
 
     <h4><a href="/news/events/">Meet the Bee Team @</a></h4>
-    {% set events = site.query('/news/events').all() %}
+    {% set events = site.query('/news/events').filter(F.upcoming==True) %}
     <div id="carousel-events" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         {% for event in events %}
