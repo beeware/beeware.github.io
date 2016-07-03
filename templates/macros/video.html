@@ -1,0 +1,18 @@
+{% macro render_video_index(video) %}
+  <h2><i class="fa fa-video-camera" aria-hidden="true"></i> {{ video.title }}</h2>
+  <p>Published {{ video.pub_date.strftime('%-d %B %Y') }}</p>
+  <iframe class="video" src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
+  <p>{{ video.description }}</p>
+  {% if video.event_url %}
+  <p><a href="{{ video.event_url }}">As seen at {{ video.event_name }}</a></p>
+  {% else %}
+  <p>As seen at {{ video.event_name }}</p>
+  {% endif %}
+{% endmacro %}
+
+{% macro render_video(video) %}
+  <iframe class="video" src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
+
+  {{ video.description }}
+
+{% endmacro %}

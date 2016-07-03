@@ -8,20 +8,18 @@
   <div class="container">
     <p>{{ breadcrumbs(this) }}</p>
     <h1>The Buzz</h1>
-    <p>A blog about BeeWare</p>
+    <p>BeeWare's official blog</p>
   </div>
 </div>
 {% endblock %}
-{% block body %}
-<div class="row-fluid">
-  <div class="col-sm-12 col-md-8">
-  {% for child in this.pagination.items %}
-    {{ render_blog_post(child, from_index=true) }}
-  {% endfor %}
-  </div>
-  <div class="col-sm-12 col-md-4 gutter">
-    <h2>Archive</h2>
-    {{ render_pagination(this.pagination) }}
-  </div>
+{% block main %}
+{% for child in this.pagination.items %}
+  {{ render_blog_post(child, from_index=true) }}
+{% endfor %}
+{% endblock %}
+{% block gutter %}
+<div class="col-sm-12 col-md-4 gutter">
+  <h2>Archive</h2>
+  {{ render_pagination(this.pagination) }}
 </div>
 {% endblock %}

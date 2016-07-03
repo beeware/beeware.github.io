@@ -1,0 +1,43 @@
+{% extends "page.html" %}
+{% from "macros/video.html" import render_video_index %}
+{% from "macros/podcast.html" import render_podcast_index %}
+{% from "macros/article.html" import render_article_index %}
+{% from "macros/pagination.html" import render_pagination %}
+{% block main %}
+{% for resource in this.children %}
+{% if resource.resource_type == 'article' %}
+{{ render_article_index(resource) }}
+{% elif resource.resource_type == 'video' %}
+{{ render_video_index(resource) }}
+{% elif resource.resource_type == 'podcast' %}
+{{ render_podcast_index(resource) }}
+{% else %}
+<h3><a href="{{ child|url }}">{{ child.title }}</a></h3>
+{% endif %}
+{% endfor %}
+{% endblock %}
+{% block gutter %}
+  <div class="col-sm-12 col-md-4 gutter">
+    <h2>Archive</h2>
+    {{ render_pagination(this.pagination) }}
+    <hr>
+    <h2>Editor's picks</h2>
+    <p>There's lots of great content here, but if you haven't got time to consume it all, here's our pick of the best of the best:</p>
+    <ul>
+        {% for resource in this.children.filter(F.editors_pick == True) %}
+        <li>
+            {% if resource.resource_type == 'article' %}
+            <i class="fa fa-file-text" aria-hidden="true"></i>
+            {% elif resource.resource_type == 'video' %}
+            <i class="fa fa-video-camera" aria-hidden="true"></i>
+            {% elif resource.resource_type == 'podcast' %}
+            <i class="fa fa-headphones" aria-hidden="true"></i>
+            {% endif %}
+            <a href="{{ resource|url }}">{{ resource.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <p>If you write an article, record a screencast, or publish something else that you think might be of interest to the BeeWare community, please <a href="mailto:russell@beeware.org">get in touch</a>.</p>
+  </div>
+{% endblock %}

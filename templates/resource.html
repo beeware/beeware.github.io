@@ -1,0 +1,36 @@
+{% extends "page.html" %}
+{% from "macros/video.html" import render_video %}
+{% from "macros/podcast.html" import render_podcast %}
+{% from "macros/article.html" import render_article %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>{{ breadcrumbs(this) }}</p>
+    <h2>{{ this.title }}</h2>
+    <p>Published {{ this.pub_date.strftime('%-d %B %Y') }}</p>
+  </div>
+</div>
+{% endblock %}
+{% block main %}
+{% if this.resource_type == 'article' %}
+{{ render_article(this) }}
+{% elif this.resource_type == 'video' %}
+{{ render_video(this) }}
+{% elif this.resource_type == 'podcast' %}
+{{ render_podcast(this) }}
+{% else %}
+Unknown resource type...
+{% endif %}
+{% endblock %}
+{% block gutter %}
+{% if this.event_name %}
+  <div class="col-sm-12 col-md-4 gutter">
+    {% if this.event_url %}
+    <p><a href="{{ this.event_url }}">As seen at {{ this.event_name }}</a></p>
+    {% else %}
+    <p>As seen at {{ this.event_name }}</p>
+    {% endif %}
+  </div>
+{% endif %}
+{% endblock %}
