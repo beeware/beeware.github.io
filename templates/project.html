@@ -19,11 +19,11 @@
   <div class="col-sm-12 col-md-8">
     {{ incomplete(this) }}
     {% if this.project_type == "template" %}
-    <p>This project is a <a href="https://github.com/audreyr/cookiecutter">CookieCutter</a> template.</p>
+    <p>This project is a <a href="https://github.com/audreyr/cookiecutter">CookieCutter</a> template for a stub project.</p>
     <hr>
     {% endif %}
     {% if this.project_type == "support" %}
-    <p>This project is a support library. It's to be used in conjunction with the Template project of the same name.</p>
+    <p>This project is a support library. It is intended to be used in conjunction with a template project for the same platform.</p>
     <hr>
     {% endif %}
 
@@ -42,7 +42,8 @@
   </div>
   <div class="col-sm-12 col-md-4 gutter project-gutter">
     <div><img class="img-fluid center-block" src="./{{ this._id }}-256.png"></div>
-    <a href="https://github.com/pybee/{{ this._id }}"><i class="fa fa-github fa-lg" aria-hidden="true"></i> Source Code</a>
+    <p><a href="https://github.com/pybee/{{ this._id }}"><i class="fa fa-github fa-lg" aria-hidden="true"></i> Source Code</a></p>
+    {% if this.rtfd_name %}<p><a href="https://{{ this.rtfd_name }}.readthedocs.io/"><i class="fa fa-book fa-lg" aria-hidden="true"></i> Documentation</a></p>{% endif %}
     <hr>
     <dl>
         {{ badge("Project Type", this.project_type) }}
