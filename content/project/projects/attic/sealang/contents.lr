@@ -1,0 +1,59 @@
+name: Sealang
+---
+project_type: library
+---
+maturity: attic
+---
+languages: py
+---
+platforms: macOS, linux
+---
+short_description: An extended set of Python bindings for libclang
+---
+description:
+
+Sealang is an improved set of Python bindings for ``libclang``.
+
+The upstream maintainers of ``libclang`` have not been especially responsive
+to patches that address issues like Python 3 compatibility, and the
+significant omissions in the API (such as extracting literals and operators).
+
+This package is a fork of the official Python bindings for ``libclang``, patched to correct these problems.
+
+How it works
+-------------
+
+Sealang is a bit of a nasty hack. ``libclang`` is a set of C bindings to a C++
+API; Python ``ctypes`` are then used to wrap the C API. However, while the C++
+API is quite rich, ``libclang`` is less so.
+
+Sealang bridges this gap by providing C wrappers around the C++ calls that
+provide the useful functionality. This library of C functions is wrapped up as
+a Python C module for delivery purposes - this C module contains no exposed
+*Python* objects or methods, but because it's a module, the underlying
+compiled `sealang.so` file is easy to find. `ctypes` are then used to expose
+the `sealang` wrapper functions;
+
+Internally, Sealang reproduces some minor pieces of the ``libclang`` API;
+these are methods (such as the string creation and manipulation methods) that
+aren't exposed as symbols for third-party use.
+
+All this functionality is potentially a candidate to be passed upstream to
+libclang.
+
+Relationship to Clang
+~~~~~~~~~~~~~~~~~~~~~
+
+This project aims to mirror what is currently available in the Python bindings
+to ``libclang``. The version number for this project is drawn from the version
+and SVN revision of the official clang repository.
+
+Any changes made upstream to ``libclang`` will be mirrored here; any changes
+made here will, where possible, be pushed upstream to ``libclang``.
+
+Development status
+~~~~~~~~~~~~~~~~~~
+
+This project was an experiment developed to support `Seasnake <../seasnake>`__. Since Seasnake has been abandoned, so has this project.
+---
+help_required: 

@@ -1,4 +1,0 @@
-pybee.github.io
-===============
-
-PyBee

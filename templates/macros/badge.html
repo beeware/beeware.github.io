@@ -1,0 +1,10 @@
+{% macro badge(type, name) %}
+
+{% if name is string  %}
+    <dt>{{ type }}:</dt><dd>{{ bag('labels', name) }}</dd>
+{% else %}
+    <dt>{{ type }}:</dt><dd>{% for n in name %}{% if loop.index != 1 %}, {% endif %} {{ bag('labels', n)}}{% endfor %}</dd>
+{% endif %}
+
+<!-- <img src="badges/{{type}}/{{name}}"> -->
+{% endmacro %}

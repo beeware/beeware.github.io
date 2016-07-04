@@ -1,0 +1,24 @@
+{% extends "page.html" %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
+{% from "macros/member-badge.html" import member_badge %}
+{% block title %}{{ this.name }}{% endblock %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>{{ breadcrumbs(this) }}</p>
+    <h1>{{ this.name }}</h1>
+    <p>{{ this.summary }}</p>
+  </div>
+</div>
+{% endblock %}
+{% block body %}
+
+<div class="row">
+  <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-9">
+    <p>{{ this.description }}</p>
+  </div>
+ <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4 col-xl-3 gutter">
+    {{ member_badge(this) }}
+  </div>
+</div>
+{% endblock %}

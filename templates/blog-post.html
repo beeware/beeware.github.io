@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% from "macros/blog.html" import render_blog_post %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>{{ breadcrumbs(this) }}</p>
+    <h1>{{ this.title }}</h1>
+    <p>posted by
+        {% if this.twitter_handle %}
+        <a href="https://twitter.com/{{ this.twitter_handle }}">{{ this.author or this.twitter_handle }}</a>
+        {% else %}
+        {{ this.author }}
+        {% endif %}
+        on {{ this.pub_date.strftime('%-d %B %Y')}}
+    </p>
+  </div>
+</div>
+{% endblock %}
+{% block body %}
+<div class="row-fluid">
+  <div class="col-sm-12 col-md-10 col-lg-8" >
+  {{ render_blog_post(this) }}
+  </div>
+  <div class="hidden-sm-down col-md-2 col-lg-4"></div>
+
+  <div class="col-sm-12 col-md-4 gutter">
+    <dl>
+      {% if this.has_prev() %}
+      <dt>Next entry</dt>
+      <dd><a href="{{ this.get_siblings().prev_page|url }}">{{ this.get_siblings().prev_page.title }}</a></dd>
+      {% endif %}
+
+      {% if this.has_next() %}
+      <dt>Previous entry</dt>
+      <dd><a href="{{ this.get_siblings().next_page|url }}">{{ this.get_siblings().next_page.title }}</a></dd>
+      {% endif %}
+    </dl>
+  </div></div>
+{% endblock %}

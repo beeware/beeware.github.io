@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
+{% block title %}Redirecting... {{ this.new_path }}{% endblock %}
+{% block extra_head %}
+<meta http-equiv="refresh" content="0;URL='{{ this.new_path }}" />
+<link rel="canonical" href="{{ this.new_path }}"/>
+<script>
+  window.location.href = "{{ this.new_path }}"
+</script>
+{% endblock %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <h1>Redirecting...</h1>
+    <p>{{ this.new_path }}</p>
+  </div>
+</div>
+{% endblock %}

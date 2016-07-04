@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
+{% from "macros/badge.html" import badge %}
+{% from "macros/incomplete.html" import incomplete %}
+{% block title %}{{ this.name }}{% endblock %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>{{ breadcrumbs(this) }}</p>
+    <h1>{{ this.name }}</h1>
+    <p>
+</p>
+    <p>{{ this.short_description }}</p>
+  </div>
+</div>
+{% endblock %}
+{% block body %}
+<div class="row">
+  <div class="col-sm-12 col-md-8">
+    {{ incomplete(this) }}
+    {% if this.project_type == "template" %}
+    <p>This project is a <a href="https://github.com/audreyr/cookiecutter">CookieCutter</a> template for a stub project.</p>
+    <hr>
+    {% endif %}
+    {% if this.project_type == "support" %}
+    <p>This project is a support library. It is intended to be used in conjunction with a template project for the same platform.</p>
+    <hr>
+    {% endif %}
+
+
+    <p>{{ this.description }}</p>
+
+    {% if this.help_required %}
+    <h3>How to help</h3>
+    <p>{{ this.help_required }}</p>
+    {% endif %}
+
+    {% if this.pun %}
+    <h3>So, why is it called "{{this.name}}"?</h3>
+    <p>{{ this.pun }}</p>
+    {% endif %}
+  </div>
+  <div class="col-sm-12 col-md-4 gutter project-gutter">
+    <div><img class="img-fluid center-block" src="./{{ this._id }}-256.png"></div>
+    <p><a href="https://github.com/pybee/{{ this._id }}"><i class="fa fa-github fa-lg" aria-hidden="true"></i> Source Code</a></p>
+    {% if this.rtfd_name %}<p><a href="https://{{ this.rtfd_name }}.readthedocs.io/"><i class="fa fa-book fa-lg" aria-hidden="true"></i> Documentation</a></p>{% endif %}
+    <hr>
+    <dl>
+        {{ badge("Project Type", this.project_type) }}
+        {{ badge("Maturity", this.maturity) }}
+        {{ badge("Language", this.languages) }}
+        {{ badge("Platform", this.platforms) }}
+    </dl>
+    <hr>
+    <a href="https://labhr.github.io/hatrack/#repo=pybee/{{ this._id }}">Contributors</a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
+{% from "macros/incomplete.html" import incomplete %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>{{ breadcrumbs(this) }}</p>
+    <h1>{{ this.title }}</h1>
+    <p>{{ this.summary }}</p>
+  </div>
+</div>
+{% endblock %}
+{% block body %}
+<div class="row-fluid">
+  <div class="col-sm-12 col-md-8">
+  {{ incomplete(this) }}
+  {% block main %}
+    {{ this.body }}
+    {% for child in this.children %}
+      {% if not child.hide_from_index %}
+    <h2><a href="{{ child|url }}">{{ child.title }}</a></h2>
+    <p>{{ child.summary }}</p>
+      {% endif %}
+    {% endfor %}
+  {% endblock %}
+  </div>
+  {% block gutter %}
+    {% if this.gutter %}
+  <div class="col-sm-12 col-md-4 gutter">
+    {{ this.gutter }}
+  </div>
+    {% else %}
+  <div class="hidden-sm-down col-md-4">
+  </div>
+    {% endif %}
+  {% endblock %}
+</div>
+{% endblock %}

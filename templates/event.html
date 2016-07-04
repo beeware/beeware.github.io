@@ -1,0 +1,45 @@
+{% extends "page.html" %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>{{ breadcrumbs(this) }}</p>
+    <h1>{{ this.title }}</h1>
+    <p>{{ this.date.strftime("%A, %-d %B %Y") }}</p>
+  </div>
+</div>
+{% endblock %}
+{% block main %}
+{% if this.event_type == "talk" %}
+    <p>{{ this.speaker|join(" and ")}} will be speaking at {{ this.title }}, giving a presentation entitled "<a href="{{ this.url }}">{{ this.talk_title }}"</a>.
+{% elif this.event_type == "sprint" %}
+    <p>BeeWare will be running a sprint at {{ this.title }}.</p>
+  <p>{{ this.speaker|join(" and ") }} will be at the sprints, and will be more than willing to help First Time Contributors earn their own shiny  <a href="/contributing/challenge-coins/">Challenge Coin</a>.
+  <p>For more information, check the <a href="{{ this.url }}">{{ this.title }} website</a></p>
+  <h3>What is a Sprint?</h3>
+  <p>Code sprints are events held normally after a conference where attendees can use the conference venue to work in small groups on various projects. Learn more about how sprints work with the <a href="https://www.youtube.com/watch?v=hOtKgFaFcz0">PyCon US 'What is a sprint?' video</a> </p>
+{% else %}
+<p>{{ this.description }}</p>
+{% endif %}
+{% endblock %}
+{% block gutter %}
+  <div class="col-sm-12 col-md-4 gutter">
+    <dl>
+      <dt>Date:</dt>
+      <dd>{{ this.date.strftime("%-d %B %Y")}}</dd>
+
+      {% if this.event_type == "sprint" %}
+        <dt>Sprinters:</dt>
+      {% elif this.event_type == "talk" %}
+        <dt>Speakers:</dt>
+      {% endif %}
+      <dd>
+        <ul>
+        {% for name in this.speaker %}<li>{{ name }}</li>{% endfor %}
+        </ul>
+      </dd>
+
+    </dl>
+  </div>
+{% endblock %}

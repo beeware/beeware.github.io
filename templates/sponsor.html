@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
+{% from "macros/sponsor.html" import sponsorship_level %}
+{% block title %}{{ this.name }}{% endblock %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>{{ breadcrumbs(this) }}</p>
+    <h2>{{ sponsorship_level(this) }}</h2>
+    <img src="./{{ this._id }}-large.png"></a>
+  </div>
+</div>
+{% endblock %}
+{% block body %}
+{{ this.description }}
+{{ this.contribution }}
+<p>Many thanks to {{ this.name }} for their contribution!</p>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "page.html" %}
+{% from "macros/member-badge.html" import member_badge %}
+{% block body %}
+<div class="row">
+  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-8 col-xl-9">
+{{ this.body }}
+  </div>
+</div>
+{% for child in this.children %}
+<div class="row team">
+  <div class="col-xs-12 col-sm-7 col-md-7 col-lg-8 col-xl-9">
+    <h3>{{ child.name }}</h3>
+    <p>{{ child.description }}</p>
+  </div>
+  <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4 col-xl-3 gutter">
+    {{ member_badge(child) }}
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

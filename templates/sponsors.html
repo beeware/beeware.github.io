@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>{{ breadcrumbs(this) }}</p>
+    <h1>{{ this.title }}</h1>
+    <p>{{ this.summary }}</p>
+  </div>
+</div>
+{% endblock %}
+{% block body %}
+<div class="row">
+  <div class="col-lg-8">
+{{ this.body }}
+
+{% for group in this.children|groupby('level') %}
+<h2>{{ bag('labels', group[0]) }} sponsors</h2>
+  {% for child in group.list %}
+<a href="{{ child|url }}"><img class="img-fluid" src="./{{ child._id }}/{{ child._id }}-large.png"></a>
+    {% if child.contribution %}
+<p>{{ child.description }}</p>
+<p>{{ child.contribution }}</p>
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+  </div>
+  {% if this.gutter %}
+  <div class="col-md-12 col-lg-4">
+    {{ this.gutter }}
+  </div>
+  {% else %}
+  <div class="hidden-md-down col-lg-4">
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
