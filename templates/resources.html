@@ -4,7 +4,7 @@
 {% from "macros/article.html" import render_article_index %}
 {% from "macros/pagination.html" import render_pagination %}
 {% block main %}
-{% for resource in this.children %}
+{% for resource in this.pagination.items %}
 {% if resource.resource_type == 'article' %}
 {{ render_article_index(resource) }}
 {% elif resource.resource_type == 'video' %}
