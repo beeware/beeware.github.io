@@ -1,6 +1,6 @@
 {% macro render_article_index(article) %}
-  <h2><i class="fa fa-file-text" aria-hidden="true"></i> {{ article.title }}</h2>
-  <p>Published {{ article.pub_date.strftime('%-d %B %Y') }}</p>
+  <h2><a href="{{ article.url }}"><i class="fa fa-file-text" aria-hidden="true"></i> {{ article.title }}</a></h2>
+  <p>by {{ article.author }}; published {{ article.pub_date.strftime('%-d %B %Y') }}</p>
   <p>{{ article.description }}</p>
   <h6><a href="{{ article.url }}">Click here to read the full article</a></h6>
 {% endmacro %}

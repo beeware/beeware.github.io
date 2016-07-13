@@ -1,6 +1,6 @@
 {% macro render_podcast_index(episode) %}
-  <h2><i class="fa fa-headphones" aria-hidden="true"></i> {{ episode.title }}</h2>
-  <p>Published {{ episode.pub_date.strftime('%-d %B %Y') }}</p>
+  <h2><a href="{{ episode.url }}"><i class="fa fa-headphones" aria-hidden="true"></i> {{ episode.title }}</a></h2>
+  <p>by {{ episode.author }}; published {{ episode.pub_date.strftime('%-d %B %Y') }}</p>
   <p>{{ episode.description }}</p>
   <h6><a href="{{ episode.url }}">Click here to listen</a></h6>
 {% endmacro %}
