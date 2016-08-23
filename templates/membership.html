@@ -1,0 +1,143 @@
+{% extends "page.html" %}
+{% block extra_head %}
+    <!-- Gumroad -->
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+{% endblock %}
+{% block body %}
+<div class="row">
+  <div class="col-sm-12 col-md-offset-2 col-md-8 project-description">
+    <h2>We need your help!</h2>
+    <p>Although the contributions of volunteers of are gratefully accepted, some things take money.</p>
+
+    <p>Your membership helps ensure BeeWare's continued development. With your support, the BeeWare team are able to fund development, and travel to events to help new contributors and share information.</p>
+
+    <p>In return, Members have increased access to the core team, and can help shape the direction and development priorities of the project as a whole.</p>
+
+    <p>Membership is available at many levels, depending on your financial circumstances.</p>
+  </div>
+</div>
+<div class="row">
+    <div class="col-md-6 level individual">
+        <h2><b>Enthusiast</b><br>$10/month</h2>
+        <div>
+            <p>For individuals</p>
+            <ul>
+                <li>Vote on project priorities</li>
+                <li>Listed on Members page
+                    <ul>
+                        <li>Name</li>
+                        <li class="nope">No image/avatar</li>
+                    </ul>
+                </li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="https://gum.co/CRtHg" target="_blank">Join</a>
+        </div>
+    </div>
+    <div class="col-md-6 level professional">
+        <h2><b>Professional</b><br/>$50/month</h2>
+        <div>
+            <p>For individuals</p>
+            <ul>
+                <li>Vote on project priorities</li>
+                <li>Listed on Members page:
+                    <ul>
+                        <li>Name</li>
+                        <li>Image/avatar</li>
+                    </ul>
+                </li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="https://gum.co/TenCq" target="_blank">Join</a>
+        </div>
+    </div>
+    <div class="col-md-4 level bronze">
+        <h2><b>Bronze</b><br/>$200/month</h2>
+        <div>
+            <p>For small businesses</p>
+            <ul>
+                <li>Vote on project priorities</li>
+                <li>Listed on Members page:
+                    <ul>
+                        <li>Name</li>
+                        <li>Medium logo</li>
+                        <li>Link to company website</li>
+                        <li class="nope">No brief company description</li>
+                    </ul>
+                </li>
+                <li>Standard placement on services pages</li>
+                <li class="nope">No logo in rotation on homepage</li>
+                <li class="nope">0 placed items (annually) in social media</li>
+                <li class="nope">No annual meeting with core team</li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="https://gum.co/WwhFn" target="_blank">Join</a>
+        </div>
+    </div>
+    <div class="col-md-4 level silver">
+        <h2><b>Silver</b><br/>$1500/month</h2>
+        <div>
+            <p>For established companies</p>
+            <ul>
+                <li>Vote on project priorities</li>
+                <li>Listed on Members page:
+                    <ul>
+                        <li>Name</li>
+                        <li>Large logo</li>
+                        <li>Link to company website</li>
+                        <li>Brief company description</li>
+                    </ul>
+                </li>
+                <li>Priority placement on services pages</li>
+                <li>Company logo in rotation on homepage</li>
+                <li>1 placed items (annually) in social media</li>
+                <li class="nope">No annual meeting with core team</li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="https://gum.co/lQErX" target="_blank">Join</a>
+        </div>
+    </div>
+    <div class="col-md-4 level gold">
+        <h2><b>Gold</b><br/>$5000/month</h2>
+        <div>
+            <p>For large corporations</p>
+            <ul>
+                <li>Vote on project priorities</li>
+                <li>Listed on Members page:
+                    <ul>
+                        <li>Name</li>
+                        <li>Banner logo</li>
+                        <li>Link to company website</li>
+                        <li>Brief company description</li>
+                    </ul>
+                </li>
+                <li>Premium placement on services pages</li>
+                <li>Company logo in rotation on homepage</li>
+                <li>2 placed items (annually) in social media</li>
+                <li>An annual meeting with core team</li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="https://gum.co/IeRyJ" target="_blank">Join</a>
+        </div>
+    </div>
+</div>
+
+<div class="row-fluid">
+  <div class="col-sm-12 col-md-offset-2 col-md-8">
+  {% block main %}
+    {{ this.body }}
+    {% for child in this.children %}
+      {% if not child.hide_from_index %}
+    <h2><a href="{{ child|url }}">{{ child.title }}</a></h2>
+    <p>{{ child.summary }}</p>
+      {% endif %}
+    {% endfor %}
+  {% endblock %}
+  </div>
+  {% block gutter %}
+    {% if this.gutter %}
+  <div class="col-sm-12 col-md-4 gutter">
+    {{ this.gutter }}
+  </div>
+    {% else %}
+  <div class="hidden-sm-down col-md-4">
+  </div>
+    {% endif %}
+  {% endblock %}
+</div>
+{% endblock %}
