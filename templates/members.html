@@ -18,9 +18,14 @@
 {% for group in this.children|groupby('level') %}
 <h2>{{ bag('labels', group[0]) }} sponsors</h2>
   {% for child in group.list %}
+    {% if child.level == "historical" %}
+<a href="{{ child|url }}"><img class="img-fluid" src="./{{ child._id }}/{{ child._id }}-small.png"></a>
+  <p class="period">{{ child.join_date.strftime("%B %Y") }} - {{ child.end_date.strftime("%B %Y") }}</p>
+    {% else %}
 <a href="{{ child|url }}"><img class="img-fluid" src="./{{ child._id }}/{{ child._id }}-large.png"></a>
-    {% if child.contribution %}
 <p>{{ child.description }}</p>
+    {% endif %}
+    {% if child.contribution %}
 <p>{{ child.contribution }}</p>
     {% endif %}
   {% endfor %}
