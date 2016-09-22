@@ -45,7 +45,7 @@
     {% endif %}
   </div>
   <div class="col-sm-12 col-md-4 gutter project-gutter">
-    <div><img class="img-fluid center-block" src="./{{ this._id }}-256.png"></div>
+    <div><img class="img-fluid center-block" {% if this.customlogo %}src="./{{ this._id }}.png" {% else %} src="/static/images/defaultlogo.png"{% endif %}></div>
     <p><a href="https://github.com/pybee/{{ this._id }}"><i class="fa fa-github fa-lg" aria-hidden="true"></i> Source Code</a></p>
     {% if this.rtfd_name %}<p><a href="https://{{ this.rtfd_name }}.readthedocs.io/"><i class="fa fa-book fa-lg" aria-hidden="true"></i> Documentation</a></p>{% endif %}
     <hr>
