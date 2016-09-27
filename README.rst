@@ -1,3 +1,7 @@
+.. image:: http://pybee.org/images/brutus-270.png
+    :width: 72px
+    :target: https://pybee.org
+
 pybee.github.io
 ===============
 
@@ -49,16 +53,16 @@ to date with the original branch. To do this:
 
     $ git fetch upstream
 
-- rebase your **master** branch to **upstream** before pushing to git and
+- rebase your **lektor** branch to **upstream** before pushing to git and
   submitting a pull request::
 
-    $ git rebase upstream/master
+    $ git rebase upstream/lektor
 
 
 .. _BeeWare project: http://pybee.org
 .. _@pybeeware on Twitter: https://twitter.com/pybeeware
+.. _pybee/general: https://gitter.im/pybee/general
 .. _Tickets on the pybee.github.io issue tracker: https://github.com/pybee/pybee.github.io/issues
 .. _log them on Github: https://github.com/pybee/pybee.github.io/issues
 .. _fork the code: https://github.com/pybee/pybee.github.io/tree/lektor
 .. _submit a pull request: https://github.com/pybee/pybee.github.io/pulls
-
