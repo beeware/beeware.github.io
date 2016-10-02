@@ -15,7 +15,11 @@
   <div class="col-sm-12 col-md-8">
     {% for child in this.children %}
     <div class="clearfix project">
-      <img src="./{{ child._id }}/{{ child._id }}-72.png" class="pull-xs-left">
+    {% if child.customlogo %}
+      <img src="./{{ child._id }}/{{ child._id }}.png" height="72px" class="pull-xs-left">
+    {% else %} 
+      <img src="/static/images/defaultlogo.png" height="72px" class="pull-xs-left">
+    {% endif %}
       <h2><a href="{{ child|url }}">{{ child.name }}</a></h2>
       {{ child.short_description }}
     </div>

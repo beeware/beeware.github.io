@@ -18,6 +18,10 @@
 <div class="row">
   <div class="col-sm-12 col-md-8">
     {{ incomplete(this) }}
+    {% if "attic" in this.maturity %}
+    <p><i>This project is classified as <a href="/project/projects/attic">in the attic</a>. It is no longer actively maintained</i></p>
+    <hr>
+    {% endif %}
     {% if this.project_type == "template" %}
     <p>This project is a <a href="https://github.com/audreyr/cookiecutter">CookieCutter</a> template for a stub project.</p>
     <hr>
@@ -41,7 +45,7 @@
     {% endif %}
   </div>
   <div class="col-sm-12 col-md-4 gutter project-gutter">
-    <div><img class="img-fluid center-block" src="./{{ this._id }}-256.png"></div>
+    <div><img class="img-fluid center-block" {% if this.customlogo %}src="./{{ this._id }}.png" {% else %} src="/static/images/defaultlogo.png"{% endif %}></div>
     <p><a href="https://github.com/pybee/{{ this._id }}"><i class="fa fa-github fa-lg" aria-hidden="true"></i> Source Code</a></p>
     {% if this.rtfd_name %}<p><a href="https://{{ this.rtfd_name }}.readthedocs.io/"><i class="fa fa-book fa-lg" aria-hidden="true"></i> Documentation</a></p>{% endif %}
     <hr>
