@@ -6,19 +6,29 @@ _slug: setup
 ---
 body:
 
-In order to get contributing, you're going to need to setup a **development environment** - a place where you can work on code where it can behave the same as everyone else's environment. 
+In order to get contributing, you're going to need to setup a 
+**development environment** - a place where you can work on code where it can 
+behave the same as everyone else's environment. 
 
-Many parts of BeeWare use the same tools: a specific version of Python, and virtual environment controls. 
+Many parts of BeeWare use the same tools: a specific version of Python, and 
+virtual environment controls. 
 
 Python
 -----------
 
-Python is a scripting language, which is available on a number of different operating systems. 
-However, depending on what system you are using, your version of Python is going 
+Python is a scripting language, which is available on a number of different 
+operating systems. However, depending on what system you are using, your 
+version of Python is going 
 to be different. Because of this reason, we specify exactly what version of Python
 we expect the code to work with. 
 
-For the following instructions, we're going to assume that you know exactly which version of Python you need to install. Normally this is listed in the README.md file or in the tutorial information. Our `CI </contributing/first-time/what-is/ci>`_ systems have to be told exactly what version of Python is required, too. So if you're really stuck, try looking at the :code:`.travis.yml` or :code:`circle.yml` file for the specific version you need. 
+For the following instructions, we're going to assume that you know exactly
+which version of Python you need to install. Normally this is listed in the
+README.md file or in the tutorial information. Our `CI
+</contributing/first-time/what-is/ci>`_ systems have to be told exactly what
+version of Python is required, too. So if you're really stuck, try looking at
+the :code:`.travis.yml` or :code:`circle.yml` file for the specific version you
+need. 
 
 pyenv
 ~~~~~~
@@ -30,7 +40,10 @@ version you need for a particular project.
  * MacOSX - You can install pyenv via `brew </contributing/first-time/what-is/package-managers>`_,  by running :code:`brew install pyenv`
  * Other - use the `automatic installer <https://github.com/yyuu/pyenv-installer>`_. 
 
-Once :code:`pyenv` is installed, you need to install the specific Python version. This information is stored in a  :code:`.python-version` file, which means you can have different versions of Python used in different projects on your computer. 
+Once :code:`pyenv` is installed, you need to install the specific Python
+version. This information is stored in a  :code:`.python-version` file, which
+means you can have different versions of Python used in different projects on
+your computer. 
 
 To install and set Python version: 
 
@@ -45,7 +58,10 @@ More information about pyenv is available on `their website <https://github.com/
 virtualenv
 -----------
 
-Once Python is installed, you're going to want to be able to install different Python packages. Since you may have more than one project being worked on, and more than one version of Python, having a way to make sure that only specific Python packages are available at any one time is handy. 
+Once Python is installed, you're going to want to be able to install different
+Python packages. Since you may have more than one project being worked on, and
+more than one version of Python, having a way to make sure that only specific
+Python packages are available at any one time is handy. 
 
 One way we can do this is via `virtualenv <https://virtualenv.pypa.io/en/stable/>`_. 
 
@@ -55,7 +71,10 @@ Using `pip </contributing/first-time/what-is/package-managers>`_, we can install
   
   $ pip install virtualenv
 
-Then, we want to setup a virtualenv that we can then activate. Having more than one virtualenv is ok, but only one can be activated at a time. Make sure you have your Python selection done with :code:`pyenv`, so that we know what version of Python to use
+Then, we want to setup a virtualenv that we can then activate. Having more than
+one virtualenv is ok, but only one can be activated at a time. Make sure you
+have your Python selection done with :code:`pyenv`, so that we know what
+version of Python to use
 
 
 .. code-block:: bash
@@ -69,7 +88,8 @@ Then, we can activate the virtual environment.
   
  $ . env/bin/activate
 
-This will result in a little note in your command line letting you know you're in a virtual environment
+This will result in a little note in your command line letting you know you're
+in a virtual environment
 
 .. code-block:: bash
   
