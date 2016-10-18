@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>git — BeeWare</title>
+    <title>Beefore — BeeWare</title>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="static/images/brutus-144.png">
@@ -50,8 +50,8 @@ ga('send', 'pageview');
         <div class="collapse navbar-toggleable-sm" id="collapsingNavbar">
           <a class="navbar-brand" href="/">BeeWare</a>
           <ul class="nav navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="/project/">Project</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="/project/">Project<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/news/">News</a>
@@ -59,8 +59,8 @@ ga('send', 'pageview');
             <li class="nav-item">
               <a class="nav-link" href="/community/">Community</a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="/contributing/">Contributing<span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+              <a class="nav-link" href="/contributing/">Contributing</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/contact/">Contact</a>
@@ -85,47 +85,105 @@ ga('send', 'pageview');
   <a href="/">Home</a>
 
  >
-  <a href="../../../../contributing/">Contributing</a>
+  <a href="../../../../../pt_BR/project/">BeeWare Project</a>
 
  >
-  <a href="../../../../contributing/first-time/">First-time contributors</a>
+  <a href="../../../../../pt_BR/project/projects/">Projects</a>
 
  >
-  <a href="../../../../contributing/first-time/what-is-a/">What is...?</a>
+  <a href="../../../../../pt_BR/project/projects/tools/">Tools</a>
 
 </p>
-    <h1>git</h1>
-    <p>What is git anyway?</p>
+    <h1>Beefore</h1>
+    <p>
+</p>
+    <p><p>Performs pre-merge checks (such as code style) on a pull request.</p>
+</p>
   </div>
 </div>
 
       <div class="container">
         
-<div class="row-fluid">
+<div class="row">
   <div class="col-sm-12 col-md-8">
-  
+    
   
 
-  
-    <p><code>git</code> is a <a class="reference external" href="https://en.wikipedia.org/wiki/Version_control">Version Control System</a>, which lets us save, store
-and share changes to code over time.</p>
-<blockquote>
-<a class="reference external" href="https://github.com">GitHub</a> is just <code>git</code> under the hood, but</blockquote>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/home/travis/build/pybee/pybee.github.io/content/contributing/first-time/what-is-a/git/contents+en.lr</tt>, line 6)</p>
-Block quote ends without a blank line; unexpected unindent.</div>
-<p>includes a lot of helpful things, like a web interface, and nice Pull Requests
-and Issue Tracking systems.</p>
+    
+    
+    
+
+
+    <p><p>Although code exists to be compiled or executed by a computer, it's also there to be read by humans. A computer doesn't care what code looks like, as long as it's valid syntax. However, there's a lot you can do in the formatting and styling of code to make that code even more readable by humans.</p>
+<p>These are mostly simple things, like consistency in indentation, spacing, and line length. Every language has it's own conventions; each project will have it's own specialisations of those conventions. BeeWare is no exception.</p>
+<p>Someone reviewing a patch still needs to check for correct logic, but these simple style-check tasks are easy to check programatically. Many text editors will (or have extensions that will) do this process for you - the task is called <em>linting</em>. Beefore is a tool that allows you to integrate these checks into your Github pre-merge procedure, in the same way that can integrate continuous integration and test suite compliance before merging.</p>
+<p>It isn't just limited to code style though. Any check that can be objectively measured can be performed as part of the pre-merge procedure. This could include:</p>
+<ul class="simple">
+<li>Checking for a Developer Certificate of Origin, Contributor License Agreement, or some other contribution licensing procedure.</li>
+<li>Evaluating code complexity</li>
+<li>Evaluating code coverage</li>
+</ul>
+<p>and many others.</p>
+<p>Beefore piggybacks on your the continuous integration process you already use to run your test suite before merging commits (e.g., Travis-CI). The Beefore tests are executed as a custom test run.</p>
+</p>
 
     
-  
-  </div>
-  
+    <h3>How to help</h3>
+    <p><ul class="simple">
+<li>Improving existing linters</li>
+<li>Integrating new linters and style checks (e.g., Java)</li>
+</ul>
+</p>
     
-  <div class="hidden-sm-down col-md-4">
-  </div>
+
     
-  
+    <h3>So, why is it called "Beefore"?</h3>
+    <p><p>It checks for all the things you have to have right <em>before</em> you merge a patch.</p>
+</p>
+    
+  </div>
+  <div class="col-sm-12 col-md-4 gutter project-gutter">
+    <div><img class="img-fluid center-block" src="./beefore.png" ></div>
+    <p><a href="https://github.com/pybee/beefore"><i class="fa fa-github fa-lg" aria-hidden="true"></i> Source Code</a></p>
+    
+    <hr>
+    <dl>
+        
+
+
+    <dt>Project Type:</dt><dd>Tool</dd>
+
+
+<!-- <img src="badges/Project Type/tool"> -->
+
+        
+
+
+    <dt>Maturity:</dt><dd> Early Development</dd>
+
+
+<!-- <img src="badges/Maturity/[u&#39;alpha&#39;]"> -->
+
+        
+
+
+    <dt>Language:</dt><dd> Python,  JavaScript</dd>
+
+
+<!-- <img src="badges/Language/[u&#39;py&#39;, u&#39;js&#39;]"> -->
+
+        
+
+
+    <dt>Platform:</dt><dd> Platform independent</dd>
+
+
+<!-- <img src="badges/Platform/[u&#39;independent&#39;]"> -->
+
+    </dl>
+    <hr>
+    <a href="https://labhr.github.io/hatrack/#repo=pybee/beefore">Contributors</a>
+  </div>
 </div>
 
       </div>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>git — BeeWare</title>
+    <title>Sealang — BeeWare</title>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="static/images/brutus-144.png">
@@ -50,8 +50,8 @@ ga('send', 'pageview');
         <div class="collapse navbar-toggleable-sm" id="collapsingNavbar">
           <a class="navbar-brand" href="/">BeeWare</a>
           <ul class="nav navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="/project/">Project</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="/project/">Project<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/news/">News</a>
@@ -59,8 +59,8 @@ ga('send', 'pageview');
             <li class="nav-item">
               <a class="nav-link" href="/community/">Community</a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="/contributing/">Contributing<span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+              <a class="nav-link" href="/contributing/">Contributing</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/contact/">Contact</a>
@@ -85,47 +85,117 @@ ga('send', 'pageview');
   <a href="/">Home</a>
 
  >
-  <a href="../../../../contributing/">Contributing</a>
+  <a href="../../../../../pt_BR/project/">BeeWare Project</a>
 
  >
-  <a href="../../../../contributing/first-time/">First-time contributors</a>
+  <a href="../../../../../pt_BR/project/projects/">Projects</a>
 
  >
-  <a href="../../../../contributing/first-time/what-is-a/">What is...?</a>
+  <a href="../../../../../pt_BR/project/projects/attic/">Attic</a>
 
 </p>
-    <h1>git</h1>
-    <p>What is git anyway?</p>
+    <h1>Sealang</h1>
+    <p>
+</p>
+    <p><p>An extended set of Python bindings for libclang</p>
+</p>
   </div>
 </div>
 
       <div class="container">
         
-<div class="row-fluid">
+<div class="row">
   <div class="col-sm-12 col-md-8">
-  
+    
   
 
-  
-    <p><code>git</code> is a <a class="reference external" href="https://en.wikipedia.org/wiki/Version_control">Version Control System</a>, which lets us save, store
-and share changes to code over time.</p>
-<blockquote>
-<a class="reference external" href="https://github.com">GitHub</a> is just <code>git</code> under the hood, but</blockquote>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/home/travis/build/pybee/pybee.github.io/content/contributing/first-time/what-is-a/git/contents+en.lr</tt>, line 6)</p>
-Block quote ends without a blank line; unexpected unindent.</div>
-<p>includes a lot of helpful things, like a web interface, and nice Pull Requests
-and Issue Tracking systems.</p>
+    
+    
+    
+
+
+    <p><p>Sealang is an improved set of Python bindings for <tt class="docutils literal">libclang</tt>.</p>
+<p>The upstream maintainers of <tt class="docutils literal">libclang</tt> have not been especially responsive
+to patches that address issues like Python 3 compatibility, and the
+significant omissions in the API (such as extracting literals and operators).</p>
+<p>This package is a fork of the official Python bindings for <tt class="docutils literal">libclang</tt>, patched to correct these problems.</p>
+<div class="section" id="how-it-works">
+<h2>How it works</h2>
+<p>Sealang is a bit of a nasty hack. <tt class="docutils literal">libclang</tt> is a set of C bindings to a C++
+API; Python <tt class="docutils literal">ctypes</tt> are then used to wrap the C API. However, while the C++
+API is quite rich, <tt class="docutils literal">libclang</tt> is less so.</p>
+<p>Sealang bridges this gap by providing C wrappers around the C++ calls that
+provide the useful functionality. This library of C functions is wrapped up as
+a Python C module for delivery purposes - this C module contains no exposed
+<em>Python</em> objects or methods, but because it's a module, the underlying
+compiled <cite>sealang.so</cite> file is easy to find. <cite>ctypes</cite> are then used to expose
+the <cite>sealang</cite> wrapper functions;</p>
+<p>Internally, Sealang reproduces some minor pieces of the <tt class="docutils literal">libclang</tt> API;
+these are methods (such as the string creation and manipulation methods) that
+aren't exposed as symbols for third-party use.</p>
+<p>All this functionality is potentially a candidate to be passed upstream to
+libclang.</p>
+<div class="section" id="relationship-to-clang">
+<h3>Relationship to Clang</h3>
+<p>This project aims to mirror what is currently available in the Python bindings
+to <tt class="docutils literal">libclang</tt>. The version number for this project is drawn from the version
+and SVN revision of the official clang repository.</p>
+<p>Any changes made upstream to <tt class="docutils literal">libclang</tt> will be mirrored here; any changes
+made here will, where possible, be pushed upstream to <tt class="docutils literal">libclang</tt>.</p>
+</div>
+<div class="section" id="development-status">
+<h3>Development status</h3>
+<p>This project was an experiment developed to support <a class="reference external" href="../seasnake">Seasnake</a>. Since Seasnake has been abandoned, so has this project.</p>
+</div>
+</div>
+</p>
 
     
-  
-  </div>
-  
+
     
-  <div class="hidden-sm-down col-md-4">
   </div>
+  <div class="col-sm-12 col-md-4 gutter project-gutter">
+    <div><img class="img-fluid center-block"  src="/static/images/defaultlogo.png"></div>
+    <p><a href="https://github.com/pybee/sealang"><i class="fa fa-github fa-lg" aria-hidden="true"></i> Source Code</a></p>
     
-  
+    <hr>
+    <dl>
+        
+
+
+    <dt>Project Type:</dt><dd>Library</dd>
+
+
+<!-- <img src="badges/Project Type/library"> -->
+
+        
+
+
+    <dt>Maturity:</dt><dd> Early Development</dd>
+
+
+<!-- <img src="badges/Maturity/[u&#39;alpha&#39;]"> -->
+
+        
+
+
+    <dt>Language:</dt><dd> Python</dd>
+
+
+<!-- <img src="badges/Language/[u&#39;py&#39;]"> -->
+
+        
+
+
+    <dt>Platform:</dt><dd> macOS,  Linux (GTK+)</dd>
+
+
+<!-- <img src="badges/Platform/[u&#39;macOS&#39;, u&#39;linux&#39;]"> -->
+
+    </dl>
+    <hr>
+    <a href="https://labhr.github.io/hatrack/#repo=pybee/sealang">Contributors</a>
+  </div>
 </div>
 
       </div>

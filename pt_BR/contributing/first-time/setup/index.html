@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>git — BeeWare</title>
+    <title>Setting up your environment — BeeWare</title>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="static/images/brutus-144.png">
@@ -80,22 +80,17 @@ ga('send', 'pageview');
 
   
 
-  
-
   <a href="/">Home</a>
 
  >
-  <a href="../../../../contributing/">Contributing</a>
+  <a href="../../../../pt_BR/contributing/">Contributing</a>
 
  >
-  <a href="../../../../contributing/first-time/">First-time contributors</a>
-
- >
-  <a href="../../../../contributing/first-time/what-is-a/">What is...?</a>
+  <a href="../../../../pt_BR/contributing/first-time/">First-time contributors</a>
 
 </p>
-    <h1>git</h1>
-    <p>What is git anyway?</p>
+    <h1>Setting up your environment</h1>
+    <p>How to get your system setup to contribute</p>
   </div>
 </div>
 
@@ -107,15 +102,80 @@ ga('send', 'pageview');
   
 
   
-    <p><code>git</code> is a <a class="reference external" href="https://en.wikipedia.org/wiki/Version_control">Version Control System</a>, which lets us save, store
-and share changes to code over time.</p>
+    <p>In order to get contributing, you're going to need to setup a
+<strong>development environment</strong> - a place where you can work on code where it can
+behave the same as everyone else's environment.</p>
+<p>Many parts of BeeWare use the same tools: a specific version of Python, and
+virtual environment controls.</p>
+<div class="section" id="python">
+<h2>Python</h2>
+<p>Python is a scripting language, which is available on a number of different
+operating systems. However, depending on what system you are using, your
+version of Python is going
+to be different. Because of this reason, we specify exactly what version of Python
+we expect the code to work with.</p>
+<p>For the following instructions, we're going to assume that you know exactly
+which version of Python you need to install. Normally this is listed in the
+README.md file or in the tutorial information. Our <a class="reference external" href="/contributing/first-time/what-is/ci">CI</a> systems have to be told exactly what
+version of Python is required, too. So if you're really stuck, try looking at
+the <code>.travis.yml</code> or <code>circle.yml</code> file for the specific version you
+need.</p>
+<div class="section" id="pyenv">
+<h3>pyenv</h3>
+<p><a class="reference external" href="https://github.com/yyuu/pyenv">pyenv</a> is a way to get multiple versions of
+Python working on your machine at the same time. It allows you to pick and choose whichever
+version you need for a particular project.</p>
 <blockquote>
-<a class="reference external" href="https://github.com">GitHub</a> is just <code>git</code> under the hood, but</blockquote>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/home/travis/build/pybee/pybee.github.io/content/contributing/first-time/what-is-a/git/contents+en.lr</tt>, line 6)</p>
-Block quote ends without a blank line; unexpected unindent.</div>
-<p>includes a lot of helpful things, like a web interface, and nice Pull Requests
-and Issue Tracking systems.</p>
+<ul class="simple">
+<li>MacOSX - You can install pyenv via <a class="reference external" href="/contributing/first-time/what-is/package-managers">brew</a>,  by running <code>brew install pyenv</code></li>
+<li>Other - use the <a class="reference external" href="https://github.com/yyuu/pyenv-installer">automatic installer</a>.</li>
+</ul>
+</blockquote>
+<p>Once <code>pyenv</code> is installed, you need to install the specific Python
+version. This information is stored in a  <code>.python-version</code> file, which
+means you can have different versions of Python used in different projects on
+your computer.</p>
+<p>To install and set Python version:</p>
+<pre class="code bash literal-block">
+$ <span class="nb">cd</span> /path/to/your/project
+$ pyenv install 3.5.1
+$ pyenv <span class="nb">local</span> 3.5.1
+</pre>
+<p>More information about pyenv is available on <a class="reference external" href="https://github.com/yyuu/pyenv/blob/master/COMMANDS.md">their website</a></p>
+</div>
+</div>
+<div class="section" id="virtualenv">
+<h2>virtualenv</h2>
+<p>Once Python is installed, you're going to want to be able to install different
+Python packages. Since you may have more than one project being worked on, and
+more than one version of Python, having a way to make sure that only specific
+Python packages are available at any one time is handy.</p>
+<p>One way we can do this is via <a class="reference external" href="https://virtualenv.pypa.io/en/stable/">virtualenv</a>.</p>
+<p>Using <a class="reference external" href="/contributing/first-time/what-is/package-managers">pip</a>, we can install virtualenv</p>
+<pre class="code bash literal-block">
+$ pip install virtualenv
+</pre>
+<p>Then, we want to setup a virtualenv that we can then activate. Having more than
+one virtualenv is ok, but only one can be activated at a time. Make sure you
+have your Python selection done with <code>pyenv</code>, so that we know what
+version of Python to use</p>
+<pre class="code bash literal-block">
+$ virtualenv -p <span class="k">$(</span>which python3<span class="k">)</span> env
+</pre>
+<p>Then, we can activate the virtual environment.</p>
+<pre class="code bash literal-block">
+$ <span class="nb">source</span> env/bin/activate
+</pre>
+<p>This will result in a little note in your command line letting you know you're
+in a virtual environment</p>
+<pre class="code bash literal-block">
+<span class="o">(</span>env<span class="o">)</span> $
+</pre>
+<p>To disable your virtualenv:</p>
+<pre class="code bash literal-block">
+$ deactivate
+</pre>
+</div>
 
     
   

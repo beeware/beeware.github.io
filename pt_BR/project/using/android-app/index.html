@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>git — BeeWare</title>
+    <title>...write a native Android app — BeeWare</title>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="static/images/brutus-144.png">
@@ -50,8 +50,8 @@ ga('send', 'pageview');
         <div class="collapse navbar-toggleable-sm" id="collapsingNavbar">
           <a class="navbar-brand" href="/">BeeWare</a>
           <ul class="nav navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="/project/">Project</a>
+            <li class="nav-item active">
+              <a class="nav-link" href="/project/">Project<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/news/">News</a>
@@ -59,8 +59,8 @@ ga('send', 'pageview');
             <li class="nav-item">
               <a class="nav-link" href="/community/">Community</a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="/contributing/">Contributing<span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+              <a class="nav-link" href="/contributing/">Contributing</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/contact/">Contact</a>
@@ -80,22 +80,17 @@ ga('send', 'pageview');
 
   
 
-  
-
   <a href="/">Home</a>
 
  >
-  <a href="../../../../contributing/">Contributing</a>
+  <a href="../../../../pt_BR/project/">BeeWare Project</a>
 
  >
-  <a href="../../../../contributing/first-time/">First-time contributors</a>
-
- >
-  <a href="../../../../contributing/first-time/what-is-a/">What is...?</a>
+  <a href="../../../../pt_BR/project/using/">How to use BeeWare</a>
 
 </p>
-    <h1>git</h1>
-    <p>What is git anyway?</p>
+    <h1>...write a native Android app</h1>
+    <p></p>
   </div>
 </div>
 
@@ -107,22 +102,26 @@ ga('send', 'pageview');
   
 
   
-    <p><code>git</code> is a <a class="reference external" href="https://en.wikipedia.org/wiki/Version_control">Version Control System</a>, which lets us save, store
-and share changes to code over time.</p>
-<blockquote>
-<a class="reference external" href="https://github.com">GitHub</a> is just <code>git</code> under the hood, but</blockquote>
-<div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/home/travis/build/pybee/pybee.github.io/content/contributing/first-time/what-is-a/git/contents+en.lr</tt>, line 6)</p>
-Block quote ends without a blank line; unexpected unindent.</div>
-<p>includes a lot of helpful things, like a web interface, and nice Pull Requests
-and Issue Tracking systems.</p>
+    <p>Android's preferred language of implementation is Java - so if you want to write an Android application in Python, you need to have a way to run your Python code on a Java Virtual Machine. This is what <a class="reference external" href="/project/projects/bridges/voc">VOC</a> does. VOC is a transpiler - it takes Python source code, compiles it to CPython Bytecode, and then transpiles that bytecode into Java-compatible bytecode. The end result is that your Python source code files are compiled <em>directly</em> to a Java <cite>.class</cite> file, which can be packaged into an Android application.</p>
+<p>VOC also allows you to access native Java objects as if they were Python objects, implement Java interfaces with Python classes, and subclass Java classes with Python classes. Using this, you can write an Android application directly against the native Android APIs.</p>
+<p>Once you've written your native Android application, you can use <a class="reference external" href="/project/projects/tools/briefcase">Briefcase</a> to package your Python code as an Android application. Briefcase takes the distutils <cite>setup.py</cite> definition for your Python project, and uses that metadata to generate a stub Android project, compile your Python code, and place the compiled artefacts so that they will be found when you run your Android project. The stub project is generated using the <a class="reference external" href="/project/projects/templates/python-android-template">Python Android template</a>.</p>
 
     
   
   </div>
   
     
-  <div class="hidden-sm-down col-md-4">
+  <div class="col-sm-12 col-md-4 gutter">
+    <div class="section" id="relevant-projects">
+<h2>Relevant projects</h2>
+<img alt="VOC icon" class="align-left" src="/project/projects/bridges/voc/voc.png" style="height: 32px;" />
+<p><a class="reference external" href="/project/projects/bridges/voc">VOC</a></p>
+<img alt="Briefcase icon" class="align-left" src="/project/projects/tools/briefcase/briefcase.png" style="height: 32px;" />
+<p><a class="reference external" href="/project/projects/tools/briefcase">Briefcase</a></p>
+<img alt="Python Android template icon" class="align-left" src="/static/images/defaultlogo.png" style="height: 32px;" />
+<p><a class="reference external" href="/project/projects/templates/python-android-template">Python Android template</a></p>
+</div>
+
   </div>
     
   
