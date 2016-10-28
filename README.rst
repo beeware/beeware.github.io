@@ -34,6 +34,8 @@ You can talk to the community through:
 
 * `@pybeeware on Twitter`_
 
+* BeeWare Gitter channel: `pybee/general`_
+
 * `Tickets on the pybee.github.io issue tracker`_
 
 Contributing
