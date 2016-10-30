@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Your first Batavia contribution — BeeWare</title>
+    <title>Sua primeira contribuição ao Batavia. — BeeWare</title>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="static/images/brutus-144.png">
@@ -91,11 +91,11 @@ ga('send', 'pageview');
   <a href="../../../../../pt_BR/contributing/first-time/">First-time contributors</a>
 
  >
-  <a href="../../../../../pt_BR/contributing/first-time/what/">What should I do?</a>
+  <a href="../../../../../pt_BR/contributing/first-time/what/">O que eu devo fazer?</a>
 
 </p>
-    <h1>Your first Batavia contribution</h1>
-    <p>So you want to contribute to an Open Source project? Batavia is a great place to start.</p>
+    <h1>Sua primeira contribuição ao Batavia.</h1>
+    <p>Então você gostaria de contribuir para um projeto Open Source? Batavia é um ótimo lugar para começar.</p>
   </div>
 </div>
 
@@ -107,31 +107,32 @@ ga('send', 'pageview');
   
 
   
-    <div class="section" id="about-batavia">
-<h2>About Batavia</h2>
-<p>The idea behind Batavia is to take Python bytecode, and ship it to a browser where it runs in a Javascript implementation of the Python virtual machine.</p>
-<p>This means it is possible to write web applications 100% in Python - so those new to web development don't need to learn multiple languages to develop web apps.</p>
+    <div class="section" id="sobre-batavia">
+<h2>Sobre Batavia</h2>
+<p>A ideia por traz do Batavia é pegar um bytecode do Python e enviar para um navegador onde ele possa rodar como uma implementação JavaScript da Python virtual machine.</p>
+<p>Isso significa que é possível escrever aplicações web 100% em Python - então qualquer um novo no desenvolvimento web não precisa aprender múltiplas linguagens para desenvolver aplicações web.</p>
 </div>
-<div class="section" id="before-you-start">
-<h2>Before you start</h2>
-<p>In the following instructions, We're going to assume you’re familiar with <a class="reference external" href="/contributing/first-time/github">Github and making pull requests</a>. We're also going to assume some entry level Python and JavaScript; if anything we describe here doesn’t make sense, don’t worry - we're more than happy to fill in the gaps. At this point, we don’t know what you don’t know :-)</p>
-<p>This tutorial is also going to focus on code contributions. If your interests/skills are elsewhere (e.g., testing, documentation), let me know, and I can make some other suggestions.</p>
-<p>Before you make your first contribution, take Batavia for a spin. The instructions in the <a class="reference external" href="http://batavia.readthedocs.io/en/latest/intro/getting-started.html">getting started guide</a> <em>should</em> be enough to get going. If you get stuck, let me know and I’ll help you out. And if you get stuck, that will also point to your first contribution - work out what instructions would have made you <em>not</em> get stuck, and contribute an update to the README.</p>
+<div class="section" id="antes-de-voce-comecar">
+<h2>Antes de você começar</h2>
+<p>Nas próximas instruções , nós vamos assumir que você está familiar com <a class="reference external" href="/contributing/first-time/github">Github e fazer pull requests</a>. Nós também vamos assumir algum nível de conhecimento em Python e JavaScript; se qualquer coisa que nós descrevermos não fizer sentido, não se preocupe - nós estaremos mais que felizes em preencher essas lacunas. A partir desse ponto, nós não sabemos o que você não sabe :-)</p>
+<p>Esse tutorial irá focar-se nas contribuições de código. Se seu interesse/habilidades estiver em outro lugar(ex, teste, documentação), nos deixe saber, assim podemos fazer outras sugestões.</p>
+<p>Antes de você fazer sua primeira contribuição, de uma volta com Batavia. As instruções no <a class="reference external" href="http://batavia.readthedocs.io/en/latest/intro/getting-started.html">guia para começar</a> <em>devem</em> se suficiente para continuar. Se você ficar preso, me deixe saber e eu vou libertá-lo. E se você ficou preso, esse também será um lugar para sua primeira contribuição - pense em quais instruções poderiam ter feito você <em>não</em> ficar preso, e contribua para atualizar o README.</p>
 </div>
-<div class="section" id="your-first-contribution">
-<h2>Your first contribution</h2>
-<p>Once you’ve got Batavia working, you’ll be ready to make your first code contribution. The <a class="reference external" href="http://batavia.readthedocs.io/en/latest/internals/contributing.html">contribution guide</a> will guide you through the process of setting up your development environment. Work through that guide until you can run the Batavia test suite - once you've been able to run the test suite without any failures, you're ready to add some new code to the Batavia codebase.</p>
-<p>In order to implement a full Python virtual machine, Batavia needs to implement all the eccentricities of Python behaviour. For example, Python allows you to multiply a string by an integer, resulting in a duplicated string (e.g., <tt class="docutils literal">“foo” * 3</tt> =&gt; <tt class="docutils literal">“foofoofoo”</tt>). Javascript behavior can be quite different, depending on circumstances - so we need to provide a library that implements the desired Python beheavior.</p>
-<p>That particular example (string times number) is already implemented - see <a class="reference external" href="https://github.com/pybee/batavia/blob/master/batavia/types/Str.js">the definition of the __mul__() function</a>. This implements the multiply operator. It’s implemented in Javascript, but it implements Python behavior - for <em>some</em> data types.</p>
-<p>If you then look at <a class="reference external" href="https://github.com/pybee/batavia/blob/master/tests/datatypes/test_str.py">tests/datatypes/test_str.py</a>, you’ll see the tests for this behaviour. We’ve already written a test suite that tries to perform every operation on every data type. However, all of the names listed in that file are the examples that are known to fail (because the implementation doesn’t exist yet). The tests work by writing a short program that implements one mathematical operation, running the program under normal Python, and then running it again under Batavia. The test passes when the two executions produce identical output.</p>
-<p>So - your first open source contribution: Pick a test that is currently listed in the <tt class="docutils literal">test_str.py</tt> test file (e.g., <tt class="docutils literal">test_multiply_float</tt> is the test of multiplying a string by a float), and modify the implementation of Str until you get the same output from CPython program as you do from the Batavia version of the same program. This includes error messages - if CPython raises a <tt class="docutils literal">TypeError</tt> for a particular operation (e.g.,  <tt class="docutils literal">“foo” * 3.1415</tt>), then so should Batavia - and the error message should be the same too, right down to the punctuation.</p>
-<p>Before you start work, visit <a class="reference external" href="https://github.com/pybee/batavia/issues/46">ticket #46</a> and register which function you're working on - that way we won't end up with 2 people working on the same one.</p>
-<p>Once you've written your implementation, run the tests. If you get an “unexpected success” from the test suite, and you <em>don’t</em> get any failures, you’ve done it! Delete the line from the <tt class="docutils literal">test_str.py</tt> file corresponding to the test you’ve fixed (because the test is no longer expected to fail), and submit a pull request!</p>
+<div class="section" id="sua-primeira-contribuicao">
+<h2>Sua primeira contribuição</h2>
+<p>Uma vez que você tenha feito Batavia funcionar, você estará pronto para fazer sua primeira contribuição do código. O <a class="reference external" href="http://batavia.readthedocs.io/en/latest/internals/contributing.html">guia de contribuição</a> irá guiá-lo através do processo de configuração do ambiente de desenvolvimento. Utilize esse guia até você conseguir rodar a suíte de testes do Batavia - uma vez que você esteja pronto para rodar a suíte de testes sem nenhuma falha, você estará pronto para adicionar alguns códigos novos para a base de código do Batavia.</p>
+<p>Para conseguir implementar uma virtual machine Python completa, Batavia precisa implementar todas as excentricidades do comportamento do Python. Por exemplo, Python sempre deixa você multiplicar uma string por um inteiro (ex, <tt class="docutils literal">“foo” * 3</tt> =&gt; <tt class="docutils literal">“foofoofoo”</tt>). O comportamento do JavaScript pode ser um pouco diferente, dependendo das circunstancias - então nós precisamos criar uma biblioteca que implementa o comportamento desejado do Python.</p>
+<p>Esse exemplo em particular (string vezes numero) já foi implementado - veja <a class="reference external" href="https://github.com/pybee/batavia/blob/master/batavia/types/Str.js">a definição da função __mul__()</a>. Esta implementação do operador de multiplicação é implementado em JavaScript, mas ele implementa o comportamento de Python - para <em>alguns</em> tipos de dado.</p>
+<p>Se você olhar em <a class="reference external" href="https://github.com/pybee/batavia/blob/master/tests/datatypes/test_str.py">tests/datatypes/test_str.py</a>, você vai ver os testes para esse comportamento. Nós já escrevemos uma suíte de testes que tenta executar todos as operações de cada tipo de dado. No entanto, todos os nomes listados naquele arquivo são exemplos que sabemos que irá falhar (por que a implementação ainda não existe). O teste funciona escrevendo um curto programa que implementa uma operação matemática, roda o programa no Python e então roda novamente no Batavia. O teste passe quando as duas execuções produzem uma saída identica.</p>
+<p>Então - sua primeira contribuição a um projeto open source: Escolha um teste que esta listado no arquivo de teste <tt class="docutils literal">test_str.py</tt> (ex,  <tt class="docutils literal">test_multiply_float</tt> é o teste de multiplicar uma string por um float), e modificar a implementação do Str até você ter a mesma saída do programa do CPython que  você tem da versão do Batavia do mesmo programa. Isso incluem mensagens de erro - se o CPython levanta uma <tt class="docutils literal">TypeError</tt> para uma operação em particular (ex,  <tt class="docutils literal">“foo” * 3.1415</tt>), então Batavia também deve levantar - e a mensagem de erro deve ser exatamente a mesma.</p>
+<p>Antes de você começar a trabalhar, visite o <a class="reference external" href="https://github.com/pybee/batavia/issues/46">ticket #46</a> e registre qual função você irá trabalhar - dessa forma nós não teremos 2 pessoas trabalhando na mesma função.</p>
+<p>Uma vez que você tenha escrito sua implementação, rode os testes. Se você tiver um “unexpected success” da suíte de testes, e você <em>não tiver</em> nenhuma falha, você conseguiu!
+Apague a linha do  arquivo <tt class="docutils literal">test_str.py</tt> correspondente ao teste que você corrigiu (porque não é mais esperado que o teste falhe), e envie um pull request!</p>
 </div>
-<div class="section" id="celebrate">
-<h2>Celebrate!</h2>
-<p>Then break out a celebratory beverage of your choice! You’re an open source contributor!</p>
-<p>Best of luck - and I can’t wait to see your first contribution!</p>
+<div class="section" id="celebre">
+<h2>Celebre!</h2>
+<p>Então faça uma festa de celebração a sua escolha! Você é um contribuidor open source!</p>
+<p>Boa sorte - eu mal posso esperar para ver sua primeira contribuição!</p>
 </div>
 
     
@@ -140,9 +141,9 @@ ga('send', 'pageview');
   
     
   <div class="col-sm-12 col-md-4 gutter">
-    <div class="section" id="getting-help">
-<h2>Getting Help</h2>
-<p>If you have any difficulties with this tutorial, or there's anything you don't understand, don't forget - we're here to help you. <a class="reference external" href="/community/getting-help/">Get in touch</a> and we'll help you out, whether it's giving a better explanation of what is required, helping to debug a difficult problem, or pointing you towards tutorials for background that you may require.</p>
+    <div class="section" id="conseguindo-ajuda">
+<h2>Conseguindo Ajuda</h2>
+<p>Se você teve alguma dificuldade com este tutorial, ou teve alguma coisa que você não entendeu, não esqueça - nós estamos aqui para ajuda-lo. <a class="reference external" href="/community/getting-help/">Entre em contato</a> e nós vamos ajuda-lo, seja dando uma melhor explicação do que é necessário, ajudando a debugar um problema difícil, ou indicando tutoriais para o background que você possa precisar.</p>
 </div>
 
   </div>
