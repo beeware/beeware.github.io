@@ -1,0 +1,107 @@
+_slug: setup
+---
+body:
+
+Para poder contribuir, você precisara configurar um
+**ambiente de desenvolvimento** - um lugar onde você pode codificar tendo o 
+mesmo comportamento no ambiente de outras pessoas.
+
+Muitas partes do BeeWare usam as mesmas ferramentas: uma versão específica
+do Python, e controles virtuais de ambiente.
+
+Python
+-----------
+
+Python é uma linguagem interpretada, que está disponível em diversos
+sistemas operacionais. No entanto, dependendo de qual sistema você estiver usando,
+sua versão do Python será diferente. Por essa razão, nós especificamos exatamente em
+qual versão do Python esperamos que o código funcione.
+
+Para as próximas instruções, nós vamos presumir que você sabe exatamente
+qual versão do Python você precisa instalar. Normalmente isso está listado no
+arquivo README.md ou no tutorial de informação. Nosso sistema `IC 
+</contributing/first-time/what-is-a/ci>`_ deve falar exatamente qual versão
+do Python é necessária também. Então se você estiver perdido, tente procurar
+no arquivo :code:`.travis.yml` ou :code:`circle.yml` para a versão específica que
+você precisa.
+
+pyenv
+~~~~~~
+
+`pyenv <https://github.com/yyuu/pyenv>`_ é uma forma de ter múltiplas versões do
+Python funcionando na mesma máquina ao mesmo tempo. Ele te permite escolher qualquer
+versão que você precisa para um projeto em particular.
+
+ * MacOSX - Você pode instalar pyenv via `brew </contributing/first-time/what-is-a/package-manager>`_, executando :code:`brew install pyenv`
+ * Outros - use o `instalador automático <https://github.com/yyuu/pyenv-installer>`_. 
+
+Uma vez que :code:`pyenv` esteja instalado, você precisa instalar a versão especifica
+do Python. Essa informação está guardada em um arquivo :code:`.python-version`, o
+que significa que você pode usar diferentes versões do Python em diferentes projetos
+no seu computador.
+
+Para instalar e configurar uma versão do Python:
+
+.. code-block:: bash
+
+    $ cd /path/to/your/project
+    $ pyenv install 3.5.1
+    $ pyenv local 3.5.1
+
+Mais informações sobre o pyenv estão disponíveis em `seu website <https://github.com/yyuu/pyenv/blob/master/COMMANDS.md>`_
+
+virtualenv
+-----------
+
+Uma vez que Python esteja instalado, você vai querer instalar diferentes
+pacotes do Python. Já que você pode estar trabalhando em mais de um projeto, e
+mais de uma versão do Python, ter uma forma de garantir que somente 
+determinados pacotes do Python estejam disponíveis por vez é de grande ajuda.
+
+Uma forma de fazer isso é via `virtualenv <https://virtualenv.pypa.io/en/stable/>`_. 
+
+Usando `pip </contributing/first-time/what-is-a/package-manager>`_, nós podemos instalar 
+o virtualenv.
+
+.. code-block:: bash
+  
+  $ pip install virtualenv
+
+Agora nós queremos configurar uma virtualenv para depois ativa-la. Ter mais
+de uma virtualenv é ok, mas somente uma pode ser ativada por vez. Tenha certeza
+que você tenha selecionado seu Python com :code:`pyenv`, assim nós saberemos qual
+versão do Python usar. 
+
+
+.. code-block:: bash
+  
+  $ virtualenv -p $(which python3) env
+
+Agora nós podemos ativar o ambiente virtual.
+
+
+.. code-block:: bash
+  
+ $ source env/bin/activate
+
+Isso vai gerar uma pequena notificação na sua linha de comando para você
+saber que está em um ambiente virtual.
+
+
+.. code-block:: bash
+  
+ (env) $
+
+Para desabilitar seu virtualenv.
+
+.. code-block:: bash
+  
+ $ deactivate
+
+
+---
+sort_key: 4
+---
+summary: Como configurar seu sistema para contribuir
+---
+title: Configurando o seu ambiente
