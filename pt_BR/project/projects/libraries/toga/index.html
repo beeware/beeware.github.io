@@ -108,15 +108,31 @@ ga('send', 'pageview');
   <div class="col-sm-12 col-md-8">
     
   
-  <p class="incomplete"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> This page's contents is incomplete. You can help by <a href="https://github.com/pybee/pybee.github.io/edit/lektor/content/project/projects/libraries/toga/contents.lr">expanding it.</a></p>
-  
 
     
     
     
 
 
-    <p><p>A Python native, OS native GUI toolkit.</p>
+    <p><p>Toga isn’t the world’s first widget toolkit - there are dozens of other options. So why build a new one?</p>
+<p><em>Native widgets - not themes</em></p>
+<p>Toga uses native system widgets, not themes. When you see a Toga app running, it doesn’t just look like a native app - it is a native app. Applying an operating system-inspired theme over the top of a generic widget set is an easy way for a developer to achieve a cross-platform goal, but it leaves the end user with the mess.</p>
+<p>It’s easy to spot apps that have been built using themed widget sets - they’re the ones that don’t behave quite like any other app. Widgets don’t look quite right, or there’s a menu bar on a window in an OS X app. Themes can get quite close - but there are always telltale signs.</p>
+<p>On top of that, native widgets are always faster than a themed generic widget. After all, you’re using native system capability that has been tuned and optimized, not a drawing engine that’s been layered on top of a generic widget.</p>
+<p><em>Abstract the broad concepts</em></p>
+<p>It’s not enough to just look like a native app, though - you need to feel like a native app as well.</p>
+<p>A “Quit” option under a “File” menu makes sense if you’re writing a Windows app - but it’s completely out of place if you’re on OS X - the Quit option should be under the application menu.</p>
+<p>And besides - why did the developer have to code the location of a Quit option anyway? Every app in the world has to have a quit option, so why doesn’t the widget toolkit provide a quit option pre-installed, out of the box?</p>
+<p>Although Toga uses 100% native system widgets, that doesn’t mean Toga is just a wrapper around system widgets. Wherever possible, Toga attempts to abstract the broader concepts underpinning the construction of GUI apps, and build an API for that. So - every Toga app has the basic set of menu options you’d expect of every app - Quit, About, and so on - all in the places you’d expect to see them in a native app.</p>
+<p>When it comes to widgets, sometimes the abstraction is simple - after all, a button is a button, no matter what platform you’re on. But other widgets may not be exposed so literally. What the Toga API aims to expose is a set of mechanisms for achieving UI goals, not a literal widget set.</p>
+<p><em>Python native</em></p>
+<p>Most widget toolkits start their life as a C or C++ layer, which is then wrapped by other languages. As a result, you end up with APIs that taste like C or C++.</p>
+<p>Toga has been designed from the ground up to be a Python native widget toolkit. This means the API is able to exploit language level features like generators and context managers in a way that a wrapper around a C library wouldn’t be able to (at least, not easily).</p>
+<p>This also means supporting Python 3. Toga supports both Python 2 and Python 3, in a unified codebase by following established conventions.</p>
+<p><em>pip install and nothing more</em></p>
+<p>Toga aims to be no more than a pip install away from use. It doesn’t require the compilation of C extensions. There’s no need to install a binary support library. There’s no need to change system paths and environment variables. Just install it, import it, and start writing (or running) code.</p>
+<p><em>Embrace mobile</em></p>
+<p>10 years ago, being a cross-platform widget toolkit meant being available for Windows, OS X and Linux. These days, mobile computing is much more important. But despite this, there aren’t many good options for Python programming on mobile platforms, and cross-platform mobile coding is still elusive. Toga aims to correct this.</p>
 </p>
 
     
