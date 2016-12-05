@@ -13,7 +13,7 @@ It is a `Lektor`_-based site.
 
 If you want to contribute a modification, you can fork this repository and
 submit a pull request. However, **do not fork the master branch** - fork the
-`lektor branch`_ and make changes thereinstead.
+`lektor branch`_ and make changes there instead.
 
 .. _lektor branch: https://github.com/pybee/pybee.github.io/tree/lektor
 
