@@ -25,7 +25,7 @@ Lektor; then from the root directory of the checkout, run:
 This will `start a webserver`_ that will autoreload whenever you make a change
 to site content.
 
-.. _start a webserver: http://127.0.0.1:8000
+.. _start a webserver: http://127.0.0.1:5000
 
 Community
 ---------
