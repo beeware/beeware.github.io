@@ -4,25 +4,32 @@ summary: Transcription of talk presented by Russell Keith-Magee about funding op
 ---
 author: Russell Keith-Magee
 ---
-pub_date: 2016-12-05
+pub_date: 2016-12-10
 ---
 body:
 
-Video
-=====
+At PyCon AU 2015, and again at DjangoCon US 2015, I gave a talk entitled "Money Money Money: Writing software, in a rich (wo)man's world". The talk was a summary of the issues around one of the biggest problems that I see facing the open source community: how to provide the resources that are needed to develop and maintain the software that we, as a community depend upon. This means providing maintenance and support for established projects, large and small; but also providing an ecosystem where new ideas can be incubated, developed and matured until they present compelling alternatives or significant benefits over closed source offerings.
+
+It's been almost 18 months since I first presented this talk, but the issue persists. I haven't been alone in noticing and drawing attention to this issue, either. `Nadia Eghbal <https://twitter.com/nayafia>`_ was commissioned to write a white paper for the Ford Foundation entitled `Roads and Bridges <http://www.fordfoundation.org/library/reports-and-studies/roads-and-bridges-the-unseen-labor-behind-our-digital-infrastructure>`_ highlighting the chronic need for resources to support the basic infrastructure that underpins large parts of the modern economy. Eric Holscher (maintainer of `Read the Docs <http://readthedocs.com>`_) `blogged about the problems he's had raising funds <http://ericholscher.com/blog/2016/aug/31/funding-oss-marketing-money/>`_, despite the fact that the service he delivers is a widely used - arguably indispensible - part of the Python ecosystem.
+
+However, despite this attention, it *still* doesn't get anywhere near as much attention as it should. And it's an issue that is of pressing importance to me, as the BeeWare project is looking for ways to fund the development needed to take us from "interesting technical demo" to "compelling technical solution".
+
+A few months back, it was suggested that I should publish a blog post to accompany the video presentation. I dragged my feet on doing this, until industrious BeeWare contributor and all-around nice guy `Elias Dorneles <http://eliasdorneles.github.io>`_ offered to take my speakers notes and convert it into a transcript.
+
+So - here it is. Money Money Money: Writing software, in a rich (wo)man's world. If you've got any questions, disagreements, requests to present this at your conference, or just a generic offer of a bag of cash, you can reach me at `russell@keith-magee.com <mailto:russell@keith-magee.com>`_.
 
 .. raw:: html
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/Jw6wnIopVVg" frameborder="0" allowfullscreen></iframe>
 
-Transcription
-=============
+Transcript
+==========
 
 Hi, I'm Russell Keith-Magee, if you've heard of me before, it's probably because of my work on the Django project; I've been a core team member for almost 10 years, and president of the Django Software Foundation since 2011.
 
 One of the big challenges of the Django project - and any big project for that matter - has been to secure certainty in its development future.
 
-My day job is as CTO and co-founder of TradesCloud. We’re an Software as a Service for tradespeople -- plumbers, electricians, carpenters and the like. TradesCloud depends on a number of open source projects - Django, Apache, memcache, countless others. So I've got a business interest in the continuity of these open source projects - but I certainly don't have the resources to fund them *all* myself.
+My day job is as CTO and co-founder of TradesCloud. We’re a Software as a Service for tradespeople -- plumbers, electricians, carpenters and the like. TradesCloud depends on a number of open source projects - Django, Apache, memcache, countless others. So I've got a business interest in the continuity of these open source projects - but I certainly don't have the resources to fund them *all* myself.
 
 I've also got a declared interest in GUI/UI issues, especially as they relate to development tools. I've got grand visions of what I'd *like* to do with this project, and I've received some great contributions from the community, but it's still largely my own work. But my startup would be able to make great use of these tools if they were mature.
 
@@ -32,25 +39,20 @@ So - I've got vested interests in free software. I've got an interest as a produ
 
 I've also got interests as a consumer of free software - both in terms of the software I rely on to develop my own projects, and in terms of my commercial interest in the long term maintenance of tools and platforms. I need these projects to continue to develop, survive and thrive.
 
-Based on my experience, I'd like to make a bold assertion.
+Based on my experience, I'd like to make a bold assertion:
 
-|  Absent of any other constraints,
-|  **given equivalent resources**,
-|  the free software approach produces
-|  vastly superior engineering outcomes
-|  than the closed-source approach.
-|
+.. pull-quote::
 
-..
+    Absent of any other constraints, given equivalent resources, the free software approach produces vastly superior engineering outcomes than the closed-source approach.
 
 The catch is the operative clause "given equivalent resources". Most free software projects aren't developed using anything close to "equivalent" resources.
 
- In some cases, this is a blessing in disguise - regardless of the project, having scarce resources is an excellent crucible for burning away the unnecessary to leave only the base metal. But it's not always a blessing.
+In some cases, this is a blessing in disguise - regardless of the project, having scarce resources is an excellent crucible for burning away the unnecessary to leave only the base metal. But it's not always a blessing.
 
 The moral high road is littered with the corpses of our allies
 ---------------------------------------------------------------
 
-Talk to any prominent free software developer, and amongst the success stories, you'll also hear some consistent troubles - that they've got great ideas and grand plans, but no time to execute; that they're about to burn out due to the pressues of maintaining their project; or that they've had yet another mailing list discussion with someone who doesn't understand why you didn't drop everything to help them fix their problem. And there are plenty of examples:
+Talk to any prominent free software developer, and amongst the success stories, you'll also hear some consistent troubles - that they've got great ideas and grand plans, but no time to execute; that they're about to burn out due to the pressues of maintaining their project; or that they've had yet another mailing list discussion with someone who doesn't understand why you didn't drop everything to help them fix their problem. And there are plenty of examples.
 
 OpenSSL is the software that drives pretty much every "secure" connection on the internet - and yet it took until the discovery of Heartbleed - a critical vulnerability that sent the internet into a tailspin - before it could find funding to pay for maintainers.
 
@@ -82,7 +84,9 @@ But there's a bigger problem - there's the extent of the engagement that users h
 * Who has submitted a patch to Django for that niggle?
 * Of those, who have had that patch committed?
 
-(note: for each follow-up question, there are less people raising their hands)
+.. note::
+
+    When this is done in front of a live audience, at each question, there are less people raising their hands
 
 Products vs Projects
 ---------------------
@@ -121,7 +125,7 @@ But most software isn't produced for sale value - it's in house software produce
 
 So, what are your options?
 
-Well, you can sell merchandise. And while this is relatively easy to do, lets be honest - you're not going to fund a software empire selling tshirts.
+Well, you can sell merchandise. And while this is relatively easy to do, lets be honest - you're not going to fund a software empire selling t-shirts.
 
 You can get users to pay for documentation. Write a book, get users to pay for it.
 
@@ -137,13 +141,13 @@ But, SaaS is only viable if you can deliver *as a service* - which means it's re
 
 So what else can you sell?
 
-You can sell access to the developers. If you're the maintainer of a project, you're in the best position to provide support, or debug complex problems - which means you're in a prime position to sell support and consulting. Honza Kral "Ghostbusters" business model - "Who you gonna call?"
+You can sell access to the developers. If you're the maintainer of a project, you're in the best position to provide support, or debug complex problems - which means you're in a prime position to sell support and consulting. `Honza Král <https://twitter.com/honzakral>` from ElasticSearch calls this the "Ghostbusters" business model - "Who you gonna call?"
 
 You can sell access to the software. Trolltech did this with Qt; Riverbank still does with the PyQt bindings. The library itself is GPL - but if you want to use it on a closed source project, you can, for a hefty fee. This has the advantage that it forces commercial interests to pay for what they're using; but it also discourages small scale commercial tinkering - if I'm writing a new tool, and I'm forced to choose between open sourcing my tool or a $1000 price tag, I'll probably choose a different toolkit.
 
 You can also get into the business of providing certifications and guarantees - auditing code to ensure quality or compatibility, providing guarantees about fixing bugs, and certifying that individuals are skilled in the use of the product. This is a big part of RedHat's business model - auditing packages, making sure they all interoperate as expected, ensuring that security updates are available and meet the same standards, and certifying system administrators.
 
-This is a set of products that appeals to the "enterprise" high end of town - and that's is a lucrative end of the market. But those customers also tend to only want these guarantees for certain types of software - broadly speaking, "Boring fuddy-duddy" software. Your OS, your database - these are pieces of software that need to be rock solid in an enterprise setting. Your debug toolbar - not so much, unless maybe they've being wrapped as part of a suite of tools.
+This is a set of products that appeals to the "enterprise" high end of town - and that's is a lucrative end of the market. But those customers also tend to only want these guarantees for certain types of software - broadly speaking, "Boring fuddy-duddy" software. Your operating system, your database - these are pieces of software that need to be rock solid in an enterprise setting. Your debug toolbar - not so much, unless maybe they've being wrapped as part of a suite of tools.
 
 Undermining your value proposition
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -180,9 +184,10 @@ Do you have to sell something?
 
 Ok - but can we do this without selling anything at all?
 
-> is like "How to make money from clean water"
-> or public education or science.
-> by Pieter Hintjens (@hintjens)
+.. raw:: html
+
+    <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;How to make money from open source&quot; is like &quot;How to make money from clean water&quot; or public education or science.</p>&mdash; Pieter Hintjens (@hintjens) <a href="https://twitter.com/hintjens/status/603446810183610368">May 27, 2015</a></blockquote>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 Free software stems from a moral imperative - so can we fund development through altruism and patronage? Well, it's harder, but there's evidence that it can be done.
 
@@ -227,7 +232,7 @@ OpenStack is a great example of this. Why are Rackspace, HP, Redhat, Ubuntu all 
 
 Node.js is funded by Joyent for similar reasons - Joyent is making a long play that if it's easier to develop web software, more people will write web software, increasing the market for Joyent's services.
 
-However, Node is also a cautionary tale about corporate interests - what happens when the community and the corporate sponsor disagree about the direction of the project? Well, you get project splits, like the io.js split. Corporate money can corrupt. You need to be careful that project governance is independent of the funding source.
+However, Node.js is also a cautionary tale about corporate interests - what happens when the community and the corporate sponsor disagree about the direction of the project? Well, you get project splits, like the io.js split. Corporate money can corrupt. You need to be careful that project governance is independent of the funding source.
 
 Having a single corporate master also puts the project the risk if that corporate master loses interest. Django was originally under the wing of the World Company. Eventually, that interest waned, and the corporate support dried up, too.
 
@@ -236,7 +241,7 @@ Venture funding
 
 The other corporate answer that gets floated is to go get venture money. And there are some examples out there of people doing this. Meteor, for example, is funding their development with money from a venture fund. They've got plenty of money to hire engineers, designers - whatever they need.
 
-What makes me nervous about this model? We've been here before. Who here remembers Eazel? For those who don't remember, In the late 90s, Eazel was a dot-com company founded to develop the Nautlius file manager. And, we got 2 years of open source code. And then the bubble burst, and the company went bust. Now, the good thing is that we still have the code. But it would be better to have the code still being actively developed.
+What makes me nervous about this model? We've been here before. Who here remembers Eazel? For those who don't remember, In the late 90s, Eazel was a dot-com company founded to develop the Nautilus file manager. And, we got 2 years of open source code. And then the bubble burst, and the company went bust. Now, the good thing is that we still have the code. But it would be better to have the code still being actively developed.
 
 Developing a patronage culture
 -------------------------------
@@ -249,7 +254,7 @@ Some are - there are some companies that do give huge amounts back to open sourc
 
 And even those that *do* give back - many of them give the help they're able to give, which isn't necessarily the help that is needed. The Django Software Foundation regularly receives offers for free or subsidized hosting from hosting providers. And don't get me wrong - that's great, and incredibly useful.
 
-But what we really need is someone on the payroll to review bugs. Earlier on in the lifecycle of Django, we needed people to write new big features. We're in a constant need of graphic designers, artists, tech writers. We need people who know how to do sysadmin, and community outreach. And we don't need 1000 people donating 1 hour; we need 10 very specific people donating 40 hours.
+But what we really need is someone on the payroll to review bugs. Earlier on in the lifecycle of Django, we needed people to write new big features. We're in a constant need of graphic designers, artists, tech writers. We need people who know how to do sysadmin, and community outreach. And we don't need 400 people donating 1 hour; we need 10 very specific people donating 40 hours.
 
 When a disaster hits, organizations like the Red Cross call for donations. And they will usually say "please give us money, not tins of food or blankets". The reason? Money can buy what is needed. You can't control what people donate, and even if they do happen to donate exactly what you need, there's a huge logistic task of working out what has been donated, and getting it where it's needed.
 
@@ -259,7 +264,7 @@ And sadly, just as with charities - many companies don't donate at all. And I'm 
 
 Most importantly, we don't have a mechanism in place to make it easy to spend money, and easy to receive money. The current state of affairs clearly demonstrates that it's not enough that there is a lot of money in a community - you have to make the mechanism for donating that money as obvious and seamless as possible, and you have to have someone to direct that money towards.
 
-One model community that I think does this really well is the Wordpress community. Wordpress is GPL'd software. There are books, videos, blogs on how to write wordpress plugins and themes - the same as there would be for any open source software community. But criticially, there are also books, videos and blogs on how to make a *business* writing wordpress plugins and themes. Wordpress is GPL. And therefore, so are all the plugins. They've got a store where you can buy plugins (and get free ones), and easily install them in your Wordpress instance.
+One model community that I think does this really well is the Wordpress community. Wordpress is GPL'd software. There are books, videos, blogs on how to write wordpress plugins and themes - the same as there would be for any open source software community. But criticially, there are also books, videos and blogs on how to make a *business* writing Wordpress plugins and themes. Wordpress is GPL. And therefore, so are all the plugins. They've got a store where you can buy plugins (and get free ones), and easily install them in your Wordpress instance.
 
 The Wordpress ecosystem has fundamentally embraced the fact that money needs to be part of the equation, and by doing so, they've created an industry that is self-funding - and this, I'd argue, is one big reason for the success of Wordpress as a platform.
 
@@ -268,9 +273,9 @@ A controversial proposal
 
 In that vein, I'd like to make a controversial proposal.
 
-What if PyPI_ was a revenue stream. What if, when I registered an application with PyPI_, I could specify a price - either per install, or per version, or per-app, or per-month. When I `pip install`, the cost just gets added to my PyPI account, and I get a monthly charge on my credit card; and that gets passed back to the developer projects.
+What if PyPI_ was a revenue stream? What if, when I registered an application with PyPI_, I could specify a price - either per install, or per version, or per-app, or per-month. When I `pip install`, the cost just gets added to my PyPI account, and I get a monthly charge on my credit card; and that gets passed back to the developer projects.
 
-If PyPI stats are to be believed, Django is downloaded from PyPI more than 1 million times per month. If there was a 10c toll on each download, that would raise $100000 per month - enough to pay for 10 full-time well paid developers, or a metric buttload of diversity, outreach, DjangoGirls, and community support.
+If PyPI stats are to be believed, Django is downloaded from PyPI more than 1 million times per month. If there was a 10c toll on each download, that would raise $100,000 per month - enough to pay for 10 full-time well paid developers, or a metric buttload of diversity, outreach, DjangoGirls, and community support.
 
 You could also leverage PyPi dependency information to pay it forward - if you're writing a project that depends on another, you could opt to pass some of your revenue upstream. Or, request that downstreams provide a tithe.
 
@@ -301,7 +306,7 @@ I'm actually going to take another slightly controversial position, and *not* ta
 
 This is a discussion we need to have as a community - and I'm eager to have that discussion - just not on this stage.
 
-* russell@keith-magee.com
+* `russell@keith-magee.com <mailto:russell@keith-magee.com>`_
 * `@freakboy3742 <https://twitter.com/freakboy3742>`_
 * `cecinestpasun.com <http://cecinestpasun.com>`_
 
