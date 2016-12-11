@@ -13,7 +13,7 @@ It is a `Lektor`_-based site.
 
 If you want to contribute a modification, you can fork this repository and
 submit a pull request. However, **do not fork the master branch** - fork the
-`lektor branch`_ and make changes thereinstead.
+`lektor branch`_ and make changes there instead.
 
 .. _lektor branch: https://github.com/pybee/pybee.github.io/tree/lektor
 
@@ -68,3 +68,30 @@ to date with the original branch. To do this:
 .. _log them on Github: https://github.com/pybee/pybee.github.io/issues
 .. _fork the code: https://github.com/pybee/pybee.github.io/tree/lektor
 .. _submit a pull request: https://github.com/pybee/pybee.github.io/pulls
+
+Translating
+-----------
+
+Want to make BeeWare more accessible to non-English-speakers?  Help translate the site!  Steps are as follows:
+
+1. Add language specification to: 
+	
+	pybee.github.io/BeeWare.lektorproject
+
+   Fill out the name of the language, its url prefix, and the locale.
+
+2. Add translated mirror files at the same directory level as the primary English files  and add appropriate suffixes.  
+
+	For example:
+
+		Arabic's locale is 'ar', so you would add...
+
+		contents+ar.lr
+		
+		...where the original file name is:
+		
+		contents.lr
+
+Note: A great place to start translating is the contributing section:
+
+	pybee.github.io/content/contributing
