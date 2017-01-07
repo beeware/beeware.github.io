@@ -88,7 +88,7 @@ ga('send', 'pageview');
   <a href="../../../../../zh_TW/contributing/">如何參與</a>
 
  >
-  <a href="../../../../../zh_TW/contributing/first-time/">First-time contributors</a>
+  <a href="../../../../../zh_TW/contributing/first-time/">第一次貢獻者</a>
 
  >
   <a href="../../../../../zh_TW/contributing/first-time/what/">What should I do?</a>
@@ -128,9 +128,9 @@ ga('send', 'pageview');
 <div class="section" id="your-first-contribution">
 <h2>Your first contribution</h2>
 <p>Once you’ve got VOC working, you’ll be ready to make your first code contribution. The <a class="reference external" href="https://voc.readthedocs.io/en/latest/internals/contributing.html">contribution guide</a> will guide you through the process of setting up your development environment. Work through that guide until you can run the VOC test suite - once you've been able to run the test suite without any failures, you're ready to add some new code to the VOC codebase.</p>
-<p>In order to make Java bytecode behave like Python, VOC needs to implement all the eccentricities of Python behaviour. For example, Python allows you to multiply a string by an integer, resulting in a duplicated string (e.g., <tt class="docutils literal">“foo” * 3</tt> =&gt; <tt class="docutils literal">“foofoofoo”</tt>). This <em>isn’t</em> legal Java, however; so we need to provide a Java library that implements this beheavior.</p>
+<p>In order to make Java bytecode behave like Python, VOC needs to implement all the eccentricities of Python behavior. For example, Python allows you to multiply a string by an integer, resulting in a duplicated string (e.g., <tt class="docutils literal">“foo” * 3</tt> =&gt; <tt class="docutils literal">“foofoofoo”</tt>). This <em>isn’t</em> legal Java, however; so we need to provide a Java library that implements this behavior.</p>
 <p>That particular example (string times number) is already implemented - see <a class="reference external" href="https://github.com/pybee/voc/blob/master/python/common/org/python/types/Str.java#L283">the source code for Str.java</a>. This implements <tt class="docutils literal">__mul__()</tt> (the Python multiplication method) on a <tt class="docutils literal">Str</tt> object. It’s implemented in Java, but it implements Python behavior.</p>
-<p>If you then look at the code for <a class="reference external" href="https://github.com/pybee/voc/blob/master/tests/datatypes/test_str.py">test_str.py</a>, you’ll see the tests for this behaviour. We’ve already written a test suite that tries to perform every operation on every data type. However, all of the names listed in that file are the examples that are known to fail (because the implementation doesn’t exist yet). The tests work by writing a short program that implements one mathematical operation, running the program under normal Python, and then running it again under VOC/Java. The test passes when the two executions produce identical output.</p>
+<p>If you then look at the code for <a class="reference external" href="https://github.com/pybee/voc/blob/master/tests/datatypes/test_str.py">test_str.py</a>, you’ll see the tests for this behavior. We’ve already written a test suite that tries to perform every operation on every data type. However, all of the names listed in that file are the examples that are known to fail (because the implementation doesn’t exist yet). The tests work by writing a short program that implements one mathematical operation, running the program under normal Python, and then running it again under VOC/Java. The test passes when the two executions produce identical output.</p>
 <p>So - your first open source contribution: Pick a test that is currently listed in the <tt class="docutils literal">test_str.py</tt> test file (e.g., test_multiply_float is the test of multiplying a string by a float), and modify the implementation of Str until you get the same output from CPython program as you do from VOC-compiled version of the same program. This includes error messages - if CPython raises a <tt class="docutils literal">TypeError</tt> for a particular operation (e.g., <tt class="docutils literal">“foo” * 3.1415</tt>), then so should VOC - and the error message should be the same too, right down to the punctuation.</p>
 <p>Before you start work, visit <a class="reference external" href="https://github.com/pybee/voc/issues/36">Ticket #36</a> and register which function you're working on - that way we won't end up with 2 people working on the same one.</p>
 <p>Once you've written your implementation, run the tests. If you get an “unexpected success” from the test suite, and you <em>don’t</em> get any failures, you’ve done it! Delete the line from <tt class="docutils literal">test_str.py</tt> file corresponding to the test you’ve fixed (because the test is no longer expected to fail), and submit a pull request!</p>
@@ -162,7 +162,7 @@ ga('send', 'pageview');
 
     <footer class="footer">
       <div class="container text-muted">
-        <p class="pull-xs-right pull-sm-right pull-md-right pull-lg-right pull-xl-right">&copy; Russell Keith-Magee 2016</p>
+        <p class="pull-xs-right pull-sm-right pull-md-right pull-lg-right pull-xl-right">&copy; Russell Keith-Magee 2017</p>
         <p><a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
         <a href="https://gitter.im/pybee/general/">Gitter</a> |
         <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> | 
