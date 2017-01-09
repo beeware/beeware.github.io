@@ -113,6 +113,10 @@
         {% for event in events %}
         <div class="carousel-item{% if loop.index0 == 0 %} active{% endif %}">
           <h4><a href="{{ event|url }}">{{ event.title }}</a></h4>
+          {% if event.event_type == "talk"%}
+          {{ event.speaker[0] }} is speaking!
+          {% else %} <br>
+          {% endif %}
           <p>{{ event.date.strftime("%d %B %Y") }}</p>
         </div>
         {% endfor %}
