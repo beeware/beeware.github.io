@@ -13,6 +13,10 @@
 {% block main %}
 {% if this.event_type == "talk" %}
     <p>{{ this.speaker|join(" and ")}} will be speaking at {{ this.title }}, giving a presentation entitled "<a href="{{ this.url }}">{{ this.talk_title }}</a>".
+{% elif this.event_type == "keynote" %}
+    <p>{{ this.speaker|join(" and ")}} will be keynoting {{ this.title }}, giving a presentation entitled "<a href="{{ this.url }}">{{ this.talk_title }}</a>".
+{% elif this.event_type == "tutorial" %}
+    <p>{{ this.speaker|join(" and ")}} will be presenting a tutorial at {{ this.title }}, entitled "<a href="{{ this.url }}">{{ this.talk_title }}</a>".
 {% elif this.event_type == "sprint" %}
     <p>BeeWare will be running a sprint at {{ this.title }}.</p>
   <p>{{ this.speaker|join(" and ") }} will be at the sprints, and will be more than willing to help First Time Contributors earn their own shiny  <a href="/contributing/challenge-coins/">Challenge Coin</a>.

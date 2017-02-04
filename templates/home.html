@@ -113,8 +113,16 @@
         {% for event in events %}
         <div class="carousel-item{% if loop.index0 == 0 %} active{% endif %}">
           <h4><a href="{{ event|url }}">{{ event.title }}</a></h4>
-          {% if event.event_type == "talk"%}
+          {% if event.event_type == "keynote" %}
+          {{ event.speaker[0] }} is keynoting!
+          {% elif event.event_type == "talk" %}
           {{ event.speaker[0] }} is speaking!
+          {% elif event.event_type == "tutorial" %}
+          {{ event.speaker[0] }} is giving a tutorial!
+          {% elif event.event_type == "booth" %}
+          Come see us at our booth!
+          {% elif event.event_type == "sprint" %}
+          We'll be sprinting!
           {% else %} <br>
           {% endif %}
           <p>{{ event.date.strftime("%d %B %Y") }}</p>
