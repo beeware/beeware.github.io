@@ -26,11 +26,11 @@
 {% block main %}
 <h2>Upcoming events</h2>
 {% for child in this.children.filter(F.upcoming == True) %}
-<p class="upcoming event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }} <a href="{{ child|url }}">{{ child.title }}</a></p>
+<p class="upcoming event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }} <a href="{{ child|url }}">{{ child.title }} {{ child.event_type}}</a></p>
 {% endfor %}
 <h2>Past events</h2>
 {% for child in this.children.filter(F.upcoming == False).order_by('-date') %}
-<p class="past event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }} <a href="{{ child|url }}">{{ child.title }}</a></p>
+<p class="past event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }} <a href="{{ child|url }}">{{ child.title }} {{child.event_type}}</a></p>
 {% endfor %}
 {% endblock %}
 {% block gutter %}
