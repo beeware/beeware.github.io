@@ -5,4 +5,12 @@
     <a href="https://twitter.com/{{ member.twitter_handle }}"><i class="fa fa-twitter fa-lg icon" aria-hidden="true"></i>&nbsp;{{ member.twitter_handle }}</a>
     <br>
     <a href="mailto:{{ member.email }}"><i class="fa fa-envelope fa-lg icon" aria-hidden="true"></i>&nbsp;{{ member.email }}</a>
+    {% if member.superpower %}
+    <br>
+    {% if member.superpower is string %}
+    Superpower: {{bag('labels', member.superpower)}}
+    {% else %}
+    Superpower: {% for s in member.superpower %}{% if loop.index != 1 %}, {% endif %} {{ bag('labels', s)}}{% endfor %}
+    {% endif %}
+    {% endif %}
 {% endmacro %}
