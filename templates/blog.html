@@ -3,6 +3,9 @@
 {% from "macros/pagination.html" import render_pagination %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
 {% block title %}{{ this.title }}{% endblock %}
+{% block extra_head %}
+<link href="{{ '@atom/buzz'|url }}" type="application/atom+xml" rel="alternate" title="The Buzz" />
+{% endblock %}
 {% block preamble %}
 <div class="banner">
   <div class="container">
@@ -19,6 +22,8 @@
 {% endblock %}
 {% block gutter %}
 <div class="col-sm-12 col-md-4 gutter">
+  <h3><p><a href="{{ '@atom/buzz'|url }}"><i class="fa fa-rss-square" aria-hidden="true"></i> RSS Feed</a></p></h3>
+
   <h2>Archive</h2>
   {{ render_pagination(this.pagination) }}
 </div>
