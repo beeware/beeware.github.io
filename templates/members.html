@@ -12,24 +12,99 @@
 {% endblock %}
 {% block body %}
 <div class="row">
-  <div class="col-lg-8">
+  <div class="col-lg-8 members">
 {{ this.body }}
 
-{% for group in this.children|groupby('level') %}
-<h2>{{ bag('labels', group[0]) }} sponsors</h2>
-  {% for child in group.list %}
-    {% if child.level == "historical" %}
-<a href="{{ child|url }}"><img class="img-fluid" src="./{{ child._id }}/{{ child._id }}-small.png"></a>
-  <p class="period">{{ child.join_date.strftime("%B %Y") }} - {{ child.end_date.strftime("%B %Y") }}</p>
-    {% else %}
-<a href="{{ child|url }}"><img class="img-fluid" src="./{{ child._id }}/{{ child._id }}-large.png"></a>
-<p>{{ child.description }}</p>
-    {% endif %}
-    {% if child.contribution %}
-<p>{{ child.contribution }}</p>
-    {% endif %}
+{% set members = this.children.filter(F.level == 'gold').filter(F.end_date == null) %}
+{% if members %}
+    <h2>Gold Members</h2>
+  {% for member in members %}
+    <a href="{{ member|url }}"><img class="img-fluid" src="./{{ member._id }}/{{ member._id }}-banner.png" alt="{{ member.name }}"></a>
+    <p>{{ member.description }}</p>
   {% endfor %}
-{% endfor %}
+{% endif %}
+
+{% set members = this.children.filter(F.level == 'silver').filter(F.end_date == null) %}
+{% if members %}
+    <h2>Silver Members</h2>
+  {% for member in members %}
+    <a href="{{ member|url }}"><img class="img-fluid" src="./{{ member._id }}/{{ member._id }}-large.png" alt="{{ member.name }}"></a>
+    <p>{{ member.description }}</p>
+  {% endfor %}
+{% endif %}
+
+{% set members = this.children.filter(F.level == 'bronze').filter(F.end_date == null) %}
+{% if members %}
+    <h2>Bronze Members</h2>
+  {% for member in members %}
+    <a href="{{ member|url }}"><img class="img-fluid" src="./{{ member._id }}/{{ member._id }}-small.png" alt="{{ member.name }}"></a>
+    <p>{{ member.description }}</p>
+  {% endfor %}
+{% endif %}
+
+{% set members = this.children.filter(F.level == 'adhoc').filter(F.end_date == null) %}
+{% if members %}
+    <h2>AdHoc Members</h2>
+  {% for member in members %}
+    <a href="{{ member|url }}"><img class="img-fluid" src="./{{ member._id }}/{{ member._id }}-small.png" alt="{{ member.name }}"></a>
+    <p>{{ member.description }}</p>
+      {% if member.contribution %}
+    <p>{{ member.contribution }}</p>
+      {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% set members = this.children.filter(F.level == 'professional').filter(F.end_date == null) %}
+{% if members %}
+    <h2>Professional Members</h2>
+    <ul>
+  {% for member in members %}
+      <li class="professional"><img class="img-fluid" src="{{ member.email|gravatar }}" alt="{{ member.name }}">{% if member.name %}{{ member.name }}{% else %}{{ member.email }}{% endif %}</li>
+  {% endfor %}
+    </ul>
+{% endif %}
+
+{% set members = this.children.filter(F.level == 'individual').filter(F.end_date == null) %}
+{% if members %}
+  <h2>Individual Members</h2>
+  <ul>
+  {% for member in members %}
+    <li>{% if member.name %}{{ member.name }}{% else %}{{ member.email }}{% endif %}</li>
+  {% endfor %}
+  </ul>
+{% endif %}
+
+{% set members = this.children.filter(F.level == 'inkind').filter(F.end_date == null) %}
+{% if members %}
+  <h2>In-Kind Members</h2>
+  {% for member in members %}
+    <a href="{{ member|url }}"><img class="img-fluid" src="./{{ member._id }}/{{ member._id }}-small.png" alt="{{ member.name }}"></a>
+      {% if member.contribution %}
+    <p>{{ member.contribution }}</p>
+      {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% set members = this.children.filter(F.level != 'inkind').filter(F.end_date != null) %}
+{% if members %}
+  <h2>Historical Members</h2>
+  <ul>
+  {% for member in members %}
+    <li>
+      <p><span class="period">{{ member.join_date.strftime("%B %Y") }} - {{ member.end_date.strftime("%B %Y") }}</span>
+      {% if member.level in ('professional', 'individual') %}
+      : {{ member.name }}</p>
+      {% else %}
+      <img class="img-fluid" src="./{{ member._id }}/{{ member._id }}-small.png" alt="{{ member.name }}">
+        {% if member.contribution %}
+      <p>{{ member.contribution }}</p>
+        {% endif %}
+      {% endif %}
+  {% endfor %}
+    </li>
+  </ul>
+{% endif %}
+
   </div>
   {% if this.gutter %}
   <div class="col-md-12 col-lg-4">
