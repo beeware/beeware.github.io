@@ -90,7 +90,7 @@ ga('send', 'pageview');
 
 </p>
     <h2>
-Individual sponsor
+Professional sponsor
 </h2>
     <a href=""><img src="./katie%40glasnt.com-large.png"></a>
     

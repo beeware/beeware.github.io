@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Katie McLaughlin — BeeWare</title>
+    <title>Matthias Kestenholz — BeeWare</title>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
@@ -90,9 +90,9 @@ ga('send', 'pageview');
 
 </p>
     <h2>
-Professional sponsor
+Individual sponsor
 </h2>
-    <a href=""><img src="./katie%40glasnt.com-large.png"></a>
+    <a href=""><img src="./mk%40406.ch-large.png"></a>
     
   </div>
 </div>
@@ -101,7 +101,7 @@ Professional sponsor
         
 
 
-<p>Many thanks to Katie McLaughlin for their contribution!</p>
+<p>Many thanks to Matthias Kestenholz for their contribution!</p>
 
       </div>
     </div>
