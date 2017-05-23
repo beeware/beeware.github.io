@@ -9,8 +9,6 @@ This is the homepage for the `BeeWare project`_.
 
 It is a `Lektor`_-based site.
 
-.. _Lektor: https://getlektor.com
-
 If you want to contribute a modification, you can fork this repository and
 submit a pull request. However, **do not fork the master branch** - fork the
 `lektor branch`_ and make changes there instead.
@@ -18,9 +16,15 @@ submit a pull request. However, **do not fork the master branch** - fork the
 .. _lektor branch: https://github.com/pybee/pybee.github.io/tree/lektor
 
 If you want to test out a change before you submit it, download and install
-Lektor; then from the root directory of the checkout, run:
+`Lektor`_ (note that Lektor is still using Python 2.7):
+
+    $ pip install lektor
+
+Then from the root directory of the checkout, run:
 
     $ lektor server
+
+.. _Lektor: https://getlektor.com
 
 This will `start a webserver`_ that will autoreload whenever you make a change
 to site content.
@@ -74,22 +78,22 @@ Translating
 
 Want to make BeeWare more accessible to non-English-speakers?  Help translate the site!  Steps are as follows:
 
-1. Add language specification to: 
-	
+1. Add language specification to:
+
 	pybee.github.io/BeeWare.lektorproject
 
    Fill out the name of the language, its url prefix, and the locale.
 
-2. Add translated mirror files at the same directory level as the primary English files  and add appropriate suffixes.  
+2. Add translated mirror files at the same directory level as the primary English files  and add appropriate suffixes.
 
 	For example:
 
 		Arabic's locale is 'ar', so you would add...
 
 		contents+ar.lr
-		
+
 		...where the original file name is:
-		
+
 		contents.lr
 
 Note: A great place to start translating is the contributing section:
