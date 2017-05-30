@@ -2,6 +2,7 @@ import csv
 import os
 import sys
 from urllib.parse import quote
+import hashlib
 
 
 def generate(filename, basedir):
@@ -9,7 +10,12 @@ def generate(filename, basedir):
         reader = csv.reader(datafile)
         next(reader)
         for line in reader:
-            print(line[0], line[1], line[2], line[4])
+            name = line[1]
+            email = line[2]
+            uid = hashlib.sha1(email.encode()).hexdigest()[0:8]
+            join_date = line[4]
+            
+            print(line[0], name, uid, join_date)
 
             level = {
                 'BeeWare Enthusiast Membership': 'individual',
@@ -19,19 +25,24 @@ def generate(filename, basedir):
                 'BeeWare Gold Membership': 'gold',
             }.get(line[0], 'other')
 
-            outdir = os.path.join(basedir, quote(line[2]))
+            if level != "professional":
+                email = "%s@******.com" % email.split("@")[0]
+
+            outdir = os.path.join(basedir, uid)
             if os.path.exists(outdir):
-                print("User %s already exists" % line[2])
+                print("User %s already exists" % uid)
             else:
                 os.mkdir(outdir)
                 with open(os.path.join(outdir, 'contents.lr'), 'w') as outfile:
-                    outfile.write('name: %s\n' % line[1])
+                    outfile.write('name: %s\n' % name)
                     outfile.write('---\n')
-                    outfile.write('email: %s\n' % line[2])
+                    outfile.write('uid: %s\n' % uid)
+                    outfile.write('---\n')
+                    outfile.write('email: %s\n' % email)
                     outfile.write('---\n')
                     outfile.write('level: %s\n' % level)
                     outfile.write('---\n')
-                    outfile.write('join_date: %s\n' % line[4])
+                    outfile.write('join_date: %s\n' % join_date)
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
