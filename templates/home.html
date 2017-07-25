@@ -134,27 +134,17 @@
     <hr/>
 
     <h2><a href="/project/projects/">Projects</a></h2>
+    {% set project_types = site.query('/project/projects') %}
+    {% for project_type in project_types %}
+    {%   for project in site.query(project_type.path).filter(F.showcase==True) %}
     <div>
-      <h4><a href="/project/projects/libraries/toga"><img src="/project/projects/libraries/toga/toga.png" height="32px" alt="Toga"> Toga</h4></a>
-      <p>A native widget toolkit<br/>for desktop and mobile</p>
+      <h4><a href="{{project.path}}"><img src="{{project.path}}/{{ project.name|lower }}.png" height="32px" alt="{{ project.name }}"> {{ project.name }}</h4></a>
+      {{ project.short_description|string|wordwrap(width=40, wrapstring='<br>')|safe }}
     </div>
-    <div>
-      <h4><a href="/project/projects/bridges/voc"><img src="/project/projects/bridges/voc/voc.png" height="32px" alt="VOC"> VOC</a></h4>
-      <p>Run your Python code<br/>on a Java virtual machine</p>
-    </div>
-    <div>
-      <h4><a href="/project/projects/tools/briefcase"><img src="/project/projects/tools/briefcase/briefcase.png" height="32px" alt="Briefcase"> Briefcase</a></h4>
-      <p>Package your Python code<br/>as a native app</p>
-    </div>
-    <div>
-      <h4><a href="/project/projects/bridges/batavia"><img src="/project/projects/bridges/batavia/batavia.png" height="32px" alt="Batavia"> Batavia</a></h4>
-      <p>Run your Python code<br/>in the browser</p>
-    </div>
-    <div>
-      <h4><a href="/project/projects/tools/cricket"><img src="/project/projects/tools/cricket/cricket.png" height="32px" alt="Cricket"> Cricket</a></h4>
-      <p>Manage unit testing<br/>with a graphical interface</p>
-    </div>
+    {%   endfor %}
+    {% endfor %}
     <h3><a href="/project/projects/">... and many more</a></h3>
+
   </div>
 </div>
 {% endblock %}
