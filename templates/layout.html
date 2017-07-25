@@ -1,3 +1,9 @@
+{% macro menu_item(parent, identifier) %}
+<li class="nav-item{% if this.is_child_of(parent) %} active{% endif %}">
+  <a class="nav-link" href="{{ url_prefix }}project/">{{ bag('menu', this.alt, identifier)|default(bag('menu', 'en', identifier), true) }}{% if this.is_child_of(parent) %}<span class="sr-only">(current)</span>{% endif %}</a>
+</li>
+{% endmacro %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,23 +57,13 @@ ga('send', 'pageview');
           <a class="navbar-brand" href="/">BeeWare</a>
           {% set url_prefix = bag('menu', this.alt, 'url_prefix') %}
           <ul class="nav navbar-nav">
-            <li class="nav-item{% if this.is_child_of('/project') %} active{% endif %}">
-              <a class="nav-link" href="{{ url_prefix }}project/">{{ bag('menu', this.alt, 'project') }}{% if this.is_child_of('/project') %}<span class="sr-only">(current)</span>{% endif %}</a>
-            </li>
-            <li class="nav-item{% if this.is_child_of('/news') %} active{% endif %}">
-              <a class="nav-link" href="{{ url_prefix }}news/">{{ bag('menu', this.alt, 'news') }}{% if this.is_child_of('/news') %}<span class="sr-only">(current)</span>{% endif %}</a>
-            </li>
-            <li class="nav-item{% if this.is_child_of('/community') %} active{% endif %}">
-              <a class="nav-link" href="{{ url_prefix }}community/">{{ bag('menu', this.alt, 'comunity') }}{% if this.is_child_of('/community') %}<span class="sr-only">(current)</span>{% endif %}</a>
-            </li>
-            <li class="nav-item{% if this.is_child_of('/contributing') %} active{% endif %}">
-              <a class="nav-link" href="{{ url_prefix }}contributing/">{{ bag('menu', this.alt, 'contributing') }}{% if this.is_child_of('/contributing') %}<span class="sr-only">(current)</span>{% endif %}</a>
-            </li>
-            <li class="nav-item{% if this.is_child_of('/contact') %} active{% endif %}">
-              <a class="nav-link" href="{{ url_prefix }}contact/">{{ bag('menu', this.alt, 'contact') }}{% if this.is_child_of('/contact') %}<span class="sr-only">(current)</span>{% endif %}</a>
-            </li>
+            {{ menu_item('/project', 'project') }}
+            {{ menu_item('/news', 'news') }}
+            {{ menu_item('/community', 'community') }}
+            {{ menu_item('/contributing', 'contributing') }}
+            {{ menu_item('/contact', 'contact') }}
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ bag('menu', this.alt, 'languages') }} <span class="caret"></span></a>
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ bag('menu', this.alt, 'languages')|default(bag('menu', 'en', 'languages'), true) }} <span class="caret"></span></a>
               <ul class="dropdown-menu bg-inverse">
                 {% for alt, alternative in config.ALTERNATIVES.iteritems() %}
                   <li class="p-l-1"><a class="nav-link" href="{{ '.'|url(alt=alt) }}">{{ alternative.name.en }}</a></li>
