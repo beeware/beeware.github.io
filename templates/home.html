@@ -1,5 +1,18 @@
 {% extends "layout.html" %}
 {% from "macros/sponsor.html" import sponsorship_level %}
+{% from "macros/translation.html" import transbag %}
+
+{% set t_projects = transbag('translate', this.alt, 'projects') %}
+{% set t_latest_news = transbag('translate', this.alt, 'latest_news') %}
+{% set t_previous = transbag('translate', this.alt, 'previous') %}
+{% set t_next = transbag('translate', this.alt, 'next') %}
+{% set t_meet_team = transbag('translate', this.alt, 'meet_team') %}
+{% set t_keynoting = transbag('translate', this.alt, 'keynoting') %}
+{% set t_speaking = transbag('translate', this.alt, 'speaking') %}
+{% set t_tutorial = transbag('translate', this.alt, 'tutorial') %}
+{% set t_come_see_us = transbag('translate', this.alt, 'come_see_us') %}
+{% set t_sprinting = transbag('translate', this.alt, 'sprinting') %}
+
 {% block title %}{{ this.title }}{% endblock %}
 {% block preamble %}
 <div class="jumbotron">
@@ -42,37 +55,37 @@
 
   <div class="col-sm-12 col-md-4 gutter home-gutter">
 
-    <h3>Many thanks to</h3>
+    {{ this.gutter_top }}
     <div id="carousel-members" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carousel-members" data-slide-to="0" class="active"></li>
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
-          <p><a href="/community/members/revsys/"><img class="img-fluid" src="/community/members/revsys/revsys-large.png"></a></p>
+          <p><a href="{{ '/community/members/revsys/'|url(alt=this.alt) }}"><img class="img-fluid" src="/community/members/revsys/revsys-large.png"></a></p>
           <p>Ad hoc sponsor</p>
         </div>
       </div>
       <!--a class="left carousel-control" href="#carousel-members" role="button" data-slide="prev">
         <span class="icon-prev" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
+        <span class="sr-only">{{ t_previous }}</span>
       </a>
       <a class="right carousel-control" href="#carousel-members" role="button" data-slide="next">
         <span class="icon-next" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+        <span class="sr-only">{{ t_next }}</span>
       </a-->
     </div>
 
     <hr/>
 
-    <h3><a href="/news/buzz/">Latest news</a></h3>
-    {% set blog = site.query('/news/buzz').all() %}
-    <p><a href="{{ blog[0]|url }}">{{ blog[0].pub_date.strftime("%d %b")}}: {{ blog[0].title }}</a></p>
+    <h3><a href="{{ '/news/buzz/'|url(alt=this.alt) }}">{{ t_latest_news }}</a></h3>
+    {% set blog = site.query('/news/buzz', alt=this.alt).all() %}
+    <p><a href="{{ blog[0]|url(alt=this.alt) }}">{{ blog[0].pub_date.strftime("%d %b")}}: {{ blog[0].title }}</a></p>
 
     <hr/>
 
-    <h3><a href="/news/events/">Meet the Bee Team @</a></h3>
-    {% set events = site.query('/news/events').filter(F.upcoming==True) %}
+    <h3><a href="{{ '/news/events/'|url(alt=this.alt) }}">{{ t_meet_team }}</a></h3>
+    {% set events = site.query('/news/events', alt=this.alt).filter(F.upcoming==True) %}
     <div id="carousel-events" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         {% for event in events %}
@@ -82,17 +95,17 @@
       <div class="carousel-inner" role="listbox">
         {% for event in events %}
         <div class="carousel-item{% if loop.index0 == 0 %} active{% endif %}">
-          <h4><a href="{{ event|url }}">{{ event.title }}</a></h4>
+          <h4><a href="{{ event|url(alt=this.alt) }}">{{ event.title }}</a></h4>
           {% if event.event_type == "keynote" %}
-          {{ event.speaker[0] }} is keynoting!
+          {{ event.speaker[0] }} {{ t_keynoting }}
           {% elif event.event_type == "talk" %}
-          {{ event.speaker[0] }} is speaking!
+          {{ event.speaker[0] }} {{ t_speaking }}
           {% elif event.event_type == "tutorial" %}
-          {{ event.speaker[0] }} is giving a tutorial!
+          {{ event.speaker[0] }} {{ t_tutorial }}
           {% elif event.event_type == "booth" %}
-          Come see us at our booth!
+          {{ t_come_see_us }}
           {% elif event.event_type == "sprint" %}
-          We'll be sprinting!
+          {{ t_sprinting }}
           {% else %} <br>
           {% endif %}
           <p>{{ event.date.strftime("%d %B %Y") }}</p>
@@ -103,17 +116,17 @@
 
     <hr/>
 
-    <h2><a href="/project/projects/">Projects</a></h2>
-    {% set project_types = site.query('/project/projects') %}
+    <h2><a href="{{ '/project/projects/'|url(alt=this.alt) }}">{{ t_projects }}</a></h2>
+    {% set project_types = site.query('/project/projects', alt=this.alt) %}
     {% for project_type in project_types %}
-    {%   for project in site.query(project_type.path).filter(F.showcase==True) %}
+    {%   for project in site.query(project_type.path, alt=this.alt).filter(F.showcase==True) %}
     <div>
       <h4><a href="{{project.path}}"><img src="{{project.path}}/{{ project.name|lower }}.png" height="32px" alt="{{ project.name }}"> {{ project.name }}</h4></a>
       {{ project.short_description|string|wordwrap(width=40, wrapstring='<br>')|safe }}
     </div>
     {%   endfor %}
     {% endfor %}
-    <h3><a href="/project/projects/">... and many more</a></h3>
+    {{ this.gutter_bottom }}
 
   </div>
 </div>

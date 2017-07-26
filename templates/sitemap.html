@@ -1,9 +1,13 @@
 {% extends "page.html" %}
-{% block title %}Sitemap{% endblock %}
+{% from "macros/translation.html" import transbag %}
+
+{% set t_sitemap = transbag('translate', this.alt, 'sitemap') %}
+
+{% block title %}{{ t_sitemap }}{% endblock %}
 {% block body %}
 <ul class="sitemap">
-  {% for page in [site.root] recursive %}
-  <li><a href="{{ page|url }}">{{ page.record_label }}</a>
+  {% for page in site.query('/', alt=this.alt) recursive %}
+  <li><a href="{{ page|url(alt=this.alt) }}">{{ page.record_label }}</a>
     {% if page.children %}
       <ul>{{ loop(page.children) }}</ul>
     {% endif %}
