@@ -1,16 +1,17 @@
 {% extends "layout.html" %}
 {% from "macros/sponsor.html" import sponsorship_level %}
+{% from "macros/translation.html" import transbag %}
 
-{% set t_projects = bag('translate', this.alt, 'projects') or bag('translate', 'en', 'projects') %}
-{% set t_latest_news = bag('translate', this.alt, 'latest_news') or bag('translate', 'en', 'latest_news') %}
-{% set t_previous = bag('translate', this.alt, 'previous') or bag('translate', 'en', 'previous') %}
-{% set t_next = bag('translate', this.alt, 'next') or bag('translate', 'en', 'next') %}
-{% set t_meet_team = bag('translate', this.alt, 'meet_team') or bag('translate', 'en', 'meet_team') %}
-{% set t_keynoting = bag('translate', this.alt, 'keynoting') or bag('translate', 'en', 'keynoting') %}
-{% set t_speaking = bag('translate', this.alt, 'speaking') or bag('translate', 'en', 'speaking') %}
-{% set t_tutorial = bag('translate', this.alt, 'tutorial') or bag('translate', 'en', 'tutorial') %}
-{% set t_come_see_us = bag('translate', this.alt, 'come_see_us') or bag('translate', 'en', 'come_see_us') %}
-{% set t_sprinting = bag('translate', this.alt, 'sprinting') or bag('translate', 'en', 'sprinting') %}
+{% set t_projects = transbag('translate', this.alt, 'projects') %}
+{% set t_latest_news = transbag('translate', this.alt, 'latest_news') %}
+{% set t_previous = transbag('translate', this.alt, 'previous') %}
+{% set t_next = transbag('translate', this.alt, 'next') %}
+{% set t_meet_team = transbag('translate', this.alt, 'meet_team') %}
+{% set t_keynoting = transbag('translate', this.alt, 'keynoting') %}
+{% set t_speaking = transbag('translate', this.alt, 'speaking') %}
+{% set t_tutorial = transbag('translate', this.alt, 'tutorial') %}
+{% set t_come_see_us = transbag('translate', this.alt, 'come_see_us') %}
+{% set t_sprinting = transbag('translate', this.alt, 'sprinting') %}
 
 {% block title %}{{ this.title }}{% endblock %}
 {% block preamble %}
@@ -45,7 +46,9 @@
     </div>
   </div>
   {% else %}
-    {{ blk }}  
+  <div>
+    {{ blk }}
+  </div>
   {% endif %}
   {% endfor %}
   </div>

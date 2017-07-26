@@ -1,7 +1,8 @@
-{% macro render_pagination(pagination, alt) %}
+{% from 'macros/translation.html' import transbag %}
 
-  {% set t_previous = bag('translate', alt, 'previous') or bag('translate', 'en', 'previous') %}
-  {% set t_next = bag('translate', alt, 'next') or bag('translate', 'en', 'next') %}
+{% macro render_pagination(pagination, alt) %}
+  {% set t_previous = transbag('translate', alt, 'previous') %}
+  {% set t_next = transbag('translate', alt, 'next') %}
   
   <div class="pagination">
     {% if pagination.has_prev %}

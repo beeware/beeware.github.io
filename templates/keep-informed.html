@@ -1,12 +1,13 @@
 {% extends "page.html" %}
+{% from "macros/translation.html" import transbag %}
 
-{% set t_required = bag('translate', this.alt, 'required') or bag('translate', 'en', 'required') %}
-{% set t_my_email = bag('translate', this.alt, 'my_email') or bag('translate', 'en', 'my_email') %}
-{% set t_my_fullname = bag('translate', this.alt, 'my_fullname') or bag('translate', 'en', 'my_fullname') %}
-{% set t_my_name = bag('translate', this.alt, 'my_name') or bag('translate', 'en', 'my_name') %}
-{% set t_my_interests = bag('translate', this.alt, 'my_interests') or bag('translate', 'en', 'my_interests') %}
-{% set t_email_format = bag('translate', this.alt, 'email_format') or bag('translate', 'en', 'email_format') %}
-{% set t_other = bag('translate', this.alt, 'other') or bag('translate', 'en', 'other') %}
+{% set t_required = transbag('translate', this.alt, 'required') %}
+{% set t_my_email = transbag('translate', this.alt, 'my_email') %}
+{% set t_my_fullname = transbag('translate', this.alt, 'my_fullname') %}
+{% set t_my_name = transbag('translate', this.alt, 'my_name') %}
+{% set t_my_interests = transbag('translate', this.alt, 'my_interests') %}
+{% set t_email_format = transbag('translate', this.alt, 'email_format') %}
+{% set t_other = transbag('translate', this.alt, 'other') %}
 
 {% block title %}{{ this.title }}{% endblock %}
 {% block main %}

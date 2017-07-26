@@ -1,8 +1,9 @@
 {% extends "page.html" %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
+{% from "macros/translation.html" import transbag %}
 
-{% set t_past_events = bag('translate', this.alt, 'past_events') or bag('translate', 'en', 'past_events') %}
-{% set t_upcoming_events = bag('translate', this.alt, 'upcoming_events') or bag('translate', 'en', 'upcoming_events') %}
+{% set t_past_events = transbag('translate', this.alt, 'past_events') %}
+{% set t_upcoming_events = transbag('translate', this.alt, 'upcoming_events') %}
 
 {% block title %}{{ this.title }}{% endblock %}
 {% block extra_script %}

@@ -3,11 +3,12 @@
 {% from "macros/podcast.html" import render_podcast %}
 {% from "macros/article.html" import render_article %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
+{% from "macros/translation.html" import transbag %}
 
-{% set t_as_seen_at = bag('translate', this.alt, 'as_seen_at') or bag('translate', 'en', 'as_seen_at') %}
-{% set t_by = bag('translate', this.alt, 'by') or bag('translate', 'en', 'by') %}}
-{% set t_published = bag('translate', this.alt, 'published') or bag('translate', 'en', 'published') %}
-{% set t_unknown_resource = bag('translate', this.alt, 'unknown_resource') or bag('translate', 'en', 'unknown_resource')%}
+{% set t_as_seen_at = transbag('translate', this.alt, 'as_seen_at') %}
+{% set t_by = transbag('translate', this.alt, 'by') %}}
+{% set t_published = transbag('translate', this.alt, 'published') %}
+{% set t_unknown_resource = transbag('translate', this.alt, 'unknown_resource') %}
 
 {% block preamble %}
 <div class="banner">

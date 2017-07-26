@@ -1,11 +1,12 @@
 {% extends "layout.html" %}
 {% from "macros/blog.html" import render_blog_post %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
+{% from 'macros/translation.html' import transbag %}
 
-{% set t_on = bag('translate', this.alt, 'on') or bag('translate', 'en', 'on') %}
-{% set t_posted_by = bag('translate', this.alt, 'posted_by') or bag('translate', 'en', 'posted_by') %}
-{% set t_next_entry = bag('translate', this.alt, 'next_entry') or bag('translate', 'en', 'next_entry') %}
-{% set t_previous_entry = bag('translate', this.alt, 'previous_entry') or bag('translate', 'en', 'previous_entry') %}
+{% set t_on = transbag('translate', this.alt, 'on') %}
+{% set t_posted_by = transbag('translate', this.alt, 'posted_by') %}
+{% set t_next_entry = transbag('translate', this.alt, 'next_entry') %}
+{% set t_previous_entry = transbag('translate', this.alt, 'previous_entry') %}
 
 {% block title %}{{ this.title }}{% endblock %}
 {% block preamble %}

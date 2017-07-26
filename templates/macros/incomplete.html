@@ -1,8 +1,10 @@
+{% from 'macros/translation.html' import transbag %}
+
 {% macro incomplete(page) %}
   {% if page.incomplete %}
   <p class="incomplete">
       <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-      {{ bag('translate', page.alt, 'incomplete_text') }} <a href="https://github.com/pybee/pybee.github.io/edit/lektor/content{{ page.path }}/contents.lr">{{ bag('translate', page.alt, 'incomplete_link') }}</a>.
+      {{ transbag('incomplete', page.alt, 'before_link_text').strip() }}{% if transbag('incomplete', page.alt, 'space_before_link').strip() == 'true' %} {% endif %}<a href="https://github.com/pybee/pybee.github.io/edit/lektor/content{{ page.path }}/contents.lr">{{ transbag('incomplete', page.alt, 'link_text').strip() }}</a>{% if transbag('incomplete', page.alt, 'space_after_link').strip() == 'true' %} {% endif %}{{ transbag('incomplete', page.alt, 'after_link_text').strip() }}
   </p>
   {% endif %}
 {% endmacro %}

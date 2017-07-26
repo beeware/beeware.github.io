@@ -1,8 +1,9 @@
 {% extends "page.html" %}
+{% from "macros/translation.html" import transbag %}
 
-{% set t_more_articles = bag('translate', this.alt, 'more_articles') or bag('translate', 'en', 'more_articles') %}
-{% set t_on = bag('translate', this.alt, 'on') or bag('translate', 'en', 'on') %}
-{% set t_posted_by = bag('translate', this.alt, 'posted_by') or bag('translate', 'en', 'posted_by') %}
+{% set t_more_articles = transbag('translate', this.alt, 'more_articles') %}
+{% set t_on = transbag('translate', this.alt, 'on') %}
+{% set t_posted_by = transbag('translate', this.alt, 'posted_by') %}
 
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}

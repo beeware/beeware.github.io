@@ -1,9 +1,10 @@
 {% extends "layout.html" %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
 {% from "macros/sponsor.html" import sponsorship_level %}
+{% from "macros/translation.html" import transbag %}
 
-{% set t_thanks_before_name = bag('translate', this.alt, 'thanks_before_name') or bag('translate', 'en', 'thanks_before_name') %}
-{% set t_thanks_after_name = bag('translate', this.alt, 'thanks_after_name') or bag('translate', 'en', 'thanks_after_name') %}
+{% set t_thanks_before_name = transbag('translate', this.alt, 'thanks_before_name') %}
+{% set t_thanks_after_name = transbag('translate', this.alt, 'thanks_after_name') %}
 
 {% block title %}{{ this.name or '' }}{% endblock %}
 {% block preamble %}

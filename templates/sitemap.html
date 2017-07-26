@@ -1,6 +1,7 @@
 {% extends "page.html" %}
+{% from "macros/translation.html" import transbag %}
 
-{% set t_sitemap = bag('translate', this.alt, 'sitemap') or bag('translate', 'en', 'sitemap') %}
+{% set t_sitemap = transbag('translate', this.alt, 'sitemap') %}
 
 {% block title %}{{ t_sitemap }}{% endblock %}
 {% block body %}
