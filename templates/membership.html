@@ -30,7 +30,7 @@
 </div>
 <div class="row-fluid">
   {% for child in this.children %}
-    {% if child.display %}
+    {% if child.display and child.cost > 0 %}
   <div class="col-sm-12 col-md-offset-2 col-md-8">
     <h2>{{ child.title }}</h2>
     {{ child.body }}
@@ -44,6 +44,22 @@
   </div>
     {% endif %}
   {% endfor %}
+  {% for child in this.children %}
+    {% if child.display and child.cost < 0 %}
+  <div class="col-sm-12 col-md-offset-2 col-md-8">
+    <h2>{{ child.title }}</h2>
+    {{ child.body }}
+    {% if child.tagline %} 
+    <p>
+    <a class="gumroad-button" href="{{ child.url }}" target="_blank">
+      <span class="gumroad-button-logo"></span>{{ child.tagline }}
+    </a>
+    </p>
+    {% endif %}
+  </div>
+    {% endif %}
+  {% endfor %}
+
   <div class="col-sm-12 col-md-offset-2 col-md-8">
   {{ this.gutter }}
   </div>
