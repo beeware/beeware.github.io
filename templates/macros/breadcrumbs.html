@@ -1,8 +1,11 @@
 {% macro breadcrumbs(page) %}
-{% if not page.parent.parent %}
-  <a href="/">Home</a>
-{% else %}
+
+  {% set t_home = bag('translate', page.alt, 'home') or bag('translate', 'en', 'home') %}
+
+  {% if not page.parent.parent %}
+  <a href="{{ '/'|url(alt=page.alt) }}">{{ t_home }}</a>
+  {% else %}
   {{ breadcrumbs(page.parent) }} >
-  <a href="{{ page.parent|url }}">{{ page.parent.title }}</a>
-{% endif %}
+  <a href="{{ page.parent|url(alt=page.alt) }}">{{ page.parent.title }}</a>
+  {% endif %}
 {% endmacro %}

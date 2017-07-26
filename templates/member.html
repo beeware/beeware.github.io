@@ -1,7 +1,11 @@
 {% extends "layout.html" %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
 {% from "macros/sponsor.html" import sponsorship_level %}
-{% block title %}{{ this.name }}{% endblock %}
+
+{% set t_thanks_before_name = bag('translate', this.alt, 'thanks_before_name') or bag('translate', 'en', 'thanks_before_name') %}
+{% set t_thanks_after_name = bag('translate', this.alt, 'thanks_after_name') or bag('translate', 'en', 'thanks_after_name') %}
+
+{% block title %}{{ this.name or '' }}{% endblock %}
 {% block preamble %}
 <div class="banner">
   <div class="container">
@@ -17,5 +21,5 @@
 {% block body %}
 {{ this.description }}
 {{ this.contribution }}
-<p>Many thanks to {{ this.name }} for their contribution!</p>
+<p>{{ t_thanks_before_name }} {{ this.name or '' }} {{ t_thanks_after_name }}</p>
 {% endblock %}

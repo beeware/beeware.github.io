@@ -1,12 +1,13 @@
 {% macro render_article_index(article) %}
+  {% set click_here_full_article = bag('translate', article.alt, 'click_here_full_article') %}
   <h2><a href="{{ article.url }}"><i class="fa fa-file-text" aria-hidden="true"></i> {{ article.title }}</a></h2>
-  <p>by {{ article.author }}; published {{ article.pub_date.strftime('%-d %B %Y') }}</p>
+  <p>{{ bag('translate', article.alt, 'by') }} {{ article.author }}; {{ bag('translate', article.alt, 'published') }} {{ article.pub_date.strftime('%-d %B %Y') }}</p>
   <p>{{ article.description }}</p>
-  <h6><a href="{{ article.url }}">Click here to read the full article</a></h6>
+  <h6><a href="{{ article.url }}">{{ click_here_full_article }}</a></h6>
 {% endmacro %}
 
 {% macro render_article(article) %}
   {{ article.description }}
 
-  <h6><a href="{{ article.url }}">Click here to read the full article</a></h6>
+  <h6><a href="{{ article.url }}"></a>{{ click_here_full_article }}</h6>
 {% endmacro %}

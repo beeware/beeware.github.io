@@ -1,8 +1,13 @@
 {% extends "page.html" %}
+
+{% set t_more_articles = bag('translate', this.alt, 'more_articles') or bag('translate', 'en', 'more_articles') %}
+{% set t_on = bag('translate', this.alt, 'on') or bag('translate', 'en', 'on') %}
+{% set t_posted_by = bag('translate', this.alt, 'posted_by') or bag('translate', 'en', 'posted_by') %}
+
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
-{% set blog = site.query('/news/buzz').all() %}
-{% set events = site.query('/news/events').filter(F.upcoming == True) %}
+{% set blog = site.query('/news/buzz', alt=this.alt).all() %}
+{% set events = site.query('/news/events', alt=this.alt).filter(F.upcoming == True) %}
 {% block extra_script %}
 <script>
 (function() {
@@ -19,25 +24,23 @@
 <div class="row">
   <div class="col-md-12 col-lg-8">
     {% for child in blog[:10] %}
-    <h3><a href="{{ child|url }}">{{ child.title }}</a></h3>
-    <p>posted by
+    <h3><a href="{{ child|url(alt=this.alt) }}">{{ child.title }}</a></h3>
+    <p>{{ t_posted_by }}
       {% if child.twitter_handle %}
       <a href="https://twitter.com/{{ child.twitter_handle }}">{{ child.author or child.twitter_handle }}</a>
       {% else %}
       {{ child.author }}
       {% endif %}
-      on {{ child.pub_date }}
+      {{ t_on }} {{ child.pub_date }}
     </p>
     {% endfor %}
-    <a href="/news/buzz/">... more articles</a>
+    <a href="{{ '/news/buzz/'|url(alt=this.alt) }}">{{ t_more_articles }}</a>
   </div>
   <div class="col-md-12 col-lg-4 gutter">
-    <h3><p><a href="/news/buzz/atom.xml"><i class="fa fa-rss-square" aria-hidden="true"></i> RSS Feed</a></p></h3>
-
-    <h2><a href="/news/events/">Upcoming events</a></h2>
+    {{ this.gutter }}
     <ul>
     {% for child in events %}
-      <li class="upcoming event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }}: <a href="{{ child|url }}">{{ child.title }} {{ child.event_type}}</a></li>
+      <li class="upcoming event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }}: <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} {{ child.event_type}}</a></li>
     {% endfor %}
     </ul>
   </div>

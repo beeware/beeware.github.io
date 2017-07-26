@@ -1,5 +1,9 @@
 {% extends "page.html" %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
+
+{% set t_past_events = bag('translate', this.alt, 'past_events') or bag('translate', 'en', 'past_events') %}
+{% set t_upcoming_events = bag('translate', this.alt, 'upcoming_events') or bag('translate', 'en', 'upcoming_events') %}
+
 {% block title %}{{ this.title }}{% endblock %}
 {% block extra_script %}
 <script>
@@ -18,24 +22,23 @@
 <div class="banner">
   <div class="container">
     <p>{{ breadcrumbs(this) }}</p>
-    <h1>Upcoming Events</h1>
-    <p>Want to meet some of the Bee Team?</p>
+    <h1>{{ this.title }}</h1>
+    <p>{{ this.summary }}</p>
   </div>
 </div>
 {% endblock %}
 {% block main %}
-<h2>Upcoming events</h2>
+<h2>{{ t_upcoming_events }}</h2>
 {% for child in this.children.filter(F.upcoming == True) %}
-<p class="upcoming event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }} <a href="{{ child|url }}">{{ child.title }} {{ child.event_type}}</a></p>
+<p class="upcoming event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }} <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} {{ child.event_type}}</a></p>
 {% endfor %}
-<h2>Past events</h2>
+<h2>{{ t_past_events }}</h2>
 {% for child in this.children.filter(F.upcoming == False).order_by('-date') %}
-<p class="past event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }} <a href="{{ child|url }}">{{ child.title }} {{child.event_type}}</a></p>
+<p class="past event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }} <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} {{child.event_type}}</a></p>
 {% endfor %}
 {% endblock %}
 {% block gutter %}
   <div class="col-sm-12 col-md-4 gutter">
-    <h6>Want BeeWare at your event?</h6>
-    <p>Would you like someone from the BeeWare to speak at your event? <a href="mailto:russell@pybee.org">Get in touch!</a> We'd love to come along and tell more people about BeeWare.</p>
+    {{ this.gutter }}
   </div>
 {% endblock %}

@@ -3,33 +3,39 @@
 {% from "macros/podcast.html" import render_podcast %}
 {% from "macros/article.html" import render_article %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
+
+{% set t_as_seen_at = bag('translate', this.alt, 'as_seen_at') or bag('translate', 'en', 'as_seen_at') %}
+{% set t_by = bag('translate', this.alt, 'by') or bag('translate', 'en', 'by') %}}
+{% set t_published = bag('translate', this.alt, 'published') or bag('translate', 'en', 'published') %}
+{% set t_unknown_resource = bag('translate', this.alt, 'unknown_resource') or bag('translate', 'en', 'unknown_resource')%}
+
 {% block preamble %}
 <div class="banner">
   <div class="container">
     <p>{{ breadcrumbs(this) }}</p>
     <h2>{{ this.title }}</h2>
-    <p>By {{ this.author }}; published {{ this.pub_date.strftime('%-d %B %Y') }}</p>
+    <p>{{ t_by|capitalize }} {{ this.author }}; {{ t_published }} {{ this.pub_date.strftime('%-d %B %Y') }}</p>
   </div>
 </div>
 {% endblock %}
 {% block main %}
 {% if this.resource_type == 'article' %}
-{{ render_article(this) }}
+  {{ render_article(this) }}
 {% elif this.resource_type == 'video' %}
-{{ render_video(this) }}
+  {{ render_video(this) }}
 {% elif this.resource_type == 'podcast' %}
-{{ render_podcast(this) }}
+  {{ render_podcast(this) }}
 {% else %}
-Unknown resource type...
+  {{ t_unknown_resource }}
 {% endif %}
 {% endblock %}
 {% block gutter %}
 {% if this.event_name %}
   <div class="col-sm-12 col-md-4 gutter">
     {% if this.event_url %}
-    <p><a href="{{ this.event_url }}">As seen at {{ this.event_name }}</a></p>
+    <p><a href="{{ this.event_url }}">{{ t_as_seen_at }} {{ this.event_name }}</a></p>
     {% else %}
-    <p>As seen at {{ this.event_name }}</p>
+    <p>{{ t_as_seen_at }} {{ this.event_name }}</p>
     {% endif %}
   </div>
 {% endif %}
