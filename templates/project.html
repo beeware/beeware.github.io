@@ -2,9 +2,19 @@
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
 {% from "macros/badge.html" import badge %}
 {% from "macros/incomplete.html" import incomplete %}
+{% from "macros/translation.html" import transbag %}
 
-
-
+{% set t_project_support = transbag('translate', this.alt, 'project_support') %}
+{% set t_project_help = transbag('translate', this.alt, 'project_help') %}
+{% set t_contributors = transbag('translate', this.alt, 'contributors') %}
+{% set t_pun_before = transbag('translate', this.alt, 'pun_before').strip() %}
+{% set t_pun_after = transbag('translate', this.alt, 'pun_after').strip() %}
+{% set t_attic_before = transbag('translate', this.alt, 'attic_before').strip() %}
+{% set t_attic_link = transbag('translate', this.alt, 'attic_link').strip() %}
+{% set t_attic_after = transbag('translate', this.alt, 'attic_after').strip() %}
+{% set t_cookie_before = transbag('translate', this.alt, 'cookie_before').strip() %}
+{% set t_cookie_after = transbag('translate', this.alt, 'cookie_after').strip() %}
+ 
 {% block title %}{{ this.name }}{% endblock %}
 {% block preamble %}
 <div class="banner">
@@ -22,28 +32,31 @@
 <div class="row">
   <div class="col-sm-12 col-md-8">
     {{ incomplete(this) }}
-    {% if "attic" in this.maturity %}
-    <p><i>This project is classified as <a href="{{ '/project/projects/attic'|url(alt=this.alt) }}">in the attic</a>. It is no longer actively maintained</i></p>
+
+    {% if this.attic or "attic" in this.maturity %}
+    <p><i>{{ t_attic_before }} <a href="{{ '/project/projects/attic'|url(alt=this.alt) }}">{{ t_attic_link }}</a>{{ t_attic_after }}</i></p>
     <hr>
     {% endif %}
+
     {% if this.project_type == "template" %}
-    <p>This project is a <a href="https://github.com/audreyr/cookiecutter">CookieCutter</a> template for a stub project.</p>
+    <p>{{ t_cookie_before }} <a href="https://github.com/audreyr/cookiecutter">CookieCutter</a> {{ t_cookie_after }}</p>
     <hr>
     {% endif %}
+
     {% if this.project_type == "support" %}
-    <p>This project is a support library. It is intended to be used in conjunction with a template project for the same platform.</p>
+    <p>{{ t_project_support }}</p>
     <hr>
     {% endif %}
 
     <p>{{ this.description }}</p>
 
     {% if this.help_required %}
-    <h3>How to help</h3>
+    <h3>{{ t_project_help }}</h3>
     <p>{{ this.help_required }}</p>
     {% endif %}
 
     {% if this.pun %}
-    <h3>So, why is it called "{{this.name}}"?</h3>
+    <h3>{{ t_pun_before }} "{{ this.name }}"{{ t_pun_after }}</h3>
     <p>{{ this.pun }}</p>
     {% endif %}
   </div>
@@ -59,7 +72,7 @@
         {{ badge("Platform", this.platforms) }}
     </dl>
     <hr>
-    <a href="https://labhr.github.io/hatrack/#repo=pybee/{{ this._id }}">Contributors</a>
+    <a href="https://labhr.github.io/hatrack/#repo=pybee/{{ this._id }}">{{ t_contributors }}</a>
   </div>
 </div>
 {% endblock %}
