@@ -2,16 +2,17 @@
 {% from "macros/blog.html" import render_blog_post %}
 {% from "macros/pagination.html" import render_pagination %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
+
 {% block title %}{{ this.title }}{% endblock %}
 {% block extra_head %}
-<link href="/news/buzz/atom.xml" type="application/atom+xml" rel="alternate" title="The Buzz" />
+<link href="{{ '/news/buzz/atom.xml'|url(alt=this.alt) }}" type="application/atom+xml" rel="alternate" title="The Buzz" />
 {% endblock %}
 {% block preamble %}
 <div class="banner">
   <div class="container">
     <p>{{ breadcrumbs(this) }}</p>
-    <h1>The Buzz</h1>
-    <p>BeeWare's official blog</p>
+    <h1>{{ this.title }}</h1>
+    <p>{{ this.summary }}</p>
   </div>
 </div>
 {% endblock %}
@@ -22,9 +23,7 @@
 {% endblock %}
 {% block gutter %}
 <div class="col-sm-12 col-md-4 gutter">
-  <h3><p><a href="/news/buzz/atom.xml"><i class="fa fa-rss-square" aria-hidden="true"></i> RSS Feed</a></p></h3>
-
-  <h2>Archive</h2>
-  {{ render_pagination(this.pagination) }}
+  {{ this.gutter_top }}
+  {{ render_pagination(this.pagination, alt=this.alt) }}
 </div>
 {% endblock %}
