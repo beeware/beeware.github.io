@@ -1,0 +1,28 @@
+{% block extra_head %}
+    <!-- Gumroad -->
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+{% endblock %}
+{% extends "page.html" %}
+{% block title %}{{ this.title }}{% endblock %}
+
+{% block body %}
+<div class="row-fluid">
+  <div class="col-sm-12 col-md-8">
+  {{ this.body }}
+  {% if this.tagline %} 
+  <p>
+    <a class="gumroad-button" href="https://gum.co/TenCq" target="_blank">
+      <span class="gumroad-button-logo"></span>{{ this.tagline }}
+    </a>
+  </p>
+  {% endif %}
+  </div>
+  {% block gutter %}
+    {% if this.description %}  
+  <div class="col-sm-12 col-md-4 gutter">
+    {{ this.description }}
+  </div>
+    {% endif %}
+  {% endblock %}
+  </div>
+{% endblock %}
