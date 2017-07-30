@@ -1,8 +1,16 @@
+{% from "macros/translation.html" import transbag %}
+
 {% macro incomplete(page) %}
   {% if page.incomplete %}
+  {% set t_text = transbag('translate', page.alt, 'incomplete_text').strip() %}
+  {% set t_link = transbag('translate', page.alt, 'incomplete_link').strip() %}
+  {% set t_after = transbag('translate', page.alt, 'incomplete_after_link_text').strip() %}
+  {% set space_before_link = transbag('translate', page.alt, 'incomplete_space_before_link').strip() %}
+  {% set space_after_link = transbag('translate', page.alt, 'incomplete_space_after_link').strip() %}
+
   <p class="incomplete">
-      <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-      {{ bag('incomplete', page.alt, 'text') }} <a href="https://github.com/pybee/pybee.github.io/edit/lektor/content{{ page.path }}/contents.lr">{{ bag('incomplete', page.alt, 'link_text') }}</a>.
+    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+    {{ t_text }}{% if space_before_link == 'true' %} {% endif %}<a href="https://github.com/pybee/pybee.github.io/edit/lektor/content{{ page.path }}/contents.lr">{{ t_link }}</a>{% if space_after_link == 'true' %} {% endif %}{{ t_after }}
   </p>
   {% endif %}
 {% endmacro %}

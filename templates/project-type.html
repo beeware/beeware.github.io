@@ -1,5 +1,6 @@
 {% extends "page.html" %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
+
 {% block title %}{{ this.title }}{% endblock %}
 {% block preamble %}
 <div class="banner">
@@ -20,16 +21,13 @@
     {% else %} 
       <img src="/static/images/defaultlogo.png" height="72px" class="pull-xs-left">
     {% endif %}
-      <h2><a href="{{ child|url }}">{{ child.name }}</a></h2>
+      <h2><a href="{{ child|url(alt=this.alt) }}">{{ child.name }}</a></h2>
       {{ child.short_description }}
     </div>
     {% endfor %}
-
   </div>
   <div class="col-sm-12 col-md-4 gutter">
     {{ this.description }}
   </div>
-
 </div>
 {% endblock %}
-

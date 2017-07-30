@@ -1,3 +1,18 @@
+{% from "macros/translation.html" import transbag %}
+
+{% macro menu_item(identifier) %}
+  {% set identifier_url = '/' + identifier %}
+  {% set trans_url = identifier_url|url(alt=this.alt) %}
+  {% set this_is_child = this.is_child_of(trans_url) %}
+  <li class="nav-item{% if this_is_child %} active{% endif %}">
+    <a class="nav-link" href="{{ trans_url }}">{{ transbag('menu', this.alt, identifier) }}{% if this_is_child %}<span class="sr-only">(current)</span>{% endif %}</a>
+  </li>
+{% endmacro %}
+
+{% set t_languages = transbag('menu', this.alt, 'languages') %}
+{% set t_sitemap = transbag('translate', this.alt, 'sitemap') %}
+{% set t_welcome = transbag('translate', this.alt, 'welcome') %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +21,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>{% block title %}Welcome{% endblock %} — BeeWare</title>
+    <title>{% block title %}{{ t_welcome }}{% endblock %} — BeeWare</title>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
@@ -48,29 +63,21 @@ ga('send', 'pageview');
         &#9776;
         </button>
         <div class="collapse navbar-toggleable-sm" id="collapsingNavbar">
-          <a class="navbar-brand" href="/">BeeWare</a>
-          {% set url_prefix = bag('menu', this.alt, 'url_prefix') %}
+          <a class="navbar-brand" href="{{ '/'|url(alt=this.alt) }}">BeeWare</a>
           <ul class="nav navbar-nav">
-            <li class="nav-item{% if this.is_child_of('/project') %} active{% endif %}">
-              <a class="nav-link" href="{{ url_prefix }}project/">{{ bag('menu', this.alt, 'project') }}{% if this.is_child_of('/project') %}<span class="sr-only">(current)</span>{% endif %}</a>
-            </li>
-            <li class="nav-item{% if this.is_child_of('/news') %} active{% endif %}">
-              <a class="nav-link" href="{{ url_prefix }}news/">{{ bag('menu', this.alt, 'news') }}{% if this.is_child_of('/news') %}<span class="sr-only">(current)</span>{% endif %}</a>
-            </li>
-            <li class="nav-item{% if this.is_child_of('/community') %} active{% endif %}">
-              <a class="nav-link" href="{{ url_prefix }}community/">{{ bag('menu', this.alt, 'comunity') }}{% if this.is_child_of('/community') %}<span class="sr-only">(current)</span>{% endif %}</a>
-            </li>
-            <li class="nav-item{% if this.is_child_of('/contributing') %} active{% endif %}">
-              <a class="nav-link" href="{{ url_prefix }}contributing/">{{ bag('menu', this.alt, 'contributing') }}{% if this.is_child_of('/contributing') %}<span class="sr-only">(current)</span>{% endif %}</a>
-            </li>
-            <li class="nav-item{% if this.is_child_of('/contact') %} active{% endif %}">
-              <a class="nav-link" href="{{ url_prefix }}contact/">{{ bag('menu', this.alt, 'contact') }}{% if this.is_child_of('/contact') %}<span class="sr-only">(current)</span>{% endif %}</a>
-            </li>
+            {{ menu_item('project') }}
+            {{ menu_item('news') }}
+            {{ menu_item('community') }}
+            {{ menu_item('contributing') }}
+            {{ menu_item('contact') }}
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ bag('menu', this.alt, 'languages') }} <span class="caret"></span></a>
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ t_languages }} <span class="caret"></span></a>
               <ul class="dropdown-menu bg-inverse">
-                {% for alt, alternative in config.ALTERNATIVES.iteritems() %}
-                  <li class="p-l-1"><a class="nav-link" href="{{ '.'|url(alt=alt) }}">{{ alternative.name.en }}</a></li>
+                <li class="p-l-1"><a class="nav-link" href="{{ '.'|url(alt='en') }}">English</a></li>
+                {% for alt, alternative in config.ALTERNATIVES.items()|sort %}
+                {% if alt != 'en' %}
+                <li class="p-l-1"><a class="nav-link" href="{{ '.'|url(alt=alt) }}">{{ alternative.name.en }}</a></li>
+                {% endif %}
                 {% endfor %}
               </ul>
             </li>
@@ -90,9 +97,9 @@ ga('send', 'pageview');
       <div class="container text-muted">
         <p class="pull-xs-right pull-sm-right pull-md-right pull-lg-right pull-xl-right">&copy; Russell Keith-Magee 2017</p>
         <p><a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
-        <a href="https://gitter.im/pybee/general/">Gitter</a> |
+        <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
         <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
-        <a href="/sitemap">Sitemap</a>
+        <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ t_sitemap }}</a>
 </p>
       </div>
     </footer>

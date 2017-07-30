@@ -1,12 +1,16 @@
+{% from "macros/translation.html" import transbag %}
+
 {% macro render_podcast_index(episode) %}
+  {% set t_click_here_listen = transbag('translate', episode.alt, 'click_here_listen') %}
+
   <h2><a href="{{ episode.url }}"><i class="fa fa-headphones" aria-hidden="true"></i> {{ episode.title }}</a></h2>
   <p>by {{ episode.author }}; published {{ episode.pub_date.strftime('%-d %B %Y') }}</p>
   <p>{{ episode.description }}</p>
-  <h6><a href="{{ episode.url }}">Click here to listen</a></h6>
+  <h6><a href="{{ episode.url }}">{{ t_click_here_listen }}</a></h6>
 {% endmacro %}
 
 {% macro render_podcast(episode) %}
   {{ episode.description }}
 
-  <h6><a href="{{ episode.url }}">Click here to listen</a></h6>
+  <h6><a href="{{ episode.url }}">{{ t_click_here_listen }}</a></h6>
 {% endmacro %}

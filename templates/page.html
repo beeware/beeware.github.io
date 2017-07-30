@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
 {% from "macros/incomplete.html" import incomplete %}
+
 {% block title %}{{ this.title }}{% endblock %}
 {% block preamble %}
 <div class="banner">
@@ -19,7 +20,7 @@
     {{ this.body }}
     {% for child in this.children %}
       {% if not child.hide_from_index %}
-    <h2><a href="{{ child|url }}">{{ child.title }}</a></h2>
+    <h2><a href="{{ child|url(alt=this.alt) }}">{{ child.title }}</a></h2>
     <p>{{ child.summary }}</p>
       {% endif %}
     {% endfor %}
