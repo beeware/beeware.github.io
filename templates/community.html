@@ -1,9 +1,10 @@
 {% extends "page.html" %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
-
 {% block title %}{{ this.title }}{% endblock %}
 {% block gutter %}
-  <div class="col-sm-12 col-md-4 gutter">
+  
+<div class="col-sm-4">
+  <div class="gutter">
     {{ this.gutter }}
     {% for child in this.children %}
       {% if child.hide_from_index %}
@@ -12,4 +13,5 @@
       {% endif %}
     {% endfor %}
   </div>
+
 {% endblock %}
