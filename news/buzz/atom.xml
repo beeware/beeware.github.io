@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">The Buzz</title>
   <id>urn:uuid:ea67f575-8130-3369-abc3-1449f0cc2655</id>
-  <updated>2017-07-31T00:00:00Z</updated>
+  <updated>2017-08-22T00:00:00Z</updated>
   <link href="http://pybee.org/zh_TW/news/buzz/" />
   <link href="http://pybee.org/news/buzz/atom.xml" rel="self" />
   <author>
@@ -10,6 +10,75 @@
   </author>
   <subtitle type="text">BeeWare's official blog</subtitle>
   <generator uri="https://github.com/ajdavis/lektor-atom" version="0.2">Lektor Atom Plugin</generator>
+  <entry xml:base="http://pybee.org/news/buzz/2017-google-summer-of-code-final-report-jonas-schell/">
+    <title type="text">2017 Google Summer of Code - Testing Toga/Settings API</title>
+    <id>urn:uuid:78e53ba3-5d48-35a1-9a8e-1c15b3fed392</id>
+    <updated>2017-08-22T00:00:00Z</updated>
+    <link href="http://pybee.org/news/buzz/2017-google-summer-of-code-final-report-jonas-schell/" />
+    <author>
+      <name>Jonas Schell</name>
+    </author>
+    <content type="html">&lt;p&gt;Google Summer of Code 2017 is coming to an end. After three month of working on the BeeWare project, I would like to summarise my work and share my experiences.&lt;/p&gt;
+&lt;div class=&quot;section&quot; id=&quot;no-battle-plan-survives-first-contact&quot;&gt;
+&lt;h2&gt;“No Battle Plan Survives First Contact.”&lt;/h2&gt;
+&lt;p&gt;This was one of the first things Russell said to me after we decided to fundamentally restructure my &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/118&quot;&gt;proposed GSoC timetable and goals&lt;/a&gt;. During the community bounding period we discovered that Toga was even harder to test as we expected. The tight coupling between the platform independent Toga-Core part and the platform dependent implementations for (Windows, macOS, iOS, Linux, Android, Django, ...) was giving us a hard time to write meaningful tests.&lt;/p&gt;
+&lt;p&gt;We expect Toga to become a decently sized project, therefore we want it to have a solid and well tested base. Given that, we decided that I would spend most of GSoC to restructure Toga to make it more testable. Besides that, I would also add implementation tests to check if a given backend is implemented in the right way. If I would finish before the end of the summer I would just start with my original project proposal.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;the-big-restructure-of-toga&quot;&gt;
+&lt;h2&gt;The Big Restructure of Toga&lt;/h2&gt;
+&lt;p&gt;With the new goals and a fresh branch I started the journey to restructure the Toga project to make it more testable.&lt;/p&gt;
+&lt;p&gt;After hacking around and testing different things on a &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/Ocupe/restruc_toga&quot;&gt;separate branch&lt;/a&gt;. I identified that the intertwined platform dependencies are the main problem. To separate the Toga-Core module form its backend implementations we decided to use the factory pattern instead of the inheritance model that we had before. Now every backend has its own factory that produces the right widgets for the platform it is running on. This way we have a clear separation between Toga-Core and the implementation level. Platform dependencies are now enclosed in the implementation level.&lt;/p&gt;
+&lt;p&gt;After the new structure was clear I ported Toga-Core as well as the backends for cocoa, iOS and GTK. I did this in the Toga branch &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/185&quot;&gt;(The Big Restructure of Toga [WIP] #185)&lt;/a&gt;.
+In practice this meant that I had to manually touch almost every widget of all backends to port them to the new factory pattern.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;challenges&quot;&gt;
+&lt;h2&gt;Challenges&lt;/h2&gt;
+&lt;p&gt;Toga talks to native GUI frameworks, hence I had to get a good understanding about the principles and concepts behind each and every of these frameworks. At times I felt overwhelmed by the combined complexity of all the parts that make up Toga. The following is list:&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;Every Toga backend wraps around a existing and unique framework.  To wrap the framework you have to understand the framework.&lt;/li&gt;
+&lt;li&gt;“I love Python, why do I have to understand Objective C”? To effectively work on the iOS and macOS backends I had to learn the basics of Objective C – if only to read the Apple docs.&lt;/li&gt;
+&lt;li&gt;Toga has a lot of moving parts. There are backends, frameworks, libraries to talk to backends, libraries to perform the layout of the UI and more. I spend a good amount of time to understand all of these parts. The following is just a overview of newly acquired knowledge during GSoC:&lt;ul&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/rubicon-objc&quot;&gt;Rubicon-ObjC&lt;/a&gt; to talk to the iOS and macOS backends.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/colosseum/&quot;&gt;Colosseum&lt;/a&gt; to understand and fix layout problems.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://docs.python.org/3.6/library/ast.html&quot;&gt;AST&lt;/a&gt; module to perform the implementation tests.&lt;/li&gt;
+&lt;li&gt;The use of Design Patterns&lt;/li&gt;
+&lt;li&gt;How to structure large projects.&lt;/li&gt;
+&lt;li&gt;Read and understand big and complex code chunks.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;other-work-i-did&quot;&gt;
+&lt;h2&gt;Other work I did&lt;/h2&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;PR: Translated part of the pybee.org webpage into german. &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/pybee.github.io/pull/173&quot;&gt;(PR #173)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Helped newcomers on Gitter and GitHub.&lt;/li&gt;
+&lt;li&gt;Tested if Toga would profit from static typing &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/Ocupe/toga/tree/static_typing&quot;&gt;(toga/static_typing)&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Created an implementation test suite based on the AST module.&lt;/li&gt;
+&lt;li&gt;Added test for Toga-Core.&lt;/li&gt;
+&lt;li&gt;Updated and extended documentation on Toga-Core as well as the macOS and iOS Backend.&lt;/li&gt;
+&lt;li&gt;Created a toga-dummy backend.&lt;/li&gt;
+&lt;li&gt;First draft of the Settings API and working backend implementation for macOS.&lt;/li&gt;
+&lt;li&gt;Many small and big fixes on Toga-Core, cocoa, iOS, and GTK backends. All in the main PR &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/185&quot;&gt;pybee/toga The Big Restructure of Toga [WIP]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PR: &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/171&quot;&gt;pybee/toga fix for getting the length of the filenames array&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PR: &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/193&quot;&gt;pybee/toga Fixed #189 cocoa.progressbar with rehint&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PR: &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/briefcase-template/pull/3&quot;&gt;pybee/briefcase-template Fix for spaces in app name. Issue #2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PR: &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/222&quot;&gt;pybee/toga Toga Settings API [WIP]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;future-work-to-be-done&quot;&gt;
+&lt;h2&gt;Future Work to be Done&lt;/h2&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;All my work sits in the PR &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/185&quot;&gt;“The Big Restructure of Toga [WIP]”&lt;/a&gt;. After the missing backends, namely Windows and Android, are ported, everything can be merged into master. We have to wait for the missing backends, because the new is incompatible with the old versions and they can’t coexist.&lt;/li&gt;
+&lt;li&gt;The Settings API from my original proposal is not finished because of the above mentioned reasons. I have a first working draft and I will continue working on it after GSoC in &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/222&quot;&gt;this PR&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;shoutout&quot;&gt;
+&lt;h2&gt;Shoutout&lt;/h2&gt;
+&lt;p&gt;I would like to thank Russell Keith-Magee for being an awesome Mentor and for all the time he invested in me during GSoC. I also would like to thank the BeeWare community for helping me when ever I had a problem. Thank you!&lt;/p&gt;
+&lt;/div&gt;
+</content>
+  </entry>
   <entry xml:base="http://pybee.org/news/buzz/a-new-yak-for-the-herd-beekeeper/">
     <title type="text">A new yak for the herd: BeeKeeper</title>
     <id>urn:uuid:3b92ae55-333e-367d-98c0-9605d0864bac</id>
