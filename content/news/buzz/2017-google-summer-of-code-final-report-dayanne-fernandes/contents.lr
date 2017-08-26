@@ -1,0 +1,172 @@
+title: 2017 Google Summer of Code - Port Cricket to use Toga, instead of Tkinter
+---
+author: Dayanne Fernandes
+---
+body:
+
+After almost 4 months of work on `Google Summer of Code`_ 2017, finally I'm completing my proposal. Every widget migration and every commit/PR/issue/discussion with my mentors about `Cricket`_ , `Toga`_ and `rubicon-objc`_ were detailed on the `Issue 58`_.
+
+.. _Google Summer of Code: https://developers.google.com/open-source/gsoc/
+.. _Cricket: https://pybee.org/project/projects/tools/cricket/
+.. _Toga: https://pybee.org/project/projects/libraries/toga/
+.. _rubicon-objc: https://pybee.org/project/projects/bridges/rubicon/
+
+"Eating your own dog food"
+---------------------------
+
+The best way to show that a product is reliable to the customers is use it. So, the way to show that `Toga`_ is an effective tool to build a GUI is to build a complete application using it.
+
+`Cricket`_ is a graphical tool that helps you run your test suites. Its current version is implemented using `Tkinter`_ as the main GUI framework. So, why not test `Toga`_ inside of another product from `BeeWare`_? That's what I have acomplished during my GSoC work.
+
+Results
+--------
+
+The proposal focus not only on the port of `Tkinter`_ to `Toga`_, but on mapping the necessary widgets for a real application using `Toga`_ framework. To help me to map this I studied more about `Tkinter`_, `Toga`_, `Colosseum`_, `rubicon-objc`_, `Objective-C`_, `Cocoa`_ and `CSS`_.
+
+.. _Objective-C: https://developer.apple.com/documentation/objectivec
+.. _Cocoa: https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/Cocoa.html
+.. _CSS: https://www.w3.org/Style/CSS/
+
+The work I did during GSoC were sent throught the `PR 65`_, reported on the `Issue 58`_ and the final demonstration of the work can be seen in this `link`_. There were widgets used on `Cricket`_ that weren't ready yet on `Toga`_, so some improvements were necessary on `Toga`_ so that I could use them on `Cricket`_. In summary here are some PRs and issues that I contributed to get my work done in `Cricket`_:
+
+Open PR that I sent to `Toga`_:
+
+* `PR 201`_ : [Core][Cocoa] Refactoring of the Tree widget
+
+Merged PRs that I sent to `Toga`_:
+
+* `PR 112`_ : [Core][Cocoa] Enable/disable state for buttons, solved `Issue 91`_
+* `PR 170`_ : [Cocoa] Content and retry status for stack trace dialog
+* `PR 172`_ : [Cocoa] Window resize
+* `PR 173`_ : [Core][Cocoa] Button color
+* `PR 174`_ : [Doc] Examples folder and button features example
+* `PR 178`_ : [Doc] Fix tutorial 2 setup
+* `PR 180`_ : [Doc] Update `Toga`_ widgets roadmap
+* `PR 182`_ : [Cocoa] Update the label of the Stack trace button for critical dialog
+* `PR 184`_ : [Core][Cocoa] Hide/show boxes widget
+* `PR 188`_ : [Cocoa] Fix error on MultilineTextInput widget, solved `Issue 187`_
+* `PR 204`_ : [Core][Cocoa] Clear method to MultilineTextInput widget, solved `Issue 203`_
+* `PR 206`_ : [Core][Cocoa] Readonly and placeholder for MultilineTextInput widget
+* `PR 208`_ : [Cocoa] Fix apply style to a SplitContainer widget, solved `Issue 207`_
+
+Merged PR that I sent to `Cricket`_:
+
+* `PR 60`_ : Fix test coverage, solved `Issue 59`_
+
+Merged PR that I sent to `rubicon-objc`_:
+
+* `PR 34`_ : [Doc] Add reference to NSObject
+
+Open issues that I sent to `Toga`_:
+
+* `Issue 175`_ : [Core] Add more properties for Label and Font widgets
+* `Issue 176`_ : [Core] Add "rehint()" on the background of the widget after changing font size
+* `Issue 186`_ : [Core] Set initial position of the divisor of a SplitContainer
+* `Issue 197`_ : [Core] Get the id of the selected Tab View on the OptionContainer
+
+Closed issues that I reported to `Toga`_:
+
+* `Issue 167`_ : [Cocoa] Addition of a SplitContainer on a Box doesn't show the SplitContainer, was fixed by `Russell Keith-Magee`_
+* `Issue 168`_ : [Cocoa] Addition of 2 boxes on an OptionContainer emits Rubicon's error, was fixed by `Russell Keith-Magee`_
+* `Issue 169`_ : [Cocoa] Addition of 2 empty boxes on an OptionContainer emits error from `Toga`_ Cocoa platform, was fixed by `Russell Keith-Magee`_
+* `Issue 181`_ : [Core][Cocoa] "Hide" option for widgets, was solved by me
+* `Issue 187`_ : [Cocoa] Errors on MultilineTextInput, was fixed by me
+* `Issue 189`_ : [Cocoa] ProgressBar doesn't appears in a Box, was fixed by `Jonas Schell`_
+* `Issue 194`_ : [Cocoa] The frame of the MultilineTextInput doesn't appear, was fixed by `Russell Keith-Magee`_
+* `Issue 195`_ : [Cocoa] ProgressBar doesn't appear inside of a Box oriented by row, was fixed by `Russell Keith-Magee`_
+* `Issue 196`_ : [Cocoa] Set max value and value on a ProgressBar doesn't make any effect on the layout, was fixed by `Russell Keith-Magee`_
+* `Issue 203`_ : [Core][Cocoa] Clear text on MultilineTextInput widget, was solved by me
+* `Issue 207`_ : [Cocoa] Set SplitContainer height doesn't update its size, was solved by me
+
+Closed issues that I didn't reported but I solved on `Toga`_:
+
+* `Issue 91`_ : API to disable buttons?
+* `Issue 205`_ : adding MultiviewTextInput results in TypeError
+
+Closed issue that I reported to `Cricket`_:
+
+* `Issue 59`_ : Run selected doesn't count/ runs every test selected in a test module, was fixed by me
+
+Open issue that I reported to `rubicon-objc`_ `Jonas Obrist`_ repository:
+
+* `Issue 1`_ : Seg Fault when iterate through a NSIndexSet using block notation
+
+.. _link: https://youtu.be/5kz_CmQYFYE
+
+.. _Issue 1: https://github.com/ojii/rubicon-objc/issues/1
+
+.. _Issue 58: https://github.com/pybee/cricket/issues/58
+.. _Issue 59: https://github.com/pybee/cricket/issues/59
+
+.. _Issue 91: https://github.com/pybee/toga/issues/91
+.. _Issue 167: https://github.com/pybee/toga/issues/167
+.. _Issue 168: https://github.com/pybee/toga/issues/168
+.. _Issue 169: https://github.com/pybee/toga/issues/169
+.. _Issue 175: https://github.com/pybee/toga/issues/175
+.. _Issue 176: https://github.com/pybee/toga/issues/176
+.. _Issue 181: https://github.com/pybee/toga/issues/181
+.. _Issue 186: https://github.com/pybee/toga/issues/186
+.. _Issue 187: https://github.com/pybee/toga/issues/187
+.. _Issue 189: https://github.com/pybee/toga/issues/189
+.. _Issue 194: https://github.com/pybee/toga/issues/194
+.. _Issue 195: https://github.com/pybee/toga/issues/195
+.. _Issue 196: https://github.com/pybee/toga/issues/196
+.. _Issue 197: https://github.com/pybee/toga/issues/197
+.. _Issue 203: https://github.com/pybee/toga/issues/203
+.. _Issue 205: https://github.com/pybee/toga/issues/205
+.. _Issue 207: https://github.com/pybee/toga/issues/207
+
+.. _PR 34: https://github.com/pybee/rubicon-objc/pull/34
+
+.. _PR 60: https://github.com/pybee/cricket/pull/60
+.. _PR 65: https://github.com/pybee/cricket/pull/65
+
+.. _PR 112: https://github.com/pybee/toga/pull/112
+.. _PR 170: https://github.com/pybee/toga/pull/170
+.. _PR 172: https://github.com/pybee/toga/pull/172
+.. _PR 173: https://github.com/pybee/toga/pull/173
+.. _PR 174: https://github.com/pybee/toga/pull/174
+.. _PR 178: https://github.com/pybee/toga/pull/178
+.. _PR 180: https://github.com/pybee/toga/pull/180
+.. _PR 182: https://github.com/pybee/toga/pull/182
+.. _PR 184: https://github.com/pybee/toga/pull/184
+.. _PR 188: https://github.com/pybee/toga/pull/188
+.. _PR 201: https://github.com/pybee/toga/pull/201
+.. _PR 204: https://github.com/pybee/toga/pull/204
+.. _PR 206: https://github.com/pybee/toga/pull/206
+.. _PR 208: https://github.com/pybee/toga/pull/208
+
+.. _Tkinter: https://docs.python.org/2/library/tkinter.html
+.. _BeeWare: https://pybee.org
+.. _Colosseum: https://pybee.org/project/projects/libraries/colosseum/
+
+
+Future Plans
+-------------
+
+There are some features on `Cricket`_ that I want to help develop in a near future, for example:
+
+* A button to refresh all the tests tree
+* Cricket settings
+
+Also, there are some issues remained after this migration to `Toga`_. These issues will be fixed on `Toga`_ widgets in a near future too, for example:
+
+* A gap between the output and error boxes when there is no output message
+* Run a test if the user click on it
+
+I truly believe that `Toga`_ will be the oficial framework on Python to build GUI for multiplatforms applications, so I'll continue to contribute to this project because I want to use in every application that I would need a GUI.
+
+Final Considerations
+---------------------
+
+I would like to truly thank my mentors `Russell Keith-Magee`_ and `Elias Dorneles`_ for guide and help me so much during this period. The opportunity to be part of this community was a great honor to me, thank you so much to accept me in this program `Russell Keith-Magee`_. Also, I want to thank `Philip James`_ that made some reviews in my PRs and `Jonas Schell`_ that fixed one issue that I sent to `Toga`_.
+
+.. _Russell Keith-Magee: https://github.com/freakboy3742
+.. _Elias Dorneles: https://github.com/eliasdorneles
+.. _Philip James: https://github.com/phildini
+.. _Jonas Schell: https://github.com/Ocupe
+.. _Jonas Obrist: https://github.com/ojii
+
+---
+pub_date: 2017-08-25
+---
