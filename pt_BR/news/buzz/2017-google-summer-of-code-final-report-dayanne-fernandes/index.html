@@ -1,0 +1,326 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>2017 Google Summer of Code - Port Cricket to use Toga, instead of Tkinter — BeeWare</title>
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/brutus-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/brutus-72.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/brutus-57.png">
+    <link rel="shortcut icon" href="/static/images/brutus-32.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/grid.min.css">
+
+    <!-- Project CSS -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cutive">
+    <link rel="stylesheet" type="text/css" href="/static/beeware.css">
+
+    <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/1138bd8363.js"></script>
+
+    <!-- Google tracking -->
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-2943925-4', 'pybee.org');
+ga('send', 'pageview');
+    </script>
+
+    
+
+  </head>
+  <body>
+    
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarsDefault">
+    <a class="navbar-brand" href="../../../../pt_BR/">BeeWare</a>
+    <ul class="navbar-nav mr-auto">
+      
+  
+  
+  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../pt_BR/project/">
+Projeto
+</a>
+  </li>
+
+      
+  
+  
+  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../pt_BR/news/">
+Notícias
+</a>
+  </li>
+
+      
+  
+  
+  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../pt_BR/community/">
+Comunidade
+</a>
+  </li>
+
+      
+  
+  
+  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../pt_BR/contributing/">
+Contribuir
+</a>
+  </li>
+
+      
+  
+  
+  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../pt_BR/contact/">
+Contato
+</a>
+  </li>
+
+     <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+Idiomas
+ <span class="caret"></span></a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" href="../../../../news/buzz/2017-google-summer-of-code-final-report-dayanne-fernandes/">English</a>
+          
+          
+          <a class="dropdown-item" href="../../../../ar_AR/news/buzz/2017-google-summer-of-code-final-report-dayanne-fernandes/">Arabic</a>
+          
+          
+          
+          <a class="dropdown-item" href="../../../../de_DE/news/buzz/2017-google-summer-of-code-final-report-dayanne-fernandes/">German</a>
+          
+          
+          
+          
+          
+          <a class="dropdown-item" href="../../../../pt_BR/news/buzz/2017-google-summer-of-code-final-report-dayanne-fernandes/">Portuguese</a>
+          
+          
+          
+          <a class="dropdown-item" href="../../../../zh_TW/news/buzz/2017-google-summer-of-code-final-report-dayanne-fernandes/">Chinese</a>
+          
+          
+        </div>
+      </li>
+    </ul>
+  </div>
+  </nav>
+
+    <div class="content">
+      
+<div class="banner">
+  <div class="container">
+    <p>
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  <a href="../../../../pt_BR/">
+Home
+</a>
+  
+ >
+  <a href="../../../../pt_BR/news/">News</a>
+  
+ >
+  <a href="../../../../pt_BR/news/buzz/">The Buzz</a>
+  
+</p>
+    <h1>2017 Google Summer of Code - Port Cricket to use Toga, instead of Tkinter</h1>
+    <p>
+Posted by
+
+        
+        Dayanne Fernandes
+        
+        
+on
+ 2017/08/25
+    </p>
+  </div>
+</div>
+
+      <div class="container">
+        
+<div class="row-fluid">
+  <div class="col-sm-12 col-md-10 col-lg-8" >
+  
+
+  
+  
+
+  
+  <p>After almost 4 months of work on <a class="reference external" href="https://developers.google.com/open-source/gsoc/">Google Summer of Code</a> 2017, finally I'm completing my proposal. Every widget migration and every commit/PR/issue/discussion with my mentors about <a class="reference external" href="https://pybee.org/project/projects/tools/cricket/">Cricket</a> , <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> and <a class="reference external" href="https://pybee.org/project/projects/bridges/rubicon/">rubicon-objc</a> were detailed on the <a class="reference external" href="https://github.com/pybee/cricket/issues/58">Issue 58</a>.</p>
+<div class="section" id="eating-your-own-dog-food">
+<h2>&quot;Eating your own dog food&quot;</h2>
+<p>The best way to show that a product is reliable to the customers is use it. So, the way to show that <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> is an effective tool to build a GUI is to build a complete application using it.</p>
+<p><a class="reference external" href="https://pybee.org/project/projects/tools/cricket/">Cricket</a> is a graphical tool that helps you run your test suites. Its current version is implemented using <a class="reference external" href="https://docs.python.org/2/library/tkinter.html">Tkinter</a> as the main GUI framework. So, why not test <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> inside of another product from <a class="reference external" href="https://pybee.org">BeeWare</a>? That's what I have acomplished during my GSoC work.</p>
+</div>
+<div class="section" id="results">
+<h2>Results</h2>
+<p>The proposal focus not only on the port of <a class="reference external" href="https://docs.python.org/2/library/tkinter.html">Tkinter</a> to <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>, but on mapping the necessary widgets for a real application using <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> framework. To help me to map this I studied more about <a class="reference external" href="https://docs.python.org/2/library/tkinter.html">Tkinter</a>, <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>, <a class="reference external" href="https://pybee.org/project/projects/libraries/colosseum/">Colosseum</a>, <a class="reference external" href="https://pybee.org/project/projects/bridges/rubicon/">rubicon-objc</a>, <a class="reference external" href="https://developer.apple.com/documentation/objectivec">Objective-C</a>, <a class="reference external" href="https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/Cocoa.html">Cocoa</a> and <a class="reference external" href="https://www.w3.org/Style/CSS/">CSS</a>.</p>
+<p>The work I did during GSoC were sent throught the <a class="reference external" href="https://github.com/pybee/cricket/pull/65">PR 65</a>, reported on the <a class="reference external" href="https://github.com/pybee/cricket/issues/58">Issue 58</a> and the final demonstration of the work can be seen in this <a class="reference external" href="https://youtu.be/5kz_CmQYFYE">link</a>. There were widgets used on <a class="reference external" href="https://pybee.org/project/projects/tools/cricket/">Cricket</a> that weren't ready yet on <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>, so some improvements were necessary on <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> so that I could use them on <a class="reference external" href="https://pybee.org/project/projects/tools/cricket/">Cricket</a>. In summary here are some PRs and issues that I contributed to get my work done in <a class="reference external" href="https://pybee.org/project/projects/tools/cricket/">Cricket</a>:</p>
+<p>Open PR that I sent to <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/pybee/toga/pull/201">PR 201</a> : [Core][Cocoa] Refactoring of the Tree widget</li>
+</ul>
+<p>Merged PRs that I sent to <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/pybee/toga/pull/112">PR 112</a> : [Core][Cocoa] Enable/disable state for buttons, solved <a class="reference external" href="https://github.com/pybee/toga/issues/91">Issue 91</a></li>
+<li><a class="reference external" href="https://github.com/pybee/toga/pull/170">PR 170</a> : [Cocoa] Content and retry status for stack trace dialog</li>
+<li><a class="reference external" href="https://github.com/pybee/toga/pull/172">PR 172</a> : [Cocoa] Window resize</li>
+<li><a class="reference external" href="https://github.com/pybee/toga/pull/173">PR 173</a> : [Core][Cocoa] Button color</li>
+<li><a class="reference external" href="https://github.com/pybee/toga/pull/174">PR 174</a> : [Doc] Examples folder and button features example</li>
+<li><a class="reference external" href="https://github.com/pybee/toga/pull/178">PR 178</a> : [Doc] Fix tutorial 2 setup</li>
+<li><a class="reference external" href="https://github.com/pybee/toga/pull/180">PR 180</a> : [Doc] Update <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> widgets roadmap</li>
+<li><a class="reference external" href="https://github.com/pybee/toga/pull/182">PR 182</a> : [Cocoa] Update the label of the Stack trace button for critical dialog</li>
+<li><a class="reference external" href="https://github.com/pybee/toga/pull/184">PR 184</a> : [Core][Cocoa] Hide/show boxes widget</li>
+<li><a class="reference external" href="https://github.com/pybee/toga/pull/188">PR 188</a> : [Cocoa] Fix error on MultilineTextInput widget, solved <a class="reference external" href="https://github.com/pybee/toga/issues/187">Issue 187</a></li>
+<li><a class="reference external" href="https://github.com/pybee/toga/pull/204">PR 204</a> : [Core][Cocoa] Clear method to MultilineTextInput widget, solved <a class="reference external" href="https://github.com/pybee/toga/issues/203">Issue 203</a></li>
+<li><a class="reference external" href="https://github.com/pybee/toga/pull/206">PR 206</a> : [Core][Cocoa] Readonly and placeholder for MultilineTextInput widget</li>
+<li><a class="reference external" href="https://github.com/pybee/toga/pull/208">PR 208</a> : [Cocoa] Fix apply style to a SplitContainer widget, solved <a class="reference external" href="https://github.com/pybee/toga/issues/207">Issue 207</a></li>
+</ul>
+<p>Merged PR that I sent to <a class="reference external" href="https://pybee.org/project/projects/tools/cricket/">Cricket</a>:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/pybee/cricket/pull/60">PR 60</a> : Fix test coverage, solved <a class="reference external" href="https://github.com/pybee/cricket/issues/59">Issue 59</a></li>
+</ul>
+<p>Merged PR that I sent to <a class="reference external" href="https://pybee.org/project/projects/bridges/rubicon/">rubicon-objc</a>:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/pybee/rubicon-objc/pull/34">PR 34</a> : [Doc] Add reference to NSObject</li>
+</ul>
+<p>Open issues that I sent to <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/pybee/toga/issues/175">Issue 175</a> : [Core] Add more properties for Label and Font widgets</li>
+<li><a class="reference external" href="https://github.com/pybee/toga/issues/176">Issue 176</a> : [Core] Add &quot;rehint()&quot; on the background of the widget after changing font size</li>
+<li><a class="reference external" href="https://github.com/pybee/toga/issues/186">Issue 186</a> : [Core] Set initial position of the divisor of a SplitContainer</li>
+<li><a class="reference external" href="https://github.com/pybee/toga/issues/197">Issue 197</a> : [Core] Get the id of the selected Tab View on the OptionContainer</li>
+</ul>
+<p>Closed issues that I reported to <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/pybee/toga/issues/167">Issue 167</a> : [Cocoa] Addition of a SplitContainer on a Box doesn't show the SplitContainer, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
+<li><a class="reference external" href="https://github.com/pybee/toga/issues/168">Issue 168</a> : [Cocoa] Addition of 2 boxes on an OptionContainer emits Rubicon's error, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
+<li><a class="reference external" href="https://github.com/pybee/toga/issues/169">Issue 169</a> : [Cocoa] Addition of 2 empty boxes on an OptionContainer emits error from <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> Cocoa platform, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
+<li><a class="reference external" href="https://github.com/pybee/toga/issues/181">Issue 181</a> : [Core][Cocoa] &quot;Hide&quot; option for widgets, was solved by me</li>
+<li><a class="reference external" href="https://github.com/pybee/toga/issues/187">Issue 187</a> : [Cocoa] Errors on MultilineTextInput, was fixed by me</li>
+<li><a class="reference external" href="https://github.com/pybee/toga/issues/189">Issue 189</a> : [Cocoa] ProgressBar doesn't appears in a Box, was fixed by <a class="reference external" href="https://github.com/Ocupe">Jonas Schell</a></li>
+<li><a class="reference external" href="https://github.com/pybee/toga/issues/194">Issue 194</a> : [Cocoa] The frame of the MultilineTextInput doesn't appear, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
+<li><a class="reference external" href="https://github.com/pybee/toga/issues/195">Issue 195</a> : [Cocoa] ProgressBar doesn't appear inside of a Box oriented by row, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
+<li><a class="reference external" href="https://github.com/pybee/toga/issues/196">Issue 196</a> : [Cocoa] Set max value and value on a ProgressBar doesn't make any effect on the layout, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
+<li><a class="reference external" href="https://github.com/pybee/toga/issues/203">Issue 203</a> : [Core][Cocoa] Clear text on MultilineTextInput widget, was solved by me</li>
+<li><a class="reference external" href="https://github.com/pybee/toga/issues/207">Issue 207</a> : [Cocoa] Set SplitContainer height doesn't update its size, was solved by me</li>
+</ul>
+<p>Closed issues that I didn't reported but I solved on <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/pybee/toga/issues/91">Issue 91</a> : API to disable buttons?</li>
+<li><a class="reference external" href="https://github.com/pybee/toga/issues/205">Issue 205</a> : adding MultiviewTextInput results in TypeError</li>
+</ul>
+<p>Closed issue that I reported to <a class="reference external" href="https://pybee.org/project/projects/tools/cricket/">Cricket</a>:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/pybee/cricket/issues/59">Issue 59</a> : Run selected doesn't count/ runs every test selected in a test module, was fixed by me</li>
+</ul>
+<p>Open issue that I reported to <a class="reference external" href="https://pybee.org/project/projects/bridges/rubicon/">rubicon-objc</a> <a class="reference external" href="https://github.com/ojii">Jonas Obrist</a> repository:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/ojii/rubicon-objc/issues/1">Issue 1</a> : Seg Fault when iterate through a NSIndexSet using block notation</li>
+</ul>
+</div>
+<div class="section" id="future-plans">
+<h2>Future Plans</h2>
+<p>There are some features on <a class="reference external" href="https://pybee.org/project/projects/tools/cricket/">Cricket</a> that I want to help develop in a near future, for example:</p>
+<ul class="simple">
+<li>A button to refresh all the tests tree</li>
+<li>Cricket settings</li>
+</ul>
+<p>Also, there are some issues remained after this migration to <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>. These issues will be fixed on <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> widgets in a near future too, for example:</p>
+<ul class="simple">
+<li>A gap between the output and error boxes when there is no output message</li>
+<li>Run a test if the user click on it</li>
+</ul>
+<p>I truly believe that <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> will be the oficial framework on Python to build GUI for multiplatforms applications, so I'll continue to contribute to this project because I want to use in every application that I would need a GUI.</p>
+</div>
+<div class="section" id="final-considerations">
+<h2>Final Considerations</h2>
+<p>I would like to truly thank my mentors <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a> and <a class="reference external" href="https://github.com/eliasdorneles">Elias Dorneles</a> for guide and help me so much during this period. The opportunity to be part of this community was a great honor to me, thank you so much to accept me in this program <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a>. Also, I want to thank <a class="reference external" href="https://github.com/phildini">Philip James</a> that made some reviews in my PRs and <a class="reference external" href="https://github.com/Ocupe">Jonas Schell</a> that fixed one issue that I sent to <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>.</p>
+</div>
+
+
+  </div>
+  <div class="hidden-sm-down col-md-2 col-lg-4"></div>
+
+  <div class="col-sm-12 col-md-4 gutter">
+    <dl>
+      
+
+      
+      <dt>
+Previous entry
+</dt>
+      <dd><a href="../../../../pt_BR/news/buzz/2017-google-summer-of-code-final-report-adam-boniecki/">2017 Google Summer of Code - Batavia improvements</a></dd>
+      
+    </dl>
+  </div></div>
+
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container text-muted">
+        <div class="float-right clearfix">&copy; Russell Keith-Magee 2017</div>
+        <p><a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+        <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+        <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
+        <a href="../../../../pt_BR/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    
+    <script src="/static/tether-1.3.3/js/tether.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+    
+  </body>
+</html>
