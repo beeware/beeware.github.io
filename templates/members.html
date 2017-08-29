@@ -85,26 +85,6 @@
   {% endfor %}
 {% endif %}
 
-{% set members = this.children.filter(F.level != 'inkind').filter(F.end_date != null) %}
-{% if members %}
-  <h2>Historical Members</h2>
-  <ul>
-  {% for member in members %}
-    <li>
-      <p><span class="period">{{ member.join_date.strftime("%B %Y") }} - {{ member.end_date.strftime("%B %Y") }}</span>
-      {% if member.level in ('professional', 'individual') %}
-      : {{ member.name }}</p>
-      {% else %}
-      <img class="img-fluid" src="./{{ member._id }}/{{ member._id }}-small.png" alt="{{ member.name }}">
-        {% if member.contribution %}
-      <p>{{ member.contribution }}</p>
-        {% endif %}
-      {% endif %}
-  {% endfor %}
-    </li>
-  </ul>
-{% endif %}
-
   </div>
   {% if this.gutter %}
   <div class="col-md-12 col-lg-4">
