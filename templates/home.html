@@ -77,8 +77,9 @@
 
       <hr/>
 
-      <h3><a href="{{ '/news/events/'|url(alt=this.alt) }}">{{ t_meet_team }}</a></h3>
       {% set events = site.query('/news/events', alt=this.alt).filter(F.upcoming==True) %}
+      {% if events %}
+      <h3><a href="{{ '/news/events/'|url(alt=this.alt) }}">{{ t_meet_team }}</a></h3>
 
       <div id="carousel-events" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -109,7 +110,7 @@
     </div>
 
     <hr/>
-
+    {% endif %}
     <h2><a href="{{ '/project/projects/'|url(alt=this.alt) }}">{{ t_projects }}</a></h2>
     {% set project_types = site.query('/project/projects', alt=this.alt) %}
     {% for project_type in project_types %}
