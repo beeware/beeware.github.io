@@ -7,7 +7,7 @@
 {% block body %}
 <ul class="sitemap">
   {% for page in site.query('/', alt=this.alt) recursive %}
-  <li><a href="{{ page|url(alt=this.alt) }}">{{ page.record_label }}</a>
+  <li><a href="{{ page|url(alt=this.alt) }}">{{ page['title'] or page['name'] or page.record_label }}</a>
     {% if page.children %}
       <ul>{{ loop(page.children) }}</ul>
     {% endif %}

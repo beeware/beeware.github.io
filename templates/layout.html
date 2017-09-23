@@ -3,7 +3,7 @@
 {% macro menu_item(identifier) %}
   {% set identifier_url = '/' + identifier %}
   {% set trans_url = identifier_url|url(alt=this.alt) %}
-  {% set this_is_child = this.is_child_of(trans_url) %}
+  {% set this_is_child = this.is_child_of(identifier_url) %}
   <li class="nav-item{% if this_is_child %} active{% endif %}">
     <a class="nav-link" href="{{ trans_url }}">{{ transbag('menu', this.alt, identifier) }}{% if this_is_child %}<span class="sr-only">(current)</span>{% endif %}</a>
   </li>
@@ -72,10 +72,12 @@ ga('send', 'pageview');
      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ t_languages }} <span class="caret"></span></a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="{{ '.'|url(alt='en') }}">English</a>
+          {% set eng_active = this.alt == 'en' %}
+          <a class="dropdown-item {% if eng_active %}active{% endif %}" href="{{ '.'|url(alt='en') }}">English</a>
           {% for alt, alternative in config.ALTERNATIVES.items()|sort %}
+          {% set alt_active = alt == this.alt %}
           {% if alt != 'en' %}
-          <a class="dropdown-item" href="{{ '.'|url(alt=alt) }}">{{ alternative.name.en }}</a>
+          <a class="dropdown-item {% if alt_active %}active{% endif %}" href="{{ '.'|url(alt=alt) }}">{{ alternative.name.en }}</a>
           {% endif %}
           {% endfor %}
         </div>

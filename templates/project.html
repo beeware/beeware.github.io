@@ -14,7 +14,13 @@
 {% set t_attic_after = transbag('translate', this.alt, 'attic_after').strip() %}
 {% set t_cookie_before = transbag('translate', this.alt, 'cookie_before').strip() %}
 {% set t_cookie_after = transbag('translate', this.alt, 'cookie_after').strip() %}
- 
+{% set t_project_type = transbag('translate', this.alt, 'project_type').strip() %}
+{% set t_maturity = transbag('translate', this.alt, 'maturity').strip() %}
+{% set t_language = transbag('translate', this.alt, 'language').strip() %}
+{% set t_platform = transbag('translate', this.alt, 'platform').strip() %}
+{% set t_source_code = transbag('translate', this.alt, 'source_code').strip() %}
+{% set t_documentation = transbag('translate', this.alt, 'documentation').strip() %}
+
 {% block title %}{{ this.name }}{% endblock %}
 {% block preamble %}
 <div class="banner">
@@ -62,14 +68,14 @@
   <div class="col-sm-4">
     <div class="sidebar-module sidebar-module-inset gutter">
     <img class="img-fluid center-block" {% if this.customlogo %}src="./{{ this._id }}.png" {% else %} src="/static/images/defaultlogo.png"{% endif %}></div>
-    <p><a href="https://github.com/pybee/{{ this._id }}"><i class="fa fa-github fa-lg" aria-hidden="true"></i> Source Code</a></p>
-    {% if this.rtfd_name %}<p><a href="https://{{ this.rtfd_name }}.readthedocs.io/"><i class="fa fa-book fa-lg" aria-hidden="true"></i> Documentation</a></p>{% endif %}
+    <p><a href="https://github.com/pybee/{{ this._id }}"><i class="fa fa-github fa-lg" aria-hidden="true"></i> {{ t_source_code }}</a></p>
+    {% if this.rtfd_name %}<p><a href="https://{{ this.rtfd_name }}.readthedocs.io/"><i class="fa fa-book fa-lg" aria-hidden="true"></i> {{ t_documentation }}</a></p>{% endif %}
     <hr>
     <dl>
-        {{ badge("Project Type", this.project_type) }}
-        {{ badge("Maturity", this.maturity) }}
-        {{ badge("Language", this.languages) }}
-        {{ badge("Platform", this.platforms) }}
+        {{ badge(t_project_type, this.project_type, this.alt) }}
+        {{ badge(t_maturity, this.maturity, this.alt) }}
+        {{ badge(t_language, this.languages, this.alt) }}
+        {{ badge(t_platform, this.platforms, this.alt) }}
     </dl>
     <hr>
     <a href="https://labhr.github.io/hatrack/#repo=pybee/{{ this._id }}">{{ t_contributors }}</a>
