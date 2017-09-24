@@ -1,9 +1,11 @@
-{% macro badge(type, name) %}
+{% from "macros/translation.html" import transbag %}
+
+{% macro badge(type, name, alt) %}
 
 {% if name is string  %}
-    <dt>{{ type }}:</dt><dd>{{ bag('labels', name) }}</dd>
+    <dt>{{ type }}:</dt><dd>{{ transbag('labels', alt, name) }}</dd>
 {% else %}
-    <dt>{{ type }}:</dt><dd>{% for n in name %}{% if loop.index != 1 %}, {% endif %} {{ bag('labels', n)}}{% endfor %}</dd>
+    <dt>{{ type }}:</dt><dd>{% for n in name %}{% if loop.index != 1 %}, {% endif %} {{ transbag('labels', alt, n)|trim }}{% endfor %}</dd>
 {% endif %}
 
 <!-- <img src="badges/{{type}}/{{name}}"> -->

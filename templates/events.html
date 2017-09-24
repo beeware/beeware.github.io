@@ -31,11 +31,11 @@
 {% block main %}
 <h2>{{ t_upcoming_events }}</h2>
 {% for child in this.children.filter(F.upcoming == True) %}
-<p class="upcoming event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }} <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} {{ child.event_type}}</a></p>
+<p class="upcoming event" data-date="{{ child.date }}">{{ child.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|capitalize }} <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} {{ child.event_type}}</a></p>
 {% endfor %}
 <h2>{{ t_past_events }}</h2>
 {% for child in this.children.filter(F.upcoming == False).order_by('-date') %}
-<p class="past event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }} <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} {{child.event_type}}</a></p>
+<p class="past event" data-date="{{ child.date }}">{{ child.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|capitalize  }} <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} {{child.event_type}}</a></p>
 {% endfor %}
 {% endblock %}
 {% block gutter %}
