@@ -19,7 +19,9 @@
 {% if members %}
     <h2>Gold Members</h2>
   {% for member in members %}
-    <a href="{{ member|url(alt=this.alt) }}"><img class="img-fluid" src="./{{ member._id }}/{{ member._id }}-banner.png" alt="{{ member.name }}"></a>
+    {% if member.image %}
+    <a href="{{ member|url(alt=this.alt) }}"><img class="img-fluid" src="{{ member|url(alt='en') }}{{ member.image }}" alt="{{ member.name }}"></a>
+    {% endif %}
     <p>{{ member.description }}</p>
   {% endfor %}
 {% endif %}
@@ -28,7 +30,9 @@
 {% if members %}
     <h2>Silver Members</h2>
   {% for member in members %}
-    <a href="{{ member|url(alt=this.alt) }}"><img class="img-fluid" src="./{{ member._id }}/{{ member._id }}-large.png" alt="{{ member.name }}"></a>
+    {% if member.image %}
+    <a href="{{ member|url(alt=this.alt) }}"><img class="img-fluid" src="{{ member|url(alt='en') }}{{ member.image }}" alt="{{ member.name }}"></a>
+    {% endif %}
     <p>{{ member.description }}</p>
   {% endfor %}
 {% endif %}
@@ -37,7 +41,9 @@
 {% if members %}
     <h2>Bronze Members</h2>
   {% for member in members %}
-    <a href="{{ member|url(alt=this.alt) }}"><img class="img-fluid" src="./{{ member._id }}/{{ member._id }}-small.png" alt="{{ member.name }}"></a>
+    {% if member.image_small %}
+    <a href="{{ member|url(alt=this.alt) }}"><img class="img-fluid" src="{{ member|url(alt='en') }}{{ member.image_small }}" alt="{{ member.name }}"></a>
+    {% endif %}
     <p>{{ member.description }}</p>
   {% endfor %}
 {% endif %}
@@ -46,7 +52,9 @@
 {% if members %}
     <h2>AdHoc Members</h2>
   {% for member in members %}
-    <a href="{{ member|url(alt=this.alt) }}"><img class="img-fluid" src="./{{ member._id }}/{{ member._id }}-small.png" alt="{{ member.name }}"></a>
+    {% if member.image_small %}
+    <a href="{{ member|url(alt=this.alt) }}"><img class="img-fluid" src="{{ member|url(alt='en') }}{{ member.image_small }}" alt="{{ member.name }}"></a>
+    {% endif %}
     <p>{{ member.description }}</p>
       {% if member.contribution %}
     <p>{{ member.contribution }}</p>
@@ -78,7 +86,9 @@
 {% if members %}
   <h2>In-Kind Members</h2>
   {% for member in members %}
-    <a href="{{ member|url(alt=this.alt) }}"><img class="img-fluid" src="./{{ member._id }}/{{ member._id }}-small.png" alt="{{ member.name }}"></a>
+    {% if member.image_small %}
+    <a href="{{ member|url(alt=this.alt) }}"><img class="img-fluid" src="{{ member|url(alt='en') }}{{ member.image_small }}" alt="{{ member.name }}"></a>
+    {% endif %}
       {% if member.contribution %}
     <p>{{ member.contribution }}</p>
       {% endif %}

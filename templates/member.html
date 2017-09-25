@@ -12,7 +12,9 @@
   <div class="container">
     <p>{{ breadcrumbs(this) }}</p>
     <h2>{{ sponsorship_level(this) }}</h2>
-    <a href="{{ this.url }}"><img src="./{{ this._id }}-large.png"></a>
+    {% if this.image %} 
+    <a href="{{ this|url }}"><img src="{{ this|url(alt='en') }}{{ this.image }}"></a>
+    {% endif %}
     {% if this.level == "historical" %}
     <p class="period">{{ this.join_date.strftime("%B %Y") }} - {{ this.end_date.strftime("%B %Y") }}
     {% endif %}
