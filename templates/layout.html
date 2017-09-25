@@ -12,6 +12,7 @@
 {% set t_languages = transbag('menu', this.alt, 'languages') %}
 {% set t_sitemap = transbag('translate', this.alt, 'sitemap') %}
 {% set t_welcome = transbag('translate', this.alt, 'welcome') %}
+{% set t_open_chat = transbag('translate', this.alt, 'open_chat') %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,35 +57,34 @@ ga('send', 'pageview');
 
   </head>
   <body>
-    
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarsDefault">
-    <a class="navbar-brand" href="{{ '/'|url(alt=this.alt) }}">BeeWare</a>
-    <ul class="navbar-nav mr-auto">
-      {{ menu_item('project') }}
-      {{ menu_item('news') }}
-      {{ menu_item('community') }}
-      {{ menu_item('contributing') }}
-      {{ menu_item('contact') }}
-     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ t_languages }} <span class="caret"></span></a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          {% set eng_active = this.alt == 'en' %}
-          <a class="dropdown-item {% if eng_active %}active{% endif %}" href="{{ '.'|url(alt='en') }}">English</a>
-          {% for alt, alternative in config.ALTERNATIVES.items()|sort %}
-          {% set alt_active = alt == this.alt %}
-          {% if alt != 'en' %}
-          <a class="dropdown-item {% if alt_active %}active{% endif %}" href="{{ '.'|url(alt=alt) }}">{{ alternative.name.en }}</a>
-          {% endif %}
-          {% endfor %}
-        </div>
-      </li>
-    </ul>
-  </div>
-  </nav>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" style="z-index:100;">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsDefault">
+        <a class="navbar-brand" href="{{ '/'|url(alt=this.alt) }}">BeeWare</a>
+        <ul class="navbar-nav mr-auto">
+          {{ menu_item('project') }}
+          {{ menu_item('news') }}
+          {{ menu_item('community') }}
+          {{ menu_item('contributing') }}
+          {{ menu_item('contact') }}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ t_languages }} <span class="caret"></span></a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              {% set eng_active = this.alt == 'en' %}
+              <a class="dropdown-item {% if eng_active %}active{% endif %}" href="{{ '.'|url(alt='en') }}">English</a>
+              {% for alt, alternative in config.ALTERNATIVES.items()|sort %}
+              {% set alt_active = alt == this.alt %}
+              {% if alt != 'en' %}
+              <a class="dropdown-item {% if alt_active %}active{% endif %}" href="{{ '.'|url(alt=alt) }}">{{ alternative.name.en }}</a>
+              {% endif %}
+              {% endfor %}
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
     <div class="content">
       {% block preamble %}{% endblock %}
@@ -92,17 +92,38 @@ ga('send', 'pageview');
         {% block body %}{% endblock %}
       </div>
     </div>
+    <br />
+
+    <button class="js-gitter-toggle-chat-button gitter-custom-button">{{ t_open_chat }}</button>
 
     <footer class="footer">
       <div class="container text-muted">
-        <div class="float-right clearfix">&copy; Russell Keith-Magee 2017</div>
-        <p><a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
-        <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
-        <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
-        <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ t_sitemap }}</a>
-        </p>
+        <div class="row">
+          <div class="col-md-12 col-centered text-center">
+            <p>
+              <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+              <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+              <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
+              <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ t_sitemap }}</a>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-centered text-center">
+            <div class="text-center">&copy; Russell Keith-Magee 2017</div>
+            <br />
+          </div>
+         </div>
       </div>
     </footer>
+
+    <script>
+      ((window.gitter = {}).chat = {}).options = {
+        room: 'PyBee/General',
+        activationElement: '.gitter-button',
+        };
+    </script>
+    <script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
 
     <!-- jQuery first, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
