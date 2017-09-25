@@ -1,15 +1,19 @@
 language: python
+
 python: 2.7
-branches:
-  only:
-    - lektor
+
 cache:
   directories:
     - $HOME/.cache/pip
     - $HOME/.cache/lektor/builds
+
 install:
-  - pip install git+https://github.com/singingwolfboy/lektor.git@fix-ghpages-https-deploy#egg=lektor
-script: "lektor build --no-prune"
+  - pip install beautifulsoup4 lektor requests
+
+script:
+  - "python scripts/check_links.py"
+  - "lektor build --no-prune"
+
 deploy:
   provider: script
   script: "lektor deploy ghpages-https"
