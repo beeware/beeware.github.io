@@ -12,6 +12,7 @@
 {% set t_languages = transbag('menu', this.alt, 'languages') %}
 {% set t_sitemap = transbag('translate', this.alt, 'sitemap') %}
 {% set t_welcome = transbag('translate', this.alt, 'welcome') %}
+{% set t_edit_on_github = transbag('translate', this.alt, 'edit_on_github') %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,6 +83,16 @@ ga('send', 'pageview');
           {% endfor %}
         </div>
       </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        {% set extra_slash = '/' if this.path[-1] != '/' else '' %}
+        {% set alt_path = '+' + this.alt if this.alt and this.alt != 'en' else '' %}
+        {# set trans_available = this.contents != site.get(this.path).contents.as_text() #}
+        <li class="small">
+          <a href="https://github.com/pybee/pybee.github.io/edit/lektor/content{{ this.path }}{{ extra_slash }}contents{{ alt_path }}.lr">
+            <i class="fa fa-github "></i><small>{{ t_edit_on_github }}</small>
+          </a>
+        </li>
     </ul>
   </div>
   </nav>
