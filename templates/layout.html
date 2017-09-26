@@ -84,16 +84,20 @@ ga('send', 'pageview');
         </div>
       </li>
     </ul>
+    {# This method is provided by a custom plugin found in /packages/lektor_pybee_plugin/ #}
+    {% if is_alt_content_available('hello') %}
+    {% endif %}
+    {% if is_alt_content_available(this) %}
     <ul class="nav navbar-nav navbar-right">
         {% set extra_slash = '/' if this.path[-1] != '/' else '' %}
         {% set alt_path = '+' + this.alt if this.alt and this.alt != 'en' else '' %}
-        {# set trans_available = this.contents != site.get(this.path).contents.as_text() #}
         <li class="small">
           <a href="https://github.com/pybee/pybee.github.io/edit/lektor/content{{ this.path }}{{ extra_slash }}contents{{ alt_path }}.lr">
             <i class="fa fa-github "></i><small>{{ t_edit_on_github }}</small>
           </a>
         </li>
     </ul>
+    {% endif %}
   </div>
   </nav>
 
