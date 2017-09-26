@@ -77,7 +77,7 @@ ga('send', 'pageview');
           <a class="dropdown-item {% if eng_active %}active{% endif %}" href="{{ '.'|url(alt='en') }}">English</a>
           {% for alt, alternative in config.ALTERNATIVES.items()|sort %}
           {% set alt_active = alt == this.alt %}
-          {% if alt != 'en' %}
+          {% if alt != config.primary_alternative %}
           <a class="dropdown-item {% if alt_active %}active{% endif %}" href="{{ '.'|url(alt=alt) }}">{{ alternative.name.en }}</a>
           {% endif %}
           {% endfor %}
