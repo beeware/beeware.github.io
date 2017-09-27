@@ -117,7 +117,7 @@
     {% for project_type in project_types %}
     {%   for project in site.query(project_type.path, alt=this.alt).filter(F.showcase==True) %}
     <div>
-      <h4><a href="{{ project|url(alt=this.alt) }}"><img src="{{ project|url(alt='en')}}{{ project.image }}" height="32px" alt="{{ project.name }}"> {{ project.name }}</h4></a>
+      <h4><a href="{{ project|url(alt=this.alt) }}"><img src="{{ site.get(project.path)|url }}{{ project.image }}" height="32px" alt="{{ project.name }}"> {{ project.name }}</h4></a>
       {{ project.short_description|string|wordwrap(width=40, wrapstring='<br>')|safe }}
     </div>
     {%   endfor %}
