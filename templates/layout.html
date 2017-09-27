@@ -14,6 +14,9 @@
 {% set t_welcome = transbag('translate', this.alt, 'welcome') %}
 {% set t_edit_on_github = transbag('translate', this.alt, 'edit_on_github') %}
 {% set t_create_on_github = transbag('translate', this.alt, 'create_on_github') %}
+{% set t_translation_out_of_date = transbag('translate', this.alt, 'translation_out_of_date') %}
+{% set t_see_original_content = transbag('translate', this.alt, 'see_original_content') %}
+{% set t_update_translation = transbag('translate', this.alt, 'update_translation') %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -89,9 +92,9 @@ ga('send', 'pageview');
         {% set extra_slash = '/' if this.path[-1] != '/' else '' %}
         {% set alt_path = '%2B' + this.alt if this.alt and this.alt != 'en' else '' %}
         <li class="small">
-        {# This method is provided by a custom plugin found in /packages/lektor_pybee_plugin/ #}
-        {% if is_alt_content_available(this) %}
-          <a href="https://github.com/pybee/pybee.github.io/edit/lektor/content{{ this.path }}{{ extra_slash }}contents{{ alt_path }}.lr" target="_blank">
+        {% if this.alt in get_alts(source=this, fallback=False) %}
+          {% set edit_link = 'https://github.com/pybee/pybee.github.io/edit/lektor/content' + this.path.split('@')[0] + extra_slash + 'contents' + alt_path + '.lr' %}
+          <a href="{{ edit_link }}" target="_blank">
             <i class="fa fa-github "></i><small>&nbsp;{{ t_edit_on_github }}</small>
           </a>
         {% else %}
@@ -108,8 +111,15 @@ ga('send', 'pageview');
   </div>
   </nav>
     <div class="content">
-      {% block preamble %}{% endblock %}
+      {% block preamble %}
+      {% endblock %}
       <div class="container">
+        {% if this.alt in get_alts(source=this, fallback=False) and is_alt_outdated(this) %}
+        <div class="alert alert-warning">
+          <i class="fa fa-warning"></i>&nbsp;{{ t_translation_out_of_date }}&nbsp;&nbsp;
+          <a href="{{ site.get(this.path)|url }}" target="_blank">{{ t_see_original_content }}</a> | <a href="{{ edit_link }}" target="_blank">{{ t_update_translation }}</a>
+        </div>
+        {% endif %}
         {% block body %}{% endblock %}
       </div>
     </div>
