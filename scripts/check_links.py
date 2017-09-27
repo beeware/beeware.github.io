@@ -28,6 +28,7 @@ except ImportError:
 HERE = os.path.abspath(os.path.dirname(__file__))
 REPO = os.path.dirname(HERE)
 TIMEOUT = 10  # Seconds
+WHITELIST = ['https://github.com/pybee/pybee.github.io/edit/lektor/content/']
 
 
 def normalize_url(url, root_url):
@@ -168,6 +169,11 @@ def run_link_checks(root_path, root_url):
     print('\nChecking links\n'.format(issues, plural))
     counter = 0
     for link in sorted(link_files):
+        # Ignore `edit content on github` broken links (not existing alt files)
+        # while lektor provides a fix
+        if any(link.startswith(i) for i in WHITELIST):
+            continue
+
         fpaths = link_files[link]
         check = check_link(link, root_url, root_path)
         if check:
