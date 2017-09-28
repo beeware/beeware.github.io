@@ -17,6 +17,7 @@
 {% set t_translation_out_of_date = transbag('translate', this.alt, 'translation_out_of_date') %}
 {% set t_see_original_content = transbag('translate', this.alt, 'see_original_content') %}
 {% set t_update_translation = transbag('translate', this.alt, 'update_translation') %}
+{% set diff = alt_outdated_diff(this) %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,6 +43,11 @@
     <!-- Project CSS -->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cutive">
     <link rel="stylesheet" type="text/css" href="/static/beeware.css">
+
+    {%- if diff -%}
+    <!-- Project CSS -->
+    {{ get_pygments_css_styles('default')|safe }}
+    {%- endif -%}
 
     <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/1138bd8363.js"></script>
@@ -114,11 +120,40 @@ ga('send', 'pageview');
       {% block preamble %}
       {% endblock %}
       <div class="container">
-        {% if this.alt in get_alts(source=this, fallback=False) and is_alt_outdated(this) %}
+        {% if this.alt in get_alts(source=this, fallback=False) and diff %}
         <div class="alert alert-warning">
           <i class="fa fa-warning"></i>&nbsp;{{ t_translation_out_of_date }}&nbsp;&nbsp;
-          <a href="{{ site.get(this.path)|url }}" target="_blank">{{ t_see_original_content }}</a> | <a href="{{ edit_link }}" target="_blank">{{ t_update_translation }}</a>
+          <a href="{{ site.get(this.path)|url }}" data-toggle="modal" data-target="#myModal">{{ t_see_original_content }}</a>
         </div>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                  <a href="{{ edit_link }}" target="_blank">
+                    <i class="fa fa-github "></i>&nbsp;{{ t_update_translation }}
+                  </a>
+                </h4>
+              </div>
+                <small>
+                {{- diff|safe -}}
+                </small>
+              <div class="modal-body">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+        
+          </div>
+        </div>
+        <!-- End modal -->
+
         {% endif %}
         {% block body %}{% endblock %}
       </div>
