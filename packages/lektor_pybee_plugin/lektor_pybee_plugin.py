@@ -26,6 +26,7 @@ class PyBeePlugin(Plugin):
     description = 'This is a custom local plugin to add extra functionality.'
 
     DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
+    EXECUTE_CACHE = {}
 
     def on_setup_env(self, **extra):
 
@@ -33,22 +34,31 @@ class PyBeePlugin(Plugin):
         # ---------------------------------------------------------------------
         def execute(cmd):
             """Execute a cmd (list) and return the stdout and stderr."""
-            stdout, stderr = None, None
-            try:
-                p = subprocess.Popen(cmd, stdout=subprocess.PIPE,
-                                     stderr=subprocess.PIPE)
-                stdout, stderr = p.communicate()
+            joined_cmd = ' '.join(cmd)
+            if joined_cmd in self.EXECUTE_CACHE:
+                stdout, stderr = self.EXECUTE_CACHE[joined_cmd]
+            else:
+                stdout, stderr = None, None
+                try:
+                    p = subprocess.Popen(cmd, stdout=subprocess.PIPE,
+                                         stderr=subprocess.PIPE)
+                    stdout, stderr = p.communicate()
 
-                if PY3:
-                    if stdout:
-                        stdout = stdout.decode()
-                    if stderr:
-                        stderr = stderr.decode()
+                    if PY3:
+                        if stdout:
+                            stdout = stdout.decode()
+                        if stderr:
+                            stderr = stderr.decode()
 
-            except OSError:
-                print('\nCommand not found!\n')
-            except Exception as e:
-                print(e)
+                except OSError:
+                    print('\nCommand not found!\n')
+                    print(joined_cmd)
+                    print('\n')
+                except Exception as e:
+                    print(e)
+                    print('\n')
+
+                self.EXECUTE_CACHE[joined_cmd] = (stdout, stderr)
 
             return stdout, stderr
 
