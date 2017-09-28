@@ -76,8 +76,7 @@ class PyBeePlugin(Plugin):
 
         def git_diff(filepath, since):
             """Get git diff for a given `filepath` `since` a given date."""
-            diff = None
-
+            html_diff = None
             commits = git_commits(filepath, since)
             if commits:
                 cmd = ('git', '--no-pager', 'diff', commits[-1]+'^', '--',
@@ -86,12 +85,13 @@ class PyBeePlugin(Plugin):
 
                 if stdout:
                     diff = unicode(stdout, 'utf-8')
+                    html_diff = highlight(diff, lexers.DiffLexer(),
+                                          HtmlFormatter())
 
-                # print(' '.join(cmd))
-                # print(diff)
-                # print('\n')
+                    # print(' '.join(cmd))
+                    # print(diff)
+                    # print('\n')
 
-            html_diff = highlight(diff, lexers.DiffLexer(), HtmlFormatter())
             return html_diff
 
         def git_modified_date(filepath):
