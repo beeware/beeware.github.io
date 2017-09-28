@@ -10,14 +10,10 @@ cache:
 
 install:
   # Lektor build dependencies
-  - pip install lektor pygments
+  - pip install beautifulsoup4 lektor pygments requests
 
 script:
-  # Only do the checks if this build is the pull request not the merge!
-  - if [[ $TRAVIS_PULL_REQUEST == "true" ]] && [[ $TRAVIS_BRANCH == "lektor" ]]; then
-      "pip install beautifulsoup4 requests"  # Additional test dependencies
-      "python scripts/check_links.py";
-    fi
+  - "python scripts/check_links.py"
   - "lektor plugins reinstall"
   - "lektor build --no-prune"
 
