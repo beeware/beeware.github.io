@@ -28,7 +28,10 @@ except ImportError:
 HERE = os.path.abspath(os.path.dirname(__file__))
 REPO = os.path.dirname(HERE)
 TIMEOUT = 10  # Seconds
-WHITELIST = ['https://github.com/pybee/pybee.github.io/edit/lektor/content/']
+WHITELIST = [
+    'https://github.com/pybee/pybee.github.io/edit/lektor/content/',
+    'https://github.com/pybee/pybee.github.io/new/lektor/content/'
+]
 
 
 def normalize_url(url, root_url):
