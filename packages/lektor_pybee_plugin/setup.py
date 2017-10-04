@@ -13,6 +13,7 @@ setup(
     version='0.1',
     license='MIT',
     py_modules=['lektor_pybee_plugin'],
+    install_requires=['Lektor', 'MarkupSafe', 'Pygments'],
     entry_points={
         'lektor.plugins': [
             'pybee-plugin = lektor_pybee_plugin:PyBeePlugin',

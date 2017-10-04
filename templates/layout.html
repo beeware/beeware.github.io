@@ -1,22 +1,23 @@
-{% from "macros/translation.html" import transbag %}
+{%- from "macros/translation.html" import transbag -%}
 
-{% macro menu_item(identifier) %}
-  {% set identifier_url = '/' + identifier %}
-  {% set trans_url = identifier_url|url(alt=this.alt) %}
-  {% set this_is_child = this.is_child_of(identifier_url) %}
+{%- macro menu_item(identifier) -%}
+  {%- set identifier_url = '/' + identifier -%}
+  {%- set trans_url = identifier_url|url(alt=this.alt) -%}
+  {%- set this_is_child = this.is_child_of(identifier_url) -%}
   <li class="nav-item{% if this_is_child %} active{% endif %}">
-    <a class="nav-link" href="{{ trans_url }}">{{ transbag('menu', this.alt, identifier) }}{% if this_is_child %}<span class="sr-only">(current)</span>{% endif %}</a>
+    <a class="nav-link" href="{{ trans_url }}">{{- transbag('menu', this.alt, identifier) -}}{%- if this_is_child -%}<span class="sr-only">(current)</span>{%- endif -%}</a>
   </li>
-{% endmacro %}
+{%- endmacro -%}
 
-{% set t_languages = transbag('menu', this.alt, 'languages') %}
-{% set t_sitemap = transbag('translate', this.alt, 'sitemap') %}
-{% set t_welcome = transbag('translate', this.alt, 'welcome') %}
-{% set t_edit_on_github = transbag('translate', this.alt, 'edit_on_github') %}
-{% set t_create_on_github = transbag('translate', this.alt, 'create_on_github') %}
-{% set t_translation_out_of_date = transbag('translate', this.alt, 'translation_out_of_date') %}
-{% set t_see_original_content = transbag('translate', this.alt, 'see_original_content') %}
-{% set t_update_translation = transbag('translate', this.alt, 'update_translation') %}
+{%- set t_languages = transbag('menu', this.alt, 'languages') -%}
+{%- set t_sitemap = transbag('translate', this.alt, 'sitemap') -%}
+{%- set t_welcome = transbag('translate', this.alt, 'welcome') -%}
+{%- set t_edit_on_github = transbag('translate', this.alt, 'edit_on_github') -%}
+{%- set t_create_on_github = transbag('translate', this.alt, 'create_on_github') -%}
+{%- set t_translation_out_of_date = transbag('translate', this.alt, 'translation_out_of_date') -%}
+{%- set t_see_original_content = transbag('translate', this.alt, 'see_original_content') -%}
+{%- set t_update_translation = transbag('translate', this.alt, 'update_translation') -%}
+{%- set diff = alt_outdated_diff(this) -%}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +27,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>{% block title %}{{ t_welcome }}{% endblock %} — BeeWare</title>
+    <title>{%- block title %}{{- t_welcome -}}{% endblock -%} — BeeWare</title>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
@@ -43,6 +44,11 @@
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cutive">
     <link rel="stylesheet" type="text/css" href="/static/beeware.css">
 
+    {%- if diff -%}
+    <!-- Project CSS -->
+    {{- get_pygments_css_styles('default')|safe -}}
+    {%- endif -%}
+
     <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/1138bd8363.js"></script>
 
@@ -57,7 +63,7 @@ ga('create', 'UA-2943925-4', 'pybee.org');
 ga('send', 'pageview');
     </script>
 
-    {% block extra_head %}{% endblock %}
+    {%- block extra_head -%}{%- endblock -%}
 
   </head>
   <body>
@@ -77,50 +83,79 @@ ga('send', 'pageview');
      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ t_languages }} <span class="caret"></span></a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          {% set eng_active = this.alt == 'en' %}
+          {%- set eng_active = this.alt == 'en' %}
           <a class="dropdown-item {% if eng_active %}active{% endif %}" href="{{ '.'|url(alt='en') }}">English</a>
-          {% for alt, alternative in config.ALTERNATIVES.items()|sort %}
-          {% set alt_active = alt == this.alt %}
-          {% if alt != config.primary_alternative %}
+          {%- for alt, alternative in config.ALTERNATIVES.items()|sort -%}
+          {%- set alt_active = alt == this.alt -%}
+          {%- if alt != config.primary_alternative -%}
           <a class="dropdown-item {% if alt_active %}active{% endif %}" href="{{ '.'|url(alt=alt) }}">{{ alternative.name.en }}</a>
-          {% endif %}
-          {% endfor %}
+          {%- endif -%}
+          {%- endfor -%}
         </div>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        {% set extra_slash = '/' if this.path[-1] != '/' else '' %}
-        {% set alt_path = '%2B' + this.alt if this.alt and this.alt != 'en' else '' %}
+        {%- set extra_slash = '/' if this.path[-1] != '/' else '' -%}
+        {%- set alt_path = '%2B' + this.alt if this.alt and this.alt != 'en' else '' -%}
         <li class="small">
-        {% if this.alt in get_alts(source=this, fallback=False) %}
-          {% set edit_link = 'https://github.com/pybee/pybee.github.io/edit/lektor/content' + this.path.split('@')[0] + extra_slash + 'contents' + alt_path + '.lr' %}
+        {%- if this.alt in get_alts(source=this, fallback=False) -%}
+          {%- set edit_link = 'https://github.com/pybee/pybee.github.io/edit/lektor/content' + this.path.split('@')[0] + extra_slash + 'contents' + alt_path + '.lr' -%}
           <a href="{{ edit_link }}" target="_blank">
             <i class="fa fa-github "></i><small>&nbsp;{{ t_edit_on_github }}</small>
           </a>
-        {% else %}
+        {%- else -%}
           {# This method is provided by a custom plugin found in /packages/lektor_pybee_plugin/ #}
-          {% set content_value = urlencode_limit(site.get(this.path).contents.as_text(), limit=5000) %}
-          {% if content_value and '@' not in this.path %}
+          {%- set content_value = urlencode_limit(site.get(this.path).contents.as_text(), limit=5000) -%}
+          {%- if content_value and '@' not in this.path -%}
           <a href="https://github.com/pybee/pybee.github.io/new/lektor/content{{ this.path }}/contents{{ alt_path }}.lr?filename=contents{{ alt_path }}.lr&value={{ content_value }}" target="_blank">
             <i class="fa fa-github "></i><small>&nbsp;{{ t_create_on_github }}</small>
           </a>
-          {% endif %}
-        {% endif %}
+          {%- endif -%}
+        {%- endif -%}
         </li>
     </ul>
   </div>
   </nav>
     <div class="content">
-      {% block preamble %}
-      {% endblock %}
+      {%- block preamble -%}
+      {%- endblock -%}
       <div class="container">
-        {% if this.alt in get_alts(source=this, fallback=False) and is_alt_outdated(this) %}
+        {%- if this.alt in get_alts(source=this, fallback=False) and diff -%}
         <div class="alert alert-warning">
           <i class="fa fa-warning"></i>&nbsp;{{ t_translation_out_of_date }}&nbsp;&nbsp;
-          <a href="{{ site.get(this.path)|url }}" target="_blank">{{ t_see_original_content }}</a> | <a href="{{ edit_link }}" target="_blank">{{ t_update_translation }}</a>
+          <a href="{{ site.get(this.path)|url }}" data-toggle="modal" data-target="#myModal">{{ t_see_original_content }}</a>
         </div>
-        {% endif %}
-        {% block body %}{% endblock %}
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                  <a href="{{ edit_link }}" target="_blank">
+                    <i class="fa fa-github "></i>&nbsp;{{ t_update_translation }}
+                  </a>
+                </h4>
+              </div>
+              <div class="modal-body">
+                <small>
+                {{- diff|safe -}}
+                </small>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            <!-- End Modal content -->
+          </div>
+        </div>
+        <!-- End Modal -->
+
+        {%- endif -%}
+        {%- block body -%}{%- endblock -%}
       </div>
     </div>
 
@@ -142,6 +177,6 @@ ga('send', 'pageview');
     <script src="/static/tether-1.3.3/js/tether.min.js"></script>
     <script src="/static/bootstrap/js/bootstrap.min.js"></script>
 
-    {% block extra_script %}{% endblock %}
+    {%- block extra_script -%}{%- endblock -%}
   </body>
 </html>

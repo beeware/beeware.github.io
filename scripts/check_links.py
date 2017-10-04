@@ -28,11 +28,15 @@ except ImportError:
 HERE = os.path.abspath(os.path.dirname(__file__))
 REPO = os.path.dirname(HERE)
 TIMEOUT = 10  # Seconds
-WHITELIST = ['https://github.com/pybee/pybee.github.io/edit/lektor/content/']
+TIMEOUT_RETRIES = 3  # Amount of retries on link check when ReadTimeOut error
+WHITELIST = [
+    'https://github.com/pybee/pybee.github.io/edit/lektor/content/',
+    'https://github.com/pybee/pybee.github.io/new/lektor/content/'
+]
 
 
 def normalize_url(url, root_url):
-    """"""
+    """Normalize a url based on a site root url"""
     if url.startswith(('http')):
         norm_link = url
     elif url.startswith('mailto'):
@@ -120,6 +124,9 @@ def check_link(url, root_url, root_path):
     else:
         res = None
 
+    if res:
+        res = str(res)
+
     return res
 
 
@@ -168,14 +175,25 @@ def run_link_checks(root_path, root_url):
     print('\n\nFound {0} unique link{1}!\n'.format(issues, plural))
     print('\nChecking links\n'.format(issues, plural))
     counter = 0
-    for link in sorted(link_files):
-        # Ignore `edit content on github` broken links (not existing alt files)
-        # while lektor provides a fix
+    for i, link in enumerate(sorted(link_files)):
+        # Ignore `edit content on github` links as they would take too long
         if any(link.startswith(i) for i in WHITELIST):
             continue
 
+        # sys.stdout.write("{0}\r".format(i))
+        # sys.stdout.flush()
         fpaths = link_files[link]
-        check = check_link(link, root_url, root_path)
+
+        for j in range(TIMEOUT_RETRIES):
+            check = check_link(link, root_url, root_path)
+            if check:
+                if 'ReadTimeout' in check:
+                    print('\nRetrying...\n')
+                else:
+                    break
+            else:
+                break
+
         if check:
             print('\n\nError number: {0}'.format(counter))
             print('Status code or error type: {0}'.format(check))

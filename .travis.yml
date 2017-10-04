@@ -1,3 +1,4 @@
+# https://travis-ci.org/pybee/pybee.github.io/builds
 language: python
 
 python: 2.7
@@ -8,10 +9,12 @@ cache:
     - $HOME/.cache/lektor/builds
 
 install:
-  - pip install beautifulsoup4 lektor requests
+  # Lektor build dependencies
+  - pip install beautifulsoup4 lektor pygments requests
 
 script:
   - "python scripts/check_links.py"
+  - "lektor plugins reinstall"
   - "lektor build --no-prune"
 
 deploy:
