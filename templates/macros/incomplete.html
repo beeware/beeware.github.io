@@ -1,7 +1,7 @@
 {% from "macros/translation.html" import transbag %}
 
 {% macro incomplete(page) %}
-  {% if page.incomplete %}
+  {% if page.incomplete or page|is_using_fallback_alt %}
   {% set t_text = transbag('translate', page.alt, 'incomplete_text').strip() %}
   {% set t_link = transbag('translate', page.alt, 'incomplete_link').strip() %}
   {% set t_after = transbag('translate', page.alt, 'incomplete_after_link_text').strip() %}
