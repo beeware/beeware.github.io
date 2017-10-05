@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">El Zumbido</title>
+  <id>urn:uuid:ea67f575-8130-3369-abc3-1449f0cc2655</id>
+  <updated>2017-08-25T00:00:00Z</updated>
+  <link href="http://pybee.org/zh_TW/news/buzz/" />
+  <link href="http://pybee.org/es/noticias/zumbido/atom.xml" rel="self" />
+  <author>
+    <name></name>
+  </author>
+  <subtitle type="text">BeeWare's official blog</subtitle>
+  <generator uri="https://github.com/ajdavis/lektor-atom" version="0.2">Lektor Atom Plugin</generator>
+  <entry xml:base="http://pybee.org/es/noticias/zumbido/2017-google-summer-of-code-informe-final-dayanne-fernandes/">
+    <title type="text">2017 Google Summer of Code - Portar Cricket a Toga, en lugar de Tkinter</title>
+    <id>urn:uuid:bc4e55c5-27ff-3d6f-8d0d-4886ba1e071c</id>
+    <updated>2017-08-25T00:00:00Z</updated>
+    <link href="http://pybee.org/es/noticias/zumbido/2017-google-summer-of-code-informe-final-dayanne-fernandes/" />
+    <author>
+      <name>Dayanne Fernandes</name>
+    </author>
+    <content type="html">&lt;p&gt;Después de casi 4 meses de trabajo en &lt;a class=&quot;reference external&quot; href=&quot;https://developers.google.com/open-source/gsoc/&quot;&gt;Google Summer of Code&lt;/a&gt; 2017, finalmente estoy completando mi propuesta. Cada migración de widget y cada commit / PR / Issues / discusión con mis mentores sobre &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/tools/cricket/&quot;&gt;Cricket&lt;/a&gt;, &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt; y &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/bridges/rubicon/&quot;&gt;rubicon-objc&lt;/a&gt; fueron detallados en el &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/cricket/issues/58&quot;&gt;Issue 58&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;section&quot; id=&quot;comer-su-propia-comida-para-perros&quot;&gt;
+&lt;h2&gt;&amp;quot;Comer su propia comida para perros&amp;quot;&lt;/h2&gt;
+&lt;p&gt;La mejor manera de demostrar que un producto es confiable para los clientes es usarlo. Por lo tanto, la forma de demostrar que &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt; es una herramienta eficaz para construir una interfaz gráfica de usuario es construir una aplicación completa que la utilice.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/tools/cricket/&quot;&gt;Cricket&lt;/a&gt; es una herramienta gráfica que le ayuda a ejecutar sus suites de prueba. Su versión actual se implementa utilizando &lt;a class=&quot;reference external&quot; href=&quot;https://docs.python.org/2/library/tkinter.html&quot;&gt;Tkinter&lt;/a&gt; como el marco de la interfaz gráfica principal. Entonces, ¿por qué no probar &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt; dentro de otro producto de &lt;a class=&quot;reference external&quot; href=&quot;/es/&quot;&gt;BeeWare&lt;/a&gt;? Eso es lo que he logrado durante mi trabajo de GSoC.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;resultados&quot;&gt;
+&lt;h2&gt;Resultados&lt;/h2&gt;
+&lt;p&gt;La propuesta se centra no sólo en el puerto de &lt;a class=&quot;reference external&quot; href=&quot;https://docs.python.org/2/library/tkinter.html&quot;&gt;Tkinter&lt;/a&gt; a &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt;, sino en la asignación de los widgets necesarios para una aplicación real utilizando &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt;. Para ayudarme a mapear esto he estudiado más sobre &lt;a class=&quot;reference external&quot; href=&quot;https://docs.python.org/2/library/tkinter.html&quot;&gt;Tkinter&lt;/a&gt;, &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt;, &lt;a class=&quot;reference external&quot; href=&quot;/es/proyecto/proyectos/librerias/colosseum/&quot;&gt;Colosseum&lt;/a&gt;, &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/bridges/rubicon/&quot;&gt;rubicon-objc&lt;/a&gt;, &lt;a class=&quot;reference external&quot; href=&quot;https://developer.apple.com/documentation/objectivec&quot;&gt;Objective-C&lt;/a&gt;, &lt;a class=&quot;reference external&quot; href=&quot;http://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/Cocoa.html&quot;&gt;Cocoa&lt;/a&gt; y &lt;a class=&quot;reference external&quot; href=&quot;https://www.w3.org/Style/CSS/&quot;&gt;CSS&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;El trabajo que hice durante GSoC se envió a través del &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/cricket/pull/65&quot;&gt;PR 65&lt;/a&gt;, el informe en el &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/cricket/issues/58&quot;&gt;Issue 58&lt;/a&gt; y la demostración final se puede ver en este &lt;a class=&quot;reference external&quot; href=&quot;https://youtu.be/5kz_CmQYFYE&quot;&gt;link&lt;/a&gt;. Había widgets utilizados en &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/tools/cricket/&quot;&gt;Cricket&lt;/a&gt; que no estaban listos todavía en &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt;, por lo que era necesario hacer algunas mejoras en &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt; para que pudiera usarlas en &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/tools/cricket/&quot;&gt;Cricket&lt;/a&gt;. En resumen, aquí hay algunos PR que contribuí para hacer mi trabajo en &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/tools/cricket/&quot;&gt;Cricket&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;PR abierto enviado a &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt;:&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/201&quot;&gt;PR 201&lt;/a&gt; : [Core][Cocoa] Refactoring of the Tree widget&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;PRs emergidos enviados &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt;:&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/112&quot;&gt;PR 112&lt;/a&gt; : [Core][Cocoa] Enable/disable state for buttons, solved &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/91&quot;&gt;Issue 91&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/170&quot;&gt;PR 170&lt;/a&gt; : [Cocoa] Content and retry status for stack trace dialog&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/172&quot;&gt;PR 172&lt;/a&gt; : [Cocoa] Window resize&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/173&quot;&gt;PR 173&lt;/a&gt; : [Core][Cocoa] Button color&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/174&quot;&gt;PR 174&lt;/a&gt; : [Doc] Examples folder and button features example&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/178&quot;&gt;PR 178&lt;/a&gt; : [Doc] Fix tutorial 2 setup&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/180&quot;&gt;PR 180&lt;/a&gt; : [Doc] Update &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt; widgets roadmap&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/182&quot;&gt;PR 182&lt;/a&gt; : [Cocoa] Update the label of the Stack trace button for critical dialog&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/184&quot;&gt;PR 184&lt;/a&gt; : [Core][Cocoa] Hide/show boxes widget&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/188&quot;&gt;PR 188&lt;/a&gt; : [Cocoa] Fix error on MultilineTextInput widget, solved &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/187&quot;&gt;Issue 187&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/204&quot;&gt;PR 204&lt;/a&gt; : [Core][Cocoa] Clear method to MultilineTextInput widget, solved &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/203&quot;&gt;Issue 203&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/206&quot;&gt;PR 206&lt;/a&gt; : [Core][Cocoa] Readonly and placeholder for MultilineTextInput widget&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/208&quot;&gt;PR 208&lt;/a&gt; : [Cocoa] Fix apply style to a SplitContainer widget, solved &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/207&quot;&gt;Issue 207&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;PRs emergidos enviados &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/tools/cricket/&quot;&gt;Cricket&lt;/a&gt;:&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/cricket/pull/60&quot;&gt;PR 60&lt;/a&gt; : Fix test coverage, solved &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/cricket/issues/59&quot;&gt;Issue 59&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;PRs emergidos enviados &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/bridges/rubicon/&quot;&gt;rubicon-objc&lt;/a&gt;:&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/rubicon-objc/pull/34&quot;&gt;PR 34&lt;/a&gt; : [Doc] Add reference to NSObject&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tiquetes abiertos enviados a &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt;:&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/175&quot;&gt;Issue 175&lt;/a&gt; : [Core] Add more properties for Label and Font widgets&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/176&quot;&gt;Issue 176&lt;/a&gt; : [Core] Add &amp;quot;rehint()&amp;quot; on the background of the widget after changing font size&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/186&quot;&gt;Issue 186&lt;/a&gt; : [Core] Set initial position of the divisor of a SplitContainer&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/197&quot;&gt;Issue 197&lt;/a&gt; : [Core] Get the id of the selected Tab View on the OptionContainer&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tiquetes cerrados en &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt;:&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/167&quot;&gt;Issue 167&lt;/a&gt; : [Cocoa] Addition of a SplitContainer on a Box doesn't show the SplitContainer, was fixed by &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/freakboy3742&quot;&gt;Russell Keith-Magee&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/168&quot;&gt;Issue 168&lt;/a&gt; : [Cocoa] Addition of 2 boxes on an OptionContainer emits Rubicon's error, was fixed by &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/freakboy3742&quot;&gt;Russell Keith-Magee&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/169&quot;&gt;Issue 169&lt;/a&gt; : [Cocoa] Addition of 2 empty boxes on an OptionContainer emits error from &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt; Cocoa platform, was fixed by &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/freakboy3742&quot;&gt;Russell Keith-Magee&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/181&quot;&gt;Issue 181&lt;/a&gt; : [Core][Cocoa] &amp;quot;Hide&amp;quot; option for widgets, was solved by me&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/187&quot;&gt;Issue 187&lt;/a&gt; : [Cocoa] Errors on MultilineTextInput, was fixed by me&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/189&quot;&gt;Issue 189&lt;/a&gt; : [Cocoa] ProgressBar doesn't appears in a Box, was fixed by &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/Ocupe&quot;&gt;Jonas Schell&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/194&quot;&gt;Issue 194&lt;/a&gt; : [Cocoa] The frame of the MultilineTextInput doesn't appear, was fixed by &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/freakboy3742&quot;&gt;Russell Keith-Magee&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/195&quot;&gt;Issue 195&lt;/a&gt; : [Cocoa] ProgressBar doesn't appear inside of a Box oriented by row, was fixed by &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/freakboy3742&quot;&gt;Russell Keith-Magee&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/196&quot;&gt;Issue 196&lt;/a&gt; : [Cocoa] Set max value and value on a ProgressBar doesn't make any effect on the layout, was fixed by &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/freakboy3742&quot;&gt;Russell Keith-Magee&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/203&quot;&gt;Issue 203&lt;/a&gt; : [Core][Cocoa] Clear text on MultilineTextInput widget, was solved by me&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/207&quot;&gt;Issue 207&lt;/a&gt; : [Cocoa] Set SplitContainer height doesn't update its size, was solved by me&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tiquetes cerrados que no reporté pero que resolví en &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt;:&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/91&quot;&gt;Issue 91&lt;/a&gt; : API to disable buttons?&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/205&quot;&gt;Issue 205&lt;/a&gt; : adding MultiviewTextInput results in TypeError&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tiquete cerrado que reporté a &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/tools/cricket/&quot;&gt;Cricket&lt;/a&gt;:&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/cricket/issues/59&quot;&gt;Issue 59&lt;/a&gt; : Run selected doesn't count/ runs every test selected in a test module, was fixed by me&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Tiquete abierto que reporté a &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/bridges/rubicon/&quot;&gt;rubicon-objc&lt;/a&gt; &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/ojii&quot;&gt;Jonas Obrist&lt;/a&gt; repository:&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/ojii/rubicon-objc/issues/1&quot;&gt;Issue 1&lt;/a&gt; : Seg Fault when iterate through a NSIndexSet using block notation&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;planes-futuros&quot;&gt;
+&lt;h2&gt;Planes futuros&lt;/h2&gt;
+&lt;p&gt;Hay algunas características en &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/tools/cricket/&quot;&gt;Cricket&lt;/a&gt; que quiero ayudar a desarrollar en un futuro próximo, por ejemplo:&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;Un botón para actualizar todo el árbol de pruebas&lt;/li&gt;
+&lt;li&gt;Configuración de Cricket&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Además, hay algunos problemas que quedaron después de la migración a &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt;. Estos problemas se arreglarán en &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt; en un futuro próximo, por ejemplo:&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;Una brecha entre la salida y los cuadros de error cuando no hay mensaje de salida&lt;/li&gt;
+&lt;li&gt;Ejecutar una prueba si el usuario haga clic en ella&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Realmente creo que &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt; será el framework oficial en Python para construir GUI para aplicaciones multi-plataforma, así que seguiré contribuyendo a este proyecto porque quiero usar en todas las aplicaciones que necesitaría una GUI.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;consideraciones-finales&quot;&gt;
+&lt;h2&gt;Consideraciones finales&lt;/h2&gt;
+&lt;p&gt;Me gustaría agradecer a mis mentores &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/freakboy3742&quot;&gt;Russell Keith-Magee&lt;/a&gt; y &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/eliasdorneles&quot;&gt;Elias Dorneles&lt;/a&gt; por guíarme y ayudarme tanto durante este período. La oportunidad de ser parte de esta comunidad fue un gran honor para mí, muchas gracias por aceptarme en este programa &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/freakboy3742&quot;&gt;Russell Keith-Magee&lt;/a&gt;. Además, quiero agradecer a &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/phildini&quot;&gt;Philip James&lt;/a&gt; que hizo algunas reseñas en mis PRs y &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/Ocupe&quot;&gt;Jonas Schell&lt;/a&gt; quienes arreglaron un tema que envié a &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/toga/&quot;&gt;Toga&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</content>
+  </entry>
+  <entry xml:base="http://pybee.org/es/noticias/zumbido/2017-google-summer-of-code-informe-final-adam-boniecki/">
+    <title type="text">2017 Google Summer of Code - Mejoras en Batavia</title>
+    <id>urn:uuid:18c648f3-7fc8-3dac-a472-902a421b92bc</id>
+    <updated>2017-08-23T00:00:00Z</updated>
+    <link href="http://pybee.org/es/noticias/zumbido/2017-google-summer-of-code-informe-final-adam-boniecki/" />
+    <author>
+      <name>Adam Boniecki</name>
+    </author>
+    <content type="html">&lt;p&gt;Con el programa Google Summer of Code 2017 llegando a su fin, es hora de resumir lo que hice durante el verano trabajando en Batavia.&lt;/p&gt;
+&lt;p&gt;Batavia es una parte de la colección de proyectos de BeeWare. Como todavía está en su primera etapa de desarrollo, por mi parte me ofreció implementar una serie de características que faltaban en Batavia, que van desde tipos de datos elementales, a través de la manipulación JSON y construcciones de lenguaje como generadores. Publiqué mi propuesta en &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/issues/483&quot;&gt;este hilo de GitHub&lt;/a&gt; y lo mantuve actualizado con mi progreso semanalmente.&lt;/p&gt;
+&lt;p&gt;Ten en cuenta que al final de GSoC, hemos decidido divergir de la propuesta inicial y renunciar a la aplicación de &lt;cite&gt;contextlib&lt;/cite&gt; en favor de la compatibilidad con Python 3.6, que usa op-codes de 2 bytes.&lt;/p&gt;
+&lt;p&gt;En general, fue una gran experiencia de aprendizaje y diversión. Muchas gracias a mis mentores Russell Keith-Magee y Katie McLaughlin, y a toda la comunidad de BeeWare.&lt;/p&gt;
+&lt;div class=&quot;section&quot; id=&quot;pull-requests&quot;&gt;
+&lt;h2&gt;Pull Requests&lt;/h2&gt;
+&lt;div class=&quot;section&quot; id=&quot;listas-y-diccionarios&quot;&gt;
+&lt;h3&gt;Listas y diccionarios&lt;/h3&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/pull/518&quot;&gt;Pop, remove and insert methods for lists&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/pull/560&quot;&gt;Pop, popitem, fromkeys and setdefault for dicts&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;modulo-json&quot;&gt;
+&lt;h3&gt;Modulo JSON&lt;/h3&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/pull/577&quot;&gt;Encoding JSON (JSONEncoder, dump and dumps)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/pull/586&quot;&gt;Decoding JSON (JSONDecoder, parse)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/pull/589&quot;&gt;Bug fix regarding cricket and test generation for JSONEncoder&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;generadores&quot;&gt;
+&lt;h3&gt;Generadores&lt;/h3&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/pull/590&quot;&gt;Fix numerous existing bugs in Batavia's generators&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/pull/592&quot;&gt;yield from implementation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/pull/599&quot;&gt;Support for yield from in Python 3.5+&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/pull/646&quot;&gt;Bug fix for yield from and Python 3.6+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;manejadores-de-contexto-with&quot;&gt;
+&lt;h3&gt;Manejadores de contexto (&lt;cite&gt;with&lt;/cite&gt;)&lt;/h3&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/pull/594&quot;&gt;SETUP_WITH and WITH_CLEANUP opcodes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/pull/620&quot;&gt;WITH_CLEANUP_START and WITH_CLEANUP_FINISH for Python 3.5+&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;compatibilidad-con-python-3-6&quot;&gt;
+&lt;h3&gt;Compatibilidad con Python 3.6&lt;/h3&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/pull/621&quot;&gt;Support for 2-byte wide opcodes (Python 3.6+)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/pull/643&quot;&gt;Fix discrepancies in numerous error messages across Python versions&lt;/a&gt; (open PR)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;algunas-otras-correcciones-de-errores-realizadas&quot;&gt;
+&lt;h3&gt;Algunas otras correcciones de errores realizadas&lt;/h3&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/pull/566&quot;&gt;https://github.com/pybee/batavia/pull/566&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/pull/597&quot;&gt;https://github.com/pybee/batavia/pull/597&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/pull/623&quot;&gt;https://github.com/pybee/batavia/pull/623&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/batavia/pull/565&quot;&gt;https://github.com/pybee/batavia/pull/565&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content>
+  </entry>
+  <entry xml:base="http://pybee.org/es/noticias/zumbido/2017-google-verano-de-codigo-final-informe-jonas-schell/">
+    <title type="text">2017 Google Summer of Code - Probando Toga / API de configuración</title>
+    <id>urn:uuid:78e53ba3-5d48-35a1-9a8e-1c15b3fed392</id>
+    <updated>2017-08-22T00:00:00Z</updated>
+    <link href="http://pybee.org/es/noticias/zumbido/2017-google-verano-de-codigo-final-informe-jonas-schell/" />
+    <author>
+      <name>Jonas Schell</name>
+    </author>
+    <content type="html">&lt;p&gt;Google Summer of Code 2017 está llegando a su fin. Después de tres meses de trabajo en el proyecto BeeWare, quisiera resumir mi trabajo y compartir mis experiencias.&lt;/p&gt;
+&lt;div class=&quot;section&quot; id=&quot;ningun-plan-de-batalla-sobrevive-al-primer-contacto&quot;&gt;
+&lt;h2&gt;&amp;quot;Ningún plan de batalla sobrevive al primer contacto&amp;quot;.&lt;/h2&gt;
+&lt;p&gt;Esta fue una de las primeras cosas que Russell me dijo después de que decidimos fundamentalmente reestructurar mi &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/issues/118&quot;&gt;calendario y metas de GSoC propuestos&lt;/a&gt;. Durante el período inicial con la comunidad descubrimos que Toga era aún más difícil de probar como esperábamos. El estrecho acoplamiento entre el código independiente de la plataforma en  Toga-Core y las implementaciones dependientes de la plataforma para (Windows, MacOS, iOS, Linux, Android, Django, ...) nos estaba dando problemas para escribir pruebas significativas.&lt;/p&gt;
+&lt;p&gt;Esperamos que Toga se convierta en un proyecto de tamaño decente, por lo tanto queremos que tenga una base sólida y bien probada. Por esta razón, decidimos que pasaría la mayor parte de GSoC para reestructurar Toga para que ejecutar pruebas resultara más fácil de hacer. Además de eso, también añadiría pruebas de implementación para comprobar si un backend dado se implementa de la manera correcta. Si terminara antes del final del verano, empezaría con mi propuesta de proyecto original.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;la-gran-reestructuracion-de-toga&quot;&gt;
+&lt;h2&gt;La gran reestructuración de Toga&lt;/h2&gt;
+&lt;p&gt;Con los nuevos objetivos y una nueva rama comencé el viaje para reestructurar el proyecto Toga para hacerlo más fácil de probar.&lt;/p&gt;
+&lt;p&gt;Después de hackear y probar diferentes cosas en una &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/Ocupe/restruc_toga&quot;&gt;rama separada&lt;/a&gt;. Identifiqué que las dependencias entrelazadas de la plataforma son el problema principal. Para separar el módulo Toga-Core de sus implementaciones de backend decidimos usar el patrón de fábrica en lugar del modelo de herencia que teníamos antes. Ahora cada backend tiene su propia fábrica que produce los widgets adecuados para la plataforma en la que se está ejecutando. De esta manera tenemos una clara separación entre Toga-Core y el nivel de implementación. Las dependencias de la plataforma ahora están incluidas en el nivel de implementación.&lt;/p&gt;
+&lt;p&gt;Después de que la nueva estructura fuera clara porté Toga-Core así como los backends para el Cocoa, iOS y GTK. Hice esto en la rama de Toga &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/185&quot;&gt;(La gran reestructuración de Toga [WIP] # 185)&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;En la práctica, esto significaba que tenía que tocar manualmente casi todos los widgets de todos los backends para conectarlos al nuevo patrón de fábrica.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;desafios&quot;&gt;
+&lt;h2&gt;Desafíos&lt;/h2&gt;
+&lt;p&gt;Toga habla con los frameworks nativos GUI, por lo tanto tuve que tener un buen entendimiento acerca de los principios y conceptos detrás de cada uno de estos marcos. A veces me sentía abrumado por la complejidad combinada de todas las partes que componen Toga. La siguiente es la lista:&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;Cada backend de Toga se envuelve alrededor de un marco existente y único. Para envolver el marco que tiene que entender el marco.&lt;/li&gt;
+&lt;li&gt;&amp;quot;Me encanta Python, ¿por qué tengo que entender Objetive C&amp;quot;? Para trabajar eficazmente en los backends de iOS y macOS, tenía que aprender los conceptos básicos del Objetivo C, aunque sólo fuera para leer los documentos de Apple.&lt;/li&gt;
+&lt;li&gt;Toga tiene un montón de partes móviles. Hay backends, marcos, librerías para hablar con backends, librerías para realizar el diseño de la interfaz de usuario y más. Me tomó una buena cantidad de tiempo para entender todas estas partes. Lo siguiente es sólo una visión general de los conocimientos recién adquiridos durante GSoC:&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/rubicon-objc&quot;&gt;Rubicon-ObjC&lt;/a&gt; para hablar con los backends de iOS y macOS.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/libraries/colosseum/&quot;&gt;Colosseum&lt;/a&gt; para entender y solucionar problemas de diseño.&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://docs.python.org/3.6/library/ast.html&quot;&gt;Módulo AST&lt;/a&gt; para realizar las pruebas de implementación.&lt;/li&gt;
+&lt;li&gt;El uso de patrones de diseño&lt;/li&gt;
+&lt;li&gt;Cómo estructurar grandes proyectos.&lt;/li&gt;
+&lt;li&gt;Leer y entender grandes y complejos pedazos de código.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;otro-trabajo-que-realice&quot;&gt;
+&lt;h2&gt;Otro trabajo que realicé&lt;/h2&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;PR: Translated part of the pybee.org webpage into german. &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/pybee.github.io/pull/173&quot;&gt;(PR #173)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Helped newcomers on Gitter and GitHub.&lt;/li&gt;
+&lt;li&gt;Tested if Toga would profit from static typing &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/Ocupe/toga/tree/static_typing&quot;&gt;(toga/static_typing)&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Created an implementation test suite based on the AST module.&lt;/li&gt;
+&lt;li&gt;Added test for Toga-Core.&lt;/li&gt;
+&lt;li&gt;Updated and extended documentation on Toga-Core as well as the macOS and iOS Backend.&lt;/li&gt;
+&lt;li&gt;Created a toga-dummy backend.&lt;/li&gt;
+&lt;li&gt;First draft of the Settings API and working backend implementation for macOS.&lt;/li&gt;
+&lt;li&gt;Many small and big fixes on Toga-Core, cocoa, iOS, and GTK backends. All in the main PR &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/185&quot;&gt;pybee/toga The Big Restructure of Toga [WIP]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PR: &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/171&quot;&gt;pybee/toga fix for getting the length of the filenames array&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PR: &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/193&quot;&gt;pybee/toga Fixed #189 cocoa.progressbar with rehint&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PR: &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/briefcase-template/pull/3&quot;&gt;pybee/briefcase-template Fix for spaces in app name. Issue #2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;PR: &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/222&quot;&gt;pybee/toga Toga Settings API [WIP]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;futuro-trabajo-por-hacer&quot;&gt;
+&lt;h2&gt;Futuro trabajo por hacer&lt;/h2&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;Todo mi trabajo se encuentra en el PR &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/185&quot;&gt;&amp;quot;La gran reestructuración de Toga [WIP]&amp;quot;&lt;/a&gt;. Después de que los backends que faltan, a saber, Windows y Android, se incluyan, todo se puede emerger con la rama master. Tenemos que esperar a los backends que faltan, porque el nuevo esquema es incompatible con las versiones antiguas y no pueden coexistir.&lt;/li&gt;
+&lt;li&gt;La API de configuración de mi propuesta original no se ha terminado debido a las razones mencionadas anteriormente. Tengo un primer borrador de trabajo y seguiré trabajando en él después de GSoC en &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/toga/pull/222&quot;&gt;este Pull Request&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;shout-out&quot;&gt;
+&lt;h2&gt;&amp;quot;Shout out&amp;quot;&lt;/h2&gt;
+&lt;p&gt;Me gustaría dar las gracias a Russell Keith-Magee por ser un Mentor impresionante y por todo el tiempo que invirtió en mí durante GSoC. También quiero agradecer a la comunidad BeeWare por ayudarme cuando alguna vez tuve un problema. ¡Gracias!&lt;/p&gt;
+&lt;/div&gt;
+</content>
+  </entry>
+  <entry xml:base="http://pybee.org/es/noticias/zumbido/un-nuevo-yak-para-la-manada-beekeper/">
+    <title type="text">Un nuevo yak para el rebaño: BeeKeeper</title>
+    <id>urn:uuid:3b92ae55-333e-367d-98c0-9605d0864bac</id>
+    <updated>2017-07-31T00:00:00Z</updated>
+    <link href="http://pybee.org/es/noticias/zumbido/un-nuevo-yak-para-la-manada-beekeper/" />
+    <author>
+      <name>Russell Keith-Magee</name>
+    </author>
+    <content type="html">&lt;p&gt;Escribir suites de pruebas es una habilidad que es una parte vital del entrenamiento de los programadores. Aprender a escribir buenas pruebas le ayuda a escribir un código más robusto y asegura que cuando haya escrito un código que funcione, siga trabajando durante mucho tiempo en el futuro. También puede ayudarle a escribir mejor código en primer lugar. Resulta que el código bien diseñado, con alta cohesión y bajo acoplamiento, también es fácil de probar - por lo que escribir código que sea fácil de probar casi siempre dará como resultado una mejor calidad total del código.&lt;/p&gt;
+&lt;p&gt;Un paso importante en la &amp;quot;nivelación&amp;quot; de su experiencia de pruebas es comenzar a usar un servicio de integración continua o CI. Un servicio de CI es una herramienta que ejecuta automáticamente su suite de pruebas cada vez que alguien realiza un cambio o cada vez que alguien propone un cambio en forma de una solicitud de PR. El uso de un servicio de CI garantiza que su código &lt;em&gt;siempre&lt;/em&gt; pase su suite de pruebas - no puede introducirse accidentalmente en un cambio que rompe una prueba, porque obtendrá una notificación de advertencia roja grande.&lt;/p&gt;
+&lt;p&gt;Un CI es un servicio tan importante que muchas empresas sólo existen para proporcionar CI-as-a-service. El proyecto BeeWare ha utilizado, para diversos proyectos, &lt;a class=&quot;reference external&quot; href=&quot;https://travis-ci.com&quot;&gt;TravisCI&lt;/a&gt; y &lt;a class=&quot;reference external&quot; href=&quot;https://circleci.com&quot;&gt;CircleCI&lt;/a&gt;. Ambas herramientas proporcionan niveles gratuitos para proyectos de código abierto y han patrocinado generosamente BeeWare con actualizaciones de capacidad en varias ocasiones.&lt;/p&gt;
+&lt;p&gt;Sin embargo, BeeWare ha tenido una relación interesante con los servicios comerciales de CI. Esto es por dos razones.&lt;/p&gt;
+&lt;p&gt;En primer lugar, nuestros conjuntos de pruebas, especialmente para &lt;a class=&quot;reference external&quot; href=&quot;/es/proyecto/proyectos/puentes/voc&quot;&gt;VOC&lt;/a&gt; y &lt;a class=&quot;reference external&quot; href=&quot;/es/proyecto/proyectos/puentes/batavia&quot;&gt;Batavia&lt;/a&gt; - toman mucho tiempo para ejecutarse. Estos dos proyectos requieren pruebas que inician y cierran repetidamente las máquinas virtuales (para Java y JavaScript, respectivamente), y no importa cuánto se optimice el código que se está probando, el tiempo de inicio y apagado de una máquina virtual eventualmente se acumula. También necesitamos ejecutar nuestras suites de prueba en múltiples versiones de Python - en la actualidad, soportamos Python 3.4, 3.5 y 3.6, con 3.7 en el horizonte. También hay cambios sutiles en versiones micro que pueden requerir pruebas.&lt;/p&gt;
+&lt;p&gt;Hemos sido capaces de acelerar las prueba, dividiendo la suite de pruebas y ejecutando partes de la suite en paralelo, pero eso nos obliga a enfrentarnos al segundo problema. Los servicios comerciales de CI suelen operar en un modelo de suscripción; mayores suscripciones que proporcionan más recursos simultáneos. Sin embargo, nuestro patrón de uso es muy inusual. La mayor parte del año, recibimos un goteo lento de solicitudes de PRs que requieren pruebas. Sin embargo, un par de veces al año, tenemos un gran sprint, y tenemos una avalancha de contribuciones durante un corto período de tiempo. En PyCon EE.UU., hemos tenido grupos de 40 personas presentando parches - y todos ellos necesitan sus PRs probados por CI. Y el tiempo es un factor - los sprints sólo duran un par de días, por lo que un rápido cambio en las pruebas es esencial.&lt;/p&gt;
+&lt;p&gt;Si tuviéramos que suscribir a los niveles de suscripción de nivel superior de CircleCi y TravisCI, todavía no tendríamos suficientes recursos para soportar un sprint - pero estaríamos &lt;em&gt;masivamente&lt;/em&gt; sobre abastecidos en recursos durante el resto del año. También tendríamos que pagar $ 750 o más por mes por este servicio, que es un presupuesto que no podemos permitirnos.&lt;/p&gt;
+&lt;p&gt;Así que tuvimos un problema. Para ejecutar nuestra suite de pruebas de manera eficaz, necesitábamos recursos paralelizados masivamente para ejecutar una suite de pruebas rápidamente; y en ciertas épocas del año, necesitamos un número extremadamente grande de estos recursos.&lt;/p&gt;
+&lt;p&gt;También teníamos otras tareas automatizadas que queríamos realizar. Queríamos hacer linting del código (comprobación automatizada de estilo de código) antes de que se probara un PR. Queríamos verificar la ortografía de la documentación. Y queríamos que estas tareas se retroalimentaran en GitHub como comentarios automatizados y marcadores de estado de revisión de código específicos, informando a los colaboradores no sólo de que se había producido un problema, sino de qué problema y dónde estaban en su código.&lt;/p&gt;
+&lt;p&gt;También queríamos administrar las compilaciones de pipeline - no tiene sentido hacer una prueba completa de varias versiones de Python una vez que haya establecido que las pruebas están fallando en una versión. Y no hay punto en hacer pruebas &lt;em&gt;en absoluto&lt;/em&gt; si hay problemas de estilo de código.&lt;/p&gt;
+&lt;p&gt;También queríamos hacer cosas que no eran sólo pruebas. Queríamos verificar que se firmaron acuerdos de contribución. Queríamos automatizar el despliegue de sitios web y documentación.&lt;/p&gt;
+&lt;p&gt;Lo que teníamos no era sólo un problema de CI. Era un problema donde queríamos ejecutar automáticamente código arbitrario, de manera segura, en respuesta a un evento GitHub.&lt;/p&gt;
+&lt;p&gt;He estado tratando de encontrar un servicio de CI que pueda satisfacer nuestras necesidades durante más de un año. Pero durante el último año, algunos pensamientos comenzaron a congelarse en mi cabeza.&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;Amazon proporciona una API (EC2) que le permite arrancar máquinas de complejidad variable (hasta 64 CPUs, con casi 500 GB de RAM) y pagar por minuto para ese uso.&lt;/li&gt;
+&lt;li&gt;Docker proporciona las herramientas para configurar, lanzar y ejecutar código de manera aislada&lt;/li&gt;
+&lt;li&gt;Amazon también proporciona una API (ECS) para controlar la ejecución de los contenedores Docker.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;No hay nada específico acerca de AWS EC2 o ECS tampoco - se podría utilizar Linode y Kubernetes, o Docker Swarm o Microsoft Azure ... simplemente se necesita tener la capacidad de filtrar fácilmente las máquinas y ejecutar un contenedor Docker. Después de todo: un conjunto de pruebas es sólo un contenedor Docker que ejecuta un script que inicia su suite de pruebas. Una revisión de linting es un contenedor de Docker que ejecuta un script que lints su código. Una verificación de acuerdo de contribuyente es un contenedor de Docker que comprueba los metadatos asociados con una solicitud de extracción.&lt;/p&gt;
+&lt;p&gt;Todo lo que necesita es un sitio web que puede recibir las notificaciones de eventos de GitHub e iniciar los contenedores de Docker en respuesta.&lt;/p&gt;
+&lt;p&gt;A principios de julio, me encontré entre trabajos, y pronuncié la fatídica pregunta: &amp;quot;¿Cuán difícil podría ser?&amp;quot; Y así, hoy, estoy anunciando &lt;a class=&quot;reference external&quot; href=&quot;/es/proyecto/proyectos/herramientas/beekeeper&quot;&gt;BeeKeeper&lt;/a&gt; - el propio servicio de CI de BeeWare.&lt;/p&gt;
+&lt;p&gt;BeeKeeper se despliega como un sitio web de Heroku, escrito con Django. Después de configurarlo con las credenciales de Github y AWS, escucha los webhooks de Github. Cuando se detecta una solicitud de pull o Push, BeeKeeper crea una solicitud de generación; que la solicitud de construcción inspecciona el código en el repositorio en busca de un archivo de configuración &lt;tt class=&quot;docutils literal&quot;&gt;beekeeper.yml&lt;/tt&gt;. Ese archivo de configuración describe el pipeline de tareas que se van a realizar, y para cada tarea, el tipo de máquina que se debe usar, las variables de entorno que se requieran y la imagen de Docker que se utilizará.&lt;/p&gt;
+&lt;p&gt;BeeKeeper también permite al administrador del sitio describir qué recursos se utilizarán para satisfacer las compilaciones. Una tarea puede decir que necesita una instancia de &amp;quot;Alta CPU&amp;quot;; pero la instancia BeeKeeper puede determinar lo que significa &amp;quot;alta CPU&amp;quot; - ¿es 4 CPUs o 32? ¿Cuándo esas máquinas son coladas hacia arriba, cuánto tiempo se les permitirá sentarse inactivo antes de ser apagado de nuevo? ¿Cuántas máquinas deben estar permanentemente en el grupo de trabajo? ¿Y cuál es el límite superior de las máquinas que se iniciará?&lt;/p&gt;
+&lt;p&gt;Una herramienta complementaria para BeeKeeper es &lt;a class=&quot;reference external&quot; href=&quot;/es/proyecto/proyectos/herramientas/waggle&quot;&gt;Waggle&lt;/a&gt;. Waggle es una herramienta que prepara una definición local de una tarea para que pueda ser utilizada por BeeKeeper - compila la imagen de Docker y la carga en ECS para que pueda ser referenciada por tareas. (Se llama &amp;quot;Waggle&amp;quot; porque cuando las abejas obreras descubren una buena fuente de néctar, regresan a la colmena y hacen una 'danza' que le dice a otras abejas cómo hacer para encontrar esa fuente).&lt;/p&gt;
+&lt;p&gt;También hemos proporcionado un repositorio llamado &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/comb&quot;&gt;Comb&lt;/a&gt; (nombrado después del peine de miel, las abejas del lugar almacenan todo el néctar que encuentran) que define las configuraciones de la tarea que una instancia de BeeKeeper puedo usar. Hemos proporcionado algunas definiciones simples como parte del repositorio base de Comb; cada implementación de BeeKeeper debe tener uno de estos repositorios propios.&lt;/p&gt;
+&lt;p&gt;Todavía hay mucho trabajo por hacer, pero ya estamos usando BeeKeeper con Batavia y VOC, y la próxima &lt;a class=&quot;reference external&quot; href=&quot;https://pycon-au.org/program/sprints/&quot;&gt;PyCon AU sprints&lt;/a&gt; será nuestra primera en condiciones de alta carga. Algunos cálculos de respaldo prevén que por alrededor de $50, podremos proporcionar suficientes recursos de CPU para cada ejecución de prueba para completar su ejecución en 10 minutos o menos, soportando un sprint de decenas de personas.&lt;/p&gt;
+&lt;p&gt;Aunque BeeKeeper fue escrito para satisfacer las necesidades del proyecto BeeWare, es una herramienta de código abierto disponible para cualquier persona. Si desea tomar BeeKeeper para darle una prueba, vaya a los sprints, o &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/beekeeper&quot;&gt;revise el código en GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;BeeKeeper también es un ejemplo del tipo de producto que vería más si el desarrollo de BeeWare se financiara a tiempo completo. Fui capaz de construir BeeKeeper porque tenía un par de semanas de descanso entre los trabajos. No hay fin para las herramientas y bibliotecas como BeeKeeper y Waggle que podrían ser construidas para soportar el proceso de desarrollo de software - todo lo que falta son los recursos necesarios para desarrollar esas herramientas. Si desea ver más herramientas como BeeKeeper en el mundo, considere la posibilidad de unirse al proyecto BeeWare como &lt;a class=&quot;reference external&quot; href=&quot;/es/contribuir/membresia/&quot;&gt;miembro financiero&lt;/a&gt;. Cada pedacito ayuda, y si podemos alcanzar a una masa crítica de patrocinadores, podré comenzar a trabajar en BeeWare a tiempo completo.&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="http://pybee.org/es/noticias/zumbido/una-solicitud-de-ayuda/">
+    <title type="text">Una solicitud de ayuda</title>
+    <id>urn:uuid:a70f526e-f388-3680-907e-4543ad3633d4</id>
+    <updated>2017-04-05T00:00:00Z</updated>
+    <link href="http://pybee.org/es/noticias/zumbido/una-solicitud-de-ayuda/" />
+    <author>
+      <name>Russell Keith-Magee</name>
+    </author>
+    <content type="html">&lt;p&gt;Hace unos 4 años, hice el primer &lt;em&gt;commit&lt;/em&gt; con &lt;a class=&quot;reference external&quot; href=&quot;/es/proyecto/proyectos/herramientas/cricket/&quot;&gt;Cricket&lt;/a&gt; - la primera herramienta que eventualmente se convertiría en parte de la suite BeeWare. Desde entonces, el proyecto BeeWare ha crecido para abarcar soporte para plataformas móviles, dos implementaciones alternativas de Python y un conjunto de widgets multi-plataforma, así como las herramientas de desarrollo que iniciaron el proyecto originalmente.&lt;/p&gt;
+&lt;p&gt;Durante la mayor parte de este tiempo, BeeWare ha sido un esfuerzo voluntario. Inicialmente, fue un proyecto en solitario; sin embargo, en el último año en particular, el número de personas que han contribuido a BeeWare ha crecido rápidamente. Más de 300 personas han hecho contribuciones a las diversas herramientas y librerías de BeeWare, debido, al menos en parte, a las &lt;a class=&quot;reference external&quot; href=&quot;/es/contribuir/monedas-de-desafio/&quot;&gt;Monedas de Desafío&lt;/a&gt; que hemos estado ofreciendo en los sprints.&lt;/p&gt;
+&lt;p&gt;Cabe destacar el &lt;a class=&quot;reference external&quot; href=&quot;/es/comunidad/equipo/&quot;&gt;equipo de 7 personas&lt;/a&gt; que se han unido al proyecto como apicultores, ayudando a compartir la carga de mantenimiento del proyecto. No puedo agradecer a estas personas lo suficiente - sin su ayuda, no se habría logrado tanto progreso durante el último año.&lt;/p&gt;
+&lt;p&gt;Tu debes haber notado que en los últimos meses, el progreso ha sido especialmente rápido. Esto se debe a que, durante los últimos seis meses, el desarrollo de BeeWare ha sido parcialmente financiado por empleadores muy complacientes en &lt;a class=&quot;reference external&quot; href=&quot;https://www.jambonsw.com&quot;&gt;Jambon Software&lt;/a&gt;. Mi contrato con Jambon me permitió pasar largos periodos de tiempo pagados para trabajar en BeeWare - y, no es sorprendente, es posible hacer un enorme progreso como resultado. Los últimos 6 meses han visto:&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;Amplias mejoras a Batavia y VOC;&lt;/li&gt;
+&lt;li&gt;Un backend Android para Toga;&lt;/li&gt;
+&lt;li&gt;Un backend de Django para Toga, permitiendo que las aplicaciones de Toga se implementen como aplicaciones web;&lt;/li&gt;
+&lt;li&gt;Un backend de Winforms para Toga, permitiendo que las aplicaciones de Toga funcionen en Windows con un aspecto moderno;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Desafortunadamente, mi contrato con Jambon está llegando a su fin - lo que significa que mis contribuciones a BeeWare volverán a ser lo que mi tiempo libre permite.&lt;/p&gt;
+&lt;p&gt;Esto también significa que la tasa de progreso también se ralentizará. Todavía hay mucho por hacer: hay un montón de la librería estándar de Python para portar a Batavia y VOC; Toga necesita un mucho más amplio soporte de widgets; Colosseum necesita ser extendido para que sea compatible con el modelo de caja CSS completo, no sólo CSS3 Flexbox; y las herramientas que lo iniciaron todo - Cricket, Bugjar, Duvet, y otros - todos necesitan ser portados a Toga.&lt;/p&gt;
+&lt;p&gt;Me &lt;em&gt;gustaría&lt;/em&gt; poder trabajar en BeeWare a tiempo completo. Sin embargo, la simple realidad es que a menos que pueda encontrar una manera de pagar por este trabajo, sólo será capaz de contribuir en mi tiempo libre.&lt;/p&gt;
+&lt;p&gt;Así que - esto es un llamado para ti - la comunidad de Python. Si estás entusiasmado con la perspectiva de tener acceso a Python en plataformas móviles, o te gustaría escribir aplicaciones en Python que tengan interfaces de usuario completamente nativas - &lt;strong&gt;Necesito tu ayuda&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Por sólo &lt;strong&gt;US $ 10 al mes&lt;/strong&gt;, puedes &lt;a class=&quot;reference external&quot; href=&quot;/es/contribuir/membresia/&quot;&gt;unirte al proyecto BeeWare como miembro&lt;/a&gt; y ayudar a que este sueño se convierta en realidad. Si puedo encontrar 1000 personas en la comunidad de Python que quieran estas herramientas y estén dispuestos a apoyar financieramente su desarrollo, puedo comenzar a trabajar en BeeWare a tiempo completo. Por supuesto, este objetivo es aún más fácil si las empresas se involucran y patrocinan en los niveles más altos.&lt;/p&gt;
+&lt;p&gt;Si puedo encontrar a &lt;em&gt;más&lt;/em&gt; de 1000 personas, entonces mucho más es posible. La opción obvia sería contratar a otros desarrolladores con experiencia para ayudar con el trabajo. La idea de tener a otros para compartir ideas durante el proceso de desarrollo es muy atractiva. Sin embargo, también podemos usar esto como una oportunidad para hacer un bien social.&lt;/p&gt;
+&lt;p&gt;Durante algún tiempo, he tenido una &lt;a class=&quot;reference external&quot; href=&quot;https://twitter.com/PyBeeWare/status/784545607402852352&quot;&gt;oferta abierta para ser mentor&lt;/a&gt; a cualquiera que quiera involucrarse con la contribución de Coódigo Abierto usando el proyecto BeeWare. Sin embargo, no mucha gente ha podido tomar seriamente esta oferta, porque el tiempo requerido para tomar seriamente la oferta es prohibitivo. Me gustaría poder extender mi oferta a algo más que una relación casual de tutoría. Me gustaría poder contratar - y pagar - uno o más desarrolladores junior para el proyecto BeeWare, y enfocarme en dar esa oportunidad a personas de demografía subrepresentada.&lt;/p&gt;
+&lt;p&gt;Aún son los primeros días para BeeWare. El apoyo financiero significa un progreso más rápido. Más widgets. Mejor documentación. Más de todo lo que has visto hasta ahora de BeeWare. Si puedo encontrar financiación a tiempo completo para mí -o mejor aún, para mí y para un equipo pequeño-, no tengo dudas de que la suite BeeWare se convertirá en una alternativa viable para proyectos comerciales en muy poco tiempo. Lo mejor de todo, seremos capaces de hacer esto sin tener que renunciar a los ideales del movimiento de código abierto.&lt;/p&gt;
+&lt;p&gt;Estoy emocionado por lo que le depara el futuro a BeeWare. Espero que nos acompañes en este viaje.&lt;/p&gt;
+&lt;p&gt;(Y si tu estás pensando en registrarte, y vienes a PyCon US en Portland este mes de mayo, déjame dejar una pista suave ... inscríbete ahora. Vale la pena #cryptic)&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="http://pybee.org/es/noticias/zumbido/2017-google-summer-of-code/">
+    <title type="text">BeeWare en el Google Summer of Code de 2017</title>
+    <id>urn:uuid:cfbbb708-9971-3200-9187-154aad81f1f0</id>
+    <updated>2017-03-01T00:00:00Z</updated>
+    <link href="http://pybee.org/es/noticias/zumbido/2017-google-summer-of-code/" />
+    <author>
+      <name>Russell Keith-Magee</name>
+    </author>
+    <content type="html">&lt;p&gt;¿Eres estudiante en la universidad? ¿Estás interesado en Python? ¿Te gustaría escribir aplicaciones de Python que puedas ejecutar en tu teléfono, tableta o reloj? ¿Te gustaría obtener experiencia al contribuir a un proyecto de Código abierto? ¿Te gustaría ser asesorado por miembros experimentados de la comunidad de Código abierto?&lt;/p&gt;
+&lt;p&gt;¿Y qué tal si ganas US $ 6400 por 12 semanas de trabajo mientras haces todo esto?&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The Summer of Code&lt;/em&gt; es un programa de Google en el que los estudiantes universitarios actualmente matriculados reciben un programa de tutoría de 12 semanas en el que contribuyen a proyectos bien conocidos de código abierto, bajo la dirección de miembros de esos proyectos. Se ejecuta durante el verano del norte, aproximadamente durante el descanso de la universidad de verano (aunque las fechas exactas pueden variar dependiendo de su institución)&lt;/p&gt;
+&lt;p&gt;Este año, el proyecto BeeWare ha sido seleccionado como una organización de mentores para la GSoC - y TE NECESITAMOS!.&lt;/p&gt;
+&lt;p&gt;Hay un número limitado de espacios disponibles, pero nos &lt;em&gt;encantaría&lt;/em&gt; tener un PyLady o DjangoGirl como nuestro estudiante.&lt;/p&gt;
+&lt;p&gt;Si te gustaría participar, aquí hay una &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/pybee.github.io/wiki/So-you-want-to-be-a-BeeWare-GSoC-student%3F&quot;&gt;guía para empezar:&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Si tienes alguna pregunta, envía un correo electrónico a &lt;a class=&quot;reference external&quot; href=&quot;mailto:russell&amp;#64;pybee.org&quot;&gt;russell&amp;#64;pybee.org&lt;/a&gt; o visita nuestra sala de chat &lt;a class=&quot;reference external&quot; href=&quot;https://gitter.im/pybee/general&quot;&gt;Gitter&lt;/a&gt; ¡y pregunta!&lt;/p&gt;
+&lt;p&gt;¡Esperamos verte este verano!&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="http://pybee.org/es/noticias/zumbido/ven-al-sprint-con-nosotros-en-pycon-us-2017/">
+    <title type="text">Ven al sprint con nosotros en PyCon US 2017</title>
+    <id>urn:uuid:6dd2bd1a-1ba3-3cc6-bef2-50d969e21594</id>
+    <updated>2017-02-01T00:00:00Z</updated>
+    <link href="http://pybee.org/es/noticias/zumbido/ven-al-sprint-con-nosotros-en-pycon-us-2017/" />
+    <author>
+      <name>Katie McLaughlin</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;strong&gt;Los boletos para PyCon US 2017 han sido regalados. ¡Esperamos ver a todos los que lleguen a la conferencia en el stand 103!&lt;/strong&gt;&lt;/p&gt;
+&lt;hr class=&quot;docutils&quot; /&gt;
+&lt;p&gt;&lt;em&gt;¿Quieres ir al &amp;#64;PyCon, no puede permitírselo? &amp;#64;PyBeeWare tiene 2 entradas para regalar. Envía un correo electrónico a contact&amp;#64;pybee.org y cuéntanos por qué quiere estar allí!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;— PyBee (&amp;#64;PyBeeWare) 30 e Enero, 2017&lt;/p&gt;
+&lt;hr class=&quot;docutils&quot; /&gt;
+&lt;p&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://us.pycon.org/2017/&quot;&gt;PyCon US 2017&lt;/a&gt; se está llevando cabo en Portland, Oregon del 17 al 25 de mayo, y está destinado a ser otra increíble conferencia.&lt;/p&gt;
+&lt;p&gt;Por segundo año consecutivo, el equipo &lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org&quot;&gt;BeeWare&lt;/a&gt; estará en el sitio con un &lt;a class=&quot;reference external&quot; href=&quot;https://twitter.com/PyBeeWare/status/737043373953978368&quot;&gt;stand en el salón de exhibiciones&lt;/a&gt;, junto con otros proyectos de Código Abierto del mundo Python.&lt;/p&gt;
+&lt;p&gt;Con este stand, tenemos dos entradas para la conferencia. Esto incluye:&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;acceso a la recepción de apertura&lt;/li&gt;
+&lt;li&gt;3 días de conferencias, salón de exposiciones/feria de trabajo&lt;/li&gt;
+&lt;li&gt;desayunos, pausas, almuerzos y bolsa de &lt;em&gt;swag&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;La cosa es que tanto &lt;a class=&quot;reference external&quot; href=&quot;https://twitter.com/freakboy3742&quot;&gt;Russell&lt;/a&gt; como yo, ya nos hemos registrado.&lt;/p&gt;
+&lt;p&gt;Por lo tanto, queremos darte un boleto.&lt;/p&gt;
+&lt;p&gt;Sí &lt;strong&gt;a ti.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Si tu puedes llegar a Portland en los días de la conferencia, queremos darte nuestro boleto gratis.&lt;/p&gt;
+&lt;p&gt;¿Qué queremos a cambio?&lt;/p&gt;
+&lt;p&gt;Sólo un poco de tu tiempo.&lt;/p&gt;
+&lt;p&gt;El  &lt;a class=&quot;reference external&quot; href=&quot;/es/comunidad/equipo/&quot;&gt;equipo Bee&lt;/a&gt; estará ayudando al personal de nuestro stand, pero también nos gustaría ver (y dar!) charlas, así que ayudarnos mientras estamos corriendo fuera del puesto sería encantador. (Además, y estoy segura de que Russell estaría de acuerdo, sólo ayudando en la cabina te ganas una &lt;a class=&quot;reference external&quot; href=&quot;/es/contribuir/monedas-de-desafio&quot;&gt;moneda&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Además, nos encantaría que te quedaras a los famosos Sprints de código. Estos se celebran en los cuatro días posteriores al evento, mientras las personas se encuentran aun en la ciudad. Tomaremos café, almorzaremos y tendremos acceso a una habitación llena de mesas, sillas y cantidad copiosa de tomas de corriente, y escribiremos código para los diferente proyectos. Estaremos haciendo un &lt;a class=&quot;reference external&quot; href=&quot;https://twitter.com/PyBeeWare/status/738400648614449152&quot;&gt;sprint de BeeWare&lt;/a&gt; donde estaremos asesorando y ayudando a los colaboradores principiantes  a ganar su primera &lt;a class=&quot;reference external&quot; href=&quot;https://twitter.com/PyBeeWare/status/738425474754314240&quot;&gt;moneda brillante de desafío&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;¿Esto suena como algo que te interesa?&lt;/p&gt;
+&lt;p&gt;Por favor, &lt;a class=&quot;reference external&quot; href=&quot;mailto:contact&amp;#64;pybee.org&quot;&gt;envíanos un correo electrónico!&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;¡Cuéntanos acerca de tí! Quién eres, qué haces, por qué quieres ir a PyCon y lo que te interesa de Python.&lt;/p&gt;
+&lt;p&gt;Necesitamos asignar nuestras entradas con anticipación, así que envíanos un correo electrónico &lt;strong&gt;antes del 12 deFebrero, 2017&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Si tiene alguna pregunta solo pregunta &lt;a class=&quot;reference external&quot; href=&quot;https://twitter.com/glasnt&quot;&gt;a mi&lt;/a&gt; o a &lt;a class=&quot;reference external&quot; href=&quot;https://twitter.com/freakboy3742&quot;&gt;Russell&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;¡Nos encantaría verte allí! ✨&lt;/p&gt;
+&lt;p&gt;[Este artículo ha sido publicado en
+&lt;a class=&quot;reference external&quot; href=&quot;http://glasnt.com/blog/2017/02/01/come-sprint-with-beeware.html&quot;&gt;glasnt.com/blog&lt;/a&gt;]&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="http://pybee.org/es/noticias/zumbido/dinero-dinero-dinero/">
+    <title type="text">Dinero, dinero, dinero</title>
+    <id>urn:uuid:9919a960-59b7-3d3e-bc97-d01566513a85</id>
+    <updated>2016-12-10T00:00:00Z</updated>
+    <link href="http://pybee.org/es/noticias/zumbido/dinero-dinero-dinero/" />
+    <author>
+      <name>Russell Keith-Magee</name>
+    </author>
+    <content type="html">&lt;p&gt;En PyCon AU 2015, y de nuevo en DjangoCon US 2015, di una charla titulada &amp;quot;Dinero, dinero, dinero: Escribiendo software, en un mundo de hombres ricos&amp;quot;. La charla fue un resumen de los problemas relacionados con uno de los mayores problemas que veo frente a la comunidad de código abierto: cómo proporcionar los recursos que se necesitan para desarrollar y mantener el software del que nosotros, como comunidad, dependemos. Esto significa proporcionar mantenimiento y apoyo a proyectos establecidos, grandes y pequeños; sino que también proporciona un ecosistema donde las nuevas ideas pueden ser incubadas, desarrolladas y maduradas hasta que presenten alternativas atractivas o beneficios significativos sobre las ofertas de fuentes cerradas.&lt;/p&gt;
+&lt;p&gt;Han pasado casi 18 meses desde que presenté esta charla, pero el problema persiste. No he estado solo al notar y llamar la atención sobre este asunto, tampoco. &lt;a class=&quot;reference external&quot; href=&quot;https://twitter.com/nayafia&quot;&gt;Nadia Eghbal&lt;/a&gt; fue encargada de redactar un libro para la Fundación Ford titulado &lt;a class=&quot;reference external&quot; href=&quot;http://www.fordfoundation.org/library/reports-and-studies/roads-and-bridges-the-unseen-labor-behind-our-digital-infrastructure&quot;&gt;Caminos y puentes&lt;/a&gt; resaltando las necesidades crónicas en infraestructura que subyacen a gran parte de la economía moderna. Eric Holscher (mantenedor de &lt;a class=&quot;reference external&quot; href=&quot;https://readthedocs.com&quot;&gt;Read the Docs&lt;/a&gt;) &lt;a class=&quot;reference external&quot; href=&quot;http://ericholscher.com/blog/2016/aug/31/funding-oss-marketing-money/&quot;&gt;escribió sobre los problemas que tuvo para recaudar fondos&lt;/a&gt;, a pesar de que el servicio que él ofrece corresponde a una parte ampliamente utilizada - posiblemente indispensable - del ecosistema Python.&lt;/p&gt;
+&lt;p&gt;Sin embargo, a pesar de esta atención, todavía no llega a estar tan cerca de la atención que debería tener. Y es una cuestión que es de gran importancia para mí, ya que el proyecto BeeWare está buscando formas de financiar el desarrollo necesario para pasar de una &amp;quot;interesante demostración técnica&amp;quot; a una &amp;quot;solución técnica convincente&amp;quot;.&lt;/p&gt;
+&lt;p&gt;Hace unos meses, se sugirió que publicara una entrada en el blog para acompañar la presentación del video. Me arrastré los pies al hacer esto, hasta que el trabajador colaborador de BeeWare y simpático chico 'Elias Dorneles' se ofreció a tomar mis notas y convertirla en una transcripción.&lt;/p&gt;
+&lt;p&gt;Así que aquí está. Dinero, Dinero, Dinero: Escribiendo software, en un mundo de hombres ricos. Si tienes alguna pregunta, desacuerdo, peticiones para presentar esto en tu conferencia, o simplemente una oferta genérica de una bolsa de dinero en efectivo, puedes contactarme en: &lt;a class=&quot;reference external&quot; href=&quot;mailto:russell&amp;#64;keith-magee.com&quot;&gt;russell&amp;#64;keith-magee.com&lt;/a&gt;.&lt;/p&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/Jw6wnIopVVg&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;div class=&quot;section&quot; id=&quot;transcripcion&quot;&gt;
+&lt;h2&gt;Transcripción&lt;/h2&gt;
+&lt;p&gt;Hola, soy Russell Keith-Magee, si ya has oído hablar de mí, probablemente sea por mi trabajo en el proyecto Django; He sido un miembro del equipo central durante casi 10 años, y presidente de la Fundación de Software Django desde 2011.&lt;/p&gt;
+&lt;p&gt;Uno de los grandes retos del proyecto Django - y cualquier gran proyecto para el caso - ha sido asegurar la seguridad de su desarrollo futuro.&lt;/p&gt;
+&lt;p&gt;Mi trabajo diario es como CTO y co-fundador de TradesCloud. Somos un software como servicio para los comerciantes - plomeros, electricistas, carpinteros y similares. TradesCloud depende de una serie de proyectos de código abierto - Django, Apache, memcache, muchos otros. Así que tengo un interés comercial en la continuidad de estos proyectos de código abierto - pero ciertamente no tengo los recursos para financiarlos a &lt;em&gt;todos&lt;/em&gt; por mí mismo.&lt;/p&gt;
+&lt;p&gt;También tengo un interés declarado en los problemas de interfaces gráficas, especialmente en lo que se refiere a las herramientas de desarrollo. Tengo grandes visiones de lo que &lt;em&gt;me gustaría&lt;/em&gt; hacer con este proyecto, y he recibido algunas grandes contribuciones de la comunidad, pero todavía es en gran medida mi propio trabajo. Mi start-up  sería capaz de hacer un gran uso de estas herramientas si estuvieran maduras.&lt;/p&gt;
+&lt;p&gt;También soy un mantenedor de algunos proyectos más pequeños, como el envoltorio Python para la API Xero. Comencé el proyecto porque tenía una picazón. Pero ahora he abierto el proyecto, lo que significa que he heredado una tarea de mantenimiento. He aceptado la ayuda de un par de personas - sobre todo Matthew Schinkel y Aidan Lister, que han hecho un gran trabajo. Pero si soy honesto, la carga de mantenimiento de PyXero excede el tiempo que puedo dedicarle razonablemente.&lt;/p&gt;
+&lt;p&gt;Entonces, tengo intereses creados en el software libre. Tengo un interés como productor de un proyecto exitoso con un alto perfil; como productor de un pequeño proyecto con muchos usuarios pero poco incentivo personal; y como productor de proyectos más pequeños con casi ningún perfil pero grandes planes. Todos estos proyectos tienen diferentes necesidades de recursos, reflejando su madurez como proyectos.&lt;/p&gt;
+&lt;p&gt;También tengo intereses como consumidor de software libre, tanto en términos de software en el que confío para desarrollar mis propios proyectos, como en términos de mi interés comercial en el mantenimiento a largo plazo de herramientas y plataformas. Necesito estos proyectos para seguir desarrollándose, sobrevivir y prosperar.&lt;/p&gt;
+&lt;p&gt;Sobre la base de mi experiencia, me gustaría hacer una audaz afirmación:&lt;/p&gt;
+&lt;blockquote class=&quot;pull-quote&quot;&gt;
+A falta de otras limitaciones, dados recursos equivalentes, el enfoque de software libre produce resultados de ingeniería mucho mayores que el enfoque de código cerrado.&lt;/blockquote&gt;
+&lt;p&gt;La frase clave es &amp;quot;dado recursos equivalentes&amp;quot;. La mayoría de los proyectos de software libre no se desarrollan usando nada cercano a recursos &amp;quot;equivalentes&amp;quot;.&lt;/p&gt;
+&lt;p&gt;En algunos casos, esto es una bendición disfrazada - sin importar el proyecto, tener escasos recursos es un excelente crisol para quemar lo innecesario y dejar sólo el metal base. Pero no siempre es una bendición.&lt;/p&gt;
+&lt;div class=&quot;section&quot; id=&quot;el-camino-moral-alto-esta-lleno-de-cadaveres-de-nuestros-aliados&quot;&gt;
+&lt;h3&gt;El camino moral alto está lleno de cadáveres de nuestros aliados&lt;/h3&gt;
+&lt;p&gt;Hable con cualquier desarrollador de software libre prominente, y entre las historias de éxito, también escuchará algunos problemas consistentes - que tienen grandes ideas y grandes planes, pero no hay tiempo para ejecutarlas; que están a punto de quemarse debido a las presiones de mantener su proyecto; o que han tenido otra discusión de lista de correo con alguien que no entiende por qué no dejo todo para ayudarles a solucionar su problema. Y hay muchos ejemplos.&lt;/p&gt;
+&lt;p&gt;OpenSSL es el software que maneja prácticamente todas las conexiones &amp;quot;seguras&amp;quot; en Internet, y sin embargo, solo hasta el descubrimiento de Heartbleed -una vulnerabilidad crítica que envió a Internet en un remolino - pudo  encontrar financiación para pagar a los mantenedores.&lt;/p&gt;
+&lt;p&gt;Otro ejemplo - GnuPG - Werner Koch casi se declaró en bancarrota tratando de apoyar a GPG - un proyecto que muchos otros dependen de la confianza en su proceso de lanzamiento. Fue rescatado, en la puerta de las muerte, por la iniciativa Infraestructura principal de la fundación linux.&lt;/p&gt;
+&lt;p&gt;Estos son ejemplos que terminaron con fondos; pero no todos los finales felices.&lt;/p&gt;
+&lt;p&gt;Tomemos el ejemplo de Capistrano. Herramienta de gestión de configuración muy popular alrededor de 2007-8, mantenido por Jamis Buck. En 2008, citando el agotamiento y el mantenimiento general, él renunció a apoyar a Windows, diciendo que &amp;quot;Windows puede ser el gorila de 800 libras en la habitación, pero no es mi gorila, y no está en mi habitación&amp;quot;. Este fue un movimiento increíblemente impopular; pero incluso con esa reducción, Jamis se quemó en 2009, abandonando Capistrano, y una serie de otros proyectos, sin mantenedores.&lt;/p&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&amp;quot;Hi I&amp;#39;m an engineer at a well-funded company and we need this feature can someone implement it for free?&amp;quot; -- Every FOSS mailing list.&lt;/p&gt;&amp;mdash; Christophe (@Xof) &lt;a href=&quot;https://twitter.com/Xof/status/622113231218192384&quot;&gt;July 17, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;p&gt;La cosa es - que esta es una comunidad que tiene un montón de dinero en efectivo. En el gran esquema de cosas, el desarrollo de software es una industria bien financiada. Si las empresas pueden encontrar dinero para mesas de futbolín y bolas de bolas meditativas, deben ser capaces de encontrar recursos para ayudar a mantener el software en el que han basado su éxito. Y si estás en el extremo receptor del problema - un desarrollador de software libre -  puede ser realmente frustrante.&lt;/p&gt;
+&lt;p&gt;Para mí, esta es la gran pregunta sin respuesta del movimiento del software libre: cómo reconciliar la discrepancia entre la clara demanda de un producto de software y la capacidad de convertir esa demanda en el tiempo y los recursos necesarios para atender esa demanda.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;software-libre-sueno-vs-realidad&quot;&gt;
+&lt;h3&gt;Software libre: Sueño vs Realidad&lt;/h3&gt;
+&lt;p&gt;Aunque la teoría dice que cualquier persona puede contribuir a un proyecto de software libre, en realidad, cada proyecto de cualquier significado tiene líderes. En el nivel más básico, es quien tiene el &amp;quot;bit de commit&amp;quot;. Y usted necesita ese liderazgo, especialmente cuando se trata de algo relacionado con el diseño. La mordaza corriente es que un camello es un caballo diseñado por comité. Las peores API que tratamos diariamente son las que fueron diseñadas por comité. Necesitas a alguien con gusto corriendo el espectáculo.&lt;/p&gt;
+&lt;p&gt;Pero hay un problema más grande - la extensión del compromiso que los usuarios tienen con un proyecto. Aquí hay un experimento para probar mi punto. Estamos en una habitación llena de usuarios de Python. Django es un proyecto de software libre.&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;¿Quién en esta sala ha encontrado un error en Django, o tiene una pequeña cosa que les gustaría ver arreglada en la API de Django?&lt;/li&gt;
+&lt;li&gt;¿Quién ha convertido esa pequeña cosa  un informe de error de Django?&lt;/li&gt;
+&lt;li&gt;¿Quién ha enviado un parche a Django para esa arreglo?&lt;/li&gt;
+&lt;li&gt;De aquellos, quienes han tenido ese parche emergido?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;admonition note&quot;&gt;
+&lt;p class=&quot;first admonition-title&quot;&gt;Note&lt;/p&gt;
+&lt;p class=&quot;last&quot;&gt;Cuando esto se hace delante de una audiencia en vivo, en cada pregunta, hay menos gente levantando sus manos&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;productos-vs-proyectos&quot;&gt;
+&lt;h3&gt;Productos vs Proyectos&lt;/h3&gt;
+&lt;p&gt;Entonces, ¿qué está pasando aquí? Bueno, refleja 2 maneras diferentes de mirar un pedazo de software - proyectos y productos. Y es una cuestión de perspectiva personal - mi proyecto puede ser su producto, y viceversa.&lt;/p&gt;
+&lt;p&gt;Cuando veo algún código como un proyecto, es un cuerpo de código en el que estoy contribuyendo a un objetivo mayor. Estoy dispuesto a gastar recursos enfocados en las necesidades de otras personas con la esperanza de que sus necesidades ayudarán a mejorar el proyecto como un todo. Estoy dispuesto a hacer esto porque obtengo ganancias personales, como un perfil público mejorado; o si la herramienta está muy cerca de mi trabajo; o donde sé que puedo hacer una contribución sustantiva.&lt;/p&gt;
+&lt;p&gt;Pero cuanto más lejos me alejo de mi &amp;quot;trabajo&amp;quot;, y cuanto más difícil es hacer una contribución, menos inclinado estoy a &lt;em&gt;querer&lt;/em&gt; contribuir al proyecto. La mayoría de las veces, es un producto que estoy usando, con las verrugas y todo. Si un producto tiene errores, trabajaré alrededor de ellos, o encontraré una alternativa, en vez de navegar por el proceso de contribución y contribuir con un parche.&lt;/p&gt;
+&lt;p&gt;En el caso de un producto, las libertades proporcionadas por el software libre son un poco como la libertad de expresión - es una libertad que definitivamente quiero, es reconfortante saber que está ahí, pero no paso todos los días asegurándome de explotar plenamente esas libertades. Hay personas que lo hacen - manifestantes, defensores de posiciones sociales controvertidas - y un día, dadas las circunstancias adecuadas, podría unirme y ayudarles. Pero la mayoría de las veces, sólo quiero ser pragmático, y seguir con la vida.&lt;/p&gt;
+&lt;p&gt;Esta dicotomía entre la teoría y la práctica es también la razón por la que comentarios como &amp;quot;Parches bienvenidos&amp;quot; se hacen en las listas de correo de software libre. Por un lado, es completamente correcto. Cualquiera &lt;em&gt;puede&lt;/em&gt; contribuir, y en la mayoría de los proyectos los &lt;em&gt;parches&lt;/em&gt; son bienvenidos. Pero la mayoría de la gente no mira un nuevo proyecto de código abierto como una oportunidad para participar y contribuir. La mayoría de la gente sólo quiere usar el maldito software.&lt;/p&gt;
+&lt;p&gt;Y se puede argumentar que es porque la gente se está centrando en la interpretación equivocada de &amp;quot;libre&amp;quot;, y no han &amp;quot;capturado el espíritu del software libre&amp;quot;. Lo cual es 100% cierto, pero totalmente contraproducente como una posición. Cualquier persona que ha hecho cualquier trabajo de diseño UX sabe que si los usuarios están cometiendo un error consistentemente, culpar al usuario no te lleva a ninguna parte. Usted estaba a cargo de lo que el usuario experimentó, y cometieron el &amp;quot;error&amp;quot; debido a una desconexión cognitiva fundamental.&lt;/p&gt;
+&lt;p&gt;E incluso si todo el mundo &lt;em&gt;obtuvo&lt;/em&gt; el mensaje correcto - vamos a ser realistas - no funcionaría de todos modos. &lt;a class=&quot;reference external&quot; href=&quot;https://es.wikipedia.org/wiki/El_M%C3%ADtico_Hombre-Mes&quot;&gt;El mítico hombre-mes&lt;/a&gt; nos mostró que no podemos entregar un proyecto más rápidamente o mejor, arrojando más personas en él. 9 mujeres no pueden hacer un bebé en 1 mes - un proyecto no sólo necesita recursos - que necesita los recursos &lt;em&gt;adecuados&lt;/em&gt;, en las cantidades adecuadas. Y en última instancia, eso significa que los proyectos deben encontrar una manera de obtener los recursos que necesitan para ser autosostenibles.&lt;/p&gt;
+&lt;p&gt;Por lo tanto, eso significa que si queremos que el software libre se mantenga y mantenga bien, necesitamos encontrar una manera de financiar su mantenimiento.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;valor-de-uso-vs-valor-de-venta&quot;&gt;
+&lt;h3&gt;Valor de uso vs Valor de venta&lt;/h3&gt;
+&lt;p&gt;Hace 18 años, Eric S Raymond publicó un ensayo titulado &amp;quot;La Catedral y el Bazar&amp;quot;. Este ensayo catalizó el inicio del movimiento de código abierto - una redefinición del &amp;quot;software libre&amp;quot; para dejar claro que la apertura, no el precio, era la propiedad importante. Lo que no es tan bien recordado es que &amp;quot;La Catedral y el Bazar&amp;quot; no es el único ensayo escrito por Raymond en ese momento. Publicó otros 2 ensayos poco después - &amp;quot;Homesteading the Noosphere&amp;quot;, sobre la organización social y las motivaciones detrás de los proyectos de software libre, y &amp;quot;The Magic Cauldron&amp;quot;, sobre la &lt;em&gt;economía&lt;/em&gt; del software libre.&lt;/p&gt;
+&lt;p&gt;Una de las distinciones clave que Raymond destaca en ese ensayo es la diferencia entre el valor de uso y el valor de venta.&lt;/p&gt;
+&lt;p&gt;El valor de venta de un producto es su valor como un producto vendible - literalmente, por lo que usted lo vende.&lt;/p&gt;
+&lt;p&gt;El valor de uso de un producto es su valor económico como herramienta, como multiplicador de productividad. Este es el beneficio económico que el usuario obtendrá del producto.&lt;/p&gt;
+&lt;p&gt;Lo importante es que los dos no están necesariamente conectados. En un entorno de fabricación tradicional, el foco está en el valor de venta, ya que por lo general está vinculado al costo de fabricación - el costo de las piezas y los materiales.&lt;/p&gt;
+&lt;p&gt;Pero la mayoría del software no se produce para el valor de la venta - es en casa el software producido para el valor de uso. En el caso del software libre, el valor de &amp;quot;venta&amp;quot; para el software libre es 0. Pero eso no significa que no hay valor de uso, y el problema es averiguar cómo explotar el valor de uso que existe dentro de una organización como un canal de monetización.&lt;/p&gt;
+&lt;p&gt;¿Entonces cuales son tus opciones?&lt;/p&gt;
+&lt;p&gt;Bueno, puedes vender mercancía. Y aunque esto es relativamente fácil de hacer, seamos honestos - no vas a financiar un imperio de software vendiendo camisetas.&lt;/p&gt;
+&lt;p&gt;Puede hacer que los usuarios paguen por la documentación. Escribe un libro, y haz que los usuarios lo paguen.&lt;/p&gt;
+&lt;p&gt;Desafortunadamente, el pequeño secreto sucio de la escena de la escritura de la tecnología es que nadie se vuelve rico escribiendo libros de tecnología. Son recursos increíblemente valiosos para la comunidad, son ideales para rellenar tu currículum, pero no son grandes como flujo de ingresos.&lt;/p&gt;
+&lt;p&gt;Un área que &lt;em&gt;si&lt;/em&gt; paga bien es la de entrenamiento. Los empleadores están dispuestos a pagar mucho dinero por los cursos de capacitación; si usted puede juntar un taller intensivo de 3 días, usted puede venderlo una y otra vez.&lt;/p&gt;
+&lt;p&gt;Puede producir su oferta. El código fuente sigue siendo gratuito, pero un instalador simple y fácil de usar cuesta dinero. Esto funciona muy bien cuando cuando lo que tienes es un producto claramente identificable - como una interfaz gráfica de desarrollo - IDE.&lt;/p&gt;
+&lt;p&gt;Un modelo específico de generar un producto es Software como servicio - SaaS - dar el código de forma gratuita, pero pagar por la conveniencia de tener a alguien más para administrarlo por usted. Cualquier software de código abierto de la web es un buen ejemplo de esto - puede instalar el software en sus propios servidores, pero honestamente, a menos que tenga una razón, usted utiliza la solución alojada de alguien más y deja que ellos cuiden sus servidores por usted.&lt;/p&gt;
+&lt;p&gt;Pero, SaaS sólo es viable si se puede ofrecer &lt;em&gt;como un servicio&lt;/em&gt; - lo que significa que es realmente sólo viable para la web. Y, como las tecnologías como docker comercializan el despliegue, es posible que incluso este flujo de ingresos se evapore.&lt;/p&gt;
+&lt;p&gt;Entonces, ¿qué más se puede vender?&lt;/p&gt;
+&lt;p&gt;Usted puede vender el acceso a los desarrolladores. Si eres el mantenedor de un proyecto, estás en la mejor posición para brindarle soporte o depurar problemas complejos, lo que significa que estás en una posición privilegiada para vender soporte y consultoría. &lt;cite&gt;Honza Král &amp;lt;https://twitter.com/honzakral&amp;gt;&lt;/cite&gt; de ElasticSearch llama a esto el modelo de negocio &amp;quot;Ghostbusters&amp;quot; - &amp;quot;¿A quién vas a llamar?&amp;quot;&lt;/p&gt;
+&lt;p&gt;Puede vender el acceso al software. Trolltech hizo esto con Qt; Riverbank todavía hace con los enlaces de PyQt. La biblioteca en sí es GPL - pero si quieres usarla en un proyecto de código cerrado, puedes hacerlo, por un alto cargo. Esto tiene la ventaja de que obliga a los intereses comerciales a pagar por lo que están utilizando; pero también desincentiva el uso comercial a pequeña escala - si estoy escribiendo una nueva herramienta, y me veo obligado a elegir entre el código abierto de mi herramienta o un precio de $ 1000, probablemente elija un juego de herramientas diferente.&lt;/p&gt;
+&lt;p&gt;También puede entrar en el negocio de proporcionar certificaciones y garantías - código de auditoría para garantizar la calidad o compatibilidad, proporcionando garantías sobre el arreglo de errores, y certificar que las personas son expertos en el uso del producto. Esta es una parte importante de los modelos de negocio de RedHat, los paquetes de auditoría, asegurándose de que todos interactúan como se esperaba, asegurando que las actualizaciones de seguridad están disponibles y cumplen con los mismos estándares y certificando a los administradores del sistema.&lt;/p&gt;
+&lt;p&gt;Este es un conjunto de productos que atrae a la &amp;quot;empresa&amp;quot; de gama alta de la ciudad - y es un segmento lucrativo  del mercado. Pero esos clientes tienden a sólo necesitar estas garantías para ciertos tipos de software - en términos generales,  software &amp;quot;aburrido&amp;quot;. Su sistema operativo, sus base de datos - son piezas de software que necesitan ser sólidas en una empresa. Su barra de herramientas de depuración - no tanto, a menos que tal vez sean ofrecidas como parte de un conjunto/paquete de herramientas.&lt;/p&gt;
+&lt;div class=&quot;section&quot; id=&quot;socavar-tu-propuesta-de-valor&quot;&gt;
+&lt;h4&gt;Socavar tu propuesta de valor&lt;/h4&gt;
+&lt;p&gt;Otro problema con muchas de estas fuentes de ingresos es que si se ejecuta bien su proyecto, muchos de ellos se descartan - o por lo menos se ven severamente reducidas.&lt;/p&gt;
+&lt;p&gt;Si haces algo realmente fácil de usar, acabas de eliminar la necesidad de libros y cursos de formación, o, por lo menos, movido el terreno a cursos &amp;quot;avanzados&amp;quot;, que son más difíciles de escribir y tienen un público más pequeño.&lt;/p&gt;
+&lt;p&gt;Django vio esto de primera mano - la documentación de Django era reconocida por lo buena desde una  temprana etapa, y como resultado, era muy difícil conseguir que los editores aceptaran proyectos de libros de Django - porque la documentación era demasiado buena y estaba socavando el mercado para libros. Se ha tardado mucho tiempo, y sobre todo la auto-publicación, para obtener buenos libros Django disponibles para la venta.&lt;/p&gt;
+&lt;p&gt;Si usted tiene una lista de correo del proyecto, donde la comunidad responde a las preguntas de forma gratuita, y es una lista de correo saludable y sensible ... ¿por qué pagaría por el apoyo?&lt;/p&gt;
+&lt;p&gt;Si su software está bien diseñado, es modular, y esas interfaces están bien documentadas, y necesito una modificación - ¿por qué no acabo de escribir el modulo yo mismo?&lt;/p&gt;
+&lt;p&gt;Ahora, Ok - estoy exagerando. Hay razones legítimas para pagar por el apoyo o para traer un consultor incluso si las interfaces están limpias y bien documentadas. Pero mi punto es que cuanto mejor haces un trabajo como ingeniero de software libre, se hace más difícil hacer el caso de negocio para tu flujo de ingresos, porque la propuesta de valor se vuelve menos obvia.&lt;/p&gt;
+&lt;p&gt;Y si no está socavando directamente su propuesta de valor, todavía puede socavarle indirectamente, porque cuanto más tiempo gasta dinero, menos gasta haciendo lo que el dinero paga. Administrar un programa de certificación lleva tiempo. Escribir y ofrecer cursos de capacitación toma tiempo. La consultoría puede ser lucrativa, pero desarrollar un pipeline de ventas lleva tiempo. Y si usted está consultando, usted necesita cerciorarse de que el pipeline de las ventas esté lleno, que significa que usted va a errar en el lado de tomar más trabajo que menos ... que significa que usted acaba de cerrar la puerta en el el tiempo que tiene disponible para trabajar en código abierto.&lt;/p&gt;
+&lt;p&gt;También debe tener cuidado de que en la venta de su caso de negocio, no socave su proyecto principal. Si cada pregunta difícil en la lista de correo se responde con &amp;quot;Podemos responder por una tarifa&amp;quot;, va a sonar como un &lt;em&gt;shill&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Si un proyecto dice que necesita dinero para asegurarse de que nos mantenemos al tanto de los problemas de seguridad ... usted tiene que ser muy cuidadoso cómo lo dice, porque la interpretación fácil es &amp;quot;bueno, el proyecto debe ser inseguro, porque no están en la parte superior de la seguridad ahora &amp;quot;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;una-cuestion-de-escala&quot;&gt;
+&lt;h3&gt;Una cuestión de escala&lt;/h3&gt;
+&lt;p&gt;También hay una cuestión de escala. Python, Django - estos son grandes proyectos con grandes comunidades. Hacer un caso de negocio para Python o Django no es demasiado difícil. No trivial, pero posible. Pero ser el mantenedor de un proyecto más pequeño - como, digamos, Django Debug Toolbar - se espera seriamente que escriban y vendan un libro sobre Debug Toolbar? ¿O capacitación y certificación en su uso?&lt;/p&gt;
+&lt;p&gt;Los proyectos más pequeños no son menos importantes para la vitalidad del ecosistema general de Django, pero estos proyectos no tienen las mismas oportunidades para la recaudación de fondos que los proyectos más grandes.&lt;/p&gt;
+&lt;p&gt;También es importante darse cuenta de que no todos los productos tienen todas estas oportunidades de ingresos. Un IDE puede volverse un producto más fácil de mercadear; una librería de desarrollado probablemente no puede. Diferentes proyectos necesitarán diferentes mezclas de flujos de ingresos.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;tienes-que-vender-algo&quot;&gt;
+&lt;h3&gt;¿Tienes que vender algo?&lt;/h3&gt;
+&lt;p&gt;Ok - pero podemos hacer esto sin vender nada en absoluto?&lt;/p&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&amp;quot;How to make money from open source&amp;quot; is like &amp;quot;How to make money from clean water&amp;quot; or public education or science.&lt;/p&gt;&amp;mdash; Pieter Hintjens (@hintjens) &lt;a href=&quot;https://twitter.com/hintjens/status/603446810183610368&quot;&gt;May 27, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;&lt;p&gt;El software libre se deriva de un imperativo moral - así que podemos financiar el desarrollo a través del altruismo y el patrocinio? Bueno, es más difícil, pero hay pruebas de que se puede hacer.&lt;/p&gt;
+&lt;div class=&quot;section&quot; id=&quot;crowdfunding-y-recompensas&quot;&gt;
+&lt;h4&gt;Crowdfunding y recompensas&lt;/h4&gt;
+&lt;p&gt;Una opción que ha visto mucha actividad recientemente es crowdfunding. Plataformas como Kickstarter e Indiegogo proporcionan un camino a un grupo de personas para lanzar y contribuir a un objetivo.&lt;/p&gt;
+&lt;p&gt;La comunidad de Django tiene un par de ejemplos de proyectos de crowdfunding muy exitosos, cada uno levantando decenas de miles de dólares (Django Migrations, Multiple Template engines, django.contrib.postgres, Django Rest Framework). Pero - si le preguntas a las personas que hicieron estos proyectos, no hicieron dinero en estos proyectos. La cantidad de tiempo de ingeniería que se invirtió en estos proyectos superó (con creces) el dinero recaudado.&lt;/p&gt;
+&lt;p&gt;Otra idea que se escucha regularmente es la idea de recompensas de la resolución de problemas (Bug Bounties) - la asignación de un precio para resolver un error específico. Esto es realmente sólo otra forma de crowdfunding - ¿Quieres arreglar un error específico o implementar una nueva característica? Contribuye con el dinero. Si tu &lt;em&gt;realmente&lt;/em&gt; lo deseas - contribuye más. Y eventualmente alguien tomará el cebo y arreglará el error o implementará la característica.&lt;/p&gt;
+&lt;p&gt;Es un modelo atractivo - pero también tiene problemas - más notablemente, quién recibe el pago. ¿Pagas por líneas de código escrito? Esto ignora la contribución de los revisores del código. ¿Qué tan importante es escribir código comparado con revisar código o con encontrar un error?&lt;/p&gt;
+&lt;p&gt;Pero el mayor problema que veo con los enfoques de crowdfunding es que están en conflicto con el establecimiento de un ingreso laboral. Si te estás contratando a ti mismo, cuanto más corto sea el compromiso, mayor será tu tarifa por hora. Esta es una cobertura contra el desempleo al final del contrato. Si estás organizando un Kickstarter, es mejor tener un objetivo pequeño, claramente definido y claramente alcanzable. Así que lo puedes hacer en un mes o dos de trabajo.&lt;/p&gt;
+&lt;p&gt;Esto significa que necesitas para cobrar tu tasa de corto plazo con el fin de garantizar los ingresos a largo plazo. Pero también es de tu interés tener un objetivo de recaudación de fondos bajo, para que la campaña sea realmente exitosa. Si es demasiado alto, podría asustar a posibles patrocinadores. También significa que la comunidad paga una prima por cualquier característica nueva, que no es el mejor uso de los ya escasos recursos comunitarios.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;becas-patreon&quot;&gt;
+&lt;h4&gt;Becas, Patreon&lt;/h4&gt;
+&lt;p&gt;Ok - si deseas ingresos a largo plazo, es necesario mirar a compromisos a más largo plazo. Eso significa que deja de buscar fondos para proyectos específicos y empiezas a buscar financiación para la persona, con becas.&lt;/p&gt;
+&lt;p&gt;Estoy incluyendo a Patreon en esa lista porque es efectivamente &amp;quot;crowdsourced patronage&amp;quot;. No estás pagando por una cosa específica - estás pagando para que &amp;quot;sigas haciendo lo que estás haciendo&amp;quot;.&lt;/p&gt;
+&lt;p&gt;En los últimos 10 meses, Django ha estado utilizando este modelo. Contratamos a un desarrollador a finales del año pasado. El desarrollador - cuyo nombre es Tim Graham - es responsable de mantener las ruedas del proyecto engrasadas.&lt;/p&gt;
+&lt;p&gt;Desde un punto de vista técnico, este ha sido un éxito rotundo. Tim ha hecho un gran trabajo con el manejador de tiquetes (Issue Tracker), y los tiempos de respuesta en las revisiones de Pull Requests son más bajos.&lt;/p&gt;
+&lt;p&gt;La parte difícil ha sido recaudar el dinero para pagarle.&lt;/p&gt;
+&lt;p&gt;Hicimos una recaudación de fondos al principio del año específicamente para financiar al becario; esa campaña ha recaudado algo más de $ 50.000. Eso no es un cantidad pequeño de dinero - pero no es tampoco mucho cuando estás hablando de un empleado de tiempo completo. Vamos a necesitar hacer otra recaudación de fondos muy pronto si queremos que la beca continue.&lt;/p&gt;
+&lt;p&gt;Casi todos están de acuerdo en que ha sido dinero bien gastado, pero convertirlo en donaciones ha sido un trabajo duro.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;patrocinio-corporativo&quot;&gt;
+&lt;h4&gt;Patrocinio corporativo&lt;/h4&gt;
+&lt;p&gt;Otro otro enfoque para recaudar dinero es abrazar al diablo, e ir a los proveedores comerciales. Los intereses comerciales tienen dinero, así que ¿por qué no deberían pagar por ello? Esto puede ser muy exitoso bajo ciertas circunstancias - pero tienes que ser capaz de hacer un caso de negocio para el propietario corporativo.&lt;/p&gt;
+&lt;p&gt;OpenStack es un gran ejemplo de esto. ¿Por qué Rackspace, HP, Redhat, Ubuntu están interesados en OpenStack? Porque venden productos que se benefician de la mercantilización del entorno de alojamiento. Al hacer que sea barato y fácil de controlar las implementaciones en la nube, aumentan el tamaño del mercado para el alojamiento en la nube, lo que significa más dinero para su negocio principal - ya sea directamente (como Rackspace), o indirectamente (como RedHat, porque los servidores en la nube todavía necesitan sistemas operativos).&lt;/p&gt;
+&lt;p&gt;Node.js es financiado por Joyent por razones similares - Joyent está haciendo una apuesta a largo plazo, en la que si es más fácil desarrollar el software para la web, más gente escribirá dicho software , aumentando el mercado para los servicios de Joyent.&lt;/p&gt;
+&lt;p&gt;Sin embargo, Node.js es también un recordatorio sobre los problemas asociados a los intereses corporativos - ¿qué sucede cuando la comunidad y el patrocinador corporativo no están de acuerdo con la dirección del proyecto? Bueno, obtienes divisiones del proyecto, como la división io.js. El dinero corporativo puede corromper. Debemos tener cuidado de que la gobernanza del proyecto sea independiente de la fuente de financiamiento.&lt;/p&gt;
+&lt;p&gt;Tener un solo &amp;quot;jefe&amp;quot; corporativo también pone el proyecto en riesgo si ese &amp;quot;jefe&amp;quot; corporativo pierde interés. Django estaba originalmente bajo el ala de la World Company. Eventualmente, ese interés disminuyó, y el apoyo corporativo se acabó.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;venture-funding&quot;&gt;
+&lt;h4&gt;Venture funding&lt;/h4&gt;
+&lt;p&gt;La otra respuesta corporativa que se escucha es ir a buscar dinero/capital de riesgo/inversión. Y hay algunos ejemplos de gente haciendo esto. Meteor, por ejemplo, está financiando su desarrollo con dinero de un fondo de riesgo. Tienen mucho dinero para contratar a ingenieros, diseñadores - lo que necesiten.&lt;/p&gt;
+&lt;p&gt;¿Qué me pone nervioso sobre este modelo? Hemos estado aquí antes. ¿Quién recuerda aquí a Eazel? Para aquellos que no recuerdan, a finales de los 90, Eazel fue una empresa dot-com fundada para desarrollar el gestor de archivos Nautilus. Y, tenemos 2 años de código abierto. Y entonces estalló la burbuja, y la compañía se estropeó. Ahora, lo bueno es que todavía tenemos el código. Pero sería mejor tener el código en desarrollo activo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;desarrollo-de-una-cultura-de-patrocinadores&quot;&gt;
+&lt;h3&gt;Desarrollo de una cultura de patrocinadores&lt;/h3&gt;
+&lt;p&gt;Y otra vez, toda esta discusión está sucediendo en una industria donde las valuaciones del mil millones de dólares están dando vueltas alrededor.&lt;/p&gt;
+&lt;p&gt;Grandes partes de nuestra industria, se basan en software libre - pero los que tienen más capacidad para contribuir, en muchos casos, no están contribuyendo.&lt;/p&gt;
+&lt;p&gt;Algunos lo están haciendo - hay algunas empresas que dan grandes cantidades de nuevo a las comunidades de código abierto. Pero también hay un montón de empresas que no retribuyen.&lt;/p&gt;
+&lt;p&gt;E incluso muchos aquellos que &lt;em&gt;si&lt;/em&gt; retribuyen dan la ayuda que son capaces de dar, que no es necesariamente la ayuda que se necesita. La Django Software Foundation recibe regularmente ofertas de alojamiento gratuito o subvencionado de proveedores de alojamiento. Y no me malinterpreten - esto es genial, e increíblemente útil.&lt;/p&gt;
+&lt;p&gt;Pero lo que realmente necesitamos es alguien en la nómina para revisar los errores. Anteriormente en el ciclo de vida de Django, necesitábamos que la gente escribiera nuevas grandes características. Estamos en una constante necesidad de diseñadores gráficos, artistas, escritores de tecnología. Necesitamos personas que sepan cómo hacer administración de sistemas, y el alcance comunitario. Y no necesitamos 400 personas donando 1 hora; necesitamos 10 personas muy específicas donando 40 horas.&lt;/p&gt;
+&lt;p&gt;Cuando ocurre un desastre, organizaciones como la Cruz Roja piden donaciones. Y por lo general dicen &amp;quot;por favor darnos dinero, no latas de comida o mantas&amp;quot;. ¿La razón? El dinero puede comprar lo que se necesita. No puedes controlar lo que la gente dona, e incluso si la gente dona exactamente lo que se necesita, hay una enorme tarea logística de inventariar lo que se ha donado, y llevarlo donde se necesita.&lt;/p&gt;
+&lt;p&gt;Los proyectos de software libre son iguales - requieren recursos. Algunas empresas donan en especie, y eso es genial, pero rara vez es lo que se necesita, y es fácil distraerse averiguando qué hacer con todos los recursos que se han donado, pero no tienen un uso inmediato.&lt;/p&gt;
+&lt;p&gt;Y tristemente, al igual que con las organizaciones benéficas - muchas empresas no donan en absoluto. Y no estoy diciendo que estas compañías están siendo deliberadamente maliciosas en no financiar el código abierto - si algo, nosotros como comunidad les hemos fallado porque no les hemos ayudado a ayudarnos.&lt;/p&gt;
+&lt;p&gt;Lo más importante, no tenemos un mecanismo para que sea fácil gastar dinero, y sea fácil recibir dinero. El estado actual de las cosas demuestra claramente que no es suficiente que haya mucho dinero en una comunidad - hay que crear el mecanismo para que donar ese dinero sea tan obvio y sin fisuras como sea posible, y hay que tener a alguien para direccionar ese dinero donde se necesita.&lt;/p&gt;
+&lt;p&gt;Una comunidad modelo que creo que hace esto realmente bien es la comunidad de Wordpress. Wordpress es software GPL. Hay libros, videos, blogs sobre cómo escribir plugins y temas de Wordpress, lo mismo que para cualquier comunidad de software de código abierto. Pero  también hay libros, videos y blogs sobre cómo hacer un &lt;em&gt;negocio&lt;/em&gt; escribiendo plugins y temas de Wordpress. Wordpress es GPL. Y por lo tanto, también lo son todos los complementos. Tienen una tienda donde puedes comprar complementos (y obtener los gratuitos), e instalarlos fácilmente en tu instancia de Wordpress.&lt;/p&gt;
+&lt;p&gt;El ecosistema de Wordpress ha aceptado fundamentalmente el hecho de que el dinero necesita ser parte de la ecuación, y al hacerlo han creado una industria que se autofinancia, y esto, diría yo, es una de las razones principales del éxito de Wordpress como una plataforma.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;una-propuesta-polemica&quot;&gt;
+&lt;h3&gt;Una propuesta polémica&lt;/h3&gt;
+&lt;p&gt;En ese sentido, me gustaría hacer una propuesta polémica.&lt;/p&gt;
+&lt;p&gt;¿Qué pasaría si &lt;a class=&quot;reference external&quot; href=&quot;https://pypi.python.org/pypi&quot;&gt;PyPI&lt;/a&gt; fuese una fuente de ingresos? ¿Qué sucedería si, al registrar una aplicación con &lt;a class=&quot;reference external&quot; href=&quot;https://pypi.python.org/pypi&quot;&gt;PyPI&lt;/a&gt;, pudieras especificar un precio: por instalación, o por versión, o por aplicación o por mes. Cuando hago &amp;quot;pip install&amp;quot;, el coste se agrega a mi cuenta PyPI, y recibo un cargo mensual en mi tarjeta de crédito; y que se pasa de nuevo a los proyectos de desarrollo.&lt;/p&gt;
+&lt;p&gt;Si hemos de creer en las estadísticas de PyPI, Django se descarga de PyPI más de 1 millón de veces al mes. Si hubiese un peaje de 10 centavos de dólar en cada descarga, eso recaudarían $ 100,000 por mes - suficiente para pagar 10 desarrolladores a tiempo completo bien pagos, o una cantidad considerable de diversidad, alcance, DjangoGirls y apoyo de la comunidad.&lt;/p&gt;
+&lt;p&gt;También podrías aprovechar la información de la dependencias de PyPi para pagar un porcentaje hacia estos proyectos. Si está escribiendo un proyecto que depende de otro, podría optar por pasar parte de sus ingresos hacia este proyecto. O bien, solicitar que los flujos proporcionen un &amp;quot;peaje&amp;quot;.&lt;/p&gt;
+&lt;p&gt;Y luego están las mayores dependencias de todos: PyPI y Python. Si PyPI tomara un pequeño recorte de los ingresos recaudados, eso podría ayudar a pagar por el desarrollo y mantenimiento de PyPI - y potencialmente Python también.&lt;/p&gt;
+&lt;p&gt;También puede tomar parte del dinero recaudado y ponerlo en un grupo de desarrollo, por lo que si hay un nuevo proyecto que necesita un poco de efectivo de arranque para empezar, o un proyecto establecido que necesita alguna ayuda para una gran tarea (como una actualización de Python 3 ), la comunidad en su conjunto puede fácilmente canalizar dinero hacia ese proyecto.&lt;/p&gt;
+&lt;p&gt;¿Qué pasa con las personas que no tienen dinero? Bueno, podemos ofrecer pases gratis. ¿Estás en un evento de DjangoGirls? Utilice este código promocional para obtener acceso gratuito.&lt;/p&gt;
+&lt;p&gt;Todavía puede regalar su software sin costo alguno. Y todavía es software libre - todavía estás entregando Python, así que todavía vas a obtener la fuente. Probablemente podrías incluso hacer que el proceso de inscripción sea completamente opcional. Todo lo que estaríamos haciendo es pavimentar el mecanismo - lo que facilita recaudar un peaje en la forma fácil en que utilizas un software.&lt;/p&gt;
+&lt;p&gt;No estoy diciendo que nada de esto sea fácil de implementar. Completamente aparte de cualquier reto técnico y solucionando los detalles, es un cambio filosófico grande para la comunidad, y ése es un asunto mucho más grande. Pero esta pregunta filosófica sobre el dinero es una discusión que nosotros, como comunidad necesitamos tener.&lt;/p&gt;
+&lt;p&gt;Lo que tenemos aquí es una &lt;a class=&quot;reference external&quot; href=&quot;https://es.wikipedia.org/wiki/Tragedia_de_los_comunes&quot;&gt;tragedia de los comunes&lt;/a&gt;. Todo el mundo está de acuerdo en que este software es bueno. Todo el mundo sabe que el software debe mantenerse. Pero, ¿por qué una empresa individual debería asumir la carga económica de financiar el mantenimiento cuando sus competidores obtienen el beneficio de forma gratuita?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;aprende-de-la-mpaa-y-riaa-haz-que-sea-facil-hacer-lo-correcto&quot;&gt;
+&lt;h3&gt;Aprende de la MPAA y RIAA: Haz que sea fácil hacer lo correcto&lt;/h3&gt;
+&lt;p&gt;Para mí, la lección clave de la industria de la música y el cine de los últimos 20 años es que si usted hace más fácil hacer lo correcto, la gente hará lo correcto. Si tu puedes hacer simple y sin problemas para una gran empresa  deslizar tu tarjeta de crédito y que te cobren $ 100 al mes por usar todo este software de código abierto que se ha desarrollado, lo harán. Sí, la gente hará trampa. No te preocupes por ello, siempre y cuando la trampa no sea más fácil que hacer lo correcto.&lt;/p&gt;
+&lt;p&gt;La mayor razón por la cual esto no está sucediendo ahora es que no es obvio lo que es lo &amp;quot;correcto&amp;quot;. Podrías donar a la DSF o PSF ... pero es un poco complicado de organizar, y no está claro a dónde va el dinero ... Podrías inscribirte para soportar a algunos Patreons, o inscribirte para un programa de la recompensas ... pero no todo el mundo está allí, y los que están no ganan realmente lo suficiente para ganarse la vida, y no quiero sólo aportar dinero para cerveza.&lt;/p&gt;
+&lt;p&gt;Entonces, ¿qué vamos a hacer? La respuesta corta es &amp;quot;No sé&amp;quot;. Probablemente no existe una solución mágica. Me gustaría pensar que un canal de monetización en PyPI funcionaría, pero seré el primero en admitir que podría no ser la respuesta, o que puede haber problemas que no he previsto.&lt;/p&gt;
+&lt;p&gt;Pero creo firmemente que esta conversación sobre el dinero es una conversación que tenemos que tener. El software libre como movimiento tiene más de 30 años de antigüedad. El código abierto casi 20. Hemos superado los obstáculos técnicos. Incluso estamos conquistados los obstáculos políticos. Ahora es el momento de abordar la forma en que hacemos de esta una industria sostenible a largo plazo, no sólo los intereses comerciales que se aprovechan de la ingenuidad de una corriente de voluntarios de ojos azules.&lt;/p&gt;
+&lt;p&gt;En realidad voy a tomar otra posición ligeramente controversial, y &lt;em&gt;no&lt;/em&gt; voy a tomar preguntas en este punto, por dos razones - en primer lugar, porque este tipo de charla son un imán para &amp;quot;Tengo un comentario, no una pregunta&amp;quot;; y también porque este no es un tema donde yo tenga las respuestas.&lt;/p&gt;
+&lt;p&gt;Esta es una discusión que necesitamos tener como comunidad - y estoy ansioso por tener esa discusión - no sólo en esta etapa.&lt;/p&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;mailto:russell&amp;#64;keith-magee.com&quot;&gt;russell&amp;#64;keith-magee.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://twitter.com/freakboy3742&quot;&gt;&amp;#64;freakboy3742&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://cecinestpasun.com&quot;&gt;cecinestpasun.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content>
+  </entry>
+  <entry xml:base="http://pybee.org/es/noticias/zumbido/hola-sitio-web/">
+    <title type="text">Hola sitio web</title>
+    <id>urn:uuid:e6a05747-fe33-3698-83e9-f45f60cd434a</id>
+    <updated>2016-07-04T00:00:00Z</updated>
+    <link href="http://pybee.org/es/noticias/zumbido/hola-sitio-web/" />
+    <author>
+      <name>Russell Keith-Magee</name>
+    </author>
+    <content type="html">&lt;p&gt;¡Bienvenido al nuevo sitio web del proyecto BeeWare!&lt;/p&gt;
+&lt;p&gt;El sitio web original BeeWare fue escrito hace un par de años, cuando BeeWare era todavía un proyecto altamente experimental. El viejo sitio web era un asunto de una sola página, con proyectos individuales que mantenían su propia identidad web. Con el tiempo, el número de colaboradores ha crecido, el número de subproyectos ha crecido y el número de miembros del equipo central se ha triplicado.&lt;/p&gt;
+&lt;p&gt;A medida que el proyecto BeeWare crecía en complejidad, el antiguo sitio web ya no estaba a la altura de las necesidades del proyecto, por lo que el equipo central se tomó un tiempo fuera de trabajar en BeeWare, y reescribió el sitio.&lt;/p&gt;
+&lt;p&gt;El nuevo sitio web utiliza &lt;a class=&quot;reference external&quot; href=&quot;https://www.getlektor.com&quot;&gt;Lektor&lt;/a&gt;, una herramienta generadora de sitios web estáticos escrita por el conocido Pythonista`Armin Ronacher`_. Esto nos permite seguir hospedando el sitio web con Github Pages, pero nos da la flexibilidad para definir una base de datos clara para los muchos tipos de contenido que necesitamos administrar.&lt;/p&gt;
+&lt;p&gt;Aunque estamos lanzando el sitio hoy, no está completo. Todavía hay contenido que necesita ser escrito, y el estilo que necesita ser arreglado. Sin embargo, creemos que el nuevo sitio es mejor que el anterior, y por lo tanto no vale la pena retrasar el lanzamiento por más tiempo.&lt;/p&gt;
+&lt;p&gt;Esto también le da a la comunidad BeeWare una gran oportunidad de contribuir. Si encuentras algo que falta en el sitio, o algo que crees que podría ser mejor expresado o diseñado mejor, todo el sitio está &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/pybee.github.io/tree/lektor&quot;&gt;disponible en GitHub&lt;/a&gt;. Haz un Fork (Bifurca) el repositorio, realiza el cambio que piensas que se necesita y envía un &lt;em&gt;Pull Request&lt;/em&gt; (contra la rama &lt;cite&gt;Lektor&lt;/cite&gt; - no &lt;cite&gt;master&lt;/cite&gt;). Todas las contribuciones son bienvenidas, y al igual que con todas las contribuciones de BeeWare, las contribuciones del sitio web hacen que el solicitante sea elegible para recibir una exclusiva &lt;a class=&quot;reference external&quot; href=&quot;/es/contribuir/monedas-de-desafio/&quot;&gt;Modena de Desafío de BeeWare&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Esperamos que disfrutes del nuevo sitio; si tienes algún comentario, nos lo puedes hacer saber &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/pybee.github.io/issues/&quot;&gt;con un ticket&lt;/a&gt; o &lt;a class=&quot;reference external&quot; href=&quot;https://gitter.im/pybee/general&quot;&gt;en nuestro canal Gitter&lt;/a&gt;.&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="http://pybee.org/es/noticias/zumbido/consejos-para-convertirse-en-colaborador-principal/">
+    <title type="text">Consejos para convertirse en un colaborador principal</title>
+    <id>urn:uuid:c00b2422-209c-3669-bc5c-1d6cf1396109</id>
+    <updated>2016-06-05T00:00:00Z</updated>
+    <link href="http://pybee.org/es/noticias/zumbido/consejos-para-convertirse-en-colaborador-principal/" />
+    <author>
+      <name>Russell Keith-Magee</name>
+    </author>
+    <content type="html">&lt;p&gt;En PyCon EE.UU. 2016, Philip James se convirtió en un colaborador principal de BeeWare!&lt;/p&gt;
+&lt;p&gt;Escribió algunos de sus pensamientos sobre el proceso en su artículo &lt;a class=&quot;reference external&quot; href=&quot;https://www.wordfugue.com/tips-becoming-core-contributor/&quot;&gt;Consejos para convertirse en un colaborador principal&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Katie McLaughlin, consiguió su compromiso en DjangoCon Europa 2016, seguido con una publicación propia, describiendo su camino a &lt;a class=&quot;reference external&quot; href=&quot;http://glasnt.com/blog/2016/06/08/on-becoming-a-core-contributor.html&quot;&gt;convertirse en una colaboradora principal&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para aquellos que aspiran a convertirse en colaboradores de proyectos de código abierto, es útil escuchar cómo otros llegaron allí.&lt;/p&gt;
+</content>
+  </entry>
+</feed>
