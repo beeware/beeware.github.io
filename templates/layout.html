@@ -97,10 +97,10 @@ ga('send', 'pageview');
     <ul class="nav navbar-nav navbar-right">
         {%- set extra_slash = '/' if this.path[-1] != '/' else '' -%}
         {%- set alt_path = '%2B' + this.alt if this.alt and this.alt != 'en' else '' -%}
-        <li class="small">
+        <li class="nav-item small">
         {%- if this.alt in get_alts(source=this, fallback=False) -%}
           {%- set edit_link = 'https://github.com/pybee/pybee.github.io/edit/lektor/content' + this.path.split('@')[0] + extra_slash + 'contents' + alt_path + '.lr' -%}
-          <a href="{{ edit_link }}" target="_blank">
+          <a class="nav-link" href="{{ edit_link }}" rel="noopener noreferrer" target="_blank">
             <i class="fa fa-github "></i><small>&nbsp;{{ t_edit_on_github }}</small>
           </a>
         {%- else -%}
