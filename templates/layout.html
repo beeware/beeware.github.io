@@ -1,17 +1,23 @@
-{% from "macros/translation.html" import transbag %}
+{%- from "macros/translation.html" import transbag -%}
 
-{% macro menu_item(identifier) %}
-  {% set identifier_url = '/' + identifier %}
-  {% set trans_url = identifier_url|url(alt=this.alt) %}
-  {% set this_is_child = this.is_child_of(trans_url) %}
+{%- macro menu_item(identifier) -%}
+  {%- set identifier_url = '/' + identifier -%}
+  {%- set trans_url = identifier_url|url(alt=this.alt) -%}
+  {%- set this_is_child = this.is_child_of(identifier_url) -%}
   <li class="nav-item{% if this_is_child %} active{% endif %}">
-    <a class="nav-link" href="{{ trans_url }}">{{ transbag('menu', this.alt, identifier) }}{% if this_is_child %}<span class="sr-only">(current)</span>{% endif %}</a>
+    <a class="nav-link" href="{{ trans_url }}">{{- transbag('menu', this.alt, identifier) -}}{%- if this_is_child -%}<span class="sr-only">(current)</span>{%- endif -%}</a>
   </li>
-{% endmacro %}
+{%- endmacro -%}
 
-{% set t_languages = transbag('menu', this.alt, 'languages') %}
-{% set t_sitemap = transbag('translate', this.alt, 'sitemap') %}
-{% set t_welcome = transbag('translate', this.alt, 'welcome') %}
+{%- set t_languages = transbag('menu', this.alt, 'languages') -%}
+{%- set t_sitemap = transbag('translate', this.alt, 'sitemap') -%}
+{%- set t_welcome = transbag('translate', this.alt, 'welcome') -%}
+{%- set t_edit_on_github = transbag('translate', this.alt, 'edit_on_github') -%}
+{%- set t_create_on_github = transbag('translate', this.alt, 'create_on_github') -%}
+{%- set t_translation_out_of_date = transbag('translate', this.alt, 'translation_out_of_date') -%}
+{%- set t_see_original_content = transbag('translate', this.alt, 'see_original_content') -%}
+{%- set t_update_translation = transbag('translate', this.alt, 'update_translation') -%}
+{%- set diff = alt_outdated_diff(this) -%}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +27,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>{% block title %}{{ t_welcome }}{% endblock %} — BeeWare</title>
+    <title>{%- block title %}{{- t_welcome -}}{% endblock -%} — BeeWare</title>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
@@ -32,12 +38,16 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
-
-    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous"-->
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/grid.min.css">
 
     <!-- Project CSS -->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cutive">
     <link rel="stylesheet" type="text/css" href="/static/beeware.css">
+
+    {%- if diff -%}
+    <!-- Project CSS -->
+    {{- get_pygments_css_styles('default')|safe -}}
+    {%- endif -%}
 
     <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/1138bd8363.js"></script>
@@ -53,63 +63,120 @@ ga('create', 'UA-2943925-4', 'pybee.org');
 ga('send', 'pageview');
     </script>
 
-    {% block extra_head %}{% endblock %}
+    {%- block extra_head -%}{%- endblock -%}
 
   </head>
   <body>
-    <nav class="navbar navbar-dark navbar-fixed-top bg-inverse">
-      <div class="container">
-        <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
-        &#9776;
-        </button>
-        <div class="collapse navbar-toggleable-sm" id="collapsingNavbar">
-          <a class="navbar-brand" href="{{ '/'|url(alt=this.alt) }}">BeeWare</a>
-          <ul class="nav navbar-nav">
-            {{ menu_item('project') }}
-            {{ menu_item('news') }}
-            {{ menu_item('community') }}
-            {{ menu_item('contributing') }}
-            {{ menu_item('contact') }}
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ t_languages }} <span class="caret"></span></a>
-              <ul class="dropdown-menu bg-inverse">
-                <li class="p-l-1"><a class="nav-link" href="{{ '.'|url(alt='en') }}">English</a></li>
-                {% for alt, alternative in config.ALTERNATIVES.items()|sort %}
-                {% if alt != 'en' %}
-                <li class="p-l-1"><a class="nav-link" href="{{ '.'|url(alt=alt) }}">{{ alternative.name.en }}</a></li>
-                {% endif %}
-                {% endfor %}
-              </ul>
-            </li>
-          </ul>
+    
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarsDefault">
+    <a class="navbar-brand" href="{{ '/'|url(alt=this.alt) }}">BeeWare</a>
+    <ul class="navbar-nav mr-auto">
+      {{ menu_item('project') }}
+      {{ menu_item('news') }}
+      {{ menu_item('community') }}
+      {{ menu_item('contributing') }}
+      {{ menu_item('contact') }}
+     <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ t_languages }} <span class="caret"></span></a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          {%- set eng_active = this.alt == 'en' %}
+          <a class="dropdown-item {% if eng_active %}active{% endif %}" href="{{ '.'|url(alt='en') }}">English</a>
+          {%- for alt, alternative in config.ALTERNATIVES.items()|sort -%}
+          {%- set alt_active = alt == this.alt -%}
+          {%- if alt != config.primary_alternative -%}
+          <a class="dropdown-item {% if alt_active %}active{% endif %}" href="{{ '.'|url(alt=alt) }}">{{ alternative.name.en }}</a>
+          {%- endif -%}
+          {%- endfor -%}
         </div>
-      </div>
-    </nav>
-
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        {%- set extra_slash = '/' if this.path[-1] != '/' else '' -%}
+        {%- set alt_path = '%2B' + this.alt if this.alt and this.alt != 'en' else '' -%}
+        <li class="small">
+        {%- if this.alt in get_alts(source=this, fallback=False) -%}
+          {%- set edit_link = 'https://github.com/pybee/pybee.github.io/edit/lektor/content' + this.path.split('@')[0] + extra_slash + 'contents' + alt_path + '.lr' -%}
+          <a href="{{ edit_link }}" target="_blank">
+            <i class="fa fa-github "></i><small>&nbsp;{{ t_edit_on_github }}</small>
+          </a>
+        {%- else -%}
+          {# This method is provided by a custom plugin found in /packages/lektor_pybee_plugin/ #}
+          {%- set content_value = urlencode_limit(site.get(this.path).contents.as_text(), limit=5000) -%}
+          {%- if content_value and '@' not in this.path -%}
+          <a href="https://github.com/pybee/pybee.github.io/new/lektor/content{{ this.path }}/contents{{ alt_path }}.lr?filename=contents{{ alt_path }}.lr&value={{ content_value }}" target="_blank">
+            <i class="fa fa-github "></i><small>&nbsp;{{ t_create_on_github }}</small>
+          </a>
+          {%- endif -%}
+        {%- endif -%}
+        </li>
+    </ul>
+  </div>
+  </nav>
     <div class="content">
-      {% block preamble %}{% endblock %}
+      {%- block preamble -%}
+      {%- endblock -%}
       <div class="container">
-        {% block body %}{% endblock %}
+        {%- if this.alt in get_alts(source=this, fallback=False) and diff -%}
+        <div class="alert alert-warning">
+          <i class="fa fa-warning"></i>&nbsp;{{ t_translation_out_of_date }}&nbsp;&nbsp;
+          <a href="{{ site.get(this.path)|url }}" data-toggle="modal" data-target="#myModal">{{ t_see_original_content }}</a>
+        </div>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                  <a href="{{ edit_link }}" target="_blank">
+                    <i class="fa fa-github "></i>&nbsp;{{ t_update_translation }}
+                  </a>
+                </h4>
+              </div>
+              <div class="modal-body">
+                <small>
+                {{- diff|safe -}}
+                </small>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            <!-- End Modal content -->
+          </div>
+        </div>
+        <!-- End Modal -->
+
+        {%- endif -%}
+        {%- block body -%}{%- endblock -%}
       </div>
     </div>
 
     <footer class="footer">
       <div class="container text-muted">
-        <p class="pull-xs-right pull-sm-right pull-md-right pull-lg-right pull-xl-right">&copy; Russell Keith-Magee 2017</p>
+        <div class="float-right clearfix">&copy; Russell Keith-Magee 2017</div>
         <p><a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
         <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
         <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
         <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ t_sitemap }}</a>
-</p>
+        </p>
       </div>
     </footer>
 
     <!-- jQuery first, then Bootstrap JS. -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    
     <script src="/static/tether-1.3.3/js/tether.min.js"></script>
     <script src="/static/bootstrap/js/bootstrap.min.js"></script>
 
-    {% block extra_script %}{% endblock %}
+    {%- block extra_script -%}{%- endblock -%}
   </body>
 </html>

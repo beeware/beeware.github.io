@@ -15,7 +15,7 @@
   <div class="container">
     <p>{{ breadcrumbs(this) }}</p>
     <h2>{{ this.title }}</h2>
-    <p>{{ t_by|capitalize }} {{ this.author }}; {{ t_published }} {{ this.pub_date.strftime('%-d %B %Y') }}</p>
+    <p>{{ t_by|capitalize }} {{ this.author }}; {{ t_published }} {{ this.pub_date|datetimeformat("MMMM d, YYYY" ,locale=this.alt)|capitalize }}</p>
   </div>
 </div>
 {% endblock %}

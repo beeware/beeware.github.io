@@ -1,0 +1,69 @@
+title: 2017 Google Summer of Code - Testing Toga/Settings API
+---
+author: Jonas Schell
+---
+body:
+
+Google Summer of Code 2017 is coming to an end. After three month of working on the BeeWare project, I would like to summarise my work and share my experiences.
+
+“No Battle Plan Survives First Contact.”
+-----------------------------------------
+This was one of the first things Russell said to me after we decided to fundamentally restructure my `proposed GSoC timetable and goals <https://github.com/pybee/toga/issues/118>`__. During the community bounding period we discovered that Toga was even harder to test as we expected. The tight coupling between the platform independent Toga-Core part and the platform dependent implementations for (Windows, macOS, iOS, Linux, Android, Django, ...) was giving us a hard time to write meaningful tests.
+
+We expect Toga to become a decently sized project, therefore we want it to have a solid and well tested base. Given that, we decided that I would spend most of GSoC to restructure Toga to make it more testable. Besides that, I would also add implementation tests to check if a given backend is implemented in the right way. If I would finish before the end of the summer I would just start with my original project proposal.
+
+The Big Restructure of Toga
+----------------------------
+With the new goals and a fresh branch I started the journey to restructure the Toga project to make it more testable.
+
+After hacking around and testing different things on a `separate branch <https://github.com/Ocupe/restruc_toga>`__. I identified that the intertwined platform dependencies are the main problem. To separate the Toga-Core module form its backend implementations we decided to use the factory pattern instead of the inheritance model that we had before. Now every backend has its own factory that produces the right widgets for the platform it is running on. This way we have a clear separation between Toga-Core and the implementation level. Platform dependencies are now enclosed in the implementation level.
+
+After the new structure was clear I ported Toga-Core as well as the backends for cocoa, iOS and GTK. I did this in the Toga branch `(The Big Restructure of Toga [WIP] #185) <https://github.com/pybee/toga/pull/185>`__.
+In practice this meant that I had to manually touch almost every widget of all backends to port them to the new factory pattern.
+
+Challenges
+-----------
+Toga talks to native GUI frameworks, hence I had to get a good understanding about the principles and concepts behind each and every of these frameworks. At times I felt overwhelmed by the combined complexity of all the parts that make up Toga. The following is list:
+
+* Every Toga backend wraps around a existing and unique framework.  To wrap the framework you have to understand the framework.
+* “I love Python, why do I have to understand Objective C”? To effectively work on the iOS and macOS backends I had to learn the basics of Objective C – if only to read the Apple docs.
+* Toga has a lot of moving parts. There are backends, frameworks, libraries to talk to backends, libraries to perform the layout of the UI and more. I spend a good amount of time to understand all of these parts. The following is just a overview of newly acquired knowledge during GSoC:
+
+  * `Rubicon-ObjC <https://github.com/pybee/rubicon-objc>`__ to talk to the iOS and macOS backends.
+  * `Colosseum <https://pybee.org/project/projects/libraries/colosseum/>`__ to understand and fix layout problems.
+  * `AST <https://docs.python.org/3.6/library/ast.html>`__ module to perform the implementation tests.
+  * The use of Design Patterns
+  * How to structure large projects.
+  * Read and understand big and complex code chunks.
+
+Other work I did
+-----------------
+
+* PR: Translated part of the pybee.org webpage into german. `(PR #173) <https://github.com/pybee/pybee.github.io/pull/173>`__
+* Helped newcomers on Gitter and GitHub.
+* Tested if Toga would profit from static typing `(toga/static_typing) <https://github.com/Ocupe/toga/tree/static_typing>`__.
+* Created an implementation test suite based on the AST module.
+* Added test for Toga-Core.
+* Updated and extended documentation on Toga-Core as well as the macOS and iOS Backend.
+* Created a toga-dummy backend.
+* First draft of the Settings API and working backend implementation for macOS.
+* Many small and big fixes on Toga-Core, cocoa, iOS, and GTK backends. All in the main PR `pybee/toga The Big Restructure of Toga [WIP] <https://github.com/pybee/toga/pull/185>`__
+* PR: `pybee/toga fix for getting the length of the filenames array <https://github.com/pybee/toga/pull/171>`__
+* PR: `pybee/toga Fixed #189 cocoa.progressbar with rehint <https://github.com/pybee/toga/pull/193>`__
+* PR: `pybee/briefcase-template Fix for spaces in app name. Issue #2 <https://github.com/pybee/briefcase-template/pull/3>`__
+* PR: `pybee/toga Toga Settings API [WIP] <https://github.com/pybee/toga/pull/222>`__
+
+Future Work to be Done
+-----------------------
+
+* All my work sits in the PR `“The Big Restructure of Toga [WIP]” <https://github.com/pybee/toga/pull/185>`__. After the missing backends, namely Windows and Android, are ported, everything can be merged into master. We have to wait for the missing backends, because the new is incompatible with the old versions and they can’t coexist.
+
+* The Settings API from my original proposal is not finished because of the above mentioned reasons. I have a first working draft and I will continue working on it after GSoC in `this PR <https://github.com/pybee/toga/pull/222>`__.
+
+Shoutout
+---------
+I would like to thank Russell Keith-Magee for being an awesome Mentor and for all the time he invested in me during GSoC. I also would like to thank the BeeWare community for helping me when ever I had a problem. Thank you!
+
+---
+pub_date: 2017-08-22
+---

@@ -1,8 +1,8 @@
 {% extends "page.html" %}
 
 {% block body %}
-<div class="row-fluid">
-  <div class="col-sm-12 col-md-8 col-lg-6">
+<div class="row">
+  <div class="col-sm-7 mr-auto">
     {% for child in this.children %}
       {% if not child.hide_from_index %}
     <h2><a href="{{ child|url(alt=this.alt) }}">{{ child.title }}</a></h2>
@@ -10,8 +10,10 @@
       {% endif %}
     {% endfor %}
   </div>
-  <div class="col-sm-12 col-md-4 col-lg-6 gutter about">
-    {{ this.gutter }}
+  <div class="col-sm-4">
+    <div class="sidebar-module sidebar-module-inset gutter">
+      {{ this.gutter }}
+    </div>
   </div>
 </div>
 {% endblock %}

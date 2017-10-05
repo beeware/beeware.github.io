@@ -1,7 +1,7 @@
 {% from "macros/translation.html" import transbag %}
 
 {% macro member_badge(member) %}
-  {% set t_superpower = transbag('translate', member.alt, 'superpower') %}
+  {% set t_superpower = transbag('translate', member.alt, 'superpower')|trim %}
 
   <img src="/community/team/{{member._id}}/{{ member._id}}.png" width="100%">
   <a href="https://github.com/{{ member.github_handle }}"><i class="fa fa-github fa-lg icon" aria-hidden="true"></i>&nbsp;{{ member.github_handle }}</a>
@@ -12,9 +12,9 @@
   {% if member.superpower %}
   <br>
   {% if member.superpower is string %}
-  {{ t_superpower }}: {{bag('labels', member.superpower) }}
+  {{ t_superpower }}: {{ transbag('labels', meber.alt, member.superpower) }}
   {% else %}
-  {{ t_superpower }}: {% for s in member.superpower %}{% if loop.index != 1 %}, {% endif %} {{ bag('labels', s) }}{% endfor %}
+  {{ t_superpower }}: {% for s in member.superpower %}{% if loop.index != 1 %}, {% endif %} {{ transbag('labels', member.alt, s)|trim }}{% endfor %}
   {% endif %}
   {% endif %}
 {% endmacro %}

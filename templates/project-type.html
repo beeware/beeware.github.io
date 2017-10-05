@@ -13,11 +13,11 @@
 {% endblock %}
 {% block body %}
 <div class="row">
-  <div class="col-sm-12 col-md-8">
+  <div class="col-sm-7 mr-auto">
     {% for child in this.children %}
     <div class="clearfix project">
-    {% if child.customlogo %}
-      <img src="./{{ child._id }}/{{ child._id }}.png" height="72px" class="pull-xs-left">
+    {% if child.image %}
+      <img src="{{ site.get(child.path)|url }}{{ child.image }}" height="72px" class="pull-xs-left">
     {% else %} 
       <img src="/static/images/defaultlogo.png" height="72px" class="pull-xs-left">
     {% endif %}
@@ -26,8 +26,10 @@
     </div>
     {% endfor %}
   </div>
-  <div class="col-sm-12 col-md-4 gutter">
-    {{ this.description }}
+  <div class="col-sm-4">
+    <div class="sidebar-module sidebar-module-inset gutter">
+      {{ this.description }}
+    </div>
   </div>
 </div>
 {% endblock %}
