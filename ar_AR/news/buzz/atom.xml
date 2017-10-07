@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">The Buzz</title>
   <id>urn:uuid:ea67f575-8130-3369-abc3-1449f0cc2655</id>
-  <updated>2017-08-25T00:00:00Z</updated>
+  <updated>2017-10-06T00:00:00Z</updated>
   <link href="http://pybee.org/zh_TW/news/buzz/" />
   <link href="http://pybee.org/ar_AR/news/buzz/atom.xml" rel="self" />
   <author>
@@ -10,6 +10,26 @@
   </author>
   <subtitle type="text">BeeWare's official blog</subtitle>
   <generator uri="https://github.com/ajdavis/lektor-atom" version="0.2">Lektor Atom Plugin</generator>
+  <entry xml:base="http://pybee.org/news/buzz/project-spotlight-colosseum/">
+    <title type="text">Project Spotlight: Colosseum</title>
+    <id>urn:uuid:8000a786-4167-364e-82c5-5dff5f517cbc</id>
+    <updated>2017-10-06T00:00:00Z</updated>
+    <link href="http://pybee.org/news/buzz/project-spotlight-colosseum/" />
+    <author>
+      <name>Russell Keith-Magee</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;em&gt;This article was originally published on the BeeWare Enthusiasts mailing list. If you'd like to receive regular updates about the BeeWare project, why not&lt;/em&gt; &lt;a class=&quot;reference external&quot; href=&quot;/community/keep-informed/&quot;&gt;subscribe&lt;/a&gt;?&lt;/p&gt;
+&lt;p&gt;When you're designing a GUI app - be it for desktop, mobile, or browser - one of the most fundamental tasks is describing how to lay widgets out the screen. Most widget toolkits will use a grid or box packing model of some kind to solve this problem. These models tend to be relatively easy to get started, but rapidly fall apart when you have complex layout needs - or when you have layouts that need to adapt to different screen sizes.&lt;/p&gt;
+&lt;p&gt;Instead of inventing a new grid or box model, the &lt;a class=&quot;reference external&quot; href=&quot;https://toga.readthedocs.io&quot;&gt;Toga&lt;/a&gt; widget toolkit takes a different approach, using a well known scheme for laying out content: &lt;a class=&quot;reference external&quot; href=&quot;https://en.wikipedia.org/wiki/Cascading_Style_Sheets&quot;&gt;Cascading Style Sheets&lt;/a&gt;, or CSS. Although CSS is best known for specifying layout in web pages, there's nothing inherently web specific about it. At the end of the day, it's a system for describing the layout of a hierarchical collection of content nodes. However, to date, every implementation of CSS is bound to a browser, so the perception is that CSS is a browser-specific standard.&lt;/p&gt;
+&lt;p&gt;That's where &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/colosseum&quot;&gt;Colosseum&lt;/a&gt; comes in. Colosseum is a browser independent implementation of a CSS rendering engine. It takes a tree of content &amp;quot;nodes&amp;quot; - such as a DOM from a HTML document - an applies CSS styling instructions to layout those nodes as boxes on the screen. In the case of Toga, instead of laying out &lt;tt class=&quot;docutils literal&quot;&gt;&amp;lt;div&amp;gt;&lt;/tt&gt; and &lt;tt class=&quot;docutils literal&quot;&gt;&amp;lt;span&amp;gt;&lt;/tt&gt; elements, you lay out Box and Button objects. This allows you to specify incredibly complex, adaptive layouts for Toga applications.&lt;/p&gt;
+&lt;p&gt;But Colosseum as a project has many other possible uses. It could be used anywhere that there is a need for describing layout &lt;em&gt;outside&lt;/em&gt; a browser context. For example, Colosseum could be the cornerstone of a HTML to PDF renderer that &lt;em&gt;doesn't&lt;/em&gt; require the involvement of a browser. It could also be used as a test harness and reference implementation for the CSS specification itself, providing a lightweight way to encode and test proposed changes to the specification.&lt;/p&gt;
+&lt;p&gt;The current implementation is based on Facebook's &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/facebook/yoga&quot;&gt;yoga&lt;/a&gt; project - it was originally a line-for-line port of yoga's javascript codebase into Python. However, yoga only implements the Flexbox portion of the CSS3 specification.&lt;/p&gt;
+&lt;p&gt;This week, we started a big project: rewriting Colosseum to be a fully standard-compliant CSS engine. The work so far can be found in the &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/colosseum/tree/globe&quot;&gt;globe branch of the colosseum repository on Github&lt;/a&gt;. The first goal is CSS2.1 compliance, with an implementation of the traditional CSS box model and flow layout. Once we've got a reasonable implementation of that, we'll look to adding Grid and FlexBox layouts from the CSS3 specification set.&lt;/p&gt;
+&lt;p&gt;This is obviously a big job. &lt;a class=&quot;reference external&quot; href=&quot;https://www.w3.org/TR/CSS/#css-levels&quot;&gt;CSS is a big specification&lt;/a&gt;, so there's a lot of work to be done - but that also means there's lots of places to contribute! Pick a paragraph of the CSS specification, build some test cases that demonstrate the cases described in that paragraph, and submit a patch implementing that behaviour!&lt;/p&gt;
+&lt;p&gt;It also highlights why your financial support is so important. While we &lt;em&gt;could&lt;/em&gt; do this entirely with volunteered effort, we're going to make much faster progress if a small group of people could focus on this project full time. Financial support would allow up to significantly ramp up the development speed of Colosseum, and the rest of the BeeWare suite.&lt;/p&gt;
+&lt;p&gt;If you would like to see Colosseum and the rest of BeeWare develop to the point where it can be used for commercial applications, please consider supporting BeeWare financially. And if you have any leads for larger potential sources of funding, please &lt;a class=&quot;reference external&quot; href=&quot;mailto:russell&amp;#64;keith-magee.com&quot;&gt;get in touch&lt;/a&gt;.&lt;/p&gt;
+</content>
+  </entry>
   <entry xml:base="http://pybee.org/news/buzz/2017-google-summer-of-code-final-report-dayanne-fernandes/">
     <title type="text">2017 Google Summer of Code - Port Cricket to use Toga, instead of Tkinter</title>
     <id>urn:uuid:bc4e55c5-27ff-3d6f-8d0d-4886ba1e071c</id>
