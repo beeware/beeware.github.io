@@ -9,63 +9,54 @@ summary: The BeeWare development process
 body:
 
 
-Code Style
+Code style
 ---------------
 
 Please follow these coding standards when writing code for inclusion in BeeWare projects.
+Unless otherwise specified, follow :pep:`8` (with careful attention paid to `Section 2 <https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds>`__)
 
-.. _coding-style-python:
+Use `flake8`_ to check for problems in this area. Note that our ``setup.cfg`` file contains some excluded files
+(deprecated modules we don't care about cleaning up and some third-party code that BeeWare vendors) as well as some
+excluded errors that we don't consider as gross violations. Remember that :pep:`8` is only a guide, so respect the
+style of the surrounding code as a primary goal.
 
-Python style
-============
+An exception to :pep:`8` is our rules on line lengths. Don't limit lines of
+code to 79 characters if it means the code looks significantly uglier or is
+harder to read. We allow up to 119 characters as this is the width of GitHub
+code review; anything longer requires horizontal scrolling which makes review
+more difficult. This check is included when you run ``flake8``. Documentation,
+comments, and docstrings should be wrapped at 79 characters, even though
+:pep:`8` suggests 72.
 
-* Unless otherwise specified, follow :pep:`8` (with careful attention paid to `Section 2 <https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds>`__)
+Use four spaces for indentation.
 
-  Use `flake8`_ to check for problems in this area. Note that our ``setup.cfg``
-  file contains some excluded files (deprecated modules we don't care about
-  cleaning up and some third-party code that BeeWare vendors) as well as some
-  excluded errors that we don't consider as gross violations. Remember that
-  :pep:`8` is only a guide, so respect the style of the surrounding code as a
-  primary goal.
-
-  An exception to :pep:`8` is our rules on line lengths. Don't limit lines of
-  code to 79 characters if it means the code looks significantly uglier or is
-  harder to read. We allow up to 119 characters as this is the width of GitHub
-  code review; anything longer requires horizontal scrolling which makes review
-  more difficult. This check is included when you run ``flake8``. Documentation,
-  comments, and docstrings should be wrapped at 79 characters, even though
-  :pep:`8` suggests 72.
-
-* Use four spaces for indentation.
-
-* Use four space hanging indentation rather than vertical alignment::
+Use four space hanging indentation rather than vertical alignment::
 
     raise AttributeError(
         'Here is a multine error message '
         'shortened for clarity.'
     )
 
-  Instead of::
+Instead of::
 
-      raise AttributeError('Here is a multine error message '
-                           'shortened for clarity.')
+    raise AttributeError('Here is a multine error message '
+                         'shortened for clarity.')
 
-  This makes better use of space and avoids having to realign strings if the
-  length of the first line changes.
+This makes better use of space and avoids having to realign strings if the length of the first line changes.
 
-* Use single quotes for strings, or a double quote if the the string contains a
-  single quote. Don't waste time doing unrelated refactoring of existing code
-  to conform to this style.
+Use single quotes for strings, or a double quote if the the string contains a
+single quote. Don't waste time doing unrelated refactoring of existing code
+to conform to this style.
 
-* Avoid use of "we" in comments, e.g. "Loop over" rather than "We loop over".
+Avoid use of "we" in comments, e.g. "Loop over" rather than "We loop over".
 
-* Use underscores, not camelCase, for variable, function and method names
-  (i.e. ``poll.get_unique_voters()``, not ``poll.getUniqueVoters()``).
+Use underscores, not camelCase, for variable, function and method names
+(i.e. ``poll.get_unique_voters()``, not ``poll.getUniqueVoters()``).
 
-* Use ``InitialCaps`` for class names (or for factory functions that
-  return classes).
+Use ``InitialCaps`` for class names (or for factory functions that
+return classes).
 
-* Use the Google Style Python Docstrings and :pep:`257`, type annotation with :pep'484' is optional.
+Use the Google Style Python Docstrings and :pep:`257`, type annotation with :pep'484' is optional.
   .. code-block:: console
       def function_with_types_in_docstring(param1, param2):
       """Example function with types documented in the docstring.
@@ -79,72 +70,70 @@ Python style
 
     """
 
-  'More examples of Google Docstrings' <https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html>__
+'More examples of Google Docstrings' <https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html>__
 
-* In test docstrings, state the expected behavior that each test demonstrates.
-  Don't include preambles such as "Tests that" or "Ensures that".
+In test docstrings, state the expected behavior that each test demonstrates.
+Don't include preambles such as "Tests that" or "Ensures that".
 
-  Reserve ticket references for obscure issues where the ticket has additional
-  details that can't be easily described in docstrings or comments. Include the
-  ticket number at the end of a sentence like this::
+Reserve ticket references for obscure issues where the ticket has additional
+details that can't be easily described in docstrings or comments. Include the
+ticket number at the end of a sentence like this::
 
-    def test_foo():
-        """
-        A test docstring looks like this (#123456).
-        """
-        ...
-
-.. _coding-style-imports:
+def test_foo():
+    """
+    A test docstring looks like this (#123456).
+    """
+    ...
 
 Imports
-=======
+---------------
 
-* Use `isort <https://github.com/timothycrosley/isort#readme>`_ to automate
-  import sorting using the guidelines below.
+Use `isort <https://github.com/timothycrosley/isort#readme>`_ to automate
+import sorting using the guidelines below.
 
-  Quick start:
+Quick start:
 
-  .. code-block:: console
+.. code-block:: console
 
-      $ pip install isort
-      $ isort -rc .
+    $ pip install isort
+    $ isort -rc .
 
-  This runs ``isort`` recursively from your current directory, modifying any
-  files that don't conform to the guidelines. If you need to have imports out
-  of order (to avoid a circular import, for example) use a comment like this::
+This runs ``isort`` recursively from your current directory, modifying any
+files that don't conform to the guidelines. If you need to have imports out
+of order (to avoid a circular import, for example) use a comment like this::
 
-      import module  # isort:skip
+    import module  # isort:skip
 
-* Put imports in these groups: standard library, third-party libraries,
-  other BeeWare components, local BeeWare component, try/excepts. Sort lines in
-  each group alphabetically by the full module name. Place all ``import module``
-  statements before ``from module import objects`` in each section. Use absolute
-  imports for other BeeWare components and relative imports for local components.
+Put imports in these groups: standard library, third-party libraries,
+other BeeWare components, local BeeWare component, try/excepts. Sort lines in
+each group alphabetically by the full module name. Place all ``import module``
+statements before ``from module import objects`` in each section. Use absolute
+imports for other BeeWare components and relative imports for local components.
 
-* On each line, alphabetize the items with the upper case items grouped before
-  the lower case items.
+On each line, alphabetize the items with the upper case items grouped before
+the lower case items.
 
-* Break long lines using parentheses and indent continuation lines by 4 spaces.
-  Include a trailing comma after the last import and put the closing
-  parenthesis on its own line.
+Break long lines using parentheses and indent continuation lines by 4 spaces.
+Include a trailing comma after the last import and put the closing
+parenthesis on its own line.
 
-  Use a single blank line between the last import and any module level code,
-  and use two blank lines above the first function or class.
+Use a single blank line between the last import and any module level code,
+and use two blank lines above the first function or class.
 
 
 Miscellaneous
-=============
+---------------
 
-* Remove ``import`` statements that are no longer used when you change code.
-  `flake8`_ will identify these imports for you. If an unused import needs to
-  remain for backwards-compatibility, mark the end of with ``# NOQA`` to
-  silence the flake8 warning.
+Remove ``import`` statements that are no longer used when you change code.
+`flake8`_ will identify these imports for you. If an unused import needs to
+remain for backwards-compatibility, mark the end of with ``# NOQA`` to
+silence the flake8 warning.
 
-* Systematically remove all trailing whitespaces from your code as those
-  add unnecessary bytes, add visual clutter to the patches and can also
-  occasionally cause unnecessary merge conflicts. Some IDE's can be
-  configured to automatically remove them and most VCS tools can be set to
-  highlight them in diff outputs.
+Systematically remove all trailing whitespaces from your code as those
+add unnecessary bytes, add visual clutter to the patches and can also
+occasionally cause unnecessary merge conflicts. Some IDE's can be
+configured to automatically remove them and most VCS tools can be set to
+highlight them in diff outputs.
 
 Sign your work
 ---------------
