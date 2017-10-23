@@ -16,7 +16,7 @@ submit a pull request. However, **do not fork the master branch** - fork the
 .. _lektor branch: https://github.com/pybee/pybee.github.io/tree/lektor
 
 If you want to test out a change before you submit it, download and install
-`Lektor`_ (note that Lektor can use Python 2.7 or Python 3.x):
+`Lektor`_ (note: Lektor can use Python 2.7 or Python 3.x):
 
     $ pip install lektor
 
