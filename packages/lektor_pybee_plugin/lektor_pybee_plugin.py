@@ -132,7 +132,15 @@ class PyBeePlugin(Plugin):
 
             return css
 
+        def is_alt_outdated(record):
+            """Check if record alternative is outdated."""
+            return _alt_outdated_diff(record, return_diff=False)
+
         def alt_outdated_diff(record):
+            """Check if record alternative is outdated and returns the diff."""
+            return _alt_outdated_diff(record, return_diff=True)
+
+        def _alt_outdated_diff(record, return_diff=True):
             """Check if record alternative is outdated and returns the diff."""
             if not isinstance(record, Record):
                 raise ValueError('Must provide a `Record` object')
@@ -162,9 +170,12 @@ class PyBeePlugin(Plugin):
                 alt_modtime = git_modified_date(alt_path)
 
             diff = None
-            if alt_modtime and primary_modtime > alt_modtime:
+            if alt_modtime and primary_modtime > alt_modtime and return_diff:
                 diff = git_diff(primary_path,
                                 alt_modtime.strftime(self.DATE_FORMAT))
+
+            if not return_diff:
+                diff = alt_modtime and primary_modtime > alt_modtime
 
             return diff
 
@@ -183,6 +194,7 @@ class PyBeePlugin(Plugin):
             return string
 
         # Add additional methods to the environment globlas
+        self.env.jinja_env.globals.update(is_alt_outdated=is_alt_outdated)
         self.env.jinja_env.globals.update(alt_outdated_diff=alt_outdated_diff)
         self.env.jinja_env.globals.update(urlencode_limit=urlencode_limit)
         self.env.jinja_env.globals.update(
