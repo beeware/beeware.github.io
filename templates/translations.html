@@ -1,0 +1,88 @@
+{%- extends "layout.html" -%}
+{%- from "macros/breadcrumbs.html" import breadcrumbs -%}
+{%- from "macros/incomplete.html" import incomplete -%}
+{%- from "macros/translation.html" import transbag -%}
+
+{%- set t_missing_translations = transbag('translate', this.alt, 'missing_translations') -%}
+{%- set t_outdated_translations = transbag('translate', this.alt, 'outdated_translations') -%}
+
+{% block title %}{{ this.title }}{% endblock %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>{{ breadcrumbs(this) }}</p>
+    <h1>{{ this.title }}</h1>
+    <p>{{ this.summary }}</p>
+  </div>
+</div>
+{% endblock %}
+{% block body %}
+<div class="row">
+  <div class="col-sm-8">
+  {{ incomplete(this) }}
+  {% block main %}
+    {{ this.body }}
+    <ul>
+    {%- for alt, alternative in config.ALTERNATIVES.items()|sort -%}
+    {% if this.alt != alt %}
+    <li><a href="{{ '.'|url(alt=alt) }}">
+    {{ transbag('translate', alt, alternative.name['en'].lower()) }}
+    <small>(<i>{{ transbag('translate', this.alt, alternative.name['en'].lower())|trim }}</i>)</small></a></li>
+    {% endif %}
+    {%- endfor -%}
+    </ul>
+    {% for child in this.children %}
+      {% if not child.hide_from_index %}
+    <h2><a href="{{ child|url(alt=this.alt) }}">{{ child.title }}</a></h2>
+    <p>{{ child.summary }}</p>
+      {% endif %}
+    {% endfor %}
+  {% endblock %}
+
+  {%- if this.alt != config.primary_alternative -%}
+  <h2>{{ t_missing_translations }}:</h2>
+  {%- for page in site.query('/', alt=this.alt) recursive -%}
+  {%- if not page.alt in get_alts(source=page, fallback=False) -%}
+  <li>
+    <a href="{{ page|url(alt=this.alt) }}">
+    {{ page['title'] or page['name'] or page.record_label }}
+    </a>    
+    {%- endif -%}
+    {%- if page.children -%}
+      {{- loop(page.children) -}}
+  </li>
+  {%- endif -%}
+  {%- endfor -%}
+
+  <h2>{{ t_outdated_translations }}:</h2>
+  {%- for page in site.query('/', alt=this.alt) recursive -%}
+  {%- if is_alt_outdated(page) -%}
+  <li>
+    <a href="{{ page|url(alt=this.alt) }}">
+    {{ page['title'] or page['name'] or page.record_label }}
+    </a>    
+    {%- endif -%}
+    {%- if page.children -%}
+      {{- loop(page.children) -}}
+  </li>
+  {%- endif -%}
+  {%- endfor -%}
+  {%- endif -%}
+
+  </div>
+  {% block gutter %}
+    {% if this.gutter and this.gutter.source %}
+  <!-- <div class="col-sm-12 col-md-4 gutter"> -->
+  <div class="col-sm-4">
+    <div class="sidebar-module sidebar-module-inset gutter">
+    {{ this.gutter }}
+    </div>
+  </div>
+    {% else %}
+  <div class="hidden-sm-down col-sm-4">
+  </div>
+    {% endif %}
+    
+  {% endblock %}
+</div>
+{% endblock %}
