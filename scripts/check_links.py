@@ -31,7 +31,9 @@ TIMEOUT = 10  # Seconds
 TIMEOUT_RETRIES = 3  # Amount of retries on link check when ReadTimeOut error
 WHITELIST = [
     'https://github.com/pybee/pybee.github.io/edit/lektor/content/',
-    'https://github.com/pybee/pybee.github.io/new/lektor/content/'
+    'https://github.com/pybee/pybee.github.io/new/lektor/content/',
+    'https://github.com/issues?q=user%3Apybee+label%3Afirst-timers-only+is%3Aopen&type=Issues',
+    'https://github.com/issues?q=user%3Apybee+label%3Aup-for-grabs+is%3Aopen&type=Issues',
 ]
 
 
