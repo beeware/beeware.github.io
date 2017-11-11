@@ -84,16 +84,17 @@ ga('send', 'pageview');
     <ul class="nav navbar-nav navbar-right">
         {%- set extra_slash = '/' if this.path[-1] != '/' else '' -%}
         {%- set alt_path = '%2B' + this.alt if this.alt and this.alt != 'en' else '' -%}
-        <li class="nav-item small">
+        <li class="nav-item">
         {%- if this.alt in get_alts(source=this, fallback=False) -%}
           {%- set edit_link = 'https://github.com/pybee/pybee.github.io/edit/lektor/content' + this.path.split('@')[0] + extra_slash + 'contents' + alt_path + '.lr' -%}
           <a class="nav-link" href="{{ edit_link }}" rel="noopener noreferrer" target="_blank">
             <i class="fa fa-github "></i><small>&nbsp;{{ t_edit_on_github }}</small>
           </a>
-        {%- else -%}
+          {%- else -%}
           {# This method is provided by a custom plugin found in /packages/lektor_pybee_plugin/ #}
           {%- set content_value = urlencode_limit(site.get(this.path).contents.as_text(), limit=5000) -%}
           {%- if content_value and '@' not in this.path -%}
+
           <a href="https://github.com/pybee/pybee.github.io/new/lektor/content{{ this.path }}/contents{{ alt_path }}.lr?filename=contents{{ alt_path }}.lr&value={{ content_value }}" target="_blank">
             <i class="fa fa-github "></i><small>&nbsp;{{ t_create_on_github }}</small>
           </a>
