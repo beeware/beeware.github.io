@@ -68,15 +68,32 @@ Mithelfen
 Kontakt
 </a>
   </li>
-     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-Sprachen
- <span class="caret"></span></a>
-        <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item " href="/contributing/how/first-time/what/batavia/">English</a><a class="dropdown-item " href="/ar_AR/contributing/how/first-time/what/batavia/">Arabic</a><a class="dropdown-item active" href="/de_DE/contributing/how/first-time/what/batavia/">German</a><a class="dropdown-item " href="/es/contribuir/como-ayudar/principiantes/que-hacer/batavia/">Spanish</a><a class="dropdown-item " href="/pt_BR/contributing/how/first-time/what/batavia/">Portuguese</a><a class="dropdown-item " href="/zh_TW/contributing/how/first-time/what/batavia/">Chinese</a></div>
-      </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right"><li class="nav-item small"></li>
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"></li>
+     <li class="nav-item dropdown dropdown-pull-right">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item " href="/contributing/how/first-time/what/batavia/">
+          English&nbsp;<small>(<i>English</i>)</small></a><a class="dropdown-item " href="/ar_AR/contributing/how/first-time/what/batavia/">
+          
+العَرَبِيَّة
+<small>(<i>Arabic</i>)</small></a><a class="dropdown-item active" href="/de_DE/contributing/how/first-time/what/batavia/">
+          
+Deutsch
+</a><a class="dropdown-item " href="/es/contribuir/como-ayudar/principiantes/que-hacer/batavia/">
+          
+Español
+<small>(<i>Spanish</i>)</small></a><a class="dropdown-item " href="/pt_BR/contributing/how/first-time/what/batavia/">
+          
+Português
+<small>(<i>Português</i>)</small></a><a class="dropdown-item " href="/zh_TW/contributing/how/first-time/what/batavia/">
+          
+漢語
+<small>(<i>Chinese</i>)</small></a></div>
+      </li>
+
     </ul>
   </div>
   </nav>
@@ -140,11 +157,11 @@ Home
 <h2>Before you start</h2>
 <p>In the following instructions, we're going to assume you’re familiar with <a class="reference external" href="/contributing/how/first-time/github">Github and making pull requests</a>. We're also going to assume some entry level Python and JavaScript; if anything we describe here doesn’t make sense, don’t worry - we're more than happy to fill in the gaps. At this point, we don’t know what you don’t know :-)</p>
 <p>This tutorial is also going to focus on code contributions. If your interests/skills are elsewhere (e.g., testing, documentation), let me know, and I can make some other suggestions.</p>
-<p>Before you make your first contribution, take Batavia for a spin. The instructions in the <a class="reference external" href="http://batavia.readthedocs.io/en/latest/intro/index.html">getting started guide</a> <em>should</em> be enough to get going. If you get stuck, let me know, and I’ll help you out. If you get stuck, that will also point to your first contribution - work out what instructions would have made you <em>not</em> get stuck, and contribute an update to the README.</p>
+<p>Before you make your first contribution, take Batavia for a spin. The instructions in the <a class="reference external" href="http://batavia.readthedocs.io/en/latest/tutorial/tutorial-0.html">getting started guide</a> <em>should</em> be enough to get going. If you get stuck, let me know, and I’ll help you out. If you get stuck, that will also point to your first contribution - work out what instructions would have made you <em>not</em> get stuck, and contribute an update to the README.</p>
 </div>
 <div class="section" id="your-first-contribution">
 <h2>Your first contribution</h2>
-<p>Once you’ve got Batavia working, you’ll be ready to make your first code contribution. The <a class="reference external" href="http://batavia.readthedocs.io/en/latest/community/contributing.html">contribution guide</a> will guide you through the process of setting up your development environment. Work through that guide until you can run the Batavia test suite. Once you've been able to run the test suite without any failures, you're ready to add some new code to the Batavia codebase.</p>
+<p>Once you’ve got Batavia working, you’ll be ready to make your first code contribution. The <a class="reference external" href="http://batavia.readthedocs.io/en/latest/how-to/contribute-code.html">contribution guide</a> will guide you through the process of setting up your development environment. Work through that guide until you can run the Batavia test suite. Once you've been able to run the test suite without any failures, you're ready to add some new code to the Batavia codebase.</p>
 <p>In order to implement a full Python virtual machine, Batavia needs to implement all the eccentricities of Python behaviour. For example, Python allows you to multiply a string by an integer, resulting in a duplicated string (e.g., <tt class="docutils literal">“foo” * 3</tt> =&gt; <tt class="docutils literal">“foofoofoo”</tt>). Javascript behavior can be quite different, depending on circumstances - so we need to provide a library that implements the desired Python behavior.</p>
 <p>That particular example (string times number) is already implemented - see <a class="reference external" href="https://github.com/pybee/batavia/blob/master/batavia/types/Str.js">the definition of the __mul__() function</a>. This implements the multiply operator. It’s implemented in Javascript, but it implements Python behavior - for <em>some</em> data types.</p>
 <p>If you then look at <a class="reference external" href="https://github.com/pybee/batavia/blob/master/tests/datatypes/test_str.py">tests/datatypes/test_str.py</a>, you’ll see the tests for this behaviour. We’ve already written a test suite that tries to perform every operation on every data type. However, all of the names listed in that file are the examples that are known to fail (because the implementation doesn’t exist yet). The tests work by writing a short program that implements one mathematical operation, running the program under normal Python, and then running it again under Batavia. The test passes when the two executions produce identical output.</p>
