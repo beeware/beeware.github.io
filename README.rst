@@ -44,7 +44,7 @@ Then to activate a shell that will use the virtual environment you created, run:
 Running the local server
 ------------------------
 
-After you have installed Lektor using pip or pipenv. Change to the root directory
+After you have installed Lektor using pip or pipenv change to the root directory
 of the checkout, then run:
 
     $ lektor server
