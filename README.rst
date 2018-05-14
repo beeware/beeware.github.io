@@ -26,7 +26,6 @@ If you want to test out a change before you submit it, download and install
 
     $ pip install lektor
 
-
 Using pipenv
 ~~~~~~~~~~~~
 
@@ -39,7 +38,7 @@ specified. From the root directory of the checkout, run:
 
 Then to activate a shell that will use the virtual environment you created, run:
 
-    $ pipenv run lektor server
+    $ pipenv shell
 
 Running the local server
 ------------------------
