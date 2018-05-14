@@ -9,32 +9,51 @@ This is the homepage for the `BeeWare project`_.
 
 It is a `Lektor`_-based site.
 
+Installing development environment
+------------------------------------
+
 If you want to contribute a modification, you can fork this repository and
 submit a pull request. However, **do not fork the master branch** - fork the
 `lektor branch`_ and make changes there instead.
 
 .. _lektor branch: https://github.com/pybee/pybee.github.io/tree/lektor
 
+Using pip
+~~~~~~~~~~
+
 If you want to test out a change before you submit it, download and install
 `Lektor`_ (note: currently it's better to use Lektor with Python 2.7):
 
     $ pip install lektor
 
+
+Using pipenv
+~~~~~~~~~~~~
+
 If you use `pipenv`_, a .Pipfile is provided that has Lektor and Python 2.7
-specified.
+specified. From the root directory of the checkout, run:
 
     $ pipenv install
 
 .. _pipenv: https://github.com/pypa/pipenv
 
-Then from the root directory of the checkout, run:
+Then to activate a shell that will use the virtual environment you created, run:
+
+    $ pipenv run lektor server
+
+Running the local server
+------------------------
+
+After you have installed Lektor using pip or pipenv. Change to the root directory
+of the checkout, then run:
 
     $ lektor server
 
 .. _Lektor: https://getlektor.com
 
 This will `start a webserver`_ that will autoreload whenever you make a change
-to site content.
+to site content. Note: the previous link will not work if your attempt
+to start a webserver failed.
 
 .. _start a webserver: http://127.0.0.1:5000
 
