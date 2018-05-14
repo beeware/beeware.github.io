@@ -20,6 +20,13 @@ If you want to test out a change before you submit it, download and install
 
     $ pip install lektor
 
+If you use `pipenv`_, a .Pipfile is provided that has Lektor and Python 2.7
+specified.
+
+    $ pipenv install
+
+.. _pipenv: https://github.com/pypa/pipenv
+
 Then from the root directory of the checkout, run:
 
     $ lektor server
