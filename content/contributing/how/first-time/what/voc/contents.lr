@@ -34,15 +34,9 @@ Once you’ve got VOC working, you’ll be ready to make your first code contrib
 
 In order to make Java bytecode behave like Python, VOC needs to implement all the eccentricities of Python behavior. For example, Python allows you to multiply a string by an integer, resulting in a duplicated string (e.g., ``“foo” * 3`` => ``“foofoofoo”``). This *isn’t* legal Java, however; so we need to provide a Java library that implements this behavior.
 
-That particular example (string times number) is already implemented - see `the source code for Str.java <https://github.com/pybee/voc/blob/b35b133ae14843326ca09c77f2cd4cf96b6b8d7d/python/common/org/python/types/Str.java#L424>`__. This implements ``__mul__()`` (the Python multiplication method) on a ``Str`` object. It’s implemented in Java, but it implements Python behavior.
+So for your first contribution: search for the `issues that are labelled as up-for-grabs or first-timers-only <https://github.com/pybee/voc/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3A%22first-timers-only%22+label%3A%22up-for-grabs%22>`__ and if you want to work on them just comment and wait for someone to reply.
 
-If you then look at the code for `test_str.py <https://github.com/pybee/voc/blob/master/tests/datatypes/test_str.py>`__, you’ll see the tests for this behavior. We’ve already written a test suite that tries to perform every operation on every data type. However, all of the names listed in that file are the examples that are known to fail (because the implementation doesn’t exist yet). The tests work by writing a short program that implements one mathematical operation, running the program under normal Python, and then running it again under VOC/Java. The test passes when the two executions produce identical output.
-
-So - your first open source contribution: Pick a test that is currently listed in the ``test_str.py`` test file (e.g., test_multiply_float is the test of multiplying a string by a float), and modify the implementation of Str until you get the same output from CPython program as you do from VOC-compiled version of the same program. This includes error messages - if CPython raises a ``TypeError`` for a particular operation (e.g., ``“foo” * 3.1415``), then so should VOC - and the error message should be the same too, right down to the punctuation.
-
-Before you start work, visit `Ticket #36 <https://github.com/pybee/voc/issues/36>`__ and register which function you're working on - that way we won't end up with 2 people working on the same one.
-
-Once you've written your implementation, run the tests. If you get an “unexpected success” from the test suite, and you *don’t* get any failures, you’ve done it! Delete the line from ``test_str.py`` file corresponding to the test you’ve fixed (because the test is no longer expected to fail), and submit a pull request!
+Once you have fixed the issue you can submit a pull request for the same.
 
 Celebrate!
 -----------
