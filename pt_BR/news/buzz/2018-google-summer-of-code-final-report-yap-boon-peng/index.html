@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>2018 Google Summer of Code - Implement asyncio support in VOC— BeeWare</title>
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/brutus-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/brutus-72.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/brutus-57.png">
+    <link rel="shortcut icon" href="/static/images/brutus-32.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/grid.min.css">
+
+    <!-- Project CSS -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cutive">
+    <link rel="stylesheet" type="text/css" href="/static/beeware.css"><!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/1138bd8363.js"></script>
+
+    <!-- Google tracking -->
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-2943925-4', 'pybee.org');
+ga('send', 'pageview');
+    </script></head>
+  <body>
+    
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="nav-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarsDefault">
+    <div class="navbar-brand-block"><a class="navbar-brand" href="/pt_BR/">BeeWare</a></div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+    <a class="nav-link" href="/pt_BR/project/">
+Projeto
+</a>
+  </li>
+      <li class="nav-item active">
+    <a class="nav-link" href="/pt_BR/news/">
+Notícias
+<span class="sr-only">(current)</span></a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/pt_BR/community/">
+Comunidade
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/pt_BR/contributing/">
+Contribuir
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/pt_BR/contact/">
+Contato
+</a>
+  </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contributing/membership/">
+          Donate
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"></li>
+     <li class="nav-item dropdown dropdown-pull-right">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item " href="/news/buzz/2018-google-summer-of-code-final-report-yap-boon-peng/">
+          English&nbsp;<small>(<i>inglês</i>)</small></a><a class="dropdown-item " href="/ar_AR/news/buzz/2018-google-summer-of-code-final-report-yap-boon-peng/">
+          
+العَرَبِيَّة
+<small>(<i>árabe</i>)</small></a><a class="dropdown-item " href="/de_DE/news/buzz/2018-google-summer-of-code-final-report-yap-boon-peng/">
+          
+Deutsch
+<small>(<i>alemão</i>)</small></a><a class="dropdown-item " href="/es/noticias/zumbido/2018-google-summer-of-code-final-report-yap-boon-peng/">
+          
+Español
+<small>(<i>espanhol</i>)</small></a><a class="dropdown-item active" href="/pt_BR/news/buzz/2018-google-summer-of-code-final-report-yap-boon-peng/">
+          
+português
+</a><a class="dropdown-item " href="/zh_TW/news/buzz/2018-google-summer-of-code-final-report-yap-boon-peng/">
+          
+漢語
+<small>(<i>chinês</i>)</small></a></div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+    <div class="content">
+<div class="banner">
+  <div class="container">
+    <p>
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  <a href="/pt_BR/">
+Início
+</a>
+  
+ >
+  <a href="/pt_BR/news/">Notícias</a>
+  
+ >
+  <a href="/pt_BR/news/buzz/">The Buzz</a>
+  
+</p>
+    <h1>2018 Google Summer of Code - Implement asyncio support in VOC</h1>
+    <p>
+Publicado por
+
+        
+        Yap Boon Peng
+        
+        
+em
+ 2018/08/11
+    </p>
+  </div>
+</div>
+<div class="container">
+<div class="row-fluid">
+  <div class="col-sm-12 col-md-10 col-lg-8" >
+  
+
+  
+  
+
+  
+  <p>In the blink of an eye, Google Summer of Code (GSoC) 2018 has come to an end. During the three months long coding period, I have contributed several patches in VOC repository of BeeWare, all working towards the ultimate end goal of running <cite>asyncio</cite> module in VOC. In this blog post (which is my first actual blog post by the way 😄), I will document what I have done so far, why I couldn't make it to the end goal (yea, unfortunately I couldn't get <cite>asyncio</cite> to work at the end of GSoC 2018), and what's left that needs to be done in order to achieve the end goal (or at least make part of <cite>asyncio</cite> work).</p>
+<div class="section" id="building-foundation">
+<h2>Building Foundation</h2>
+<p>The first error that the transpiler throws when attempting to compile <cite>asyncio</cite> module was &quot;No handler for <cite>YieldFrom</cite>&quot;, so it makes sense to start from this issue first.</p>
+<p>Another feature related to generator was <cite>Yield</cite> expression. Before GSoC 2018, <cite>Yield</cite> statement in VOC was just a statement, meaning <cite>yield</cite> could not be used as expression. Generator methods such as <cite>generator.send</cite>, <cite>generator.throw</cite> and <cite>generator.close</cite> were not supported as well. Those features are what make asynchronous programming with generator possible, so I spent a few weeks to extend generator functionality in VOC, laying down the path to <cite>asyncio</cite> module.</p>
+<p>PRs related to generator are listed below:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/821">PR #821</a> : Added support for Yield from statement (merged)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/823">PR #823</a> : Added generator send method (merged)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/831">PR #831</a> : Support exceptions handling in generator (merged)</li>
+</ul>
+</div>
+<div class="section" id="nonlocal-statement">
+<h2>Nonlocal Statement</h2>
+<p><cite>Nonlocal</cite> statement was another syntax not supported by VOC. After completion of generator's features, implementing this is the next step towards compiling <cite>asyncio</cite> module.</p>
+<p>Implementing this feature took about 3 ~ 4 weeks as this is not as trivial as it seems. I took several approaches on this, while some of them do work, the code is not pretty and <cite>hacky</cite>, which could come back to bite me/other contributors in the long run. After many discussions with Russell, I refactored the closure mechanism in VOC and took a much cleaner approach in <cite>nonlocal</cite> implementations. I must admit that I took some short-cuts for the sake of &quot;making nonlocal works&quot; in the process of implementing <cite>nonlocal</cite> statement, resulting in poor design and messy codes. Many thanks to Russell, who helped me to improve my coding style and told me not to be discouraged when I'm stuck. 😄</p>
+<p>Related PRs:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/854">PR #854</a> : Nonlocal statement support (merged)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/873">PR #873</a> : Added closure related test cases (merged)</li>
+</ul>
+</div>
+<div class="section" id="the-collections-module">
+<h2>The Collections Module</h2>
+<p>Next item on my hit list was pure Java implementations of the <cite>collections</cite> module. <cite>asyncio</cite> module depends on 3 data structures from <cite>collections</cite>, namely <cite>defauldict</cite>, <cite>Deque</cite> and <cite>OrderedDict</cite>. Two of them (<cite>defaultdict</cite> and <cite>Deque</cite>) are implemented in C in CPython, plus they have good analog in Java, so it makes senses to implement the module in Java. Porting <cite>defauldict</cite>, <cite>Deque</cite> and <cite>OrderedDict</cite> to Java in VOC is relatively straight-forward, taking about 1.5 weeks to complete.</p>
+<p>Related PRs:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/874">PR #874</a> : Implement collections.defauldict (merged)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/896">PR #896</a> : Implements collections.Deque (merged)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/897">PR #897</a> : Implements collections.OrderedDict` (merged)</li>
+</ul>
+</div>
+<div class="section" id="other-prs-submitted-during-gsoc-2018">
+<h2>Other PRs submitted during GSoC 2018</h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/817">PR #817</a> : Added coroutine related exception class [WIP] (closed due to not needed)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/836">PR #836</a> : Changed Bool construction to use getBool instead (merged)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/847">PR #847</a> : Add custom exceptions test cases (closed due to more comprehensive handling in <a class="reference external" href="https://github.com/pybee/voc/pull/844">PR #844</a>)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/849">PR #849</a> : Fixed Unknown constant type &lt;class 'frozenset'&gt; in function definition (merged)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/858">PR #858</a> : Added test case for <a class="reference external" href="https://github.com/pybee/voc/issues/857">Issue #857</a> (merged)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/860">PR #860</a> : Added test case for <a class="reference external" href="https://github.com/pybee/voc/issues/859">Issue #859</a> (merged)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/862">PR #862</a> : Added test case for <a class="reference external" href="https://github.com/pybee/voc/issues/861">Issue #861</a> (merged)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/867">PR #867</a> : Fixed <a class="reference external" href="https://github.com/pybee/voc/issues/866">Issue #866</a> RunTimeError when generator is nested in more than 1 level of function definition (merged)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/868">PR #868</a> : Fixed <a class="reference external" href="https://github.com/pybee/voc/issues/861">Issue #861</a> Redefining nested function from other function overrides original nested function (merged)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/879">PR #879</a> : Fixed Incompatible Stack Height caused by expression statement (merged)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/901">PR #901</a> : Added test case for <a class="reference external" href="https://github.com/pybee/voc/issues/900">Issue #900</a> (merged)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/pull/788">PR #788</a> : Implements asyncio.coroutines [WIP] (open, the dream 😎)</li>
+</ul>
+</div>
+<div class="section" id="issues-submitted-during-gsoc-2018">
+<h2>Issues submitted during GSoC 2018</h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/pybee/voc/issues/861">Issue #861</a> : Redefining nested function from other function overrides original nested function (fixed in <a class="reference external" href="https://github.com/pybee/voc/pull/868">PR #868</a>)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/issues/866">Issue #866</a> : RunTimeError when generator is nested in more than 1 level of function definition (fixed in <a class="reference external" href="https://github.com/pybee/voc/pull/867">PR #867</a>)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/issues/828">Issue #828</a> : Finally block of generator is not executed during garbage collection (open)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/issues/857">Issue #857</a> : Complex datatype in set cause java.lang.StackOverflowError (open)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/issues/859">Issue #859</a> : Duplicated values of equivalent but different data types in set (open)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/issues/900">Issue #900</a> : Exception in nested try-catch suite is 'leaked' to another enclosing try-catch suite (open)</li>
+<li><a class="reference external" href="https://github.com/pybee/voc/issues/827">Issue #827</a> : Maps reserved Java keywords to Python built-in function/method call (closed)</li>
+</ul>
+</div>
+<div class="section" id="towards-the-ultimate-end-goal">
+<h2>Towards The Ultimate End Goal</h2>
+<p>Unfortunately, three months of GSoC coding period was not enough for me to bring <cite>asyncio</cite> module to VOC. The nonlocal statement implementation was the biggest blocker for me mainly because I didn't think thoroughly before writing code. If I were to plan carefully and lay out a general coding direction, I would've completed it in much shorter time and have time for other implementations. An advice for the aspiring and upcoming GSoC-er, don't rush your code, make sure you know 100% about what you're doing before diving into the codes.</p>
+<p>With that said, following are the list of modules to be implemented/ported to Java before <cite>asyncio</cite> will work in VOC:</p>
+<ul class="simple">
+<li><cite>socket</cite> module (a bit tricky since Java doesn't support Unix domain socket natively)</li>
+<li><cite>selectors</cite> module (high level I/O operations)</li>
+<li><cite>threading</cite> module (might be easier to implement this first since threading in Python is an emulation of Java's Thread)</li>
+<li><cite>time</cite> module (partially implemented in VOC)</li>
+</ul>
+</div>
+<div class="section" id="final-thoughts">
+<h2>Final Thoughts</h2>
+<p>Huge thanks to my mentor, Russell Keith-Magee for accepting my proposal, providing guidance and encouraging me when things didn't go as intended. It is truly an honor to be a part of the BeeWare community. I had a blast contributing to BeeWare project, and I'm sure I will stick around as a regular contributor.
+Also shout out to the BeeWare community for answering my queries and reviewing my pull requests. 😄</p>
+</div>
+
+
+  </div>
+  <div class="hidden-sm-down col-md-2 col-lg-4"></div>
+
+  <div class="col-sm-12 col-md-4 gutter">
+    <dl>
+      
+
+      
+      <dt>
+Artigo anterior
+</dt>
+      <dd><a href="/pt_BR/news/buzz/project-spotlight-colosseum/">Project Spotlight: Colosseum</a></dd>
+      
+    </dl>
+  </div></div>
+</div>
+    </div>
+
+    <footer class="footer">
+      <div class="container text-muted">
+        <div class="d-block d-sm-none copyright">&copy; Russell Keith-Magee 2018</div>
+        <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee 2018</div>
+        <p class="d-sm-block d-none">
+          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
+          <a href="/pt_BR/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Mapa do site
+</a>
+        </p>
+        <p class="d-block d-sm-none footer-social">
+          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a>
+        </p>
+        <p class="d-block d-sm-none footer-sitemap"> 
+          <a href="/pt_BR/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Mapa do site
+</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    
+    <script src="/static/tether-1.3.3/js/tether.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script></body>
+</html>
