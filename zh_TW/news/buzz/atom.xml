@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">The Buzz</title>
   <id>urn:uuid:ea67f575-8130-3369-abc3-1449f0cc2655</id>
-  <updated>2018-08-11T00:00:00Z</updated>
+  <updated>2018-08-14T00:00:00Z</updated>
   <link href="http://pybee.org/zh_TW/news/buzz/" />
   <link href="http://pybee.org/zh_TW/news/buzz/atom.xml" rel="self" />
   <author>
@@ -10,6 +10,154 @@
   </author>
   <subtitle type="text">BeeWare's official blog</subtitle>
   <generator uri="https://github.com/ajdavis/lektor-atom" version="0.2">Lektor Atom Plugin</generator>
+  <entry xml:base="http://pybee.org/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/">
+    <title type="text">2018 Google Summer of Code - VOC Optimization</title>
+    <id>urn:uuid:ccc56406-089a-3c8f-a1da-5cdc35790538</id>
+    <updated>2018-08-14T00:00:00Z</updated>
+    <link href="http://pybee.org/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/" />
+    <author>
+      <name>Patience Shyu</name>
+    </author>
+    <content type="html">&lt;p&gt;Google Summer of Code is coming to an end. I've spent the summer working on optimizing the
+&lt;a class=&quot;reference external&quot; href=&quot;https://pybee.org/project/projects/bridges/voc/&quot;&gt;VOC compiler&lt;/a&gt;, and I’m super excited to share the results.&lt;/p&gt;
+&lt;div class=&quot;section&quot; id=&quot;results&quot;&gt;
+&lt;h2&gt;Results&lt;/h2&gt;
+&lt;p&gt;There are a couple of ways to evaluate the performance improvement from my project.&lt;/p&gt;
+&lt;div class=&quot;section&quot; id=&quot;microbenchmarks&quot;&gt;
+&lt;h3&gt;Microbenchmarks&lt;/h3&gt;
+&lt;p&gt;Firstly, we introduced a &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/blob/master/tests/benchmarks.py&quot;&gt;microbenchmarking suite&lt;/a&gt;. Each microbenchmark is a small piece
+of Python code that tests a single and specific Python construct, or datatype, or control flow.
+The benchmarking infrastructure itself is crude (essentially it just tells you the total amount
+of processor time it took to run, with no fancy statistics) but it has been extremely useful to
+me while working on performance features to verify performance gain.&lt;/p&gt;
+&lt;p&gt;The idea is that the benchmarking suite is not to be run as part of the full test suite,
+but rather as needed and manually whenever an optimization is implemented. It also provides a way to
+check and prevent performance regression, especially on the &amp;quot;optimized&amp;quot; parts of VOC. While it
+doesn't really make sense to record specific numbers, as they will always vary from machine to machine,
+it should be reasonably easy to compare two versions of VOC. Benchmark numbers are included on each
+optimization-related PR I've worked on this summer (see PR log below), and I hope that more benchmarks
+will be added as more performance efforts are carried out in the future.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;pystone&quot;&gt;
+&lt;h3&gt;Pystone&lt;/h3&gt;
+&lt;p&gt;&lt;a class=&quot;reference external&quot; href=&quot;TODO&quot;&gt;Pystone&lt;/a&gt; is a Python &lt;a class=&quot;reference external&quot; href=&quot;https://en.wikipedia.org/wiki/Dhrystone&quot;&gt;Dhrystone&lt;/a&gt;, a standard benchmark for testing the performance of Python on a machine.
+Here are the before and after results on my machine:&lt;/p&gt;
+&lt;p&gt;May 10th, 2018:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$ python setup.py test -s tests.test_pystone
+test_pystone (tests.test_pystone.PystoneTest) ...
+Pystone(1.2) time for 50000 passes = 101.833
+This machine benchmarks at 490.998 pystones/second&lt;/p&gt;
+&lt;p&gt;$ python setup.py test -s tests.test_pystone
+test_pystone (tests.test_pystone.PystoneTest) ...
+Pystone(1.2) time for 50000 passes = 101.298
+This machine benchmarks at 493.595 pystones/second&lt;/p&gt;
+&lt;p&gt;$ python setup.py test -s tests.test_pystone
+test_pystone (tests.test_pystone.PystoneTest) ...
+Pystone(1.2) time for 50000 passes = 102.247
+This machine benchmarks at 489.014 pystones/second&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;On current master (Aug 14th, 2018):&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$ python setup.py test -s tests.test_pystone
+test_pystone (tests.test_pystone.PystoneTest) ...
+Pystone(1.2) time for 50000 passes = 11.2300
+This machine benchmarks at 4452.37 pystones/second&lt;/p&gt;
+&lt;p&gt;$ python setup.py test -s tests.test_pystone
+test_pystone (tests.test_pystone.PystoneTest) ...
+Pystone(1.2) time for 50000 passes = 10.9833
+This machine benchmarks at 4552.36 pystones/second&lt;/p&gt;
+&lt;p&gt;$ python setup.py test -s tests.test_pystone
+pystone (tests.test_pystone.PystoneTest) ...
+Pystone(1.2) time for 50000 passes = 10.9498
+This machine benchmarks at 4566.29 pystones/second&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;conclusions&quot;&gt;
+&lt;h2&gt;Conclusions&lt;/h2&gt;
+&lt;p&gt;Some things that I learned about VOC while working on this project:&lt;/p&gt;
+&lt;p&gt;1. Object creation in the JVM is expensive. This definitely does not mean that the VOC user
+writing Python should think about minimizing the number of objects that she creates, but rather
+that any time we can non-trivially reduce the number of objects created during bytecode
+transpilation or in VOC-defined function calls, we can expect to see a huge performance boost.
+&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/825&quot;&gt;Integer&lt;/a&gt; and &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/830&quot;&gt;boolean preallocation&lt;/a&gt;, which is about reusing objects that have already been created,
+was one of the most significant improvements we made this summer.&lt;/p&gt;
+&lt;p&gt;2. Method calls in VOC are expensive. This is essentially due to the process of invoking a callable:
+you have to check that the method is defined on the object, then construct it (read: object creation!),
+and check the arguments, before it can actually be called. (This is done using reflection, which is super
+interesting and confusing in itself.) And this is the reason why &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/875&quot;&gt;refactoring the Python comparison functions&lt;/a&gt;
+made such a big performance impact, because we were able to circumvent this process.&lt;/p&gt;
+&lt;p&gt;3. Exception-heavy code is expensive. Again, this is not to say that the programmer is on the hook for being
+frugal when throwing exceptions, but that VOC benefits greatly by avoiding the use of exceptions internally
+except when strictly necessary. For instance, Python uses StopIteration exceptions to signal the end of a for loop,
+and they quickly rack up when you have nested loops (everything is ultimately related to object creation!). That was
+the motivation for the &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/881&quot;&gt;nested loops optimization&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If I may be a bit more reflective here, one of the a-ha! moments I had this summer was realizing that to really
+optimize something, you have to understand where its biggest problems are first. I remember pitching to Russ at
+the start of the summer things like loop unrolling, constant folding, even converting to SSA-form (you know, stuff I
+heard about optimzation in my compilers class) and he was saying to me, think simpler. While working on my project,
+I used a &lt;a class=&quot;reference external&quot; href=&quot;https://www.ej-technologies.com/products/jprofiler/overview.html&quot;&gt;profiler&lt;/a&gt; to understand exactly which parts of VOC were slow, and that information drove the changes we
+implemented. I think it worked out pretty well!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;future-work&quot;&gt;
+&lt;h2&gt;Future Work&lt;/h2&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;Minimize boxing of primitive types like String and Int. As VOC is written half in Python, half in Java, a single integer can be found in various representations on its way through the compiler -- as a Python object, unboxed to a primitive Java int, then packaged back up to a Python object. This problem was (somewhat incoherently) addressed in my proposal, but ultimately we couldn't come up with a good abstraction to support it.&lt;/li&gt;
+&lt;li&gt;Build a peephole optimizer. &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/python/cpython/blob/master/Python/peephole.c&quot;&gt;CPython's peephole optimizer&lt;/a&gt; scans generated bytecode to identify sequences of bytecode that can be optimized, VOC could benefit from this too.&lt;/li&gt;
+&lt;li&gt;Hook up more benchmarks, which serve as both proof of the kinds of programs VOC can currently compile and areas ripe for performance improvement.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;thank-you&quot;&gt;
+&lt;h2&gt;Thank you&lt;/h2&gt;
+&lt;p&gt;I will wrap this up by giving big thanks to &lt;a class=&quot;reference external&quot; href=&quot;https://github.com/freakboy3742&quot;&gt;Russ&lt;/a&gt;, my mentor. The time you spent helping
+me form my ideas, patiently answering my questions and reviewing my work was invaluable
+to me. It couldn't have been easy keeping up with what I was doing especially since I
+started improvising halfway through the summer. I am so grateful for your help, thank you.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;pr-log-in-chronological-order&quot;&gt;
+&lt;h2&gt;PR Log (in chronological order)&lt;/h2&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/issues/772&quot;&gt;Original Proposal (with weekly status updates)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;section&quot; id=&quot;optimization-related-features&quot;&gt;
+&lt;h3&gt;Optimization-related Features&lt;/h3&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/824&quot;&gt;Introduce Performance Benchmarking Suite&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/825&quot;&gt;Small Integer Preallocation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/830&quot;&gt;Boolean Preallocation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/839&quot;&gt;Module Caching&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/851&quot;&gt;Hook up Pystone&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/864&quot;&gt;Optimize Zero Argument Function Calls&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/869&quot;&gt;Remove Code Objects&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/875&quot;&gt;Comparisons Optimization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/881&quot;&gt;Loop optimization by reusing StopIterations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/893&quot;&gt;String cleanup/optimization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/899&quot;&gt;Dictionary access optimization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/902&quot;&gt;Create functions only when needed&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; id=&quot;bug-fixes-and-miscellaneous&quot;&gt;
+&lt;h3&gt;Bug Fixes and Miscellaneous&lt;/h3&gt;
+&lt;ul class=&quot;simple&quot;&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/837&quot;&gt;Fix Method repr&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/846&quot;&gt;Fix custom substitutions&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/852&quot;&gt;Fix List Bug&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/865&quot;&gt;Remove Unnecessary Instruction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/884&quot;&gt;Fix __setitem__ error messages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/877&quot;&gt;Fix contains/not contains bugs and refactor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/883&quot;&gt;Add tests for problematic exception raising&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/887&quot;&gt;Add test for with + exception combo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/889&quot;&gt;Add test for wrong iter error message&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/891&quot;&gt;Add tests for globals bug&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/894&quot;&gt;Remove unnecessary type casts and clean up&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/904&quot;&gt;Add test for problematic builtin function call&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&quot;reference external&quot; href=&quot;https://github.com/pybee/voc/pull/905&quot;&gt;Introduce org/python/Object type tests&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content>
+  </entry>
   <entry xml:base="http://pybee.org/news/buzz/2018-google-summer-of-code-final-report-yap-boon-peng/">
     <title type="text">2018 Google Summer of Code - Implement asyncio support in VOC</title>
     <id>urn:uuid:1a713ffc-6170-3134-a1a1-40fd30928db5</id>
