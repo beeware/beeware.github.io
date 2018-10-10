@@ -69,11 +69,13 @@ ga('send', 'pageview');
   <body>
     
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <div class="nav-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
   <div class="collapse navbar-collapse" id="navbarsDefault">
-    <a class="navbar-brand" href="{{ '/'|url(alt=this.alt) }}">BeeWare</a>
+    <div class="navbar-brand-block"><a class="navbar-brand" href="{{ '/'|url(alt=this.alt) }}">BeeWare</a></div>
     <ul class="navbar-nav mr-auto">
       {{ menu_item('project') }}
       {{ menu_item('news') }}
@@ -180,11 +182,21 @@ ga('send', 'pageview');
 
     <footer class="footer">
       <div class="container text-muted">
-        <div class="float-right clearfix">&copy; Russell Keith-Magee 2017</div>
-        <p><a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
-        <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
-        <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
-        <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ t_sitemap }}</a>
+        <div class="d-block d-sm-none copyright">&copy; Russell Keith-Magee 2018</div>
+        <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee 2018</div>
+        <p class="d-sm-block d-none">
+          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
+          <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ t_sitemap }}</a>
+        </p>
+        <p class="d-block d-sm-none footer-social">
+          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a>
+        </p>
+        <p class="d-block d-sm-none footer-sitemap"> 
+          <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ t_sitemap }}</a>
         </p>
       </div>
     </footer>
