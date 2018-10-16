@@ -49,6 +49,10 @@
     {{- get_pygments_css_styles('default')|safe -}}
     {%- endif -%}
 
+    {%- if this.alt  == 'ar' -%}
+      <link rel="stylesheet" type="text/css" href="/static/rtl.css">
+    {%- endif -%}
+
     <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/1138bd8363.js"></script>
 
@@ -84,7 +88,7 @@ ga('send', 'pageview');
       {{ menu_item('contact') }}
       <li class="nav-item">
         <a class="nav-link" href="/contributing/membership/">
-          Donate
+          {{ transbag('menu', this.alt, 'donate') }}
         </a>
       </li>
     </ul>
