@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>...write a desktop app— BeeWare</title>
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/brutus-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/brutus-72.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/brutus-57.png">
+    <link rel="shortcut icon" href="/static/images/brutus-32.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/grid.min.css">
+
+    <!-- Project CSS -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cutive">
+    <link rel="stylesheet" type="text/css" href="/static/beeware.css"><!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/1138bd8363.js"></script>
+
+    <!-- Google tracking -->
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-2943925-4', 'pybee.org');
+ga('send', 'pageview');
+    </script></head>
+  <body>
+    
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="nav-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarsDefault">
+    <div class="navbar-brand-block"><a class="navbar-brand" href="/da_DK/">BeeWare</a></div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+    <a class="nav-link" href="/da_DK/project/">
+Projekt
+<span class="sr-only">(current)</span></a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/da_DK/news/">
+Nyheder
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/da_DK/community/">
+Fællesskab
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/da_DK/contributing/">
+Bidrager
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/da_DK/contact/">
+Kontakt
+</a>
+  </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contributing/membership/">
+          
+Donate
+
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/pybee/pybee.github.io/new/lektor/content/project/using/desktop-app/contents%2Bda.lr?filename=contents%2Bda.lr&value=_model%3A+page%0A---%0Atitle%3A+...write+a+desktop+app%0A---%0Asort_key%3A+4%0A---%0Aincomplete%3A+no%0A---%0Abody%3A%0A%0ATo+develop+a+cross+platform+desktop+app%2C+you+need+to+use+a+cross+platform+widget+toolkit+-+%60Toga%60_.+Toga+abstracts+away+the+differences+between+the+various+platforms%2C+providing+a+common+Python+API+for+app+development.%0A%0AOn+macOS%2C+this+API+uses+the+capabilities+of+%60Rubicon%60_+to+access+native+system+libraries.+Rubicon+is+a+bridge+library+that+gives+you+transparent+access+to+all+the+native+Objective+C+classes+that+iOS+provides.+On+Linux%2C+native+Python+bindings+for+GTK%2B+are+used.+On+Windows%2C+ctypes+is+used+to+call+Win32+C+APIs+directly.%0A%0AOnce+you%27ve+written+your+mobile+application%2C+you+can+use+%60Briefcase%60_+to+package+your+Python+code+for+specific+platforms.+Briefcase+takes+the+distutils+%60setup.py%60+definition+for+your+Python+project%2C+and+uses+that+metadata+to+generate+a+stub+project%2C+compile+your+Python+code%2C+and+place+the+compiled+artefacts+so+that+they+will+be+found+when+you+run+the+app.+The+stub+project+is+generated+using+the+%60Python+macOS+template%60_.%0A%0AFollow+the+%60tutorial+in+the+briefcase+docs+%3Chttps%3A%2F%2Fbriefcase.readthedocs.io%2Fen%2Flatest%2Ftutorial%2Ftutorial-0.html%3E%60__+to+get+started%21%0A%0A..+_Toga%3A+%2Fproject%2Fprojects%2Flibraries%2Ftoga%0A..+_Rubicon%3A+%2Fproject%2Fprojects%2Fbridges%2Frubicon%0A..+_Briefcase%3A+%2Fproject%2Fprojects%2Ftools%2Fbriefcase%0A..+_Python+macOS+template%3A+%2Fproject%2Fprojects%2Ftemplates%2Fpython-macos-template%0A%0A---%0Agutter%3A%0A%0ARelevant+projects%0A------------------%0A%0A..+image%3A%3A+%2Fproject%2Fprojects%2Flibraries%2Ftoga%2Ftoga.png%0A+++%3Aalt%3A+Toga+icon%0A+++%3Aalign%3A+left%0A+++%3Aheight%3A+32px%0A%0A%60Toga%60_%0A%0A..+image%3A%3A+%2Fproject%2Fprojects%2Fbridges%2Frubicon%2Frubicon.png%0A+++%3Aalt%3A+Rubicon+icon%0A+++%3Aalign%3A+left%0A+++%3Aheight%3A+32px%0A%0A%60Rubicon%60_%0A%0A..+image%3A%3A+%2Fproject%2Fprojects%2Ftools%2Fbriefcase%2Fbriefcase.png%0A+++%3Aalt%3A+Briefcase+icon%0A+++%3Aalign%3A+left%0A+++%3Aheight%3A+32px%0A%0A%60Briefcase%60_%0A%0A..+image%3A%3A+%2Fstatic%2Fimages%2Fdefaultlogo.png%0A+++%3Aalt%3A+Python+macOS+template+icon%0A+++%3Aheight%3A+32px%0A+++%3Aalign%3A+left%0A%0A%60Python+macOS+template%60_%0A%0A..+_Toga%3A+%2Fproject%2Fprojects%2Flibraries%2Ftoga%0A..+_Rubicon%3A+%2Fproject%2Fprojects%2Fbridges%2Frubicon%0A..+_VOC%3A+%2Fproject%2Fprojects%2Fbridges%2Fvoc%0A..+_Briefcase%3A+%2Fproject%2Fprojects%2Ftools%2Fbriefcase%0A..+_Python+macOS+template%3A+%2Fproject%2Fprojects%2Ftemplates%2Fpython-macos-template%0A" target="_blank">
+            <i class="fa fa-github "></i><small>&nbsp;
+Translate on GitHub
+</small>
+          </a></li>
+     <li class="nav-item dropdown dropdown-pull-right">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item " href="/project/using/desktop-app/">
+          English&nbsp;<small>(<i>English</i>)</small></a><a class="dropdown-item " href="/ar_AR/project/using/desktop-app/">
+          
+العَرَبِيَّة
+<small>(<i>Arabic</i>)</small></a><a class="dropdown-item active" href="/da_DK/project/using/desktop-app/">
+          
+Danish
+</a><a class="dropdown-item " href="/de_DE/project/using/desktop-app/">
+          
+Deutsch
+<small>(<i>German</i>)</small></a><a class="dropdown-item " href="/es/proyecto/como-utilizar/aplicacion-de-escritorio/">
+          
+Español
+<small>(<i>Spanish</i>)</small></a><a class="dropdown-item " href="/pt_BR/project/using/desktop-app/">
+          
+português
+<small>(<i>Portuguese</i>)</small></a><a class="dropdown-item " href="/zh_TW/project/using/desktop-app/">
+          
+漢語
+<small>(<i>Chinese</i>)</small></a></div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+    <div class="content">
+<div class="banner">
+  <div class="container">
+    <p>
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  <a href="/da_DK/">
+Home
+</a>
+  
+ >
+  <a href="/da_DK/project/">BeeWare Project</a>
+  
+ >
+  <a href="/da_DK/project/using/">How to use BeeWare</a>
+  
+</p>
+    <h1>...write a desktop app</h1>
+    <p></p>
+  </div>
+</div>
+<div class="container">
+<div class="row">
+  <div class="col-sm-7 mr-auto">
+  
+  
+
+  
+    <p>To develop a cross platform desktop app, you need to use a cross platform widget toolkit - <a class="reference external" href="/project/projects/libraries/toga">Toga</a>. Toga abstracts away the differences between the various platforms, providing a common Python API for app development.</p>
+<p>On macOS, this API uses the capabilities of <a class="reference external" href="/project/projects/bridges/rubicon">Rubicon</a> to access native system libraries. Rubicon is a bridge library that gives you transparent access to all the native Objective C classes that iOS provides. On Linux, native Python bindings for GTK+ are used. On Windows, ctypes is used to call Win32 C APIs directly.</p>
+<p>Once you've written your mobile application, you can use <a class="reference external" href="/project/projects/tools/briefcase">Briefcase</a> to package your Python code for specific platforms. Briefcase takes the distutils <cite>setup.py</cite> definition for your Python project, and uses that metadata to generate a stub project, compile your Python code, and place the compiled artefacts so that they will be found when you run the app. The stub project is generated using the <a class="reference external" href="/project/projects/templates/python-macos-template">Python macOS template</a>.</p>
+<p>Follow the <a class="reference external" href="https://briefcase.readthedocs.io/en/latest/tutorial/tutorial-0.html">tutorial in the briefcase docs</a> to get started!</p>
+
+    
+  
+  </div>
+  
+    
+  <!-- <div class="col-sm-12 col-md-4 gutter"> -->
+  <div class="col-sm-4">
+    <div class="sidebar-module sidebar-module-inset gutter">
+    <div class="section" id="relevant-projects">
+<h2>Relevant projects</h2>
+<img alt="Toga icon" class="align-left" src="/project/projects/libraries/toga/toga.png" style="height: 32px;" />
+<p><a class="reference external" href="/project/projects/libraries/toga">Toga</a></p>
+<img alt="Rubicon icon" class="align-left" src="/project/projects/bridges/rubicon/rubicon.png" style="height: 32px;" />
+<p><a class="reference external" href="/project/projects/bridges/rubicon">Rubicon</a></p>
+<img alt="Briefcase icon" class="align-left" src="/project/projects/tools/briefcase/briefcase.png" style="height: 32px;" />
+<p><a class="reference external" href="/project/projects/tools/briefcase">Briefcase</a></p>
+<img alt="Python macOS template icon" class="align-left" src="/static/images/defaultlogo.png" style="height: 32px;" />
+<p><a class="reference external" href="/project/projects/templates/python-macos-template">Python macOS template</a></p>
+</div>
+
+    </div>
+  </div>
+    
+  
+</div>
+</div>
+    </div>
+
+    <footer class="footer">
+      <div class="container text-muted">
+        <div class="d-block d-sm-none copyright">&copy; Russell Keith-Magee 2018</div>
+        <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee 2018</div>
+        <p class="d-sm-block d-none">
+          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
+          <a href="/da_DK/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+        <p class="d-block d-sm-none footer-social">
+          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a>
+        </p>
+        <p class="d-block d-sm-none footer-sitemap"> 
+          <a href="/da_DK/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    
+    <script src="/static/tether-1.3.3/js/tether.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script></body>
+</html>

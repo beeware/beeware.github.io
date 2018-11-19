@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Bugjar— BeeWare</title>
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/brutus-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/brutus-72.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/brutus-57.png">
+    <link rel="shortcut icon" href="/static/images/brutus-32.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/grid.min.css">
+
+    <!-- Project CSS -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cutive">
+    <link rel="stylesheet" type="text/css" href="/static/beeware.css"><!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/1138bd8363.js"></script>
+
+    <!-- Google tracking -->
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-2943925-4', 'pybee.org');
+ga('send', 'pageview');
+    </script></head>
+  <body>
+    
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="nav-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarsDefault">
+    <div class="navbar-brand-block"><a class="navbar-brand" href="/dk/">BeeWare</a></div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+    <a class="nav-link" href="/dk/project/">
+Project
+<span class="sr-only">(current)</span></a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/dk/news/">
+News
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/dk/community/">
+Community
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/dk/contributing/">
+Contributing
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/dk/contact/">
+Contact
+</a>
+  </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contributing/membership/">
+          
+Donate
+
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/pybee/pybee.github.io/new/lektor/content/project/projects/tools/bugjar/contents%2Bdk.lr?filename=contents%2Bdk.lr&value=name%3A+Bugjar%0A---%0Aproject_type%3A+tool%0A---%0Amaturity%3A+experimental%0A---%0Alanguages%3A+py%0A---%0Aplatforms%3A+macOS%0A---%0Ashort_description%3A+A+interactive+graphical+debugger+for+Python+code.%0A---%0Adescription%3A%0A%0AAnyone+who+learned+to+code+in+the+mid+to+late+80s+probably+spent+some%0Atime+with+a+Borland+compiler+--+probably+either+Turbo+Pascal+or+Turbo+C.%0AOne+of+the+best+features+of+the+Turbo+compilers+was+their+IDE+--+and%0Ain+particular%2C+a+really+good+visual+debugger+that+would+let+you+inspect%0Acode+while+it+was+running.%0A%0AThen+we+all+moved+to+Unix%2C+and+somehow+forgot+what+a+good+debugger+was.%0AGDB+is+perfectly+functional%2C+but+isn%27t+very+intuitive.+GDB+gives+you%0Aperfect+control+over+the+execution+of+your+code%2C+but+bad+contextual%0Ainformation+to+let+you+know+what+control+you+should+be+exercising.%0A%0AThen+came+Python.+Python%27s+execution+model+contains+excellent+debugging%0Ahooks%2C+and+supplies+PDB+as+a+proof+of+concept.+PDB+is+an+interface+that%0Ashares+many+similarities+with+GDB+--+text+mode%2C+fantastic+control%2C+but%0Avery+bad+contextual+information.%0A%0ASo+-+enter+%60%60bugjar%60%60.+A+graphical+interface+for+debugging+code.%0APDB%2C+but+with+the+context+to+help+you+step+through+code+in+a+meaningful+way.%0A%0A---%0Ahelp_required%3A+%0A---%0Artfd_name%3A+bugjar%0A---%0Acustomlogo%3A+yes%0A---%0Aimage%3A+bugjar.png%0A---%0Agithub_repo%3A+pybee%2Fbugjar%0A" target="_blank">
+            <i class="fa fa-github "></i><small>&nbsp;
+Translate on GitHub
+</small>
+          </a></li>
+     <li class="nav-item dropdown dropdown-pull-right">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item " href="/project/projects/tools/bugjar/">
+          English&nbsp;<small>(<i>English</i>)</small></a><a class="dropdown-item " href="/ar_AR/project/projects/tools/bugjar/">
+          
+العَرَبِيَّة
+<small>(<i>Arabic</i>)</small></a><a class="dropdown-item " href="/de_DE/project/projects/tools/bugjar/">
+          
+Deutsch
+<small>(<i>German</i>)</small></a><a class="dropdown-item active" href="/dk/project/projects/tools/bugjar/">
+          
+None
+</a><a class="dropdown-item " href="/es/proyecto/proyectos/herramientas/bugjar/">
+          
+Español
+<small>(<i>Spanish</i>)</small></a><a class="dropdown-item " href="/pt_BR/project/projects/tools/bugjar/">
+          
+português
+<small>(<i>Portuguese</i>)</small></a><a class="dropdown-item " href="/zh_TW/project/projects/tools/bugjar/">
+          
+漢語
+<small>(<i>Chinese</i>)</small></a></div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+    <div class="content">
+<div class="banner">
+  <div class="container">
+    <p>
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  <a href="/dk/">
+Home
+</a>
+  
+ >
+  <a href="/dk/project/">BeeWare Project</a>
+  
+ >
+  <a href="/dk/project/projects/">Projects</a>
+  
+ >
+  <a href="/dk/project/projects/tools/">Tools</a>
+  
+</p>
+    <h1>Bugjar</h1>
+    <p><p>A interactive graphical debugger for Python code.</p>
+</p>
+  </div>
+</div>
+<div class="container">
+
+<div class="row">
+  <div class="col-sm-7 mr-auto">
+    
+  
+
+
+    
+
+    
+
+    
+
+    <p><p>Anyone who learned to code in the mid to late 80s probably spent some
+time with a Borland compiler -- probably either Turbo Pascal or Turbo C.
+One of the best features of the Turbo compilers was their IDE -- and
+in particular, a really good visual debugger that would let you inspect
+code while it was running.</p>
+<p>Then we all moved to Unix, and somehow forgot what a good debugger was.
+GDB is perfectly functional, but isn't very intuitive. GDB gives you
+perfect control over the execution of your code, but bad contextual
+information to let you know what control you should be exercising.</p>
+<p>Then came Python. Python's execution model contains excellent debugging
+hooks, and supplies PDB as a proof of concept. PDB is an interface that
+shares many similarities with GDB -- text mode, fantastic control, but
+very bad contextual information.</p>
+<p>So - enter <tt class="docutils literal">bugjar</tt>. A graphical interface for debugging code.
+PDB, but with the context to help you step through code in a meaningful way.</p>
+</p>
+
+    
+
+    
+  </div>
+
+  <div class="col-sm-4">
+    <div class="sidebar-module sidebar-module-inset gutter">
+    <img class="img-fluid center-block" src="/project/projects/tools/bugjar/bugjar.png" ></div>
+    <br />
+    <p><a href="https://github.com/pybee/bugjar"><i class="fa fa-github fa-lg" aria-hidden="true"></i> Source Code</a></p>
+    <p><a href="https://bugjar.readthedocs.io/"><i class="fa fa-book fa-lg" aria-hidden="true"></i> Documentation</a></p>
+    <hr>
+    <dl>
+        
+
+
+    <dt>Project Type:</dt><dd>
+Tool
+</dd>
+
+
+<!-- <img src="badges/Project Type/tool"> -->
+
+        
+
+
+    <dt>Maturity:</dt><dd> Experimental</dd>
+
+
+<!-- <img src="badges/Maturity/[u&#39;experimental&#39;]"> -->
+
+        
+
+
+    <dt>Language:</dt><dd> Python</dd>
+
+
+<!-- <img src="badges/Language/[u&#39;py&#39;]"> -->
+
+        
+
+
+    <dt>Platform:</dt><dd> macOS</dd>
+
+
+<!-- <img src="badges/Platform/[u&#39;macOS&#39;]"> -->
+
+    </dl>
+    <hr>
+    <a href="https://labhr.github.io/hatrack/#repo=pybee/bugjar">
+Contributors
+</a>
+  </div>
+</div>
+</div>
+    </div>
+
+    <footer class="footer">
+      <div class="container text-muted">
+        <div class="d-block d-sm-none copyright">&copy; Russell Keith-Magee 2018</div>
+        <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee 2018</div>
+        <p class="d-sm-block d-none">
+          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
+          <a href="/dk/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+        <p class="d-block d-sm-none footer-social">
+          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a>
+        </p>
+        <p class="d-block d-sm-none footer-sitemap"> 
+          <a href="/dk/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    
+    <script src="/static/tether-1.3.3/js/tether.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script></body>
+</html>
