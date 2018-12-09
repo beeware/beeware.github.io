@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Tinkering with Tkinter— BeeWare</title>
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/brutus-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/brutus-72.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/brutus-57.png">
+    <link rel="shortcut icon" href="/static/images/brutus-32.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/grid.min.css">
+
+    <!-- Project CSS -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cutive">
+    <link rel="stylesheet" type="text/css" href="/static/beeware.css"><!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/1138bd8363.js"></script>
+
+    <!-- Google tracking -->
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-2943925-4', 'pybee.org');
+ga('send', 'pageview');
+    </script></head>
+  <body>
+    
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="nav-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarsDefault">
+    <div class="navbar-brand-block"><a class="navbar-brand" href="/ko_KR/">BeeWare</a></div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+    <a class="nav-link" href="/ko_KR/project/">
+프로젝트
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/ko_KR/news/">
+뉴스
+</a>
+  </li>
+      <li class="nav-item active">
+    <a class="nav-link" href="/ko_KR/community/">
+커뮤니티
+<span class="sr-only">(current)</span></a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/ko_KR/contributing/">
+기여하기
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/ko_KR/contact/">
+연락하기
+</a>
+  </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contributing/membership/">
+          
+기부하기
+
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/pybee/pybee.github.io/new/lektor/content/community/resources/pycon-au-2013-tinkering-with-tkinter/contents%2Bko.lr?filename=contents%2Bko.lr&value=title%3A+Tinkering+with+Tkinter%0A---%0Adescription%3A%0A%0ATkinter+-+the+Python+wrapper+to+the+Tk+graphics+library+-+has+been+part+of+the+Python+standard+library+since+very+early+on.+However%2C+that+inclusion+hasn%27t+translated+into+extensive+use.%0A%0AThere+was+a+very+good+reason+for+this.+Tk%27s+documentation+was+beyond+awful.+And+if+you+managed+to+get+over+that+hurdle%2C+Tkinter+apps+looked+awful+-+they+had+a+woefully+inadequate+set+of+widgets%2C+styled+with+the+very+best+of+mid+1990%27s+open+source+graphic+skill.%0A%0AAnd+then%2C+the+world+got+obsessed+with+web+frameworks%2C+and+the+desktop+was+declared+as+dead.%0A%0AHowever%2C+in+the+last+few+years%2C+many+of+the+reasons+Tkinter+was+ignored+have+been+quietly+fixed.+Tk+8.4+massively+improved+the+visual+appearance+of+Tk.+tkdocs.com+has+emerged%2C+addressing+many+of+the+problems+with+Tk+documentation.%0A%0AIn+this+talk%2C+you%27ll+get+a+re-introduction+to+an+old+friend%2C+and+an+explanation+of+why%2C+in+a+web+and+mobile+world%2C+you+should+care.%0A---%0Aurl%3A+https%3A%2F%2Fwww.youtube.com%2Fembed%2FyI7NYgP54sw%0A---%0Aevent_name%3A+PyCon+AU+2013%0A---%0Aevent_url%3A+%0A---%0Apub_date%3A+2013-07-10%0A---%0Aresource_type%3A+video%0A---%0Aauthor%3A+Russell+Keith-Magee%0A" target="_blank">
+            <i class="fa fa-github "></i><small>&nbsp;
+Translate on GitHub
+</small>
+          </a></li>
+     <li class="nav-item dropdown dropdown-pull-right">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item " href="/community/resources/pycon-au-2013-tinkering-with-tkinter/">
+          English&nbsp;<small>(<i>English</i>)</small></a><a class="dropdown-item " href="/ar_AR/community/resources/pycon-au-2013-tinkering-with-tkinter/">
+          
+العَرَبِيَّة
+<small>(<i>Arabic</i>)</small></a><a class="dropdown-item " href="/da_DK/community/resources/pycon-au-2013-tinkering-with-tkinter/">
+          
+Danish
+<small>(<i>Danish</i>)</small></a><a class="dropdown-item " href="/de_DE/community/resources/pycon-au-2013-tinkering-with-tkinter/">
+          
+Deutsch
+<small>(<i>German</i>)</small></a><a class="dropdown-item " href="/es/comunidad/recursos/pycon-au-2013-tinkering-with-tkinter/">
+          
+Español
+<small>(<i>Spanish</i>)</small></a><a class="dropdown-item active" href="/ko_KR/community/resources/pycon-au-2013-tinkering-with-tkinter/">
+          
+None
+</a><a class="dropdown-item " href="/pt_BR/community/resources/pycon-au-2013-tinkering-with-tkinter/">
+          
+português
+<small>(<i>Portuguese</i>)</small></a><a class="dropdown-item " href="/zh_TW/community/resources/pycon-au-2013-tinkering-with-tkinter/">
+          
+漢語
+<small>(<i>Chinese</i>)</small></a></div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+    <div class="content">
+<div class="banner">
+  <div class="container">
+    <p>
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  <a href="/ko_KR/">
+Home
+</a>
+  
+ >
+  <a href="/ko_KR/community/">Community</a>
+  
+ >
+  <a href="/ko_KR/community/resources/">Resources</a>
+  
+</p>
+    <h2>Tinkering with Tkinter</h2>
+    <p>
+by
+ Russell Keith-Magee; 
+published
+ 7월 10, 2013</p>
+  </div>
+</div>
+<div class="container">
+<div class="row">
+  <div class="col-sm-7 mr-auto">
+  
+  
+
+  
+
+  
+  <iframe class="video" src="https://www.youtube.com/embed/yI7NYgP54sw" frameborder="0" allowfullscreen></iframe>
+  <p>Tkinter - the Python wrapper to the Tk graphics library - has been part of the Python standard library since very early on. However, that inclusion hasn't translated into extensive use.</p>
+<p>There was a very good reason for this. Tk's documentation was beyond awful. And if you managed to get over that hurdle, Tkinter apps looked awful - they had a woefully inadequate set of widgets, styled with the very best of mid 1990's open source graphic skill.</p>
+<p>And then, the world got obsessed with web frameworks, and the desktop was declared as dead.</p>
+<p>However, in the last few years, many of the reasons Tkinter was ignored have been quietly fixed. Tk 8.4 massively improved the visual appearance of Tk. tkdocs.com has emerged, addressing many of the problems with Tk documentation.</p>
+<p>In this talk, you'll get a re-introduction to an old friend, and an explanation of why, in a web and mobile world, you should care.</p>
+
+
+
+
+  </div>
+  
+
+  <div class="col-sm-12 col-md-4 gutter">
+    
+    <p>
+As seen at
+ PyCon AU 2013</p>
+    
+  </div>
+
+
+</div>
+</div>
+    </div>
+
+    <footer class="footer">
+      <div class="container text-muted">
+        <div class="d-block d-sm-none copyright">&copy; Russell Keith-Magee 2018</div>
+        <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee 2018</div>
+        <p class="d-sm-block d-none">
+          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
+          <a href="/ko_KR/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+        <p class="d-block d-sm-none footer-social">
+          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a>
+        </p>
+        <p class="d-block d-sm-none footer-sitemap"> 
+          <a href="/ko_KR/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    
+    <script src="/static/tether-1.3.3/js/tether.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script></body>
+</html>
