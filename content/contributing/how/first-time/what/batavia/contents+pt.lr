@@ -5,7 +5,7 @@ Sobre Batavia
 
 A ideia por traz do Batavia é pegar um bytecode do Python e enviar para um navegador onde ele possa rodar como uma implementação JavaScript da Python virtual machine.
 
-Isso significa que é possível escrever aplicações web 100% em Python - então qualquer um novo no desenvolvimento web não precisa aprender múltiplas linguagens para desenvolver aplicações web. 
+Isso significa que é possível escrever aplicações web 100% em Python - então qualquer um novo no desenvolvimento web não precisa aprender múltiplas linguagens para desenvolver aplicações web.
 
 Antes de você começar
 --------------------------
@@ -23,13 +23,13 @@ Uma vez que você tenha feito Batavia funcionar, você estará pronto para fazer
 
 Para conseguir implementar uma virtual machine Python completa, Batavia precisa implementar todas as excentricidades do comportamento do Python. Por exemplo, Python sempre deixa você multiplicar uma string por um inteiro (ex, ``“foo” * 3`` => ``“foofoofoo”``). O comportamento do JavaScript pode ser um pouco diferente, dependendo das circunstancias - então nós precisamos criar uma biblioteca que implementa o comportamento desejado do Python.
 
-Esse exemplo em particular (string vezes numero) já foi implementado - veja `a definição da função __mul__() <https://github.com/pybee/batavia/blob/master/batavia/types/Str.js>`__. Esta implementação do operador de multiplicação é implementado em JavaScript, mas ele implementa o comportamento de Python - para *alguns* tipos de dado.
+Esse exemplo em particular (string vezes numero) já foi implementado - veja `a definição da função __mul__() <https://github.com/beeware/batavia/blob/master/batavia/types/Str.js>`__. Esta implementação do operador de multiplicação é implementado em JavaScript, mas ele implementa o comportamento de Python - para *alguns* tipos de dado.
 
-Se você olhar em `tests/datatypes/test_str.py <https://github.com/pybee/batavia/blob/master/tests/datatypes/test_str.py>`__, você vai ver os testes para esse comportamento. Nós já escrevemos uma suíte de testes que tenta executar todos as operações de cada tipo de dado. No entanto, todos os nomes listados naquele arquivo são exemplos que sabemos que irá falhar (por que a implementação ainda não existe). O teste funciona escrevendo um curto programa que implementa uma operação matemática, roda o programa no Python e então roda novamente no Batavia. O teste passe quando as duas execuções produzem uma saída identica.
+Se você olhar em `tests/datatypes/test_str.py <https://github.com/beeware/batavia/blob/master/tests/datatypes/test_str.py>`__, você vai ver os testes para esse comportamento. Nós já escrevemos uma suíte de testes que tenta executar todos as operações de cada tipo de dado. No entanto, todos os nomes listados naquele arquivo são exemplos que sabemos que irá falhar (por que a implementação ainda não existe). O teste funciona escrevendo um curto programa que implementa uma operação matemática, roda o programa no Python e então roda novamente no Batavia. O teste passe quando as duas execuções produzem uma saída identica.
 
-Então - sua primeira contribuição a um projeto open source: Escolha um teste que esta listado no arquivo de teste ``test_str.py`` (ex,  ``test_multiply_float`` é o teste de multiplicar uma string por um float), e modificar a implementação do Str até você ter a mesma saída do programa do CPython que  você tem da versão do Batavia do mesmo programa. Isso incluem mensagens de erro - se o CPython levanta uma ``TypeError`` para uma operação em particular (ex,  ``“foo” * 3.1415``), então Batavia também deve levantar - e a mensagem de erro deve ser exatamente a mesma. 
+Então - sua primeira contribuição a um projeto open source: Escolha um teste que esta listado no arquivo de teste ``test_str.py`` (ex,  ``test_multiply_float`` é o teste de multiplicar uma string por um float), e modificar a implementação do Str até você ter a mesma saída do programa do CPython que  você tem da versão do Batavia do mesmo programa. Isso incluem mensagens de erro - se o CPython levanta uma ``TypeError`` para uma operação em particular (ex,  ``“foo” * 3.1415``), então Batavia também deve levantar - e a mensagem de erro deve ser exatamente a mesma.
 
-Antes de você começar a trabalhar, visite o `ticket #46 <https://github.com/pybee/batavia/issues/46>`_ e registre qual função você irá trabalhar - dessa forma nós não teremos 2 pessoas trabalhando na mesma função.
+Antes de você começar a trabalhar, visite o `ticket #46 <https://github.com/beeware/batavia/issues/46>`_ e registre qual função você irá trabalhar - dessa forma nós não teremos 2 pessoas trabalhando na mesma função.
 
 Uma vez que você tenha escrito sua implementação, rode os testes. Se você tiver um “unexpected success” da suíte de testes, e você *não tiver* nenhuma falha, você conseguiu!
 Apague a linha do  arquivo ``test_str.py`` correspondente ao teste que você corrigiu (porque não é mais esperado que o teste falhe), e envie um pull request!

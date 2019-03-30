@@ -6,14 +6,14 @@ pub_date: 2018-08-11
 ---
 body:
 
-In the blink of an eye, Google Summer of Code (GSoC) 2018 has come to an end. During the three months long coding period, I have contributed several patches in VOC repository of BeeWare, all working towards the ultimate end goal of running `asyncio` module in VOC. In this blog post (which is my first actual blog post by the way 😄), I will document what I have done so far, why I couldn't make it to the end goal (yea, unfortunately I couldn't get `asyncio` to work at the end of GSoC 2018), and what's left that needs to be done in order to achieve the end goal (or at least make part of `asyncio` work). 
+In the blink of an eye, Google Summer of Code (GSoC) 2018 has come to an end. During the three months long coding period, I have contributed several patches in VOC repository of BeeWare, all working towards the ultimate end goal of running `asyncio` module in VOC. In this blog post (which is my first actual blog post by the way 😄), I will document what I have done so far, why I couldn't make it to the end goal (yea, unfortunately I couldn't get `asyncio` to work at the end of GSoC 2018), and what's left that needs to be done in order to achieve the end goal (or at least make part of `asyncio` work).
 
 
 Building Foundation
 --------------------
 The first error that the transpiler throws when attempting to compile `asyncio` module was "No handler for `YieldFrom`", so it makes sense to start from this issue first.
 
-Another feature related to generator was `Yield` expression. Before GSoC 2018, `Yield` statement in VOC was just a statement, meaning `yield` could not be used as expression. Generator methods such as `generator.send`, `generator.throw` and `generator.close` were not supported as well. Those features are what make asynchronous programming with generator possible, so I spent a few weeks to extend generator functionality in VOC, laying down the path to `asyncio` module. 
+Another feature related to generator was `Yield` expression. Before GSoC 2018, `Yield` statement in VOC was just a statement, meaning `yield` could not be used as expression. Generator methods such as `generator.send`, `generator.throw` and `generator.close` were not supported as well. Those features are what make asynchronous programming with generator possible, so I spent a few weeks to extend generator functionality in VOC, laying down the path to `asyncio` module.
 
 PRs related to generator are listed below:
 
@@ -21,14 +21,14 @@ PRs related to generator are listed below:
 * `PR #823`_ : Added generator send method (merged)
 * `PR #831`_ : Support exceptions handling in generator (merged)
 
-.. _PR #821: https://github.com/pybee/voc/pull/821
-.. _PR #823: https://github.com/pybee/voc/pull/823
-.. _PR #831: https://github.com/pybee/voc/pull/831
+.. _PR #821: https://github.com/beeware/voc/pull/821
+.. _PR #823: https://github.com/beeware/voc/pull/823
+.. _PR #831: https://github.com/beeware/voc/pull/831
 
 
 Nonlocal Statement
 -------------------
-`Nonlocal` statement was another syntax not supported by VOC. After completion of generator's features, implementing this is the next step towards compiling `asyncio` module. 
+`Nonlocal` statement was another syntax not supported by VOC. After completion of generator's features, implementing this is the next step towards compiling `asyncio` module.
 
 Implementing this feature took about 3 ~ 4 weeks as this is not as trivial as it seems. I took several approaches on this, while some of them do work, the code is not pretty and `hacky`, which could come back to bite me/other contributors in the long run. After many discussions with Russell, I refactored the closure mechanism in VOC and took a much cleaner approach in `nonlocal` implementations. I must admit that I took some short-cuts for the sake of "making nonlocal works" in the process of implementing `nonlocal` statement, resulting in poor design and messy codes. Many thanks to Russell, who helped me to improve my coding style and told me not to be discouraged when I'm stuck. 😄
 
@@ -37,8 +37,8 @@ Related PRs:
 * `PR #854`_ : Nonlocal statement support (merged)
 * `PR #873`_ : Added closure related test cases (merged)
 
-.. _PR #854: https://github.com/pybee/voc/pull/854
-.. _PR #873: https://github.com/pybee/voc/pull/873
+.. _PR #854: https://github.com/beeware/voc/pull/854
+.. _PR #873: https://github.com/beeware/voc/pull/873
 
 
 The Collections Module
@@ -51,9 +51,9 @@ Related PRs:
 * `PR #896`_ : Implements collections.Deque (merged)
 * `PR #897`_ : Implements collections.OrderedDict` (merged)
 
-.. _PR #874: https://github.com/pybee/voc/pull/874
-.. _PR #896: https://github.com/pybee/voc/pull/896
-.. _PR #897: https://github.com/pybee/voc/pull/897
+.. _PR #874: https://github.com/beeware/voc/pull/874
+.. _PR #896: https://github.com/beeware/voc/pull/896
+.. _PR #897: https://github.com/beeware/voc/pull/897
 
 
 Other PRs submitted during GSoC 2018
@@ -67,25 +67,25 @@ Other PRs submitted during GSoC 2018
 * `PR #860`_ : Added test case for `Issue #859`_ (merged)
 * `PR #862`_ : Added test case for `Issue #861`_ (merged)
 * `PR #867`_ : Fixed `Issue #866`_ RunTimeError when generator is nested in more than 1 level of function definition (merged)
-* `PR #868`_ : Fixed `Issue #861`_ Redefining nested function from other function overrides original nested function (merged) 
+* `PR #868`_ : Fixed `Issue #861`_ Redefining nested function from other function overrides original nested function (merged)
 * `PR #879`_ : Fixed Incompatible Stack Height caused by expression statement (merged)
 * `PR #901`_ : Added test case for `Issue #900`_ (merged)
 * `PR #788`_ : Implements asyncio.coroutines [WIP] (open, the dream 😎)
- 
 
-.. _PR #817: https://github.com/pybee/voc/pull/817
-.. _PR #836: https://github.com/pybee/voc/pull/836
-.. _PR #847: https://github.com/pybee/voc/pull/847
-.. _PR #849: https://github.com/pybee/voc/pull/849
-.. _PR #858: https://github.com/pybee/voc/pull/858
-.. _PR #860: https://github.com/pybee/voc/pull/860
-.. _PR #862: https://github.com/pybee/voc/pull/862
-.. _PR #867: https://github.com/pybee/voc/pull/867
-.. _PR #868: https://github.com/pybee/voc/pull/868
-.. _PR #879: https://github.com/pybee/voc/pull/879
-.. _PR #901: https://github.com/pybee/voc/pull/901
-.. _PR #788: https://github.com/pybee/voc/pull/788
-.. _PR #844: https://github.com/pybee/voc/pull/844
+
+.. _PR #817: https://github.com/beeware/voc/pull/817
+.. _PR #836: https://github.com/beeware/voc/pull/836
+.. _PR #847: https://github.com/beeware/voc/pull/847
+.. _PR #849: https://github.com/beeware/voc/pull/849
+.. _PR #858: https://github.com/beeware/voc/pull/858
+.. _PR #860: https://github.com/beeware/voc/pull/860
+.. _PR #862: https://github.com/beeware/voc/pull/862
+.. _PR #867: https://github.com/beeware/voc/pull/867
+.. _PR #868: https://github.com/beeware/voc/pull/868
+.. _PR #879: https://github.com/beeware/voc/pull/879
+.. _PR #901: https://github.com/beeware/voc/pull/901
+.. _PR #788: https://github.com/beeware/voc/pull/788
+.. _PR #844: https://github.com/beeware/voc/pull/844
 
 
 Issues submitted during GSoC 2018
@@ -99,13 +99,13 @@ Issues submitted during GSoC 2018
 * `Issue #900`_ : Exception in nested try-catch suite is 'leaked' to another enclosing try-catch suite (open)
 * `Issue #827`_ : Maps reserved Java keywords to Python built-in function/method call (closed)
 
-.. _Issue #861: https://github.com/pybee/voc/issues/861
-.. _Issue #866: https://github.com/pybee/voc/issues/866
-.. _Issue #828: https://github.com/pybee/voc/issues/828
-.. _Issue #857: https://github.com/pybee/voc/issues/857
-.. _Issue #859: https://github.com/pybee/voc/issues/859
-.. _Issue #900: https://github.com/pybee/voc/issues/900
-.. _Issue #827: https://github.com/pybee/voc/issues/827
+.. _Issue #861: https://github.com/beeware/voc/issues/861
+.. _Issue #866: https://github.com/beeware/voc/issues/866
+.. _Issue #828: https://github.com/beeware/voc/issues/828
+.. _Issue #857: https://github.com/beeware/voc/issues/857
+.. _Issue #859: https://github.com/beeware/voc/issues/859
+.. _Issue #900: https://github.com/beeware/voc/issues/900
+.. _Issue #827: https://github.com/beeware/voc/issues/827
 
 
 Towards The Ultimate End Goal

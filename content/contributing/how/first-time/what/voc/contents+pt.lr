@@ -3,7 +3,7 @@ body:
 Sobre o VOC
 ------------
 
-A ideia por traz do VOC é pegar o bytecode do Python e compilar diretamente como um bytecode Java. Isso significa que o seu arquivo .py será convertido em um arquivo .class que pode ser executado na Java Virtual Machine. 
+A ideia por traz do VOC é pegar o bytecode do Python e compilar diretamente como um bytecode Java. Isso significa que o seu arquivo .py será convertido em um arquivo .class que pode ser executado na Java Virtual Machine.
 
 Isto é util de muitas formas possíveis:
 
@@ -30,13 +30,13 @@ Uma vez que você tenha feito o VOC funcionar, você estará pronto para fazer s
 
 Para conseguir fazer um bytecode Java se comportar como Python, VOC precisa implementar todas as excentricidades do comportamento do Python. Por exemplo, Python permite que você multiplique uma string por um inteiro, resultando em uma duplicação de string (ex, ``“foo” * 3`` => ``“foofoofoo”``). Isso *não é* Java legítimo, no entanto, nós precisamos criar uma biblioteca Java que implementa este comportamento.
 
-Esse exemplo em particular (string vezes numero) já foi implementado - veja `o código fonte para Str.java <https://github.com/pybee/voc/blob/master/python/common/org/python/types/Str.java#L283>`__. Ele implementa ``__mul__()`` (o método de multiplicação Python) em um objeto ``Str``. Ele foi implementado em Java, mas utiliza o comportamento do Python.
+Esse exemplo em particular (string vezes numero) já foi implementado - veja `o código fonte para Str.java <https://github.com/beeware/voc/blob/master/python/common/org/python/types/Str.java#L283>`__. Ele implementa ``__mul__()`` (o método de multiplicação Python) em um objeto ``Str``. Ele foi implementado em Java, mas utiliza o comportamento do Python.
 
-Se você olhar em o código de `test_str.py <https://github.com/pybee/voc/blob/master/tests/datatypes/test_str.py>`__, você vai ver os testes para esse comportamento. Nós já escrevemos uma suíte de testes que tenta executar todos as operações de cada tipo de dado. No entanto, todos os nomes listados naquele arquivo são exemplos que sabemos que irá falhar (porque a implementação ainda não existe). Os testes funcionam escrevendo um curto programa que implementa uma operação matemática, rodando o programa no Python e então rodando novamente no VOC/Java. O teste passa quando as duas execuções produzem uma saída idêntica.
+Se você olhar em o código de `test_str.py <https://github.com/beeware/voc/blob/master/tests/datatypes/test_str.py>`__, você vai ver os testes para esse comportamento. Nós já escrevemos uma suíte de testes que tenta executar todos as operações de cada tipo de dado. No entanto, todos os nomes listados naquele arquivo são exemplos que sabemos que irá falhar (porque a implementação ainda não existe). Os testes funcionam escrevendo um curto programa que implementa uma operação matemática, rodando o programa no Python e então rodando novamente no VOC/Java. O teste passa quando as duas execuções produzem uma saída idêntica.
 
-Então - sua primeira contribuição a um projeto open source: Escolha um teste que esta listado no arquivo de teste ``test_str.py`` (ex,  ``test_multiply_float`` é o teste de multiplicar uma string por um float), e modificar a implementação do Str até você ter a mesma saída do programa do CPython que  você tem da mesma versão do programa VOC-compilado. Isto inclui mensagens de erro - se o CPython levanta uma ``TypeError`` para uma operação em particular (ex,  ``“foo” * 3.1415``), então VOC também deve levantar - e a mensagem de erro deve ser exatamente a mesma. 
+Então - sua primeira contribuição a um projeto open source: Escolha um teste que esta listado no arquivo de teste ``test_str.py`` (ex,  ``test_multiply_float`` é o teste de multiplicar uma string por um float), e modificar a implementação do Str até você ter a mesma saída do programa do CPython que  você tem da mesma versão do programa VOC-compilado. Isto inclui mensagens de erro - se o CPython levanta uma ``TypeError`` para uma operação em particular (ex,  ``“foo” * 3.1415``), então VOC também deve levantar - e a mensagem de erro deve ser exatamente a mesma.
 
-Antes de você começar a trabalhar, visite o `ticket #36 <https://github.com/pybee/voc/issues/36>`__ e registre qual função você irá trabalhar - dessa forma nós não teremos 2 pessoas trabalhando na mesma função.
+Antes de você começar a trabalhar, visite o `ticket #36 <https://github.com/beeware/voc/issues/36>`__ e registre qual função você irá trabalhar - dessa forma nós não teremos 2 pessoas trabalhando na mesma função.
 
 Uma vez que você tenha escrito sua implementação, rode os testes. Se você tiver um “unexpected success” da suíte de testes, e você *não tiver* nenhuma falha, você conseguiu! Apague a linha do  arquivo ``test_str.py`` correspondente ao teste que você corrigiu (porque não é mais esperado que o teste falhe), e envie um pull request!
 
