@@ -9,7 +9,7 @@ setup(
     name='lektor-pybee-plugin',
     author='Gonzalo Peña-Castellanos',
     author_email='goanpeca@gmail.com',
-    url='https://github.com/pybee/pybee.github.io/tree/lektor/packages/lektor_pybee_plugin',
+    url='https://github.com/beeware/beeware.github.io/tree/lektor/packages/lektor_pybee_plugin',
     version='0.1',
     license='MIT',
     py_modules=['lektor_pybee_plugin'],
