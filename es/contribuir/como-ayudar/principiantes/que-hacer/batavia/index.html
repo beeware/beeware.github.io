@@ -24,18 +24,17 @@
     <link rel="stylesheet" type="text/css" href="/static/beeware.css"><!-- Font Awesome -->
     <script src="https://use.fontawesome.com/1138bd8363.js"></script>
 
-    <!-- Google tracking -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2943925-4"></script>
     <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-ga('create', 'UA-2943925-4', 'pybee.org');
-ga('send', 'pageview');
+      gtag('config', 'UA-2943925-4');
     </script></head>
   <body>
-    
+
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <div class="nav-top">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,7 +77,7 @@ Donate
         </a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/pybee/pybee.github.io/edit/lektor/content/contributing/how/first-time/what/batavia/contents%2Bes.lr" rel="noopener noreferrer" target="_blank">
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/edit/lektor/content/contributing/how/first-time/what/batavia/contents%2Bes.lr" rel="noopener noreferrer" target="_blank">
             <i class="fa fa-github "></i><small>&nbsp;
 Editar en GitHub
 </small>
@@ -182,10 +181,10 @@ Inicio
 <h2>Tu primera contribución</h2>
 <p>Una vez que tengas a Batavia trabajando, estarás listo para hacer tu primera contribución de código. La guía de contribución (<a class="reference external" href="http://batavia.readthedocs.io/en/latest/how-to/contribute-code.html">http://batavia.readthedocs.io/en/latest/how-to/contribute-code.html</a>) te guiará a través del proceso de configuración de tu entorno de desarrollo. Trabaja con esta guía hasta que puedas ejecutar la suite de pruebas de Batavia. Una vez que hayas podido ejecutar el conjunto de pruebas sin ningún fallo, estarás listo para agregar un nuevo código a la base de código de Batavia.</p>
 <p>Para implementar una máquina virtual de Python completa, Batavia necesita implementar todas las excentricidades del comportamiento de Python. Por ejemplo, Python permite multiplicar una cadena por un número entero, lo que resulta en una cadena duplicada (por ejemplo, <tt class="docutils literal">&quot;foo&quot; * 3</tt> =&gt; <tt class="docutils literal">&quot;foofoofoo&quot;</tt>). El comportamiento de Javascript puede ser muy diferente, dependiendo de las circunstancias - por lo que necesitamos proporcionar una librería que implemente el comportamiento de Python deseado.</p>
-<p>Ese ejemplo particular (número de veces de cadena) ya está implementado - puedes ver <a class="reference external" href="https://github.com/pybee/batavia/blob/master/batavia/types/Str.js">la definición de la función __mul __ ()</a>. Esto implementa el operador multiplicador. Se implementa en Javascript, pero implementa el comportamiento de Python - para <em>algunos</em> tipos de datos.</p>
-<p>Si luego examinas <a class="reference external" href="https://github.com/pybee/batavia/blob/master/tests/datatypes/test_str.py">tests/datatypes/test_str.py</a>, verás las pruebas para este comportamiento . Ya hemos escrito una suite de pruebas que intenta realizar cada operación en cada tipo de datos. Sin embargo, todos los nombres enumerados en ese archivo son los ejemplos que se sabe que fallan (porque la implementación no existe todavía). Las pruebas funcionan escribiendo un programa corto que implementa una operación matemática, ejecutando el programa bajo Python normal y ejecutándolo de nuevo bajo Batavia. La prueba pasa cuando las dos ejecuciones producen la misma respuesta.</p>
+<p>Ese ejemplo particular (número de veces de cadena) ya está implementado - puedes ver <a class="reference external" href="https://github.com/beeware/batavia/blob/master/batavia/types/Str.js">la definición de la función __mul __ ()</a>. Esto implementa el operador multiplicador. Se implementa en Javascript, pero implementa el comportamiento de Python - para <em>algunos</em> tipos de datos.</p>
+<p>Si luego examinas <a class="reference external" href="https://github.com/beeware/batavia/blob/master/tests/datatypes/test_str.py">tests/datatypes/test_str.py</a>, verás las pruebas para este comportamiento . Ya hemos escrito una suite de pruebas que intenta realizar cada operación en cada tipo de datos. Sin embargo, todos los nombres enumerados en ese archivo son los ejemplos que se sabe que fallan (porque la implementación no existe todavía). Las pruebas funcionan escribiendo un programa corto que implementa una operación matemática, ejecutando el programa bajo Python normal y ejecutándolo de nuevo bajo Batavia. La prueba pasa cuando las dos ejecuciones producen la misma respuesta.</p>
 <p>Por lo tanto, para tu primera contribución de código abierto: Elije una prueba que se encuentre actualmente en el archivo de prueba <tt class="docutils literal">test_str.py</tt> (por ejemplo, <tt class="docutils literal">test_multiply_float</tt> es la prueba de multiplicar una cadena por un flotante) y modifica la implementación de Str hasta obtener la misma repuesta del programa de CPython como lo de la versión de Batavia del mismo programa. Esto incluye mensajes de error - si CPython plantea un <tt class="docutils literal">TypeError</tt> para una operación en particular (por ejemplo, <tt class="docutils literal">&quot;foo&quot; * 3.1415</tt>), entonces Batavia debería producir el mismo mensaje de error también, incluyendo hasta la puntuación del mensaje.</p>
-<p>Antes de empezar a trabajar, visita el <a class="reference external" href="https://github.com/pybee/batavia/issues/46">tiquete #46</a> y registra la función en la que está trabajando - de esa manera no vamos a terminar con 2 personas trabajando en el mismo problema.</p>
+<p>Antes de empezar a trabajar, visita el <a class="reference external" href="https://github.com/beeware/batavia/issues/46">tiquete #46</a> y registra la función en la que está trabajando - de esa manera no vamos a terminar con 2 personas trabajando en el mismo problema.</p>
 <p>Una vez que hayas escrito tu implementación, ejecuta las pruebas. Si obtienes un &quot;éxito inesperado&quot; en la suite de pruebas, y <em>no obtienes</em> ningún fallo, ¡lo has logrado! Elimina la línea del archivo <tt class="docutils literal">test_str.py</tt> correspondiente a la prueba que has arreglado (porque ya no se espera que la prueba falle) y envía un Pull Request.</p>
 </div>
 <div class="section" id="a-celebrar">
@@ -220,19 +219,19 @@ Inicio
         <div class="d-block d-sm-none copyright">&copy; Russell Keith-Magee 2018</div>
         <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee 2018</div>
         <p class="d-sm-block d-none">
-          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
-          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/beeware/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
           <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
           <a href="/es/mapa-del-sitio/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
 Mapa del Sitio
 </a>
         </p>
         <p class="d-block d-sm-none footer-social">
-          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
-          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/beeware/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
           <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a>
         </p>
-        <p class="d-block d-sm-none footer-sitemap"> 
+        <p class="d-block d-sm-none footer-sitemap">
           <a href="/es/mapa-del-sitio/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
 Mapa del Sitio
 </a>
@@ -243,7 +242,7 @@ Mapa del Sitio
     <!-- jQuery first, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    
+
     <script src="/static/tether-1.3.3/js/tether.min.js"></script>
     <script src="/static/bootstrap/js/bootstrap.min.js"></script></body>
 </html>

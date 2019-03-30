@@ -24,18 +24,17 @@
     <link rel="stylesheet" type="text/css" href="/static/beeware.css"><!-- Font Awesome -->
     <script src="https://use.fontawesome.com/1138bd8363.js"></script>
 
-    <!-- Google tracking -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2943925-4"></script>
     <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-ga('create', 'UA-2943925-4', 'pybee.org');
-ga('send', 'pageview');
+      gtag('config', 'UA-2943925-4');
     </script></head>
   <body>
-    
+
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <div class="nav-top">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -167,9 +166,9 @@ on
 <p>Another feature related to generator was <cite>Yield</cite> expression. Before GSoC 2018, <cite>Yield</cite> statement in VOC was just a statement, meaning <cite>yield</cite> could not be used as expression. Generator methods such as <cite>generator.send</cite>, <cite>generator.throw</cite> and <cite>generator.close</cite> were not supported as well. Those features are what make asynchronous programming with generator possible, so I spent a few weeks to extend generator functionality in VOC, laying down the path to <cite>asyncio</cite> module.</p>
 <p>PRs related to generator are listed below:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/821">PR #821</a> : Added support for Yield from statement (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/823">PR #823</a> : Added generator send method (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/831">PR #831</a> : Support exceptions handling in generator (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/821">PR #821</a> : Added support for Yield from statement (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/823">PR #823</a> : Added generator send method (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/831">PR #831</a> : Support exceptions handling in generator (merged)</li>
 </ul>
 </div>
 <div class="section" id="nonlocal-statement">
@@ -178,8 +177,8 @@ on
 <p>Implementing this feature took about 3 ~ 4 weeks as this is not as trivial as it seems. I took several approaches on this, while some of them do work, the code is not pretty and <cite>hacky</cite>, which could come back to bite me/other contributors in the long run. After many discussions with Russell, I refactored the closure mechanism in VOC and took a much cleaner approach in <cite>nonlocal</cite> implementations. I must admit that I took some short-cuts for the sake of &quot;making nonlocal works&quot; in the process of implementing <cite>nonlocal</cite> statement, resulting in poor design and messy codes. Many thanks to Russell, who helped me to improve my coding style and told me not to be discouraged when I'm stuck. 😄</p>
 <p>Related PRs:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/854">PR #854</a> : Nonlocal statement support (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/873">PR #873</a> : Added closure related test cases (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/854">PR #854</a> : Nonlocal statement support (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/873">PR #873</a> : Added closure related test cases (merged)</li>
 </ul>
 </div>
 <div class="section" id="the-collections-module">
@@ -187,38 +186,38 @@ on
 <p>Next item on my hit list was pure Java implementations of the <cite>collections</cite> module. <cite>asyncio</cite> module depends on 3 data structures from <cite>collections</cite>, namely <cite>defauldict</cite>, <cite>Deque</cite> and <cite>OrderedDict</cite>. Two of them (<cite>defaultdict</cite> and <cite>Deque</cite>) are implemented in C in CPython, plus they have good analog in Java, so it makes senses to implement the module in Java. Porting <cite>defauldict</cite>, <cite>Deque</cite> and <cite>OrderedDict</cite> to Java in VOC is relatively straight-forward, taking about 1.5 weeks to complete.</p>
 <p>Related PRs:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/874">PR #874</a> : Implement collections.defauldict (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/896">PR #896</a> : Implements collections.Deque (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/897">PR #897</a> : Implements collections.OrderedDict` (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/874">PR #874</a> : Implement collections.defauldict (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/896">PR #896</a> : Implements collections.Deque (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/897">PR #897</a> : Implements collections.OrderedDict` (merged)</li>
 </ul>
 </div>
 <div class="section" id="other-prs-submitted-during-gsoc-2018">
 <h2>Other PRs submitted during GSoC 2018</h2>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/817">PR #817</a> : Added coroutine related exception class [WIP] (closed due to not needed)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/836">PR #836</a> : Changed Bool construction to use getBool instead (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/847">PR #847</a> : Add custom exceptions test cases (closed due to more comprehensive handling in <a class="reference external" href="https://github.com/pybee/voc/pull/844">PR #844</a>)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/849">PR #849</a> : Fixed Unknown constant type &lt;class 'frozenset'&gt; in function definition (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/858">PR #858</a> : Added test case for <a class="reference external" href="https://github.com/pybee/voc/issues/857">Issue #857</a> (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/860">PR #860</a> : Added test case for <a class="reference external" href="https://github.com/pybee/voc/issues/859">Issue #859</a> (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/862">PR #862</a> : Added test case for <a class="reference external" href="https://github.com/pybee/voc/issues/861">Issue #861</a> (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/867">PR #867</a> : Fixed <a class="reference external" href="https://github.com/pybee/voc/issues/866">Issue #866</a> RunTimeError when generator is nested in more than 1 level of function definition (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/868">PR #868</a> : Fixed <a class="reference external" href="https://github.com/pybee/voc/issues/861">Issue #861</a> Redefining nested function from other function overrides original nested function (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/879">PR #879</a> : Fixed Incompatible Stack Height caused by expression statement (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/901">PR #901</a> : Added test case for <a class="reference external" href="https://github.com/pybee/voc/issues/900">Issue #900</a> (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/788">PR #788</a> : Implements asyncio.coroutines [WIP] (open, the dream 😎)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/817">PR #817</a> : Added coroutine related exception class [WIP] (closed due to not needed)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/836">PR #836</a> : Changed Bool construction to use getBool instead (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/847">PR #847</a> : Add custom exceptions test cases (closed due to more comprehensive handling in <a class="reference external" href="https://github.com/beeware/voc/pull/844">PR #844</a>)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/849">PR #849</a> : Fixed Unknown constant type &lt;class 'frozenset'&gt; in function definition (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/858">PR #858</a> : Added test case for <a class="reference external" href="https://github.com/beeware/voc/issues/857">Issue #857</a> (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/860">PR #860</a> : Added test case for <a class="reference external" href="https://github.com/beeware/voc/issues/859">Issue #859</a> (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/862">PR #862</a> : Added test case for <a class="reference external" href="https://github.com/beeware/voc/issues/861">Issue #861</a> (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/867">PR #867</a> : Fixed <a class="reference external" href="https://github.com/beeware/voc/issues/866">Issue #866</a> RunTimeError when generator is nested in more than 1 level of function definition (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/868">PR #868</a> : Fixed <a class="reference external" href="https://github.com/beeware/voc/issues/861">Issue #861</a> Redefining nested function from other function overrides original nested function (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/879">PR #879</a> : Fixed Incompatible Stack Height caused by expression statement (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/901">PR #901</a> : Added test case for <a class="reference external" href="https://github.com/beeware/voc/issues/900">Issue #900</a> (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/788">PR #788</a> : Implements asyncio.coroutines [WIP] (open, the dream 😎)</li>
 </ul>
 </div>
 <div class="section" id="issues-submitted-during-gsoc-2018">
 <h2>Issues submitted during GSoC 2018</h2>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/voc/issues/861">Issue #861</a> : Redefining nested function from other function overrides original nested function (fixed in <a class="reference external" href="https://github.com/pybee/voc/pull/868">PR #868</a>)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/issues/866">Issue #866</a> : RunTimeError when generator is nested in more than 1 level of function definition (fixed in <a class="reference external" href="https://github.com/pybee/voc/pull/867">PR #867</a>)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/issues/828">Issue #828</a> : Finally block of generator is not executed during garbage collection (open)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/issues/857">Issue #857</a> : Complex datatype in set cause java.lang.StackOverflowError (open)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/issues/859">Issue #859</a> : Duplicated values of equivalent but different data types in set (open)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/issues/900">Issue #900</a> : Exception in nested try-catch suite is 'leaked' to another enclosing try-catch suite (open)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/issues/827">Issue #827</a> : Maps reserved Java keywords to Python built-in function/method call (closed)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/861">Issue #861</a> : Redefining nested function from other function overrides original nested function (fixed in <a class="reference external" href="https://github.com/beeware/voc/pull/868">PR #868</a>)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/866">Issue #866</a> : RunTimeError when generator is nested in more than 1 level of function definition (fixed in <a class="reference external" href="https://github.com/beeware/voc/pull/867">PR #867</a>)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/828">Issue #828</a> : Finally block of generator is not executed during garbage collection (open)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/857">Issue #857</a> : Complex datatype in set cause java.lang.StackOverflowError (open)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/859">Issue #859</a> : Duplicated values of equivalent but different data types in set (open)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/900">Issue #900</a> : Exception in nested try-catch suite is 'leaked' to another enclosing try-catch suite (open)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/827">Issue #827</a> : Maps reserved Java keywords to Python built-in function/method call (closed)</li>
 </ul>
 </div>
 <div class="section" id="towards-the-ultimate-end-goal">
@@ -267,19 +266,19 @@ Previous entry
         <div class="d-block d-sm-none copyright">&copy; Russell Keith-Magee 2018</div>
         <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee 2018</div>
         <p class="d-sm-block d-none">
-          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
-          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/beeware/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
           <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
           <a href="/zh_TW/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
 Sitemap
 </a>
         </p>
         <p class="d-block d-sm-none footer-social">
-          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
-          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/beeware/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
           <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a>
         </p>
-        <p class="d-block d-sm-none footer-sitemap"> 
+        <p class="d-block d-sm-none footer-sitemap">
           <a href="/zh_TW/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
 Sitemap
 </a>
@@ -290,7 +289,7 @@ Sitemap
     <!-- jQuery first, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    
+
     <script src="/static/tether-1.3.3/js/tether.min.js"></script>
     <script src="/static/bootstrap/js/bootstrap.min.js"></script></body>
 </html>

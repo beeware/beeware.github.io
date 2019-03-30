@@ -24,20 +24,19 @@
     <link rel="stylesheet" type="text/css" href="/static/beeware.css"><!-- Font Awesome -->
     <script src="https://use.fontawesome.com/1138bd8363.js"></script>
 
-    <!-- Google tracking -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2943925-4"></script>
     <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-ga('create', 'UA-2943925-4', 'pybee.org');
-ga('send', 'pageview');
+      gtag('config', 'UA-2943925-4');
     </script>
 <link href="/zh_TW/news/buzz/atom.xml" type="application/atom+xml" rel="alternate" title="The Buzz" />
 </head>
   <body>
-    
+
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <div class="nav-top">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +79,7 @@ Donate
         </a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/pybee/pybee.github.io/edit/lektor/content/news/buzz/contents%2Bzh.lr" rel="noopener noreferrer" target="_blank">
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/edit/lektor/content/news/buzz/contents%2Bzh.lr" rel="noopener noreferrer" target="_blank">
             <i class="fa fa-github "></i><small>&nbsp;
 Edit on GitHub
 </small>
@@ -169,13 +168,13 @@ on
   </p>
   
   <p>Google Summer of Code is coming to an end. I've spent the summer working on optimizing the
-<a class="reference external" href="https://pybee.org/project/projects/bridges/voc/">VOC compiler</a>, and I’m super excited to share the results.</p>
+<a class="reference external" href="/project/projects/bridges/voc/">VOC compiler</a>, and I’m super excited to share the results.</p>
 <div class="section" id="results">
 <h2>Results</h2>
 <p>There are a couple of ways to evaluate the performance improvement from my project.</p>
 <div class="section" id="microbenchmarks">
 <h3>Microbenchmarks</h3>
-<p>Firstly, we introduced a <a class="reference external" href="https://github.com/pybee/voc/blob/master/tests/microbenchmarks.py">microbenchmarking suite</a>. Each microbenchmark is a small piece
+<p>Firstly, we introduced a <a class="reference external" href="https://github.com/beeware/voc/blob/master/tests/microbenchmarks.py">microbenchmarking suite</a>. Each microbenchmark is a small piece
 of Python code that tests a single and specific Python construct, or datatype, or control flow.
 The benchmarking infrastructure itself is crude (essentially it just tells you the total amount
 of processor time it took to run, with no fancy statistics) but it has been extremely useful to
@@ -190,7 +189,7 @@ will be added as more performance efforts are carried out in the future.</p>
 </div>
 <div class="section" id="pystone">
 <h3>Pystone</h3>
-<p><a class="reference external" href="https://github.com/pybee/voc/blob/master/tests/benchmarks/pystone.py">Pystone</a> is a Python <a class="reference external" href="https://en.wikipedia.org/wiki/Dhrystone">Dhrystone</a>, a standard benchmark for testing the performance of Python on a machine.
+<p><a class="reference external" href="https://github.com/beeware/voc/blob/master/tests/benchmarks/pystone.py">Pystone</a> is a Python <a class="reference external" href="https://en.wikipedia.org/wiki/Dhrystone">Dhrystone</a>, a standard benchmark for testing the performance of Python on a machine.
 Here are the before and after results on my machine:</p>
 <p>May 10th, 2018:</p>
 <blockquote>
@@ -231,18 +230,18 @@ This machine benchmarks at 4566.29 pystones/second</p>
 writing Python should think about minimizing the number of objects that she creates, but rather
 that any time we can non-trivially reduce the number of objects created during bytecode
 transpilation or in VOC-defined function calls, we can expect to see a huge performance boost.
-<a class="reference external" href="https://github.com/pybee/voc/pull/825">Integer</a> and <a class="reference external" href="https://github.com/pybee/voc/pull/830">boolean preallocation</a>, which is about reusing objects that have already been created,
+<a class="reference external" href="https://github.com/beeware/voc/pull/825">Integer</a> and <a class="reference external" href="https://github.com/beeware/voc/pull/830">boolean preallocation</a>, which is about reusing objects that have already been created,
 was one of the most significant improvements we made this summer.</p>
 <p>2. Method calls in VOC are expensive. This is essentially due to the process of invoking a callable:
 you have to check that the method is defined on the object, then construct it (read: object creation!),
 and check the arguments, before it can actually be called. (This is done using reflection, which is super
-interesting and confusing in itself.) And this is the reason why <a class="reference external" href="https://github.com/pybee/voc/pull/875">refactoring the Python comparison functions</a>
+interesting and confusing in itself.) And this is the reason why <a class="reference external" href="https://github.com/beeware/voc/pull/875">refactoring the Python comparison functions</a>
 made such a big performance impact, because we were able to circumvent this process.</p>
 <p>3. Exception-heavy code is expensive. Again, this is not to say that the programmer is on the hook for being
 frugal when throwing exceptions, but that VOC benefits greatly by avoiding the use of exceptions internally
 except when strictly necessary. For instance, Python uses StopIteration exceptions to signal the end of a for loop,
 and they quickly rack up when you have nested loops (everything is ultimately related to object creation!). That was
-the motivation for the <a class="reference external" href="https://github.com/pybee/voc/pull/881">nested loops optimization</a>.</p>
+the motivation for the <a class="reference external" href="https://github.com/beeware/voc/pull/881">nested loops optimization</a>.</p>
 <p>If I may be a bit more reflective here, one of the a-ha! moments I had this summer was realizing that to really
 optimize something, you have to understand where its biggest problems are first. I remember pitching to Russ at
 the start of the summer things like loop unrolling, constant folding, even converting to SSA-form (you know, stuff I
@@ -268,41 +267,41 @@ started improvising halfway through the summer. I am so grateful for your help, 
 <div class="section" id="pr-log-in-chronological-order">
 <h2>PR Log (in chronological order)</h2>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/voc/issues/772">Original Proposal (with weekly status updates)</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/772">Original Proposal (with weekly status updates)</a></li>
 </ul>
 <div class="section" id="optimization-related-features">
 <h3>Optimization-related Features</h3>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/824">Introduce Performance Benchmarking Suite</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/825">Small Integer Preallocation</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/830">Boolean Preallocation</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/839">Module Caching</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/851">Hook up Pystone</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/864">Optimize Zero Argument Function Calls</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/869">Remove Code Objects</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/875">Comparisons Optimization</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/881">Loop optimization by reusing StopIterations</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/893">String cleanup/optimization</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/899">Dictionary access optimization</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/902">Create functions only when needed</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/824">Introduce Performance Benchmarking Suite</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/825">Small Integer Preallocation</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/830">Boolean Preallocation</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/839">Module Caching</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/851">Hook up Pystone</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/864">Optimize Zero Argument Function Calls</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/869">Remove Code Objects</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/875">Comparisons Optimization</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/881">Loop optimization by reusing StopIterations</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/893">String cleanup/optimization</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/899">Dictionary access optimization</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/902">Create functions only when needed</a></li>
 </ul>
 </div>
 <div class="section" id="bug-fixes-and-miscellaneous">
 <h3>Bug Fixes and Miscellaneous</h3>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/837">Fix Method repr</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/846">Fix custom substitutions</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/852">Fix List Bug</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/865">Remove Unnecessary Instruction</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/884">Fix __setitem__ error messages</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/877">Fix contains/not contains bugs and refactor</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/883">Add tests for problematic exception raising</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/887">Add test for with + exception combo</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/889">Add test for wrong iter error message</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/891">Add tests for globals bug</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/894">Remove unnecessary type casts and clean up</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/904">Add test for problematic builtin function call</a></li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/905">Introduce org/python/Object type tests</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/837">Fix Method repr</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/846">Fix custom substitutions</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/852">Fix List Bug</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/865">Remove Unnecessary Instruction</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/884">Fix __setitem__ error messages</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/877">Fix contains/not contains bugs and refactor</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/883">Add tests for problematic exception raising</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/887">Add test for with + exception combo</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/889">Add test for wrong iter error message</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/891">Add tests for globals bug</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/894">Remove unnecessary type casts and clean up</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/904">Add test for problematic builtin function call</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/905">Introduce org/python/Object type tests</a></li>
 </ul>
 </div>
 </div>
@@ -335,9 +334,9 @@ on
 <p>Another feature related to generator was <cite>Yield</cite> expression. Before GSoC 2018, <cite>Yield</cite> statement in VOC was just a statement, meaning <cite>yield</cite> could not be used as expression. Generator methods such as <cite>generator.send</cite>, <cite>generator.throw</cite> and <cite>generator.close</cite> were not supported as well. Those features are what make asynchronous programming with generator possible, so I spent a few weeks to extend generator functionality in VOC, laying down the path to <cite>asyncio</cite> module.</p>
 <p>PRs related to generator are listed below:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/821">PR #821</a> : Added support for Yield from statement (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/823">PR #823</a> : Added generator send method (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/831">PR #831</a> : Support exceptions handling in generator (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/821">PR #821</a> : Added support for Yield from statement (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/823">PR #823</a> : Added generator send method (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/831">PR #831</a> : Support exceptions handling in generator (merged)</li>
 </ul>
 </div>
 <div class="section" id="nonlocal-statement">
@@ -346,8 +345,8 @@ on
 <p>Implementing this feature took about 3 ~ 4 weeks as this is not as trivial as it seems. I took several approaches on this, while some of them do work, the code is not pretty and <cite>hacky</cite>, which could come back to bite me/other contributors in the long run. After many discussions with Russell, I refactored the closure mechanism in VOC and took a much cleaner approach in <cite>nonlocal</cite> implementations. I must admit that I took some short-cuts for the sake of &quot;making nonlocal works&quot; in the process of implementing <cite>nonlocal</cite> statement, resulting in poor design and messy codes. Many thanks to Russell, who helped me to improve my coding style and told me not to be discouraged when I'm stuck. 😄</p>
 <p>Related PRs:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/854">PR #854</a> : Nonlocal statement support (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/873">PR #873</a> : Added closure related test cases (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/854">PR #854</a> : Nonlocal statement support (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/873">PR #873</a> : Added closure related test cases (merged)</li>
 </ul>
 </div>
 <div class="section" id="the-collections-module">
@@ -355,38 +354,38 @@ on
 <p>Next item on my hit list was pure Java implementations of the <cite>collections</cite> module. <cite>asyncio</cite> module depends on 3 data structures from <cite>collections</cite>, namely <cite>defauldict</cite>, <cite>Deque</cite> and <cite>OrderedDict</cite>. Two of them (<cite>defaultdict</cite> and <cite>Deque</cite>) are implemented in C in CPython, plus they have good analog in Java, so it makes senses to implement the module in Java. Porting <cite>defauldict</cite>, <cite>Deque</cite> and <cite>OrderedDict</cite> to Java in VOC is relatively straight-forward, taking about 1.5 weeks to complete.</p>
 <p>Related PRs:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/874">PR #874</a> : Implement collections.defauldict (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/896">PR #896</a> : Implements collections.Deque (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/897">PR #897</a> : Implements collections.OrderedDict` (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/874">PR #874</a> : Implement collections.defauldict (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/896">PR #896</a> : Implements collections.Deque (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/897">PR #897</a> : Implements collections.OrderedDict` (merged)</li>
 </ul>
 </div>
 <div class="section" id="other-prs-submitted-during-gsoc-2018">
 <h2>Other PRs submitted during GSoC 2018</h2>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/817">PR #817</a> : Added coroutine related exception class [WIP] (closed due to not needed)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/836">PR #836</a> : Changed Bool construction to use getBool instead (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/847">PR #847</a> : Add custom exceptions test cases (closed due to more comprehensive handling in <a class="reference external" href="https://github.com/pybee/voc/pull/844">PR #844</a>)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/849">PR #849</a> : Fixed Unknown constant type &lt;class 'frozenset'&gt; in function definition (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/858">PR #858</a> : Added test case for <a class="reference external" href="https://github.com/pybee/voc/issues/857">Issue #857</a> (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/860">PR #860</a> : Added test case for <a class="reference external" href="https://github.com/pybee/voc/issues/859">Issue #859</a> (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/862">PR #862</a> : Added test case for <a class="reference external" href="https://github.com/pybee/voc/issues/861">Issue #861</a> (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/867">PR #867</a> : Fixed <a class="reference external" href="https://github.com/pybee/voc/issues/866">Issue #866</a> RunTimeError when generator is nested in more than 1 level of function definition (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/868">PR #868</a> : Fixed <a class="reference external" href="https://github.com/pybee/voc/issues/861">Issue #861</a> Redefining nested function from other function overrides original nested function (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/879">PR #879</a> : Fixed Incompatible Stack Height caused by expression statement (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/901">PR #901</a> : Added test case for <a class="reference external" href="https://github.com/pybee/voc/issues/900">Issue #900</a> (merged)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/pull/788">PR #788</a> : Implements asyncio.coroutines [WIP] (open, the dream 😎)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/817">PR #817</a> : Added coroutine related exception class [WIP] (closed due to not needed)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/836">PR #836</a> : Changed Bool construction to use getBool instead (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/847">PR #847</a> : Add custom exceptions test cases (closed due to more comprehensive handling in <a class="reference external" href="https://github.com/beeware/voc/pull/844">PR #844</a>)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/849">PR #849</a> : Fixed Unknown constant type &lt;class 'frozenset'&gt; in function definition (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/858">PR #858</a> : Added test case for <a class="reference external" href="https://github.com/beeware/voc/issues/857">Issue #857</a> (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/860">PR #860</a> : Added test case for <a class="reference external" href="https://github.com/beeware/voc/issues/859">Issue #859</a> (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/862">PR #862</a> : Added test case for <a class="reference external" href="https://github.com/beeware/voc/issues/861">Issue #861</a> (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/867">PR #867</a> : Fixed <a class="reference external" href="https://github.com/beeware/voc/issues/866">Issue #866</a> RunTimeError when generator is nested in more than 1 level of function definition (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/868">PR #868</a> : Fixed <a class="reference external" href="https://github.com/beeware/voc/issues/861">Issue #861</a> Redefining nested function from other function overrides original nested function (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/879">PR #879</a> : Fixed Incompatible Stack Height caused by expression statement (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/901">PR #901</a> : Added test case for <a class="reference external" href="https://github.com/beeware/voc/issues/900">Issue #900</a> (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/788">PR #788</a> : Implements asyncio.coroutines [WIP] (open, the dream 😎)</li>
 </ul>
 </div>
 <div class="section" id="issues-submitted-during-gsoc-2018">
 <h2>Issues submitted during GSoC 2018</h2>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/voc/issues/861">Issue #861</a> : Redefining nested function from other function overrides original nested function (fixed in <a class="reference external" href="https://github.com/pybee/voc/pull/868">PR #868</a>)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/issues/866">Issue #866</a> : RunTimeError when generator is nested in more than 1 level of function definition (fixed in <a class="reference external" href="https://github.com/pybee/voc/pull/867">PR #867</a>)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/issues/828">Issue #828</a> : Finally block of generator is not executed during garbage collection (open)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/issues/857">Issue #857</a> : Complex datatype in set cause java.lang.StackOverflowError (open)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/issues/859">Issue #859</a> : Duplicated values of equivalent but different data types in set (open)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/issues/900">Issue #900</a> : Exception in nested try-catch suite is 'leaked' to another enclosing try-catch suite (open)</li>
-<li><a class="reference external" href="https://github.com/pybee/voc/issues/827">Issue #827</a> : Maps reserved Java keywords to Python built-in function/method call (closed)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/861">Issue #861</a> : Redefining nested function from other function overrides original nested function (fixed in <a class="reference external" href="https://github.com/beeware/voc/pull/868">PR #868</a>)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/866">Issue #866</a> : RunTimeError when generator is nested in more than 1 level of function definition (fixed in <a class="reference external" href="https://github.com/beeware/voc/pull/867">PR #867</a>)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/828">Issue #828</a> : Finally block of generator is not executed during garbage collection (open)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/857">Issue #857</a> : Complex datatype in set cause java.lang.StackOverflowError (open)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/859">Issue #859</a> : Duplicated values of equivalent but different data types in set (open)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/900">Issue #900</a> : Exception in nested try-catch suite is 'leaked' to another enclosing try-catch suite (open)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/827">Issue #827</a> : Maps reserved Java keywords to Python built-in function/method call (closed)</li>
 </ul>
 </div>
 <div class="section" id="towards-the-ultimate-end-goal">
@@ -430,10 +429,10 @@ on
   <p><em>This article was originally published on the BeeWare Enthusiasts mailing list. If you'd like to receive regular updates about the BeeWare project, why not</em> <a class="reference external" href="/community/keep-informed/">subscribe</a>?</p>
 <p>When you're designing a GUI app - be it for desktop, mobile, or browser - one of the most fundamental tasks is describing how to lay widgets out the screen. Most widget toolkits will use a grid or box packing model of some kind to solve this problem. These models tend to be relatively easy to get started, but rapidly fall apart when you have complex layout needs - or when you have layouts that need to adapt to different screen sizes.</p>
 <p>Instead of inventing a new grid or box model, the <a class="reference external" href="https://toga.readthedocs.io">Toga</a> widget toolkit takes a different approach, using a well known scheme for laying out content: <a class="reference external" href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">Cascading Style Sheets</a>, or CSS. Although CSS is best known for specifying layout in web pages, there's nothing inherently web specific about it. At the end of the day, it's a system for describing the layout of a hierarchical collection of content nodes. However, to date, every implementation of CSS is bound to a browser, so the perception is that CSS is a browser-specific standard.</p>
-<p>That's where <a class="reference external" href="https://github.com/pybee/colosseum">Colosseum</a> comes in. Colosseum is a browser independent implementation of a CSS rendering engine. It takes a tree of content &quot;nodes&quot; - such as a DOM from a HTML document - an applies CSS styling instructions to layout those nodes as boxes on the screen. In the case of Toga, instead of laying out <tt class="docutils literal">&lt;div&gt;</tt> and <tt class="docutils literal">&lt;span&gt;</tt> elements, you lay out Box and Button objects. This allows you to specify incredibly complex, adaptive layouts for Toga applications.</p>
+<p>That's where <a class="reference external" href="https://github.com/beeware/colosseum">Colosseum</a> comes in. Colosseum is a browser independent implementation of a CSS rendering engine. It takes a tree of content &quot;nodes&quot; - such as a DOM from a HTML document - an applies CSS styling instructions to layout those nodes as boxes on the screen. In the case of Toga, instead of laying out <tt class="docutils literal">&lt;div&gt;</tt> and <tt class="docutils literal">&lt;span&gt;</tt> elements, you lay out Box and Button objects. This allows you to specify incredibly complex, adaptive layouts for Toga applications.</p>
 <p>But Colosseum as a project has many other possible uses. It could be used anywhere that there is a need for describing layout <em>outside</em> a browser context. For example, Colosseum could be the cornerstone of a HTML to PDF renderer that <em>doesn't</em> require the involvement of a browser. It could also be used as a test harness and reference implementation for the CSS specification itself, providing a lightweight way to encode and test proposed changes to the specification.</p>
 <p>The current implementation is based on Facebook's <a class="reference external" href="https://github.com/facebook/yoga">yoga</a> project - it was originally a line-for-line port of yoga's javascript codebase into Python. However, yoga only implements the Flexbox portion of the CSS3 specification.</p>
-<p>This week, we started a big project: rewriting Colosseum to be a fully standard-compliant CSS engine. The work so far can be found in the <a class="reference external" href="https://github.com/pybee/colosseum/tree/globe">globe branch of the colosseum repository on Github</a>. The first goal is CSS2.1 compliance, with an implementation of the traditional CSS box model and flow layout. Once we've got a reasonable implementation of that, we'll look to adding Grid and FlexBox layouts from the CSS3 specification set.</p>
+<p>This week, we started a big project: rewriting Colosseum to be a fully standard-compliant CSS engine. The work so far can be found in the <a class="reference external" href="https://github.com/beeware/colosseum/tree/globe">globe branch of the colosseum repository on Github</a>. The first goal is CSS2.1 compliance, with an implementation of the traditional CSS box model and flow layout. Once we've got a reasonable implementation of that, we'll look to adding Grid and FlexBox layouts from the CSS3 specification set.</p>
 <p>This is obviously a big job. <a class="reference external" href="https://www.w3.org/TR/CSS/#css-levels">CSS is a big specification</a>, so there's a lot of work to be done - but that also means there's lots of places to contribute! Pick a paragraph of the CSS specification, build some test cases that demonstrate the cases described in that paragraph, and submit a patch implementing that behaviour!</p>
 <p>It also highlights why your financial support is so important. While we <em>could</em> do this entirely with volunteered effort, we're going to make much faster progress if a small group of people could focus on this project full time. Financial support would allow up to significantly ramp up the development speed of Colosseum, and the rest of the BeeWare suite.</p>
 <p>If you would like to see Colosseum and the rest of BeeWare develop to the point where it can be used for commercial applications, please consider supporting BeeWare financially. And if you have any leads for larger potential sources of funding, please <a class="reference external" href="mailto:russell&#64;keith-magee.com">get in touch</a>.</p>
@@ -459,96 +458,96 @@ on
  25 August 2017
   </p>
   
-  <p>After almost 4 months of work on <a class="reference external" href="https://developers.google.com/open-source/gsoc/">Google Summer of Code</a> 2017, finally I'm completing my proposal. Every widget migration and every commit/PR/issue/discussion with my mentors about <a class="reference external" href="https://pybee.org/project/projects/tools/cricket/">Cricket</a> , <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> and <a class="reference external" href="https://pybee.org/project/projects/bridges/rubicon/">rubicon-objc</a> were detailed on the <a class="reference external" href="https://github.com/pybee/cricket/issues/58">Issue 58</a>.</p>
+  <p>After almost 4 months of work on <a class="reference external" href="https://developers.google.com/open-source/gsoc/">Google Summer of Code</a> 2017, finally I'm completing my proposal. Every widget migration and every commit/PR/issue/discussion with my mentors about <a class="reference external" href="/project/projects/tools/cricket/">Cricket</a> , <a class="reference external" href="/project/projects/libraries/toga/">Toga</a> and <a class="reference external" href="/project/projects/bridges/rubicon/">rubicon-objc</a> were detailed on the <a class="reference external" href="https://github.com/beeware/cricket/issues/58">Issue 58</a>.</p>
 <div class="section" id="eating-your-own-dog-food">
 <h2>&quot;Eating your own dog food&quot;</h2>
-<p>The best way to show that a product is reliable to the customers is use it. So, the way to show that <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> is an effective tool to build a GUI is to build a complete application using it.</p>
-<p><a class="reference external" href="https://pybee.org/project/projects/tools/cricket/">Cricket</a> is a graphical tool that helps you run your test suites. Its current version is implemented using <a class="reference external" href="https://docs.python.org/2/library/tkinter.html">Tkinter</a> as the main GUI framework. So, why not test <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> inside of another product from <a class="reference external" href="https://pybee.org">BeeWare</a>? That's what I have acomplished during my GSoC work.</p>
+<p>The best way to show that a product is reliable to the customers is use it. So, the way to show that <a class="reference external" href="/project/projects/libraries/toga/">Toga</a> is an effective tool to build a GUI is to build a complete application using it.</p>
+<p><a class="reference external" href="/project/projects/tools/cricket/">Cricket</a> is a graphical tool that helps you run your test suites. Its current version is implemented using <a class="reference external" href="https://docs.python.org/2/library/tkinter.html">Tkinter</a> as the main GUI framework. So, why not test <a class="reference external" href="/project/projects/libraries/toga/">Toga</a> inside of another product from <a class="reference external" href="https://beeware.org">BeeWare</a>? That's what I have acomplished during my GSoC work.</p>
 </div>
 <div class="section" id="results">
 <h2>Results</h2>
-<p>The proposal focus not only on the port of <a class="reference external" href="https://docs.python.org/2/library/tkinter.html">Tkinter</a> to <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>, but on mapping the necessary widgets for a real application using <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> framework. To help me to map this I studied more about <a class="reference external" href="https://docs.python.org/2/library/tkinter.html">Tkinter</a>, <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>, <a class="reference external" href="https://pybee.org/project/projects/libraries/colosseum/">Colosseum</a>, <a class="reference external" href="https://pybee.org/project/projects/bridges/rubicon/">rubicon-objc</a>, <a class="reference external" href="https://developer.apple.com/documentation/objectivec">Objective-C</a>, <a class="reference external" href="http://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/Cocoa.html">Cocoa</a> and <a class="reference external" href="https://www.w3.org/Style/CSS/">CSS</a>.</p>
-<p>The work I did during GSoC were sent throught the <a class="reference external" href="https://github.com/pybee/cricket/pull/65">PR 65</a>, reported on the <a class="reference external" href="https://github.com/pybee/cricket/issues/58">Issue 58</a> and the final demonstration of the work can be seen in this <a class="reference external" href="https://youtu.be/5kz_CmQYFYE">link</a>. There were widgets used on <a class="reference external" href="https://pybee.org/project/projects/tools/cricket/">Cricket</a> that weren't ready yet on <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>, so some improvements were necessary on <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> so that I could use them on <a class="reference external" href="https://pybee.org/project/projects/tools/cricket/">Cricket</a>. In summary here are some PRs and issues that I contributed to get my work done in <a class="reference external" href="https://pybee.org/project/projects/tools/cricket/">Cricket</a>:</p>
-<p>Open PR that I sent to <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>:</p>
+<p>The proposal focus not only on the port of <a class="reference external" href="https://docs.python.org/2/library/tkinter.html">Tkinter</a> to <a class="reference external" href="/project/projects/libraries/toga/">Toga</a>, but on mapping the necessary widgets for a real application using <a class="reference external" href="/project/projects/libraries/toga/">Toga</a> framework. To help me to map this I studied more about <a class="reference external" href="https://docs.python.org/2/library/tkinter.html">Tkinter</a>, <a class="reference external" href="/project/projects/libraries/toga/">Toga</a>, <a class="reference external" href="/project/projects/libraries/colosseum/">Colosseum</a>, <a class="reference external" href="/project/projects/bridges/rubicon/">rubicon-objc</a>, <a class="reference external" href="https://developer.apple.com/documentation/objectivec">Objective-C</a>, <a class="reference external" href="http://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/Cocoa.html">Cocoa</a> and <a class="reference external" href="https://www.w3.org/Style/CSS/">CSS</a>.</p>
+<p>The work I did during GSoC were sent throught the <a class="reference external" href="https://github.com/beeware/cricket/pull/65">PR 65</a>, reported on the <a class="reference external" href="https://github.com/beeware/cricket/issues/58">Issue 58</a> and the final demonstration of the work can be seen in this <a class="reference external" href="https://youtu.be/5kz_CmQYFYE">link</a>. There were widgets used on <a class="reference external" href="/project/projects/tools/cricket/">Cricket</a> that weren't ready yet on <a class="reference external" href="/project/projects/libraries/toga/">Toga</a>, so some improvements were necessary on <a class="reference external" href="/project/projects/libraries/toga/">Toga</a> so that I could use them on <a class="reference external" href="/project/projects/tools/cricket/">Cricket</a>. In summary here are some PRs and issues that I contributed to get my work done in <a class="reference external" href="/project/projects/tools/cricket/">Cricket</a>:</p>
+<p>Open PR that I sent to <a class="reference external" href="/project/projects/libraries/toga/">Toga</a>:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/toga/pull/201">PR 201</a> : [Core][Cocoa] Refactoring of the Tree widget</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/pull/201">PR 201</a> : [Core][Cocoa] Refactoring of the Tree widget</li>
 </ul>
-<p>Merged PRs that I sent to <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>:</p>
+<p>Merged PRs that I sent to <a class="reference external" href="/project/projects/libraries/toga/">Toga</a>:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/toga/pull/112">PR 112</a> : [Core][Cocoa] Enable/disable state for buttons, solved <a class="reference external" href="https://github.com/pybee/toga/issues/91">Issue 91</a></li>
-<li><a class="reference external" href="https://github.com/pybee/toga/pull/170">PR 170</a> : [Cocoa] Content and retry status for stack trace dialog</li>
-<li><a class="reference external" href="https://github.com/pybee/toga/pull/172">PR 172</a> : [Cocoa] Window resize</li>
-<li><a class="reference external" href="https://github.com/pybee/toga/pull/173">PR 173</a> : [Core][Cocoa] Button color</li>
-<li><a class="reference external" href="https://github.com/pybee/toga/pull/174">PR 174</a> : [Doc] Examples folder and button features example</li>
-<li><a class="reference external" href="https://github.com/pybee/toga/pull/178">PR 178</a> : [Doc] Fix tutorial 2 setup</li>
-<li><a class="reference external" href="https://github.com/pybee/toga/pull/180">PR 180</a> : [Doc] Update <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> widgets roadmap</li>
-<li><a class="reference external" href="https://github.com/pybee/toga/pull/182">PR 182</a> : [Cocoa] Update the label of the Stack trace button for critical dialog</li>
-<li><a class="reference external" href="https://github.com/pybee/toga/pull/184">PR 184</a> : [Core][Cocoa] Hide/show boxes widget</li>
-<li><a class="reference external" href="https://github.com/pybee/toga/pull/188">PR 188</a> : [Cocoa] Fix error on MultilineTextInput widget, solved <a class="reference external" href="https://github.com/pybee/toga/issues/187">Issue 187</a></li>
-<li><a class="reference external" href="https://github.com/pybee/toga/pull/204">PR 204</a> : [Core][Cocoa] Clear method to MultilineTextInput widget, solved <a class="reference external" href="https://github.com/pybee/toga/issues/203">Issue 203</a></li>
-<li><a class="reference external" href="https://github.com/pybee/toga/pull/206">PR 206</a> : [Core][Cocoa] Readonly and placeholder for MultilineTextInput widget</li>
-<li><a class="reference external" href="https://github.com/pybee/toga/pull/208">PR 208</a> : [Cocoa] Fix apply style to a SplitContainer widget, solved <a class="reference external" href="https://github.com/pybee/toga/issues/207">Issue 207</a></li>
+<li><a class="reference external" href="https://github.com/beeware/toga/pull/112">PR 112</a> : [Core][Cocoa] Enable/disable state for buttons, solved <a class="reference external" href="https://github.com/beeware/toga/issues/91">Issue 91</a></li>
+<li><a class="reference external" href="https://github.com/beeware/toga/pull/170">PR 170</a> : [Cocoa] Content and retry status for stack trace dialog</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/pull/172">PR 172</a> : [Cocoa] Window resize</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/pull/173">PR 173</a> : [Core][Cocoa] Button color</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/pull/174">PR 174</a> : [Doc] Examples folder and button features example</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/pull/178">PR 178</a> : [Doc] Fix tutorial 2 setup</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/pull/180">PR 180</a> : [Doc] Update <a class="reference external" href="/project/projects/libraries/toga/">Toga</a> widgets roadmap</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/pull/182">PR 182</a> : [Cocoa] Update the label of the Stack trace button for critical dialog</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/pull/184">PR 184</a> : [Core][Cocoa] Hide/show boxes widget</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/pull/188">PR 188</a> : [Cocoa] Fix error on MultilineTextInput widget, solved <a class="reference external" href="https://github.com/beeware/toga/issues/187">Issue 187</a></li>
+<li><a class="reference external" href="https://github.com/beeware/toga/pull/204">PR 204</a> : [Core][Cocoa] Clear method to MultilineTextInput widget, solved <a class="reference external" href="https://github.com/beeware/toga/issues/203">Issue 203</a></li>
+<li><a class="reference external" href="https://github.com/beeware/toga/pull/206">PR 206</a> : [Core][Cocoa] Readonly and placeholder for MultilineTextInput widget</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/pull/208">PR 208</a> : [Cocoa] Fix apply style to a SplitContainer widget, solved <a class="reference external" href="https://github.com/beeware/toga/issues/207">Issue 207</a></li>
 </ul>
-<p>Merged PR that I sent to <a class="reference external" href="https://pybee.org/project/projects/tools/cricket/">Cricket</a>:</p>
+<p>Merged PR that I sent to <a class="reference external" href="/project/projects/tools/cricket/">Cricket</a>:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/cricket/pull/60">PR 60</a> : Fix test coverage, solved <a class="reference external" href="https://github.com/pybee/cricket/issues/59">Issue 59</a></li>
+<li><a class="reference external" href="https://github.com/beeware/cricket/pull/60">PR 60</a> : Fix test coverage, solved <a class="reference external" href="https://github.com/beeware/cricket/issues/59">Issue 59</a></li>
 </ul>
-<p>Merged PR that I sent to <a class="reference external" href="https://pybee.org/project/projects/bridges/rubicon/">rubicon-objc</a>:</p>
+<p>Merged PR that I sent to <a class="reference external" href="/project/projects/bridges/rubicon/">rubicon-objc</a>:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/rubicon-objc/pull/34">PR 34</a> : [Doc] Add reference to NSObject</li>
+<li><a class="reference external" href="https://github.com/beeware/rubicon-objc/pull/34">PR 34</a> : [Doc] Add reference to NSObject</li>
 </ul>
-<p>Open issues that I sent to <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>:</p>
+<p>Open issues that I sent to <a class="reference external" href="/project/projects/libraries/toga/">Toga</a>:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/toga/issues/175">Issue 175</a> : [Core] Add more properties for Label and Font widgets</li>
-<li><a class="reference external" href="https://github.com/pybee/toga/issues/176">Issue 176</a> : [Core] Add &quot;rehint()&quot; on the background of the widget after changing font size</li>
-<li><a class="reference external" href="https://github.com/pybee/toga/issues/186">Issue 186</a> : [Core] Set initial position of the divisor of a SplitContainer</li>
-<li><a class="reference external" href="https://github.com/pybee/toga/issues/197">Issue 197</a> : [Core] Get the id of the selected Tab View on the OptionContainer</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/175">Issue 175</a> : [Core] Add more properties for Label and Font widgets</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/176">Issue 176</a> : [Core] Add &quot;rehint()&quot; on the background of the widget after changing font size</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/186">Issue 186</a> : [Core] Set initial position of the divisor of a SplitContainer</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/197">Issue 197</a> : [Core] Get the id of the selected Tab View on the OptionContainer</li>
 </ul>
-<p>Closed issues that I reported to <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>:</p>
+<p>Closed issues that I reported to <a class="reference external" href="/project/projects/libraries/toga/">Toga</a>:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/toga/issues/167">Issue 167</a> : [Cocoa] Addition of a SplitContainer on a Box doesn't show the SplitContainer, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
-<li><a class="reference external" href="https://github.com/pybee/toga/issues/168">Issue 168</a> : [Cocoa] Addition of 2 boxes on an OptionContainer emits Rubicon's error, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
-<li><a class="reference external" href="https://github.com/pybee/toga/issues/169">Issue 169</a> : [Cocoa] Addition of 2 empty boxes on an OptionContainer emits error from <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> Cocoa platform, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
-<li><a class="reference external" href="https://github.com/pybee/toga/issues/181">Issue 181</a> : [Core][Cocoa] &quot;Hide&quot; option for widgets, was solved by me</li>
-<li><a class="reference external" href="https://github.com/pybee/toga/issues/187">Issue 187</a> : [Cocoa] Errors on MultilineTextInput, was fixed by me</li>
-<li><a class="reference external" href="https://github.com/pybee/toga/issues/189">Issue 189</a> : [Cocoa] ProgressBar doesn't appears in a Box, was fixed by <a class="reference external" href="https://github.com/Ocupe">Jonas Schell</a></li>
-<li><a class="reference external" href="https://github.com/pybee/toga/issues/194">Issue 194</a> : [Cocoa] The frame of the MultilineTextInput doesn't appear, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
-<li><a class="reference external" href="https://github.com/pybee/toga/issues/195">Issue 195</a> : [Cocoa] ProgressBar doesn't appear inside of a Box oriented by row, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
-<li><a class="reference external" href="https://github.com/pybee/toga/issues/196">Issue 196</a> : [Cocoa] Set max value and value on a ProgressBar doesn't make any effect on the layout, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
-<li><a class="reference external" href="https://github.com/pybee/toga/issues/203">Issue 203</a> : [Core][Cocoa] Clear text on MultilineTextInput widget, was solved by me</li>
-<li><a class="reference external" href="https://github.com/pybee/toga/issues/207">Issue 207</a> : [Cocoa] Set SplitContainer height doesn't update its size, was solved by me</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/167">Issue 167</a> : [Cocoa] Addition of a SplitContainer on a Box doesn't show the SplitContainer, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/168">Issue 168</a> : [Cocoa] Addition of 2 boxes on an OptionContainer emits Rubicon's error, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/169">Issue 169</a> : [Cocoa] Addition of 2 empty boxes on an OptionContainer emits error from <a class="reference external" href="/project/projects/libraries/toga/">Toga</a> Cocoa platform, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/181">Issue 181</a> : [Core][Cocoa] &quot;Hide&quot; option for widgets, was solved by me</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/187">Issue 187</a> : [Cocoa] Errors on MultilineTextInput, was fixed by me</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/189">Issue 189</a> : [Cocoa] ProgressBar doesn't appears in a Box, was fixed by <a class="reference external" href="https://github.com/Ocupe">Jonas Schell</a></li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/194">Issue 194</a> : [Cocoa] The frame of the MultilineTextInput doesn't appear, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/195">Issue 195</a> : [Cocoa] ProgressBar doesn't appear inside of a Box oriented by row, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/196">Issue 196</a> : [Cocoa] Set max value and value on a ProgressBar doesn't make any effect on the layout, was fixed by <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a></li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/203">Issue 203</a> : [Core][Cocoa] Clear text on MultilineTextInput widget, was solved by me</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/207">Issue 207</a> : [Cocoa] Set SplitContainer height doesn't update its size, was solved by me</li>
 </ul>
-<p>Closed issues that I didn't reported but I solved on <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>:</p>
+<p>Closed issues that I didn't reported but I solved on <a class="reference external" href="/project/projects/libraries/toga/">Toga</a>:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/toga/issues/91">Issue 91</a> : API to disable buttons?</li>
-<li><a class="reference external" href="https://github.com/pybee/toga/issues/205">Issue 205</a> : adding MultiviewTextInput results in TypeError</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/91">Issue 91</a> : API to disable buttons?</li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/205">Issue 205</a> : adding MultiviewTextInput results in TypeError</li>
 </ul>
-<p>Closed issue that I reported to <a class="reference external" href="https://pybee.org/project/projects/tools/cricket/">Cricket</a>:</p>
+<p>Closed issue that I reported to <a class="reference external" href="/project/projects/tools/cricket/">Cricket</a>:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/cricket/issues/59">Issue 59</a> : Run selected doesn't count/ runs every test selected in a test module, was fixed by me</li>
+<li><a class="reference external" href="https://github.com/beeware/cricket/issues/59">Issue 59</a> : Run selected doesn't count/ runs every test selected in a test module, was fixed by me</li>
 </ul>
-<p>Open issue that I reported to <a class="reference external" href="https://pybee.org/project/projects/bridges/rubicon/">rubicon-objc</a> <a class="reference external" href="https://github.com/ojii">Jonas Obrist</a> repository:</p>
+<p>Open issue that I reported to <a class="reference external" href="/project/projects/bridges/rubicon/">rubicon-objc</a> <a class="reference external" href="https://github.com/ojii">Jonas Obrist</a> repository:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/ojii/rubicon-objc/issues/1">Issue 1</a> : Seg Fault when iterate through a NSIndexSet using block notation</li>
 </ul>
 </div>
 <div class="section" id="future-plans">
 <h2>Future Plans</h2>
-<p>There are some features on <a class="reference external" href="https://pybee.org/project/projects/tools/cricket/">Cricket</a> that I want to help develop in a near future, for example:</p>
+<p>There are some features on <a class="reference external" href="/project/projects/tools/cricket/">Cricket</a> that I want to help develop in a near future, for example:</p>
 <ul class="simple">
 <li>A button to refresh all the tests tree</li>
 <li>Cricket settings</li>
 </ul>
-<p>Also, there are some issues remained after this migration to <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>. These issues will be fixed on <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> widgets in a near future too, for example:</p>
+<p>Also, there are some issues remained after this migration to <a class="reference external" href="/project/projects/libraries/toga/">Toga</a>. These issues will be fixed on <a class="reference external" href="/project/projects/libraries/toga/">Toga</a> widgets in a near future too, for example:</p>
 <ul class="simple">
 <li>A gap between the output and error boxes when there is no output message</li>
 <li>Run a test if the user click on it</li>
 </ul>
-<p>I truly believe that <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a> will be the oficial framework on Python to build GUI for multiplatforms applications, so I'll continue to contribute to this project because I want to use in every application that I would need a GUI.</p>
+<p>I truly believe that <a class="reference external" href="/project/projects/libraries/toga/">Toga</a> will be the oficial framework on Python to build GUI for multiplatforms applications, so I'll continue to contribute to this project because I want to use in every application that I would need a GUI.</p>
 </div>
 <div class="section" id="final-considerations">
 <h2>Final Considerations</h2>
-<p>I would like to truly thank my mentors <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a> and <a class="reference external" href="https://github.com/eliasdorneles">Elias Dorneles</a> for guide and help me so much during this period. The opportunity to be part of this community was a great honor to me, thank you so much to accept me in this program <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a>. Also, I want to thank <a class="reference external" href="https://github.com/phildini">Philip James</a> that made some reviews in my PRs and <a class="reference external" href="https://github.com/Ocupe">Jonas Schell</a> that fixed one issue that I sent to <a class="reference external" href="https://pybee.org/project/projects/libraries/toga/">Toga</a>.</p>
+<p>I would like to truly thank my mentors <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a> and <a class="reference external" href="https://github.com/eliasdorneles">Elias Dorneles</a> for guide and help me so much during this period. The opportunity to be part of this community was a great honor to me, thank you so much to accept me in this program <a class="reference external" href="https://github.com/freakboy3742">Russell Keith-Magee</a>. Also, I want to thank <a class="reference external" href="https://github.com/phildini">Philip James</a> that made some reviews in my PRs and <a class="reference external" href="https://github.com/Ocupe">Jonas Schell</a> that fixed one issue that I sent to <a class="reference external" href="/project/projects/libraries/toga/">Toga</a>.</p>
 </div>
 
 
@@ -573,7 +572,7 @@ on
   </p>
   
   <p>With Google Summer of Code 2017 program nearing its end, it is time to summarize what I got done during the summer working on <a class="reference external" href="/project/projects/bridges/batavia/">Batavia</a>.</p>
-<p>Batavia is a part of BeeWare's collection of projects. As it is still in its early stage of development, for my part I offered to implement a number of features missing from Batavia, ranging from elemental data types, through JSON manipulation and language constructs such as generators. I posted my proposal in <a class="reference external" href="https://github.com/pybee/batavia/issues/483">this GitHub thread</a> and kept it updated with my progress on a weekly basis.</p>
+<p>Batavia is a part of BeeWare's collection of projects. As it is still in its early stage of development, for my part I offered to implement a number of features missing from Batavia, ranging from elemental data types, through JSON manipulation and language constructs such as generators. I posted my proposal in <a class="reference external" href="https://github.com/beeware/batavia/issues/483">this GitHub thread</a> and kept it updated with my progress on a weekly basis.</p>
 <p>Note that by the end of GSoC, we have decided to diverge from the proposal and forgo implementation of <cite>contextlib</cite> in favor of support for Python 3.6 2-byte wide opcodes.</p>
 <p>Overall it was great learning experience and fun. Big thanks to my mentors Russell Keith-Magee and Katie McLaughlin, and the whole BeeWare community.</p>
 <div class="section" id="pull-requests">
@@ -581,48 +580,48 @@ on
 <div class="section" id="lists-and-dicts">
 <h3>Lists and dicts</h3>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/batavia/pull/518">Pop, remove and insert methods for lists</a></li>
-<li><a class="reference external" href="https://github.com/pybee/batavia/pull/560">Pop, popitem, fromkeys and setdefault for dicts</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/518">Pop, remove and insert methods for lists</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/560">Pop, popitem, fromkeys and setdefault for dicts</a></li>
 </ul>
 </div>
 <div class="section" id="json-module">
 <h3>JSON module</h3>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/batavia/pull/577">Encoding JSON (JSONEncoder, dump and dumps)</a></li>
-<li><a class="reference external" href="https://github.com/pybee/batavia/pull/586">Decoding JSON (JSONDecoder, parse)</a></li>
-<li><a class="reference external" href="https://github.com/pybee/batavia/pull/589">Bug fix regarding cricket and test generation for JSONEncoder</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/577">Encoding JSON (JSONEncoder, dump and dumps)</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/586">Decoding JSON (JSONDecoder, parse)</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/589">Bug fix regarding cricket and test generation for JSONEncoder</a></li>
 </ul>
 </div>
 <div class="section" id="generators">
 <h3>Generators</h3>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/batavia/pull/590">Fix numerous existing bugs in Batavia's generators</a></li>
-<li><a class="reference external" href="https://github.com/pybee/batavia/pull/592">yield from implementation</a></li>
-<li><a class="reference external" href="https://github.com/pybee/batavia/pull/599">Support for yield from in Python 3.5+</a></li>
-<li><a class="reference external" href="https://github.com/pybee/batavia/pull/646">Bug fix for yield from and Python 3.6+</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/590">Fix numerous existing bugs in Batavia's generators</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/592">yield from implementation</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/599">Support for yield from in Python 3.5+</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/646">Bug fix for yield from and Python 3.6+</a></li>
 </ul>
 </div>
 <div class="section" id="with-statement">
 <h3><cite>with</cite> statement</h3>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/batavia/pull/594">SETUP_WITH and WITH_CLEANUP opcodes</a></li>
-<li><a class="reference external" href="https://github.com/pybee/batavia/pull/620">WITH_CLEANUP_START and WITH_CLEANUP_FINISH for Python 3.5+</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/594">SETUP_WITH and WITH_CLEANUP opcodes</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/620">WITH_CLEANUP_START and WITH_CLEANUP_FINISH for Python 3.5+</a></li>
 </ul>
 </div>
 <div class="section" id="python-3-6-compatibility">
 <h3>Python 3.6 compatibility</h3>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/batavia/pull/621">Support for 2-byte wide opcodes (Python 3.6+)</a></li>
-<li><a class="reference external" href="https://github.com/pybee/batavia/pull/643">Fix discrepancies in numerous error messages across Python versions</a> (open PR)</li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/621">Support for 2-byte wide opcodes (Python 3.6+)</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/643">Fix discrepancies in numerous error messages across Python versions</a> (open PR)</li>
 </ul>
 </div>
 <div class="section" id="some-other-bug-fixes-done-in-the-meantime">
 <h3>Some other bug fixes done in the meantime</h3>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/pybee/batavia/pull/566">https://github.com/pybee/batavia/pull/566</a></li>
-<li><a class="reference external" href="https://github.com/pybee/batavia/pull/597">https://github.com/pybee/batavia/pull/597</a></li>
-<li><a class="reference external" href="https://github.com/pybee/batavia/pull/623">https://github.com/pybee/batavia/pull/623</a></li>
-<li><a class="reference external" href="https://github.com/pybee/batavia/pull/565">https://github.com/pybee/batavia/pull/565</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/566">https://github.com/beeware/batavia/pull/566</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/597">https://github.com/beeware/batavia/pull/597</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/623">https://github.com/beeware/batavia/pull/623</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/565">https://github.com/beeware/batavia/pull/565</a></li>
 </ul>
 </div>
 </div>
@@ -651,14 +650,14 @@ on
   <p>Google Summer of Code 2017 is coming to an end. After three month of working on the BeeWare project, I would like to summarise my work and share my experiences.</p>
 <div class="section" id="no-battle-plan-survives-first-contact">
 <h2>“No Battle Plan Survives First Contact.”</h2>
-<p>This was one of the first things Russell said to me after we decided to fundamentally restructure my <a class="reference external" href="https://github.com/pybee/toga/issues/118">proposed GSoC timetable and goals</a>. During the community bounding period we discovered that Toga was even harder to test as we expected. The tight coupling between the platform independent Toga-Core part and the platform dependent implementations for (Windows, macOS, iOS, Linux, Android, Django, ...) was giving us a hard time to write meaningful tests.</p>
+<p>This was one of the first things Russell said to me after we decided to fundamentally restructure my <a class="reference external" href="https://github.com/beeware/toga/issues/118">proposed GSoC timetable and goals</a>. During the community bounding period we discovered that Toga was even harder to test as we expected. The tight coupling between the platform independent Toga-Core part and the platform dependent implementations for (Windows, macOS, iOS, Linux, Android, Django, ...) was giving us a hard time to write meaningful tests.</p>
 <p>We expect Toga to become a decently sized project, therefore we want it to have a solid and well tested base. Given that, we decided that I would spend most of GSoC to restructure Toga to make it more testable. Besides that, I would also add implementation tests to check if a given backend is implemented in the right way. If I would finish before the end of the summer I would just start with my original project proposal.</p>
 </div>
 <div class="section" id="the-big-restructure-of-toga">
 <h2>The Big Restructure of Toga</h2>
 <p>With the new goals and a fresh branch I started the journey to restructure the Toga project to make it more testable.</p>
 <p>After hacking around and testing different things on a <a class="reference external" href="https://github.com/Ocupe/restruc_toga">separate branch</a>. I identified that the intertwined platform dependencies are the main problem. To separate the Toga-Core module form its backend implementations we decided to use the factory pattern instead of the inheritance model that we had before. Now every backend has its own factory that produces the right widgets for the platform it is running on. This way we have a clear separation between Toga-Core and the implementation level. Platform dependencies are now enclosed in the implementation level.</p>
-<p>After the new structure was clear I ported Toga-Core as well as the backends for cocoa, iOS and GTK. I did this in the Toga branch <a class="reference external" href="https://github.com/pybee/toga/pull/185">(The Big Restructure of Toga [WIP] #185)</a>.
+<p>After the new structure was clear I ported Toga-Core as well as the backends for cocoa, iOS and GTK. I did this in the Toga branch <a class="reference external" href="https://github.com/beeware/toga/pull/185">(The Big Restructure of Toga [WIP] #185)</a>.
 In practice this meant that I had to manually touch almost every widget of all backends to port them to the new factory pattern.</p>
 </div>
 <div class="section" id="challenges">
@@ -668,8 +667,8 @@ In practice this meant that I had to manually touch almost every widget of all b
 <li>Every Toga backend wraps around a existing and unique framework.  To wrap the framework you have to understand the framework.</li>
 <li>“I love Python, why do I have to understand Objective C”? To effectively work on the iOS and macOS backends I had to learn the basics of Objective C – if only to read the Apple docs.</li>
 <li>Toga has a lot of moving parts. There are backends, frameworks, libraries to talk to backends, libraries to perform the layout of the UI and more. I spend a good amount of time to understand all of these parts. The following is just a overview of newly acquired knowledge during GSoC:<ul>
-<li><a class="reference external" href="https://github.com/pybee/rubicon-objc">Rubicon-ObjC</a> to talk to the iOS and macOS backends.</li>
-<li><a class="reference external" href="https://pybee.org/project/projects/libraries/colosseum/">Colosseum</a> to understand and fix layout problems.</li>
+<li><a class="reference external" href="https://github.com/beeware/rubicon-objc">Rubicon-ObjC</a> to talk to the iOS and macOS backends.</li>
+<li><a class="reference external" href="/project/projects/libraries/colosseum/">Colosseum</a> to understand and fix layout problems.</li>
 <li><a class="reference external" href="https://docs.python.org/3.6/library/ast.html">AST</a> module to perform the implementation tests.</li>
 <li>The use of Design Patterns</li>
 <li>How to structure large projects.</li>
@@ -681,7 +680,7 @@ In practice this meant that I had to manually touch almost every widget of all b
 <div class="section" id="other-work-i-did">
 <h2>Other work I did</h2>
 <ul class="simple">
-<li>PR: Translated part of the pybee.org webpage into german. <a class="reference external" href="https://github.com/pybee/pybee.github.io/pull/173">(PR #173)</a></li>
+<li>PR: Translated part of the beeware.org webpage into german. <a class="reference external" href="https://github.com/beeware/beeware.github.io/pull/173">(PR #173)</a></li>
 <li>Helped newcomers on Gitter and GitHub.</li>
 <li>Tested if Toga would profit from static typing <a class="reference external" href="https://github.com/Ocupe/toga/tree/static_typing">(toga/static_typing)</a>.</li>
 <li>Created an implementation test suite based on the AST module.</li>
@@ -689,18 +688,18 @@ In practice this meant that I had to manually touch almost every widget of all b
 <li>Updated and extended documentation on Toga-Core as well as the macOS and iOS Backend.</li>
 <li>Created a toga-dummy backend.</li>
 <li>First draft of the Settings API and working backend implementation for macOS.</li>
-<li>Many small and big fixes on Toga-Core, cocoa, iOS, and GTK backends. All in the main PR <a class="reference external" href="https://github.com/pybee/toga/pull/185">pybee/toga The Big Restructure of Toga [WIP]</a></li>
-<li>PR: <a class="reference external" href="https://github.com/pybee/toga/pull/171">pybee/toga fix for getting the length of the filenames array</a></li>
-<li>PR: <a class="reference external" href="https://github.com/pybee/toga/pull/193">pybee/toga Fixed #189 cocoa.progressbar with rehint</a></li>
-<li>PR: <a class="reference external" href="https://github.com/pybee/briefcase-template/pull/3">pybee/briefcase-template Fix for spaces in app name. Issue #2</a></li>
-<li>PR: <a class="reference external" href="https://github.com/pybee/toga/pull/222">pybee/toga Toga Settings API [WIP]</a></li>
+<li>Many small and big fixes on Toga-Core, cocoa, iOS, and GTK backends. All in the main PR <a class="reference external" href="https://github.com/beeware/toga/pull/185">beeware/toga The Big Restructure of Toga [WIP]</a></li>
+<li>PR: <a class="reference external" href="https://github.com/beeware/toga/pull/171">beeware/toga fix for getting the length of the filenames array</a></li>
+<li>PR: <a class="reference external" href="https://github.com/beeware/toga/pull/193">beeware/toga Fixed #189 cocoa.progressbar with rehint</a></li>
+<li>PR: <a class="reference external" href="https://github.com/beeware/briefcase-template/pull/3">beeware/briefcase-template Fix for spaces in app name. Issue #2</a></li>
+<li>PR: <a class="reference external" href="https://github.com/beeware/toga/pull/222">beeware/toga Toga Settings API [WIP]</a></li>
 </ul>
 </div>
 <div class="section" id="future-work-to-be-done">
 <h2>Future Work to be Done</h2>
 <ul class="simple">
-<li>All my work sits in the PR <a class="reference external" href="https://github.com/pybee/toga/pull/185">“The Big Restructure of Toga [WIP]”</a>. After the missing backends, namely Windows and Android, are ported, everything can be merged into master. We have to wait for the missing backends, because the new is incompatible with the old versions and they can’t coexist.</li>
-<li>The Settings API from my original proposal is not finished because of the above mentioned reasons. I have a first working draft and I will continue working on it after GSoC in <a class="reference external" href="https://github.com/pybee/toga/pull/222">this PR</a>.</li>
+<li>All my work sits in the PR <a class="reference external" href="https://github.com/beeware/toga/pull/185">“The Big Restructure of Toga [WIP]”</a>. After the missing backends, namely Windows and Android, are ported, everything can be merged into master. We have to wait for the missing backends, because the new is incompatible with the old versions and they can’t coexist.</li>
+<li>The Settings API from my original proposal is not finished because of the above mentioned reasons. I have a first working draft and I will continue working on it after GSoC in <a class="reference external" href="https://github.com/beeware/toga/pull/222">this PR</a>.</li>
 </ul>
 </div>
 <div class="section" id="shoutout">
@@ -753,9 +752,9 @@ on
 <p>BeeKeeper deploys as a Heroku website, written using Django. After configuring it with Github and AWS credentials, it listens for Github webhooks. When a Pull Request or Push is detected, BeeKeeper creates a build request; that build request inspects the code in the repository looking for a <tt class="docutils literal">beekeeper.yml</tt> configuration file. That configuration file describes the pipeline of tasks that will be performed, and for each task, the type of machine that should be used, any environment variables that are required, and the Docker image that will be used.</p>
 <p>BeeKeeper also allows the site admin to describe what resources will be used to satisfy builds. A task can say it needs a &quot;High CPU&quot; instance; but the BeeKeeper instance can determine what &quot;High CPU&quot; means - is it 4 CPUs or 32? When those machines are spooled up, how long will they be allowed to sit idle before being shut down again? How many machines should be sitting in the pool permanently? And what is the upper limit on machines that will be started?</p>
 <p>A companion tool to BeeKeeper is <a class="reference external" href="/project/projects/tools/waggle">Waggle</a>. Waggle is a tool that prepares a local definition of a task so it can be used by BeeKeeper - it compiles the Docker image, and uploads it into ECS so that it can be referenced by tasks. (It's called &quot;Waggle&quot; because when worker bees discover a good source of nectar, they return to the hive and do a <a class="reference external" href="https://en.wikipedia.org/wiki/Waggle_dance">waggle dance</a> that tells other bees how to find that source).</p>
-<p>We've also provided a repository called <a class="reference external" href="https://github.com/pybee/comb">Comb</a> (named after honey comb, the place bees store all the nectar they find) that defines the task configurations that a BeeKeeper instance can use. We've provided some simple definitions as part of the base Comb repository; each BeeKeeper deployment should have one of these repositories of it's own.</p>
+<p>We've also provided a repository called <a class="reference external" href="https://github.com/beeware/comb">Comb</a> (named after honey comb, the place bees store all the nectar they find) that defines the task configurations that a BeeKeeper instance can use. We've provided some simple definitions as part of the base Comb repository; each BeeKeeper deployment should have one of these repositories of it's own.</p>
 <p>There's still a lot of work to do, but we're already using BeeKeeper to Batavia and VOC, and the upcoming <a class="reference external" href="https://2017.pycon-au.org/program/sprints/">PyCon AU sprints</a> will be our first outing under high-load conditions. Some back-of-envelope calculations predict that for around $50, we'll be able to provide enough CPU resources for each test run to complete running in 10 minutes or less, supporting a sprint of dozens of people.</p>
-<p>Although BeeKeeper was written to meet the needs of the BeeWare project, it's an open source tool available for anyone to use. If you'd like to take BeeKeeper for a spin, come along to the sprints, or <a class="reference external" href="https://github.com/pybee/beekeeper">check out the code on GitHub</a>.</p>
+<p>Although BeeKeeper was written to meet the needs of the BeeWare project, it's an open source tool available for anyone to use. If you'd like to take BeeKeeper for a spin, come along to the sprints, or <a class="reference external" href="https://github.com/beeware/beekeeper">check out the code on GitHub</a>.</p>
 <p>BeeKeeper is also an example of the sort of product you'd see more of if BeeWare development was funded full time. I was able to build BeeKeeper because I had a spare couple of weeks between jobs. There is no end to the tools and libraries like BeeKeeper and Waggle that could be built to support the software development process - all that is missing is the resources needed to develop those tools. If you'd like to see more tools like BeeKeeper in the world, please consider <a class="reference external" href="/contributing/membership/">joining the BeeWare project as a financial member</a>. Every little bit helps, and if we can reach a critical mass of supporters, I'll be able to start working on BeeWare full time.</p>
 
 
@@ -779,9 +778,9 @@ on
  5 April 2017
   </p>
   
-  <p>Around 4 years ago, I made the first commit to <a class="reference external" href="https://pybee.org/project/projects/tools/cricket/">Cricket</a> - the first tool that would eventually become part of the BeeWare suite. Since then, the BeeWare project has grown to encompass support for mobile platforms, two alternate Python implementations, and a cross platform widget set - as well as the developer tools that started the project originally.</p>
-<p>For most of this time, BeeWare has been a volunteer effort. Initially, it was a solo project; however, over the last year in particular, the number of people who have contributed to BeeWare has grown rapidly. Over 300 people have now made contributions to the various BeeWare tools and libraries - due, at least in part, to the <a class="reference external" href="https://pybee.org/contributing/challenge-coins/">Challenge Coins</a> we've been offering at sprints.</p>
-<p>Of particular note is the <a class="reference external" href="https://pybee.org/community/team/">team of 7 people</a> who have joined the project as apiarists, helping share the load of project maintainence. I can't thank these people enough - without their assistance, I wouldn't have made anywhere near as much progress over the last year.</p>
+  <p>Around 4 years ago, I made the first commit to <a class="reference external" href="/project/projects/tools/cricket/">Cricket</a> - the first tool that would eventually become part of the BeeWare suite. Since then, the BeeWare project has grown to encompass support for mobile platforms, two alternate Python implementations, and a cross platform widget set - as well as the developer tools that started the project originally.</p>
+<p>For most of this time, BeeWare has been a volunteer effort. Initially, it was a solo project; however, over the last year in particular, the number of people who have contributed to BeeWare has grown rapidly. Over 300 people have now made contributions to the various BeeWare tools and libraries - due, at least in part, to the <a class="reference external" href="/contributing/challenge-coins/">Challenge Coins</a> we've been offering at sprints.</p>
+<p>Of particular note is the <a class="reference external" href="/community/team/">team of 7 people</a> who have joined the project as apiarists, helping share the load of project maintainence. I can't thank these people enough - without their assistance, I wouldn't have made anywhere near as much progress over the last year.</p>
 <p>You may have noticed that over the last few months, progress has been especially rapid. This is because, for the last six months, BeeWare development has been partially funded by very accomodating employers at <a class="reference external" href="https://www.jambonsw.com">Jambon Software</a>. My contract with Jambon allowed me to spend significant periods of time being paid to work on BeeWare - and, not surprisingly, it was possible to make enormous progress as a result. The last 6 months has seen:</p>
 <ul class="simple">
 <li>Extensive improvements to Batavia and VOC;</li>
@@ -793,7 +792,7 @@ on
 <p>This also means the rate of progress will also slow. There's still plenty to do: there's plenty of the Python standard library to port to Batavia and VOC; Toga needs much wider widget support; Colosseum needs to be extended so it supports the full CSS box model, not just CSS3 Flexbox; and the tools that started it all - Cricket, Bugjar, Duvet, and others - all need to be ported to Toga.</p>
 <p>I would <em>like</em> to be able to work on BeeWare full time. However, the simple reality is that unless I can find a way to pay for this work, it will only be able happen in my spare time.</p>
 <p>So - this is an appeal to you - the Python community. If you are excited by the prospect of having access to Python on mobile platforms, or you would like to write applications in Python that have completely native user interfaces - <strong>I need your help</strong>.</p>
-<p>For just <strong>US$10 a month</strong> - you can <a class="reference external" href="https://pybee.org/contributing/membership/">join the BeeWare project as a member</a>, and help make this dream become a reality. If I can find 1000 people in the Python community who want these these tools and are willing to support their development financially, I can start working on BeeWare full time. Of course, this target is even easier if companies get involved and sponsor at higher tiers.</p>
+<p>For just <strong>US$10 a month</strong> - you can <a class="reference external" href="/contributing/membership/">join the BeeWare project as a member</a>, and help make this dream become a reality. If I can find 1000 people in the Python community who want these these tools and are willing to support their development financially, I can start working on BeeWare full time. Of course, this target is even easier if companies get involved and sponsor at higher tiers.</p>
 <p>If I can find <em>more</em> than 1000 people, then even more becomes possible. The obvious option would be to hire other experienced developers to assist with the work. The idea of having others to bounce ideas off during the development process is very appealing. However, we can also use this as an opportunity to do some social good.</p>
 <p>For some time, I've had an <a class="reference external" href="https://twitter.com/PyBeeWare/status/784545607402852352">open offer to mentor</a> anyone who wants to get involved with Open Source contribution using the BeeWare project. However, not many people have been able to seriously take up this offer, because the time required to seriously take up the offer is prohibitive. I'd like to be able to extend my offer to more than just a casual mentoring relationship. I'd like to be able to hire - and pay - one or more junior developers for the BeeWare project, and focus on giving that opportunity to people from underrepresented demographics.</p>
 <p>It's still early days for BeeWare. Financial support means faster progress. More widgets. Better documentation. More of everything you’ve seen so far from BeeWare. If I can find full time funding for myself - or better still, for myself and a small team - then I have no doubt that the BeeWare suite will become a viable alternative for commercial projects in very short order. Best of all, we will be able to do this without having to give up on the ideals of the open source movement.</p>
@@ -824,13 +823,13 @@ on
   <p><strong>The tickets for PyCon US 2017 have been given away. We look forward to seeing everyone who can make it to the conference at Booth 103!</strong></p>
 <hr class="docutils" />
 <p><em>Want to to go &#64;PyCon, can’t afford it? &#64;PyBeeWare has 2 tickets to give
-away. Email contact&#64;pybee.org and tell us why you want to bee there!</em></p>
+away. Email contact&#64;beeware.org and tell us why you want to bee there!</em></p>
 <p>— PyBee (&#64;PyBeeWare) January 30, 2017</p>
 <hr class="docutils" />
 <p><a class="reference external" href="https://us.pycon.org/2017/">PyCon US 2017</a> is running in Portland,
 Oregon from May 17 - 25, and it's bound to be another amazing
 conference.</p>
-<p>For the second year in a row, the <a class="reference external" href="https://pybee.org">BeeWare team</a>
+<p>For the second year in a row, the <a class="reference external" href="https://beeware.org">BeeWare team</a>
 will be on site with a <a class="reference external" href="https://twitter.com/PyBeeWare/status/737043373953978368">booth in the Exhibit
 Hall</a>, along
 with other Open Source projects from the Python world.</p>
@@ -849,11 +848,11 @@ already registered.</p>
 give you our free ticket.</p>
 <p>What do we want in return?</p>
 <p>Just a little bit of your time.</p>
-<p>The <a class="reference external" href="https://pybee.org/community/team/">Bee Team</a> will be helping to
+<p>The <a class="reference external" href="https://beeware.org/community/team/">Bee Team</a> will be helping to
 staff our booth, but we'd also like to see (and give!) talks, so helping
 us out by running the booth would be lovely. (Plus, and I'm sure Russell
 would agree, just helping out on the booth earns you a
-<a class="reference external" href="https://pybee.org/contributing/challenge-coins/">coin</a>)</p>
+<a class="reference external" href="https://beeware.org/contributing/challenge-coins/">coin</a>)</p>
 <p>Plus, we'd love for you to stick around for the famous coding Sprints.
 These are held in the four days after the event, while people are still
 in town. We get coffee, lunch, and a room full of tables, chairs and
@@ -864,7 +863,7 @@ where we will be mentoring and helping first time contributors earn
 their shiny <a class="reference external" href="https://twitter.com/PyBeeWare/status/738425474754314240">challenge
 coin</a></p>
 <p>Does this sound like something you'd be interested in?</p>
-<p>Please, <a class="reference external" href="mailto:contact&#64;pybee.org">email us!</a></p>
+<p>Please, <a class="reference external" href="mailto:contact&#64;beeware.org">email us!</a></p>
 <p>Tell us about yourself! Who you are, what you do, why you want to go to
 PyCon and what makes you interested in Python.</p>
 <p>We need to allocate our tickets early, so please email us <strong>by February
@@ -1114,19 +1113,19 @@ Next
         <div class="d-block d-sm-none copyright">&copy; Russell Keith-Magee 2018</div>
         <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee 2018</div>
         <p class="d-sm-block d-none">
-          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
-          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/beeware/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
           <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
           <a href="/zh_TW/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
 Sitemap
 </a>
         </p>
         <p class="d-block d-sm-none footer-social">
-          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
-          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/beeware/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
           <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a>
         </p>
-        <p class="d-block d-sm-none footer-sitemap"> 
+        <p class="d-block d-sm-none footer-sitemap">
           <a href="/zh_TW/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
 Sitemap
 </a>
@@ -1137,7 +1136,7 @@ Sitemap
     <!-- jQuery first, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    
+
     <script src="/static/tether-1.3.3/js/tether.min.js"></script>
     <script src="/static/bootstrap/js/bootstrap.min.js"></script></body>
 </html>

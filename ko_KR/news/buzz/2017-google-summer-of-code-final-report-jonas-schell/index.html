@@ -24,18 +24,17 @@
     <link rel="stylesheet" type="text/css" href="/static/beeware.css"><!-- Font Awesome -->
     <script src="https://use.fontawesome.com/1138bd8363.js"></script>
 
-    <!-- Google tracking -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2943925-4"></script>
     <script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-ga('create', 'UA-2943925-4', 'pybee.org');
-ga('send', 'pageview');
+      gtag('config', 'UA-2943925-4');
     </script></head>
   <body>
-    
+
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <div class="nav-top">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -163,14 +162,14 @@ on
   <p>Google Summer of Code 2017 is coming to an end. After three month of working on the BeeWare project, I would like to summarise my work and share my experiences.</p>
 <div class="section" id="no-battle-plan-survives-first-contact">
 <h2>“No Battle Plan Survives First Contact.”</h2>
-<p>This was one of the first things Russell said to me after we decided to fundamentally restructure my <a class="reference external" href="https://github.com/pybee/toga/issues/118">proposed GSoC timetable and goals</a>. During the community bounding period we discovered that Toga was even harder to test as we expected. The tight coupling between the platform independent Toga-Core part and the platform dependent implementations for (Windows, macOS, iOS, Linux, Android, Django, ...) was giving us a hard time to write meaningful tests.</p>
+<p>This was one of the first things Russell said to me after we decided to fundamentally restructure my <a class="reference external" href="https://github.com/beeware/toga/issues/118">proposed GSoC timetable and goals</a>. During the community bounding period we discovered that Toga was even harder to test as we expected. The tight coupling between the platform independent Toga-Core part and the platform dependent implementations for (Windows, macOS, iOS, Linux, Android, Django, ...) was giving us a hard time to write meaningful tests.</p>
 <p>We expect Toga to become a decently sized project, therefore we want it to have a solid and well tested base. Given that, we decided that I would spend most of GSoC to restructure Toga to make it more testable. Besides that, I would also add implementation tests to check if a given backend is implemented in the right way. If I would finish before the end of the summer I would just start with my original project proposal.</p>
 </div>
 <div class="section" id="the-big-restructure-of-toga">
 <h2>The Big Restructure of Toga</h2>
 <p>With the new goals and a fresh branch I started the journey to restructure the Toga project to make it more testable.</p>
 <p>After hacking around and testing different things on a <a class="reference external" href="https://github.com/Ocupe/restruc_toga">separate branch</a>. I identified that the intertwined platform dependencies are the main problem. To separate the Toga-Core module form its backend implementations we decided to use the factory pattern instead of the inheritance model that we had before. Now every backend has its own factory that produces the right widgets for the platform it is running on. This way we have a clear separation between Toga-Core and the implementation level. Platform dependencies are now enclosed in the implementation level.</p>
-<p>After the new structure was clear I ported Toga-Core as well as the backends for cocoa, iOS and GTK. I did this in the Toga branch <a class="reference external" href="https://github.com/pybee/toga/pull/185">(The Big Restructure of Toga [WIP] #185)</a>.
+<p>After the new structure was clear I ported Toga-Core as well as the backends for cocoa, iOS and GTK. I did this in the Toga branch <a class="reference external" href="https://github.com/beeware/toga/pull/185">(The Big Restructure of Toga [WIP] #185)</a>.
 In practice this meant that I had to manually touch almost every widget of all backends to port them to the new factory pattern.</p>
 </div>
 <div class="section" id="challenges">
@@ -180,8 +179,8 @@ In practice this meant that I had to manually touch almost every widget of all b
 <li>Every Toga backend wraps around a existing and unique framework.  To wrap the framework you have to understand the framework.</li>
 <li>“I love Python, why do I have to understand Objective C”? To effectively work on the iOS and macOS backends I had to learn the basics of Objective C – if only to read the Apple docs.</li>
 <li>Toga has a lot of moving parts. There are backends, frameworks, libraries to talk to backends, libraries to perform the layout of the UI and more. I spend a good amount of time to understand all of these parts. The following is just a overview of newly acquired knowledge during GSoC:<ul>
-<li><a class="reference external" href="https://github.com/pybee/rubicon-objc">Rubicon-ObjC</a> to talk to the iOS and macOS backends.</li>
-<li><a class="reference external" href="https://pybee.org/project/projects/libraries/colosseum/">Colosseum</a> to understand and fix layout problems.</li>
+<li><a class="reference external" href="https://github.com/beeware/rubicon-objc">Rubicon-ObjC</a> to talk to the iOS and macOS backends.</li>
+<li><a class="reference external" href="/project/projects/libraries/colosseum/">Colosseum</a> to understand and fix layout problems.</li>
 <li><a class="reference external" href="https://docs.python.org/3.6/library/ast.html">AST</a> module to perform the implementation tests.</li>
 <li>The use of Design Patterns</li>
 <li>How to structure large projects.</li>
@@ -193,7 +192,7 @@ In practice this meant that I had to manually touch almost every widget of all b
 <div class="section" id="other-work-i-did">
 <h2>Other work I did</h2>
 <ul class="simple">
-<li>PR: Translated part of the pybee.org webpage into german. <a class="reference external" href="https://github.com/pybee/pybee.github.io/pull/173">(PR #173)</a></li>
+<li>PR: Translated part of the beeware.org webpage into german. <a class="reference external" href="https://github.com/beeware/beeware.github.io/pull/173">(PR #173)</a></li>
 <li>Helped newcomers on Gitter and GitHub.</li>
 <li>Tested if Toga would profit from static typing <a class="reference external" href="https://github.com/Ocupe/toga/tree/static_typing">(toga/static_typing)</a>.</li>
 <li>Created an implementation test suite based on the AST module.</li>
@@ -201,18 +200,18 @@ In practice this meant that I had to manually touch almost every widget of all b
 <li>Updated and extended documentation on Toga-Core as well as the macOS and iOS Backend.</li>
 <li>Created a toga-dummy backend.</li>
 <li>First draft of the Settings API and working backend implementation for macOS.</li>
-<li>Many small and big fixes on Toga-Core, cocoa, iOS, and GTK backends. All in the main PR <a class="reference external" href="https://github.com/pybee/toga/pull/185">pybee/toga The Big Restructure of Toga [WIP]</a></li>
-<li>PR: <a class="reference external" href="https://github.com/pybee/toga/pull/171">pybee/toga fix for getting the length of the filenames array</a></li>
-<li>PR: <a class="reference external" href="https://github.com/pybee/toga/pull/193">pybee/toga Fixed #189 cocoa.progressbar with rehint</a></li>
-<li>PR: <a class="reference external" href="https://github.com/pybee/briefcase-template/pull/3">pybee/briefcase-template Fix for spaces in app name. Issue #2</a></li>
-<li>PR: <a class="reference external" href="https://github.com/pybee/toga/pull/222">pybee/toga Toga Settings API [WIP]</a></li>
+<li>Many small and big fixes on Toga-Core, cocoa, iOS, and GTK backends. All in the main PR <a class="reference external" href="https://github.com/beeware/toga/pull/185">beeware/toga The Big Restructure of Toga [WIP]</a></li>
+<li>PR: <a class="reference external" href="https://github.com/beeware/toga/pull/171">beeware/toga fix for getting the length of the filenames array</a></li>
+<li>PR: <a class="reference external" href="https://github.com/beeware/toga/pull/193">beeware/toga Fixed #189 cocoa.progressbar with rehint</a></li>
+<li>PR: <a class="reference external" href="https://github.com/beeware/briefcase-template/pull/3">beeware/briefcase-template Fix for spaces in app name. Issue #2</a></li>
+<li>PR: <a class="reference external" href="https://github.com/beeware/toga/pull/222">beeware/toga Toga Settings API [WIP]</a></li>
 </ul>
 </div>
 <div class="section" id="future-work-to-be-done">
 <h2>Future Work to be Done</h2>
 <ul class="simple">
-<li>All my work sits in the PR <a class="reference external" href="https://github.com/pybee/toga/pull/185">“The Big Restructure of Toga [WIP]”</a>. After the missing backends, namely Windows and Android, are ported, everything can be merged into master. We have to wait for the missing backends, because the new is incompatible with the old versions and they can’t coexist.</li>
-<li>The Settings API from my original proposal is not finished because of the above mentioned reasons. I have a first working draft and I will continue working on it after GSoC in <a class="reference external" href="https://github.com/pybee/toga/pull/222">this PR</a>.</li>
+<li>All my work sits in the PR <a class="reference external" href="https://github.com/beeware/toga/pull/185">“The Big Restructure of Toga [WIP]”</a>. After the missing backends, namely Windows and Android, are ported, everything can be merged into master. We have to wait for the missing backends, because the new is incompatible with the old versions and they can’t coexist.</li>
+<li>The Settings API from my original proposal is not finished because of the above mentioned reasons. I have a first working draft and I will continue working on it after GSoC in <a class="reference external" href="https://github.com/beeware/toga/pull/222">this PR</a>.</li>
 </ul>
 </div>
 <div class="section" id="shoutout">
@@ -249,19 +248,19 @@ Previous entry
         <div class="d-block d-sm-none copyright">&copy; Russell Keith-Magee 2018</div>
         <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee 2018</div>
         <p class="d-sm-block d-none">
-          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
-          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/beeware/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
           <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
           <a href="/ko_KR/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
 Sitemap
 </a>
         </p>
         <p class="d-block d-sm-none footer-social">
-          <a href="https://github.com/pybee/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
-          <a href="https://gitter.im/pybee/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/beeware/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
           <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a>
         </p>
-        <p class="d-block d-sm-none footer-sitemap"> 
+        <p class="d-block d-sm-none footer-sitemap">
           <a href="/ko_KR/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
 Sitemap
 </a>
@@ -272,7 +271,7 @@ Sitemap
     <!-- jQuery first, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    
+
     <script src="/static/tether-1.3.3/js/tether.min.js"></script>
     <script src="/static/bootstrap/js/bootstrap.min.js"></script></body>
 </html>
