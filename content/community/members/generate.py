@@ -8,14 +8,24 @@ import hashlib
 def generate(filename, basedir):
     with open(filename) as datafile:
         reader = csv.reader(datafile)
-        next(reader)
+        got_header = False
+
         for line in reader:
-            name = line[1]
-            email = line[2]
+            name = line[2]
+            email = line[3]
+            join_date = line[5]
+
             uid = hashlib.sha1(email.encode()).hexdigest()[0:8]
-            join_date = line[4]
-            
-            print(line[0], name, uid, join_date)
+
+            if not got_header:
+                if name != 'Buyer Name':
+                    raise Exception("'Buyer name' column not in the expected location")
+                elif email != 'Buyer Email':
+                    raise Exception("'Buyer Email' column not in the expected location")
+                elif join_date != 'Purchase Date':
+                    raise Exception("'Purchase Date' column not in the expected location")
+                got_header = True
+                continue
 
             level = {
                 'BeeWare Enthusiast Membership': 'individual',
