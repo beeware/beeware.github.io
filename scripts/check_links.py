@@ -34,6 +34,7 @@ WHITELIST = [
     'https://github.com/beeware/beeware.github.io/new/lektor/content/',
     'https://github.com/issues?q=user%3Abeeware+label%3Afirst-timers-only+is%3Aopen&type=Issues',
     'https://github.com/issues?q=user%3Abeeware+label%3Aup-for-grabs+is%3Aopen&type=Issues',
+    'https://github.com/watching',
 ]
 
 
