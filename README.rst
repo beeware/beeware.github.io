@@ -90,4 +90,4 @@ Want to make BeeWare more accessible to non-English-speakers?  Help translate th
 
 4. Start adding translations for content pages ont he site. Translated files are at the same directory level as the primary English files, but have a language suffix. For example, Arabic's locale is 'ar', so you would add `contents+ar.lr` wherever the original file name is `contents.lr`
 
-A great place to start translating is the `contributing section <https://github.com/beeware/beeware.github.io/tree/lektor/content/contributing>`_.
+A great place to start translating is the `contributing section <https://beeware.org/contributing/>`_.
