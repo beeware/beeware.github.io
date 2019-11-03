@@ -33,7 +33,7 @@ def generate(filename, basedir):
                 'BeeWare Bronze Membership': 'bronze',
                 'BeeWare Silver Membership': 'silver',
                 'BeeWare Gold Membership': 'gold',
-            }.get(line[0], 'other')
+            }.get(line[1], 'other')
 
             if level != "professional":
                 email = "%s@******.com" % email.split("@")[0]
