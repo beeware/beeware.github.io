@@ -55,7 +55,7 @@ def get_files(root_path, extensions=('.html',)):
     for dirname, subdirlist, filelist in os.walk(root_path):
         for fname in filelist:
             if fname.endswith(extensions):
-                print('.', end='')
+                print('.', end='', flush=True)
                 fpath = os.path.join(dirname, fname)
                 all_paths.append(fpath)
 
@@ -110,7 +110,7 @@ def check_link(url, root_url, root_path):
                 status = 200
             else:
                 r = requests.get(url, headers=headers, timeout=TIMEOUT)
-                content = r.content
+                content = r.text
                 status = r.status_code
         else:
             r = requests.head(url, headers=headers, timeout=TIMEOUT)
@@ -155,15 +155,18 @@ def run_link_checks(root_path, root_url):
     file_paths = get_files(root_path)
     file_links = {}
 
+    print('\n\nFound {} files!'.format(len(file_paths)))
     print('\n\nParsing built files for links:\n')
-    for i, fpath in enumerate(file_paths):
+    for i, fpath in enumerate(file_paths, start=1):
         # print('\n')
         # print(i, fpath)
-        print('.', end='')
+        print('.', end='', flush=True)
+        if i % 100 == 0:
+            print(" {}".format(i))
         file_links[fpath] = set()
         links = parse_urls(fpath, root_url)
         for link in links:
-            # print('.', end='')
+            # print('.', end='', flush=True)
             file_links[fpath].add(link)
 
     link_files = {}
@@ -178,7 +181,7 @@ def run_link_checks(root_path, root_url):
     print('\n\nFound {0} unique link{1}!\n'.format(issues, plural))
     print('\nChecking links\n'.format(issues, plural))
     counter = 0
-    for i, link in enumerate(sorted(link_files)):
+    for i, link in enumerate(sorted(link_files), start=1):
         # Ignore `edit content on github` links as they would take too long
         if any(link.startswith(i) for i in WHITELIST):
             continue
@@ -209,7 +212,9 @@ def run_link_checks(root_path, root_url):
             counter += 1
             print('\n')
         else:
-            print('.', end='')
+            print('.', end='', flush=True)
+            if i % 100 == 0:
+                print(" {}".format(i))
 
     return counter
 
@@ -236,7 +241,7 @@ def main():
     print('\nBuilding static site:\n')
     for p, stdout in execute(cmd):
         if stdout and not finished_build:
-            print('.', end='')
+            print('.', end='', flush=True)
 
         if 'Finished build' in stdout:
             finished_build = True
