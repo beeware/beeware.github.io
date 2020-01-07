@@ -25,7 +25,7 @@ jobs:
         lektor build --no-prune
     - name: Publish site
       env:
-        LEKTOR_DEPLOY_USERNAME=brutusthebee
-        LEKTOR_DEPLOY_PASSWORD=${{ secrets.LEKTOR_DEPLOY_PASSWORD }}
+        LEKTOR_DEPLOY_USERNAME: brutusthebee
+        LEKTOR_DEPLOY_PASSWORD: ${{ secrets.LEKTOR_DEPLOY_PASSWORD }}
       run: |
         lektor deploy ghpages-https
