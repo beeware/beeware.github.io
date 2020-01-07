@@ -77,17 +77,30 @@ to date with the original branch. To do this:
 Translating
 -----------
 
-Want to make BeeWare more accessible to non-English-speakers?  Help translate the site!  Steps are as follows:
+Want to make BeeWare more accessible to non-English-speakers?  Help translate
+the site!  Steps are as follows:
 
-1. Add language specification to `BeeWare.lektorproject <https://github.com/beeware/beeware.github.io/blob/lektor/BeeWare.lektorproject>`_.
+1. Add language specification to `BeeWare.lektorproject
+   <https://github.com/beeware/beeware.github.io/blob/lektor/BeeWare.lektorproject>`_.
 
-   Fill out the name of the language, its url prefix, and the locale. Make sure you use the correct `ISO 639-1 <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`_ locale code - for many countries, it's not the same as
-   the national TLD. For example, the ISO 639-1 Danish locale is 'da', but Denmark uses the '.dk' TLD.
+   Fill out the name of the language, its url prefix, and the locale. Make sure
+   you use the correct `ISO 639-1
+   <https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes>`_ locale code - for
+   many countries, it's not the same as the national TLD. For example, the ISO
+   639-1 Danish locale is 'da', but Denmark uses the '.dk' TLD.
 
-2. Add an entry for your language to the `Atom configuration <https://github.com/beeware/beeware.github.io/blob/lektor/configs/atom.ini>`_.
+2. Add an entry for your language to the `Atom configuration
+   <https://github.com/beeware/beeware.github.io/blob/lektor/configs/atom.ini>`_.
 
-3. Add your first translation, by translating the names for the menus at the top of each page. Edit `the menus translation file <https://github.com/beeware/beeware.github.io/blob/lektor/databags/menu.ini>`_, adding a block for your language.
+3. Add your first translation, by translating the names for the menus at the
+   top of each page. Edit `the menus translation file
+   <https://github.com/beeware/beeware.github.io/blob/lektor/databags/menu.ini>`_,
+   adding a block for your language.
 
-4. Start adding translations for content pages ont he site. Translated files are at the same directory level as the primary English files, but have a language suffix. For example, Arabic's locale is 'ar', so you would add `contents+ar.lr` wherever the original file name is `contents.lr`
+4. Start adding translations for content pages ont he site. Translated files
+   are at the same directory level as the primary English files, but have a
+   language suffix. For example, Arabic's locale is 'ar', so you would add
+   `contents+ar.lr` wherever the original file name is `contents.lr`
 
-A great place to start translating is the `contributing section <https://beeware.org/contributing/>`_.
+A great place to start translating is the `contributing section
+<https://beeware.org/contributing/>`_.
