@@ -1,13 +1,9 @@
 name: CI
 on:
   pull_request:
-  push:
-    branches:
-      - master
 
 jobs:
   check-links:
-    if: github.event_name == 'pull_request'
     name: Check links
     runs-on: ubuntu-latest
     steps:
@@ -24,29 +20,3 @@ jobs:
     - name: Check links
       run: |
         python scripts/check_links.py
-
-  build:
-    name: Build and publish site
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - name: Set up Python
-      uses: actions/setup-python@v1
-      with:
-        python-version: "3.X"
-    - name: Install dependencies
-      run: |
-        pip install --upgrade pip
-        pip install --upgrade setuptools
-        pip install lektor pygments
-    - name: Build site
-      run: |
-        lektor plugins reinstall
-        lektor build --no-prune
-    - name: Publish site
-      if: github.event_name == 'push'
-      env:
-        LEKTOR_DEPLOY_USERNAME=brutusthebee
-        LEKTOR_DEPLOY_PASSWORD=${{ secrets.LEKTOR_DEPLOY_PASSWORD }}
-      run: |
-        lektor deploy ghpages-https

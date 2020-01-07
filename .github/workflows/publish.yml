@@ -1,0 +1,31 @@
+name: Publish
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    name: Publish site
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: "3.X"
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install --upgrade setuptools
+        pip install lektor pygments
+    - name: Build site
+      run: |
+        lektor plugins reinstall
+        lektor build --no-prune
+    - name: Publish site
+      env:
+        LEKTOR_DEPLOY_USERNAME=brutusthebee
+        LEKTOR_DEPLOY_PASSWORD=${{ secrets.LEKTOR_DEPLOY_PASSWORD }}
+      run: |
+        lektor deploy ghpages-https
