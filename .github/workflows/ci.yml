@@ -1,0 +1,52 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  check-links:
+    if: github.event_name == 'pull_request'
+    name: Check links
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.X'
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install --upgrade setuptools
+        pip install beautifulsoup4 lektor pygments requests
+    - name: Check links
+      run: |
+        python scripts/check_links.py
+
+  build:
+    name: Build site
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install --upgrade setuptools
+        pip install lektor pygments
+    - name:
+      run: |
+        lektor plugins reinstall
+        lektor build --no-prune
+    - name:
+      if: github.event_name == 'push'
+      env:
+        LEKTOR_DEPLOY_USERNAME=brutusthebee
+        LEKTOR_DEPLOY_PASSWORD=${{ secrets.LEKTOR_DEPLOY_PASSWORD }}
+      run: |
+        lektor deploy ghpages-https
