@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
-"""This is a custom local plugin to ad extra functionality to pybee site."""
+"""This is a custom local plugin to ad extra functionality to BeeWare site."""
 
 # Standard library imports
 from datetime import datetime
 import os
-import urllib
 import subprocess
 import sys
+from urllib.parse import quote_plus
 
 # Third party imports
 from lektor.pluginsystem import Plugin
@@ -21,8 +21,8 @@ from pygments.styles import get_all_styles
 PY3 = sys.version_info[0] == 3
 
 
-class PyBeePlugin(Plugin):
-    name = 'PyBee Custom Lektor Plugin'
+class BeeWarePlugin(Plugin):
+    name = 'BeeWare Custom Lektor Plugin'
     description = 'This is a custom local plugin to add extra functionality.'
 
     DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
@@ -84,8 +84,7 @@ class PyBeePlugin(Plugin):
                 stdout, stderr = execute(cmd)
 
                 if stdout:
-                    diff = unicode(stdout, 'utf-8')
-                    html_diff = highlight(diff, lexers.DiffLexer(),
+                    html_diff = highlight(stdout, lexers.DiffLexer(),
                                           HtmlFormatter())
 
                     # print(' '.join(cmd))
@@ -186,7 +185,7 @@ class PyBeePlugin(Plugin):
 
             if len(string) <= limit:
                 string = string.encode('utf8')
-                string = urllib.quote_plus(string)
+                string = quote_plus(string)
                 string = Markup(string)
             else:
                 string = None
