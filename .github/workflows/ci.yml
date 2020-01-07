@@ -26,7 +26,7 @@ jobs:
         python scripts/check_links.py
 
   build:
-    name: Build site
+    name: Build and publish site
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -39,11 +39,11 @@ jobs:
         pip install --upgrade pip
         pip install --upgrade setuptools
         pip install lektor pygments
-    - name:
+    - name: Build site
       run: |
         lektor plugins reinstall
         lektor build --no-prune
-    - name:
+    - name: Publish site
       if: github.event_name == 'push'
       env:
         LEKTOR_DEPLOY_USERNAME=brutusthebee
