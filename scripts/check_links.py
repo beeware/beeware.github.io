@@ -239,7 +239,7 @@ def main():
     count = 0
     finished_build = False
     print('\nBuilding static site:\n')
-    for p, stdout in execute(cmd):
+    for i, (p, stdout) in enumerate(execute(cmd), start=True):
         if stdout and not finished_build:
             print('.', end='', flush=True)
 
@@ -251,6 +251,9 @@ def main():
             # Kill the server
             p.kill()
             break
+
+        if i % 100 == 0:
+            print(" {}".format(i))
 
     # Remove build folder
     if os.path.isdir(temp_build_path):
