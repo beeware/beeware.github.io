@@ -76,8 +76,8 @@
           </div>
         </div>
       </div>
-#}
       <hr/>
+#}
 
       <h3><a href="{{ '/news/buzz/'|url(alt=this.alt) }}">{{ t_latest_news }}</a></h3>
       {% set blog = site.query('/news/buzz', alt=this.alt).all() %}
@@ -125,7 +125,7 @@
     {%   for project in site.query(project_type.path, alt=this.alt).filter(F.showcase==True) %}
     <div>
       <h4><a href="{{ project|url(alt=this.alt) }}"><img src="{{ site.get(project.path)|url }}{{ project.image }}" height="32px" alt="{{ project.name }}"> {{ project.name }}</h4></a>
-      {{ project.short_description|string|wordwrap(width=40, wrapstring='<br>')|safe }}
+      {{ project.short_description|safe }}
     </div>
     {%   endfor %}
     {% endfor %}
@@ -138,6 +138,10 @@
 <div class="row" style="background-color: #e9ecef;">
   <div class="col-sm-12 d-block d-sm-none gutter">
     {{ this.gutter_top }}
+{#
+  Mar 30 2019: Removed the sponsors block because there's no current sponsors.
+  However, any site redesign needs to keep a place for it.
+
     <div id="carousel-members" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carousel-members" data-slide-to="0" class="active"></li>
@@ -151,7 +155,7 @@
     </div>
 
     <hr/>
-
+#}
     <h3><a href="{{ '/news/buzz/'|url(alt=this.alt) }}">{{ t_latest_news }}</a></h3>
     {% set blog = site.query('/news/buzz', alt=this.alt).all() %}
     <p><a href="{{ blog[0]|url(alt=this.alt) }}">{{ blog[0].pub_date.strftime("%d %b")}}: {{ blog[0].title }}</a></p>
@@ -198,7 +202,7 @@
     {%   for project in site.query(project_type.path, alt=this.alt).filter(F.showcase==True) %}
     <div>
       <h4><a href="{{ project|url(alt=this.alt) }}"><img src="{{ site.get(project.path)|url }}{{ project.image }}" height="32px" alt="{{ project.name }}"> {{ project.name }}</h4></a>
-      {{ project.short_description|string|wordwrap(width=40, wrapstring='<br>')|safe }}
+      {{ project.short_description|safe }}
     </div>
     {%   endfor %}
     {% endfor %}
