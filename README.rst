@@ -16,13 +16,13 @@ submit a pull request. However, **do not fork the master branch** - fork the
 .. _lektor branch: https://github.com/beeware/beeware.github.io/tree/lektor
 
 If you want to test out a change before you submit it, create a virtual 
-environment, and install `Lektor`_:
+environment, and install `Lektor`_::
 
     $ python3 -m venv venv
     $ source venv/bin/activate
     (venv) $ python -m pip install lektor
 
-Then from the root directory of the checkout, run:
+Then from the root directory of the checkout, run::
 
     (venv) $ lektor server
 
