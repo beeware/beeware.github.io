@@ -1,4 +1,10 @@
 # -*- coding: utf-8 -*-
+
+"""
+This is an updated copy of lektor-atom plugin
+wich replace deprecated Werkzeug's atom with Pelican's feedgenerator .
+"""
+
 import sys
 import hashlib
 import uuid
@@ -130,11 +136,14 @@ class AtomFeedBuilderProgram(BuildProgram):
                 item_author = get(item, item_author_field) or blog_author
 
                 feed.add_item(title=get_item_title(item, feed_source.item_title_field),
-                              content=get_item_body(item, feed_source.item_body_field),
+                              content=get_item_body(
+                                  item, feed_source.item_body_field),
                               link=url_to(item, external=True),
-                              unique_id=get_id(u'%s/%s' % (ctx.env.project.id, item['_path'].encode('utf-8'))),
+                              unique_id=get_id(
+                                  u'%s/%s' % (ctx.env.project.id, item['_path'].encode('utf-8'))),
                               author_name=item_author,
-                              updateddate=get_item_updated(item, feed_source.item_date_field),
+                              updateddate=get_item_updated(
+                                  item, feed_source.item_date_field),
                               description=None)
             except Exception as exc:
                 msg = '%s: %s' % (item['_id'], exc)
