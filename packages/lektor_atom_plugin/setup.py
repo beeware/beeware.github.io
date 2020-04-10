@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
-
-"""
-This is an updated copy of lektor-atom plugin
-wich replace deprecated Werkzeug's atom with Pelican's feedgenerator .
-"""
+# This is an updated copy of lektor-atom plugin
+# which replaces the deprecated Werkzeug's atom with Pelican's feedgenerator.
 
 from setuptools import setup
 
