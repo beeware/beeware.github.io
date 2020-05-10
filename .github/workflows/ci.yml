@@ -16,7 +16,8 @@ jobs:
       run: |
         pip install --upgrade pip
         pip install --upgrade setuptools
-        pip install beautifulsoup4 lektor pygments requests
+        pip install lektor pygments
     - name: Check links
       run: |
-        python scripts/check_links.py
+        lektor plugins reinstall
+        lektor build --no-prune
