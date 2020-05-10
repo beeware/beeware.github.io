@@ -163,16 +163,50 @@ Início
   
     <p>The best place to start with any open source contribution is with something that
 fits your knowledge, experience, and area of interest.</p>
-<div class="section" id="python">
-<h2>Python</h2>
-<p>If you're a Python programmer, and like the idea of a very well specified, but
-complex problem, <a class="reference external" href="https://github.com/beeware/colosseum">Colosseum</a> is a good
-place to contribute. Colosseum is a pure-Python, browser implementation of the
-CSS layout algorithm. BeeWare uses it to lay out widgets on the screen of an
-application. The CSS specification has an extensive test suite; Colosseum needs
-to pass all those tests.</p>
+<div class="section" id="before-you-begin">
+<h2>Before you begin</h2>
+<p>Before you start contributing, it can help to get a feel for the project as a
+whole. If you haven't already done the <a class="reference external" href="https://docs.beeware.org">BeeWare Tutorial</a>, start there. This will give you exposure to the
+most important BeeWare tools, so you can see how they all fit together.</p>
+<p>Once you've completed that tutorial, you'll be ready to pick something to work
+on. If you had any problems <em>doing</em> the tutorial - if you hit a bug, or if the
+language used to describe a step wasn't clear - <em>that's a great place to
+start</em>! If you can turn your experience into an improvement in the tutorial,
+the next person who does the turorial won't hit the same problem.</p>
+<p>However, if your tutorial experience was completely smooth (and we hope it
+was!), here are some ideas for where to get involved, depending on your skills
+and interests.</p>
+</div>
+<div class="section" id="python-programming">
+<h2>Python programming</h2>
+<div class="section" id="briefcase">
+<h3>Briefcase</h3>
+<p>If you'd like to contribute to a tool that has a clearly defined problem
+statement, but needs bugs squashed and features added, <a class="reference external" href="https://github.com/beeware/briefcase">Briefcase</a> may be the project for you. Briefcase
+is a tool for packaging a Python project as a standalone GUI application. It
+takes a <cite>pyproject.toml</cite> configuration file, and uses that configuration data
+to generate installers or distributable application bundles.</p>
+<p>The Briefcase <a class="reference external" href="https://github.com/beeware/briefcase/issues">issue tracker</a>
+has a collection of feature suggestions (and a smaller number of bugs). If this
+is your first time contributing, look for one of the tickets labelled
+<tt class="docutils literal"><span class="pre">first-timers-only</span></tt> - these are issues that have been specifically picked for
+first time contributors because they should be relatively straightforward to
+implement. You may also find it helpful to filter the tickets for the platform
+you actually use for development - it will be difficult to fix a Linux bug if
+you don't have a Linux machine to use for testing!</p>
+<p>Pick a ticket, leave a comment that you're looking into the problem, and try
+to develop a pull request implementing a fix!</p>
+</div>
+<div class="section" id="colosseum">
+<h3>Colosseum</h3>
+<p>If you like the idea of a very well specified, but complex problem, <a class="reference external" href="https://github.com/beeware/colosseum">Colosseum</a> is a good place to contribute.
+Colosseum is a pure-Python, browser implementation of the CSS layout algorithm.
+BeeWare uses it to lay out widgets on the screen of an application. The CSS
+specification has an extensive test suite; Colosseum needs to pass all those
+tests.</p>
 <p>The Colosseum documentation has a <a class="reference external" href="https://colosseum.readthedocs.io/en/latest/how-to/contribute.html">contribution guide</a> to walk
 you through your first Colosseum contribution.</p>
+</div>
 </div>
 <div class="section" id="gui-programming">
 <h2>GUI programming</h2>
@@ -185,30 +219,23 @@ buttons and trees.</p>
 those interfaces isn't complete across all platforms. Pick a widget, and
 implement that widget for your platform of choice!</p>
 <p>Even if you <em>don't</em> know a native widget library, you may still be able to help
-with Toga. Toga's core library has a test suite, but the coverage of that test
-suite isn't very good. Pick a widget interface, and see if you can write a test
-for it!</p>
+with Toga. Writing new widgets is a lot less complicated than it may seem.
+Every platform has documentation for how to use their native APIs, and the
+process of translating that platform documentation from another langauge (e.g.,
+Objective C or C#) is a relatively straightforward process. The existing code
+should give you some pointers of how this can be done, and the BeeWare team is
+happy to help if you need it. Jump on the <a class="reference external" href="https://gitter.im/beeware/general">BeeWare Gitter channel</a> and we'll do whatever we can to help!</p>
+<p>If you're not up for transforming code from one language to another - there's
+alwasy the test suite. Toga's core library also has a test suite, but the
+coverage of that test suite isn't very good. Pick a widget interface, and see
+if you can write a test for it!</p>
 </div>
-<div class="section" id="android-and-java">
-<h2>Android and Java</h2>
-<p>If you have an Android phone, or you're interested in developing code that needs
-to run on the JVM, VOC is a fantastic place to contribute. In order for VOC to
-function, all the functionality of CPython that is implemented in C needs to be
-re-implemented in Java. As a result, there are lots of very approachable and
-well-contained tasks suitable for first time contributors.</p>
-<p>The VOC documentation has a <a class="reference external" href="https://voc.readthedocs.io/en/latest/how-to/contribute-code.html">contribution guide</a> to walk you
-through your first VOC contribution.</p>
-</div>
-<div class="section" id="javascript-and-browsers">
-<h2>JavaScript and Browsers</h2>
-<p>Alternatively, if you're a web developer who would like to use Python in the
-browser, Batavia may be for you. Just as with VOC,  Batavia requires an
-implementation of all the functionality of CPython that is implemented in C;
-however, Batavia needs that implementation in JavaScript.</p>
-<p>Again, this results in lots of very approachable and well-contained tasks
-suitable for first time contributors.</p>
-<p>The Batavia documentation has a <a class="reference external" href="https://batavia.readthedocs.io/en/latest/how-to/contribute-code.html">contribution guide</a> to walk you
-through your first Batavia contribution.</p>
+<div class="section" id="documentation">
+<h2>Documentation</h2>
+<p>Good documentation is essential for any successful project. We know that <a class="reference external" href="https://github.com/beeware/toga">Toga</a> and <a class="reference external" href="https://github.com/beeware/briefcase">Briefcase</a> both need significant improvements to
+their documentation. You've done the tutorial; now take a look at the
+documentation for <a class="reference external" href="https://toga.readthedocs.io">Toga</a> and <a class="reference external" href="https://briefcase.readthedocs.io">Briefcase</a> and see if you can find a way to improve
+the tutorials, references and topics guides that are there.</p>
 </div>
 <div class="section" id="tutorials">
 <h2>Tutorials</h2>
@@ -241,6 +268,22 @@ encoding or left-to-right conventions. Pick any of the active BeeWare projects,
 and try to use it with using your native language. If you hit any problems,
 report those problems as bugs; if you are feeling particularly adventurous, see
 if you can work out how to <em>fix</em> the bug, too.</p>
+</div>
+<div class="section" id="practical-usage">
+<h2>Practical usage</h2>
+<p>One of the best ways for us to determine where our gaps are - in both
+documentation and APIs - is for people to actually use BeeWare to build
+something. So, if none of the ideas so far sound interesting, why not try
+something of your own? Use the BeeWare suite to build that app you've always
+wanted - a desktop visualization of a data source, or a mobile application
+to track your activities - whatever it is, try to build it.</p>
+<p>We can almost guarantee that you'll hit problems. BeeWare is a still a very
+young project. But the problems you hit will give us a great indication of
+what needs to be tackled. It will indicate what widgets we need, and what
+documentation needs to be improved. So, as you hit problems building your own
+app, log issues with the BeeWare projects that caused problems. This will
+enable us to identify what we need to improve - and, it might even be a source
+of inspiration for you to contribute!</p>
 </div>
 
     
