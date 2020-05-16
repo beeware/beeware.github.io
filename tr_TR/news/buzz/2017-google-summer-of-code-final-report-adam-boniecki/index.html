@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>2017 Google Summer of Code - Batavia improvements— BeeWare</title>
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/brutus-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/brutus-72.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/brutus-57.png">
+    <link rel="shortcut icon" href="/static/images/brutus-32.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/grid.min.css">
+
+    <!-- Project CSS -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cutive">
+    <link rel="stylesheet" type="text/css" href="/static/beeware.css"><!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/1138bd8363.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2943925-4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2943925-4');
+    </script></head>
+  <body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="nav-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarsDefault">
+    <div class="navbar-brand-block"><a class="navbar-brand" href="/tr_TR/">BeeWare</a></div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+    <a class="nav-link" href="/tr_TR/project/">
+Project
+</a>
+  </li>
+      <li class="nav-item active">
+    <a class="nav-link" href="/tr_TR/news/">
+News
+<span class="sr-only">(current)</span></a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/tr_TR/community/">
+Community
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/tr_TR/contributing/">
+Contributing
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/tr_TR/contact/">
+Contact
+</a>
+  </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contributing/membership/">
+          
+Donate
+
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/new/lektor/content/news/buzz/2017-google-summer-of-code-final-report-adam-boniecki/contents%2Btr.lr?filename=contents%2Btr.lr&value=title%3A+2017+Google+Summer+of+Code+-+Batavia+improvements%0A---%0Aauthor%3A+Adam+Boniecki%0A---%0Abody%3A%0A%0AWith+Google+Summer+of+Code+2017+program+nearing+its+end%2C+it+is+time+to+summarize+what+I+got+done+during+the+summer+working+on+%60Batavia+%3C%2Fproject%2Fprojects%2Fbridges%2Fbatavia%2F%3E%60__.%0A%0ABatavia+is+a+part+of+BeeWare%27s+collection+of+projects.+As+it+is+still+in+its+early+stage+of+development%2C+for+my+part+I+offered+to+implement+a+number+of+features+missing+from+Batavia%2C+ranging+from+elemental+data+types%2C+through+JSON+manipulation+and+language+constructs+such+as+generators.+I+posted+my+proposal+in+%60this+GitHub+thread+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fissues%2F483%3E%60__+and+kept+it+updated+with+my+progress+on+a+weekly+basis.%0A%0ANote+that+by+the+end+of+GSoC%2C+we+have+decided+to+diverge+from+the+proposal+and+forgo+implementation+of+%60contextlib%60+in+favor+of+support+for+Python+3.6+2-byte+wide+opcodes.%0A%0AOverall+it+was+great+learning+experience+and+fun.+Big+thanks+to+my+mentors+Russell+Keith-Magee+and+Katie+McLaughlin%2C+and+the+whole+BeeWare+community.%0A%0APull+Requests%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0ALists+and+dicts%0A----------------%0A-+%60Pop%2C+remove+and+insert+methods+for+lists+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fpull%2F518%3E%60__%0A-+%60Pop%2C+popitem%2C+fromkeys+and+setdefault+for+dicts+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fpull%2F560%3E%60__%0A%0AJSON+module%0A------------%0A-+%60Encoding+JSON+%28JSONEncoder%2C+dump+and+dumps%29+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fpull%2F577%3E%60__%0A-+%60Decoding+JSON+%28JSONDecoder%2C+parse%29+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fpull%2F586%3E%60__%0A-+%60Bug+fix+regarding+cricket+and+test+generation+for+JSONEncoder+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fpull%2F589%3E%60__%0A%0AGenerators%0A-----------%0A-+%60Fix+numerous+existing+bugs+in+Batavia%27s+generators+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fpull%2F590%3E%60__%0A-+%60yield+from+implementation+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fpull%2F592%3E%60__%0A-+%60Support+for+yield+from+in+Python+3.5%2B+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fpull%2F599%3E%60__%0A-+%60Bug+fix+for+yield+from+and+Python+3.6%2B+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fpull%2F646%3E%60__%0A%0A%60with%60+statement%0A-----------------%0A-+%60SETUP_WITH+and+WITH_CLEANUP+opcodes+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fpull%2F594%3E%60__%0A-+%60WITH_CLEANUP_START+and+WITH_CLEANUP_FINISH+for+Python+3.5%2B+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fpull%2F620%3E%60__%0A%0APython+3.6+compatibility%0A-------------------------%0A-+%60Support+for+2-byte+wide+opcodes+%28Python+3.6%2B%29+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fpull%2F621%3E%60__%0A-+%60Fix+discrepancies+in+numerous+error+messages+across+Python+versions+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fpull%2F643%3E%60__+%28open+PR%29%0A%0ASome+other+bug+fixes+done+in+the+meantime%0A------------------------------------------%0A-+https%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fpull%2F566%0A-+https%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fpull%2F597%0A-+https%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fpull%2F623%0A-+https%3A%2F%2Fgithub.com%2Fbeeware%2Fbatavia%2Fpull%2F565%0A%0A---%0Apub_date%3A+2017-08-23%0A---%0A" target="_blank">
+            <i class="fa fa-github "></i><small>&nbsp;
+Translate on GitHub
+</small>
+          </a></li>
+     <li class="nav-item dropdown dropdown-pull-right">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item " href="/news/buzz/2017-google-summer-of-code-final-report-adam-boniecki/">
+          English&nbsp;<small>(<i>English</i>)</small></a><a class="dropdown-item " href="/ar_AR/news/buzz/2017-google-summer-of-code-final-report-adam-boniecki/">
+          
+العَرَبِيَّة
+<small>(<i>العَرَبِيَّة</i>)</small></a><a class="dropdown-item " href="/cs_CZ/news/buzz/2017-google-summer-of-code-final-report-adam-boniecki/">
+          
+None
+<small>(<i>None</i>)</small></a><a class="dropdown-item " href="/da_DK/news/buzz/2017-google-summer-of-code-final-report-adam-boniecki/">
+          
+Danish
+<small>(<i>Danish</i>)</small></a><a class="dropdown-item " href="/de_DE/news/buzz/2017-google-summer-of-code-final-report-adam-boniecki/">
+          
+Deutsche
+<small>(<i>Deutsche</i>)</small></a><a class="dropdown-item " href="/es/noticias/zumbido/2017-google-summer-of-code-informe-final-adam-boniecki/">
+          
+Español
+<small>(<i>Español</i>)</small></a><a class="dropdown-item " href="/fr_FR/news/buzz/2017-google-summer-of-code-final-report-adam-boniecki/">
+          
+Français
+<small>(<i>Français</i>)</small></a><a class="dropdown-item " href="/ko_KR/news/buzz/2017-google-summer-of-code-final-report-adam-boniecki/">
+          
+한국어
+<small>(<i>한국어</i>)</small></a><a class="dropdown-item " href="/pt_BR/news/buzz/2017-google-summer-of-code-final-report-adam-boniecki/">
+          
+Português
+<small>(<i>Português</i>)</small></a><a class="dropdown-item active" href="/tr_TR/news/buzz/2017-google-summer-of-code-final-report-adam-boniecki/">
+          
+None
+</a><a class="dropdown-item " href="/zh_TW/news/buzz/2017-google-summer-of-code-final-report-adam-boniecki/">
+          
+漢語
+<small>(<i>漢語</i>)</small></a></div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+    <div class="content">
+<div class="banner">
+  <div class="container">
+    <p>
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  <a href="/tr_TR/">
+Home
+</a>
+  
+ >
+  <a href="/tr_TR/news/">News</a>
+  
+ >
+  <a href="/tr_TR/news/buzz/">The Buzz</a>
+  
+</p>
+    <h1>2017 Google Summer of Code - Batavia improvements</h1>
+    <p>
+Posted by
+
+        
+        Adam Boniecki
+        
+        
+on
+ 2017/08/23
+    </p>
+  </div>
+</div>
+<div class="container">
+<div class="row-fluid">
+  <div class="col-sm-12 col-md-10 col-lg-8" >
+  
+
+  
+  
+
+  
+  <p>With Google Summer of Code 2017 program nearing its end, it is time to summarize what I got done during the summer working on <a class="reference external" href="/project/projects/bridges/batavia/">Batavia</a>.</p>
+<p>Batavia is a part of BeeWare's collection of projects. As it is still in its early stage of development, for my part I offered to implement a number of features missing from Batavia, ranging from elemental data types, through JSON manipulation and language constructs such as generators. I posted my proposal in <a class="reference external" href="https://github.com/beeware/batavia/issues/483">this GitHub thread</a> and kept it updated with my progress on a weekly basis.</p>
+<p>Note that by the end of GSoC, we have decided to diverge from the proposal and forgo implementation of <cite>contextlib</cite> in favor of support for Python 3.6 2-byte wide opcodes.</p>
+<p>Overall it was great learning experience and fun. Big thanks to my mentors Russell Keith-Magee and Katie McLaughlin, and the whole BeeWare community.</p>
+<div class="section" id="pull-requests">
+<h2>Pull Requests</h2>
+<div class="section" id="lists-and-dicts">
+<h3>Lists and dicts</h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/518">Pop, remove and insert methods for lists</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/560">Pop, popitem, fromkeys and setdefault for dicts</a></li>
+</ul>
+</div>
+<div class="section" id="json-module">
+<h3>JSON module</h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/577">Encoding JSON (JSONEncoder, dump and dumps)</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/586">Decoding JSON (JSONDecoder, parse)</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/589">Bug fix regarding cricket and test generation for JSONEncoder</a></li>
+</ul>
+</div>
+<div class="section" id="generators">
+<h3>Generators</h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/590">Fix numerous existing bugs in Batavia's generators</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/592">yield from implementation</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/599">Support for yield from in Python 3.5+</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/646">Bug fix for yield from and Python 3.6+</a></li>
+</ul>
+</div>
+<div class="section" id="with-statement">
+<h3><cite>with</cite> statement</h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/594">SETUP_WITH and WITH_CLEANUP opcodes</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/620">WITH_CLEANUP_START and WITH_CLEANUP_FINISH for Python 3.5+</a></li>
+</ul>
+</div>
+<div class="section" id="python-3-6-compatibility">
+<h3>Python 3.6 compatibility</h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/621">Support for 2-byte wide opcodes (Python 3.6+)</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/643">Fix discrepancies in numerous error messages across Python versions</a> (open PR)</li>
+</ul>
+</div>
+<div class="section" id="some-other-bug-fixes-done-in-the-meantime">
+<h3>Some other bug fixes done in the meantime</h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/566">https://github.com/beeware/batavia/pull/566</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/597">https://github.com/beeware/batavia/pull/597</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/623">https://github.com/beeware/batavia/pull/623</a></li>
+<li><a class="reference external" href="https://github.com/beeware/batavia/pull/565">https://github.com/beeware/batavia/pull/565</a></li>
+</ul>
+</div>
+</div>
+
+
+  </div>
+  <div class="hidden-sm-down col-md-2 col-lg-4"></div>
+
+  <div class="col-sm-12 col-md-4 gutter">
+    <dl>
+      
+      <dt>
+Next entry
+</dt>
+      <dd><a href="/tr_TR/news/buzz/2017-google-summer-of-code-final-report-dayanne-fernandes/">2017 Google Summer of Code - Port Cricket to use Toga, instead of Tkinter</a></dd>
+      
+
+      
+      <dt>
+Previous entry
+</dt>
+      <dd><a href="/tr_TR/news/buzz/2017-google-summer-of-code-final-report-jonas-schell/">2017 Google Summer of Code - Testing Toga/Settings API</a></dd>
+      
+    </dl>
+  </div></div>
+</div>
+    </div>
+
+    <footer class="footer">
+      <div class="container text-muted">
+	      <div class="d-block d-sm-none copyright">&copy; Russell Keith-Magee 2020</div>
+	      <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee 2020</div>
+        <p class="d-sm-block d-none">
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/beeware/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
+          <a href="/tr_TR/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+        <p class="d-block d-sm-none footer-social">
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/beeware/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a>
+        </p>
+        <p class="d-block d-sm-none footer-sitemap">
+          <a href="/tr_TR/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+    <script src="/static/tether-1.3.3/js/tether.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script></body>
+</html>
