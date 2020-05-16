@@ -118,9 +118,6 @@
           {%- set eng_active = this.alt == 'en' %}
           <a class="dropdown-item {% if eng_active %}active{% endif %}" href="{{ '.'|url(alt='en') }}">
           English
-          {%- if this.alt != 'en' -%}
-          &nbsp;<small>(<i>{{ transbag('translate', this.alt, 'english' )|trim }}</i>)</small>
-          {%- endif -%}
           </a>
 
           {%- for alt, alternative in config.ALTERNATIVES.items()|sort -%}
@@ -128,9 +125,6 @@
           {%- if alt != config.primary_alternative -%}
           <a class="dropdown-item {% if alt_active %}active{% endif %}" href="{{ '.'|url(alt=alt) }}">
           {{ transbag('translate', alt, alternative.name.en.lower()) }}
-          {%- if this.alt != alt -%}
-          <small>(<i>{{ transbag('translate', this.alt, alternative.name.en.lower())|trim }}</i>)</small>
-          {%- endif -%}
           </a>
           {%- endif -%}
           {%- endfor -%}
