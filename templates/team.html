@@ -8,8 +8,7 @@
   </div>
 </div>
 <h2>Current team</h2>
-{% for child in this.children %}
-  {% if not child.emeritus %}
+{% for child in this.children.filter(F.emeritus_date == null) %}
 <div class="row team">
   <div class="col-xs-12 col-sm-7 col-md-7 col-lg-8 col-xl-9">
     <h3>{{ child.name }}</h3>
@@ -19,11 +18,9 @@
     {{ member_badge(child) }}
   </div>
 </div>
-  {% endif %}
 {% endfor %}
 <h2>Emeritus team members</h2>
-{% for child in this.children %}
-  {% if child.emeritus %}
+{% for child in this.children.filter(F.emeritus_date != null).order_by('emeritus_date') %}
 <div class="row team">
   <div class="col-xs-12 col-sm-7 col-md-7 col-lg-8 col-xl-9">
     <h3>{{ child.name }}</h3>
@@ -33,6 +30,5 @@
     {{ member_badge(child) }}
   </div>
 </div>
-  {% endif %}
 {% endfor %}
 {% endblock %}
