@@ -99,7 +99,7 @@ the site!  Steps are as follows:
    <https://github.com/beeware/beeware.github.io/blob/lektor/databags/menu.ini>`_,
    adding a block for your language.
 
-4. Start adding translations for content pages ont he site. Translated files
+4. Start adding translations for content pages on the site. Translated files
    are at the same directory level as the primary English files, but have a
    language suffix. For example, Arabic's locale is 'ar', so you would add
    `contents+ar.lr` wherever the original file name is `contents.lr`
