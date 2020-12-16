@@ -1,13 +1,12 @@
 {%- from "macros/translation.html" import transbag -%}
 
 {%- macro menu_item(identifier) -%}
-{%- set identifier_url = '/' + identifier -%}
-{%- set trans_url = identifier_url|url(alt=this.alt) -%}
-{%- set this_is_child = this.is_child_of(identifier_url) -%}
-<li class="nav-item{% if this_is_child %} active{% endif %}">
-  <a class="nav-link" href="{{ trans_url }}">{{- transbag('menu', this.alt, identifier) -}}{%- if this_is_child -%}<span
-      class="sr-only">(current)</span>{%- endif -%}</a>
-</li>
+  {%- set identifier_url = '/' + identifier -%}
+  {%- set trans_url = identifier_url|url(alt=this.alt) -%}
+  {%- set this_is_child = this.is_child_of(identifier_url) -%}
+  <li class="nav-item{% if this_is_child %} active{% endif %}">
+    <a class="nav-link" href="{{ trans_url }}">{{- transbag('menu', this.alt, identifier) -}}{%- if this_is_child -%}<span class="sr-only">(current)</span>{%- endif -%}</a>
+  </li>
 {%- endmacro -%}
 
 {%- set t_languages = transbag('menu', this.alt, 'languages') -%}
@@ -22,277 +21,275 @@
 
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-<head>
-  <!-- Required meta tags always come first -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{%- block title %}{{- t_welcome -}}{% endblock -%} — BeeWare</title>
 
-  <title>{%- block title %}{{- t_welcome -}}{% endblock -%} — BeeWare</title>
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/brutus-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/brutus-72.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/brutus-57.png">
+    <link rel="shortcut icon" href="/static/images/brutus-32.png">
 
-  <!-- Fav and touch icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
-  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/brutus-114.png">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/brutus-72.png">
-  <link rel="apple-touch-icon-precomposed" href="/static/images/brutus-57.png">
-  <link rel="shortcut icon" href="/static/images/brutus-32.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/grid.min.css">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/grid.min.css">
+    <!-- Project CSS -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cutive">
+    <link rel="stylesheet" type="text/css" href="/static/beeware.css">
 
-  <!-- Project CSS -->
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cutive">
-  <link rel="stylesheet" type="text/css" href="/static/beeware.css">
+    {%- if diff -%}
+    <!-- Project CSS -->
+    {{- get_pygments_css_styles('default')|safe -}}
+    {%- endif -%}
 
-  {%- if diff -%}
-  <!-- Project CSS -->
-  {{- get_pygments_css_styles('default')|safe -}}
-  {%- endif -%}
+    {%- if this.alt == 'ar' -%}
+    <link rel="stylesheet" type="text/css" href="/static/rtl.css">
+    {%- endif -%}
 
-  {%- if this.alt == 'ar' -%}
-  <link rel="stylesheet" type="text/css" href="/static/rtl.css">
-  {%- endif -%}
+    <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/1138bd8363.js"></script>
 
-  <!-- Font Awesome -->
-  <script src="https://use.fontawesome.com/1138bd8363.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2943925-4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2943925-4"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+      gtag('config', 'UA-2943925-4');
+    </script>
 
-    gtag('config', 'UA-2943925-4');
-  </script>
+    {%- block extra_head -%}{%- endblock -%}
 
-  {%- block extra_head -%}{%- endblock -%}
-
-</head>
-
-<body>
+  </head>
+  <body>
 
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <div class="nav-top">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault"
-        aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-    <div class="collapse navbar-collapse" id="navbarsDefault">
-      <div class="navbar-brand-block"><a class="navbar-brand" href="{{ '/'|url(alt=this.alt) }}">BeeWare</a></div>
-      <ul class="navbar-nav mr-auto">
-        {{ menu_item('project') }}
-        {{ menu_item('news') }}
-        {{ menu_item('community') }}
-        {{ menu_item('contributing') }}
-        {{ menu_item('contact') }}
-        <li class="nav-item">
-          <a class="nav-link" href="/contributing/membership/">
-            {{ transbag('menu', this.alt, 'donate') }}
-          </a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        {%- set extra_slash = '/' if this.path[-1] != '/' else '' -%}
-        {%- set alt_path = '%2B' + this.alt if this.alt and this.alt != 'en' else '' -%}
-        <li class="nav-item">
-          {%- if this.alt in get_alts(source=this, fallback=False) -%}
-          {%- set edit_link = 'https://github.com/beeware/beeware.github.io/edit/lektor/content' +
-          this.path.split('@')[0] + extra_slash + 'contents' + alt_path + '.lr' -%}
-          <a class="nav-link" href="{{ edit_link }}" rel="noopener noreferrer" target="_blank">
-            <i class="fa fa-github "></i><small>&nbsp;{{ t_edit_on_github }}</small>
-          </a>
-          {%- else -%}
-          {# This method is provided by a custom plugin found in /packages/lektor_beeware_plugin/ #}
-          {%- set content_value = urlencode_limit(site.get(this.path).contents.as_text(), limit=5000) -%}
-          {%- if content_value and '@' not in this.path -%}
-          <a class="nav-link"
-            href="https://github.com/beeware/beeware.github.io/new/lektor/content{{ this.path }}/contents{{ alt_path }}.lr?filename=contents{{ alt_path }}.lr&value={{ content_value }}"
-            target="_blank">
-            <i class="fa fa-github "></i><small>&nbsp;{{ t_create_on_github }}</small>
-          </a>
-          {%- endif -%}
-          {%- endif -%}
-        </li>
-        <!--This css added for fix a bug for language menu modal creation
-              By: Gagan Aggarwal
-              Email: gaggarwal124@gmail.com -->
-        <style>
-          body {
-            font-family: Arial, Helvetica, sans-serif;
-          }
+  <div class="nav-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault"
+      aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarsDefault">
+    <div class="navbar-brand-block"><a class="navbar-brand" href="{{ '/'|url(alt=this.alt) }}">BeeWare</a></div>
+    <ul class="navbar-nav mr-auto">
+      {{ menu_item('project') }}
+      {{ menu_item('news') }}
+      {{ menu_item('community') }}
+      {{ menu_item('contributing') }}
+      {{ menu_item('contact') }}
+      <li class="nav-item">
+        <a class="nav-link" href="/contributing/membership/">
+          {{ transbag('menu', this.alt, 'donate') }}
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      {%- set extra_slash = '/' if this.path[-1] != '/' else '' -%}
+      {%- set alt_path = '%2B' + this.alt if this.alt and this.alt != 'en' else '' -%}
+      <li class="nav-item">
+        {%- if this.alt in get_alts(source=this, fallback=False) -%}
+        {%- set edit_link = 'https://github.com/beeware/beeware.github.io/edit/lektor/content' +
+        this.path.split('@')[0] + extra_slash + 'contents' + alt_path + '.lr' -%}
+        <a class="nav-link" href="{{ edit_link }}" rel="noopener noreferrer" target="_blank">
+          <i class="fa fa-github "></i><small>&nbsp;{{ t_edit_on_github }}</small>
+        </a>
+        {%- else -%}
+        {# This method is provided by a custom plugin found in /packages/lektor_beeware_plugin/ #}
+        {%- set content_value = urlencode_limit(site.get(this.path).contents.as_text(), limit=5000) -%}
+        {%- if content_value and '@' not in this.path -%}
+        <a class="nav-link"
+          href="https://github.com/beeware/beeware.github.io/new/lektor/content{{ this.path }}/contents{{ alt_path }}.lr?filename=contents{{ alt_path }}.lr&value={{ content_value }}"
+          target="_blank">
+          <i class="fa fa-github "></i><small>&nbsp;{{ t_create_on_github }}</small>
+        </a>
+        {%- endif -%}
+        {%- endif -%}
+      </li>
+      <!--This css added for fix a bug for language menu modal creation
+            By: Gagan Aggarwal
+            Email: gaggarwal124@gmail.com -->
+      <style>
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+        }
 
-          .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            padding-top: 100px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0, 0, 0);
-            background-color: rgba(0, 0, 0, 0.4);
-          }
+        .modal {
+          display: none;
+          position: fixed;
+          z-index: 1;
+          padding-top: 100px;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: rgb(0, 0, 0);
+          background-color: rgba(0, 0, 0, 0.4);
+        }
 
-          /* Modal Content */
-          .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-          }
+        /* Modal Content */
+        .modal-content {
+          background-color: #fefefe;
+          margin: auto;
+          padding: 20px;
+          border: 1px solid #888;
+          width: 80%;
+        }
 
-          /* The Close Button */
-          .close {
-            color: #aaaaaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-          }
+        /* The Close Button */
+        .close {
+          color: #aaaaaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+        }
 
-          .close:hover,
-          .close:focus {
-            color: #000;
-            text-decoration: none;
-            cursor: pointer;
-          }
-        </style>
+        .close:hover,
+        .close:focus {
+          color: #000;
+          text-decoration: none;
+          cursor: pointer;
+        }
+      </style>
 
-        <li class="nav-item dropdown dropdown-pull-right">
-          <a id="myBtn" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
-            aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
-          </a>
-          <!-- Creating Modal Window Div -->
-          <div id="myModal" class="modal">
-            <!-- Modal Content Div [Language List Shows] -->
-            <div class="modal-content">
-              <span class="close">&times;</span>
-              {%- set eng_active = this.alt == 'en' %}
-              <a class="dropdown-item {% if eng_active %}active{% endif %}" href="{{ '.'|url(alt='en') }}">
-                English
-              </a>
-              {%- for alt, alternative in config.ALTERNATIVES.items()|sort -%}
-              {%- set alt_active = alt == this.alt -%}
-              {%- if alt != config.primary_alternative -%}
-              <a class="dropdown-item {% if alt_active %}active{% endif %}" href="{{ '.'|url(alt=alt) }}">
-                {{ transbag('translate', alt, alternative.name.en.lower()) }}
-              </a>
-              {%- endif -%}
-              {%- endfor -%}
-              <div class="text-center mt-2">
-                <small>This modal designed by: <b>Gagan Aggarwal,</b> </br> Email: <b>gaggarwal124@gmail.com</b></small>
-              </div>
+      <li class="nav-item dropdown dropdown-pull-right">
+        <a id="myBtn" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+          aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
+        </a>
+        <!-- Creating Modal Window Div -->
+        <div id="myModal" class="modal">
+          <!-- Modal Content Div [Language List Shows] -->
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            {%- set eng_active = this.alt == 'en' %}
+            <a class="dropdown-item {% if eng_active %}active{% endif %}" href="{{ '.'|url(alt='en') }}">
+              English
+            </a>
+            {%- for alt, alternative in config.ALTERNATIVES.items()|sort -%}
+            {%- set alt_active = alt == this.alt -%}
+            {%- if alt != config.primary_alternative -%}
+            <a class="dropdown-item {% if alt_active %}active{% endif %}" href="{{ '.'|url(alt=alt) }}">
+              {{ transbag('translate', alt, alternative.name.en.lower()) }}
+            </a>
+            {%- endif -%}
+            {%- endfor -%}
+            <div class="text-center mt-2">
+              <small>This modal designed by: <b><a style="text-decoration: none; color: rgb(38, 36, 36);" target="_blank" href="https://gaganresume.herokuapp.com/">Gagan Aggarwal,</a></b> </br> Email: <b>gaggarwal124@gmail.com</b></small>
             </div>
           </div>
-          <!-- This JS added By Gagan Aggarwal for Language Menu for Modal Functionality Add -->
-          <script>
-            var modal = document.getElementById("myModal");
-            var btn = document.getElementById("myBtn");
-            var span = document.getElementsByClassName("close")[0];
-            btn.onclick = function () {
-              modal.style.display = "block";
-            }
-            span.onclick = function () {
+        </div>
+        <!-- This JS added By Gagan Aggarwal for Language Menu for Modal Functionality Add -->
+        <script>
+          var modal = document.getElementById("myModal");
+          var btn = document.getElementById("myBtn");
+          var span = document.getElementsByClassName("close")[0];
+          btn.onclick = function () {
+            modal.style.display = "block";
+          }
+          span.onclick = function () {
+            modal.style.display = "none";
+          }
+          window.onclick = function (event) {
+            if (event.target == modal) {
               modal.style.display = "none";
             }
-            window.onclick = function (event) {
-              if (event.target == modal) {
-                modal.style.display = "none";
-              }
-            }
-          </script>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="content">
-    {%- block preamble -%}
-    {%- endblock -%}
-    <div class="container">
-      {%- if this.alt in get_alts(source=this, fallback=False) and diff -%}
-      <div class="alert alert-warning">
-        <i class="fa fa-warning"></i>&nbsp;{{ t_translation_out_of_date }}&nbsp;&nbsp;
-        <a href="{{ site.get(this.path)|url }}" data-toggle="modal" data-target="#myModal">{{ t_see_original_content
-          }}</a>
-      </div>
-
-      <!-- Modal -->
-      <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
-
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">
-                <a href="{{ edit_link }}" target="_blank">
-                  <i class="fa fa-github "></i>&nbsp;{{ t_update_translation }}
-                </a>
-              </h4>
-            </div>
-            <div class="modal-body">
-              <small>
-                {{- diff|safe -}}
-              </small>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-          <!-- End Modal content -->
-        </div>
-      </div>
-      <!-- End Modal -->
-
-      {%- endif -%}
-      {%- block body -%}{%- endblock -%}
-    </div>
+          }
+        </script>
+      </li>
+    </ul>
   </div>
+  </nav>
+    <div class="content">
+      {%- block preamble -%}
+      {%- endblock -%}
+      <div class="container">
+        {%- if this.alt in get_alts(source=this, fallback=False) and diff -%}
+        <div class="alert alert-warning">
+          <i class="fa fa-warning"></i>&nbsp;{{ t_translation_out_of_date }}&nbsp;&nbsp;
+          <a href="{{ site.get(this.path)|url }}" data-toggle="modal" data-target="#myModal">{{ t_see_original_content
+            }}</a>
+        </div>
 
-  <footer class="footer">
-    <div class="container text-muted">
-      <div class="d-block d-sm-none copyright">&copy; Russell Keith-Magee {{ none|dateformat('Y') }}</div>
-      <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee {{ none|dateformat('Y') }}</div>
-      <p class="d-sm-block d-none">
-        <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
-        <a href="https://gitter.im/beeware/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i>
-          Gitter</a> |
-        <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
-        <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ t_sitemap
-          }}</a>
-      </p>
-      <p class="d-block d-sm-none footer-social">
-        <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
-        <a href="https://gitter.im/beeware/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i>
-          Gitter</a> |
-        <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a>
-      </p>
-      <p class="d-block d-sm-none footer-sitemap">
-        <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ t_sitemap
-          }}</a>
-      </p>
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                  <a href="{{ edit_link }}" target="_blank">
+                    <i class="fa fa-github "></i>&nbsp;{{ t_update_translation }}
+                  </a>
+                </h4>
+              </div>
+              <div class="modal-body">
+                <small>
+                  {{- diff|safe -}}
+                </small>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            <!-- End Modal content -->
+          </div>
+        </div>
+        <!-- End Modal -->
+
+        {%- endif -%}
+        {%- block body -%}{%- endblock -%}
+      </div>
     </div>
-  </footer>
 
-  <!-- jQuery first, then Bootstrap JS. -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-    crossorigin="anonymous"></script>
+    <footer class="footer">
+      <div class="container text-muted">
+        <div class="d-block d-sm-none copyright">&copy; Russell Keith-Magee {{ none|dateformat('Y') }}</div>
+        <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee {{ none|dateformat('Y') }}</div>
+        <p class="d-sm-block d-none">
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/beeware/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i>
+            Gitter</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
+          <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ t_sitemap
+            }}</a>
+        </p>
+        <p class="d-block d-sm-none footer-social">
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://gitter.im/beeware/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i>
+            Gitter</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a>
+        </p>
+        <p class="d-block d-sm-none footer-sitemap">
+          <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ t_sitemap
+            }}</a>
+        </p>
+      </div>
+    </footer>
 
-  <script src="/static/tether-1.3.3/js/tether.min.js"></script>
-  <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+      integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+      crossorigin="anonymous"></script>
 
-  {%- block extra_script -%}{%- endblock -%}
-</body>
+    <script src="/static/tether-1.3.3/js/tether.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+    {%- block extra_script -%}{%- endblock -%}
+  </body>
 
 </html>
