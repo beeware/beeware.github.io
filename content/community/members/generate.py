@@ -12,8 +12,8 @@ def generate(filename, basedir):
 
         for line in reader:
             name = line[2]
-            email = line[3]
-            join_date = line[5]
+            email = line[4]
+            join_date = line[6]
 
             uid = hashlib.sha1(email.encode()).hexdigest()[0:8]
 
