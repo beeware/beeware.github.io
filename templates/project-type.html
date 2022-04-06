@@ -17,8 +17,8 @@
     {% for child in this.children %}
     <div class="clearfix project">
     {% if child.image %}
-      <img src="{{ site.get(child.path)|url }}{{ child.image }}" height="72px" class="pull-xs-left">
-    {% else %} 
+      <img src="{{ site.get(child.path, alt='_primary')|url }}{{ child.image }}" height="72px" class="pull-xs-left">
+    {% else %}
       <img src="/static/images/defaultlogo.png" height="72px" class="pull-xs-left">
     {% endif %}
       <h2><a href="{{ child|url(alt=this.alt) }}">{{ child.name }}</a></h2>
