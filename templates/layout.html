@@ -102,7 +102,7 @@
           </a>
           {%- else -%}
           {# This method is provided by a custom plugin found in /packages/lektor_beeware_plugin/ #}
-          {%- set content_value = urlencode_limit(site.get(this.path).contents.as_text(), limit=5000) -%}
+          {%- set content_value = urlencode_limit(site.get(this.path, alt='_primary').contents.as_text(), limit=5000) -%}
           {%- if content_value and '@' not in this.path -%}
           <a class="nav-link" href="https://github.com/beeware/beeware.github.io/new/lektor/content{{ this.path }}/contents{{ alt_path }}.lr?filename=contents{{ alt_path }}.lr&value={{ content_value }}" target="_blank">
             <i class="fa fa-github "></i><small>&nbsp;{{ t_create_on_github }}</small>
@@ -141,7 +141,7 @@
         {%- if this.alt in get_alts(source=this, fallback=False) and diff -%}
         <div class="alert alert-warning">
           <i class="fa fa-warning"></i>&nbsp;{{ t_translation_out_of_date }}&nbsp;&nbsp;
-          <a href="{{ site.get(this.path)|url }}" data-toggle="modal" data-target="#myModal">{{ t_see_original_content }}</a>
+          <a href="{{ site.get(this.path, alt='_primary')|url }}" data-toggle="modal" data-target="#myModal">{{ t_see_original_content }}</a>
         </div>
 
         <!-- Modal -->

@@ -146,7 +146,7 @@ class BeeWarePlugin(Plugin):
 
             config = self.env.jinja_env.globals['config']
             site = self.env.jinja_env.globals['site']
-            primary_path = site.get(record.path).contents.filename
+            primary_path = site.get(record.path, alt="_primary").contents.filename
             primary_path = primary_path.replace(
                 '+{0}.lr'.format(config.primary_alternative), '.lr')
             try:
