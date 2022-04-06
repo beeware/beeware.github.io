@@ -102,7 +102,7 @@
           </a>
           {%- else -%}
           {# This method is provided by a custom plugin found in /packages/lektor_beeware_plugin/ #}
-          {%- set content_value = urlencode_limit(site.get(this.path).contents.as_text(), limit=5000) -%}
+          {%- set content_value = urlencode_limit(site.get(this.path, alt='_primary').contents.as_text(), limit=5000) -%}
           {%- if content_value and '@' not in this.path -%}
           <a class="nav-link" href="https://github.com/beeware/beeware.github.io/new/lektor/content{{ this.path }}/contents{{ alt_path }}.lr?filename=contents{{ alt_path }}.lr&value={{ content_value }}" target="_blank">
             <i class="fa fa-github "></i><small>&nbsp;{{ t_create_on_github }}</small>
@@ -141,7 +141,7 @@
         {%- if this.alt in get_alts(source=this, fallback=False) and diff -%}
         <div class="alert alert-warning">
           <i class="fa fa-warning"></i>&nbsp;{{ t_translation_out_of_date }}&nbsp;&nbsp;
-          <a href="{{ site.get(this.path)|url }}" data-toggle="modal" data-target="#myModal">{{ t_see_original_content }}</a>
+          <a href="{{ site.get(this.path, alt='_primary')|url }}" data-toggle="modal" data-target="#myModal">{{ t_see_original_content }}</a>
         </div>
 
         <!-- Modal -->
@@ -183,13 +183,13 @@
 	      <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee {{ none|dateformat('Y') }}</div>
         <p class="d-sm-block d-none">
           <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
-          <a href="https://gitter.im/beeware/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://beeware.org/bee/chat/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Discord</a> |
           <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
           <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ t_sitemap }}</a>
         </p>
         <p class="d-block d-sm-none footer-social">
           <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
-          <a href="https://gitter.im/beeware/general/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Gitter</a> |
+          <a href="https://beeware.org/bee/chat/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Discord</a> |
           <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a>
         </p>
         <p class="d-block d-sm-none footer-sitemap">
