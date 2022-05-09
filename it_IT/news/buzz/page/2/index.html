@@ -182,6 +182,38 @@ Home
   
 
   
+  <h2><a href="/it_IT/news/buzz/project-spotlight-colosseum/">Project Spotlight: Colosseum</a></h2>
+  <p class="meta">
+    
+Postato da
+
+    
+      <a href="https://twitter.com/freakboy3742">Russell Keith-Magee</a>
+    
+    
+il
+ 6 October 2017
+  </p>
+  
+  <p><em>This article was originally published on the BeeWare Enthusiasts mailing list. If you'd like to receive regular updates about the BeeWare project, why not</em> <a class="reference external" href="/community/keep-informed/">subscribe</a>?</p>
+<p>When you're designing a GUI app - be it for desktop, mobile, or browser - one of the most fundamental tasks is describing how to lay widgets out the screen. Most widget toolkits will use a grid or box packing model of some kind to solve this problem. These models tend to be relatively easy to get started, but rapidly fall apart when you have complex layout needs - or when you have layouts that need to adapt to different screen sizes.</p>
+<p>Instead of inventing a new grid or box model, the <a class="reference external" href="https://toga.readthedocs.io">Toga</a> widget toolkit takes a different approach, using a well known scheme for laying out content: <a class="reference external" href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">Cascading Style Sheets</a>, or CSS. Although CSS is best known for specifying layout in web pages, there's nothing inherently web specific about it. At the end of the day, it's a system for describing the layout of a hierarchical collection of content nodes. However, to date, every implementation of CSS is bound to a browser, so the perception is that CSS is a browser-specific standard.</p>
+<p>That's where <a class="reference external" href="https://github.com/beeware/colosseum">Colosseum</a> comes in. Colosseum is a browser independent implementation of a CSS rendering engine. It takes a tree of content &quot;nodes&quot; - such as a DOM from a HTML document - an applies CSS styling instructions to layout those nodes as boxes on the screen. In the case of Toga, instead of laying out <tt class="docutils literal">&lt;div&gt;</tt> and <tt class="docutils literal">&lt;span&gt;</tt> elements, you lay out Box and Button objects. This allows you to specify incredibly complex, adaptive layouts for Toga applications.</p>
+<p>But Colosseum as a project has many other possible uses. It could be used anywhere that there is a need for describing layout <em>outside</em> a browser context. For example, Colosseum could be the cornerstone of a HTML to PDF renderer that <em>doesn't</em> require the involvement of a browser. It could also be used as a test harness and reference implementation for the CSS specification itself, providing a lightweight way to encode and test proposed changes to the specification.</p>
+<p>The current implementation is based on Facebook's <a class="reference external" href="https://github.com/facebook/yoga">yoga</a> project - it was originally a line-for-line port of yoga's javascript codebase into Python. However, yoga only implements the Flexbox portion of the CSS3 specification.</p>
+<p>This week, we started a big project: rewriting Colosseum to be a fully standard-compliant CSS engine. The work so far can be found in the globe branch of the colosseum repository on Github. The first goal is CSS2.1 compliance, with an implementation of the traditional CSS box model and flow layout. Once we've got a reasonable implementation of that, we'll look to adding Grid and FlexBox layouts from the CSS3 specification set.</p>
+<p>This is obviously a big job. <a class="reference external" href="https://www.w3.org/TR/CSS/#css-levels">CSS is a big specification</a>, so there's a lot of work to be done - but that also means there's lots of places to contribute! Pick a paragraph of the CSS specification, build some test cases that demonstrate the cases described in that paragraph, and submit a patch implementing that behaviour!</p>
+<p>It also highlights why your financial support is so important. While we <em>could</em> do this entirely with volunteered effort, we're going to make much faster progress if a small group of people could focus on this project full time. Financial support would allow up to significantly ramp up the development speed of Colosseum, and the rest of the BeeWare suite.</p>
+<p>If you would like to see Colosseum and the rest of BeeWare develop to the point where it can be used for commercial applications, please consider supporting BeeWare financially. And if you have any leads for larger potential sources of funding, please <a class="reference external" href="mailto:russell&#64;keith-magee.com">get in touch</a>.</p>
+
+
+
+  
+
+  
+  
+
+  
   <h2><a href="/it_IT/news/buzz/2017-google-summer-of-code-final-report-dayanne-fernandes/">2017 Google Summer of Code - Port Cricket to use Toga, instead of Tkinter</a></h2>
   <p class="meta">
     
