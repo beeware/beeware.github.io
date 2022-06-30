@@ -182,6 +182,103 @@ Início
   
 
   
+  <h2><a href="/pt_BR/news/buzz/2022q3-roadmap/">2022Q3 Roadmap</a></h2>
+  <p class="meta">
+    
+Publicado por
+
+    
+      <a href="https://twitter.com/freakboy3742">Russell Keith-Magee</a>
+    
+    
+em
+ 24 June 2022
+  </p>
+  
+  <p>One of the benefits of having the support of an organisation like Anaconda is that we are now in a position to make more concrete commitments on project goals, and the likely timeframe when key features will be delivered. To that end, in addition to monthly status updates, we're going to start publishing regular updates on our project roadmap so the community has a better idea what to expect over the coming months.</p>
+<p>Project estimation is difficult at the best of times; and project estimation on a FLOSS project is especially complex. In addition to any work that we are planning internally as a team, we need to manage contributions from the community. If a community member contributes a piece of work that <em>isn't</em> on our roadmap, we need to review that work. As a result, our ability to deliver on our own roadmap is dependent on how much is contributed by the community - something that is very hard to predict ahead of time.</p>
+<p>In addition, several of the topics listed on this roadmap are complex, foundational tasks, and potentially contain unknown complications. As with any complex work, it can be difficult to predict ahead of time how long that work will take.</p>
+<p>As a result, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment of features that will be made available on a specific deadline.</p>
+<div class="section" id="q3-priorities">
+<h2>Q3 priorities</h2>
+<p>During Q3, we're planning to work on:</p>
+<div class="section" id="linux-packaging">
+<h3>Linux packaging</h3>
+<p>Breifcase's AppImage packaging backend has had <a class="reference external" href="https://github.com/beeware/briefcase/issues/718">a cluster of issues reported</a> related to inclusion of third party libraries, and the post-processing that needs to be performed on an AppImage. We've already started work on this during Q2; early in Q3, you should expect to see this work wrapped up. This will include:</p>
+<ul class="simple">
+<li>Adding support for linuxdeploy plugins for our existing AppImage backend; and</li>
+<li>Adding a Flatpak backend.</li>
+</ul>
+</div>
+<div class="section" id="windows-packaging">
+<h3>Windows packaging</h3>
+<p>Briefcase has an MSI packaging backend for Windows; and while this backend works, it doesn't deliver an end-user experience that is as polished as we'd like. We should be starting initial work on Windows packaging in the coming week, with the complete solution completed in early Q3. This will include:</p>
+<ul class="simple">
+<li>Adding a stub binary for Windows apps, so that Briefcase apps present to the task manager with the apps name and icon, rather than &quot;pythonw&quot;;</li>
+<li>Improving log capture on Windows, so that it is easier to diagnose when problems occur; and</li>
+<li>Fixing some issues with the way the <cite>site</cite> is defined and used. This may also address some issues we've seen with binary modules in some Windows apps.</li>
+</ul>
+</div>
+<div class="section" id="binary-modules">
+<h3>Binary modules</h3>
+<p>The biggest caveat on BeeWare's mobile app story has always been that we don't provide support for binary packages on mobile platforms. In Q3, we're going to start addressing this limitation.</p>
+<p>There are already tools like <a class="reference external" href="https://github.com/benfogle/crossenv">crossenv</a> that can simplify this process, and we've got <a class="reference external" href="https://github.com/beeware/briefcase/pull/647">a PR in our review queue</a> that provides a proof-of-concept implementation of Android binary packaging. We need to take these tools, plus other tools in the Python ecosystem, and extend Briefcase so that we can present a clear development story for mobile developers that want to use modules with binary components.</p>
+<p>On iOS, there is an additional complication - we need to resolve how to manage dynamic loading of modules. BeeWare's iOS support currently relies on static compilation of all binary modules. This was originally done because prior to iOS8, dynamic linking was prohibited on iOS. The days of iOS8 are now long behind us; but the Apple support package has retained this old approach, mostly because it wasn't clear what approach Apple would allow through the App Store review process. We will be making changes to Briefcase's iOS support to accomodate dynamic module loading, and then extending that support to include user-provided binary modules.</p>
+</div>
+<div class="section" id="testing-especially-gui-testing">
+<h3>Testing (especially GUI testing)</h3>
+<p>Without testing, it's very difficult to ensure the stability and reliability of code in the long term. Unfortunately, many of the areas where BeeWare operates are inherently difficult to test. Visual GUI tests are notoriously difficult to perform; packaging tests require the ability to actually install and run finished applications; testing mobile applications requires access to mobile device hardware in a CI setup. As a project, we've avoided writing tests for many of our core features due to these complexities - and we've paid the price for this in regressions. Now that we have more time, we can focus on setting up the frameworks to let us perform this testing.</p>
+<p>This includes adding:</p>
+<ul class="simple">
+<li><strong>Support package tests</strong>, ensuring that the packages include valid libraries;</li>
+<li><strong>App template tests</strong>, ensuring that Briefcase is able to generate valid and installable applications; and</li>
+<li><strong>GUI tests</strong>, ensuring that Toga generates apps that look and behave the way they should.</li>
+</ul>
+<p>Testing is an ongoing process, so it's highly unlikely we'll have &quot;100% test coverage&quot; by the end of the quarter. The goal will be to add the frameworks that allow us to add tests <em>at all</em>, so that we can retrofit tests onto existing code, and add tests on all new code going forward. Ideally, these tests will be fully automated tests running in CI. However, we may accept semi-automated or manual tests as a short term of interim measure, especially if those tests lay the groundwork for fully automated tests in the future.</p>
+</div>
+<div class="section" id="conda-integration">
+<h3>Conda integration</h3>
+<p>Briefcase is currently uses PyPI and pip as source of Python packages. However, PyPI and pip isn't the only packaging solution in the Python ecosystem - another commonly used packaging source is Conda.</p>
+<p>At this point, I must recognise the elephant in the room - Anaconda, the company that produced and maintains Conda,  is my employer. However, I must stress that the fact this is on our roadmap is <em>not</em> as a result of a directive from my employer. The original <a class="reference external" href="https://github.com/beeware/briefcase/issues/596">proposal for this idea</a> predates even my earliest hiring discussions with Anaconda. It is being pursued now for three reasons:</p>
+<ol class="arabic simple">
+<li>The key value of Conda is that it simplifies the process of delivering complex binary packages, and ensuring that the binary dependencies for those packages are isolated from any packages that might be present on the user's computer. This core problem statement shares a lot of similarities with the core problem associated with application packaging. Conda also has much more nuanced representation of hardware platforms, alternatives for binary artefacts, and options for custom repositories. There is a possibility that using Conda as a packaging base may simplify some of the problems we've seen with distributing binary dependencies.</li>
+<li>There is a significant portion of the Python community that have commercial needs that requires the use of the managed repositories provided by Anaconda, or are simply more familiar with Conda tooling than PyPI/pip.</li>
+<li>As a result of having 1 (soon to be 2) full time engineers, we now have the resources to explore complex changes that might not have otherwise been explored. We are exploring this idea because we now have the resources to do so; we were not provided those resources on the condition that we explore this idea.</li>
+</ol>
+<p>We don't anticipate dropping support for pip, or for PyPI as a package source. We're looking at extending Briefcase to provide another commonly used and requested option for packaging, rather than replacing PyPI/pip.</p>
+</div>
+</div>
+<div class="section" id="longer-term-goals">
+<h2>Longer term goals</h2>
+<p>Looking beyond Q3, the big items on the horizon are:</p>
+<div class="section" id="upstreaming">
+<h3>Upstreaming</h3>
+<p>The Apple and Android support packages maintained by BeeWare include a number of patches against the core CPython. We want to begin the process of getting these modifications into the CPython codebase.</p>
+<p>There have been two major impediments to this in the past:</p>
+<ol class="arabic simple">
+<li><strong>Development resources</strong> When we were a volunteer driven project, we didn't have the resources to engage meaningfully with the CPython core team to shepherd our patches into the CPython codebase.</li>
+<li><strong>Testing</strong> Supported platforms in the CPython codebase need to have CI solutions.</li>
+</ol>
+<p>We now have resources, so we can dedicate the time needed to upstream patches; and once we've completed our testing work in Q3, we'll be in a position to recommend CI configurations to the CPython core team. That means the work of upstreaming patches and making iOS and Android fully supported platforms can begin.</p>
+</div>
+<div class="section" id="toga-1-0">
+<h3>Toga 1.0</h3>
+<p>The broad goal for &quot;Toga 1.0&quot; could be considered &quot;Tkinter, but with some additional bells to show off&quot;. We want to deliver a core widget set of the &quot;essentials&quot;, plus some nice features to show off, like WebViews and camera or GPS integration. The exact set of features for Toga 1.0 is still a subject for discussion; I'd expect to see a more concrete feature list and plan emerge in Q4.</p>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary</h2>
+<p>As with most of the work that has been done in Q2, the foundational work we're planning for Q3 is not as glamorous as adding high profile GUI widgets, but it's all necessary work if we're going to provide a stable and reliable development story. Once this foundation is established, we'll be in a much better position to rapidly develop new features that <em>are</em> visible - and to ensure that those features are stable and reliable as BeeWare develops.</p>
+</div>
+
+
+
+  
+
+  
+  
+
+  
   <h2><a href="/pt_BR/news/buzz/may-2022-status-update/">May 2022 Status Update</a></h2>
   <p class="meta">
     
@@ -481,166 +578,6 @@ em
 <p>Unfortunately, the task calls for some sophisticated skills, and we’re not in a position to provide extensive mentoring. A successful bid is likely to require some prior experience, and a history with the technologies involved.</p>
 <p>A full <a class="reference external" href="https://docs.google.com/document/d/18O2MDF49dHXDIKXyntfZUnXweXzR2i3jbHwWfHew-sE/edit?usp=sharing">role description</a> and <a class="reference external" href="https://docs.google.com/document/d/1IWhGs9C8V2TWcAsWhYvxmzi8slZ_vxncA5nn8LjR6ao/edit?usp=sharing">scope of work</a> for the contract is available. To register your interest, please forward your resume and cover email to <a class="reference external" href="mailto:contracts&#64;beeware.org">contracts&#64;beeware.org</a>.</p>
 <p>We look forward to being able to announce full Android support in the near future!</p>
-
-
-
-  
-
-  
-  
-
-  
-  <h2><a href="/pt_BR/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/">2018 Google Summer of Code - VOC Optimization</a></h2>
-  <p class="meta">
-    
-Publicado por
-
-    
-      Patience Shyu
-    
-    
-em
- 14 August 2018
-  </p>
-  
-  <p>Google Summer of Code is coming to an end. I've spent the summer working on optimizing the
-<a class="reference external" href="/project/projects/bridges/voc/">VOC compiler</a>, and I’m super excited to share the results.</p>
-<div class="section" id="results">
-<h2>Results</h2>
-<p>There are a couple of ways to evaluate the performance improvement from my project.</p>
-<div class="section" id="microbenchmarks">
-<h3>Microbenchmarks</h3>
-<p>Firstly, we introduced a <a class="reference external" href="https://github.com/beeware/voc/blob/master/tests/microbenchmarks.py">microbenchmarking suite</a>. Each microbenchmark is a small piece
-of Python code that tests a single and specific Python construct, or datatype, or control flow.
-The benchmarking infrastructure itself is crude (essentially it just tells you the total amount
-of processor time it took to run, with no fancy statistics) but it has been extremely useful to
-me while working on performance features to verify performance gain.</p>
-<p>The idea is that the benchmarking suite is not to be run as part of the full test suite,
-but rather as needed and manually whenever an optimization is implemented. It also provides a way to
-check and prevent performance regression, especially on the &quot;optimized&quot; parts of VOC. While it
-doesn't really make sense to record specific numbers, as they will always vary from machine to machine,
-it should be reasonably easy to compare two versions of VOC. Benchmark numbers are included on each
-optimization-related PR I've worked on this summer (see PR log below), and I hope that more benchmarks
-will be added as more performance efforts are carried out in the future.</p>
-</div>
-<div class="section" id="pystone">
-<h3>Pystone</h3>
-<p><a class="reference external" href="https://github.com/beeware/voc/blob/master/tests/benchmarks/pystone.py">Pystone</a> is a Python <a class="reference external" href="https://en.wikipedia.org/wiki/Dhrystone">Dhrystone</a>, a standard benchmark for testing the performance of Python on a machine.
-Here are the before and after results on my machine:</p>
-<p>May 10th, 2018:</p>
-<blockquote>
-<p>$ python setup.py test -s tests.test_pystone
-test_pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 101.833
-This machine benchmarks at 490.998 pystones/second</p>
-<p>$ python setup.py test -s tests.test_pystone
-test_pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 101.298
-This machine benchmarks at 493.595 pystones/second</p>
-<p>$ python setup.py test -s tests.test_pystone
-test_pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 102.247
-This machine benchmarks at 489.014 pystones/second</p>
-</blockquote>
-<p>On current master (Aug 14th, 2018):</p>
-<blockquote>
-<p>$ python setup.py test -s tests.test_pystone
-test_pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 11.2300
-This machine benchmarks at 4452.37 pystones/second</p>
-<p>$ python setup.py test -s tests.test_pystone
-test_pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 10.9833
-This machine benchmarks at 4552.36 pystones/second</p>
-<p>$ python setup.py test -s tests.test_pystone
-pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 10.9498
-This machine benchmarks at 4566.29 pystones/second</p>
-</blockquote>
-</div>
-</div>
-<div class="section" id="conclusions">
-<h2>Conclusions</h2>
-<p>Some things that I learned about VOC while working on this project:</p>
-<p>1. Object creation in the JVM is expensive. This definitely does not mean that the VOC user
-writing Python should think about minimizing the number of objects that she creates, but rather
-that any time we can non-trivially reduce the number of objects created during bytecode
-transpilation or in VOC-defined function calls, we can expect to see a huge performance boost.
-<a class="reference external" href="https://github.com/beeware/voc/pull/825">Integer</a> and <a class="reference external" href="https://github.com/beeware/voc/pull/830">boolean preallocation</a>, which is about reusing objects that have already been created,
-was one of the most significant improvements we made this summer.</p>
-<p>2. Method calls in VOC are expensive. This is essentially due to the process of invoking a callable:
-you have to check that the method is defined on the object, then construct it (read: object creation!),
-and check the arguments, before it can actually be called. (This is done using reflection, which is super
-interesting and confusing in itself.) And this is the reason why <a class="reference external" href="https://github.com/beeware/voc/pull/875">refactoring the Python comparison functions</a>
-made such a big performance impact, because we were able to circumvent this process.</p>
-<p>3. Exception-heavy code is expensive. Again, this is not to say that the programmer is on the hook for being
-frugal when throwing exceptions, but that VOC benefits greatly by avoiding the use of exceptions internally
-except when strictly necessary. For instance, Python uses StopIteration exceptions to signal the end of a for loop,
-and they quickly rack up when you have nested loops (everything is ultimately related to object creation!). That was
-the motivation for the <a class="reference external" href="https://github.com/beeware/voc/pull/881">nested loops optimization</a>.</p>
-<p>If I may be a bit more reflective here, one of the a-ha! moments I had this summer was realizing that to really
-optimize something, you have to understand where its biggest problems are first. I remember pitching to Russ at
-the start of the summer things like loop unrolling, constant folding, even converting to SSA-form (you know, stuff I
-heard about optimzation in my compilers class) and he was saying to me, think simpler. While working on my project,
-I used a <a class="reference external" href="https://www.ej-technologies.com/products/jprofiler/overview.html">profiler</a> to understand exactly which parts of VOC were slow, and that information drove the changes we
-implemented. I think it worked out pretty well!</p>
-</div>
-<div class="section" id="future-work">
-<h2>Future Work</h2>
-<ul class="simple">
-<li>Minimize boxing of primitive types like String and Int. As VOC is written half in Python, half in Java, a single integer can be found in various representations on its way through the compiler -- as a Python object, unboxed to a primitive Java int, then packaged back up to a Python object. This problem was (somewhat incoherently) addressed in my proposal, but ultimately we couldn't come up with a good abstraction to support it.</li>
-<li>Build a peephole optimizer. <a class="reference external" href="https://github.com/python/cpython/blob/master/Python/peephole.c">CPython's peephole optimizer</a> scans generated bytecode to identify sequences of bytecode that can be optimized, VOC could benefit from this too.</li>
-<li>Hook up more benchmarks, which serve as both proof of the kinds of programs VOC can currently compile and areas ripe for performance improvement.</li>
-</ul>
-</div>
-<div class="section" id="thank-you">
-<h2>Thank you</h2>
-<p>I will wrap this up by giving big thanks to <a class="reference external" href="https://github.com/freakboy3742">Russ</a>, my mentor. The time you spent helping
-me form my ideas, patiently answering my questions and reviewing my work was invaluable
-to me. It couldn't have been easy keeping up with what I was doing especially since I
-started improvising halfway through the summer. I am so grateful for your help, thank you.</p>
-</div>
-<div class="section" id="pr-log-in-chronological-order">
-<h2>PR Log (in chronological order)</h2>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/beeware/voc/issues/772">Original Proposal (with weekly status updates)</a></li>
-</ul>
-<div class="section" id="optimization-related-features">
-<h3>Optimization-related Features</h3>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/824">Introduce Performance Benchmarking Suite</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/825">Small Integer Preallocation</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/830">Boolean Preallocation</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/839">Module Caching</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/851">Hook up Pystone</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/864">Optimize Zero Argument Function Calls</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/869">Remove Code Objects</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/875">Comparisons Optimization</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/881">Loop optimization by reusing StopIterations</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/893">String cleanup/optimization</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/899">Dictionary access optimization</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/902">Create functions only when needed</a></li>
-</ul>
-</div>
-<div class="section" id="bug-fixes-and-miscellaneous">
-<h3>Bug Fixes and Miscellaneous</h3>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/837">Fix Method repr</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/846">Fix custom substitutions</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/852">Fix List Bug</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/865">Remove Unnecessary Instruction</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/884">Fix __setitem__ error messages</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/877">Fix contains/not contains bugs and refactor</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/883">Add tests for problematic exception raising</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/887">Add test for with + exception combo</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/889">Add test for wrong iter error message</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/891">Add tests for globals bug</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/894">Remove unnecessary type casts and clean up</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/904">Add test for problematic builtin function call</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/905">Introduce org/python/Object type tests</a></li>
-</ul>
-</div>
-</div>
 
 
 
