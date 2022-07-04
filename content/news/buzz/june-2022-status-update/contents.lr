@@ -1,0 +1,39 @@
+title: June 2022 Status Update
+---
+author: Russell Keith-Magee
+---
+body:
+
+It's been another busy month at the hive! This month, we've had a couple of high profile improvements, and some slow progress towards longer term goals. These improvements have been primarily in Briefcase and app packaging, but there have been some minor Toga improvements as well. 
+
+What we've done
+----------------
+
+During June:
+
+* We significantly improved the UI of Briefcase by `adding Rich <https://github.com/beeware/briefcase/pull/740>`__ to implement terminal output. This allows us to have `vastly improved progress bars <https://github.com/beeware/briefcase/pull/755>`__, as well as the ability to `save a full debug log when a problem occurs <https://github.com/beeware/briefcase/pull/760>`__.  These improvements (and several others) are the result of contributions from community member `Russell Martin <https://github.com/rmartin16>`__ - thanks Russell!
+* We added support for `macOS app notarization <https://github.com/beeware/briefcase/pull/757>`__.
+* We improved the way the `Briefcase manages Android system images <https://github.com/beeware/briefcase/pull/766>`__. This corrects a bug we were seeing that was causing the Android emulator to be installed twice, and could lead to situations where emulators could be discovered, but not started.
+* We've explored the source of the `Linux packaging problems <https://github.com/beeware/briefcase/issues/718>`__ we've been seeing. We've `documented a workaround for one of those problems <https://github.com/beeware/briefcase/pull/761>`__; and we're working on 2 fixes (`supporting Linuxdeploy plugins <https://github.com/beeware/briefcase/pull/756>`__ and `adding Flatpak support <https://github.com/beeware/briefcase/pull/754>`__) that will hopefully address the remaining Linux packaging issues. 
+* We've `improved Windows MSI installers <https://github.com/beeware/briefcase/pull/775>`__ so that it will use the right `Program Files` directory, as well as providing an install-time option for system vs user installs of a package.
+* We made some small improvements that `improve support for non-ASCII project names and descriptions <https://github.com/beeware/briefcase/pull/769>`__.
+* We've made some `more improvements to Toga Webviews <https://github.com/beeware/toga/pull/1504>`__, ensuring that the current URL is accessible through the Python API.
+* We've `addressed a long standing bug <https://github.com/beeware/toga/pull/1514>`__ that would cause Toga apps to be unable to find their local resource folders, depending on how the app was invoked. More importantly, this change has been accompanied by additions to the test suite. This is the start of being able to test runtime behavior of apps, which will be an increasinging important feature moving forward.
+* We've `added a stack trace dialog for Windows <https://github.com/beeware/toga/pull/1513>`__. A version of this dialog will be integrated into future improvements in Windows packaging.
+* Finally, we published our `Q3 roadmap <https://beeware.org/news/buzz/2022q3-roadmap/>`__. 
+
+What's next?
+-------------
+
+In July, we'll be focussing on:
+
+* Completing the work on Linux and Windows application packaging. 
+* Presenting a webinar about native application development. If you'd like to attend, `registration for this webinar is open <https://event.on24.com/wcc/r/3766379/B50F020E006CF935D87609BF3E247ED7?partnerref=anaconda.com>`__
+* Starting investigations into binary module support on mobile platforms.
+
+We're also delighted to announce that we've successfully completed our hiring process; so, in 2 weeks, there will be another Bee in the hive! I'm very excited about the possibilities that this additional team member will afford. Look out for a welcome announcement in the coming weeks.
+
+---
+pub_date: 2022-07-04
+---
+twitter_handle: freakboy3742
