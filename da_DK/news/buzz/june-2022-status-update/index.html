@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>June 2022 Status Update— BeeWare</title>
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/brutus-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/brutus-72.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/brutus-57.png">
+    <link rel="shortcut icon" href="/static/images/brutus-32.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/grid.min.css">
+
+    <!-- Project CSS -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cutive">
+    <link rel="stylesheet" type="text/css" href="/static/beeware.css"><!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/1138bd8363.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2943925-4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2943925-4');
+    </script></head>
+  <body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="nav-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarsDefault">
+    <div class="navbar-brand-block"><a class="navbar-brand" href="/da_DK/">BeeWare</a></div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+    <a class="nav-link" href="/da_DK/project/">
+Projekt
+</a>
+  </li>
+      <li class="nav-item active">
+    <a class="nav-link" href="/da_DK/news/">
+Nyheder
+<span class="sr-only">(current)</span></a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/da_DK/community/">
+Fællesskab
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/da_DK/contributing/">
+Bidrager
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/da_DK/contact/">
+Kontakt
+</a>
+  </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contributing/membership/">
+          
+Donate
+
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/new/lektor/content/news/buzz/june-2022-status-update/contents%2Bda.lr?filename=contents%2Bda.lr&value=title%3A+June+2022+Status+Update%0A---%0Aauthor%3A+Russell+Keith-Magee%0A---%0Abody%3A%0A%0AIt%27s+been+another+busy+month+at+the+hive%21+This+month%2C+we%27ve+had+a+couple+of+high+profile+improvements%2C+and+some+slow+progress+towards+longer+term+goals.+These+improvements+have+been+primarily+in+Briefcase+and+app+packaging%2C+but+there+have+been+some+minor+Toga+improvements+as+well.+%0A%0AWhat+we%27ve+done%0A----------------%0A%0ADuring+June%3A%0A%0A%2A+We+significantly+improved+the+UI+of+Briefcase+by+%60adding+Rich+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F740%3E%60__+to+implement+terminal+output.+This+allows+us+to+have+%60vastly+improved+progress+bars+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F755%3E%60__%2C+as+well+as+the+ability+to+%60save+a+full+debug+log+when+a+problem+occurs+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F760%3E%60__.++These+improvements+%28and+several+others%29+are+the+result+of+contributions+from+community+member+%60Russell+Martin+%3Chttps%3A%2F%2Fgithub.com%2Frmartin16%3E%60__+-+thanks+Russell%21%0A%2A+We+added+support+for+%60macOS+app+notarization+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F757%3E%60__.%0A%2A+We+improved+the+way+the+%60Briefcase+manages+Android+system+images+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F766%3E%60__.+This+corrects+a+bug+we+were+seeing+that+was+causing+the+Android+emulator+to+be+installed+twice%2C+and+could+lead+to+situations+where+emulators+could+be+discovered%2C+but+not+started.%0A%2A+We%27ve+explored+the+source+of+the+%60Linux+packaging+problems+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fissues%2F718%3E%60__+we%27ve+been+seeing.+We%27ve+%60documented+a+workaround+for+one+of+those+problems+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F761%3E%60__%3B+and+we%27re+working+on+2+fixes+%28%60supporting+Linuxdeploy+plugins+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F756%3E%60__+and+%60adding+Flatpak+support+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F754%3E%60__%29+that+will+hopefully+address+the+remaining+Linux+packaging+issues.+%0A%2A+We%27ve+%60improved+Windows+MSI+installers+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F775%3E%60__+so+that+it+will+use+the+right+%60Program+Files%60+directory%2C+as+well+as+providing+an+install-time+option+for+system+vs+user+installs+of+a+package.%0A%2A+We+made+some+small+improvements+that+%60improve+support+for+non-ASCII+project+names+and+descriptions+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F769%3E%60__.%0A%2A+We%27ve+made+some+%60more+improvements+to+Toga+Webviews+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Ftoga%2Fpull%2F1504%3E%60__%2C+ensuring+that+the+current+URL+is+accessible+through+the+Python+API.%0A%2A+We%27ve+%60addressed+a+long+standing+bug+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Ftoga%2Fpull%2F1514%3E%60__+that+would+cause+Toga+apps+to+be+unable+to+find+their+local+resource+folders%2C+depending+on+how+the+app+was+invoked.+More+importantly%2C+this+change+has+been+accompanied+by+additions+to+the+test+suite.+This+is+the+start+of+being+able+to+test+runtime+behavior+of+apps%2C+which+will+be+an+increasinging+important+feature+moving+forward.%0A%2A+We%27ve+%60added+a+stack+trace+dialog+for+Windows+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Ftoga%2Fpull%2F1513%3E%60__.+A+version+of+this+dialog+will+be+integrated+into+future+improvements+in+Windows+packaging.%0A%2A+Finally%2C+we+published+our+%60Q3+roadmap+%3Chttps%3A%2F%2Fbeeware.org%2Fnews%2Fbuzz%2F2022q3-roadmap%2F%3E%60__.+%0A%0AWhat%27s+next%3F%0A-------------%0A%0AIn+July%2C+we%27ll+be+focussing+on%3A%0A%0A%2A+Completing+the+work+on+Linux+and+Windows+application+packaging.+%0A%2A+Presenting+a+webinar+about+native+application+development.+If+you%27d+like+to+attend%2C+%60registration+for+this+webinar+is+open+%3Chttps%3A%2F%2Fevent.on24.com%2Fwcc%2Fr%2F3766379%2FB50F020E006CF935D87609BF3E247ED7%3Fpartnerref%3Danaconda.com%3E%60__%0A%2A+Starting+investigations+into+binary+module+support+on+mobile+platforms.%0A%0AWe%27re+also+delighted+to+announce+that+we%27ve+successfully+completed+our+hiring+process%3B+so%2C+in+2+weeks%2C+there+will+be+another+Bee+in+the+hive%21+I%27m+very+excited+about+the+possibilities+that+this+additional+team+member+will+afford.+Look+out+for+a+welcome+announcement+in+the+coming+weeks.%0A%0A---%0Apub_date%3A+2022-07-04%0A---%0Atwitter_handle%3A+freakboy3742%0A" target="_blank">
+            <i class="fa fa-github "></i><small>&nbsp;
+Translate on GitHub
+</small>
+          </a></li>
+     <li class="nav-item dropdown dropdown-pull-right">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item " href="/news/buzz/june-2022-status-update/">
+          English
+          </a><a class="dropdown-item " href="/ar_AR/news/buzz/june-2022-status-update/">
+          
+العَرَبِيَّة
+
+          </a><a class="dropdown-item " href="/cs_CZ/news/buzz/june-2022-status-update/">
+          
+Čeština
+
+          </a><a class="dropdown-item active" href="/da_DK/news/buzz/june-2022-status-update/">
+          
+Dansk
+
+          </a><a class="dropdown-item " href="/de_DE/news/buzz/june-2022-status-update/">
+          
+Deutsch
+
+          </a><a class="dropdown-item " href="/es/noticias/zumbido/june-2022-status-update/">
+          
+Español
+
+          </a><a class="dropdown-item " href="/fr_FR/news/buzz/june-2022-status-update/">
+          
+Français
+
+          </a><a class="dropdown-item " href="/it_IT/news/buzz/june-2022-status-update/">
+          
+Italiano
+
+          </a><a class="dropdown-item " href="/ko_KR/news/buzz/june-2022-status-update/">
+          
+한국어
+
+          </a><a class="dropdown-item " href="/pl_PL/news/buzz/june-2022-status-update/">
+          
+Polski
+
+          </a><a class="dropdown-item " href="/pt_BR/news/buzz/june-2022-status-update/">
+          
+Português
+
+          </a><a class="dropdown-item " href="/tr_TR/news/buzz/june-2022-status-update/">
+          
+Türkçe
+
+          </a><a class="dropdown-item " href="/zh_TW/news/buzz/june-2022-status-update/">
+          
+漢語
+
+          </a></div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+    <div class="content">
+<div class="banner">
+  <div class="container">
+    <p>
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  <a href="/da_DK/">
+Home
+</a>
+  
+ >
+  <a href="/da_DK/news/">News</a>
+  
+ >
+  <a href="/da_DK/news/buzz/">The Buzz</a>
+  
+</p>
+    <h1>June 2022 Status Update</h1>
+    <p>
+Posted by
+
+        
+        <a href="https://twitter.com/freakboy3742">Russell Keith-Magee</a>
+        
+        
+on
+ 2022/07/04
+    </p>
+  </div>
+</div>
+<div class="container">
+<div class="row-fluid">
+  <div class="col-sm-12 col-md-10 col-lg-8" >
+  
+
+  
+  
+
+  
+  <p>It's been another busy month at the hive! This month, we've had a couple of high profile improvements, and some slow progress towards longer term goals. These improvements have been primarily in Briefcase and app packaging, but there have been some minor Toga improvements as well.</p>
+<div class="section" id="what-we-ve-done">
+<h2>What we've done</h2>
+<p>During June:</p>
+<ul class="simple">
+<li>We significantly improved the UI of Briefcase by <a class="reference external" href="https://github.com/beeware/briefcase/pull/740">adding Rich</a> to implement terminal output. This allows us to have <a class="reference external" href="https://github.com/beeware/briefcase/pull/755">vastly improved progress bars</a>, as well as the ability to <a class="reference external" href="https://github.com/beeware/briefcase/pull/760">save a full debug log when a problem occurs</a>.  These improvements (and several others) are the result of contributions from community member <a class="reference external" href="https://github.com/rmartin16">Russell Martin</a> - thanks Russell!</li>
+<li>We added support for <a class="reference external" href="https://github.com/beeware/briefcase/pull/757">macOS app notarization</a>.</li>
+<li>We improved the way the <a class="reference external" href="https://github.com/beeware/briefcase/pull/766">Briefcase manages Android system images</a>. This corrects a bug we were seeing that was causing the Android emulator to be installed twice, and could lead to situations where emulators could be discovered, but not started.</li>
+<li>We've explored the source of the <a class="reference external" href="https://github.com/beeware/briefcase/issues/718">Linux packaging problems</a> we've been seeing. We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/761">documented a workaround for one of those problems</a>; and we're working on 2 fixes (<a class="reference external" href="https://github.com/beeware/briefcase/pull/756">supporting Linuxdeploy plugins</a> and <a class="reference external" href="https://github.com/beeware/briefcase/pull/754">adding Flatpak support</a>) that will hopefully address the remaining Linux packaging issues.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/775">improved Windows MSI installers</a> so that it will use the right <cite>Program Files</cite> directory, as well as providing an install-time option for system vs user installs of a package.</li>
+<li>We made some small improvements that <a class="reference external" href="https://github.com/beeware/briefcase/pull/769">improve support for non-ASCII project names and descriptions</a>.</li>
+<li>We've made some <a class="reference external" href="https://github.com/beeware/toga/pull/1504">more improvements to Toga Webviews</a>, ensuring that the current URL is accessible through the Python API.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/toga/pull/1514">addressed a long standing bug</a> that would cause Toga apps to be unable to find their local resource folders, depending on how the app was invoked. More importantly, this change has been accompanied by additions to the test suite. This is the start of being able to test runtime behavior of apps, which will be an increasinging important feature moving forward.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/toga/pull/1513">added a stack trace dialog for Windows</a>. A version of this dialog will be integrated into future improvements in Windows packaging.</li>
+<li>Finally, we published our <a class="reference external" href="https://beeware.org/news/buzz/2022q3-roadmap/">Q3 roadmap</a>.</li>
+</ul>
+</div>
+<div class="section" id="what-s-next">
+<h2>What's next?</h2>
+<p>In July, we'll be focussing on:</p>
+<ul class="simple">
+<li>Completing the work on Linux and Windows application packaging.</li>
+<li>Presenting a webinar about native application development. If you'd like to attend, <a class="reference external" href="https://event.on24.com/wcc/r/3766379/B50F020E006CF935D87609BF3E247ED7?partnerref=anaconda.com">registration for this webinar is open</a></li>
+<li>Starting investigations into binary module support on mobile platforms.</li>
+</ul>
+<p>We're also delighted to announce that we've successfully completed our hiring process; so, in 2 weeks, there will be another Bee in the hive! I'm very excited about the possibilities that this additional team member will afford. Look out for a welcome announcement in the coming weeks.</p>
+</div>
+
+
+  </div>
+  <div class="hidden-sm-down col-md-2 col-lg-4"></div>
+
+  <div class="col-sm-12 col-md-4 gutter">
+    <dl>
+      
+
+      
+      <dt>
+Previous entry
+</dt>
+      <dd><a href="/da_DK/news/buzz/2022q3-roadmap/">2022Q3 Roadmap</a></dd>
+      
+    </dl>
+  </div></div>
+</div>
+    </div>
+
+    <footer class="footer">
+      <div class="container text-muted">
+	      <div class="d-block d-sm-none copyright">&copy; Russell Keith-Magee 2022</div>
+	      <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee 2022</div>
+        <p class="d-sm-block d-none">
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://beeware.org/bee/chat/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Discord</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
+          <a href="/da_DK/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+        <p class="d-block d-sm-none footer-social">
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://beeware.org/bee/chat/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Discord</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a>
+        </p>
+        <p class="d-block d-sm-none footer-sitemap">
+          <a href="/da_DK/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+    <script src="/static/tether-1.3.3/js/tether.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script></body>
+</html>
