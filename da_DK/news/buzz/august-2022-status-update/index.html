@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>August 2022 Status Update— BeeWare</title>
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/brutus-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/brutus-72.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/brutus-57.png">
+    <link rel="shortcut icon" href="/static/images/brutus-32.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/grid.min.css">
+
+    <!-- Project CSS -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cutive">
+    <link rel="stylesheet" type="text/css" href="/static/beeware.css"><!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/1138bd8363.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2943925-4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2943925-4');
+    </script></head>
+  <body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="nav-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarsDefault">
+    <div class="navbar-brand-block"><a class="navbar-brand" href="/da_DK/">BeeWare</a></div>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+    <a class="nav-link" href="/da_DK/project/">
+Projekt
+</a>
+  </li>
+      <li class="nav-item active">
+    <a class="nav-link" href="/da_DK/news/">
+Nyheder
+<span class="sr-only">(current)</span></a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/da_DK/community/">
+Fællesskab
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/da_DK/contributing/">
+Bidrager
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/da_DK/contact/">
+Kontakt
+</a>
+  </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contributing/membership/">
+          
+Donate
+
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/new/lektor/content/news/buzz/august-2022-status-update/contents%2Bda.lr?filename=contents%2Bda.lr&value=title%3A+August+2022+Status+Update%0A---%0Aauthor%3A+Russell+Keith-Magee%0A---%0Abody%3A%0A%0AThe+main+focus+of+the+BeeWare+team+during+August+was+binary+module+support+on+mobile+platforms.+Although+we+haven%27t+got+the+final+results+of+this+work+yet%2C+we+have+significant+progress+to+report+for+both+iOS+and+Android.+We%27ve+also+had+a+number+of+other+improvements+land+over+the+course+of+the+month.+%0A%0AWhat+we%27ve+done%0A----------------%0A%0ADuring+August%3A%0A%0A%2A+We+have+continued+to+work+on+the+changes+needed+to+migrate+Android+support+to+Chaquopy.+This+has+included+some+%60major+changes+to+the+Android+Gradle+template+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase-android-gradle-template%2Fpull%2F52%3E%60__%2C+and+developing+a+Rubicon+Java+compatibility+layer.+Eventually%2C+Toga+will+migrate+to+use+the+Chaquopy+APIs+directly%2C+but+in+the+interim%2C+the+Rubicon+APIs+will+continue+to+work.+%0A%2A+We+have+started+updating+Chaquopy+to+support+multiple+Python+versions.+Historically%2C+Chaquopy+has+only+supported+a+single+Python3+version+%283.8%29%3B+for+compatibility+with+Briefcase%2C+we+are+adding+support+for+Python+3.9+and+3.10%2C+as+well+as+preparing+the+ground+for+a+3.11+release+when+Python+3.11+is+finalised.+%0A%2A+We+have+modified+the+Python+Apple+support+packages+to+%60provide+the+binary+portions+of+the+Python+standard+library+as+dynamically+loaded+binary+modules+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2FPython-Apple-support%2Fpull%2F161%3E%60__%2C+and+modified+the+%60iOS+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase-iOS-Xcode-template%2Fpull%2F7%3E%60__+and+%60macOS+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase-macOS-Xcode-template%2Fpull%2F10%3E%60__+templates+to+use+and+sign+these+binary+modules.+These+changes+haven%27t+landed+yet%2C+but+they+have+been+tested+on+simulators+and+physical+devices.+Along+the+way%2C+we%27ve+also+updated+the+support+packages+to+use+OpenSSL+3.+%0A%2A+We+have+modified+Briefcase+to+%60make+the+Python+support+package+optional+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F805%3E%60__%2C+at+the+discretion+of+the+project+template.+This+was+needed+because+Chaquopy+provides+the+Python+library+using+a+Gradle+plugin%2C+rather+than+requiring+a+project+to+source+a+pre-compiled+support+package.%0A%2A+We+have+addressed+an+issue+with+the+way+Briefcase+handles+%60requirements+references+when+they+are+relative+file+references+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F816%3E%60__.+Although+this+was+added+to+allow+rapid+debugging+of+changes+to+Toga+on+Android%2C+it+also+affected+the+recently+added+Linuxdeploy+backend.%0A%2A+We%27ve+%60added+an+%22open%22+subcommand+to+Briefcase+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F846%3E%60__%2C+making+it+easier+to+open+project-based+templates+in+their+respective+IDEs.%0A%2A+We%27ve+%60improved+Android+log+handling+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F821%3E%60__%2C+ensuring+that+more+app-specific+logs+are+displayed+to+the+user.%0A%2A+We%27ve+%60dramatically+improved+our+CI+testing+of+Briefcase+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F844%3E%60__.+We+now+build+an+app+on+every+platform+we+support%2C+using+every+backend.%0A%2A+We%27ve+addressed+a+number+of+bugs+in+the+Pack+layout+algorithm.%0A%2A+We%27ve+continued+the+process+of+making+Toga+widget+APIs+naming+internally+consistent.+%0A%2A+We%27ve+fixed+some+canvas+bugs+that+were+causing+problems+on+Windowns+with+our+native+Matplotlib+rendering+backend%2C+%60toga-chart+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Ftoga-chart%3E%60__.%0A%2A+We%27ve+addressed+some+bugs+associated+with+%60changing+the+main+content+of+a+Toga+window+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Ftoga%2Fpull%2F1572%3E%60__.%0A%2A+We+added+an+%60initial+implementation+of+a+DetailedList+widget+on+Windows+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Ftoga%2Fpull%2F1574%3E%60__.%0A%0AWhat%27s+next%3F%0A-------------%0A%0AIn+September%2C+we+hope+to+wrap+up+the+work+on+binary+dependencies.+On+Android%2C+this+is+mostly+a+matter+of+completing+the+work+to+support+multiple+Python+versions.+On+iOS%2C+we+need+to+develop+the+tools+to+manage+the+compilation+of+third-party+binary+libraries.+We+have+an+initial+proof+of+concept+of+this%3B+we+need+to+finish+these+tools%2C+and+develop+the+infrastructure+to+distribute.+We%27re+also+hoping+to+start+conversations+with+the+Anaconda+team+about+Conda+integration+with+Briefcase%2C+and+start+improving+GUI+testing+in+Toga.%0A%0A---%0Apub_date%3A+2022-09-01%0A---%0Atwitter_handle%3A+freakboy3742%0A" target="_blank">
+            <i class="fa fa-github "></i><small>&nbsp;
+Translate on GitHub
+</small>
+          </a></li>
+     <li class="nav-item dropdown dropdown-pull-right">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item " href="/news/buzz/august-2022-status-update/">
+          English
+          </a><a class="dropdown-item " href="/ar_AR/news/buzz/august-2022-status-update/">
+          
+العَرَبِيَّة
+
+          </a><a class="dropdown-item " href="/cs_CZ/news/buzz/august-2022-status-update/">
+          
+Čeština
+
+          </a><a class="dropdown-item active" href="/da_DK/news/buzz/august-2022-status-update/">
+          
+Dansk
+
+          </a><a class="dropdown-item " href="/de_DE/news/buzz/august-2022-status-update/">
+          
+Deutsch
+
+          </a><a class="dropdown-item " href="/es/noticias/zumbido/august-2022-status-update/">
+          
+Español
+
+          </a><a class="dropdown-item " href="/fr_FR/news/buzz/august-2022-status-update/">
+          
+Français
+
+          </a><a class="dropdown-item " href="/it_IT/news/buzz/august-2022-status-update/">
+          
+Italiano
+
+          </a><a class="dropdown-item " href="/ko_KR/news/buzz/august-2022-status-update/">
+          
+한국어
+
+          </a><a class="dropdown-item " href="/pl_PL/news/buzz/august-2022-status-update/">
+          
+Polski
+
+          </a><a class="dropdown-item " href="/pt_BR/news/buzz/august-2022-status-update/">
+          
+Português
+
+          </a><a class="dropdown-item " href="/tr_TR/news/buzz/august-2022-status-update/">
+          
+Türkçe
+
+          </a><a class="dropdown-item " href="/zh_TW/news/buzz/august-2022-status-update/">
+          
+漢語
+
+          </a></div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+    <div class="content">
+<div class="banner">
+  <div class="container">
+    <p>
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  <a href="/da_DK/">
+Home
+</a>
+  
+ >
+  <a href="/da_DK/news/">News</a>
+  
+ >
+  <a href="/da_DK/news/buzz/">The Buzz</a>
+  
+</p>
+    <h1>August 2022 Status Update</h1>
+    <p>
+Posted by
+
+        
+        <a href="https://twitter.com/freakboy3742">Russell Keith-Magee</a>
+        
+        
+on
+ 2022/09/01
+    </p>
+  </div>
+</div>
+<div class="container">
+<div class="row-fluid">
+  <div class="col-sm-12 col-md-10 col-lg-8" >
+  
+
+  
+  
+
+  
+  <p>The main focus of the BeeWare team during August was binary module support on mobile platforms. Although we haven't got the final results of this work yet, we have significant progress to report for both iOS and Android. We've also had a number of other improvements land over the course of the month.</p>
+<div class="section" id="what-we-ve-done">
+<h2>What we've done</h2>
+<p>During August:</p>
+<ul class="simple">
+<li>We have continued to work on the changes needed to migrate Android support to Chaquopy. This has included some <a class="reference external" href="https://github.com/beeware/briefcase-android-gradle-template/pull/52">major changes to the Android Gradle template</a>, and developing a Rubicon Java compatibility layer. Eventually, Toga will migrate to use the Chaquopy APIs directly, but in the interim, the Rubicon APIs will continue to work.</li>
+<li>We have started updating Chaquopy to support multiple Python versions. Historically, Chaquopy has only supported a single Python3 version (3.8); for compatibility with Briefcase, we are adding support for Python 3.9 and 3.10, as well as preparing the ground for a 3.11 release when Python 3.11 is finalised.</li>
+<li>We have modified the Python Apple support packages to <a class="reference external" href="https://github.com/beeware/Python-Apple-support/pull/161">provide the binary portions of the Python standard library as dynamically loaded binary modules</a>, and modified the <a class="reference external" href="https://github.com/beeware/briefcase-iOS-Xcode-template/pull/7">iOS</a> and <a class="reference external" href="https://github.com/beeware/briefcase-macOS-Xcode-template/pull/10">macOS</a> templates to use and sign these binary modules. These changes haven't landed yet, but they have been tested on simulators and physical devices. Along the way, we've also updated the support packages to use OpenSSL 3.</li>
+<li>We have modified Briefcase to <a class="reference external" href="https://github.com/beeware/briefcase/pull/805">make the Python support package optional</a>, at the discretion of the project template. This was needed because Chaquopy provides the Python library using a Gradle plugin, rather than requiring a project to source a pre-compiled support package.</li>
+<li>We have addressed an issue with the way Briefcase handles <a class="reference external" href="https://github.com/beeware/briefcase/pull/816">requirements references when they are relative file references</a>. Although this was added to allow rapid debugging of changes to Toga on Android, it also affected the recently added Linuxdeploy backend.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/846">added an &quot;open&quot; subcommand to Briefcase</a>, making it easier to open project-based templates in their respective IDEs.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/821">improved Android log handling</a>, ensuring that more app-specific logs are displayed to the user.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/844">dramatically improved our CI testing of Briefcase</a>. We now build an app on every platform we support, using every backend.</li>
+<li>We've addressed a number of bugs in the Pack layout algorithm.</li>
+<li>We've continued the process of making Toga widget APIs naming internally consistent.</li>
+<li>We've fixed some canvas bugs that were causing problems on Windowns with our native Matplotlib rendering backend, <a class="reference external" href="https://github.com/beeware/toga-chart">toga-chart</a>.</li>
+<li>We've addressed some bugs associated with <a class="reference external" href="https://github.com/beeware/toga/pull/1572">changing the main content of a Toga window</a>.</li>
+<li>We added an <a class="reference external" href="https://github.com/beeware/toga/pull/1574">initial implementation of a DetailedList widget on Windows</a>.</li>
+</ul>
+</div>
+<div class="section" id="what-s-next">
+<h2>What's next?</h2>
+<p>In September, we hope to wrap up the work on binary dependencies. On Android, this is mostly a matter of completing the work to support multiple Python versions. On iOS, we need to develop the tools to manage the compilation of third-party binary libraries. We have an initial proof of concept of this; we need to finish these tools, and develop the infrastructure to distribute. We're also hoping to start conversations with the Anaconda team about Conda integration with Briefcase, and start improving GUI testing in Toga.</p>
+</div>
+
+
+  </div>
+  <div class="hidden-sm-down col-md-2 col-lg-4"></div>
+
+  <div class="col-sm-12 col-md-4 gutter">
+    <dl>
+      
+
+      
+      <dt>
+Previous entry
+</dt>
+      <dd><a href="/da_DK/news/buzz/july-2022-status-update/">July 2022 Status Update</a></dd>
+      
+    </dl>
+  </div></div>
+</div>
+    </div>
+
+    <footer class="footer">
+      <div class="container text-muted">
+	      <div class="d-block d-sm-none copyright">&copy; Russell Keith-Magee 2022</div>
+	      <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee 2022</div>
+        <p class="d-sm-block d-none">
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://beeware.org/bee/chat/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Discord</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
+          <a href="/da_DK/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+        <p class="d-block d-sm-none footer-social">
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://beeware.org/bee/chat/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Discord</a> |
+          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a>
+        </p>
+        <p class="d-block d-sm-none footer-sitemap">
+          <a href="/da_DK/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+    <script src="/static/tether-1.3.3/js/tether.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script></body>
+</html>
