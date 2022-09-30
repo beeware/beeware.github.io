@@ -1,0 +1,75 @@
+title: 2022Q4 Roadmap
+---
+author: Russell Keith-Magee
+---
+body:
+
+With Q3 completed, it's time to provide an update on the long term goals and priorities of the BeeWare project. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment of features that will be made available on a specific deadline.
+
+Q3 progress
+-------------
+
+We were able to hit our biggest Q3 goals:
+
+* **Linux packaging** - We've investigated and addressed all the known issues with Linux packaging. There's `one pending enhancement <https://github.com/beeware/briefcase/issues/886>`__ that would expand the range of third-party binary packages that can be included in Briefcase projects.
+* **Windows packaging** - We've introduced a stub binary for Windows apps (as well as a Visual Studio target for Windows projects). This allowed us to significantly improve log capture, so when a Windows app crashes it's a lot easier to obtain diagnostic information. This change also corrected *most* of the issues with the way Windows apps were using the site module; however, there is still `one issue related to the handling of packages that have complex post-installation processes <https://github.com/beeware/briefcase/issues/381>`__.
+* **Binary modules** - By far the biggest achievement of Q3. With the release of Briefcase 0.3.10, we now support binary modules on iOS and Android. We have also published 40 of the most popular binary modules, compiled for iOS and Android.
+
+However, we didn't hit all our goals:
+
+* **Testing** - Testing support has improve substantially. We have a much more thorough CI configuration on Briefcase that verifies that templates generate valid projects. We also have `a testbed project <https://github.com/beeware/Python-support-testbed>`__ that we can use to check that support packages are behaving correctly. However, we are not yet able to run this test project in CI, so we don't have automated validation of PRs against the support packages. We also made very little progress in GUI testing.
+* **Conda integration** - We began initial discussions around Conda integration, on two fronts: firstly, to investigate the possibility of using Conda as a base for package management in apps; and secondly, about using conda-forge as a framework for managing community contributions. Both of these conversations are ongoing; it will likely take some time before these efforts bear fruit.
+
+Q4 priorities
+--------------
+
+In Q4, we're planning to focus on:
+
+Toga
+~~~~
+
+The primary focus for Q4 will be Toga. There are a number of pieces of work involved with this:
+
+* **Housekeeping** - Basic repository maintenance tasks, like enabling `black`, introducing pre-commit hooks, towncrier, and automating release infrastructure.
+* **Example consolidation** - Toga's examples folder has become a sprawling collection of code that is part documentation, part testbed. We need to start consolidating these examples into 2 apps - one that is a user-facing demonstrator of Toga features, and one that can be used as a functional test of Toga features.
+* **Testing** - Modernising and cleaning up the existing test suite, and working out how to automate GUI tests
+* **Documentation** - Toga's documentation has lagged behind an acceptable standard for a long time,
+* **Planning** - Developing a clear plan for what will be in Toga 1.0
+* **Cross-platform hardware** - While it has always been *technically* possible to support the APIs needed to access device hardware, there hasn't been a cross-platform API for this work. In Q4, we hope to demonstrate at least 1 interesting piece of mobile device hardware.
+
+Although we won't get to Toga v1.0 in Q4, we *will* land a v0.3 final, after several years of maintaining dev pre-releases as the main way to use Toga.
+
+Web support
+~~~~~~~~~~~
+
+Toga has historically had support for the Web as a platform; however, that effort was put on hold because the approach we were taking wasn't proving viable. However, with the release of Python 3.11, WASM becomes an officially supported CPython platform. We've also seen the release of `PyScript <https://pyscript.net>`__, demonstrating that client-side Python in the browser is an extremely viable proposition. The time has come to resurrect BeeWare's support for the web as a deployment platform. This will involve getting Toga's web backend into a working state, and adding a web deployment backend for Briefcase.
+
+Longer term goals
+-----------------
+
+Looking into next year, the big items on the horizon are:
+
+Upstreaming
+~~~~~~~~~~~
+
+With binary modules now being supported on both iOS and Android, and the introduction of a `Tier 3 support level in PEP11 <https://peps.python.org/pep-0011/>`__,  the prospect of elevating iOS and Android to official supported platforms is seeming increasingly plausible. Our hope is to go to PyCon US next year in a position to make a concrete proposal to the CPython core team.
+
+Toga 1.0
+~~~~~~~~
+
+The broad goal for "Toga 1.0" could be considered "Tkinter, but with some additional bells to show off". We want to deliver a core widget set of the "essentials", plus some nice features to show off, like WebViews and camera or GPS integration. We hope to establish the feature list for Toga 1.0 in Q4; once that plan is in place, we'll have a better idea of when we will be able to deliver on that plan.
+
+A Forge for mobile packages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As of today, all binary modules for mobile platforms are being maintained by the BeeWare team. This isn't a viable solution long term; we need to move to an environment where the community can manage binary packages for mobile platforms.
+
+Summary
+--------
+
+For the last 6 months, the focus of BeeWare has been on Briefcase and the support packages - ensuring that we have a feature complete, robust set of tools for deploying apps on any platform. In Q4, our focus is shifting to the tools we need to build apps *on* those platforms, and ensuring we have a stable foundation for future development. It will take time for those tools to reach maturity, but 
+
+---
+pub_date: 2022-10-04
+---
+twitter_handle: freakboy3742
