@@ -182,6 +182,56 @@ Home
   
 
   
+  <h2><a href="/zh_TW/news/buzz/a-new-yak-for-the-herd-beekeeper/">A new yak for the herd: BeeKeeper</a></h2>
+  <p class="meta">
+    
+Posted by
+
+    
+      <a href="https://twitter.com/freakboy3742">Russell Keith-Magee</a>
+    
+    
+on
+ 31 July 2017
+  </p>
+  
+  <p>Testing is a skill that is a vital part of every programmers training. Learning how to write good tests helps you write more robust code, and ensures that when you've written code that works, it keeps working long into the future. It can also help you write better code in the first place. It turns out that well architected code, with high cohesion and low coupling, is also easy to test - so writing code that is easy to test will almost always result in better overall code quality.</p>
+<p>An important step in &quot;levelling up&quot; your testing experience is to start using a Continuous Integration, or CI service. A CI service is a tool that automatically runs your test suite every time someone makes a change - or every time someone proposes a change in the form of a pull request. Using a CI service makes sure that your code <em>always</em> passes your test suite - you can't accidentally slip in a change that breaks a test, because you'll get a big red warning notification.</p>
+<p>CI is such an important service that many companies exist solely to provide CI-as-a-service. The BeeWare project has, for various projects, used <a class="reference external" href="https://travis-ci.org">TravisCI</a> and <a class="reference external" href="https://circleci.com">CircleCI</a>. Both these tools provide free tiers for open source projects, and have generously sponsored BeeWare with capacity upgrades at various times.</p>
+<p>However, the BeeWare has had an interesting relationship with commercial CI services. This is for two reasons.</p>
+<p>Firstly, our test suites - especially for <a class="reference external" href="/project/projects/bridges/voc">VOC</a> and <a class="reference external" href="/project/projects/bridges/batavia">Batavia</a> - take a long time to run. These two projects require tests that repeatedly start and shut down virtual machines (for Java and JavaScript, respectively), and no matter how much you optimize the code being tested, the startup and shutdown time of a virtual machine eventually adds up. We also need to run our test suites on multiple versions of Python - at present, we support Python 3.4, 3.5 and 3.6, with 3.7 on the horizon. There are also subtle changes in micro versions that may require testing.</p>
+<p>We've been able to speed up the duration of a test run by splitting up the test suite and running parts of the suite in parallel, but that forces us up against the second problem. Commercial CI services usually operate on a subscription model; higher subscriptions providing more simultaneous resources. However, our usage pattern is highly unusual. Most of the year, we get a slow trickle of pull requests that require testing. However, a couple of times a year, we have a large sprint, and we have a flood of contributions over a short period of time. At PyCon US, we have had groups of 40 people submitting patches - and they all need their submissions tested by CI. And time is a factor - the sprints only last a couple of days, so a fast turnaround on testing is essential.</p>
+<p>If we were to subscribe to the top tier subscription levels of CircleCi and TravisCI, we still wouldn't have enough resources to support a sprint - but we'd be <em>massively</em> overresourced for the rest of the year. We'd also have to pay $750 or more a month for this service, which is a budget we can't afford.</p>
+<p>So - we had a problem. To run our test suite effectively, we needed massively parallelized resources to run a test suite quickly; and at certain times of the year, we need extremely large numbers of these resources.</p>
+<p>We also had other automated tasks that we wanted to perform. We wanted to do code linting (automated checking of code style) before a PR was tested. We wanted to check spelling of documentation. And we wanted these tasks to feed back into GitHub as automated comments and specific code review status markers, informing contributors not just that a problem occurred - but what problem occurred, and where in their code.</p>
+<p>We also wanted to manage pipeline builds - there's no point in doing a full test of multiple versions of Python once you've established the tests are failing on one version. And there's no point testing <em>at all</em> if there are code style problems.</p>
+<p>We also wanted to do things that weren't just testing. We wanted to check that contributor agreements have been signed. We wanted to automate deployment of websites and documentation.</p>
+<p>What we had wasn't just a CI problem. It was a problem where we wanted to automatically run arbitrary code, in a safe way, in response to a GitHub event.</p>
+<p>I've been trying to find a CI service that can meet our needs for over a year. But over the last year, a few thoughts started to congeal in my head.</p>
+<ul class="simple">
+<li>Amazon provides a API (EC2) that allows you to spool up machines of varying complexity (up to 64 CPUs, with almost 500GB of RAM), and pay by the minute for that usage.</li>
+<li>Docker provides the tools for configuring, launching, and running code in an isolated fashion</li>
+<li>Amazon also provides an API (ECS) to control the execution of Docker containers.</li>
+</ul>
+<p>There's nothing specific about AWS EC2 or ECS either - you could just as easily use Linode and Kubernetes, or Docker Swarm, or Microsoft Azure... you just need to have the ability to easily spool up machines and run a Docker container. After all: a test suite is just a Docker container that runs a script that starts your test suite. A linting check is a Docker container that runs a script that lints your code. A contributor agreement check is a Docker container that checks the metadata associated with a pull request.</p>
+<p>All you need then is a website that can receive GitHub event notifications, and start Docker containers in response.</p>
+<p>At the start of July, I found myself between jobs, and uttered the fateful question &quot;How hard could it be?&quot; And so, today, I'm announcing <a class="reference external" href="/project/projects/tools/beekeeper">BeeKeeper</a> - BeeWare's own CI service.</p>
+<p>BeeKeeper deploys as a Heroku website, written using Django. After configuring it with Github and AWS credentials, it listens for Github webhooks. When a Pull Request or Push is detected, BeeKeeper creates a build request; that build request inspects the code in the repository looking for a <tt class="docutils literal">beekeeper.yml</tt> configuration file. That configuration file describes the pipeline of tasks that will be performed, and for each task, the type of machine that should be used, any environment variables that are required, and the Docker image that will be used.</p>
+<p>BeeKeeper also allows the site admin to describe what resources will be used to satisfy builds. A task can say it needs a &quot;High CPU&quot; instance; but the BeeKeeper instance can determine what &quot;High CPU&quot; means - is it 4 CPUs or 32? When those machines are spooled up, how long will they be allowed to sit idle before being shut down again? How many machines should be sitting in the pool permanently? And what is the upper limit on machines that will be started?</p>
+<p>A companion tool to BeeKeeper is <a class="reference external" href="/project/projects/attic/waggle">Waggle</a>. Waggle is a tool that prepares a local definition of a task so it can be used by BeeKeeper - it compiles the Docker image, and uploads it into ECS so that it can be referenced by tasks. (It's called &quot;Waggle&quot; because when worker bees discover a good source of nectar, they return to the hive and do a <a class="reference external" href="https://en.wikipedia.org/wiki/Waggle_dance">waggle dance</a> that tells other bees how to find that source).</p>
+<p>We've also provided a repository called <a class="reference external" href="https://github.com/beeware/comb">Comb</a> (named after honey comb, the place bees store all the nectar they find) that defines the task configurations that a BeeKeeper instance can use. We've provided some simple definitions as part of the base Comb repository; each BeeKeeper deployment should have one of these repositories of it's own.</p>
+<p>There's still a lot of work to do, but we're already using BeeKeeper to Batavia and VOC, and the upcoming PyCon AU sprints will be our first outing under high-load conditions. Some back-of-envelope calculations predict that for around $50, we'll be able to provide enough CPU resources for each test run to complete running in 10 minutes or less, supporting a sprint of dozens of people.</p>
+<p>Although BeeKeeper was written to meet the needs of the BeeWare project, it's an open source tool available for anyone to use. If you'd like to take BeeKeeper for a spin, come along to the sprints, or <a class="reference external" href="https://github.com/beeware/beekeeper">check out the code on GitHub</a>.</p>
+<p>BeeKeeper is also an example of the sort of product you'd see more of if BeeWare development was funded full time. I was able to build BeeKeeper because I had a spare couple of weeks between jobs. There is no end to the tools and libraries like BeeKeeper and Waggle that could be built to support the software development process - all that is missing is the resources needed to develop those tools. If you'd like to see more tools like BeeKeeper in the world, please consider <a class="reference external" href="/contributing/membership/">joining the BeeWare project as a financial member</a>. Every little bit helps, and if we can reach a critical mass of supporters, I'll be able to start working on BeeWare full time.</p>
+
+
+
+  
+
+  
+  
+
+  
   <h2><a href="/zh_TW/news/buzz/a-request-for-your-help/">A request for your help</a></h2>
   <p class="meta">
     
