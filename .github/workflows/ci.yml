@@ -23,7 +23,8 @@ jobs:
           lektor build --no-prune -O output
 
       # Generated from 'firebase init hosting'
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Deploy preview
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BEEWARE_ORG }}'
