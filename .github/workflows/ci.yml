@@ -21,7 +21,8 @@ jobs:
       - name: Build site
         run: |
           lektor plugins reinstall
-          lektor build --no-prune -O output
+          lektor clean -O output --yes
+          lektor build --prune -O output
 
       # Generated from 'firebase init hosting'
       - name: Deploy preview
