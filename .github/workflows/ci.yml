@@ -18,10 +18,12 @@ jobs:
           pip install --upgrade pip
           pip install --upgrade setuptools wheel
           pip install -r requirements.txt
-      - name: Build site
+      - name: Clean
         run: |
           lektor plugins reinstall
           lektor clean -O output --yes
+      - name: Build site
+        run: |
           lektor build --prune -O output
 
       # Generated from 'firebase init hosting'
