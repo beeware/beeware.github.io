@@ -1,14 +1,17 @@
 name: CI
 on:
   pull_request_target:
+    types: [labeled]
 
 jobs:
   build:
     name: Build and preview site
     runs-on: ubuntu-latest
-    environment: previews
+    if: contains(github.event.pull_request.labels.*.name, 'generate_preview')
     steps:
       - uses: actions/checkout@v1
+        with:
+          ref: "refs/pull/${{ github.event.number }}/merge" # THIS IS INSECURE
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
