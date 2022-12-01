@@ -1,0 +1,50 @@
+title: November 2022 Status Update
+---
+author: Russell Keith-Magee
+---
+body:
+
+November has brought some very important improvements to BeeWare. Although these changes don't have an immediate impact for users, they're going to form a vital part of our work going forward.
+
+What we've done
+----------------
+
+During November:
+
+* We `added a test mode to Briefcase <https://github.com/beeware/briefcase/pull/962>`__. This is a *huge* step forward, as it means we are now able to run automated tests for iOS and Android, as well as validation tests for packaged app behaviors. As a proof of concept, we've already begun porting our `support package validation app <https://github.com/beeware/Python-support-testbed/pull/6>`__ - this is an app that we've historically needed to run manually.
+* We `added the ability for an AppImage to customise the Dockerfile used to build the project <https://github.com/beeware/briefcase/pull/954>`__. This was required to support the use of Rust-based dependencies (such as `cryptography <https://cryptography.io/>`__) in AppImages; however, the approach we've taken should allow for any other customisation that may be required, without the need to maintain a fork of the AppImage project template.
+* We've `added the ability for users to add customisations to the Android Gradle file for their projects <https://github.com/beeware/briefcase/pull/974>`__. As with the Dockerfile changes, this allows for small customisations without the need to use a completely forked template.
+* We `improved the resilience of Briefcase on flaky network connections <https://github.com/beeware/briefcase/pull/956>`__. Previously, an interrupted download of a support package could leave Briefcase in a broken state; this should no longer be possible.
+* We've `improved type hinting in the Briefcase codebase <https://github.com/beeware/briefcase/pull/964>`__, especially relating to the ToolCache class.
+* We've `improved the handling of Android apps that fail immediately on app startup <https://github.com/beeware/briefcase/pull/966>`__. Previously, if your app crashed due to something like a Python syntax error, it was possible for Briefcase to hang in a way that made it look like the issue was due to Briefcase being unable to start the app, rather than a user code problem.
+* We've `corrected a problem on Windows that was preventing app output from being captured in the Briefcase log <https://github.com/beeware/briefcase/pull/970>`__.
+* We completed the process of modernising the layout and tooling of the Toga repository, including the `introduction of Black <https://github.com/beeware/toga/pull/1639>`__, `Towncrier <https://github.com/beeware/toga/pull/1638>`__, `setuptools_scm <https://github.com/beeware/toga/pull/1675>`__, and a `large reorganisation of the code structure <https://github.com/beeware/toga/pull/1669>`__ 
+* We've `begun building the first automated test of Toga's GUI behavior <https://github.com/beeware/toga/pull/1687>`__. This is still in the early stages, but it will form the a core part of our testing infrastructure in the near future.
+* We've added preliminary support for Python 3.12 to `Briefcase <https://github.com/beeware/briefcase/pull/965>`__, `Toga <https://github.com/beeware/toga/pull/1677>`__ and `Rubicon ObjC <https://github.com/beeware/rubicon-objc/pull/231>`__.
+* We've `updated the codebase of Rubicon-ObjC to use Black <https://github.com/beeware/rubicon-objc/pull/230>`__. 
+
+What's next?
+--------------
+
+December will be a slow month due to the Christmas and New Year break; however, until then, we'll continue to focus will continue to be on testing. We'll continue to build out the testing tools that we've worked on this month, and start building tests using those tools. We also hope to begin work on a firm 1.0 roadmap for Toga.
+
+Want to get involved?
+-----------------------
+
+Want to get involved? Here's 8 open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
+
+1. `Modify the handling of app signing options <https://github.com/beeware/briefcase/issues/865>`__
+2. `Filter out a message generated after Xcode updates <https://github.com/beeware/briefcase/issues/780>`__
+3. `Add the ability to refresh the support package in a project <https://github.com/beeware/briefcase/issues/856>`__
+4. `Provide protection against creating projects with "semi-reserved" names <https://github.com/beeware/briefcase/issues/853>`__
+5. `Add the ability to configure the ABIs built by an Android project <https://github.com/beeware/briefcase/issues/808>`__
+6. `Add support for the ANDROID_HOME environment variable <https://github.com/beeware/briefcase/issues/463>`__
+7. `Add a command summary to briefcase --help <https://github.com/beeware/briefcase/issues/907>`__
+8. `Add an option to display the platforms supported by a command <https://github.com/beeware/briefcase/issues/906>`__
+
+Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a `guide on setting up a Briefcase development environment <https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html>`__; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the `BeeWare Discord server </bee/chat/>`__.
+
+---
+pub_date: 2022-12-01
+---
+twitter_handle: freakboy3742
