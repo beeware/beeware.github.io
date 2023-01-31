@@ -184,6 +184,69 @@ Accueil
   
 
   
+  <h2><a href="/fr_FR/news/buzz/january-2023-status-update/">January 2023 Status Update</a></h2>
+  <p class="meta">
+    
+Posté par
+
+    
+      <a href="https://twitter.com/freakboy3742">Russell Keith-Magee</a>
+    
+    
+le
+ 1 February 2023
+  </p>
+  
+  <p>BeeWare has had an exciting start to the new year, with a couple of significant releases</p>
+<div class="section" id="what-we-ve-done">
+<h2>What we've done</h2>
+<p>We had two big releases in January.</p>
+<p>Firstly, we released Briefcase 0.3.12. This is the first Briefcase release in 3 months, so it includes a lot of improvements, but the most notable improvements are the new &quot;Testing mode&quot;, a major improvement to the Android build process, and a huge number of bug fixes and improvements - especially on Windows.</p>
+<p>Secondly - and more importantly - we released Toga 0.3.0! No more dev releases or <tt class="docutils literal"><span class="pre">--pre</span></tt> flags for <tt class="docutils literal">pip</tt> - the stable release of Toga on PyPI is now closely tracking actual development. It's been over 5 years since we last released an official stable Toga version, even though we've been recommending the dev releases for most of that time. However, as a result of a number of changes that landed this month, we're finally committing to the 0.3.0 branch properly.</p>
+<p>These releases incorporate changes going back months (and years); but we made some very specific progress during January:</p>
+<ul class="simple">
+<li>Chaquopy <a class="reference external" href="https://chaquo.com/chaquopy/chaquopy-version-14-0-2/">had a new release.</a>, significantly improving build times on Android, improving the rendering of <tt class="docutils literal">stdout</tt> content in the Android logs, adding some features that make it easier to expose the original project source code in the running app bundle, and enabling PEP517 builds of project dependencies.</li>
+<li>Briefcase is now able to <a class="reference external" href="https://github.com/beeware/briefcase/pull/1058">reference local source packages when building Linux AppImage binaries</a>.</li>
+<li>Some errors caused by the way the Windows Store version of Python handles local application data <a class="reference external" href="https://github.com/beeware/briefcase/pull/1054">have been corrected</a>.</li>
+<li>Briefcase's help text now <a class="reference external" href="https://github.com/beeware/briefcase/pull/1005">shows the list of platforms and output formats</a>, rather than requiring an additional help call to retrieve that information.</li>
+<li>Some issues with thread and asyncio safety in Rubicon ObjC were <a class="reference external" href="https://github.com/beeware/rubicon-objc/pull/246">identified and resolved</a>, along with an issue associated with the way some Objective C classes (such as NSWindow) are <a class="reference external" href="https://github.com/beeware/rubicon-objc/pull/258">renamed at runtime</a>.</li>
+<li>Initial GUI testing backends for <a class="reference external" href="https://github.com/beeware/toga/pull/1707">macOS</a>, <a class="reference external" href="https://github.com/beeware/toga/pull/1749">iOS</a> and <a class="reference external" href="https://github.com/beeware/toga/pull/1755">GTK</a> were added.</li>
+<li>A long standing issue with the <a class="reference external" href="https://github.com/beeware/toga/issues/1439">replacement of root window content</a> on GTK and iOS has been resolved.</li>
+<li>Coverage testing was <a class="reference external" href="https://github.com/beeware/toga/pull/1747">added to the Toga Android GUI test backend</a>.</li>
+<li>An API was added to <a class="reference external" href="https://github.com/beeware/toga/pull/1728">allow scrolling MultilineTextInput widgets</a> to the top and bottom of the widget content.</li>
+<li>The work <a class="reference external" href="https://github.com/beeware/toga/pull/1675">moving Toga to use Setuptools-SCM</a> was completed. Development versions of Toga will now report a specific version control commit; release versions have their version determined by the git tag used to produce the release.</li>
+<li>We completed a major review of the way we're using Github issue labels, and modified those labels to be consistent across all repositories.</li>
+</ul>
+</div>
+<div class="section" id="what-s-next">
+<h2>What's next?</h2>
+<p>Much of the last 3 months have been spent getting a GUI testing framework in place for Toga. That work is now in place, so now we'll be working full time on writing GUI tests for Toga, with the aim of getting Toga to 100% coverage. Along the way, we'll discover all the edge cases, bugs, and partially missing implementations that are lurking in the individual Toga widgets.</p>
+</div>
+<div class="section" id="want-to-get-involved">
+<h2>Want to get involved?</h2>
+<p>Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/865">Modify the handling of app signing options</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/780">Filter out a message generated after Xcode updates</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/856">Add the ability to refresh the support package in a project</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/853">Provide protection against creating projects with &quot;semi-reserved&quot; names</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/808">Add the ability to configure the ABIs built by an Android project</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/463">Add support for the ANDROID_HOME environment variable</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/986">Purge cache folders when installing app code in Briefcase</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1053">Add a template branch option when creating a new project</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1011">Improve validation of project names in the Briefcase wizard</a></li>
+</ol>
+<p>Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a <a class="reference external" href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html">guide on setting up a Briefcase development environment</a>; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the <a class="reference external" href="/bee/chat/">BeeWare Discord server</a>.</p>
+</div>
+
+
+
+  
+
+  
+  
+
+  
   <h2><a href="/fr_FR/news/buzz/2023q1-roadmap/">2023Q1 Roadmap</a></h2>
   <p class="meta">
     
@@ -679,103 +742,6 @@ le
 <li>Starting investigations into binary module support on mobile platforms.</li>
 </ul>
 <p>We're also delighted to announce that we've successfully completed our hiring process; so, in 2 weeks, there will be another Bee in the hive! I'm very excited about the possibilities that this additional team member will afford. Look out for a welcome announcement in the coming weeks.</p>
-</div>
-
-
-
-  
-
-  
-  
-
-  
-  <h2><a href="/fr_FR/news/buzz/2022q3-roadmap/">2022Q3 Roadmap</a></h2>
-  <p class="meta">
-    
-Posté par
-
-    
-      <a href="https://twitter.com/freakboy3742">Russell Keith-Magee</a>
-    
-    
-le
- 24 June 2022
-  </p>
-  
-  <p>One of the benefits of having the support of an organisation like Anaconda is that we are now in a position to make more concrete commitments on project goals, and the likely timeframe when key features will be delivered. To that end, in addition to monthly status updates, we're going to start publishing regular updates on our project roadmap so the community has a better idea what to expect over the coming months.</p>
-<p>Project estimation is difficult at the best of times; and project estimation on a FLOSS project is especially complex. In addition to any work that we are planning internally as a team, we need to manage contributions from the community. If a community member contributes a piece of work that <em>isn't</em> on our roadmap, we need to review that work. As a result, our ability to deliver on our own roadmap is dependent on how much is contributed by the community - something that is very hard to predict ahead of time.</p>
-<p>In addition, several of the topics listed on this roadmap are complex, foundational tasks, and potentially contain unknown complications. As with any complex work, it can be difficult to predict ahead of time how long that work will take.</p>
-<p>As a result, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment of features that will be made available on a specific deadline.</p>
-<div class="section" id="q3-priorities">
-<h2>Q3 priorities</h2>
-<p>During Q3, we're planning to work on:</p>
-<div class="section" id="linux-packaging">
-<h3>Linux packaging</h3>
-<p>Breifcase's AppImage packaging backend has had <a class="reference external" href="https://github.com/beeware/briefcase/issues/718">a cluster of issues reported</a> related to inclusion of third party libraries, and the post-processing that needs to be performed on an AppImage. We've already started work on this during Q2; early in Q3, you should expect to see this work wrapped up. This will include:</p>
-<ul class="simple">
-<li>Adding support for linuxdeploy plugins for our existing AppImage backend; and</li>
-<li>Adding a Flatpak backend.</li>
-</ul>
-</div>
-<div class="section" id="windows-packaging">
-<h3>Windows packaging</h3>
-<p>Briefcase has an MSI packaging backend for Windows; and while this backend works, it doesn't deliver an end-user experience that is as polished as we'd like. We should be starting initial work on Windows packaging in the coming week, with the complete solution completed in early Q3. This will include:</p>
-<ul class="simple">
-<li>Adding a stub binary for Windows apps, so that Briefcase apps present to the task manager with the apps name and icon, rather than &quot;pythonw&quot;;</li>
-<li>Improving log capture on Windows, so that it is easier to diagnose when problems occur; and</li>
-<li>Fixing some issues with the way the <cite>site</cite> is defined and used. This may also address some issues we've seen with binary modules in some Windows apps.</li>
-</ul>
-</div>
-<div class="section" id="binary-modules">
-<h3>Binary modules</h3>
-<p>The biggest caveat on BeeWare's mobile app story has always been that we don't provide support for binary packages on mobile platforms. In Q3, we're going to start addressing this limitation.</p>
-<p>There are already tools like <a class="reference external" href="https://github.com/benfogle/crossenv">crossenv</a> that can simplify this process, and we've got <a class="reference external" href="https://github.com/beeware/briefcase/pull/647">a PR in our review queue</a> that provides a proof-of-concept implementation of Android binary packaging. We need to take these tools, plus other tools in the Python ecosystem, and extend Briefcase so that we can present a clear development story for mobile developers that want to use modules with binary components.</p>
-<p>On iOS, there is an additional complication - we need to resolve how to manage dynamic loading of modules. BeeWare's iOS support currently relies on static compilation of all binary modules. This was originally done because prior to iOS8, dynamic linking was prohibited on iOS. The days of iOS8 are now long behind us; but the Apple support package has retained this old approach, mostly because it wasn't clear what approach Apple would allow through the App Store review process. We will be making changes to Briefcase's iOS support to accomodate dynamic module loading, and then extending that support to include user-provided binary modules.</p>
-</div>
-<div class="section" id="testing-especially-gui-testing">
-<h3>Testing (especially GUI testing)</h3>
-<p>Without testing, it's very difficult to ensure the stability and reliability of code in the long term. Unfortunately, many of the areas where BeeWare operates are inherently difficult to test. Visual GUI tests are notoriously difficult to perform; packaging tests require the ability to actually install and run finished applications; testing mobile applications requires access to mobile device hardware in a CI setup. As a project, we've avoided writing tests for many of our core features due to these complexities - and we've paid the price for this in regressions. Now that we have more time, we can focus on setting up the frameworks to let us perform this testing.</p>
-<p>This includes adding:</p>
-<ul class="simple">
-<li><strong>Support package tests</strong>, ensuring that the packages include valid libraries;</li>
-<li><strong>App template tests</strong>, ensuring that Briefcase is able to generate valid and installable applications; and</li>
-<li><strong>GUI tests</strong>, ensuring that Toga generates apps that look and behave the way they should.</li>
-</ul>
-<p>Testing is an ongoing process, so it's highly unlikely we'll have &quot;100% test coverage&quot; by the end of the quarter. The goal will be to add the frameworks that allow us to add tests <em>at all</em>, so that we can retrofit tests onto existing code, and add tests on all new code going forward. Ideally, these tests will be fully automated tests running in CI. However, we may accept semi-automated or manual tests as a short term of interim measure, especially if those tests lay the groundwork for fully automated tests in the future.</p>
-</div>
-<div class="section" id="conda-integration">
-<h3>Conda integration</h3>
-<p>Briefcase is currently uses PyPI and pip as source of Python packages. However, PyPI and pip isn't the only packaging solution in the Python ecosystem - another commonly used packaging source is Conda.</p>
-<p>At this point, I must recognise the elephant in the room - Anaconda, the company that produced and maintains Conda,  is my employer. However, I must stress that the fact this is on our roadmap is <em>not</em> as a result of a directive from my employer. The original <a class="reference external" href="https://github.com/beeware/briefcase/issues/596">proposal for this idea</a> predates even my earliest hiring discussions with Anaconda. It is being pursued now for three reasons:</p>
-<ol class="arabic simple">
-<li>The key value of Conda is that it simplifies the process of delivering complex binary packages, and ensuring that the binary dependencies for those packages are isolated from any packages that might be present on the user's computer. This core problem statement shares a lot of similarities with the core problem associated with application packaging. Conda also has much more nuanced representation of hardware platforms, alternatives for binary artefacts, and options for custom repositories. There is a possibility that using Conda as a packaging base may simplify some of the problems we've seen with distributing binary dependencies.</li>
-<li>There is a significant portion of the Python community that have commercial needs that requires the use of the managed repositories provided by Anaconda, or are simply more familiar with Conda tooling than PyPI/pip.</li>
-<li>As a result of having 1 (soon to be 2) full time engineers, we now have the resources to explore complex changes that might not have otherwise been explored. We are exploring this idea because we now have the resources to do so; we were not provided those resources on the condition that we explore this idea.</li>
-</ol>
-<p>We don't anticipate dropping support for pip, or for PyPI as a package source. We're looking at extending Briefcase to provide another commonly used and requested option for packaging, rather than replacing PyPI/pip.</p>
-</div>
-</div>
-<div class="section" id="longer-term-goals">
-<h2>Longer term goals</h2>
-<p>Looking beyond Q3, the big items on the horizon are:</p>
-<div class="section" id="upstreaming">
-<h3>Upstreaming</h3>
-<p>The Apple and Android support packages maintained by BeeWare include a number of patches against the core CPython. We want to begin the process of getting these modifications into the CPython codebase.</p>
-<p>There have been two major impediments to this in the past:</p>
-<ol class="arabic simple">
-<li><strong>Development resources</strong> When we were a volunteer driven project, we didn't have the resources to engage meaningfully with the CPython core team to shepherd our patches into the CPython codebase.</li>
-<li><strong>Testing</strong> Supported platforms in the CPython codebase need to have CI solutions.</li>
-</ol>
-<p>We now have resources, so we can dedicate the time needed to upstream patches; and once we've completed our testing work in Q3, we'll be in a position to recommend CI configurations to the CPython core team. That means the work of upstreaming patches and making iOS and Android fully supported platforms can begin.</p>
-</div>
-<div class="section" id="toga-1-0">
-<h3>Toga 1.0</h3>
-<p>The broad goal for &quot;Toga 1.0&quot; could be considered &quot;Tkinter, but with some additional bells to show off&quot;. We want to deliver a core widget set of the &quot;essentials&quot;, plus some nice features to show off, like WebViews and camera or GPS integration. The exact set of features for Toga 1.0 is still a subject for discussion; I'd expect to see a more concrete feature list and plan emerge in Q4.</p>
-</div>
-</div>
-<div class="section" id="summary">
-<h2>Summary</h2>
-<p>As with most of the work that has been done in Q2, the foundational work we're planning for Q3 is not as glamorous as adding high profile GUI widgets, but it's all necessary work if we're going to provide a stable and reliable development story. Once this foundation is established, we'll be in a much better position to rapidly develop new features that <em>are</em> visible - and to ensure that those features are stable and reliable as BeeWare develops.</p>
 </div>
 
 
