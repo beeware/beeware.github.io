@@ -184,6 +184,66 @@ Home
   
 
   
+  <h2><a href="/zh_TW/news/buzz/february-2023-status-update/">February 2023 Status Update</a></h2>
+  <p class="meta">
+    
+Posted by
+
+    
+      <a href="https://twitter.com/freakboy3742">Russell Keith-Magee</a>
+    
+    
+on
+ 1 March 2023
+  </p>
+  
+  <p>Although there haven't been a lot of new BeeWare features developed in February, the work that has been completed represents some important progress against our overall project goals.</p>
+<div class="section" id="what-we-ve-done">
+<h2>What we've done</h2>
+<ul class="simple">
+<li>The biggest milestone is that we have achieved 100% test coverage for our first widget - <a class="reference external" href="https://github.com/beeware/toga/pull/1761">Button</a>! This may sound a little underwhelming - after all, Toga has had a Button widget for a long time, and has been fairly reliable. However, getting to this point has required a lot of smaller (seemingly unrelated) problems to be solved. It has also required setting up all the infrastructure that will be necessary to test every other widget, such as defining the probes to inspect colors and fonts, and to ensure that the GUI framework has finished applying changes before performing a test assertion). We've also taken this opportunity to start migrating the Toga unit tests to <tt class="docutils literal">pytest</tt>, which promises to significantly improve our testing capabilities.</li>
+<li>We <a class="reference external" href="https://github.com/beeware/toga/pull/1778">formalised the relationship between Toga's Pack layout model and CSS</a>. This should make it a lot easier to determine what &quot;correct&quot; layout behavior should be.</li>
+<li>We <a class="reference external" href="https://github.com/beeware/toga/pull/1794">identified a low level issue with the way that layout is performed on GTK, and possibly with other platforms</a>. We're still working through the consequences of this change, but it has indirectly resolved a number of issues we have seen reported with widget layouts, especially on GTK.</li>
+<li>We've added the <a class="reference external" href="https://github.com/beeware/briefcase/pull/1078">ability to pass command line arguments to running apps</a> from the <tt class="docutils literal">briefcase dev</tt> and <tt class="docutils literal">briefcase run</tt> interface. This was primarily done to make it easier to run unit test suites; but it can be used for any other reason you might want to use a command line argument.</li>
+<li>We have a <a class="reference external" href="https://github.com/beeware/briefcase/pull/1106">draft implementation of a Linux system packaging backend</a> for Briefcase. We've had consistent problems with both AppImage and Flatpak, most of which can be traced back to resolving links to system packages. We're not going to remove these backends - when AppImage and Flatpak work, they're great options - but we're going to change the default packaging backend on Linux to be system packages (i.e., DEB/RPM etc). This makes the simple case of building a package for your own system much easier, while retaining the ability to build packages for other distributions as required. We're hoping to land this PR in the coming month.</li>
+<li>We <a class="reference external" href="https://github.com/beeware/briefcase/pull/1102">corrected an issue with threading modes</a> that prevented some Windows apps (especially PySide/Qt apps) from displaying dialogs.</li>
+<li>We <a class="reference external" href="https://github.com/beeware/briefcase/pull/1113">corrected an issue with the Briefcase Web backend</a> that would cause intermittent errors when loading a web app.</li>
+<li>We updated our CI infrastructure to make better use of shared task definitions. BeeWare has a lot of Github repositories, and a lot of common tasks (such as rolling out an app across multiple Python and operating system versions). Previously, each Github repository had an independent set of CI task definitions; we've now got a central collection of task definitions that is used by all repositories.</li>
+<li>We cleaned up the <a class="reference external" href="https://github.com/beeware/toga/pull/1762">table in Toga's documentation describing the state of support of each widget</a>.  This allows us to differentiate between widgets that we've fully tested, and widgets that exist, but haven't been tested.</li>
+<li>Thanks to a community contribution, we've been able to <a class="reference external" href="https://github.com/freakboy3742/chaquopy/pull/4">publish a backlog of iOS binary packages for Python 3.8-3.11</a>. For the packages we currently support (including Numpy, Pandas, Pillow and more), we're now able to offer an iOS binary wheel for every published version for which there is a corresponding macOS wheel, going back to 2019.</li>
+</ul>
+</div>
+<div class="section" id="what-s-next">
+<h2>What's next?</h2>
+<p>In March, we'll be continuing to improve GUI test coverage. Now that we've got one widget to 100% coverage, we know we have all the core testing infrastructure in place, so it should be much easier to implement tests for the future widgets. By the end of March, we should have a lot more widgets at 100% coverage.</p>
+<p>We'll also be presenting at <a class="reference external" href="https://2023.everythingopen.au">Everything Open 2023</a>. If you're attending, come say hi!</p>
+</div>
+<div class="section" id="want-to-get-involved">
+<h2>Want to get involved?</h2>
+<p>Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/865">Modify the handling of app signing options</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/780">Filter out a message generated after Xcode updates</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/856">Add the ability to refresh the support package in a project</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/853">Provide protection against creating projects with &quot;semi-reserved&quot; names</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/808">Add the ability to configure the ABIs built by an Android project</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/463">Add support for the ANDROID_HOME environment variable</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1053">Add a template branch option when creating a new project</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1011">Improve validation of project names in the Briefcase wizard</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1099">Rationalise the application of adhoc signing on macOS</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1090">Correct the capture of log messages on the web backend</a></li>
+</ol>
+<p>Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a <a class="reference external" href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html">guide on setting up a Briefcase development environment</a>; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the <a class="reference external" href="/bee/chat/">BeeWare Discord server</a>.</p>
+</div>
+
+
+
+  
+
+  
+  
+
+  
   <h2><a href="/zh_TW/news/buzz/january-2023-status-update/">January 2023 Status Update</a></h2>
   <p class="meta">
     
@@ -693,55 +753,6 @@ on
 <div class="section" id="what-s-next">
 <h2>What's next?</h2>
 <p>In August, our major focus will be binary dependencies on mobile. This is one of the biggest missing pieces of the BeeWare story at present. Being able to utilize Chaquopy as a base gives us a huge head start on Android, so it seems likely we'll have a working solution for Android in the near future. However, on iOS, we're still at the &quot;we don't know what we don't know&quot; stage. It's unclear if we'll have a fully working solution by the end of the month, but we should have at least some progress to report.</p>
-</div>
-
-
-
-  
-
-  
-  
-
-  
-  <h2><a href="/zh_TW/news/buzz/june-2022-status-update/">June 2022 Status Update</a></h2>
-  <p class="meta">
-    
-Posted by
-
-    
-      <a href="https://twitter.com/freakboy3742">Russell Keith-Magee</a>
-    
-    
-on
- 4 July 2022
-  </p>
-  
-  <p>It's been another busy month at the hive! This month, we've had a couple of high profile improvements, and some slow progress towards longer term goals. These improvements have been primarily in Briefcase and app packaging, but there have been some minor Toga improvements as well.</p>
-<div class="section" id="what-we-ve-done">
-<h2>What we've done</h2>
-<p>During June:</p>
-<ul class="simple">
-<li>We significantly improved the UI of Briefcase by <a class="reference external" href="https://github.com/beeware/briefcase/pull/740">adding Rich</a> to implement terminal output. This allows us to have <a class="reference external" href="https://github.com/beeware/briefcase/pull/755">vastly improved progress bars</a>, as well as the ability to <a class="reference external" href="https://github.com/beeware/briefcase/pull/760">save a full debug log when a problem occurs</a>.  These improvements (and several others) are the result of contributions from community member <a class="reference external" href="https://github.com/rmartin16">Russell Martin</a> - thanks Russell!</li>
-<li>We added support for <a class="reference external" href="https://github.com/beeware/briefcase/pull/757">macOS app notarization</a>.</li>
-<li>We improved the way the <a class="reference external" href="https://github.com/beeware/briefcase/pull/766">Briefcase manages Android system images</a>. This corrects a bug we were seeing that was causing the Android emulator to be installed twice, and could lead to situations where emulators could be discovered, but not started.</li>
-<li>We've explored the source of the <a class="reference external" href="https://github.com/beeware/briefcase/issues/718">Linux packaging problems</a> we've been seeing. We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/761">documented a workaround for one of those problems</a>; and we're working on 2 fixes (<a class="reference external" href="https://github.com/beeware/briefcase/pull/756">supporting Linuxdeploy plugins</a> and <a class="reference external" href="https://github.com/beeware/briefcase/pull/754">adding Flatpak support</a>) that will hopefully address the remaining Linux packaging issues.</li>
-<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/775">improved Windows MSI installers</a> so that it will use the right <cite>Program Files</cite> directory, as well as providing an install-time option for system vs user installs of a package.</li>
-<li>We made some small improvements that <a class="reference external" href="https://github.com/beeware/briefcase/pull/769">improve support for non-ASCII project names and descriptions</a>.</li>
-<li>We've made some <a class="reference external" href="https://github.com/beeware/toga/pull/1504">more improvements to Toga Webviews</a>, ensuring that the current URL is accessible through the Python API.</li>
-<li>We've <a class="reference external" href="https://github.com/beeware/toga/pull/1514">addressed a long standing bug</a> that would cause Toga apps to be unable to find their local resource folders, depending on how the app was invoked. More importantly, this change has been accompanied by additions to the test suite. This is the start of being able to test runtime behavior of apps, which will be an increasinging important feature moving forward.</li>
-<li>We've <a class="reference external" href="https://github.com/beeware/toga/pull/1513">added a stack trace dialog for Windows</a>. A version of this dialog will be integrated into future improvements in Windows packaging.</li>
-<li>Finally, we published our <a class="reference external" href="https://beeware.org/news/buzz/2022q3-roadmap/">Q3 roadmap</a>.</li>
-</ul>
-</div>
-<div class="section" id="what-s-next">
-<h2>What's next?</h2>
-<p>In July, we'll be focussing on:</p>
-<ul class="simple">
-<li>Completing the work on Linux and Windows application packaging.</li>
-<li>Presenting a webinar about native application development. If you'd like to attend, <a class="reference external" href="https://event.on24.com/wcc/r/3766379/B50F020E006CF935D87609BF3E247ED7?partnerref=anaconda.com">registration for this webinar is open</a></li>
-<li>Starting investigations into binary module support on mobile platforms.</li>
-</ul>
-<p>We're also delighted to announce that we've successfully completed our hiring process; so, in 2 weeks, there will be another Bee in the hive! I'm very excited about the possibilities that this additional team member will afford. Look out for a welcome announcement in the coming weeks.</p>
 </div>
 
 

@@ -184,6 +184,55 @@ Home
   
 
   
+  <h2><a href="/news/buzz/june-2022-status-update/">June 2022 Status Update</a></h2>
+  <p class="meta">
+    
+Posted by
+
+    
+      <a href="https://twitter.com/freakboy3742">Russell Keith-Magee</a>
+    
+    
+on
+ 4 July 2022
+  </p>
+  
+  <p>It's been another busy month at the hive! This month, we've had a couple of high profile improvements, and some slow progress towards longer term goals. These improvements have been primarily in Briefcase and app packaging, but there have been some minor Toga improvements as well.</p>
+<div class="section" id="what-we-ve-done">
+<h2>What we've done</h2>
+<p>During June:</p>
+<ul class="simple">
+<li>We significantly improved the UI of Briefcase by <a class="reference external" href="https://github.com/beeware/briefcase/pull/740">adding Rich</a> to implement terminal output. This allows us to have <a class="reference external" href="https://github.com/beeware/briefcase/pull/755">vastly improved progress bars</a>, as well as the ability to <a class="reference external" href="https://github.com/beeware/briefcase/pull/760">save a full debug log when a problem occurs</a>.  These improvements (and several others) are the result of contributions from community member <a class="reference external" href="https://github.com/rmartin16">Russell Martin</a> - thanks Russell!</li>
+<li>We added support for <a class="reference external" href="https://github.com/beeware/briefcase/pull/757">macOS app notarization</a>.</li>
+<li>We improved the way the <a class="reference external" href="https://github.com/beeware/briefcase/pull/766">Briefcase manages Android system images</a>. This corrects a bug we were seeing that was causing the Android emulator to be installed twice, and could lead to situations where emulators could be discovered, but not started.</li>
+<li>We've explored the source of the <a class="reference external" href="https://github.com/beeware/briefcase/issues/718">Linux packaging problems</a> we've been seeing. We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/761">documented a workaround for one of those problems</a>; and we're working on 2 fixes (<a class="reference external" href="https://github.com/beeware/briefcase/pull/756">supporting Linuxdeploy plugins</a> and <a class="reference external" href="https://github.com/beeware/briefcase/pull/754">adding Flatpak support</a>) that will hopefully address the remaining Linux packaging issues.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/775">improved Windows MSI installers</a> so that it will use the right <cite>Program Files</cite> directory, as well as providing an install-time option for system vs user installs of a package.</li>
+<li>We made some small improvements that <a class="reference external" href="https://github.com/beeware/briefcase/pull/769">improve support for non-ASCII project names and descriptions</a>.</li>
+<li>We've made some <a class="reference external" href="https://github.com/beeware/toga/pull/1504">more improvements to Toga Webviews</a>, ensuring that the current URL is accessible through the Python API.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/toga/pull/1514">addressed a long standing bug</a> that would cause Toga apps to be unable to find their local resource folders, depending on how the app was invoked. More importantly, this change has been accompanied by additions to the test suite. This is the start of being able to test runtime behavior of apps, which will be an increasinging important feature moving forward.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/toga/pull/1513">added a stack trace dialog for Windows</a>. A version of this dialog will be integrated into future improvements in Windows packaging.</li>
+<li>Finally, we published our <a class="reference external" href="https://beeware.org/news/buzz/2022q3-roadmap/">Q3 roadmap</a>.</li>
+</ul>
+</div>
+<div class="section" id="what-s-next">
+<h2>What's next?</h2>
+<p>In July, we'll be focussing on:</p>
+<ul class="simple">
+<li>Completing the work on Linux and Windows application packaging.</li>
+<li>Presenting a webinar about native application development. If you'd like to attend, <a class="reference external" href="https://event.on24.com/wcc/r/3766379/B50F020E006CF935D87609BF3E247ED7?partnerref=anaconda.com">registration for this webinar is open</a></li>
+<li>Starting investigations into binary module support on mobile platforms.</li>
+</ul>
+<p>We're also delighted to announce that we've successfully completed our hiring process; so, in 2 weeks, there will be another Bee in the hive! I'm very excited about the possibilities that this additional team member will afford. Look out for a welcome announcement in the coming weeks.</p>
+</div>
+
+
+
+  
+
+  
+  
+
+  
   <h2><a href="/news/buzz/2022q3-roadmap/">2022Q3 Roadmap</a></h2>
   <p class="meta">
     
@@ -551,34 +600,6 @@ on
 <p>Asheesh is a <a class="reference external" href="https://pyvideo.org/speaker/asheesh-laroia.html">regular speaker at Python events</a>, where he has delved into a range of detailed and complex topics. He also impressed us with the list of unconventional engineering integration projects he's been involved with in a professional and casual capacity.</p>
 <p>When asked why he applied to work with BeeWare on this contract, Asheesh said: &quot;I use an Android phone every day, and I'm honored to be able to help implement the BeeWare vision of using Python to build first-class, native applications.&quot;</p>
 <p>Asheesh will be starting work in mid December, and if all goes well, we should start seeing significant results by mid to late February. If you'd like to keep track of progress, you can <a class="reference external" href="https://twitter.com/pybeeware">follow BeeWare on Twitter</a>; we'll also post larger updates on this blog.</p>
-
-
-
-  
-
-  
-  
-
-  
-  <h2><a href="/news/buzz/beeware-project-awarded-a-psf-education-grant/">BeeWare Project Awarded a PSF Education Grant</a></h2>
-  <p class="meta">
-    
-Posted by
-
-    
-      <a href="https://twitter.com/freakboy3742">Russell Keith-Magee</a>
-    
-    
-on
- 25 September 2019
-  </p>
-  
-  <p>The BeeWare Project wants to make it possible for all Python developers to write native apps for desktop and mobile platforms. We have solid support for most desktop operating systems and iOS, but we know our Android support is lacking. The BeeWare core team knows what needs to be done to address the problem - what we’ve been missing are time and resources.</p>
-<p>Thanks to the PSF Education Grants group, that’s no longer an issue. We’ve been awarded a US$50,000 grant to bring BeeWare’s Android support to a level comparable with our iOS support. We currently don’t have the time to do the work ourselves, so we’re calling for contractors to help us deliver this support.</p>
-<p>This is a paid contract, which we anticipate lasting 3-6 months (depending on the experience of the winning contractor). You don’t have to be based in the US or Europe, either; the opportunity is open to anyone who can meet the requirements of the contract.</p>
-<p>Unfortunately, the task calls for some sophisticated skills, and we’re not in a position to provide extensive mentoring. A successful bid is likely to require some prior experience, and a history with the technologies involved.</p>
-<p>A full <a class="reference external" href="https://docs.google.com/document/d/18O2MDF49dHXDIKXyntfZUnXweXzR2i3jbHwWfHew-sE/edit?usp=sharing">role description</a> and <a class="reference external" href="https://docs.google.com/document/d/1IWhGs9C8V2TWcAsWhYvxmzi8slZ_vxncA5nn8LjR6ao/edit?usp=sharing">scope of work</a> for the contract is available. To register your interest, please forward your resume and cover email to <a class="reference external" href="mailto:contracts&#64;beeware.org">contracts&#64;beeware.org</a>.</p>
-<p>We look forward to being able to announce full Android support in the near future!</p>
 
 
 
