@@ -184,6 +184,55 @@ Home
   
 
   
+  <h2><a href="/de_DE/news/buzz/2023q2-roadmap/">2023Q2 Roadmap</a></h2>
+  <p class="meta">
+    
+Posted by
+
+    
+      <a href="https://twitter.com/freakboy3742">Russell Keith-Magee</a>
+    
+    
+on
+ 4 April 2023
+  </p>
+  
+  <p>It doesn't feel like it's been three months since our last roadmap update... but here we are, in April 2023. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment of features that will be made available on a specific deadline.</p>
+<div class="section" id="q1-progress">
+<h2>Q1 progress</h2>
+<p>Our focus this quarter has been on testing; however as with our last report, our progress has not been as significant as we hoped it would be. Getting the first tests in place has proved to be much more complex than we anticipated. In order to test widgets <em>at all</em>, we've had to set up all the infrastructure that will be necessary to test every other widget, such as defining the probes to inspect colors and fonts, and to ensure that the GUI framework has finished applying changes before performing a test assertion. The process of building the first tests has exposed a number of problems deeply embedded in the core of Toga - problems that either aren't observable or are easily masked when you're writing an application as a user, but can't be avoided when you're writing a test suite that will run fast and needs to have repeatable behavior. We're also testing the limits of the features exposed by each platform - and everything we do needs to be repeated on 5 GUI toolkits with 5 completely different views of the world.</p>
+<p>The good news is that as of the end of Q1, we're finally getting traction on the problem. We're about a quarter of the way through the widgets by count. Admittedly, we've been tackling the simpler widgets first - but the lessons learned (and bugs fixed) making those simple widgets work should make testing the more complex widgets easier. There's also some commonality in the more complex widgets - for example, TextInput, PasswordInput and NumberInput are all essentially the same widget, so once tests are built for one of them, the other 2 should fall out reasonably easily.</p>
+<p>We have also been able to release Toga v0.3.0. This release was almost 5 years in the making.</p>
+<p>Q1 saw some unexpected improvements to Briefcase. We've had persistent problems supporting AppImage and Flatpak as packaging formats; during Q1, we couldn't avoid these problems any longer, so we introduced a System packaging backend, and made this the new default for Linux apps. We're now able to produce native system packages for Briefcase apps, supporting almost every Debian, Red Hat or Arch derived distribution. These packages are already proving more stable: we had no major issues during a recent tutorial at Everything Open 2023, despite a wide variety of Linux distributions in the room - something that we've never been able to say about AppImage.</p>
+<p>However, once again, that means there's a lot left on the Q1 TODO list. Toga documentation is being slowly updated as we audit each widget; however, we haven't made any changes to the example apps; we haven't been able to do any substantial Toga planning; and we haven't been able to add any native cross-platform hardware support.</p>
+</div>
+<div class="section" id="q2-priorities">
+<h2>Q2 priorities</h2>
+<p>Our short term goals are, therefore, largely unchanged from last quarter:</p>
+<ul class="simple">
+<li><strong>Testing</strong> - Completing the Toga GUI testing suite will again be our primary focus for the quarter.</li>
+<li><strong>Planning</strong> - Once we've got the test harness in place, we'll be in a much better position to evaluate what work remains to get to v1.0.</li>
+<li><strong>Documentation</strong> - The process of systematically building a test suite also gives us an opportunity to update the API documentation for each widget as we go. There's still lots of documentation required on top of the API guide, but complete API documentation will be a big start.</li>
+<li><strong>Cross-platform hardware</strong> - Cross-platform support for device hardware (especially mobile) is one of the banner features that makes mobile device support worthwhile. Providing proof that this hardware support is easy to use will be a key demonstrator for BeeWare as a platform.</li>
+</ul>
+</div>
+<div class="section" id="longer-term-goals">
+<h2>Longer term goals</h2>
+<p>Our longer term goals are also <a class="reference external" href="../2022q4-roadmap">largely unchanged</a>. Upstreaming, Toga 1.0, and a forge for mobile packages are all important goals for the BeeWare ecosystem. However, we don't expect to make any significant progress on most of these goals until we have solidified Toga's testing story. We should, however, see at least the first signs of progress on upstreaming BeeWare's work on mobile as a result of PyCon US, where we'll have a chance to raise issues directly with the Python core team.</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary</h2>
+<p>Providing a robust GUI testing framework for Toga has definitely proven to be a lot more complicated than we originally thought. The good news is that as of the end of Q1 2023, we're finally starting to make good progress on testing. We hope that by the time of our next status update, we're able to report that we're nearing the end of our testing journey, and we can turn our focus to other areas of interest.</p>
+</div>
+
+
+
+  
+
+  
+  
+
+  
   <h2><a href="/de_DE/news/buzz/march-2023-status-update/">March 2023 Status Update</a></h2>
   <p class="meta">
     
@@ -723,52 +772,6 @@ on
 <li><a class="reference external" href="https://github.com/beeware/briefcase/issues/882">Silence an warning that is displayed when an Android emulator has no skin defined</a></li>
 </ol>
 <p>Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a <a class="reference external" href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html">guide on setting up a Briefcase development environment</a>; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the <a class="reference external" href="/bee/chat/">BeeWare Discord server</a>.</p>
-</div>
-
-
-
-  
-
-  
-  
-
-  
-  <h2><a href="/de_DE/news/buzz/august-2022-status-update/">August 2022 Status Update</a></h2>
-  <p class="meta">
-    
-Posted by
-
-    
-      <a href="https://twitter.com/freakboy3742">Russell Keith-Magee</a>
-    
-    
-on
- 1 September 2022
-  </p>
-  
-  <p>The main focus of the BeeWare team during August was binary module support on mobile platforms. Although we haven't got the final results of this work yet, we have significant progress to report for both iOS and Android. We've also had a number of other improvements land over the course of the month.</p>
-<div class="section" id="what-we-ve-done">
-<h2>What we've done</h2>
-<p>During August:</p>
-<ul class="simple">
-<li>We have continued to work on the changes needed to migrate Android support to Chaquopy. This has included some <a class="reference external" href="https://github.com/beeware/briefcase-android-gradle-template/pull/52">major changes to the Android Gradle template</a>, and developing a Rubicon Java compatibility layer. Eventually, Toga will migrate to use the Chaquopy APIs directly, but in the interim, the Rubicon APIs will continue to work.</li>
-<li>We have started updating Chaquopy to support multiple Python versions. Historically, Chaquopy has only supported a single Python3 version (3.8); for compatibility with Briefcase, we are adding support for Python 3.9 and 3.10, as well as preparing the ground for a 3.11 release when Python 3.11 is finalised.</li>
-<li>We have modified the Python Apple support packages to <a class="reference external" href="https://github.com/beeware/Python-Apple-support/pull/161">provide the binary portions of the Python standard library as dynamically loaded binary modules</a>, and modified the <a class="reference external" href="https://github.com/beeware/briefcase-iOS-Xcode-template/pull/7">iOS</a> and <a class="reference external" href="https://github.com/beeware/briefcase-macOS-Xcode-template/pull/10">macOS</a> templates to use and sign these binary modules. These changes haven't landed yet, but they have been tested on simulators and physical devices. Along the way, we've also updated the support packages to use OpenSSL 3.</li>
-<li>We have modified Briefcase to <a class="reference external" href="https://github.com/beeware/briefcase/pull/805">make the Python support package optional</a>, at the discretion of the project template. This was needed because Chaquopy provides the Python library using a Gradle plugin, rather than requiring a project to source a pre-compiled support package.</li>
-<li>We have addressed an issue with the way Briefcase handles <a class="reference external" href="https://github.com/beeware/briefcase/pull/816">requirements references when they are relative file references</a>. Although this was added to allow rapid debugging of changes to Toga on Android, it also affected the recently added Linuxdeploy backend.</li>
-<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/846">added an &quot;open&quot; subcommand to Briefcase</a>, making it easier to open project-based templates in their respective IDEs.</li>
-<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/821">improved Android log handling</a>, ensuring that more app-specific logs are displayed to the user.</li>
-<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/844">dramatically improved our CI testing of Briefcase</a>. We now build an app on every platform we support, using every backend.</li>
-<li>We've addressed a number of bugs in the Pack layout algorithm.</li>
-<li>We've continued the process of making Toga widget APIs naming internally consistent.</li>
-<li>We've fixed some canvas bugs that were causing problems on Windowns with our native Matplotlib rendering backend, <a class="reference external" href="https://github.com/beeware/toga-chart">toga-chart</a>.</li>
-<li>We've addressed some bugs associated with <a class="reference external" href="https://github.com/beeware/toga/pull/1572">changing the main content of a Toga window</a>.</li>
-<li>We added an <a class="reference external" href="https://github.com/beeware/toga/pull/1574">initial implementation of a DetailedList widget on Windows</a>.</li>
-</ul>
-</div>
-<div class="section" id="what-s-next">
-<h2>What's next?</h2>
-<p>In September, we hope to wrap up the work on binary dependencies. On Android, this is mostly a matter of completing the work to support multiple Python versions. On iOS, we need to develop the tools to manage the compilation of third-party binary libraries. We have an initial proof of concept of this; we need to finish these tools, and develop the infrastructure to distribute. We're also hoping to start conversations with the Anaconda team about Conda integration with Briefcase, and start improving GUI testing in Toga.</p>
 </div>
 
 
