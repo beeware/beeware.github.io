@@ -27,8 +27,10 @@
     {% for child in blog[:10] %}
     <h3><a href="{{ child|url(alt=this.alt) }}">{{ child.title }}</a></h3>
     <p>{{ t_posted_by }}
-      {% if child.twitter_handle %}
-      <a href="https://twitter.com/{{ child.twitter_handle }}">{{ child.author or child.twitter_handle }}</a>
+      {% if this.mastodon_handle %}
+      <a href="https://mastodon.social/{{ this.mastodon_handle }}">{{ this.author or this.mastodon_handle }}</a>
+      {% elif this.twitter_handle %}
+      <a href="https://twitter.com/{{ this.twitter_handle }}">{{ this.author or this.twitter_handle }}</a>
       {% else %}
       {{ child.author }}
       {% endif %}

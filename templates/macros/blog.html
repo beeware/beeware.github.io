@@ -9,8 +9,10 @@
   <h2><a href="{{ post|url(alt=post.alt) }}">{{ post.title }}</a></h2>
   <p class="meta">
     {{ t_posted_by }}
-    {% if post.twitter_handle %}
-      <a href="https://twitter.com/{{ post.twitter_handle}}">{{ post.author or post.twitter_handle }}</a>
+    {% if this.mastodon_handle %}
+      <a href="https://mastodon.social/{{ this.mastodon_handle }}">{{ this.author or this.mastodon_handle }}</a>
+    {% elif this.twitter_handle %}
+      <a href="https://twitter.com/{{ this.twitter_handle }}">{{ this.author or this.twitter_handle }}</a>
     {% else %}
       {{ post.author }}
     {% endif %}

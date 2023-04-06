@@ -38,7 +38,7 @@ Community
 
 You can talk to the community through:
 
-* `@pybeeware on Twitter`_
+* `@beeware@fosstodon.org on Mastodon`_
 
 * BeeWare Gitter channel: `beeware/general`_
 
@@ -68,7 +68,7 @@ to date with the original branch. To do this:
 
 
 .. _BeeWare project: http://beeware.org
-.. _@pybeeware on Twitter: https://twitter.com/pybeeware
+.. _@beeware@fosstodon.org on Mastodon: https://mastodon.social/@beeware@fosstodon.org
 .. _beeware/general: https://gitter.im/beeware/general
 .. _Tickets on the beeware.github.io issue tracker: https://github.com/beeware/beeware.github.io/issues
 .. _log them on Github: https://github.com/beeware/beeware.github.io/issues
