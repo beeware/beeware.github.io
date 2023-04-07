@@ -10,7 +10,7 @@
   <p class="meta">
     {{ t_posted_by }}
     {% if this.mastodon_handle %}
-      <a href="https://mastodon.social/{{ this.mastodon_handle }}">{{ this.author or this.mastodon_handle }}</a>
+      <a href="https://{{ this.mastodon_handle.split('@')[2] }}/@{{ this.mastodon_handle.split('@')[1] }}">{{ this.author or this.mastodon_handle }}</a>
     {% elif this.twitter_handle %}
       <a href="https://twitter.com/{{ this.twitter_handle }}">{{ this.author or this.twitter_handle }}</a>
     {% else %}

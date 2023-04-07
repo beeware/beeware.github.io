@@ -68,7 +68,7 @@ to date with the original branch. To do this:
 
 
 .. _BeeWare project: http://beeware.org
-.. _@beeware@fosstodon.org on Mastodon: https://mastodon.social/@beeware@fosstodon.org
+.. _@beeware@fosstodon.org on Mastodon: https://fosstodon.org/@beeware
 .. _beeware/general: https://gitter.im/beeware/general
 .. _Tickets on the beeware.github.io issue tracker: https://github.com/beeware/beeware.github.io/issues
 .. _log them on Github: https://github.com/beeware/beeware.github.io/issues
