@@ -197,13 +197,10 @@
         <p class="d-block d-sm-none footer-sitemap">
           <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ t_sitemap }}</a>
         </p>
-        <a rel="me" href="https://cloudisland.nz/@freakboy3742" style="display:none" ></a>
-        <a rel="me" href="https://cloudisland.nz/@glasnt" style="display:none" ></a>
-        <a rel="me" href="https://phildini.net/@phildini" style="display:none" ></a>
-        <a rel="me" href="https://hachyderm.io/@charlotte" style="display:none" ></a>
-        <a rel="me" href="https://hachyderm.io/@cflee" style="display:none" ></a>
-        <a rel="me" href="https://fosstodon.org/@danyeaw" style="display:none" ></a>
-        <a rel="me" href="https://tweets.icu/@chris_swenson" style="display:none" ></a>
+        {% set team = site.query('/community/team', alt=this.alt).all() %}
+        {% for child in team %}
+        <a rel="me" href={{ child.mastodon_handle }} style="display:none" ></a>
+        {% endfor %}
       </div>
     </footer>
 
