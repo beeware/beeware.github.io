@@ -38,7 +38,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/grid.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap-grid.min.css">
 
     <!-- Project CSS -->
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cutive">
@@ -54,7 +54,7 @@
     {%- endif -%}
 
     <!-- Font Awesome -->
-    <script src="https://use.fontawesome.com/1138bd8363.js"></script>
+    <script src="https://kit.fontawesome.com/078c86a30a.js" crossorigin="anonymous"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2943925-4"></script>
@@ -185,18 +185,22 @@
 	      <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee {{ none|dateformat('Y') }}</div>
         <p class="d-sm-block d-none">
           <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
-          <a href="https://beeware.org/bee/chat/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Discord</a> |
-          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a> |
+          <a href="https://beeware.org/bee/chat/"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i> Discord</a> |
+          <a href="https://fosstodon.org/@beeware"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i> Mastodon</a> |
           <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ t_sitemap }}</a>
         </p>
         <p class="d-block d-sm-none footer-social">
           <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
-          <a href="https://beeware.org/bee/chat/"><i class="fa fa-comments-o fa-lg" aria-hidden="true"></i> Discord</a> |
-          <a href="https://twitter.com/PyBeeWare/"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i> Twitter</a>
+          <a href="https://beeware.org/bee/chat/"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i> Discord</a> |
+          <a rel="me" href="https://fosstodon.org/@beeware"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i> Mastodon</a>
         </p>
         <p class="d-block d-sm-none footer-sitemap">
           <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ t_sitemap }}</a>
         </p>
+        {% set team = site.query('/community/team', alt=this.alt).all() %}
+        {% for child in team %}
+        <a rel="me" href={{ child.mastodon_handle }} style="display:none" ></a>
+        {% endfor %}
       </div>
     </footer>
 

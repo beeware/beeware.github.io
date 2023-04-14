@@ -5,8 +5,14 @@
 
   <img src="/community/team/{{member._id}}/{{ member._id}}.png" width="100%">
   <a href="https://github.com/{{ member.github_handle }}"><i class="fa fa-github fa-lg icon" aria-hidden="true"></i>&nbsp;{{ member.github_handle }}</a>
+  {% if member.mastodon_handle %}
+  <br>
+  <a href="https://{{ member.mastodon_handle.split('@')[2] }}/@{{ member.mastodon_handle.split('@')[1] }}"><i class="fa-brands fa-mastodon fa-lg icon" aria-hidden="true"></i>&nbsp;{{ member.mastodon_handle }}</a>
+  {% endif %}
+  {% if member.twitter_handle %}
   <br>
   <a href="https://twitter.com/{{ member.twitter_handle }}"><i class="fa fa-twitter fa-lg icon" aria-hidden="true"></i>&nbsp;{{ member.twitter_handle }}</a>
+  {% endif %}
   <br>
   <a href="mailto:{{ member.email }}"><i class="fa fa-envelope fa-lg icon" aria-hidden="true"></i>&nbsp;{{ member.email }}</a>
   {% if member.superpower %}
