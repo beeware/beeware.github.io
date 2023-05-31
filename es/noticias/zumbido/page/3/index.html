@@ -184,6 +184,38 @@ Inicio
   
 
   
+  <h2><a href="/es/noticias/zumbido/some-new-ways-to-discuss-beeware/">Some new ways to discuss BeeWare</a></h2>
+  <p class="meta">
+    
+Publicado por
+
+    
+      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
+    
+    
+en
+ 1 May 2021
+  </p>
+  
+  <p>Today, the BeeWare project is making 2 changes to the way we organize our community.</p>
+<p>Firstly, we're going to <strong>move our real-time chat community from Gitter to Discord</strong>.</p>
+<p>When we originally set up Gitter, it was a strong option for a chat community - especially one that was focussed on a software project, due to its tight integration with Github. However, over the years, Gitter has undergone multiple changes of ownership, but has remained essentially unchanged - in some cases, it's gotten appreciably worse (their native iOS and Android clients are effectively deprecated). In the meantime, Discord has emerged as a dominant player for community chat. It has a robust mobile client, and really good tools for community moderation, as well as the option of hosting video and voice chats - something we hope to be able to use for coordinating virtual sprints.</p>
+<p>To join the new BeeWare Discord server, <a class="reference external" href="/bee/chat/">visit this link</a>.</p>
+<p>Secondly, we're going to <strong>start using Github Discussions</strong>.</p>
+<p>For many years, we've tried to use Github Issues as a pseudo-forum. There's a lot of similarity between how a forum works and how Github displays and manages issues. Each &quot;issue&quot; is effectively a forum thread, and each comment is a message in that thread. However, there are also some important differences. Issues get closed when they're resolved; forum threads, however, don't necessarily have a resolution. Most importantly, &quot;closing&quot; an issue can look like someone is trying to kill discussion - when all they're really trying to do is keep the list of issues manageable.</p>
+<p>The good news is that Github has noticed the similarity too, and has launched Github Discussions. Discussions offers a familiar &quot;forum&quot; interface, but with the familiar Github message interface, and tight integration with Github Issues and pull requests.</p>
+<p>We've enabled Discussions on all the key BeeWare projects - <a class="reference external" href="https://github.com/beeware/toga/discussions">Toga</a>, <a class="reference external" href="https://github.com/beeware/briefcase/discussions">Briefcase</a>, <a class="reference external" href="https://github.com/beeware/rubicon-objc/discussions">Rubicon ObjC</a>, <a class="reference external" href="https://github.com/beeware/rubicon-java/discussions">Rubicon Java</a>, <a class="reference external" href="https://github.com/beeware/colosseum/discussions">Colosseum</a>, <a class="reference external" href="https://github.com/beeware/travertino/discussions">Travertino</a> and <a class="reference external" href="https://github.com/beeware/podium/discussions">Podium</a>.</p>
+<p>Naturally, all of these new community spaces - along with all existing BeeWare spaces - are subject to the <a class="reference external" href="/community/behavior/">BeeWare Community Code of Conduct</a>.</p>
+<p>We hope these two changes will make it easier to participate in the BeeWare community. See you there!</p>
+
+
+
+  
+
+  
+  
+
+  
   <h2><a href="/es/noticias/zumbido/release-the-android-bees/">Release the Android Bees!</a></h2>
   <p class="meta">
     
@@ -767,85 +799,6 @@ en
 <li><a class="reference external" href="https://github.com/beeware/batavia/pull/565">https://github.com/beeware/batavia/pull/565</a></li>
 </ul>
 </div>
-</div>
-
-
-
-  
-
-  
-  
-
-  
-  <h2><a href="/es/noticias/zumbido/2017-google-verano-de-codigo-final-informe-jonas-schell/">2017 Google Summer of Code - Probando Toga / API de configuración</a></h2>
-  <p class="meta">
-    
-Publicado por
-
-    
-      Jonas Schell
-    
-    
-en
- 22 August 2017
-  </p>
-  
-  <p>Google Summer of Code 2017 está llegando a su fin. Después de tres meses de trabajo en el proyecto BeeWare, quisiera resumir mi trabajo y compartir mis experiencias.</p>
-<div class="section" id="ningun-plan-de-batalla-sobrevive-al-primer-contacto">
-<h2>&quot;Ningún plan de batalla sobrevive al primer contacto&quot;.</h2>
-<p>Esta fue una de las primeras cosas que Russell me dijo después de que decidimos fundamentalmente reestructurar mi <a class="reference external" href="https://github.com/beeware/toga/issues/118">calendario y metas de GSoC propuestos</a>. Durante el período inicial con la comunidad descubrimos que Toga era aún más difícil de probar como esperábamos. El estrecho acoplamiento entre el código independiente de la plataforma en  Toga-Core y las implementaciones dependientes de la plataforma para (Windows, MacOS, iOS, Linux, Android, Django, ...) nos estaba dando problemas para escribir pruebas significativas.</p>
-<p>Esperamos que Toga se convierta en un proyecto de tamaño decente, por lo tanto queremos que tenga una base sólida y bien probada. Por esta razón, decidimos que pasaría la mayor parte de GSoC para reestructurar Toga para que ejecutar pruebas resultara más fácil de hacer. Además de eso, también añadiría pruebas de implementación para comprobar si un backend dado se implementa de la manera correcta. Si terminara antes del final del verano, empezaría con mi propuesta de proyecto original.</p>
-</div>
-<div class="section" id="la-gran-reestructuracion-de-toga">
-<h2>La gran reestructuración de Toga</h2>
-<p>Con los nuevos objetivos y una nueva rama comencé el viaje para reestructurar el proyecto Toga para hacerlo más fácil de probar.</p>
-<p>Después de hackear y probar diferentes cosas en una <a class="reference external" href="https://github.com/Ocupe/restruc_toga">rama separada</a>. Identifiqué que las dependencias entrelazadas de la plataforma son el problema principal. Para separar el módulo Toga-Core de sus implementaciones de backend decidimos usar el patrón de fábrica en lugar del modelo de herencia que teníamos antes. Ahora cada backend tiene su propia fábrica que produce los widgets adecuados para la plataforma en la que se está ejecutando. De esta manera tenemos una clara separación entre Toga-Core y el nivel de implementación. Las dependencias de la plataforma ahora están incluidas en el nivel de implementación.</p>
-<p>Después de que la nueva estructura fuera clara porté Toga-Core así como los backends para el Cocoa, iOS y GTK. Hice esto en la rama de Toga <a class="reference external" href="https://github.com/beeware/toga/pull/185">(La gran reestructuración de Toga [WIP] # 185)</a>.</p>
-<p>En la práctica, esto significaba que tenía que tocar manualmente casi todos los widgets de todos los backends para conectarlos al nuevo patrón de fábrica.</p>
-</div>
-<div class="section" id="desafios">
-<h2>Desafíos</h2>
-<p>Toga habla con los frameworks nativos GUI, por lo tanto tuve que tener un buen entendimiento acerca de los principios y conceptos detrás de cada uno de estos marcos. A veces me sentía abrumado por la complejidad combinada de todas las partes que componen Toga. La siguiente es la lista:</p>
-<ul class="simple">
-<li>Cada backend de Toga se envuelve alrededor de un marco existente y único. Para envolver el marco que tiene que entender el marco.</li>
-<li>&quot;Me encanta Python, ¿por qué tengo que entender Objetive C&quot;? Para trabajar eficazmente en los backends de iOS y macOS, tenía que aprender los conceptos básicos del Objetivo C, aunque sólo fuera para leer los documentos de Apple.</li>
-<li>Toga tiene un montón de partes móviles. Hay backends, marcos, librerías para hablar con backends, librerías para realizar el diseño de la interfaz de usuario y más. Me tomó una buena cantidad de tiempo para entender todas estas partes. Lo siguiente es sólo una visión general de los conocimientos recién adquiridos durante GSoC:</li>
-<li><a class="reference external" href="https://github.com/beeware/rubicon-objc">Rubicon-ObjC</a> para hablar con los backends de iOS y macOS.</li>
-<li><a class="reference external" href="/project/projects/libraries/colosseum/">Colosseum</a> para entender y solucionar problemas de diseño.</li>
-<li><a class="reference external" href="https://docs.python.org/3.6/library/ast.html">Módulo AST</a> para realizar las pruebas de implementación.</li>
-<li>El uso de patrones de diseño</li>
-<li>Cómo estructurar grandes proyectos.</li>
-<li>Leer y entender grandes y complejos pedazos de código.</li>
-</ul>
-</div>
-<div class="section" id="otro-trabajo-que-realice">
-<h2>Otro trabajo que realicé</h2>
-<ul class="simple">
-<li>PR: Translated part of the beeware.org webpage into german. <a class="reference external" href="https://github.com/beeware/beeware.github.io/pull/173">(PR #173)</a></li>
-<li>Helped newcomers on Gitter and GitHub.</li>
-<li>Tested if Toga would profit from static typing <a class="reference external" href="https://github.com/Ocupe/toga/tree/static_typing">(toga/static_typing)</a>.</li>
-<li>Created an implementation test suite based on the AST module.</li>
-<li>Added test for Toga-Core.</li>
-<li>Updated and extended documentation on Toga-Core as well as the macOS and iOS Backend.</li>
-<li>Created a toga-dummy backend.</li>
-<li>First draft of the Settings API and working backend implementation for macOS.</li>
-<li>Many small and big fixes on Toga-Core, cocoa, iOS, and GTK backends. All in the main PR <a class="reference external" href="https://github.com/beeware/toga/pull/185">beeware/toga The Big Restructure of Toga [WIP]</a></li>
-<li>PR: <a class="reference external" href="https://github.com/beeware/toga/pull/171">beeware/toga fix for getting the length of the filenames array</a></li>
-<li>PR: <a class="reference external" href="https://github.com/beeware/toga/pull/193">beeware/toga Fixed #189 cocoa.progressbar with rehint</a></li>
-<li>PR: <a class="reference external" href="https://github.com/beeware/briefcase-template/pull/3">beeware/briefcase-template Fix for spaces in app name. Issue #2</a></li>
-<li>PR: <a class="reference external" href="https://github.com/beeware/toga/pull/222">beeware/toga Toga Settings API [WIP]</a></li>
-</ul>
-</div>
-<div class="section" id="futuro-trabajo-por-hacer">
-<h2>Futuro trabajo por hacer</h2>
-<ul class="simple">
-<li>Todo mi trabajo se encuentra en el PR <a class="reference external" href="https://github.com/beeware/toga/pull/185">&quot;La gran reestructuración de Toga [WIP]&quot;</a>. Después de que los backends que faltan, a saber, Windows y Android, se incluyan, todo se puede emerger con la rama master. Tenemos que esperar a los backends que faltan, porque el nuevo esquema es incompatible con las versiones antiguas y no pueden coexistir.</li>
-<li>La API de configuración de mi propuesta original no se ha terminado debido a las razones mencionadas anteriormente. Tengo un primer borrador de trabajo y seguiré trabajando en él después de GSoC en <a class="reference external" href="https://github.com/beeware/toga/pull/222">este Pull Request</a>.</li>
-</ul>
-</div>
-<div class="section" id="shout-out">
-<h2>&quot;Shout out&quot;</h2>
-<p>Me gustaría dar las gracias a Russell Keith-Magee por ser un Mentor impresionante y por todo el tiempo que invirtió en mí durante GSoC. También quiero agradecer a la comunidad BeeWare por ayudarme cuando alguna vez tuve un problema. ¡Gracias!</p>
 </div>
 
 
