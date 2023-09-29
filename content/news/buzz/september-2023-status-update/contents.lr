@@ -15,6 +15,8 @@ What we've done
 
 * We've completed an `initial port of the iOS patches to Python 3.12.0rc3 <https://github.com/beeware/Python-Apple-support>`__. We're still hunting some edge cases, but initial signs are promising that we'll be in a position to do a near "zero day" release of Python 3.12 support for iOS.
 
+* For Android, we've re-enabled `Fortran support <https://github.com/chaquo/chaquopy/pull/937>`__ in the package build system, and used it to `upgrade SciPy <https://github.com/chaquo/chaquopy/pull/949>`__.
+
 * We were anticipating that would would complete the Toga Audit this month; however, that unfortunately hasn't happened. We've hit a bunch of complications with getting fonts and canvas support working on Windows and Android, and the process of getting those platforms working has revealed some inconsistencies in macOS, iOS and GTK font handling. However, we have completed the audit of `DetailedList <https://github.com/beeware/toga/pull/2019>`__ and `Font <https://github.com/beeware/toga/pull/1903>`__, and the audit of `Canvas <https://github.com/beeware/toga/pull/2029>`__ is *almost* complete.
 
 * We `decoupled the Winforms event loop from the main form in a Toga app <https://github.com/beeware/toga/pull/2112>`__. This doesn't have any immediate impact on existing Toga apps - but it means we're now in a position to have windowless apps, such as system tray apps.
@@ -23,14 +25,14 @@ What we've done
 
 * We made some `significant improvements to subprocess encoding handling <https://github.com/beeware/briefcase/pull/1425>`__. This should significantly improve the user experience of Windows users, and users from non-English speaking countries.
 
-* We `formally downgraded our support for AppImage to "Best effort" <https://github.com/beeware/briefcase/pull/1449>`__. AppImage has proven increasingly difficult to work with as a format; now that we have a native system packages and Flatpak as options, the effort needed to maintain AppImage support is better spent elsewhere. We'll still merge fixes to AppImage support if a PR is provided, but we're no longer actively fixing bugs, or running AppImage configurations in CI.
+* We `formally downgraded our support for AppImage to "Best effort" <https://github.com/beeware/briefcase/pull/1449>`__. AppImage has proven increasingly difficult to work with as a format; now that we have native system packages and Flatpak as options, the effort needed to maintain AppImage support is better spent elsewhere. We'll still merge fixes to AppImage support if a PR is provided, but we're no longer actively fixing bugs, or running AppImage configurations in CI.
 
 * We added `filters to Xcode output to hide ignorable warnings <https://github.com/beeware/briefcase/pull/1468>`__. Xcode builds have always been a little noisy; the new Xcode 15 release added even more noise. The filter means that these warnings will no longer distract from successful build output.
 
 What's next?
 --------------
 
-Unfortunately, we didn't complete the Toga audit in September as we anticipated. As mentioned, we hit a number of compilations and inconsistencies in font handling, especially in the Canvas widget, which slowed progress. We'll keep working on this audit in October; and once we're done, we'll make a release a new version of Toga. This release will include a number of backwards-incompatible changes identified as part of the audit, so be prepared for a bumpier-than-usual upgrade process.
+Unfortunately, we didn't complete the Toga audit in September as we anticipated. As mentioned, we hit a number of complications and inconsistencies in font handling, especially in the Canvas widget, which slowed progress. We'll keep working on this audit in October; and once we're done, we'll make a release a new version of Toga. This release will include a number of backwards-incompatible changes identified as part of the audit, so be prepared for a bumpier-than-usual upgrade process.
 
 Once the audit is complete, we'll also be looking at a technical limitation that the widget audit has revealed on Android. A number of Toga's Android widgets aren't as fully featured as they could be, due to the fact that accessing the full API would require subclassing a Java base class. This is an area where Chaquopy has some limitations; so we're going to try and address these limitations.
 
