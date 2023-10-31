@@ -1,0 +1,60 @@
+title: October 2023 Status Update
+---
+author: Russell Keith-Magee
+---
+body:
+
+In October, we've (finally!) reached a major milestone - but there's still lots of work to be done!
+
+What we've done
+----------------
+
+* *We finally finished the Toga audit!!*. We now have 100% test coverage of all Toga code on macOS, Windows, Linux/GTK, iOS and Android, with a consistent and fully documented API across all widgets. This has been a truly mammoth project, resolving countless bugs, adding dozens of new features, improving platform support (especially on Windows and Android). Once we're finalised a couple of housekeeping issues, we will release Toga 0.4 incorporating all these changes. This will hopefully occur later this week.
+
+* We attended the `PyCon Core Team Sprint <https://discuss.python.org/t/2023-core-dev-sprint-in-brno-october-9-14/22868/21>`__ at the RedHat offices in Brno, Czechia. As as result of this attendance, we produced a draft of `PEP 730 <https://discuss.python.org/t/pep-730-adding-ios-as-a-supported-platform/35854>`__, which is the first step towards formalizing support for iOS in CPython. An analogous Android PEP will be drafted once we've sorted out the process around the iOS PEP (as this is the first time a platform has gone through a formal process to be added to PEP 11's Tier 3 list).
+
+* We reworked the build system for Apple support packages to `separate the compilation of dependencies <https://github.com/beeware/cpython-apple-source-deps>`__ (like BZip2 and OpenSSL) from the compilation of Python itself. These libraries are updated infrequently, and on a completely different cadence to CPython itself, so treating them as re-usable resources rather than something that needs to be compiled at the same time as Python will significantly improve CPython build times.
+
+* We released `Briefcase 0.3.16 <https://pypi.org/project/briefcase/0.3.16/>`__, formalizing our support for Python 3.12, and adding the new support for dynamic libraries on iOS. This release also formally downgrades our support for AppImage, following extended problems in supporting AppImage as an output format.
+
+* We released `Rubicon ObjC 0.4.7 <https://pypi.org/project/rubicon-objc/0.4.7/>`__, formalising our support for Python 3.12.
+
+* We modified Briefcase to ensure that `macOS apps are always universal <https://github.com/beeware/briefcase/pull/1475>`__.
+
+* We added a `deep debug logging level <https://github.com/beeware/briefcase/pull/1470>`__ to Briefcase, and `simplified the output of many other commands to ensure that important warnings aren't lost <https://github.com/beeware/briefcase/pull/1503>`__.
+
+* We `added support for Undo and Redo operations on macOS text widgets <https://github.com/beeware/toga/pull/2151>`__.
+
+* We `added support for user-registered fonts on iOS and macOS <https://github.com/beeware/toga/pull/1399>`__.
+
+* We made some modifications to `improve Toga's memory management when creating and destroying <https://github.com/beeware/toga/pull/2066>`__.
+
+What's next?
+--------------
+
+Now that we've *finally* finished the widget audit, we can finally release Toga 0.4, and start using the foundation that we've spent the last 12 months building. 
+
+In November, we'll start looking at a technical limitation that the Toga audit has revealed on Android. A number of Toga's Android widgets aren't as fully featured as they could be, due to the fact that accessing the full API would require subclassing a Java base class. This is an area where Chaquopy has some limitations; so we're going to try and address these limitations.
+
+We'll also continue the work of upstreaming patches to CPython core. The PEP we've drafted is nearing a form where it can be submitted to the Steering Council for approval, but the drafting process has raised a couple of technical issues that need to be investigated. However, while we wait for formal acceptance of the PEP, we will continue working on building continuous integration for our iOS CPython builds, and begin preparing patches that can be merged into CPython.
+
+Want to get involved?
+-----------------------
+
+Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
+
+1. `Filter out a message generated after Xcode updates <https://github.com/beeware/briefcase/issues/780>`__
+2. `Add the ability to configure the ABIs built by an Android project <https://github.com/beeware/briefcase/issues/808>`__
+3. `Rationalise the application of adhoc signing on macOS <https://github.com/beeware/briefcase/issues/1099>`__
+4. `Provide an option to override app settings from the command line <https://github.com/beeware/briefcase/issues/1115>`__
+5. `Add support for custom PyPI repositories <https://github.com/beeware/briefcase/issues/1270>`__
+6. `Document how to debug an application in popular IDEs <https://github.com/beeware/briefcase/issues/1393>`__
+7. `Correctly handle incomplete project deletions <https://github.com/beeware/briefcase/issues/394>`__
+8. `Add an option to select the Android base image when creating new emulators <https://github.com/beeware/briefcase/issues/737>`__
+
+Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a `guide on setting up a Briefcase development environment <https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html>`__; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the `BeeWare Discord server <https://beeware.org/bee/chat/>`__.
+
+---
+mastodon_handle: @freakboy3742@cloudisland.nz
+---
+pub_date: 2023-11-01
