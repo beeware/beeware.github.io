@@ -184,6 +184,65 @@ Home
   
 
   
+  <h2><a href="/news/buzz/march-2023-status-update/">March 2023 Status Update</a></h2>
+  <p class="meta">
+    
+Posted by
+
+    
+      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
+    
+    
+on
+ 3 April 2023
+  </p>
+  
+  <p>March has been a month of slow but steady progress for BeeWare.</p>
+<div class="section" id="what-we-ve-done">
+<h2>What we've done</h2>
+<ul class="simple">
+<li>Progress on GUI testing in Toga is continuing. We now have 7 widgets fully tested, with another 2 in progress. As with last month's update, getting these tests passing has required wrestling a lot of fundamentals, in particular around the simulation of events such as mouse clicks. We're also discovering (and fixing) lots of corner cases in widget implementations that only surface when you're doing rigorous and repeatable testing.</li>
+<li>We've made some <a class="reference external" href="https://github.com/beeware/toga/pull/1794">major changes to the way GTK widgets are rendered</a>. This change significantly reduces the amount of re-rendering that is performed by GTK, as well as resolving a number of long standing issues related to resizing widgets.</li>
+<li>Thanks to some community contributions, we were were able to add support for <a class="reference external" href="https://github.com/beeware/toga/pull/1817">focus events and text alignment</a> on GTK's TextInput widget, and support for <a class="reference external" href="https://github.com/beeware/toga/pull/1821">text alignment and fonts</a> on GTK's NumberInput widget.</li>
+<li>We landed the implementation of a <a class="reference external" href="https://github.com/beeware/briefcase/pull/1106">Linux system package backend</a> for Briefcase, which can output DEB and RPM packages. Thanks to a community contribution, we were also able to add support for <a class="reference external" href="https://github.com/beeware/briefcase/pull/1143">Arch packages</a></li>
+<li>We modified the <a class="reference external" href="https://github.com/beeware/briefcase/pull/1107">locations where Briefcase outputs build artefacts</a>. This removes some sources of bugs associated with tools not supporting spaces in filenames, and makes Briefcase's output consistent with other tools in the Python ecosystem.</li>
+<li>We made significant progress on <a class="reference external" href="https://github.com/beeware/briefcase/pull/1132">modifying Briefcase's AppImage and Flatpak backends</a> to use Indygreg's <a class="reference external" href="https://github.com/indygreg/python-build-standalone">Standalone Python</a>, rather than BeeWare's Linux support package. Standalone Python is becoming a de facto standard for pre-compiled Python builds (especially on Linux), so it makes sense for BeeWare to converge on this common standard. This change will also significantly speed up Flatpak builds, should be more stable on AppImage, allows us to switch to <a class="reference external" href="http://github.com/pypa/manylinux">manylinux</a> base images - and it reduces the number of projects that BeeWare is responsible for maintaining. We're currently waiting on a <a class="reference external" href="https://github.com/linuxdeploy/linuxdeploy-plugin-gtk/pull/45">fix to the linuxdeploy GTK plugin</a> to be merged before we can land this change.</li>
+<li>Thanks to a community contribution, we added support for <a class="reference external" href="https://github.com/beeware/briefcase/pull/1125">PyGame</a> to Briefcase.</li>
+<li>We migrated BeeWare's CI to <a class="reference external" href="https://github.com/beeware/.github/pull/14">use the new System packaging backend</a> on Linux. This means that CI is significantly faster, as building system packages requires a lot less processing than an AppImage.</li>
+<li>We <a class="reference external" href="https://pypi.org/project/travertino/">released Travertino 0.2.0</a>. Travertino is the library that underpins Toga's Pack layout algorithm. It's been several years since we last did a Travertino release, but some recent bug fixes warranted an update.</li>
+<li>We presented a tutorial at <a class="reference external" href="https://2023.everythingopen.au">Everything Open 2023</a>.</li>
+</ul>
+<p>We also made a big change to our social media strategy: we started a Mastodon account. We've wound down our Twitter usage at the end of last year; going forward, you can get your bite size BeeWare updates from <a class="reference external" href="https://fosstodon.org/&#64;beeware">&#64;beeware&#64;fosstodon.org</a>.</p>
+</div>
+<div class="section" id="what-s-next">
+<h2>What's next?</h2>
+<p>In terms of technical goals, April will continue our push for GUI test coverage. However, we're expecting progress to be a little slower, because of one big event - <a class="reference external" href="https://pycon.us/2023">PyCon US</a>. We'll have a booth in the community section of the conference floor; the core team are presenting 2 talks; we're presenting at the Language Summit; and we'll be at the sprints for the first 3 days. Preparing for these talks will take up a lot of our time in April, as will the event itself - so progress is likely to be a little slower than normal. If you're going to be there, come by the booth and say hi! If you'd like to help us to staff the booth - get in touch <a class="reference external" href="https://beeware.org/bee/chat/">on Discord</a>, <a class="reference external" href="https://fosstodon.org/&#64;beeware">on Mastodon</a>, <a class="reference external" href="mailto:contact&#64;beeware.org">or email</a>!</p>
+</div>
+<div class="section" id="want-to-get-involved">
+<h2>Want to get involved?</h2>
+<p>Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/865">Modify the handling of app signing options</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/780">Filter out a message generated after Xcode updates</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/856">Add the ability to refresh the support package in a project</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/853">Provide protection against creating projects with &quot;semi-reserved&quot; names</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/808">Add the ability to configure the ABIs built by an Android project</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/463">Add support for the ANDROID_HOME environment variable</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1011">Improve validation of project names in the Briefcase wizard</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1099">Rationalise the application of adhoc signing on macOS</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1090">Correct the capture of log messages on the web backend</a></li>
+</ol>
+<p>Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a <a class="reference external" href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html">guide on setting up a Briefcase development environment</a>; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the <a class="reference external" href="https://beeware.org/bee/chat/">BeeWare Discord server</a>.</p>
+</div>
+
+
+
+  
+
+  
+  
+
+  
   <h2><a href="/news/buzz/february-2023-status-update/">February 2023 Status Update</a></h2>
   <p class="meta">
     
@@ -710,49 +769,6 @@ on
 <div class="section" id="what-s-next">
 <h2>What's next?</h2>
 <p>In September, we hope to wrap up the work on binary dependencies. On Android, this is mostly a matter of completing the work to support multiple Python versions. On iOS, we need to develop the tools to manage the compilation of third-party binary libraries. We have an initial proof of concept of this; we need to finish these tools, and develop the infrastructure to distribute. We're also hoping to start conversations with the Anaconda team about Conda integration with Briefcase, and start improving GUI testing in Toga.</p>
-</div>
-
-
-
-  
-
-  
-  
-
-  
-  <h2><a href="/news/buzz/july-2022-status-update/">July 2022 Status Update</a></h2>
-  <p class="meta">
-    
-Posted by
-
-    
-      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
-    
-    
-on
- 1 August 2022
-  </p>
-  
-  <p>Another month of important updates to the BeeWare project! This month, our focus was on packaging improvements on Linux and Windows.</p>
-<p>In addition the technical progress, we welcomed <a class="reference external" href="https://github.com/mhsmith">Malcolm Smith (&#64;mhsmith on Github)</a> to the Anaconda BeeWare team! Malcolm brings his considerable experience developing and maintaining <a class="reference external" href="https://github.com/chaquo">Chaquopy</a>, a set of tools and libraries for building Android applications that use Python. Chaquopy tackles the &quot;Python on Android&quot; problem from the perspective of adding Python to an existing Android Studio project rather than writing apps entirely with Python; as a result, it features much tighter integration with native Android Studio tooling. One particularly interesting feature of Chaquopy is that it supports binary dependencies on Android - a key feature that BeeWare's Android tooling currently lacks. Historically, Chaquopy was a closed source tool with licenses available for open source projects; however, as a result of joining Anaconda, Malcolm has <a class="reference external" href="https://chaquo.com/chaquopy/chaquopy-is-now-open-source/">released Chaquopy as an Open Source project</a>!</p>
-<div class="section" id="what-we-ve-done">
-<h2>What we've done</h2>
-<p>During July:</p>
-<ul class="simple">
-<li>We <a class="reference external" href="https://github.com/beeware/briefcase/pull/756">added support for Linuxdeploy plugins</a> for Linux AppImages. These plugins are an important part of making AppImages self-contained, as many libraries need to provide the Linuxdeploy tooling hints to help find all the resources needed at runtime. Adding support for these plugins should address most of the issues we've been seeing with moving AppImages between Linux versions.</li>
-<li>We <a class="reference external" href="https://github.com/beeware/briefcase/pull/802">added a Flatpak backend for Linux packaging</a>. Flatpak is an alternative packaging format to AppImage which has the support of a number of large Linux distributions. For now, AppImage continues to be the default Linux packaging format, but we may change this default in the future.</li>
-<li>We <a class="reference external" href="https://github.com/beeware/briefcase/pull/782">improved the packaging of Windows apps by adding a stub binary</a>. We're still hunting some bugs in this stub binary, but when those are resolved, the Windows apps generated by Briefcase will present to the operating system with consistent app naming and icons. The stub binary also enables us to catch runtime problems with the app in a way that makes diagnosing app problems much easier.</li>
-<li>We presented a webinar about native application development. If you weren't able to attend the webinar live, a recording is available; <a class="reference external" href="https://event.on24.com/wcc/r/3766379/B50F020E006CF935D87609BF3E247ED7?partnerref=anaconda.com">register here to watch</a>.</li>
-<li>We got an initial proof of concept of a Toga app running on Android using Chaquopy as a base, accessing a binary library (matplotlib), deployed with Briefcase. Over the coming weeks, we're hoping this proof of concept will evolve into major improvement to BeeWare's Android tooling.</li>
-<li>We modified Briefcase to <a class="reference external" href="https://github.com/beeware/briefcase/pull/777">use OS-appropriate directories for caching</a>. While the <tt class="docutils literal"><span class="pre">~/.briefcase</span></tt> location has served us well, it isn't a location that adheres to platform-native conventions for storing app resources, so we've moved Briefcase's cache of downloads, tools and templates to a platform-appropriate location.</li>
-<li>We addressed an issue with the <a class="reference external" href="https://github.com/beeware/briefcase/pull/803">current working directory leaking into the runtime path</a>. This was especially common with Linux apps, but it could potentially be an issue with other platforms as well.</li>
-<li>We've started the process of making Toga widget APIs internally consistent. While we've aimed to keep naming of widgets' attributes and handlers consistent, there are a couple of annoying inconsistencies. We've started the process of cleaning up these inconsistencies.</li>
-<li>We've started looking into binary dependencies on iOS apps.</li>
-</ul>
-</div>
-<div class="section" id="what-s-next">
-<h2>What's next?</h2>
-<p>In August, our major focus will be binary dependencies on mobile. This is one of the biggest missing pieces of the BeeWare story at present. Being able to utilize Chaquopy as a base gives us a huge head start on Android, so it seems likely we'll have a working solution for Android in the near future. However, on iOS, we're still at the &quot;we don't know what we don't know&quot; stage. It's unclear if we'll have a fully working solution by the end of the month, but we should have at least some progress to report.</p>
 </div>
 
 
