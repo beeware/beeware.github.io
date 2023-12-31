@@ -1,0 +1,60 @@
+title: December 2023 Status Update
+---
+author: Russell Keith-Magee
+---
+body:
+
+December has been a short month due to end-of-year holidays, but BeeWare has still made some important progress.
+
+What we've done
+----------------
+
+* `PEP730 <https://peps.python.org/pep-0730/>`__, formalizing the introduction of iOS as a Tier 3 platform in CPython, has been `ratified by the CPython Steering Council <https://github.com/python/steering-council/issues/218#issuecomment-1839333665>`__. 
+
+* The `first patch to CPython that explicitly mentions iOS <https://github.com/python/cpython/pull/112738>`__ has been merged. This is a relatively minor change that is required for building cross-platform binary modules; we'll start submitting more substantial patches in the new year.
+
+* `PEP738 <https://peps.python.org/pep-0738/>`__, formalizing the introduction of Android as a Tier 3 platform in CPython, has been drafted, and is `currently under discussion <https://discuss.python.org/t/pep-738-adding-android-as-a-supported-platform/40975>`__.
+
+* `ChaquoPy 15 was released <https://chaquo.com/chaquopy/chaquopy-version-15-0-1/>`__, adding support for Python 3.12 on Android. This release also improves compatibility with Android Studio's transition away from Groovy, towards Kotlin for configuration.
+
+* An `implementation of OptionContainer was added for iOS <https://github.com/beeware/toga/pull/2259>`__.
+
+* A number of improvements were made to image handling, including `optimizations when creating images from internal APIs <https://github.com/beeware/toga/pull/2263>`__, and a `correction to flexible image resizing behavior <https://github.com/beeware/toga/pull/2276>`__.
+
+* A `long standing bug that would cause macOS tables to crash <https://github.com/beeware/toga/pull/2291>`__ was resolved.
+
+* The `ability to define platform-specific icons <https://github.com/beeware/toga/pull/2260>`__ was added to Toga.
+
+* `Toga 0.4.1 was released <https://pypi.org/project/toga/0.4.1/>`__, incorporating the features and bug fixes from the last 2 months.
+
+* Work has begun on a `cross-platform Camera API  <https://github.com/beeware/toga/pull/2266>`__ .This currently works on iOS, with a draft implementation on macOS. Before this work can land, we need to `add support in Briefcase for declaring permissions <https://github.com/beeware/briefcase/issues/547>`__; a design for this has been proposed, and will be implemented early in the new year.
+
+What's next?
+--------------
+
+When we return from the end-of-year break, we'll be back into developing Toga. In the near future, you should see an OptionContainer on Android, and permission supporting Briefcase; once that work is wrapped, we'll start looking at more more hardware APIs and missing widgets. You should also start to see more patches land in CPython to support iOS, and the finalisation of `PEP 738 <https://peps.python.org/pep-0738/>`__.
+
+Want to get involved?
+-----------------------
+
+Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
+
+1. `Update the Toga testbed test suite to use Pixel 7 Pro device sizes <https://github.com/beeware/toga/issues/2251>`__
+2. `Filter out a message generated after Xcode updates <https://github.com/beeware/briefcase/issues/780>`__
+3. `Add the ability to configure the ABIs built by an Android project <https://github.com/beeware/briefcase/issues/808>`__
+4. `Rationalise the application of adhoc signing on macOS <https://github.com/beeware/briefcase/issues/1099>`__
+5. `Add support for custom PyPI repositories <https://github.com/beeware/briefcase/issues/1270>`__
+6. `Document how to debug an application in popular IDEs <https://github.com/beeware/briefcase/issues/1393>`__
+7. `Correctly handle incomplete project deletions <https://github.com/beeware/briefcase/issues/394>`__
+8. `Add an option to select the Android base image when creating new emulators <https://github.com/beeware/briefcase/issues/737>`__
+9. `Print notarisation log failures when building macOS apps <https://github.com/beeware/briefcase/issues/1472>`__
+10. `Add an API to replace a child of a widget <https://github.com/beeware/toga/issues/2301>`__.
+11. `Add an API to entirely replace the style of a widget <https://github.com/beeware/toga/issues/2305>`__
+12. `Add the ability to define content when creating a window <https://github.com/beeware/toga/issues/2307>`__.
+
+Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a `guide on setting up a Briefcase development environment <https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html>`__; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the `BeeWare Discord server <https://beeware.org/bee/chat/>`__.
+
+---
+mastodon_handle: @freakboy3742@cloudisland.nz
+---
+pub_date: 2023-12-31
