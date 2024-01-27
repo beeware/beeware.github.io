@@ -1,6 +1,10 @@
 _model: page
 ---
+sort_key: 4
+---
 title: Setting up your environment
+---
+summary: How to get your system setup to contribute
 ---
 _slug: setup
 ---
@@ -17,43 +21,45 @@ Python
 -----------
 
 Python is a scripting language, which is available on a number of different 
-operating systems. However, depending on what system you are using, your 
-version of Python is going 
-to be different. Because of this reason, we specify exactly what version of Python
-we expect the code to work with. 
+operating systems. However, depending on what system you are using, your
+version of Python is going to be different. Because of this reason, we specify
+exactly which version of Python we expect the code to work with.
 
 For the following instructions, we're going to assume that you know exactly
-which version of Python you need to install. Normally this is listed in the
-README.md file or in the tutorial information. Our `CI
-</contributing/how/first-time/what-is-a/ci>`_ systems have to be told exactly what
-version of Python is required, too. So if you're really stuck, try looking at
-the :code:`.travis.yml` or :code:`circle.yml` file for the specific version you
-need. 
+which version of Python you need to install. Normally, this is listed in the
+``README.md`` file or in the tutorial information. Our `CI
+</contributing/how/first-time/what-is-a/ci>`_ systems have to be told exactly
+which version of Python is required, too. So if you're really stuck, try
+looking at the :code:`.github/workflows.ci.yml` file for the specific version
+you need.
 
 pyenv
 ~~~~~~
 
 `pyenv <https://github.com/pyenv/pyenv>`_ is a way to get multiple versions of 
-Python working on your machine at the same time. It allows you to pick and choose whichever
-version you need for a particular project. 
+Python working on your machine at the same time. It allows you to pick and
+choose whichever version you need for a particular project.
 
- * MacOSX - You can install pyenv via `brew </contributing/how/first-time/what-is-a/package-manager>`_,  by running :code:`brew install pyenv`
- * Other - use the `automatic installer <https://github.com/pyenv/pyenv-installer>`_. 
+ * MacOSX - You can install pyenv via `brew
+   </contributing/how/first-time/what-is-a/package-manager>`_,  by running
+   :code:`brew install pyenv`
+ * Other - use the `automatic installer <https://github.com/pyenv/pyenv-installer>`_
 
 Once :code:`pyenv` is installed, you need to install the specific Python
 version. This information is stored in a  :code:`.python-version` file, which
 means you can have different versions of Python used in different projects on
-your computer. 
+your computer.
 
-To install and set the Python version: 
+To install and set the Python version:
 
 .. code-block:: bash
 
     $ cd /path/to/your/project
-    $ pyenv install 3.5.1
-    $ pyenv local 3.5.1
+    $ pyenv install 3.12.1
+    $ pyenv local 3.12.1
 
-More information about pyenv is available on `their website <https://github.com/pyenv/pyenv/blob/master/COMMANDS.md>`_
+More information about pyenv is available on `their website
+<https://github.com/pyenv/pyenv/blob/master/COMMANDS.md>`_.
 
 virtualenv
 -----------
@@ -63,33 +69,33 @@ Python packages. Since you may have more than one project being worked on, and
 more than one version of Python, having a way to make sure that only specific
 Python packages are available at any one time is handy. 
 
-One way we can do this is via `virtualenv <https://virtualenv.pypa.io/en/stable/>`_. 
+One way we can do this is via `virtualenv
+<https://virtualenv.pypa.io/en/stable/>`_.
 
-Using `pip </contributing/how/first-time/what-is-a/package-manager>`_, we can install virtualenv
+Using `pip </contributing/how/first-time/what-is-a/package-manager>`_, we can
+install virtualenv:
 
-.. code-block:: bash
+.. code-block:: console
   
   $ pip install virtualenv
 
 Then, we want to setup a virtualenv that we can then activate. Having more than
 one virtualenv is ok, but only one can be activated at a time. Make sure you
 have your Python selection done with :code:`pyenv`, so that we know what
-version of Python to use
-
+version of Python to use:
 
 .. code-block:: bash
   
   $ virtualenv -p $(pyenv which python) env
 
-Then, we can activate the virtual environment. 
-
+Then, we can activate the virtual environment:
 
 .. code-block:: bash
   
  $ source env/bin/activate
 
 This will result in a little note in your command line letting you know you're
-in a virtual environment
+in a virtual environment:
 
 .. code-block:: bash
   
@@ -100,9 +106,3 @@ To disable your virtualenv:
 .. code-block:: bash
   
  $ deactivate
-
-
----
-summary: How to get your system setup to contribute
----
-sort_key: 4

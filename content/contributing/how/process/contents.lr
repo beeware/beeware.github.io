@@ -8,134 +8,136 @@ summary: The BeeWare development process
 ---
 body:
 
+Overview
+---------------
+
+All changes, for code and documentation, should be `submitted
+</contributing/how/first-time/github/>`_ via a Pull Request to the GitHub
+repository for the project.
+
+Most of the projects have a dedicated Contributing guide with specifics for
+that project that can be found on ReadTheDocs. For instance, Briefcase's `guide
+<https://briefcase.readthedocs.io/en/stable/how-to/contribute-code.html>`__ for
+contributing code.
+
+All submissions should abide by the `Code of Conduct
+</community/behavior/code-of-conduct/>`_.
+
+Change Notes
+---------------
+
+Several BeeWare projects, notably Briefcase and Toga, require each Pull Request
+is submitted with a change note. These change notes are compiled together when
+a Release is cut for the project to serve as Release Notes for users.
+
+`Towncrier <https://towncrier.readthedocs.io/en/stable/>`__ is used to manage
+change notes.
+
+A change note file should be created in the ``changes`` directory and named
+using this format::
+
+    <PR/Issue #>.<Change Type>.rst
+
+For instance, a Pull Request that fixes
+GitHub Issue #42 would be named ``42.bugfix.rst``. If a Pull Request is not
+associated with a specific Issue, then the Pull Request number should be used
+instead.
+
+All Change Types:
+
+* ``feature``
+* ``bugfix``
+* ``doc``
+* ``removal``
+* ``misc``
+
+The ``misc`` type is reserved for changes that do not affect users; therefore,
+they do not need to be made aware of the change for a Release. For instance,
+fixing a CI issue.
+
 Code style
 ---------------
 
-Please follow these coding standards when writing code for inclusion in BeeWare projects. Unless otherwise specified,
-follow :pep:`8` (with careful attention paid to
-`Section 2 <https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds>`__) Use
-`flake8 <https://pypi.python .org/pypi/flake8>`__ to check for problems in this area. Remember that :pep:`8` is only a
-guide, so respect the style of the surrounding code as a primary goal.
+Please follow these coding standards when writing code for inclusion in BeeWare
+projects. Unless otherwise specified, follow :pep:`8` (with careful attention
+paid to `Section 2
+<https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds>`__).
 
-An exception to :pep:`8` is our rules on line lengths. Don't limit lines of code to 79 characters if it means the code
-looks significantly uglier or is harder to read. We allow up to 119 characters as this is the width of GitHub code
-review; anything longer requires horizontal scrolling which makes review more difficult. This check is included when you
-run ``flake8``. Documentation, comments, and docstrings should be wrapped at 79 characters, even though :pep:`8`
-suggests 72.
+BeeWare's projects use `Pre-commit <https://pre-commit.com/>`__ to automate
+code style adherence. These checks are defined in the
+``.pre-commit-config.yaml`` file for each repository and are automatically run in
+`CI </contributing/how/first-time/what-is-a/ci>`_ when a Pull Request is
+opened.
 
-* Use four spaces for indentation.
+To automate the Pre-commit checks in your local development environment with
+each ``git`` commit, run :code:`pre-commit install`.
 
-* Use four space hanging indentation rather than vertical alignment::
+Included Pre-commit checks:
 
-      raise AttributeError(
-          'Here is a multine error message '
-          'shortened for clarity.'
-      )
+* `Black <https://black.readthedocs.io/en/stable/index.html>`__ ensures uniform
+  code formatting
+* `docformatter <https://docformatter.readthedocs.io/en/latest/>`__ ensures
+  uniform formatting for docstrings and comments
+* `pyupgrade <https://github.com/asottile/pyupgrade>`__ ensures code is using
+  the latest best practices for Python
+* `isort <https://pycqa.github.io/isort/>`__ ensures uniform ``import``
+  statements
+* `flake8 <https://flake8.pycqa.org/en/latest/>`__ checks for common coding and
+  syntax issues
+* Misc checks that validate structured documents such as TOML files and remove
+  unnecessary whitespace
 
-  Instead of::
+Additional guidelines:
 
-      raise AttributeError('Here is a multine error message '
-                           'shortened for clarity.')
-
-  This makes better use of space and avoids having to realign strings if the length of the first line changes.
-
-* Use single quotes for strings, or a double quote if the the string contains a single quote. Don't waste time doing
-  unrelated refactoring of existing code to conform to this style.
-
-* Avoid use of "we" in comments, e.g. "Loop over" rather than "We loop over".
-
+* Avoid use of "we" in comments, e.g. "Loop over" rather than "We loop over"
 * Use underscores, not camelCase, for variable, function and method names
+* Use InitialCaps for class names (or for factory functions that return classes)
+* Use Sphinx-style docstrings and :pep:`257`; type annotation with :pep:`484`
+  is optional but encouraged.
 
-* Use InitialCaps for class names (or for factory functions that return classes).
+  For example::
 
-* Use the Google Style Python Docstrings and :pep:`257`, type annotation with :pep:`484` is optional.
+      def function_name(param1: int, param2: str) -> bool:
+          """Example function with types and a docstring.
 
-  ::
+          :param param1: The first parameter.
+          :param param2: The second parameter.
 
-      def function_with_types_in_docstring(param1, param2):
-          """Example function with types documented in the docstring.
-
-          Args:
-              param1 (int): The first parameter.
-              param2 (str): The second parameter.
-
-          Returns:
-              bool: The return value. True for success, False otherwise.
-
+          :returns: The return value. True for success, False otherwise.
           """
 
-  `More examples of Google Docstrings <https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html>`__
-
-* In test docstrings, state the expected behavior that each test demonstrates. Don't include preambles such as "Tests
-  that" or "Ensures that".
-
-* Reserve ticket references for obscure issues where the ticket has additional details that can't be easily described in
-  docstrings or comments. Include the ticket number at the end of a sentence like this::
+* In test docstrings, state the expected behavior that each test demonstrates.
+  Don't include preambles such as "Tests that" or "Ensures that".
+* Reserve ticket references for obscure issues where the ticket has additional
+  details that can't be easily described in docstrings or comments. Include the
+  ticket number at the end of a sentence like this::
 
       def test_foo():
-          """A test docstring looks like this (#123456).
-          """
-
-Imports
----------------
-
-Use `isort <https://github.com/timothycrosley/isort#readme>`_ to automate
-import sorting using the guidelines below.
-
-Quick start::
-
-    $ pip install isort
-    $ isort -rc .
-
-This runs ``isort`` recursively from your current directory, modifying any
-files that don't conform to the guidelines. If you need to have imports out
-of order (to avoid a circular import, for example) use a comment like this::
-
-    import module  # isort:skip
-
-Put imports in these groups: standard library, third-party libraries, other BeeWare components, local BeeWare component,
-try/excepts. Sort lines in each group alphabetically by the full module name. Place all ``import module`` statements
-before ``from module import objects`` in each section. Use absolute imports for other BeeWare components and relative
-imports for local components.
-
-On each line, alphabetize the items with the upper case items grouped before the lower case items.
-
-Break long lines using parentheses and indent continuation lines by 4 spaces. Include a trailing comma after the last
-import and put the closing parenthesis on its own line.
-
-Use a single blank line between the last import and any module level code, and use two blank lines above the first
-function or class.
-
-
-Miscellaneous
----------------
-
-Remove ``import`` statements that are no longer used when you change code. `flake8 <https://pypi.python
-.org/pypi/flake8>`__ will identify these imports for you. If an unused import needs to remain for
-backwards-compatibility, mark the end of with ``# NOQA`` to silence the flake8 warning.
-
-Systematically remove all trailing whitespaces from your code as those add unnecessary bytes, add visual clutter to the
-patches and can also occasionally cause unnecessary merge conflicts. Some IDE's can be configured to automatically
-remove them and most VCS tools can be set to highlight them in diff outputs.
+          """A test docstring looks like this (#123456)."""
 
 Sign your work
 ---------------
 
-Before we can merge your contribution into BeeWare, you need to give us permission to do so. Since you're an author of a
-creative work (a piece of code, or some documentation), you automatically own the copyright for that work. BeeWare
-can't legally use that contribution unless you give us permission to do so.
+Before we can merge your contribution into BeeWare, you need to give us
+permission to do so. Since you're an author of a creative work (a piece of
+code, or some documentation), you automatically own the copyright for that
+work. BeeWare can't legally use that contribution unless you give us
+permission to do so.
 
-The BeeWare project uses a mechanism known as a `Developer Certificate of Origin (DCO) </contributing/how/dco/>`__ to
-manage this process. The DCO is a legally binding statement that asserts that you are the creator of your contribution,
+The BeeWare project uses a mechanism known as a `Developer Certificate of Origin
+(DCO) </contributing/how/dco/>`__ to manage this process. The DCO is a legally
+binding statement that asserts that you are the creator of your contribution,
 and that you wish to allow BeeWare to use your work.
 
-To indicate that you agree to the terms of the DCO, you just add a line to every git commit message::
+To indicate that you agree to the terms of the DCO, you just add a line to
+every git commit message::
 
     Signed-off-by: Joe Smith <joe.smith@email.com>
 
-If you set your ``user.name`` and ``user.email`` as part of your git configuration, you can sign your commit
-automatically with ``git commit -s``.
+If you set your ``user.name`` and ``user.email`` as part of your git
+configuration, you can sign your commit automatically with ``git commit -s``.
 
-If you have more questions about Developer Certificates of Origin, why they are required, what they mean, and how to
-configure your system to use them, see `The Beginners Guide to DCOs </contributing/how/dco/>`__, or `get in touch with
+If you have more questions about Developer Certificates of Origin, why they are
+required, what they mean, and how to configure your system to use them, see
+`The Beginners Guide to DCOs </contributing/how/dco/>`__, or `get in touch with
 the core team </community/team>`__.
