@@ -10,17 +10,17 @@ _slug: setup
 ---
 body:
 
-In order to get contributing, you're going to need to setup a 
-**development environment** - a place where you can work on code where it can 
-behave the same as everyone else's environment. 
+In order to get contributing, you're going to need to setup a
+**development environment** - a place where you can work on code where it can
+behave the same as everyone else's environment.
 
-Many parts of BeeWare use the same tools: a specific version of Python, and 
-virtual environment controls. 
+Many parts of BeeWare use the same tools: a specific version of Python, and
+virtual environment controls.
 
 Python
------------
+-------
 
-Python is a scripting language, which is available on a number of different 
+Python is a scripting language, which is available on a number of different
 operating systems. However, depending on what system you are using, your
 version of Python is going to be different. Because of this reason, we specify
 exactly which version of Python we expect the code to work with.
@@ -30,15 +30,15 @@ which version of Python you need to install. Normally, this is listed in the
 ``README.md`` file or in the tutorial information. Our `CI
 </contributing/how/first-time/what-is-a/ci>`_ systems have to be told exactly
 which version of Python is required, too. So if you're really stuck, try
-looking at the :code:`.github/workflows.ci.yml` file for the specific version
+looking at the :code:`.github/workflows/ci.yml` file for the specific version
 you need.
 
 pyenv
 ~~~~~~
 
-`pyenv <https://github.com/pyenv/pyenv>`_ is a way to get multiple versions of 
-Python working on your machine at the same time. It allows you to pick and
-choose whichever version you need for a particular project.
+`pyenv <https://github.com/pyenv/pyenv>`_ is a one way to get multiple versions of
+Python working on your machine at the same time. It allows you to pick and choose
+whichever version you need for a particular project.
 
  * MacOSX - You can install pyenv via `brew
    </contributing/how/first-time/what-is-a/package-manager>`_,  by running
@@ -61,48 +61,70 @@ To install and set the Python version:
 More information about pyenv is available on `their website
 <https://github.com/pyenv/pyenv/blob/master/COMMANDS.md>`_.
 
-virtualenv
------------
+Virtual Environments
+---------------------
 
-Once Python is installed, you're going to want to be able to install different
-Python packages. Since you may have more than one project being worked on, and
-more than one version of Python, having a way to make sure that only specific
-Python packages are available at any one time is handy. 
+When Python is installed, it provides a single global environment. By default, if you
+install a package, it will be installed into this global environment.
 
-One way we can do this is via `virtualenv
-<https://virtualenv.pypa.io/en/stable/>`_.
+However, if you're working on more than one Python project, it's entirely likely that
+those multiple projects will have different - and in some cases, conflicting -
+requirements. What you need is a way to isolate each project so that installing a
+package for one project won't force that same package to be installed for the second
+project.
 
-Using `pip </contributing/how/first-time/what-is-a/package-manager>`_, we can
-install virtualenv:
+This is done using *Virtual Environments*. A Virtual Environment, or ``venv``, is an
+isolated environment that can be easily created, destroyed or recreated. Any package
+installed in the virtual environment is only accessible *inside* that virtual
+environment. Virtual environments are sometimes referred to as a "sandbox" - a safe
+place to play, where if you make a mistake, you can knock down everything you've built
+and start again.
 
-.. code-block:: console
-  
-  $ pip install virtualenv
-
-Then, we want to setup a virtualenv that we can then activate. Having more than
-one virtualenv is ok, but only one can be activated at a time. Make sure you
-have your Python selection done with :code:`pyenv`, so that we know what
-version of Python to use:
-
-.. code-block:: bash
-  
-  $ virtualenv -p $(pyenv which python) env
-
-Then, we can activate the virtual environment:
+Python provides the ``venv`` module to create new virtual environments. Each virtual
+environment has a name that can be used to identify the environment. To create a fresh
+virtual environment named "my-venv", run:
 
 .. code-block:: bash
-  
- $ source env/bin/activate
 
-This will result in a little note in your command line letting you know you're
-in a virtual environment:
+  $ python -m venv my-venv
+
+The version of Python that you use to create the virtual environment will be the version
+that is used by default *inside* the virtual environment. If you've got multiple Python
+versions installed, or you're using a tool like ``pyenv`` to manage Python versions,
+ensure that the Python version that is currently active (or the version you reference
+when invoking the ``-m venv`` command) is the version you intend. Once a virtual
+environment has been created, you can't change the Python version that it is using. To
+change the Python version, you need to create a fresh virtual environment.
+
+Invoking ``-m venv`` will *create* the virtual environment, but the environment is not
+yet *active*. The virtual environment is a collection of files on disk, stored in a
+directory that matches the name of the environment. To activate the virtual environment,
+you run one of the files generated as part of the environment:
 
 .. code-block:: bash
-  
- (env) $
 
-To disable your virtualenv: 
+ $ source my-venv/bin/activate
+
+This will result in a prefix being added to your command line prompt letting you know
+you're in a virtual environment:
 
 .. code-block:: bash
-  
- $ deactivate
+
+ (my-venv) $
+
+While the virtual environment is active, any ``pip install`` command will *only* affect
+the virtual environment. It doesn't matter if you change directories - if your prompt
+has a prefix, that virtual environment is active.
+
+If you open a second terminal window, the environment will *not* be active - you need to
+re-activate the environment in every terminal session where you want to use the
+environment. If you get errors about libraries not being available that you're *certain*
+you've installed - check whether your virtual environment is active.
+
+To deactive the virtual environment, run:
+
+.. code-block:: bash
+
+ (my-venv) $ deactivate
+
+Once deactivated, the prefix will be dropped from the prompt.

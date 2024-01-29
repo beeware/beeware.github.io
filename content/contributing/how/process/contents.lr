@@ -9,28 +9,31 @@ summary: The BeeWare development process
 body:
 
 Overview
----------------
+---------
 
-All changes, for code and documentation, should be `submitted
-</contributing/how/first-time/github/>`_ via a Pull Request to the GitHub
-repository for the project.
+All changes to code and documentation should be `submitted
+</contributing/how/first-time/github/>`_ via a pull request to the GitHub repository for
+the project.
 
-Most of the projects have a dedicated Contributing guide with specifics for
-that project that can be found on ReadTheDocs. For instance, Briefcase's `guide
-<https://briefcase.readthedocs.io/en/stable/how-to/contribute-code.html>`__ for
-contributing code.
+Most projects have a dedicated contribution guide with details specific to that project,
+or specific types of contribution. This documentation can be found on Read the Docs. For
+example, `Briefcase's documentation <https://briefcase.readthedocs.io>`__ contains
+contribution guides for both `code
+<https://briefcase.readthedocs.io/en/stable/how-to/contribute-code.html>`__ and
+`documentation
+<https://briefcase.readthedocs.io/en/stable/how-to/contribute-docs.html>`__.
 
-All submissions should abide by the `Code of Conduct
+All submissions should abide by the `BeeWare Code of Conduct
 </community/behavior/code-of-conduct/>`_.
 
 Change Notes
----------------
+-------------
 
-Several BeeWare projects, notably Briefcase and Toga, require each Pull Request
-is submitted with a change note. These change notes are compiled together when
-a Release is cut for the project to serve as Release Notes for users.
+Several BeeWare projects, notably Briefcase and Toga, require that each pull request is
+submitted with a change note. These change notes are compiled together when a new
+release is cut for the project, producing the release notes for the new release.
 
-`Towncrier <https://towncrier.readthedocs.io/en/stable/>`__ is used to manage
+BeeWare uses `Towncrier <https://towncrier.readthedocs.io/en/stable/>`__ to manage
 change notes.
 
 A change note file should be created in the ``changes`` directory and named
@@ -38,12 +41,13 @@ using this format::
 
     <PR/Issue #>.<Change Type>.rst
 
-For instance, a Pull Request that fixes
-GitHub Issue #42 would be named ``42.bugfix.rst``. If a Pull Request is not
-associated with a specific Issue, then the Pull Request number should be used
-instead.
+For instance, a pull request that fixes GitHub issue #42 would be named
+``42.bugfix.rst``. If a pull request is not associated with a specific issue, then the
+pull request number can be used instead. You may need to create the pull request
+*without* a change note to get a pull request number allocated, then push an update that
+includes the change note with the newly allocated pull request number.
 
-All Change Types:
+The change types for the change note should be one of the following:
 
 * ``feature``
 * ``bugfix``
@@ -51,17 +55,35 @@ All Change Types:
 * ``removal``
 * ``misc``
 
-The ``misc`` type is reserved for changes that do not affect users; therefore,
-they do not need to be made aware of the change for a Release. For instance,
-fixing a CI issue.
+The ``misc`` type is reserved for changes that do not affect users, and don't need to be
+noted in the release notes. Minor typographical fixes in documentation, updates to CI
+configuration, and bug fixes for features that haven't yet been formally released are
+examples of features that would be described using ``misc`` markers.
+
+A change note should be a single line of text, providing a high level summary of the
+change from the perspective of the user, not a deep technical description or
+implementation detail. It is distinct from a commit message. A commit message describes
+what has been done so that future developers can follow the reasoning for a change. A
+change note is a "user facing" description, described in terms of the new capability
+that is available as a result of change. It may help to think of the change note as a
+press release announcing the change, rather than a commit description.
+
+For example, if you fix a bug caused by date handling, the commit message or pull
+request description might read:
+
+    Added a MM-DD-YYYY format validator to the DateWidget validation chain.
+
+This describes the change that was made to the implementation - detail that will be
+helpful to the person reviewing the code. However, the corresponding change note might
+read something like:
+
+    Date widgets can now accept dates in US format.
+
+This describes the functional change as it will be experienced by end users. A user can
+read this description without needing to know anything about the implementation.
 
 Code style
----------------
-
-Please follow these coding standards when writing code for inclusion in BeeWare
-projects. Unless otherwise specified, follow :pep:`8` (with careful attention
-paid to `Section 2
-<https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds>`__).
+-----------
 
 BeeWare's projects use `Pre-commit <https://pre-commit.com/>`__ to automate
 code style adherence. These checks are defined in the
@@ -115,29 +137,5 @@ Additional guidelines:
       def test_foo():
           """A test docstring looks like this (#123456)."""
 
-Sign your work
----------------
-
-Before we can merge your contribution into BeeWare, you need to give us
-permission to do so. Since you're an author of a creative work (a piece of
-code, or some documentation), you automatically own the copyright for that
-work. BeeWare can't legally use that contribution unless you give us
-permission to do so.
-
-The BeeWare project uses a mechanism known as a `Developer Certificate of Origin
-(DCO) </contributing/how/dco/>`__ to manage this process. The DCO is a legally
-binding statement that asserts that you are the creator of your contribution,
-and that you wish to allow BeeWare to use your work.
-
-To indicate that you agree to the terms of the DCO, you just add a line to
-every git commit message::
-
-    Signed-off-by: Joe Smith <joe.smith@email.com>
-
-If you set your ``user.name`` and ``user.email`` as part of your git
-configuration, you can sign your commit automatically with ``git commit -s``.
-
-If you have more questions about Developer Certificates of Origin, why they are
-required, what they mean, and how to configure your system to use them, see
-`The Beginners Guide to DCOs </contributing/how/dco/>`__, or `get in touch with
-the core team </community/team>`__.
+* Unless otherwise specified, follow :pep:`8` (with careful attention paid to `Section 2
+  <https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds>`__).
