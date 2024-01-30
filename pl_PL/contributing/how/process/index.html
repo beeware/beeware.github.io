@@ -178,123 +178,125 @@ Strona główna
   
 
   
-    <div class="section" id="code-style">
+    <div class="section" id="overview">
+<h2>Overview</h2>
+<p>All changes to code and documentation should be <a class="reference external" href="/contributing/how/first-time/github/">submitted</a> via a pull request to the GitHub repository for
+the project.</p>
+<p>Most projects have a dedicated contribution guide with details specific to that project,
+or specific types of contribution. This documentation can be found on Read the Docs. For
+example, <a class="reference external" href="https://briefcase.readthedocs.io">Briefcase's documentation</a> contains
+contribution guides for both <a class="reference external" href="https://briefcase.readthedocs.io/en/stable/how-to/contribute-code.html">code</a> and
+<a class="reference external" href="https://briefcase.readthedocs.io/en/stable/how-to/contribute-docs.html">documentation</a>.</p>
+<p>All submissions should abide by the <a class="reference external" href="/community/behavior/code-of-conduct/">BeeWare Code of Conduct</a>.</p>
+</div>
+<div class="section" id="change-notes">
+<h2>Change Notes</h2>
+<p>Several BeeWare projects, notably Briefcase and Toga, require that each pull request is
+submitted with a change note. These change notes are compiled together when a new
+release is cut for the project, producing the release notes for the new release.</p>
+<p>BeeWare uses <a class="reference external" href="https://towncrier.readthedocs.io/en/stable/">Towncrier</a> to manage
+change notes.</p>
+<p>A change note file should be created in the <tt class="docutils literal">changes</tt> directory and named
+using this format:</p>
+<pre class="literal-block">
+&lt;PR/Issue #&gt;.&lt;Change Type&gt;.rst
+</pre>
+<p>For instance, a pull request that fixes GitHub issue #42 would be named
+<tt class="docutils literal">42.bugfix.rst</tt>. If a pull request is not associated with a specific issue, then the
+pull request number can be used instead. You may need to create the pull request
+<em>without</em> a change note to get a pull request number allocated, then push an update that
+includes the change note with the newly allocated pull request number.</p>
+<p>The change types for the change note should be one of the following:</p>
+<ul class="simple">
+<li><tt class="docutils literal">feature</tt></li>
+<li><tt class="docutils literal">bugfix</tt></li>
+<li><tt class="docutils literal">doc</tt></li>
+<li><tt class="docutils literal">removal</tt></li>
+<li><tt class="docutils literal">misc</tt></li>
+</ul>
+<p>The <tt class="docutils literal">misc</tt> type is reserved for changes that do not affect users, and don't need to be
+noted in the release notes. Minor typographical fixes in documentation, updates to CI
+configuration, and bug fixes for features that haven't yet been formally released are
+examples of features that would be described using <tt class="docutils literal">misc</tt> markers.</p>
+<p>A change note should be a single line of text, providing a high level summary of the
+change from the perspective of the user, not a deep technical description or
+implementation detail. It is distinct from a commit message. A commit message describes
+what has been done so that future developers can follow the reasoning for a change. A
+change note is a &quot;user facing&quot; description, described in terms of the new capability
+that is available as a result of change. It may help to think of the change note as a
+press release announcing the change, rather than a commit description.</p>
+<p>For example, if you fix a bug caused by date handling, the commit message or pull
+request description might read:</p>
+<blockquote>
+Added a MM-DD-YYYY format validator to the DateWidget validation chain.</blockquote>
+<p>This describes the change that was made to the implementation - detail that will be
+helpful to the person reviewing the code. However, the corresponding change note might
+read something like:</p>
+<blockquote>
+Date widgets can now accept dates in US format.</blockquote>
+<p>This describes the functional change as it will be experienced by end users. A user can
+read this description without needing to know anything about the implementation.</p>
+</div>
+<div class="section" id="code-style">
 <h2>Code style</h2>
-<p>Please follow these coding standards when writing code for inclusion in BeeWare projects. Unless otherwise specified,
-follow <a class="reference external" href="https://peps.python.org/pep-0008">PEP 8</a> (with careful attention paid to
-<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">Section 2</a>) Use
-<a class="reference external" href="https://pypi.python.org/pypi/flake8">flake8</a> to check for problems in this area. Remember that <a class="reference external" href="https://peps.python.org/pep-0008">PEP 8</a> is only a
-guide, so respect the style of the surrounding code as a primary goal.</p>
-<p>An exception to <a class="reference external" href="https://peps.python.org/pep-0008">PEP 8</a> is our rules on line lengths. Don't limit lines of code to 79 characters if it means the code
-looks significantly uglier or is harder to read. We allow up to 119 characters as this is the width of GitHub code
-review; anything longer requires horizontal scrolling which makes review more difficult. This check is included when you
-run <tt class="docutils literal">flake8</tt>. Documentation, comments, and docstrings should be wrapped at 79 characters, even though <a class="reference external" href="https://peps.python.org/pep-0008">PEP 8</a>
-suggests 72.</p>
+<p>BeeWare's projects use <a class="reference external" href="https://pre-commit.com/">Pre-commit</a> to automate
+code style adherence. These checks are defined in the
+<tt class="docutils literal"><span class="pre">.pre-commit-config.yaml</span></tt> file for each repository and are automatically run in
+<a class="reference external" href="/contributing/how/first-time/what-is-a/ci">CI</a> when a Pull Request is
+opened.</p>
+<p>To automate the Pre-commit checks in your local development environment with
+each <tt class="docutils literal">git</tt> commit, run <code>pre-commit install</code>.</p>
+<p>Included Pre-commit checks:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://black.readthedocs.io/en/stable/index.html">Black</a> ensures uniform
+code formatting</li>
+<li><a class="reference external" href="https://docformatter.readthedocs.io/en/latest/">docformatter</a> ensures
+uniform formatting for docstrings and comments</li>
+<li><a class="reference external" href="https://github.com/asottile/pyupgrade">pyupgrade</a> ensures code is using
+the latest best practices for Python</li>
+<li><a class="reference external" href="https://pycqa.github.io/isort/">isort</a> ensures uniform <tt class="docutils literal">import</tt>
+statements</li>
+<li><a class="reference external" href="https://flake8.pycqa.org/en/latest/">flake8</a> checks for common coding and
+syntax issues</li>
+<li>Misc checks that validate structured documents such as TOML files and remove
+unnecessary whitespace</li>
+</ul>
+<p>Additional guidelines:</p>
 <ul>
-<li><p class="first">Use four spaces for indentation.</p>
-</li>
-<li><p class="first">Use four space hanging indentation rather than vertical alignment:</p>
-<pre class="literal-block">
-raise AttributeError(
-    'Here is a multine error message '
-    'shortened for clarity.'
-)
-</pre>
-<p>Instead of:</p>
-<pre class="literal-block">
-raise AttributeError('Here is a multine error message '
-                     'shortened for clarity.')
-</pre>
-<p>This makes better use of space and avoids having to realign strings if the length of the first line changes.</p>
-</li>
-<li><p class="first">Use single quotes for strings, or a double quote if the the string contains a single quote. Don't waste time doing
-unrelated refactoring of existing code to conform to this style.</p>
-</li>
-<li><p class="first">Avoid use of &quot;we&quot; in comments, e.g. &quot;Loop over&quot; rather than &quot;We loop over&quot;.</p>
+<li><p class="first">Avoid use of &quot;we&quot; in comments, e.g. &quot;Loop over&quot; rather than &quot;We loop over&quot;</p>
 </li>
 <li><p class="first">Use underscores, not camelCase, for variable, function and method names</p>
 </li>
-<li><p class="first">Use InitialCaps for class names (or for factory functions that return classes).</p>
+<li><p class="first">Use InitialCaps for class names (or for factory functions that return classes)</p>
 </li>
-<li><p class="first">Use the Google Style Python Docstrings and <a class="reference external" href="https://peps.python.org/pep-0257">PEP 257</a>, type annotation with <a class="reference external" href="https://peps.python.org/pep-0484">PEP 484</a> is optional.</p>
+<li><p class="first">Use Sphinx-style docstrings and <a class="reference external" href="https://peps.python.org/pep-0257">PEP 257</a>; type annotation with <a class="reference external" href="https://peps.python.org/pep-0484">PEP 484</a>
+is optional but encouraged.</p>
+<p>For example:</p>
 <pre class="literal-block">
-def function_with_types_in_docstring(param1, param2):
-    &quot;&quot;&quot;Example function with types documented in the docstring.
+def function_name(param1: int, param2: str) -&gt; bool:
+    &quot;&quot;&quot;Example function with types and a docstring.
 
-    Args:
-        param1 (int): The first parameter.
-        param2 (str): The second parameter.
+    :param param1: The first parameter.
+    :param param2: The second parameter.
 
-    Returns:
-        bool: The return value. True for success, False otherwise.
-
+    :returns: The return value. True for success, False otherwise.
     &quot;&quot;&quot;
 </pre>
-<p><a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html">More examples of Google Docstrings</a></p>
 </li>
-<li><p class="first">In test docstrings, state the expected behavior that each test demonstrates. Don't include preambles such as &quot;Tests
-that&quot; or &quot;Ensures that&quot;.</p>
+<li><p class="first">In test docstrings, state the expected behavior that each test demonstrates.
+Don't include preambles such as &quot;Tests that&quot; or &quot;Ensures that&quot;.</p>
 </li>
-<li><p class="first">Reserve ticket references for obscure issues where the ticket has additional details that can't be easily described in
-docstrings or comments. Include the ticket number at the end of a sentence like this:</p>
+<li><p class="first">Reserve ticket references for obscure issues where the ticket has additional
+details that can't be easily described in docstrings or comments. Include the
+ticket number at the end of a sentence like this:</p>
 <pre class="literal-block">
 def test_foo():
-    &quot;&quot;&quot;A test docstring looks like this (#123456).
-    &quot;&quot;&quot;
+    &quot;&quot;&quot;A test docstring looks like this (#123456).&quot;&quot;&quot;
 </pre>
 </li>
+<li><p class="first">Unless otherwise specified, follow <a class="reference external" href="https://peps.python.org/pep-0008">PEP 8</a> (with careful attention paid to <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">Section 2</a>).</p>
+</li>
 </ul>
-</div>
-<div class="section" id="imports">
-<h2>Imports</h2>
-<p>Use <a class="reference external" href="https://github.com/timothycrosley/isort#readme">isort</a> to automate
-import sorting using the guidelines below.</p>
-<p>Quick start:</p>
-<pre class="literal-block">
-$ pip install isort
-$ isort -rc .
-</pre>
-<p>This runs <tt class="docutils literal">isort</tt> recursively from your current directory, modifying any
-files that don't conform to the guidelines. If you need to have imports out
-of order (to avoid a circular import, for example) use a comment like this:</p>
-<pre class="literal-block">
-import module  # isort:skip
-</pre>
-<p>Put imports in these groups: standard library, third-party libraries, other BeeWare components, local BeeWare component,
-try/excepts. Sort lines in each group alphabetically by the full module name. Place all <tt class="docutils literal">import module</tt> statements
-before <tt class="docutils literal">from module import objects</tt> in each section. Use absolute imports for other BeeWare components and relative
-imports for local components.</p>
-<p>On each line, alphabetize the items with the upper case items grouped before the lower case items.</p>
-<p>Break long lines using parentheses and indent continuation lines by 4 spaces. Include a trailing comma after the last
-import and put the closing parenthesis on its own line.</p>
-<p>Use a single blank line between the last import and any module level code, and use two blank lines above the first
-function or class.</p>
-</div>
-<div class="section" id="miscellaneous">
-<h2>Miscellaneous</h2>
-<p>Remove <tt class="docutils literal">import</tt> statements that are no longer used when you change code. <a class="reference external" href="https://pypi.python.org/pypi/flake8">flake8</a> will identify these imports for you. If an unused import needs to remain for
-backwards-compatibility, mark the end of with <tt class="docutils literal"># NOQA</tt> to silence the flake8 warning.</p>
-<p>Systematically remove all trailing whitespaces from your code as those add unnecessary bytes, add visual clutter to the
-patches and can also occasionally cause unnecessary merge conflicts. Some IDE's can be configured to automatically
-remove them and most VCS tools can be set to highlight them in diff outputs.</p>
-</div>
-<div class="section" id="sign-your-work">
-<h2>Sign your work</h2>
-<p>Before we can merge your contribution into BeeWare, you need to give us permission to do so. Since you're an author of a
-creative work (a piece of code, or some documentation), you automatically own the copyright for that work. BeeWare
-can't legally use that contribution unless you give us permission to do so.</p>
-<p>The BeeWare project uses a mechanism known as a <a class="reference external" href="/contributing/how/dco/">Developer Certificate of Origin (DCO)</a> to
-manage this process. The DCO is a legally binding statement that asserts that you are the creator of your contribution,
-and that you wish to allow BeeWare to use your work.</p>
-<p>To indicate that you agree to the terms of the DCO, you just add a line to every git commit message:</p>
-<pre class="literal-block">
-Signed-off-by: Joe Smith &lt;joe.smith&#64;email.com&gt;
-</pre>
-<p>If you set your <tt class="docutils literal">user.name</tt> and <tt class="docutils literal">user.email</tt> as part of your git configuration, you can sign your commit
-automatically with <tt class="docutils literal">git commit <span class="pre">-s</span></tt>.</p>
-<p>If you have more questions about Developer Certificates of Origin, why they are required, what they mean, and how to
-configure your system to use them, see <a class="reference external" href="/contributing/how/dco/">The Beginners Guide to DCOs</a>, or <a class="reference external" href="/community/team">get in touch with
-the core team</a>.</p>
 </div>
 
     

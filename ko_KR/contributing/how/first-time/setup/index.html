@@ -79,11 +79,7 @@
         </a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/new/lektor/content/contributing/how/first-time/setting-up-your-environment/contents%2Bko.lr?filename=contents%2Bko.lr&value=_model%3A+page%0A---%0Atitle%3A+Setting+up+your+environment%0A---%0A_slug%3A+setup%0A---%0Abody%3A%0A%0AIn+order+to+get+contributing%2C+you%27re+going+to+need+to+setup+a+%0A%2A%2Adevelopment+environment%2A%2A+-+a+place+where+you+can+work+on+code+where+it+can+%0Abehave+the+same+as+everyone+else%27s+environment.+%0A%0AMany+parts+of+BeeWare+use+the+same+tools%3A+a+specific+version+of+Python%2C+and+%0Avirtual+environment+controls.+%0A%0APython%0A-----------%0A%0APython+is+a+scripting+language%2C+which+is+available+on+a+number+of+different+%0Aoperating+systems.+However%2C+depending+on+what+system+you+are+using%2C+your+%0Aversion+of+Python+is+going+%0Ato+be+different.+Because+of+this+reason%2C+we+specify+exactly+what+version+of+Python%0Awe+expect+the+code+to+work+with.+%0A%0AFor+the+following+instructions%2C+we%27re+going+to+assume+that+you+know+exactly%0Awhich+version+of+Python+you+need+to+install.+Normally+this+is+listed+in+the%0AREADME.md+file+or+in+the+tutorial+information.+Our+%60CI%0A%3C%2Fcontributing%2Fhow%2Ffirst-time%2Fwhat-is-a%2Fci%3E%60_+systems+have+to+be+told+exactly+what%0Aversion+of+Python+is+required%2C+too.+So+if+you%27re+really+stuck%2C+try+looking+at%0Athe+%3Acode%3A%60.travis.yml%60+or+%3Acode%3A%60circle.yml%60+file+for+the+specific+version+you%0Aneed.+%0A%0Apyenv%0A~~~~~~%0A%0A%60pyenv+%3Chttps%3A%2F%2Fgithub.com%2Fpyenv%2Fpyenv%3E%60_+is+a+way+to+get+multiple+versions+of+%0APython+working+on+your+machine+at+the+same+time.+It+allows+you+to+pick+and+choose+whichever%0Aversion+you+need+for+a+particular+project.+%0A%0A+%2A+MacOSX+-+You+can+install+pyenv+via+%60brew+%3C%2Fcontributing%2Fhow%2Ffirst-time%2Fwhat-is-a%2Fpackage-manager%3E%60_%2C++by+running+%3Acode%3A%60brew+install+pyenv%60%0A+%2A+Other+-+use+the+%60automatic+installer+%3Chttps%3A%2F%2Fgithub.com%2Fpyenv%2Fpyenv-installer%3E%60_.+%0A%0AOnce+%3Acode%3A%60pyenv%60+is+installed%2C+you+need+to+install+the+specific+Python%0Aversion.+This+information+is+stored+in+a++%3Acode%3A%60.python-version%60+file%2C+which%0Ameans+you+can+have+different+versions+of+Python+used+in+different+projects+on%0Ayour+computer.+%0A%0ATo+install+and+set+the+Python+version%3A+%0A%0A..+code-block%3A%3A+bash%0A%0A++++%24+cd+%2Fpath%2Fto%2Fyour%2Fproject%0A++++%24+pyenv+install+3.5.1%0A++++%24+pyenv+local+3.5.1%0A%0AMore+information+about+pyenv+is+available+on+%60their+website+%3Chttps%3A%2F%2Fgithub.com%2Fpyenv%2Fpyenv%2Fblob%2Fmaster%2FCOMMANDS.md%3E%60_%0A%0Avirtualenv%0A-----------%0A%0AOnce+Python+is+installed%2C+you%27re+going+to+want+to+be+able+to+install+different%0APython+packages.+Since+you+may+have+more+than+one+project+being+worked+on%2C+and%0Amore+than+one+version+of+Python%2C+having+a+way+to+make+sure+that+only+specific%0APython+packages+are+available+at+any+one+time+is+handy.+%0A%0AOne+way+we+can+do+this+is+via+%60virtualenv+%3Chttps%3A%2F%2Fvirtualenv.pypa.io%2Fen%2Fstable%2F%3E%60_.+%0A%0AUsing+%60pip+%3C%2Fcontributing%2Fhow%2Ffirst-time%2Fwhat-is-a%2Fpackage-manager%3E%60_%2C+we+can+install+virtualenv%0A%0A..+code-block%3A%3A+bash%0A++%0A++%24+pip+install+virtualenv%0A%0AThen%2C+we+want+to+setup+a+virtualenv+that+we+can+then+activate.+Having+more+than%0Aone+virtualenv+is+ok%2C+but+only+one+can+be+activated+at+a+time.+Make+sure+you%0Ahave+your+Python+selection+done+with+%3Acode%3A%60pyenv%60%2C+so+that+we+know+what%0Aversion+of+Python+to+use%0A%0A%0A..+code-block%3A%3A+bash%0A++%0A++%24+virtualenv+-p+%24%28pyenv+which+python%29+env%0A%0AThen%2C+we+can+activate+the+virtual+environment.+%0A%0A%0A..+code-block%3A%3A+bash%0A++%0A+%24+source+env%2Fbin%2Factivate%0A%0AThis+will+result+in+a+little+note+in+your+command+line+letting+you+know+you%27re%0Ain+a+virtual+environment%0A%0A..+code-block%3A%3A+bash%0A++%0A+%28env%29+%24%0A%0ATo+disable+your+virtualenv%3A+%0A%0A..+code-block%3A%3A+bash%0A++%0A+%24+deactivate%0A%0A%0A---%0Asummary%3A+How+to+get+your+system+setup+to+contribute%0A---%0Asort_key%3A+4%0A" target="_blank">
-            <i class="fa fa-github "></i><small>&nbsp;
-Translate on GitHub
-</small>
-          </a></li>
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"></li>
      <li class="nav-item dropdown dropdown-pull-right">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
@@ -198,24 +194,24 @@ virtual environment controls.</p>
 <h2>Python</h2>
 <p>Python is a scripting language, which is available on a number of different
 operating systems. However, depending on what system you are using, your
-version of Python is going
-to be different. Because of this reason, we specify exactly what version of Python
-we expect the code to work with.</p>
+version of Python is going to be different. Because of this reason, we specify
+exactly which version of Python we expect the code to work with.</p>
 <p>For the following instructions, we're going to assume that you know exactly
-which version of Python you need to install. Normally this is listed in the
-README.md file or in the tutorial information. Our <a class="reference external" href="/contributing/how/first-time/what-is-a/ci">CI</a> systems have to be told exactly what
-version of Python is required, too. So if you're really stuck, try looking at
-the <code>.travis.yml</code> or <code>circle.yml</code> file for the specific version you
-need.</p>
+which version of Python you need to install. Normally, this is listed in the
+<tt class="docutils literal">README.md</tt> file or in the tutorial information. Our <a class="reference external" href="/contributing/how/first-time/what-is-a/ci">CI</a> systems have to be told exactly
+which version of Python is required, too. So if you're really stuck, try
+looking at the <code>.github/workflows/ci.yml</code> file for the specific version
+you need.</p>
 <div class="section" id="pyenv">
 <h3>pyenv</h3>
-<p><a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a> is a way to get multiple versions of
-Python working on your machine at the same time. It allows you to pick and choose whichever
-version you need for a particular project.</p>
+<p><a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a> is one way to get multiple versions of
+Python working on your machine at the same time. It allows you to pick and choose
+whichever version you need for a particular project.</p>
 <blockquote>
 <ul class="simple">
-<li>MacOSX - You can install pyenv via <a class="reference external" href="/contributing/how/first-time/what-is-a/package-manager">brew</a>,  by running <code>brew install pyenv</code></li>
-<li>Other - use the <a class="reference external" href="https://github.com/pyenv/pyenv-installer">automatic installer</a>.</li>
+<li>MacOSX - You can install pyenv via <a class="reference external" href="/contributing/how/first-time/what-is-a/package-manager">brew</a>,  by running
+<code>brew install pyenv</code></li>
+<li>Other - use the <a class="reference external" href="https://github.com/pyenv/pyenv-installer">automatic installer</a></li>
 </ul>
 </blockquote>
 <p>Once <code>pyenv</code> is installed, you need to install the specific Python
@@ -225,43 +221,64 @@ your computer.</p>
 <p>To install and set the Python version:</p>
 <pre class="code bash literal-block">
 $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/path/to/your/project<span class="w">
-</span>$<span class="w"> </span>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.5.1<span class="w">
-</span>$<span class="w"> </span>pyenv<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">3</span>.5.1
+</span>$<span class="w"> </span>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.12.1<span class="w">
+</span>$<span class="w"> </span>pyenv<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">3</span>.12.1
 </pre>
-<p>More information about pyenv is available on <a class="reference external" href="https://github.com/pyenv/pyenv/blob/master/COMMANDS.md">their website</a></p>
+<p>More information about pyenv is available on <a class="reference external" href="https://github.com/pyenv/pyenv/blob/master/COMMANDS.md">their website</a>.</p>
 </div>
 </div>
-<div class="section" id="virtualenv">
-<h2>virtualenv</h2>
-<p>Once Python is installed, you're going to want to be able to install different
-Python packages. Since you may have more than one project being worked on, and
-more than one version of Python, having a way to make sure that only specific
-Python packages are available at any one time is handy.</p>
-<p>One way we can do this is via <a class="reference external" href="https://virtualenv.pypa.io/en/stable/">virtualenv</a>.</p>
-<p>Using <a class="reference external" href="/contributing/how/first-time/what-is-a/package-manager">pip</a>, we can install virtualenv</p>
+<div class="section" id="virtual-environments">
+<h2>Virtual Environments</h2>
+<p>When Python is installed, it provides a single global environment. By default, if you
+install a package, it will be installed into this global environment.</p>
+<p>However, if you're working on more than one Python project, it's entirely likely that
+those multiple projects will have different - and in some cases, conflicting -
+requirements. What you need is a way to isolate each project so that installing a
+package for one project won't force that same package to be installed for the second
+project.</p>
+<p>This is done using <em>Virtual Environments</em>. A Virtual Environment, or <tt class="docutils literal">venv</tt>, is an
+isolated environment that can be easily created, destroyed or recreated. Any package
+installed in the virtual environment is only accessible <em>inside</em> that virtual
+environment. Virtual environments are sometimes referred to as a &quot;sandbox&quot; - a safe
+place to play, where if you make a mistake, you can knock down everything you've built
+and start again.</p>
+<p>Python provides the <tt class="docutils literal">venv</tt> module to create new virtual environments. Each virtual
+environment has a name that can be used to identify the environment. To create a fresh
+virtual environment named &quot;my-venv&quot;, run:</p>
 <pre class="code bash literal-block">
-$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>virtualenv
+$<span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>my-venv
 </pre>
-<p>Then, we want to setup a virtualenv that we can then activate. Having more than
-one virtualenv is ok, but only one can be activated at a time. Make sure you
-have your Python selection done with <code>pyenv</code>, so that we know what
-version of Python to use</p>
+<p>The version of Python that you use to create the virtual environment will be the version
+that is used by default <em>inside</em> the virtual environment. If you've got multiple Python
+versions installed, or you're using a tool like <tt class="docutils literal">pyenv</tt> to manage Python versions,
+ensure that the Python version that is currently active (or the version you reference
+when invoking the <tt class="docutils literal"><span class="pre">-m</span> venv</tt> command) is the version you intend. Once a virtual
+environment has been created, you can't change the Python version that it is using. To
+change the Python version, you need to create a fresh virtual environment.</p>
+<p>Invoking <tt class="docutils literal"><span class="pre">-m</span> venv</tt> will <em>create</em> the virtual environment, but the environment is not
+yet <em>active</em>. The virtual environment is a collection of files on disk, stored in a
+directory that matches the name of the environment. To activate the virtual environment,
+you run one of the files generated as part of the environment:</p>
 <pre class="code bash literal-block">
-$<span class="w"> </span>virtualenv<span class="w"> </span>-p<span class="w"> </span><span class="k">$(</span>pyenv<span class="w"> </span>which<span class="w"> </span>python<span class="k">)</span><span class="w"> </span>env
+$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>my-venv/bin/activate
 </pre>
-<p>Then, we can activate the virtual environment.</p>
+<p>This will result in a prefix being added to your command line prompt letting you know
+you're in a virtual environment:</p>
 <pre class="code bash literal-block">
-$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>env/bin/activate
+<span class="o">(</span>my-venv<span class="o">)</span><span class="w"> </span>$
 </pre>
-<p>This will result in a little note in your command line letting you know you're
-in a virtual environment</p>
+<p>While the virtual environment is active, any <tt class="docutils literal">pip install</tt> command will <em>only</em> affect
+the virtual environment. It doesn't matter if you change directories - if your prompt
+has a prefix, that virtual environment is active.</p>
+<p>If you open a second terminal window, the environment will <em>not</em> be active - you need to
+re-activate the environment in every terminal session where you want to use the
+environment. If you get errors about libraries not being available that you're <em>certain</em>
+you've installed - check whether your virtual environment is active.</p>
+<p>To deactivate the virtual environment, run:</p>
 <pre class="code bash literal-block">
-<span class="o">(</span>env<span class="o">)</span><span class="w"> </span>$
+<span class="o">(</span>my-venv<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>deactivate
 </pre>
-<p>To disable your virtualenv:</p>
-<pre class="code bash literal-block">
-$<span class="w"> </span>deactivate
-</pre>
+<p>Once deactivated, the prefix will be dropped from the prompt.</p>
 </div>
 
     
