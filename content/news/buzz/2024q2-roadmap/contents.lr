@@ -1,0 +1,45 @@
+title: 2024Q2 Roadmap
+---
+author: Russell Keith-Magee
+---
+body:
+
+Q1 2024 has seen some major progress - but as always, there's still plenty of work to do. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment of features that will be made available on a specific deadline.
+
+Q1 progress
+-------------
+
+The first quarter of 2024 has seen significant progress towards getting iOS and Android to Tier 3 supported status in CPython. `PEP 738 <https://peps.python.org/pep-0738/>`__ as been formally accepted by the CPython steering committee; and the vast majority of the changes needed to support  `iOS <https://github.com/python/cpython/issues/114099>`__ and `Android <https://github.com/python/cpython/issues/116622>`__ have either been merged, or received substantial review from the CPython core team. 
+
+We've also made progress on a number of long standing feature requests in Toga. We've added an OptionContainer for Android, so tab-based UIs can be used on all platforms. We've added a MapView widget that works on all desktop and mobile platforms. We've also added the start of hardware APIs, including Camera and Geolocation APIs.
+
+Q2 priorities
+--------------
+
+Our Q2 goals are:
+
+* **Get iOS and Android to Tier 3 supported status**. We expect to finish upstreaming the patches we have for CPython early in the quarter. However. Tier 3 status also requires CI infrastructure to verify that the platforms are stable. In Q2, we will commission buildbots so that CPython's CI is able to verify the ongoing stability of iOS and Android as a platform.
+
+* **Extend the BeeWare tutorial**. The BeeWare tutorial provides a good introduction to using Briefcase and Toga, but there are a number of common support questions that aren't covered by the tutorial, and some features that we've added since the tutorial last saw significant edits. We're going to revisit the tutorial, adding some extra steps to cover these new features and common issues. 
+
+* **Attend PyCon US 2024** We're presenting a tutorial and a talk; we will have a booth in the community section; we'll be there for the full duration of the sprints; and we're also expecting to attend the language summit. It's going to be a busy 2 weeks - we hope we see you there!
+
+* **Start working on packaging for mobile platforms**. PEP 730 and PEP 738 cover the core of CPython itself, but Python is much more than just the core interpreter and standard library. There's also the ecosystem of third-party libraries, many of which have binary components. In this quarter, we're going to start looking at the changes that are needed to make it easy for the community to start packaging wheels for iOS and Android.
+
+* **Modify the App class to support other types of apps**. This includes adding an API for a "Simple App" that doesn't have a menu bar, finalising the API for document-based apps, and providing an API for system tray apps.
+
+Longer term goals
+-----------------
+
+Completing PEP 730 and 738 is a major milestone - but there's still a lot of work to be done. It will take a lot of time and community education before iOS and Android binary packages are widely available. We intend to do whatever we can to support the community, ranging from documentation, to tooling support, to submitting patches to upstream packages.
+
+One of the ways to accelerate this transition will be to make iOS and Android compelling platforms to support. This means adding more capabilities to Toga, so that there aren't any capability gaps for a user writing an app. It also means writing more documentation and tutorials so that common app development tasks are well explained. 
+
+Summary
+---------
+
+This month marks 2 years since full-time work began on BeeWare; and 10 years since the first commits on the project. We've come a long way in that time - from a collection of cobbled-together proof of concept demonstrators to a fully tested GUI platform, with equally tested deployment tooling, and official support in CPython itself. The future for Python as a GUI development platform on desktop and mobile has never looked better, and we're excited to see what the coming years will bring.
+---
+mastodon_handle: @freakboy3742@cloudisland.nz
+---
+pub_date: 2024-04-03
