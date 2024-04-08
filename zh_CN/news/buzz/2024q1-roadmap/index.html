@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>2024Q1 Roadmap— BeeWare</title>
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/brutus-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/brutus-72.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/brutus-57.png">
+    <link rel="shortcut icon" href="/static/images/brutus-32.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap-grid.min.css">
+
+    <!-- Project CSS -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cutive">
+    <link rel="stylesheet" type="text/css" href="/static/beeware.css"><!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/078c86a30a.js" crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2943925-4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2943925-4');
+    </script></head>
+  <body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="nav-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-brand-block">
+      <a class="navbar-brand" href="/zh_CN/"><img class="mx-2" src="/static/images/brutus-32.png?h=e18afe42">BeeWare</a>
+    </div>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarsDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+    <a class="nav-link" href="/zh_CN/project/">
+Project
+</a>
+  </li>
+      <li class="nav-item active">
+    <a class="nav-link" href="/zh_CN/news/">
+News
+<span class="sr-only">(current)</span></a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/zh_CN/community/">
+Community
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/zh_CN/contributing/">
+Contributing
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/zh_CN/contact/">
+Contact
+</a>
+  </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contributing/membership/">
+          
+Donate
+
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/new/lektor/content/news/buzz/2024q1-roadmap/contents%2Bzh_CN.lr?filename=contents%2Bzh_CN.lr&value=title%3A+2024Q1+Roadmap%0A---%0Aauthor%3A+Russell+Keith-Magee%0A---%0Abody%3A%0A%0AIt%27s+the+start+of+a+new+year%2C+which+means+it%27s+time+to+cast+our+minds+forward+to+what+BeeWare+will+bring+in+the+coming+year.+2023+saw+some+major+milestones+in+stability+and+features%3B+in+2024%2C+we%27re+going+to+build+on+that+foundation.+As+always%2C+this+roadmap+should+be+read+as+a+guide+to+what+we+aim+to+focus+on+over+the+coming+quarter%2C+rather+than+a+hard+commitment+of+features+that+will+be+made+available+on+a+specific+deadline.%0A%0AQ4+progress%0A-------------%0A%0ADuring+the+last+quarter+of+2024%2C+we+finally+finished+our+audit+and+testing+of+Toga.+We+now+have+100%25+branch+coverage+on+every+line+of+Toga%27s+core%2C+and+on+the+macOS%2C+Windows%2C+GTK%2C+Android+and+iOS+backends.+We+published+%60Toga+0.4+%3Chttps%3A%2F%2Fpypi.org%2Fproject%2Ftoga%2F0.4.0%2F%3E%60__%2C+incorporating+all+these+changes+-+but+it+also+meant+that+we+were+able+to+start+adding+%2Anew%2A+features+to+Toga%2C+including+an+OptionContainer+widget+on+iOS%2C+and+a+draft+of+a+Camera+API+for+iOS+and+macOS.+Toga%27s+new+test+framework+has+made+adding+these+new+features+must+easier+-+for+example%2C+we+were+able+to+very+rapidly+identify+%28and+resolve%29+gaps+in+functionality+in+the+new+iOS+OptionContainer+widget+by+running+the+existing+test+suite+on+a+new+implementation.+We+expect+that+this+testing+foundation+will+continue+to+serve+us+well+as+we+add+more+features+in+the+coming+year.%0A%0AThe+other+major+development+for+the+quarter+was+the+start+of+the+upstreaming+process+for+Python+on+mobile+platforms.+%60PEP730+%3Chttps%3A%2F%2Fpeps.python.org%2Fpep-0730%2F%3E%60__%2C+proposing+the+addition+of+iOS+to+the+Tier+3+supported+list+of+CPython+core%2C+has+been+ratified+by+the+steering+council%3B+and+%60PEP738+%3Chttps%3A%2F%2Fdiscuss.python.org%2Ft%2Fpep-738-adding-android-as-a-supported-platform%2F40975%3E%60__%2C+proposing+the+same+for+Android%2C+is+in+draft+form.+The+first+patch+contributing+towards+iOS+support+has+already+landed.%0A%0AQ1+priorities%0A--------------%0A%0AOur+Q1+goals+are%3A%0A%0A%2A+%2A%2AComplete+upstreaming+iOS+and+Android+support+patches+to+CPython+core%2A%2A.+We+will+finalise+PEP738+and+submit+it+for+ratification%3B+and+we%27ll+continue+upstreaming+the+iOS+and+Android+patches+that+we%27ve+been+maintaining+independently.+This+work+has+a+hard+deadline+of+May+7%2C+as+that+is+when+Python+3.13.0b1+is+planned%2C+which+is+the+feature+cutoff+for+Python+3.13+development%2C+so+making+sure+we+hit+that+deadline+will+be+our+main+priority.%0A%0A%2A+%2A%2AAdd+OptionContainer+for+Android%2A%2A.+The+implementation+on+iOS+was+relatively+straightforward%3B+we+have+no+reason+to+believe+that+the+Android+implementation+will+be+any+more+complicated.%0A%0A%2A+%2A%2AComplete+the+implementation+of+the+Camera+API%2A%2A.+We+have+a+draft+PR+implementing+a+Camera+API+on+macOS+and+iOS%3B+we%27ll+extend+this+API+to+Android%2C+and+complete+the+work+on+Briefcase+that+is+needed+to+add+support+for+permissions.%0A%0A%2A+%2A%2AAdd+an+API+for+geolocation%2C+and+a+Map+widget%2A%2A.+Geolocation+is+another+major+hardware+features+that+is+common+on+phones%3B+we+need+to+write+a+cross-platform+layer+for+that+hardware%2C+plus+add+a+native+mapping+widget+to+show+off+this+capability.%0A%0ALonger+term+goals%0A-----------------%0A%0AFor+the+remainder+of+this+year%2C+you+can+expect+to+see+three+major+themes+in+BeeWare+development.%0A%0AFirstly%2C+we%27re+going+to+continue+to+work+upstreaming+the+work+BeeWare+has+done+in+the+mobile+space+into+the+wider+CPython+community.+Once+iOS+and+Android+have+been+incorporated+into+CPython+core%2C+the+focus+will+move+to+the+packaging+ecosystem.+This+means+adding+official+support+to+upload+iOS+and+Android+packages+to+PyPI%2C+and+making+it+easy+for+third+party+projects+to+incorporate+iOS+and+Android+builds+into+their+release+processes.%0A%0ASecondly%2C+we%27ll+be+increasing+our+efforts+in+education+and+training.+BeeWare+has+a+tutorial+that+we%27re+extremely+proud+of+-+but+there+are+many+things+we+could+add+to+that+tutorial%2C+and+there+are+plenty+of+%22How+To%22+and+topic+guides+that+could+be+written+for+those+who+have+finished+the+tutorial+and+want+to+try+more+advanced+ideas.+%0A%0AThirdly%2C+we%27ll+continue+to+expand+the+capabilities+of+Toga.+There+are+a+handful+of+high+profile+widgets+and+capabilities+that+have+been+patiently+waiting+for+us+to+have+a+stable+platform+to+build+on%2C+and+the+spare+capacity+to+implement+them+-+features+like+a+Radio+Button+widget%2C+Trees+and+Tables+on+mobile+platforms%2C+a+cross-platform+Settings+API%2C+and+cross-platform+cloud+file+access.%0A%0ASummary%0A---------%0A%0A2024+promises+to+be+a+very+exciting+year+for+BeeWare.+For+the+last+2+years%2C+we%27ve+been+focused+on+consolidating+and+stabilizing+existing+features.+That+work+is+coming+to+a+close%2C+which+will+allow+us+to+turn+our+attention+to+building+new+features+that+show+off+the+stable+foundation+we%27ve+built%2C+and+to+providing+the+resources+that+will+allow+more+users+to+try+BeeWare+for+themselves.+%0A---%0Amastodon_handle%3A+%40freakboy3742%40mastodon.nz%0A---%0Apub_date%3A+2024-01-10%0A" target="_blank">
+            <i class="fa fa-github "></i><small>&nbsp;
+Translate on GitHub
+</small>
+          </a></li>
+     <li class="nav-item dropdown dropdown-pull-right">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item " href="/news/buzz/2024q1-roadmap/">
+          English
+          </a><a class="dropdown-item " href="/ar_AR/news/buzz/2024q1-roadmap/">
+          
+العَرَبِيَّة
+
+          </a><a class="dropdown-item " href="/cs_CZ/news/buzz/2024q1-roadmap/">
+          
+Čeština
+
+          </a><a class="dropdown-item " href="/da_DK/news/buzz/2024q1-roadmap/">
+          
+Dansk
+
+          </a><a class="dropdown-item " href="/de_DE/news/buzz/2024q1-roadmap/">
+          
+Deutsch
+
+          </a><a class="dropdown-item " href="/es/noticias/zumbido/2024q1-roadmap/">
+          
+Español
+
+          </a><a class="dropdown-item " href="/fr_FR/news/buzz/2024q1-roadmap/">
+          
+Français
+
+          </a><a class="dropdown-item " href="/it_IT/news/buzz/2024q1-roadmap/">
+          
+Italiano
+
+          </a><a class="dropdown-item " href="/ko_KR/news/buzz/2024q1-roadmap/">
+          
+한국어
+
+          </a><a class="dropdown-item " href="/pl_PL/news/buzz/2024q1-roadmap/">
+          
+Polski
+
+          </a><a class="dropdown-item " href="/pt_BR/news/buzz/2024q1-roadmap/">
+          
+Português
+
+          </a><a class="dropdown-item " href="/tr_TR/news/buzz/2024q1-roadmap/">
+          
+Türkçe
+
+          </a><a class="dropdown-item active" href="/zh_CN/news/buzz/2024q1-roadmap/">
+          
+中文(简体)
+
+          </a><a class="dropdown-item " href="/zh_TW/news/buzz/2024q1-roadmap/">
+          
+中文(繁體)
+
+          </a></div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+    <div class="content">
+<div class="banner">
+  <div class="container">
+    <p>
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  <a href="/zh_CN/">
+Home
+</a>
+  
+ >
+  <a href="/zh_CN/news/">News</a>
+  
+ >
+  <a href="/zh_CN/news/buzz/">The Buzz</a>
+  
+</p>
+    <h1>2024Q1 Roadmap</h1>
+    <p>
+Posted by
+
+        
+        <a href="https://mastodon.nz/@freakboy3742">Russell Keith-Magee</a>
+        
+        
+on
+ 2024/01/10
+    </p>
+  </div>
+</div>
+<div class="container">
+<div class="row-fluid">
+  <div class="col-sm-12 col-md-10 col-lg-8" >
+  
+
+  
+  
+
+  
+  <p>It's the start of a new year, which means it's time to cast our minds forward to what BeeWare will bring in the coming year. 2023 saw some major milestones in stability and features; in 2024, we're going to build on that foundation. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment of features that will be made available on a specific deadline.</p>
+<div class="section" id="q4-progress">
+<h2>Q4 progress</h2>
+<p>During the last quarter of 2024, we finally finished our audit and testing of Toga. We now have 100% branch coverage on every line of Toga's core, and on the macOS, Windows, GTK, Android and iOS backends. We published <a class="reference external" href="https://pypi.org/project/toga/0.4.0/">Toga 0.4</a>, incorporating all these changes - but it also meant that we were able to start adding <em>new</em> features to Toga, including an OptionContainer widget on iOS, and a draft of a Camera API for iOS and macOS. Toga's new test framework has made adding these new features must easier - for example, we were able to very rapidly identify (and resolve) gaps in functionality in the new iOS OptionContainer widget by running the existing test suite on a new implementation. We expect that this testing foundation will continue to serve us well as we add more features in the coming year.</p>
+<p>The other major development for the quarter was the start of the upstreaming process for Python on mobile platforms. <a class="reference external" href="https://peps.python.org/pep-0730/">PEP730</a>, proposing the addition of iOS to the Tier 3 supported list of CPython core, has been ratified by the steering council; and <a class="reference external" href="https://discuss.python.org/t/pep-738-adding-android-as-a-supported-platform/40975">PEP738</a>, proposing the same for Android, is in draft form. The first patch contributing towards iOS support has already landed.</p>
+</div>
+<div class="section" id="q1-priorities">
+<h2>Q1 priorities</h2>
+<p>Our Q1 goals are:</p>
+<ul class="simple">
+<li><strong>Complete upstreaming iOS and Android support patches to CPython core</strong>. We will finalise PEP738 and submit it for ratification; and we'll continue upstreaming the iOS and Android patches that we've been maintaining independently. This work has a hard deadline of May 7, as that is when Python 3.13.0b1 is planned, which is the feature cutoff for Python 3.13 development, so making sure we hit that deadline will be our main priority.</li>
+<li><strong>Add OptionContainer for Android</strong>. The implementation on iOS was relatively straightforward; we have no reason to believe that the Android implementation will be any more complicated.</li>
+<li><strong>Complete the implementation of the Camera API</strong>. We have a draft PR implementing a Camera API on macOS and iOS; we'll extend this API to Android, and complete the work on Briefcase that is needed to add support for permissions.</li>
+<li><strong>Add an API for geolocation, and a Map widget</strong>. Geolocation is another major hardware features that is common on phones; we need to write a cross-platform layer for that hardware, plus add a native mapping widget to show off this capability.</li>
+</ul>
+</div>
+<div class="section" id="longer-term-goals">
+<h2>Longer term goals</h2>
+<p>For the remainder of this year, you can expect to see three major themes in BeeWare development.</p>
+<p>Firstly, we're going to continue to work upstreaming the work BeeWare has done in the mobile space into the wider CPython community. Once iOS and Android have been incorporated into CPython core, the focus will move to the packaging ecosystem. This means adding official support to upload iOS and Android packages to PyPI, and making it easy for third party projects to incorporate iOS and Android builds into their release processes.</p>
+<p>Secondly, we'll be increasing our efforts in education and training. BeeWare has a tutorial that we're extremely proud of - but there are many things we could add to that tutorial, and there are plenty of &quot;How To&quot; and topic guides that could be written for those who have finished the tutorial and want to try more advanced ideas.</p>
+<p>Thirdly, we'll continue to expand the capabilities of Toga. There are a handful of high profile widgets and capabilities that have been patiently waiting for us to have a stable platform to build on, and the spare capacity to implement them - features like a Radio Button widget, Trees and Tables on mobile platforms, a cross-platform Settings API, and cross-platform cloud file access.</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary</h2>
+<p>2024 promises to be a very exciting year for BeeWare. For the last 2 years, we've been focused on consolidating and stabilizing existing features. That work is coming to a close, which will allow us to turn our attention to building new features that show off the stable foundation we've built, and to providing the resources that will allow more users to try BeeWare for themselves.</p>
+</div>
+
+
+  </div>
+  <div class="hidden-sm-down col-md-2 col-lg-4"></div>
+
+  <div class="col-sm-12 col-md-4 gutter">
+    <dl>
+      
+      <dt>
+Next entry
+</dt>
+      <dd><a href="/zh_CN/news/buzz/january-2024-status-update/">January 2024 Status Update</a></dd>
+      
+
+      
+      <dt>
+Previous entry
+</dt>
+      <dd><a href="/zh_CN/news/buzz/december-2023-status-update/">December 2023 Status Update</a></dd>
+      
+    </dl>
+  </div></div>
+</div>
+    </div>
+
+    <footer class="footer">
+      <div class="container text-muted">
+	      <div class="d-block d-sm-none copyright">&copy; Russell Keith-Magee 2024</div>
+	      <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee 2024</div>
+        <p class="d-sm-block d-none">
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://beeware.org/bee/chat/"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i> Discord</a> |
+          <a href="https://fosstodon.org/@beeware"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i> Mastodon</a> |
+          <a href="/zh_CN/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+        <p class="d-block d-sm-none footer-social">
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://beeware.org/bee/chat/"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i> Discord</a> |
+          <a rel="me" href="https://fosstodon.org/@beeware"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i> Mastodon</a>
+        </p>
+        <p class="d-block d-sm-none footer-sitemap">
+          <a href="/zh_CN/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+        
+        
+          
+        <a rel="me" href="https://cloudisland.nz/@freakboy3742" style="display:none" ></a>
+          
+        
+          
+        <a rel="me" href="https://cloudisland.nz/@glasnt" style="display:none" ></a>
+          
+        
+          
+        <a rel="me" href="https://phildini.net/@phildini" style="display:none" ></a>
+          
+        
+          
+        <a rel="me" href="https://tweets.icu/@chris_swenson" style="display:none" ></a>
+          
+        
+          
+        
+          
+        
+          
+        <a rel="me" href="https://hachyderm.io/@cflee" style="display:none" ></a>
+          
+        
+          
+        <a rel="me" href="https://hachyderm.io/@charlotte" style="display:none" ></a>
+          
+        
+          
+        <a rel="me" href="https://fosstodon.org/@danyeaw" style="display:none" ></a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+    <script src="/static/tether-1.3.3/js/tether.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script></body>
+</html>

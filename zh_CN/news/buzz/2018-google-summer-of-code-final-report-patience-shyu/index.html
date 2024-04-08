@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>2018 Google Summer of Code - VOC Optimization— BeeWare</title>
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/brutus-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/brutus-72.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/brutus-57.png">
+    <link rel="shortcut icon" href="/static/images/brutus-32.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap-grid.min.css">
+
+    <!-- Project CSS -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cutive">
+    <link rel="stylesheet" type="text/css" href="/static/beeware.css"><!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/078c86a30a.js" crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2943925-4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2943925-4');
+    </script></head>
+  <body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="nav-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-brand-block">
+      <a class="navbar-brand" href="/zh_CN/"><img class="mx-2" src="/static/images/brutus-32.png?h=e18afe42">BeeWare</a>
+    </div>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarsDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+    <a class="nav-link" href="/zh_CN/project/">
+Project
+</a>
+  </li>
+      <li class="nav-item active">
+    <a class="nav-link" href="/zh_CN/news/">
+News
+<span class="sr-only">(current)</span></a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/zh_CN/community/">
+Community
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/zh_CN/contributing/">
+Contributing
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/zh_CN/contact/">
+Contact
+</a>
+  </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contributing/membership/">
+          
+Donate
+
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"></li>
+     <li class="nav-item dropdown dropdown-pull-right">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item " href="/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/">
+          English
+          </a><a class="dropdown-item " href="/ar_AR/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/">
+          
+العَرَبِيَّة
+
+          </a><a class="dropdown-item " href="/cs_CZ/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/">
+          
+Čeština
+
+          </a><a class="dropdown-item " href="/da_DK/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/">
+          
+Dansk
+
+          </a><a class="dropdown-item " href="/de_DE/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/">
+          
+Deutsch
+
+          </a><a class="dropdown-item " href="/es/noticias/zumbido/2018-google-summer-of-code-final-report-patience-shyu/">
+          
+Español
+
+          </a><a class="dropdown-item " href="/fr_FR/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/">
+          
+Français
+
+          </a><a class="dropdown-item " href="/it_IT/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/">
+          
+Italiano
+
+          </a><a class="dropdown-item " href="/ko_KR/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/">
+          
+한국어
+
+          </a><a class="dropdown-item " href="/pl_PL/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/">
+          
+Polski
+
+          </a><a class="dropdown-item " href="/pt_BR/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/">
+          
+Português
+
+          </a><a class="dropdown-item " href="/tr_TR/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/">
+          
+Türkçe
+
+          </a><a class="dropdown-item active" href="/zh_CN/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/">
+          
+中文(简体)
+
+          </a><a class="dropdown-item " href="/zh_TW/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/">
+          
+中文(繁體)
+
+          </a></div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+    <div class="content">
+<div class="banner">
+  <div class="container">
+    <p>
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  <a href="/zh_CN/">
+Home
+</a>
+  
+ >
+  <a href="/zh_CN/news/">News</a>
+  
+ >
+  <a href="/zh_CN/news/buzz/">The Buzz</a>
+  
+</p>
+    <h1>2018 Google Summer of Code - VOC Optimization</h1>
+    <p>
+Posted by
+
+        
+        Patience Shyu
+        
+        
+on
+ 2018/08/14
+    </p>
+  </div>
+</div>
+<div class="container">
+<div class="row-fluid">
+  <div class="col-sm-12 col-md-10 col-lg-8" >
+  
+
+  
+  
+
+  
+  <p>Google Summer of Code is coming to an end. I've spent the summer working on optimizing the
+<a class="reference external" href="/project/projects/bridges/voc/">VOC compiler</a>, and I’m super excited to share the results.</p>
+<div class="section" id="results">
+<h2>Results</h2>
+<p>There are a couple of ways to evaluate the performance improvement from my project.</p>
+<div class="section" id="microbenchmarks">
+<h3>Microbenchmarks</h3>
+<p>Firstly, we introduced a <a class="reference external" href="https://github.com/beeware/voc/blob/master/tests/microbenchmarks.py">microbenchmarking suite</a>. Each microbenchmark is a small piece
+of Python code that tests a single and specific Python construct, or datatype, or control flow.
+The benchmarking infrastructure itself is crude (essentially it just tells you the total amount
+of processor time it took to run, with no fancy statistics) but it has been extremely useful to
+me while working on performance features to verify performance gain.</p>
+<p>The idea is that the benchmarking suite is not to be run as part of the full test suite,
+but rather as needed and manually whenever an optimization is implemented. It also provides a way to
+check and prevent performance regression, especially on the &quot;optimized&quot; parts of VOC. While it
+doesn't really make sense to record specific numbers, as they will always vary from machine to machine,
+it should be reasonably easy to compare two versions of VOC. Benchmark numbers are included on each
+optimization-related PR I've worked on this summer (see PR log below), and I hope that more benchmarks
+will be added as more performance efforts are carried out in the future.</p>
+</div>
+<div class="section" id="pystone">
+<h3>Pystone</h3>
+<p><a class="reference external" href="https://github.com/beeware/voc/blob/master/tests/benchmarks/pystone.py">Pystone</a> is a Python <a class="reference external" href="https://en.wikipedia.org/wiki/Dhrystone">Dhrystone</a>, a standard benchmark for testing the performance of Python on a machine.
+Here are the before and after results on my machine:</p>
+<p>May 10th, 2018:</p>
+<blockquote>
+<p>$ python setup.py test -s tests.test_pystone
+test_pystone (tests.test_pystone.PystoneTest) ...
+Pystone(1.2) time for 50000 passes = 101.833
+This machine benchmarks at 490.998 pystones/second</p>
+<p>$ python setup.py test -s tests.test_pystone
+test_pystone (tests.test_pystone.PystoneTest) ...
+Pystone(1.2) time for 50000 passes = 101.298
+This machine benchmarks at 493.595 pystones/second</p>
+<p>$ python setup.py test -s tests.test_pystone
+test_pystone (tests.test_pystone.PystoneTest) ...
+Pystone(1.2) time for 50000 passes = 102.247
+This machine benchmarks at 489.014 pystones/second</p>
+</blockquote>
+<p>On current master (Aug 14th, 2018):</p>
+<blockquote>
+<p>$ python setup.py test -s tests.test_pystone
+test_pystone (tests.test_pystone.PystoneTest) ...
+Pystone(1.2) time for 50000 passes = 11.2300
+This machine benchmarks at 4452.37 pystones/second</p>
+<p>$ python setup.py test -s tests.test_pystone
+test_pystone (tests.test_pystone.PystoneTest) ...
+Pystone(1.2) time for 50000 passes = 10.9833
+This machine benchmarks at 4552.36 pystones/second</p>
+<p>$ python setup.py test -s tests.test_pystone
+pystone (tests.test_pystone.PystoneTest) ...
+Pystone(1.2) time for 50000 passes = 10.9498
+This machine benchmarks at 4566.29 pystones/second</p>
+</blockquote>
+</div>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions</h2>
+<p>Some things that I learned about VOC while working on this project:</p>
+<p>1. Object creation in the JVM is expensive. This definitely does not mean that the VOC user
+writing Python should think about minimizing the number of objects that she creates, but rather
+that any time we can non-trivially reduce the number of objects created during bytecode
+transpilation or in VOC-defined function calls, we can expect to see a huge performance boost.
+<a class="reference external" href="https://github.com/beeware/voc/pull/825">Integer</a> and <a class="reference external" href="https://github.com/beeware/voc/pull/830">boolean preallocation</a>, which is about reusing objects that have already been created,
+was one of the most significant improvements we made this summer.</p>
+<p>2. Method calls in VOC are expensive. This is essentially due to the process of invoking a callable:
+you have to check that the method is defined on the object, then construct it (read: object creation!),
+and check the arguments, before it can actually be called. (This is done using reflection, which is super
+interesting and confusing in itself.) And this is the reason why <a class="reference external" href="https://github.com/beeware/voc/pull/875">refactoring the Python comparison functions</a>
+made such a big performance impact, because we were able to circumvent this process.</p>
+<p>3. Exception-heavy code is expensive. Again, this is not to say that the programmer is on the hook for being
+frugal when throwing exceptions, but that VOC benefits greatly by avoiding the use of exceptions internally
+except when strictly necessary. For instance, Python uses StopIteration exceptions to signal the end of a for loop,
+and they quickly rack up when you have nested loops (everything is ultimately related to object creation!). That was
+the motivation for the <a class="reference external" href="https://github.com/beeware/voc/pull/881">nested loops optimization</a>.</p>
+<p>If I may be a bit more reflective here, one of the a-ha! moments I had this summer was realizing that to really
+optimize something, you have to understand where its biggest problems are first. I remember pitching to Russ at
+the start of the summer things like loop unrolling, constant folding, even converting to SSA-form (you know, stuff I
+heard about optimzation in my compilers class) and he was saying to me, think simpler. While working on my project,
+I used a <a class="reference external" href="https://www.ej-technologies.com/products/jprofiler/overview.html">profiler</a> to understand exactly which parts of VOC were slow, and that information drove the changes we
+implemented. I think it worked out pretty well!</p>
+</div>
+<div class="section" id="future-work">
+<h2>Future Work</h2>
+<ul class="simple">
+<li>Minimize boxing of primitive types like String and Int. As VOC is written half in Python, half in Java, a single integer can be found in various representations on its way through the compiler -- as a Python object, unboxed to a primitive Java int, then packaged back up to a Python object. This problem was (somewhat incoherently) addressed in my proposal, but ultimately we couldn't come up with a good abstraction to support it.</li>
+<li>Build a peephole optimizer. <a class="reference external" href="https://github.com/python/cpython/blob/master/Python/peephole.c">CPython's peephole optimizer</a> scans generated bytecode to identify sequences of bytecode that can be optimized, VOC could benefit from this too.</li>
+<li>Hook up more benchmarks, which serve as both proof of the kinds of programs VOC can currently compile and areas ripe for performance improvement.</li>
+</ul>
+</div>
+<div class="section" id="thank-you">
+<h2>Thank you</h2>
+<p>I will wrap this up by giving big thanks to <a class="reference external" href="https://github.com/freakboy3742">Russ</a>, my mentor. The time you spent helping
+me form my ideas, patiently answering my questions and reviewing my work was invaluable
+to me. It couldn't have been easy keeping up with what I was doing especially since I
+started improvising halfway through the summer. I am so grateful for your help, thank you.</p>
+</div>
+<div class="section" id="pr-log-in-chronological-order">
+<h2>PR Log (in chronological order)</h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/772">Original Proposal (with weekly status updates)</a></li>
+</ul>
+<div class="section" id="optimization-related-features">
+<h3>Optimization-related Features</h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/824">Introduce Performance Benchmarking Suite</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/825">Small Integer Preallocation</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/830">Boolean Preallocation</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/839">Module Caching</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/851">Hook up Pystone</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/864">Optimize Zero Argument Function Calls</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/869">Remove Code Objects</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/875">Comparisons Optimization</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/881">Loop optimization by reusing StopIterations</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/893">String cleanup/optimization</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/899">Dictionary access optimization</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/902">Create functions only when needed</a></li>
+</ul>
+</div>
+<div class="section" id="bug-fixes-and-miscellaneous">
+<h3>Bug Fixes and Miscellaneous</h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/837">Fix Method repr</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/846">Fix custom substitutions</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/852">Fix List Bug</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/865">Remove Unnecessary Instruction</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/884">Fix __setitem__ error messages</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/877">Fix contains/not contains bugs and refactor</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/883">Add tests for problematic exception raising</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/887">Add test for with + exception combo</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/889">Add test for wrong iter error message</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/891">Add tests for globals bug</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/894">Remove unnecessary type casts and clean up</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/904">Add test for problematic builtin function call</a></li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/905">Introduce org/python/Object type tests</a></li>
+</ul>
+</div>
+</div>
+
+
+  </div>
+  <div class="hidden-sm-down col-md-2 col-lg-4"></div>
+
+  <div class="col-sm-12 col-md-4 gutter">
+    <dl>
+      
+      <dt>
+Next entry
+</dt>
+      <dd><a href="/zh_CN/news/buzz/beeware-project-awarded-a-psf-education-grant/">BeeWare Project Awarded a PSF Education Grant</a></dd>
+      
+
+      
+      <dt>
+Previous entry
+</dt>
+      <dd><a href="/zh_CN/news/buzz/2018-google-summer-of-code-final-report-yap-boon-peng/">2018 Google Summer of Code - Implement asyncio support in VOC</a></dd>
+      
+    </dl>
+  </div></div>
+</div>
+    </div>
+
+    <footer class="footer">
+      <div class="container text-muted">
+	      <div class="d-block d-sm-none copyright">&copy; Russell Keith-Magee 2024</div>
+	      <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee 2024</div>
+        <p class="d-sm-block d-none">
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://beeware.org/bee/chat/"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i> Discord</a> |
+          <a href="https://fosstodon.org/@beeware"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i> Mastodon</a> |
+          <a href="/zh_CN/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+        <p class="d-block d-sm-none footer-social">
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://beeware.org/bee/chat/"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i> Discord</a> |
+          <a rel="me" href="https://fosstodon.org/@beeware"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i> Mastodon</a>
+        </p>
+        <p class="d-block d-sm-none footer-sitemap">
+          <a href="/zh_CN/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+        
+        
+          
+        <a rel="me" href="https://cloudisland.nz/@freakboy3742" style="display:none" ></a>
+          
+        
+          
+        <a rel="me" href="https://cloudisland.nz/@glasnt" style="display:none" ></a>
+          
+        
+          
+        <a rel="me" href="https://phildini.net/@phildini" style="display:none" ></a>
+          
+        
+          
+        <a rel="me" href="https://tweets.icu/@chris_swenson" style="display:none" ></a>
+          
+        
+          
+        
+          
+        
+          
+        <a rel="me" href="https://hachyderm.io/@cflee" style="display:none" ></a>
+          
+        
+          
+        <a rel="me" href="https://hachyderm.io/@charlotte" style="display:none" ></a>
+          
+        
+          
+        <a rel="me" href="https://fosstodon.org/@danyeaw" style="display:none" ></a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+    <script src="/static/tether-1.3.3/js/tether.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script></body>
+</html>
