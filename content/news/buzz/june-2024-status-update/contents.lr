@@ -1,0 +1,63 @@
+title: June 2024 Status update
+---
+author: Russell Keith-Magee
+---
+body:
+
+In June, BeeWare made a lot of progress, landing lots of new features - many of which have been the subject of requests and discussions for a long time.
+
+What we've done
+----------------
+
+* We `added support for packaging console apps to Briefcase <https://github.com/beeware/briefcase/pull/1781>`__. This involved adding a new ``.pkg`` packaging type for macOS, as well as a number of other improvements to the stub app and MSI packaging on Windows. In addition to providing a way to package console apps on macOS, the addition of ``.pkg`` format means it is now possible to distribute apps using centralised device management tooling (such as Kandji or FleetDM).
+
+* We modified Briefcase to `distribute the stub binaries as standalone artefacts, rather than including them in the app template <https://github.com/beeware/briefcase/pull/1849>`__. We also `significantly optimised how Briefcase uses templates <https://github.com/beeware/briefcase/pull/1855>`__. Between these two changes, the download size required for a first project on macOS has been reduced from around 200MB, to less than 4MB.
+
+* We `isolated Briefcase's use of Cookiecutter <https://github.com/beeware/briefcase/pull/1864>`__ so that all of Briefcase's cached content is contained in Briefcase's own cache folder.
+
+* We `added support for distribution certificates on macOS <https://github.com/beeware/briefcase/pull/1856>`__.
+
+* We `modified Toga's APIs to use namedtuple types for Size and Position references <https://github.com/beeware/toga/pull/2585>`__.
+
+* We corrected a number of stability issues with Toga's testbed CI, and `added CI testing for Wayland on Linux <https://github.com/beeware/toga/pull/2670>`__.
+
+* We completed a `major overhaul of typing in Toga's API surface <https://github.com/beeware/toga/pull/2252>`__.
+
+* We `added support for conditional coverage in Toga's testing <https://github.com/beeware/toga/pull/2642>`__. It is now possible to get a clean coverage report without running the test suite on every Python version and every platform.
+
+* We `added an official API for customizing the system-installed menu items <https://github.com/beeware/toga/pull/2636>`__.
+
+* We `added an API for detecting the screens available for an app to use, and for setting the position of windows relative to those screens <https://github.com/beeware/toga/pull/1930>`__.
+
+* We `added support for "simple" apps <https://github.com/beeware/toga/pull/2649>`__ - apps that don't have menu bars.
+
+* We `added support for apps whose lifecycle isn't tied to a single "Main" window <https://github.com/beeware/toga/pull/2651>`__, such as background apps (apps that don't have any windows) and document-based apps.
+
+* We `added support for app modal dialogs <https://github.com/beeware/toga/pull/2669>`__.
+
+What's next?
+--------------
+
+Work on Toga's App interface isn't quite finished - we're expecting to finalise the Document API in the near future. Once that work is complete, our focus will be the mobile Python binary packaging ecosystem. The work we've done so far this year has led to CPython 3.13 formally supporting iOS and Android as Tier 3 supported platforms; the next step is ensuring that the rest of the community can build iOS and Android packages. This will involve improvements to tools like ``pip``, ``cibuildwheel``, ``meson-python`` and more. We expect that this work will take most of the rest of the quarter to release; but there should be some initial signs of progress by the end of the month.
+
+Want to get involved?
+-----------------------
+
+Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
+
+1. `Update the Toga testbed test suite to use Pixel 7 Pro device sizes <https://github.com/beeware/toga/issues/2251>`__
+2. `Filter out a message generated after Xcode updates <https://github.com/beeware/briefcase/issues/780>`__
+3. `Add the ability to configure the ABIs built by an Android project <https://github.com/beeware/briefcase/issues/808>`__
+4. `Rationalise the application of adhoc signing on macOS <https://github.com/beeware/briefcase/issues/1099>`__
+5. `Add support for custom PyPI repositories <https://github.com/beeware/briefcase/issues/1270>`__
+6. `Document how to debug an application in popular IDEs <https://github.com/beeware/briefcase/issues/1393>`__
+7. `Add an option to select the Android base image when creating new emulators <https://github.com/beeware/briefcase/issues/737>`__
+8. `Add an API to entirely replace the style of a widget <https://github.com/beeware/toga/issues/2305>`__
+9. `Correct the handling of quotation marks in Android apps <https://github.com/beeware/briefcase/issues/1876>`__
+
+Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a `guide on setting up a Briefcase development environment <https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html>`__; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the `BeeWare Discord server <https://beeware.org/bee/chat/>`__.
+
+---
+mastodon_handle: @freakboy3742@cloudisland.nz
+---
+pub_date: 2024-07-01
