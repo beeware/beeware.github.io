@@ -188,6 +188,52 @@ Home
   
 
   
+  <h2><a href="/de_DE/news/buzz/august-2022-status-update/">August 2022 Status Update</a></h2>
+  <p class="meta">
+    
+Posted by
+
+    
+      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
+    
+    
+on
+ 1 September 2022
+  </p>
+  
+  <p>The main focus of the BeeWare team during August was binary module support on mobile platforms. Although we haven't got the final results of this work yet, we have significant progress to report for both iOS and Android. We've also had a number of other improvements land over the course of the month.</p>
+<div class="section" id="what-we-ve-done">
+<h2>What we've done</h2>
+<p>During August:</p>
+<ul class="simple">
+<li>We have continued to work on the changes needed to migrate Android support to Chaquopy. This has included some <a class="reference external" href="https://github.com/beeware/briefcase-android-gradle-template/pull/52">major changes to the Android Gradle template</a>, and developing a Rubicon Java compatibility layer. Eventually, Toga will migrate to use the Chaquopy APIs directly, but in the interim, the Rubicon APIs will continue to work.</li>
+<li>We have started updating Chaquopy to support multiple Python versions. Historically, Chaquopy has only supported a single Python3 version (3.8); for compatibility with Briefcase, we are adding support for Python 3.9 and 3.10, as well as preparing the ground for a 3.11 release when Python 3.11 is finalised.</li>
+<li>We have modified the Python Apple support packages to <a class="reference external" href="https://github.com/beeware/Python-Apple-support/pull/161">provide the binary portions of the Python standard library as dynamically loaded binary modules</a>, and modified the <a class="reference external" href="https://github.com/beeware/briefcase-iOS-Xcode-template/pull/7">iOS</a> and <a class="reference external" href="https://github.com/beeware/briefcase-macOS-Xcode-template/pull/10">macOS</a> templates to use and sign these binary modules. These changes haven't landed yet, but they have been tested on simulators and physical devices. Along the way, we've also updated the support packages to use OpenSSL 3.</li>
+<li>We have modified Briefcase to <a class="reference external" href="https://github.com/beeware/briefcase/pull/805">make the Python support package optional</a>, at the discretion of the project template. This was needed because Chaquopy provides the Python library using a Gradle plugin, rather than requiring a project to source a pre-compiled support package.</li>
+<li>We have addressed an issue with the way Briefcase handles <a class="reference external" href="https://github.com/beeware/briefcase/pull/816">requirements references when they are relative file references</a>. Although this was added to allow rapid debugging of changes to Toga on Android, it also affected the recently added Linuxdeploy backend.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/846">added an &quot;open&quot; subcommand to Briefcase</a>, making it easier to open project-based templates in their respective IDEs.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/821">improved Android log handling</a>, ensuring that more app-specific logs are displayed to the user.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/844">dramatically improved our CI testing of Briefcase</a>. We now build an app on every platform we support, using every backend.</li>
+<li>We've addressed a number of bugs in the Pack layout algorithm.</li>
+<li>We've continued the process of making Toga widget APIs naming internally consistent.</li>
+<li>We've fixed some canvas bugs that were causing problems on Windowns with our native Matplotlib rendering backend, <a class="reference external" href="https://github.com/beeware/toga-chart">toga-chart</a>.</li>
+<li>We've addressed some bugs associated with <a class="reference external" href="https://github.com/beeware/toga/pull/1572">changing the main content of a Toga window</a>.</li>
+<li>We added an <a class="reference external" href="https://github.com/beeware/toga/pull/1574">initial implementation of a DetailedList widget on Windows</a>.</li>
+</ul>
+</div>
+<div class="section" id="what-s-next">
+<h2>What's next?</h2>
+<p>In September, we hope to wrap up the work on binary dependencies. On Android, this is mostly a matter of completing the work to support multiple Python versions. On iOS, we need to develop the tools to manage the compilation of third-party binary libraries. We have an initial proof of concept of this; we need to finish these tools, and develop the infrastructure to distribute. We're also hoping to start conversations with the Anaconda team about Conda integration with Briefcase, and start improving GUI testing in Toga.</p>
+</div>
+
+
+
+  
+
+  
+  
+
+  
   <h2><a href="/de_DE/news/buzz/july-2022-status-update/">July 2022 Status Update</a></h2>
   <p class="meta">
     
@@ -591,35 +637,6 @@ on
 <p>Es gibt aber noch viel zu tun. Es gibt immer noch eine Menge Widgets, die Android-Implementierungen benötigen, und neue Widgets, die wir hinzufügen wollen. Wir möchten Unterstützung für Gerätefunktionen wie Kameras, GPS und Beschleunigungsmesser hinzufügen. Wir möchten die Verwendung von binären Python-Paketen wie NumPy, Keras und mehr erleichtern. Und wir möchten die Arbeit, die wir geleistet haben, in CPython selbst zusammenführen.</p>
 <p>All dies sind an sich schon bedeutende Projekte, die einen vergleichbaren Aufwand erfordern, wie Android als unterstützte Plattform hinzuzufügen. Und deshalb suchen wir nach finanzieller Unterstützung, um dies zu ermöglichen. Wir bewerben uns um neue Zuschüsse, wenn sich neue Möglichkeiten ergeben, aber die hilfreichste Finanzierungsquelle sind die laufenden Mittel, die sich aus Mitgliedschaften ergeben. Laufende Finanzierung bedeutet, dass wir uns auf die Verbesserung von BeeWare konzentrieren können, anstatt uns um Zuschüsse zu bemühen. Es bedeutet, dass wir in der Lage sind, <em>permanentes</em> Personal einzustellen, anstatt kurzfristige Verträge anzubieten. Und es bedeutet, dass wir in der Lage sind, langfristige Pläne und Versprechungen gegenüber der Gemeinschaft zu machen.</p>
 <p>Wenn dieses Projekt etwas beweist, dann, dass Geld etwas bewegt. Wenn du von den Aussichten von Python auf mobilen Plattformen begeistert bist, ziehe bitte in Betracht, <a class="reference external" href="https://beeware.org/contributing/membership/">dem BeeWare-Projekt als finanzielles Mitglied beizutreten</a>. Falls du Erfahrung mit der Kommerzialisierung von Open-Source-Projekten oder weitere Ideen hast, <a class="reference external" href="mailto:contact&#64;beeware.org">bitte nimm mit uns Kontakt auf</a>.</p>
-
-
-
-  
-
-  
-  
-
-  
-  <h2><a href="/de_DE/news/buzz/python-on-android-its-alive/">Python auf Android: Es lebt!</a></h2>
-  <p class="meta">
-    
-Posted by
-
-    
-      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
-    
-    
-on
- 29 February 2020
-  </p>
-  
-  <p>In den letzten Monaten hatten wir einen Auftragnehmer, (<a class="reference external" href="https://twitter.com/asheeshlaroia">Asheesh Laroia</a>) <a class="reference external" href="https://beeware.org/news/buzz/we-have-a-contractor-for-our-android-contract/">der daran gearbeitet hat, die Android Unterstützung für die BeeWare Werkzeugsammlung wiederherzustellen</a>.</p>
-<p>Ich bin sehr froh mitteilen zu können, dass wir unseren ersten großen Meilenstein erreicht haben: Eine funktionierende, reine Python App, die auf einem Android Gerät läuft!</p>
-<iframe width="710" height="400" src="https://www.youtube.com/embed/g2B2wbgVq7s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Das ist nicht das Ende des Projekts - es ist erst der Anfang. Es gibt immer noch viel Feintuning zu machen (Insbesondere was die Größe der Support Bibliotheken betrifft), und wir müssen diese Unterstützung in <a class="reference external" href="https://beeware.org/project/projects/tools/briefcase/">Briefcase</a> und <a class="reference external" href="https://beeware.org/project/projects/libraries/toga/">Toga</a> integrieren.</p>
-<p>Trotzdem können Abenteuerlustige Asheeshs work-in-progress Entwicklung ausprobieren. Seine <a class="reference external" href="https://github.com/paulproteus/Python-Android-support">Python Android Support repository</a> enthält den aktuellen Stand der Entwicklungen, und enthält ziemlich gute Anweisungen um loszulegen. Momentan benötigt man noch zumindest ein bisschen Wissen über native Android Programmierung um dieses Repository voll nutzen zu können; aber wenn man die Resultate aus dem Video wiederholen möchte, sollte dieses Repository (und die darin verlinkten Repositorys) alles bereitstellen was man braucht.</p>
-<p>Ein großes Dankeschön geht mal wieder an die <a class="reference external" href="https://www.python.org/psf-landing/">Python Software Foundation</a>. Ohne ihre finanzielle Unterstützung, wäre diese Arbeit immer noch nur ein Konzept. Dieses Projekt ist nur eine von vielen Arten, auf die PSF Nutzer Spenden die Python Gemeinschaft und das Python Ökosystem untertützen. Wenn Ihre Firma Python in irgendeiner Art und Weise nutzt, empfehle ich Ihnen <em>sehr</em> die PSF finanziell zu unterstützen, damit sie Projekte wie dieses weiterhin unterstützen kann.</p>
-<p>Ein großes Dankeschön gebührt auch Asheesh. Ohne seine herrausragenden Fähigkeiten, Liebe zum Detail, und seine Begeisterung für Compilerfehler, hätten wir nicht den unglaublich schnellen Fortschritt erzielt, den wir jetzt beobachten können.</p>
-<p>Freut euch bald auf weitere Ankündigungen!</p>
 
 
 
