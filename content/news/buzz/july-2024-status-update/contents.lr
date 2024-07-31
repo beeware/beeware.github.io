@@ -1,0 +1,64 @@
+title: July 2024 Status Update
+---
+author: Russell Keith-Magee
+---
+body:
+
+July saw a lot of our attention being consumed by the upcoming Python 3.13 release; but we've also seen some other improvements to the BeeWare suite.
+
+What we've done
+----------------
+
+* We've resolved a number of issues with iOS and Android compatibility in CPython 3.13. Although patches for iOS and Android compatibility landed months ago, a number of changes have been landed since then which have inadvertently broken compatibility with these platforms. These issues usually indicate a subtle issue with the implementation of the feature that has been added - but diagnosing and correcting the source of the problem can often take days. There have also been some small improvements made to the iOS patches, such as an configuration option `ensuring App Store compliance for both iOS and macOS <https://github.com/python/cpython/pull/121947>`__.
+
+* We've begun the process of backporting the CPython changes for iOS compatibility to the older supported CPython releases. So far, we've completed the port to 3.12, and the 3.11 port is mostly complete; backports for 3.10 and 3.9 should be underway shortly. This includes `significant changes to the Python-Apple-support <https://github.com/beeware/Python-Apple-support/pull/191>`__ repository, switching the build of the macOS support package to be based on the official CPython download, and adding a CI test suite that can be used to simplify the process of making a new release.
+
+* We've almost completed adding a `test runner script for Android <https://github.com/python/cpython/pull/121595>`__. This will form the basis for an Android CPython buildbot in the very near future.
+
+* We've added support for `using an externally managed libmpdec implementation <https://github.com/beeware/cpython-apple-source-deps/commit/f2bb2149098083f84da3993db86d1106b90d9456>`__ to the iOS patch. This is a change that was `recently introduced to CPython <https://github.com/python/cpython/issues/115119>`__, and will become required in CPython 3.15.
+
+* We've *almost* completed work on `a new API for document-based apps <https://github.com/beeware/toga/pull/2666>`__. 
+
+* We've developed an `initial design and prototype for status icon apps <https://github.com/beeware/toga/issues/97>`__.
+
+* We've added an API to make it `easier to add and remove commands from a Toga app <https://github.com/beeware/toga/pull/2714>`__.
+
+* We corrected an issue that was causing `intermittent Toga CI failures on macOS <https://github.com/beeware/toga/pull/2730>`__.
+
+* We've improved Briefcase's `validation of the version of git that a user has installed <https://github.com/beeware/briefcase/pull/1915>`__.
+
+* We've `corrected an issue with the way macOS signs apps <https://github.com/beeware/briefcase/pull/1910>`__. This was causing problems with apps that have particularly complex application layouts.
+
+* We've modified Briefcase to use the `newly available "stripped" Python Standalone binaries on Linux <https://github.com/beeware/briefcase/pull/1929>`__.
+
+* We've `improved the validation of document type declarations in a Briefcase project <https://github.com/beeware/briefcase/pull/1846>`__.
+
+
+What's next?
+--------------
+
+In August, we'll be continuing preparations for the upcoming Python 3.13 release, and working on the mobile Python binary packaging ecosystem. The initial release candidate for Python 3.13 will be released very soon; with any luck, this means there should be less inadvertent breakages to diagnose, so we can focus on improvements to tools like ``pip``, ``cibuildwheel``, ``meson-python`` and more. We expect that this work will take most of the rest of the quarter to release; but there should be some initial signs of progress by the end of the month.
+
+We'll also be at `Kiwi PyCon <https://kiwipycon.nz>`__, presenting a keynote about the future of Python. 
+
+Want to get involved?
+-----------------------
+
+Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
+
+1. `Update the Toga testbed test suite to use Pixel 7 Pro device sizes <https://github.com/beeware/toga/issues/2251>`__
+2. `Filter out a message generated after Xcode updates <https://github.com/beeware/briefcase/issues/780>`__
+3. `Add the ability to configure the ABIs built by an Android project <https://github.com/beeware/briefcase/issues/808>`__
+4. `Rationalise the application of adhoc signing on macOS <https://github.com/beeware/briefcase/issues/1099>`__
+5. `Add support for custom PyPI repositories <https://github.com/beeware/briefcase/issues/1270>`__
+6. `Document how to debug an application in popular IDEs <https://github.com/beeware/briefcase/issues/1393>`__
+7. `Add an option to select the Android base image when creating new emulators <https://github.com/beeware/briefcase/issues/737>`__
+8. `Add an API to entirely replace the style of a widget <https://github.com/beeware/toga/issues/2305>`__
+9. `Correct the handling of quotation marks in Android apps <https://github.com/beeware/briefcase/issues/1876>`__
+
+Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a `guide on setting up a Briefcase development environment <https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html>`__; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the `BeeWare Discord server <https://beeware.org/bee/chat/>`__.
+
+---
+mastodon_handle: @freakboy3742@cloudisland.nz
+---
+pub_date: 2024-08-01
