@@ -1,19 +1,66 @@
 {% extends "page.html" %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
 
-{% block body %}
-<div class="row">
-  <div class="col-sm-7 mr-auto">
-    {% for child in this.children %}
-      {% if not child.hide_from_index %}
-    <h2><a href="{{ child|url(alt=this.alt) }}">{{ child.title }}</a></h2>
-    <p>{{ child.summary }}</p>
-      {% endif %}
-    {% endfor %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>{{ breadcrumbs(this) }}</p>
+    <h1>{{ this.title }}</h1>
+    <p>{{ this.short_description }}</p>
   </div>
-  <div class="col-sm-4">
-    <div class="sidebar-module sidebar-module-inset gutter">
-      {{ this.gutter }}
+</div>
+{% endblock %}
+{% block body %}
+    <div class="row">
+    {{ this.body }}
+    </div>
+<div class="row">
+    {% for child in this.children %}
+        {% if not (child.important_category or child.hide_from_project) %}
+            <div class="col showcase">
+        {% if child.image %}
+          <img src="{{ site.get(child.path, alt='_primary')|url }}{{ child.image }}" height="72px">
+        {% else %}
+          <img src="/static/images/defaultlogo.png" height="72px" class="pull-xs-left">
+        {% endif %}
+          <h2><a href="{{ child|url(alt=this.alt) }}">{{ child.name }}</a></h2>
+          {{ child.short_description }}
+            </div>
+        {% endif %}
+    {% endfor %}
+        </div>
+<div class="row">
+    <div class="col important-category">
+    <h2><a href="{{ '/project/applications'|url(alt=this.alt) }}">Applications</a></h2>
+    <div class="col important">
+        {% set important_projects = site.query('/project', alt=this.alt) %}
+        {% for important_project in important_projects %}
+            {% for project in site.query(important_project.path, alt=this.alt).filter((F.project_type == "application").and(F.important == True)) %}
+            <div>
+              <h4><a href="{{ project|url(alt=this.alt) }}"><img src="{{ site.get(project.path, alt='_primary')|url }}{{ project.image }}" height="32px" alt="{{ project.name }}"> {{ project.name }}</h4></a>
+              {{ project.short_description|safe }}
+            </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+    </div>
+    <div class="col important-category">
+    <h2><a href="{{ '/project/utilities'|url(alt=this.alt) }}">Utilities</a></h2>
+    <div class="col important">
+        {% set important_projects = site.query('/project', alt=this.alt) %}
+        {% for important_project in important_projects %}
+            {% for project in site.query(important_project.path, alt=this.alt).filter((F.project_type == "utility").and(F.important == True)) %}
+            <div>
+              <h4><a href="{{ project|url(alt=this.alt) }}"><img src="{{ site.get(project.path, alt='_primary')|url }}{{ project.image }}" height="32px" alt="{{ project.name }}"> {{ project.name }}</h4></a>
+              {{ project.short_description|safe }}
+            </div>
+            {% endfor %}
+        {% endfor %}
     </div>
   </div>
+</div>
+<div class="row">
+{{ this.last }}
 </div>
 {% endblock %}
