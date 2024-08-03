@@ -9,7 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.event.pull_request.labels.*.name, 'preview')
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
