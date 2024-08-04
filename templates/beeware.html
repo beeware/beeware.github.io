@@ -15,12 +15,11 @@
     <div class="row">
     {{ this.body }}
     </div>
-<div class="row">
     {% for child in this.children %}
         {% if not (child.important_category or child.hide_from_project) %}
-            <div class="col showcase">
+            <div class="clearfix project showcase">
         {% if child.image %}
-          <img src="{{ site.get(child.path, alt='_primary')|url }}{{ child.image }}" height="72px">
+          <img src="{{ site.get(child.path, alt='_primary')|url }}{{ child.image }}" height="100px" class="pull-xs-left">
         {% else %}
           <img src="/static/images/defaultlogo.png" height="72px" class="pull-xs-left">
         {% endif %}
@@ -29,11 +28,15 @@
             </div>
         {% endif %}
     {% endfor %}
-        </div>
 <div class="row">
-    <div class="col important-category">
-    <h2><a href="{{ '/project/applications'|url(alt=this.alt) }}">Applications</a></h2>
-    <div class="col important">
+    <div class="important-category">
+    <div class="important-title">
+    <h2><a href="{{ '/project/applications'|url(alt=this.alt) }}">{{ this.applications_title }}</a></h2>
+    </div>
+    <div class="important-description">
+        {{ this.applications_description }}
+    </div>
+    <div class="important-projects">
         {% set important_projects = site.query('/project', alt=this.alt) %}
         {% for important_project in important_projects %}
             {% for project in site.query(important_project.path, alt=this.alt).filter((F.project_type == "application").and(F.important == True)) %}
@@ -45,9 +48,14 @@
         {% endfor %}
     </div>
     </div>
-    <div class="col important-category">
-    <h2><a href="{{ '/project/utilities'|url(alt=this.alt) }}">Utilities</a></h2>
-    <div class="col important">
+    <div class="important-category">
+    <div class="important-title">
+    <h2><a href="{{ '/project/utilities'|url(alt=this.alt) }}">{{ this.utilities_title }}</a></h2>
+    </div>
+    <div class="important-description">
+    {{ this.utilities_description }}
+    </div>
+    <div class="important-projects">
         {% set important_projects = site.query('/project', alt=this.alt) %}
         {% for important_project in important_projects %}
             {% for project in site.query(important_project.path, alt=this.alt).filter((F.project_type == "utility").and(F.important == True)) %}
