@@ -11,11 +11,17 @@
 (function() {
     var today = new Date();
     $('.upcoming.event').each(function() {
-        var event_date = new Date($(this).data('date'));
-        if (event_date >= today) {
-            // $(this).hide();
-        }
+      var event_date = new Date($(this).data('date'));
+      if (event_date >= today) {
+        $(this).hide();
+      }
     });
+    $('.past.event').each(function() {
+      var event_date = new Date($(this).data('date'));
+      if (event_date < today) {
+        $(this).hide();
+      }
+  });
 })();
 </script>
 {% endblock %}
@@ -29,13 +35,18 @@
 </div>
 {% endblock %}
 {% block main %}
+{# As this is a static site, we can't just query on the date for upcoming
+   events, because the date is computed at the time the page is generated.
+   As a workaround, we render *all* the events in the past events list,
+   and use Javascript (which will be evaluated at the time of viewing) to
+   hide any events that shouldn't appear in each list. #}
 <h2>{{ t_upcoming_events }}</h2>
-{% for child in this.children.filter(F.upcoming == True) %}
-<p class="upcoming event" data-date="{{ child.date }}">{{ child.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|capitalize }} <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} {{ child.event_type}}</a></p>
+{% for child in this.children.filter(F.date > today) %}
+<p class="{% if child.date < today %}past {% endif %}event" data-date="{{ child.date }}">{{ child.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }} <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} ({{ child.event_type|title }})</a></p>
 {% endfor %}
 <h2>{{ t_past_events }}</h2>
-{% for child in this.children.filter(F.upcoming == False).order_by('-date') %}
-<p class="past event" data-date="{{ child.date }}">{{ child.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|capitalize  }} <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} {{child.event_type}}</a></p>
+{% for child in this.children %}
+<p class="{% if child.date >= today %}upcoming {% endif %}event" data-date="{{ child.date }}">{{ child.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title  }} <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} ({{ child.event_type|title }})</a></p>
 {% endfor %}
 {% endblock %}
 {% block gutter %}

@@ -10,7 +10,7 @@ setup(
     author='Gonzalo Peña-Castellanos',
     author_email='goanpeca@gmail.com',
     url='https://github.com/beeware/beeware.github.io/tree/lektor/packages/lektor_beeware_plugin',
-    version='0.1',
+    version='0.2',
     license='MIT',
     py_modules=['lektor_beeware_plugin'],
     install_requires=['Lektor', 'MarkupSafe', 'Pygments'],

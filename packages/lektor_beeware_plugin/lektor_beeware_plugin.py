@@ -2,7 +2,7 @@
 """This is a custom local plugin to ad extra functionality to BeeWare site."""
 
 # Standard library imports
-from datetime import datetime
+from datetime import datetime, date
 import os
 import subprocess
 import sys
@@ -198,6 +198,8 @@ class BeeWarePlugin(Plugin):
         self.env.jinja_env.globals.update(urlencode_limit=urlencode_limit)
         self.env.jinja_env.globals.update(
             get_pygments_css_styles=get_pygments_css_styles)
+
+        self.env.jinja_env.globals['today'] = date.today()
 
         # Add some python builtins that are good for debugging
         self.env.jinja_env.globals.update(dir=dir)

@@ -27,8 +27,8 @@
 <div class="banner">
   <div class="container">
     <p>{{ breadcrumbs(this) }}</p>
-    <h1>{{ this.title }}</h1>
-    <p>{{ this.date|datetimeformat("EEEE, MMMM d, YYYY", locale=this.alt)|capitalize }}</p>
+    <h1>{{ this.title }} ({{ this.event_type|title }})</h1>
+    <p>{{ this.date|datetimeformat("EEEE, MMMM d, YYYY", locale=this.alt)|title }}</p>
   </div>
 </div>
 {% endblock %}
@@ -52,7 +52,7 @@
   <div class="col-sm-12 col-md-4 gutter">
     <dl>
       <dt>{{ t_date|trim }}:</dt>
-      <dd>{{ this.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|capitalize }}</dd>
+      <dd>{{ this.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}</dd>
 
       {% if this.event_type == "sprint" %}
         <dt>{{ t_sprinters|trim }}:</dt>
