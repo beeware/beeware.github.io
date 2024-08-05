@@ -30,12 +30,17 @@
     {% endfor %}
 <div class="row">
     <div class="important-category">
+    {% set important_categories = site.query('/', alt=this.alt) %}
+    {% for important_category in important_categories %}
+        {% for category in site.query(important_category.path, alt=this.alt).filter((F.category_type == "application").and(F.important == True)) %}
     <div class="important-title">
-    <h2><a href="{{ '/project/applications'|url(alt=this.alt) }}">{{ this.applications_title }}</a></h2>
+    <h2><a href="{{ category|url(alt=this.alt) }}">{{ category.title }}</a></h2>
     </div>
     <div class="important-description">
-        {{ this.applications_description }}
+        {{ category.short_description }}
     </div>
+        {% endfor %}
+    {% endfor %}
     <div class="important-projects">
         {% set important_projects = site.query('/project', alt=this.alt) %}
         {% for important_project in important_projects %}
@@ -49,12 +54,17 @@
     </div>
     </div>
     <div class="important-category">
+    {% set important_categories = site.query('/', alt=this.alt) %}
+    {% for important_category in important_categories %}
+        {% for category in site.query(important_category.path, alt=this.alt).filter((F.category_type == "utility").and(F.important == True)) %}
     <div class="important-title">
-    <h2><a href="{{ '/project/utilities'|url(alt=this.alt) }}">{{ this.utilities_title }}</a></h2>
+    <h2><a href="{{ category|url(alt=this.alt) }}">{{ category.title }}</a></h2>
     </div>
     <div class="important-description">
-    {{ this.utilities_description }}
+        {{ category.short_description }}
     </div>
+        {% endfor %}
+    {% endfor %}
     <div class="important-projects">
         {% set important_projects = site.query('/project', alt=this.alt) %}
         {% for important_project in important_projects %}
