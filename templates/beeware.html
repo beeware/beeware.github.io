@@ -1,19 +1,84 @@
 {% extends "page.html" %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
 
-{% block body %}
-<div class="row">
-  <div class="col-sm-7 mr-auto">
-    {% for child in this.children %}
-      {% if not child.hide_from_index %}
-    <h2><a href="{{ child|url(alt=this.alt) }}">{{ child.title }}</a></h2>
-    <p>{{ child.summary }}</p>
-      {% endif %}
-    {% endfor %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>{{ breadcrumbs(this) }}</p>
+    <h1>{{ this.title }}</h1>
+    <p>{{ this.short_description }}</p>
   </div>
-  <div class="col-sm-4">
-    <div class="sidebar-module sidebar-module-inset gutter">
-      {{ this.gutter }}
+</div>
+{% endblock %}
+{% block body %}
+    <div class="row">
+    {{ this.body }}
+    </div>
+    {% for child in this.children %}
+        {% if not (child.important_category or child.hide_from_project) %}
+            <div class="clearfix project showcase">
+        {% if child.image %}
+          <img src="{{ site.get(child.path, alt='_primary')|url }}{{ child.image }}" height="100px" class="pull-xs-left">
+        {% else %}
+          <img src="/static/images/defaultlogo.png" height="72px" class="pull-xs-left">
+        {% endif %}
+          <h2><a href="{{ child|url(alt=this.alt) }}">{{ child.name }}</a></h2>
+          {{ child.short_description }}
+            </div>
+        {% endif %}
+    {% endfor %}
+<div class="row">
+    <div class="important-category">
+    {% set important_categories = site.query('/', alt=this.alt) %}
+    {% for important_category in important_categories %}
+        {% for category in site.query(important_category.path, alt=this.alt).filter((F.category_type == "application").and(F.important == True)) %}
+    <div class="important-title">
+    <h2><a href="{{ category|url(alt=this.alt) }}">{{ category.title }}</a></h2>
+    </div>
+    <div class="important-description">
+        {{ category.short_description }}
+    </div>
+        {% endfor %}
+    {% endfor %}
+    <div class="important-projects">
+        {% set important_projects = site.query('/project', alt=this.alt) %}
+        {% for important_project in important_projects %}
+            {% for project in site.query(important_project.path, alt=this.alt).filter((F.project_type == "application").and(F.important == True)) %}
+            <div>
+              <h4><a href="{{ project|url(alt=this.alt) }}"><img src="{{ site.get(project.path, alt='_primary')|url }}{{ project.image }}" height="32px" alt="{{ project.name }}"> {{ project.name }}</h4></a>
+              {{ project.short_description|safe }}
+            </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+    </div>
+    <div class="important-category">
+    {% set important_categories = site.query('/', alt=this.alt) %}
+    {% for important_category in important_categories %}
+        {% for category in site.query(important_category.path, alt=this.alt).filter((F.category_type == "utility").and(F.important == True)) %}
+    <div class="important-title">
+    <h2><a href="{{ category|url(alt=this.alt) }}">{{ category.title }}</a></h2>
+    </div>
+    <div class="important-description">
+        {{ category.short_description }}
+    </div>
+        {% endfor %}
+    {% endfor %}
+    <div class="important-projects">
+        {% set important_projects = site.query('/project', alt=this.alt) %}
+        {% for important_project in important_projects %}
+            {% for project in site.query(important_project.path, alt=this.alt).filter((F.project_type == "utility").and(F.important == True)) %}
+            <div>
+              <h4><a href="{{ project|url(alt=this.alt) }}"><img src="{{ site.get(project.path, alt='_primary')|url }}{{ project.image }}" height="32px" alt="{{ project.name }}"> {{ project.name }}</h4></a>
+              {{ project.short_description|safe }}
+            </div>
+            {% endfor %}
+        {% endfor %}
     </div>
   </div>
+</div>
+<div class="row">
+{{ this.last }}
 </div>
 {% endblock %}

@@ -83,12 +83,30 @@
   <div class="collapse navbar-collapse" id="navbarsDefault">
     <ul class="navbar-nav mr-auto">
       {{ menu_item('project') }}
-      {{ menu_item('news') }}
-      {{ menu_item('community') }}
+      <div class="btn-group header-button">
+          <button type="button" class="btn beeware-button">
+              {{ menu_item('about') }}
+          </button>
+          <button type="button" class="btn beeware-button dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          </button>
+          <div class="dropdown-menu header-menu">
+              {{ menu_item('contact') }}
+          </div>
+      </div>
+      <div class="btn-group header-button">
+          <button type="button" class="btn beeware-button">
+              {{ menu_item('community') }}
+          </button>
+          <button type="button" class="btn beeware-button dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          </button>
+          <div class="dropdown-menu header-menu">
+            {{ menu_item('code-of-conduct') }}
+          </div>
+      </div>
       {{ menu_item('contributing') }}
-      {{ menu_item('contact') }}
+      {{ menu_item('news') }}
       <li class="nav-item">
-        <a class="nav-link" href="/contributing/membership/">
+        <a class="nav-link" href="/membership/">
           {{ transbag('menu', this.alt, 'donate') }}
         </a>
       </li>
