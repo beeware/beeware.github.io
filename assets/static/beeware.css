@@ -353,20 +353,17 @@ blockquote {
 	position: relative;
 }
 
-ul.dark-menu {
-  background-color: #343a40 !important;
-  padding: 7px 12px 2px 12px !important;
-  min-width: max-content;
-  border-radius: 10px;
-  border: 2px solid #777777;
-}
-
-ul.dark-menu .nav-link {
-  padding: 0 !important;
-}
-
-ul.dark-menu .nav-item {
-  padding: 5px 0 5px 0 !important;
+/* Fix for separators in header menu when display is 760px-and-smaller wide */
+@media (max-width: 760px) {
+  .navbar-collapse li {
+    border-bottom: 1px solid #666;
+  }
+  .navbar-collapse .header-button li.nav-item {
+    border-bottom: 0
+  }
+  .navbar-collapse .header-button {
+    border-bottom: 1px solid #666;
+  }
 }
 
 /*----------------------------------------------------
@@ -396,13 +393,6 @@ ul.dark-menu .nav-item {
 .important-category {
   margin: 2vh;
   padding-bottom: 1rem;
-}
-
-.important-title {
-  text-decoration-line: underline;
-  text-underline-offset: 10px;
-  text-decoration-thickness: 2px;
-  text-decoration-color: #CCCCCC;
 }
 
 .important-description {
