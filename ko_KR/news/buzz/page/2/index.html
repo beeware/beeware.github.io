@@ -188,6 +188,55 @@ Home
   
 
   
+  <h2><a href="/ko_KR/news/buzz/2024q1-roadmap/">2024Q1 Roadmap</a></h2>
+  <p class="meta">
+    
+Posted by
+
+    
+      <a href="https://mastodon.nz/@freakboy3742">Russell Keith-Magee</a>
+    
+    
+on
+ 10 January 2024
+  </p>
+  
+  <p>It's the start of a new year, which means it's time to cast our minds forward to what BeeWare will bring in the coming year. 2023 saw some major milestones in stability and features; in 2024, we're going to build on that foundation. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment of features that will be made available on a specific deadline.</p>
+<div class="section" id="q4-progress">
+<h2>Q4 progress</h2>
+<p>During the last quarter of 2024, we finally finished our audit and testing of Toga. We now have 100% branch coverage on every line of Toga's core, and on the macOS, Windows, GTK, Android and iOS backends. We published <a class="reference external" href="https://pypi.org/project/toga/0.4.0/">Toga 0.4</a>, incorporating all these changes - but it also meant that we were able to start adding <em>new</em> features to Toga, including an OptionContainer widget on iOS, and a draft of a Camera API for iOS and macOS. Toga's new test framework has made adding these new features must easier - for example, we were able to very rapidly identify (and resolve) gaps in functionality in the new iOS OptionContainer widget by running the existing test suite on a new implementation. We expect that this testing foundation will continue to serve us well as we add more features in the coming year.</p>
+<p>The other major development for the quarter was the start of the upstreaming process for Python on mobile platforms. <a class="reference external" href="https://peps.python.org/pep-0730/">PEP730</a>, proposing the addition of iOS to the Tier 3 supported list of CPython core, has been ratified by the steering council; and <a class="reference external" href="https://discuss.python.org/t/pep-738-adding-android-as-a-supported-platform/40975">PEP738</a>, proposing the same for Android, is in draft form. The first patch contributing towards iOS support has already landed.</p>
+</div>
+<div class="section" id="q1-priorities">
+<h2>Q1 priorities</h2>
+<p>Our Q1 goals are:</p>
+<ul class="simple">
+<li><strong>Complete upstreaming iOS and Android support patches to CPython core</strong>. We will finalise PEP738 and submit it for ratification; and we'll continue upstreaming the iOS and Android patches that we've been maintaining independently. This work has a hard deadline of May 7, as that is when Python 3.13.0b1 is planned, which is the feature cutoff for Python 3.13 development, so making sure we hit that deadline will be our main priority.</li>
+<li><strong>Add OptionContainer for Android</strong>. The implementation on iOS was relatively straightforward; we have no reason to believe that the Android implementation will be any more complicated.</li>
+<li><strong>Complete the implementation of the Camera API</strong>. We have a draft PR implementing a Camera API on macOS and iOS; we'll extend this API to Android, and complete the work on Briefcase that is needed to add support for permissions.</li>
+<li><strong>Add an API for geolocation, and a Map widget</strong>. Geolocation is another major hardware features that is common on phones; we need to write a cross-platform layer for that hardware, plus add a native mapping widget to show off this capability.</li>
+</ul>
+</div>
+<div class="section" id="longer-term-goals">
+<h2>Longer term goals</h2>
+<p>For the remainder of this year, you can expect to see three major themes in BeeWare development.</p>
+<p>Firstly, we're going to continue to work upstreaming the work BeeWare has done in the mobile space into the wider CPython community. Once iOS and Android have been incorporated into CPython core, the focus will move to the packaging ecosystem. This means adding official support to upload iOS and Android packages to PyPI, and making it easy for third party projects to incorporate iOS and Android builds into their release processes.</p>
+<p>Secondly, we'll be increasing our efforts in education and training. BeeWare has a tutorial that we're extremely proud of - but there are many things we could add to that tutorial, and there are plenty of &quot;How To&quot; and topic guides that could be written for those who have finished the tutorial and want to try more advanced ideas.</p>
+<p>Thirdly, we'll continue to expand the capabilities of Toga. There are a handful of high profile widgets and capabilities that have been patiently waiting for us to have a stable platform to build on, and the spare capacity to implement them - features like a Radio Button widget, Trees and Tables on mobile platforms, a cross-platform Settings API, and cross-platform cloud file access.</p>
+</div>
+<div class="section" id="summary">
+<h2>Summary</h2>
+<p>2024 promises to be a very exciting year for BeeWare. For the last 2 years, we've been focused on consolidating and stabilizing existing features. That work is coming to a close, which will allow us to turn our attention to building new features that show off the stable foundation we've built, and to providing the resources that will allow more users to try BeeWare for themselves.</p>
+</div>
+
+
+
+  
+
+  
+  
+
+  
   <h2><a href="/ko_KR/news/buzz/december-2023-status-update/">December 2023 Status Update</a></h2>
   <p class="meta">
     
@@ -674,64 +723,6 @@ on
 <ol class="arabic simple">
 <li><a class="reference external" href="https://github.com/beeware/briefcase/issues/780">Filter out a message generated after Xcode updates</a></li>
 <li><a class="reference external" href="https://github.com/beeware/briefcase/issues/808">Add the ability to configure the ABIs built by an Android project</a></li>
-<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1099">Rationalise the application of adhoc signing on macOS</a></li>
-<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1157">Detect a failure when trying to install on an Android device that is too old</a></li>
-<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1146">Use the on-device clock to filter Android device logs</a></li>
-<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1136">Add an APK packaging target for Android</a></li>
-<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1115">Provide an option to override app settings from the command line</a></li>
-</ol>
-<p>Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a <a class="reference external" href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html">guide on setting up a Briefcase development environment</a>; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the <a class="reference external" href="https://beeware.org/bee/chat/">BeeWare Discord server</a>.</p>
-</div>
-
-
-
-  
-
-  
-  
-
-  
-  <h2><a href="/ko_KR/news/buzz/may-2023-status-update/">May 2023 Status Update</a></h2>
-  <p class="meta">
-    
-Posted by
-
-    
-      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
-    
-    
-on
- 1 June 2023
-  </p>
-  
-  <p>May has been another month of steady progress - mostly on widget testing, but also in some other key areas of the project.</p>
-<div class="section" id="what-we-ve-done">
-<h2>What we've done</h2>
-<ul class="simple">
-<li>We've completed the audit of the <a class="reference external" href="https://github.com/beeware/toga/pull/1944">TextInput, PasswordInput,</a> and <a class="reference external" href="https://github.com/beeware/toga/pull/1938">MultilineTextInput</a> widgets; we've completed the audit of <a class="reference external" href="https://github.com/beeware/toga/pull/1946">NumberInput</a>, <a class="reference external" href="https://github.com/beeware/toga/pull/1949">WebView</a>, <a class="reference external" href="https://github.com/beeware/toga/pull/1951">DateInput, TimeInput</a>, and <a class="reference external" href="https://github.com/beeware/toga/pull/1955">Selection</a> on macOS, iOS and GTK; and we've begun the audit of <a class="reference external" href="https://github.com/beeware/toga/pull/1956">ImageView</a>.</li>
-<li>We've added documentation and tests for the input validation API as part of the TextInput audit.</li>
-<li>We've added documentation and tests for ListSource as part of the Selection audit, and modified the implementation of Selection to use a ListSource.</li>
-<li>We <a class="reference external" href="https://github.com/beeware/toga/pull/1948">refactored the implementation of Dialog</a> so that it is architecturally consistent with the rest of Toga; this will hopefully also lead to an easier testing story.</li>
-<li>We made <a class="reference external" href="https://github.com/beeware/toga/pull/1903">significant progress in supporting custom fonts on GTK</a>, including adding a GUI test of this capability.</li>
-<li>We <a class="reference external" href="https://github.com/beeware/briefcase/pull/1093">completed a refactor of Briefcase's tool integrations</a>. This introduces a consistent API for all tools that Briefcase uses, as well as introducing type annotations for a lot more of the codebase.</li>
-<li>We've introduced <a class="reference external" href="https://github.com/beeware/briefcase/pull/1262">conditional coverage to the Briefcase codebase</a>. This means developers who only have access to a single testing platform can get a 100% coverage report on their work before submitting to CI for cross-platform confirmation.</li>
-<li>We've helped triage a number of bugs in the Python 3.12.0b1 release (revealed by our testing for <a class="reference external" href="https://github.com/beeware/briefcase/pull/1290">Briefcase</a> and <a class="reference external" href="https://github.com/beeware/rubicon-objc/issues/313">Rubicon-ObjC</a>).</li>
-<li>We've modified Briefcase's Flatpak backend to <a class="reference external" href="https://github.com/beeware/briefcase/pull/1272">require an explicit runtime</a>, rather than falling back to a default runtime that is no longer supported.</li>
-<li>We developed a <a class="reference external" href="https://github.com/beeware/briefcase/pull/1285">draft implementation of a Briefcase test runner for the Web backend</a>. This is an important first step to being able to unit test Toga's Web backend; however, there's still a couple of technical challenges outstanding before we can complete that work.</li>
-<li>We've begun the process of <a class="reference external" href="https://github.com/beeware/briefcase/pull/1271">upgrading Briefcase's Java support from Java 8 to Java 17</a>.</li>
-</ul>
-</div>
-<div class="section" id="what-s-next">
-<h2>What's next?</h2>
-<p>June will be another month with a focus on GUI test coverage. We're still hoping that this work will be complete by the end of June - we're averaging 1-2 widgets a week, and we have 8 widgets remaining; however, every widget is throwing up unique challenges (and revealing deep bugs - sometimes in the underlying GUI frameworks), so it's possible the audit work may need to continue into July.</p>
-</div>
-<div class="section" id="want-to-get-involved">
-<h2>Want to get involved?</h2>
-<p>Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:</p>
-<ol class="arabic simple">
-<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/780">Filter out a message generated after Xcode updates</a></li>
-<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/808">Add the ability to configure the ABIs built by an Android project</a></li>
-<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/463">Add support for the ANDROID_HOME environment variable</a></li>
 <li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1099">Rationalise the application of adhoc signing on macOS</a></li>
 <li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1157">Detect a failure when trying to install on an Android device that is too old</a></li>
 <li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1146">Use the on-device clock to filter Android device logs</a></li>
