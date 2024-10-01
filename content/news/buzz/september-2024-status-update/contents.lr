@@ -1,0 +1,63 @@
+title: September 2024 Status Update
+---
+author: Russell Keith-Magee
+---
+body:
+
+In September, BeeWare hit an important milestone for Android support, made good progress on packaging for iOS, and landed some significant changes to Toga.
+
+What we've done
+----------------
+
+* Android is `now officially a Tier 3 platform in CPython <https://peps.python.org/pep-0011/#tier-3>`__! Over the last month, we've resolved a number of bugs that were preventing us from deploying a reliable buildbot for Android (on both x86_64 and ARM64); as a result, the CPython buildbot fleet now contains Android buildbots. The Android-related changes to documentation have also been merged; Python 3.13.0rc3 (due for release any day now) will incorporate all these changes.
+
+* We completed the `updates to Mobile Forge to support the new official iOS wheel format <https://github.com/beeware/mobile-forge/pull/55>`__, and published updated wheels in this format for the packages for which we have recipes. As part of these changes, we've also added CI checks to Mobile Forge.
+
+* We've `submitted a patch to support iOS in pip <https://github.com/pypa/pip/pull/12962>`__. This patch also requires some patches to `packaging <https://github.com/pypa/packaging/pull/832>`__ and `distlib <https://github.com/pypa/distlib/pull/231>`__ that pip includes as vendored copies.
+
+* We've `submitted a patch to crossenv <https://github.com/benfogle/crossenv/pull/117>`__ that allows cross-compiling Python packages for iOS. There is some additional work required before this patch can land - crossenv's testing framework is currently broken, so it's not currently possible to verify changes in CI. We'll be working on restoring this testing support in the very near future.
+
+* We attended the CPython core team summit. During this week-long sprint, we were able to resolve a number of open questions about Python support on mobile, and begin planning for work that will hopefully be incorporated into the Python 3.14 release.
+
+* We released `Toga 0.4.7 <https://pypi.org/project/toga/0.4.7/>`__, incorporating fixes for a number of bugs discovered in the recent 0.4.6 release, as well as some minor feature additions.
+
+* We transitioned Toga's GTK backend to use `PyGObject's native asyncio support <https://github.com/beeware/toga/pull/2550>`__. This allowed us to deprecate `Gbulb <https://github.com/beeware/gbulb>`__, the GTK asyncio plugin that we've been maintaining for several years.
+
+* We corrected an issue with the `use of recent Textual versions in Toga <https://github.com/beeware/toga/pull/2822>`__, and `added a bare-bones runtime test <https://github.com/beeware/toga/pull/2823>`__ to ensure that the problem doesn't re-occur. This also required a fix for `macOS console app testing in Briefcase <https://github.com/beeware/briefcase/pull/1992>`__.
+
+* We made some `usability improvements to the rendering of Toga's documentation <https://github.com/beeware/toga/pull/2831>`__, and modified Toga's ReadTheDocs configuration to `encourage search engines to return the stable documentation by default <https://github.com/beeware/toga/pull/2833>`__.
+
+* We modified the handling of Toga's app icons on macOS to `improve compatibility with PyInstaller <https://github.com/beeware/toga/pull/2852>`__.
+
+* We corrected a number of issues with WebView handling, including `ensuring that DOM storage is always available <https://github.com/beeware/toga/pull/2815>`__, and `improving error handling when the WebView cannot be initialised on Windows <https://github.com/beeware/toga/pull/2781>`__.
+
+* We added protection against an edge case of asynchronous Task handling that could lead to the `premature garbage collection of long lived tasks <https://github.com/beeware/toga/pull/2814>`__. We've also had some discussions with the CPython core team about `fixing this problem in Python itself <https://github.com/python/cpython/pull/121264>`__.
+
+* We spoke at `PyBay <https://pybay.org>`__ on building mobile apps in Python.
+
+What's next?
+--------------
+
+In October, we will continuing working on binary package support for mobile platforms. In addition to responding to any review feedback on the patches we've already submitted, we'll be working on new patches for ``cibuildwheel`` and ``meson-python``, as well as tooling to make it easy for third-party libraries to run CPython test suites on mobile platforms. We should also be able finalise Briefcase's Python 3.13 support for Android, and start work on Android packaging. Supporting packaging for mobile platforms is a long term project which we expect to continue for several months; the hope is that by the end of the year, we will be able to contribute patches to third-party projects so that iOS and Android wheels become officially produced, rather than BeeWare-maintained artefacts.
+
+Want to get involved?
+-----------------------
+
+Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
+
+1. `Update the Toga testbed test suite to use Pixel 7 Pro device sizes <https://github.com/beeware/toga/issues/2251>`__
+2. `Filter out a message generated after Xcode updates <https://github.com/beeware/briefcase/issues/780>`__
+3. `Add the ability to configure the ABIs built by an Android project <https://github.com/beeware/briefcase/issues/808>`__
+4. `Rationalise the application of adhoc signing on macOS <https://github.com/beeware/briefcase/issues/1099>`__
+5. `Add support for custom PyPI repositories <https://github.com/beeware/briefcase/issues/1270>`__
+6. `Document how to debug an application in popular IDEs <https://github.com/beeware/briefcase/issues/1393>`__
+7. `Add an option to select the Android base image when creating new emulators <https://github.com/beeware/briefcase/issues/737>`__
+8. `Add an API to entirely replace the style of a widget <https://github.com/beeware/toga/issues/2305>`__
+9. `Correct the handling of quotation marks in Android apps <https://github.com/beeware/briefcase/issues/1876>`__
+
+Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a `guide on setting up a Briefcase development environment <https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html>`__; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the `BeeWare Discord server <https://beeware.org/bee/chat/>`__.
+
+---
+mastodon_handle: @freakboy3742@cloudisland.nz
+---
+pub_date: 2024-10-01
