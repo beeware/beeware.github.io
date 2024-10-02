@@ -188,6 +188,65 @@ Home
   
 
   
+  <h2><a href="/ko_KR/news/buzz/november-2022-status-update/">November 2022 Status Update</a></h2>
+  <p class="meta">
+    
+Posted by
+
+    
+      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
+    
+    
+on
+ 1 December 2022
+  </p>
+  
+  <p>November has brought some very important improvements to BeeWare. Although these changes don't have an immediate impact for users, they're going to form a vital part of our work going forward.</p>
+<div class="section" id="what-we-ve-done">
+<h2>What we've done</h2>
+<p>During November:</p>
+<ul class="simple">
+<li>We <a class="reference external" href="https://github.com/beeware/briefcase/pull/962">added a test mode to Briefcase</a>. This is a <em>huge</em> step forward, as it means we are now able to run automated tests for iOS and Android, as well as validation tests for packaged app behaviors. As a proof of concept, we've already begun porting our <a class="reference external" href="https://github.com/beeware/Python-support-testbed/pull/6">support package validation app</a> - this is an app that we've historically needed to run manually.</li>
+<li>We <a class="reference external" href="https://github.com/beeware/briefcase/pull/954">added the ability for an AppImage to customise the Dockerfile used to build the project</a>. This was required to support the use of Rust-based dependencies (such as <a class="reference external" href="https://cryptography.io/">cryptography</a>) in AppImages; however, the approach we've taken should allow for any other customisation that may be required, without the need to maintain a fork of the AppImage project template.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/974">added the ability for users to add customisations to the Android Gradle file for their projects</a>. As with the Dockerfile changes, this allows for small customisations without the need to use a completely forked template.</li>
+<li>We <a class="reference external" href="https://github.com/beeware/briefcase/pull/956">improved the resilience of Briefcase on flaky network connections</a>. Previously, an interrupted download of a support package could leave Briefcase in a broken state; this should no longer be possible.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/964">improved type hinting in the Briefcase codebase</a>, especially relating to the ToolCache class.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/966">improved the handling of Android apps that fail immediately on app startup</a>. Previously, if your app crashed due to something like a Python syntax error, it was possible for Briefcase to hang in a way that made it look like the issue was due to Briefcase being unable to start the app, rather than a user code problem.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/970">corrected a problem on Windows that was preventing app output from being captured in the Briefcase log</a>.</li>
+<li>We completed the process of modernising the layout and tooling of the Toga repository, including the <a class="reference external" href="https://github.com/beeware/toga/pull/1639">introduction of Black</a>, <a class="reference external" href="https://github.com/beeware/toga/pull/1638">Towncrier</a>, <a class="reference external" href="https://github.com/beeware/toga/pull/1675">setuptools_scm</a>, and a <a class="reference external" href="https://github.com/beeware/toga/pull/1669">large reorganisation of the code structure</a></li>
+<li>We've <a class="reference external" href="https://github.com/beeware/toga/pull/1687">begun building the first automated test of Toga's GUI behavior</a>. This is still in the early stages, but it will form the a core part of our testing infrastructure in the near future.</li>
+<li>We've added preliminary support for Python 3.12 to <a class="reference external" href="https://github.com/beeware/briefcase/pull/965">Briefcase</a>, <a class="reference external" href="https://github.com/beeware/toga/pull/1677">Toga</a> and <a class="reference external" href="https://github.com/beeware/rubicon-objc/pull/231">Rubicon ObjC</a>.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/rubicon-objc/pull/230">updated the codebase of Rubicon-ObjC to use Black</a>.</li>
+</ul>
+</div>
+<div class="section" id="what-s-next">
+<h2>What's next?</h2>
+<p>December will be a slow month due to the Christmas and New Year break; however, until then, we'll continue to focus will continue to be on testing. We'll continue to build out the testing tools that we've worked on this month, and start building tests using those tools. We also hope to begin work on a firm 1.0 roadmap for Toga.</p>
+</div>
+<div class="section" id="want-to-get-involved">
+<h2>Want to get involved?</h2>
+<p>Want to get involved? Here's 8 open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/865">Modify the handling of app signing options</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/780">Filter out a message generated after Xcode updates</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/856">Add the ability to refresh the support package in a project</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/853">Provide protection against creating projects with &quot;semi-reserved&quot; names</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/808">Add the ability to configure the ABIs built by an Android project</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/463">Add support for the ANDROID_HOME environment variable</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/907">Add a command summary to briefcase --help</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/906">Add an option to display the platforms supported by a command</a></li>
+</ol>
+<p>Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a <a class="reference external" href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html">guide on setting up a Briefcase development environment</a>; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the <a class="reference external" href="/bee/chat/">BeeWare Discord server</a>.</p>
+</div>
+
+
+
+  
+
+  
+  
+
+  
   <h2><a href="/ko_KR/news/buzz/october-2022-status-update/">October 2022 Status Update</a></h2>
   <p class="meta">
     
@@ -694,58 +753,6 @@ on
 <p>The position calls for an unusual combination of skills. The ideal candidate would have experience building GUI applications (especially mobile) <em>and</em> Python skills. However, because of the existing state of the Python ecosystem, most Python developers don't have GUI development experience, and most GUI developers don't have extensive Python experience. For that reason, if the position is interesting to you, but you don't have all the &quot;must have&quot; attributes - <em>I would encourage you to apply anyway</em>. A candidate with no GUI development experience will still considered, as long as they've got a demonstrated history of doing weird and wonderful things with Python. Similarly, a developer with deep GUI experience, but no Python experience, will also be considered.</p>
 <p>The job location requirements are also unusual. The position is remote; the position requires that your working hours need to be compatible with UTC+8. This means candidates from Australia, South East and South Asia will be a natural fit. European candidates will need to be prepared for early morning starts. US/Canadian candidates will need to be prepared for evening work (<em>very</em> late evenings if you're in CST or EST timezones). Anaconda has the capacity to hire in the UK, Germany, India, Australia, US, and Canada. If you're <em>not</em> a resident of one of those countries, it <em>may</em> be possible to hire you, but it will likely require you to operate as a private contractor rather than a salaried employee.</p>
 <p>I'm incredibly excited for what the future holds for BeeWare - if you'd like to come on this journey with me, <a class="reference external" href="https://boards.greenhouse.io/anaconda/jobs/4211521">please apply</a> (and tell them Russell sent you)!</p>
-
-
-
-  
-
-  
-  
-
-  
-  <h2><a href="/ko_KR/news/buzz/april-2022-status-update/">April 2022 Status Update</a></h2>
-  <p class="meta">
-    
-Posted by
-
-    
-      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
-    
-    
-on
- 2 May 2022
-  </p>
-  
-  <p>One of the benefits of <a class="reference external" href="../exciting-news-for-the-future-of-beeware">having the support of an organization like Anaconda</a> is that we now have the time to perform little housekeeping tasks like publishing community updates. As a result, this is the first (of hopefully many) monthly updates letting you know what progress has been made in the BeeWare suite.</p>
-<div class="section" id="what-we-ve-done">
-<h2>What we've done</h2>
-<p>During April:</p>
-<ul class="simple">
-<li>We've cleared the backlog of pull requests and issue triage. At this point, the only PRs that are open are ones that require updates or changes from the submitters. A lot of stale or duplicated issues have also been closed or consolidated.</li>
-<li><a class="reference external" href="https://github.com/beeware/toga/pull/1448">Webviews on Windows now use the EdgeChromium renderer, rather than the IE11 renderer</a>. This massively improves the HTML compatibility of web views on Windows.</li>
-<li><a class="reference external" href="https://github.com/beeware/toga/pull/1461">Toga windows now use a &quot;single source of truth&quot; approach</a>, using the API calls of the underlying GUI platform to determine the title, position and size of a window. This, in turn, allowed for the implementation of APIs that allow you to set the title, position and size of windows on desktop platforms.</li>
-<li><tt class="docutils literal">on_exit</tt> handlers on an App <a class="reference external" href="https://github.com/beeware/toga/pull/1463">can now be asynchronous co-routines</a></li>
-<li>Toga dialogs that return a result (such as YesNoDialog) now <a class="reference external" href="https://github.com/beeware/toga/pull/1464">use an asynchronous API</a>. This is a backwards incompatible change that was required to support dialogs on Android; it also allows us to remove a nasty hack that was needed on iOS. However, we've been able to implement this in such a way that any existing usage that is incompatible with the new required usage will be flagged with a helpful error.</li>
-<li>The <a class="reference external" href="https://github.com/beeware/toga/pull/1470">GTK web view has been improved</a>, correcting some odd caching behaviour.</li>
-<li>Following the <a class="reference external" href="https://pyscript.net">announcement of PyScript at PyCon US 2022</a>, we've been able to <a class="reference external" href="https://github.com/beeware/toga/pull/1475">resurrect the Web backend for Toga</a>. This is still in the very early stages - but it's sufficiently advanced that we can run the first 2 tutorials, in both a &quot;server side rendering&quot; and &quot;single page app&quot; format.</li>
-<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/690">improved Briefcase's code signing integration on macOS</a>. This should prevent some errors we've seen when signing apps that contain third-party binary modules</li>
-<li>We've significantly improved validation and error handling when an app name contains <a class="reference external" href="https://github.com/beeware/briefcase/pull/698">non-Latin characters</a> , <a class="reference external" href="https://github.com/beeware/briefcase/pull/697">punctuation</a>, or <a class="reference external" href="https://github.com/beeware/briefcase/pull/617">reserved words</a>.</li>
-<li>We've added CI checks to <a class="reference external" href="https://github.com/beeware/briefcase/pull/700">ensure that Briefcase is always able to generate a valid signed app bundles</a></li>
-<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/704">improved the output generated by verbose debug output</a> to improve full environment details . This should make it easier to identify why a command is failing due to unexpected user environments, and to assist in manually reproducing Briefcase's behaviour outside Briefcase.</li>
-<li>We now ensure that <a class="reference external" href="https://github.com/beeware/briefcase/pull/714">macOS apps are *always* signed</a>. This is needed because <em>all</em> apps required at least ad-hoc signing to execute on M1 hardware.</li>
-</ul>
-<p>Many of these PRs either began as, or are entirely the work of community members. There are also dozens of smaller PRs, bug fixes, and bug reports that are just as important, but are too numerous to list in a post like this. A huge thanks to everyone who has contributed to BeeWare during April.</p>
-</div>
-<div class="section" id="what-s-next">
-<h2>What's next?</h2>
-<p>In May, we'll be focussing on:</p>
-<ul class="simple">
-<li>Updating the support packages for macOS and iOS apps. Apple's transition to M1 hardware means there are new simulator architectures that require support; this, in turn, requires that we adopt Xcode's new XCFramework for the packaging libraries, which requires some fairly major changes to the way the support packages are built.</li>
-<li>Updating the support packages on Android to support Python 3.10.</li>
-<li>Notarization on M1. This is becoming an increasingly required part of macOS app publishing, as Apple cranks up the security requirements.</li>
-</ul>
-<p>We're also expecting to start the hiring process in the coming month. We'll provide more details when we can point a full job description. If you think you'd like to make BeeWare your day job (or you know someone who might), now would be a good time to start polishing your resume.</p>
-</div>
 
 
 

@@ -188,6 +188,76 @@ Home
   
 
   
+  <h2><a href="/da_DK/news/buzz/february-2024-status-update/">February 2024 Status Update</a></h2>
+  <p class="meta">
+    
+Posted by
+
+    
+      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
+    
+    
+on
+ 29 February 2024
+  </p>
+  
+  <p>February may be the shortest month, but that doesn't mean we've got any less progress to report!</p>
+<div class="section" id="what-we-ve-done">
+<h2>What we've done</h2>
+<ul class="simple">
+<li><a class="reference external" href="https://peps.python.org/pep-0738/">PEP 738</a>, adding official Android support to CPython, has been formally submitted to the Python Steering Council for approval.</li>
+<li>We've started landing patches in CPython to add formal support for <a class="reference external" href="https://github.com/python/cpython/issues/114099">iOS</a> and <a class="reference external" href="https://github.com/python/cpython/issues/71052">Android</a>. There are more patches in review, and more to come, but so far we've landed patches that:<ul>
+<li><a class="reference external" href="https://github.com/python/cpython/pull/114876">Fix the compilation of the grp module on Android</a></li>
+<li><a class="reference external" href="https://github.com/python/cpython/pull/114889">Disable tests that can't run on mobile platforms</a></li>
+<li><a class="reference external" href="https://github.com/python/cpython/pull/115120">Refactor the CPython build system to allow for some of the oddities of iOS as a platform</a></li>
+<li><a class="reference external" href="https://github.com/python/cpython/pull/115390">Add build targets for compiling iOS-compatible frameworks</a></li>
+<li><a class="reference external" href="https://github.com/python/cpython/pull/115780">Correct the linking of extension modules on Android</a></li>
+<li><a class="reference external" href="https://github.com/python/cpython/pull/115917">Enable the concurrent.futures tests on platforms that don't support multiprocessing</a></li>
+</ul>
+</li>
+<li>We added macOS ARM64 machines to our CI capabilities for <a class="reference external" href="https://github.com/beeware/toga/pull/2404">Toga</a> and <a class="reference external" href="https://github.com/beeware/briefcase/pull/1652">Briefcase</a>. We've officially supported ARM64 on macOS for some time, but we've been unable to test this support as part of our CI and release procedure - we've had to do ad-hoc testing on the machines we're using to develop on a day to day basis. As a result of improvements to Github's CI infrastructure, we're now able to perform automated testing. As part of these changes, we've also added testing for Python 3.13 (which will be released around October of this year).</li>
+<li>We <a class="reference external" href="https://github.com/beeware/toga/pull/1930">added an API for detecting the displays attached to a computer, and specifying the location of windows relative to those displays</a>.</li>
+<li>We <a class="reference external" href="https://github.com/beeware/toga/pull/2387">added a pluggable API for image formats</a>. With this API, any third party library that has an internal format for images can implement support so that Toga can convert to and from images in that format.</li>
+<li>We've significantly improved shortcut key handling on GTK and Winforms, including <a class="reference external" href="https://github.com/beeware/toga/pull/2415">improved coverage of non-alphanumeric keys</a>, and support for <a class="reference external" href="https://github.com/beeware/toga/pull/2232">numpad keys</a>.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/toga/pull/2379">added a MapView widget</a>. This widget is in final review, but should land very soon.</li>
+<li>We've improved error handling when the <a class="reference external" href="https://github.com/beeware/briefcase/pull/1630">Android emulator fails to start</a>. This should hopefully make it easier to identify the source of any emulator failures.</li>
+<li>We've added the ability to run <a class="reference external" href="https://github.com/beeware/briefcase/pull/1603">Linux apps that have been built for different platforms</a>. Using Docker, it's now possible to run a Fedora system app on an Ubuntu machine, or any other combination of supported platforms.</li>
+<li>We've added the ability to <a class="reference external" href="https://github.com/beeware/briefcase/pull/1661">pass extra arguments to Docker when building images</a>.</li>
+<li>We've <a class="reference external" href="https://github.com/beeware/briefcase/pull/1649">improved the console output for non-interactive consoles</a> on some long-running commands.</li>
+</ul>
+</div>
+<div class="section" id="what-s-next">
+<h2>What's next?</h2>
+<p>In March, we will continue to focus on iOS and Android patches for CPython; if all goes extremely well, the bulk of patches should be upstream (or at least submitted for review) by the end of the month. While we're waiting for CPython patches to be reviewed, we'll be adding geolocation APIs to Toga.</p>
+</div>
+<div class="section" id="want-to-get-involved">
+<h2>Want to get involved?</h2>
+<p>Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/2251">Update the Toga testbed test suite to use Pixel 7 Pro device sizes</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/780">Filter out a message generated after Xcode updates</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/808">Add the ability to configure the ABIs built by an Android project</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1099">Rationalise the application of adhoc signing on macOS</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1270">Add support for custom PyPI repositories</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1393">Document how to debug an application in popular IDEs</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/394">Correctly handle incomplete project deletions</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/737">Add an option to select the Android base image when creating new emulators</a></li>
+<li><a class="reference external" href="https://github.com/beeware/briefcase/issues/1472">Print notarisation log failures when building macOS apps</a></li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/2301">Add an API to replace a child of a widget</a></li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/2305">Add an API to entirely replace the style of a widget</a></li>
+<li><a class="reference external" href="https://github.com/beeware/toga/issues/2307">Add the ability to define content when creating a window</a></li>
+</ol>
+<p>Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a <a class="reference external" href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html">guide on setting up a Briefcase development environment</a>; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the <a class="reference external" href="https://beeware.org/bee/chat/">BeeWare Discord server</a>.</p>
+</div>
+
+
+
+  
+
+  
+  
+
+  
   <h2><a href="/da_DK/news/buzz/january-2024-status-update/">January 2024 Status Update</a></h2>
   <p class="meta">
     
@@ -690,52 +760,6 @@ on
 <li><a class="reference external" href="https://github.com/beeware/toga/issues/1980">Switch Toga's Android backend to use native Chaquopy syntax</a></li>
 </ol>
 <p>Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a <a class="reference external" href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html">guide on setting up a Briefcase development environment</a>; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the <a class="reference external" href="https://beeware.org/bee/chat/">BeeWare Discord server</a>.</p>
-</div>
-
-
-
-  
-
-  
-  
-
-  
-  <h2><a href="/da_DK/news/buzz/2023q3-roadmap/">2023Q3 Roadmap</a></h2>
-  <p class="meta">
-    
-Posted by
-
-    
-      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
-    
-    
-on
- 4 July 2023
-  </p>
-  
-  <p>2023 is halfway done, and BeeWare continues to make steady progress. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment of features that will be made available on a specific deadline.</p>
-<div class="section" id="q2-progress">
-<h2>Q2 progress</h2>
-<p>As with Q1, our focus in Q2 was on Toga testing. This has been a mammoth project; but it's finally nearing completion. All but 2 widgets (Canvas and DetailedList) have 100% branch coverage on macOS, iOS and GTK, while Android and Windows are only 5 more widgets behind (ScrollContainer, SplitContainer, OptionContainer, Table and Tree). Along the way, we've identified and resolved lots of inconsistencies in widget APIs, and resolved countless bugs. We've also fully documented every widget, ported the test suite to Pytest, and added type annotations in the code (mostly for documentation purposes, rather than formal validation). We've also completed testing and coverage of a lot of the non-widget functionality that wasn’t strictly planned for this quarter - features like Images, Icons, Validators, application paths, and colors; plus a lot of tests (and bugfixes) in the core widget layout. We've also got the start of some tooling that can be used to test the Web backend.</p>
-<p>Unfortunately, we haven't been able to do any substantial Toga planning. Once Toga's code is at 100% testing coverage, we'll be in a much better place to develop those plans. We also haven't been able to add any native cross-platform hardware support.</p>
-</div>
-<div class="section" id="q3-priorities">
-<h2>Q3 priorities</h2>
-<p>Our Q3 goals are:</p>
-<ul class="simple">
-<li><strong>Finalize Toga's test suite</strong>. By the end of Q3, we should have 100% branch coverage on every line of Toga's core, and on the macOS, Windows, GTK, Android and iOS backends.</li>
-<li><strong>iOS Binary packaging</strong> We've been made aware that Apple is rejecting Briefcase packaged iOS apps from the iOS App Store because of a package layout issue associated with binary modules. This is a very high priority to fix.</li>
-<li><strong>Kotlin upgrades</strong> The upcoming Android Studio release is switching to Kotlin as its preferred language for new Gradle configuration files; we need to upgrade Chaquopy's tooling to support this.</li>
-<li><strong>Add full support for Java inheritance</strong> In the process of building Toga's test suite, it's become clear that a number of features can only be implemented by subclassing Java base classes. Chaquopy's ability to subclass is currently limited; to unlock all the features of Android, we need to resolve this limitation.</li>
-</ul>
-</div>
-<div class="section" id="longer-term-goals">
-<h2>Longer term goals</h2>
-<p>Our longer term goals are also <a class="reference external" href="../2022q4-roadmap">largely unchanged</a>. Toga 1.0 remains an important goal; once we're at 100% test coverage, we will be in much better place to provide estimates about Toga 1.0. Upstreaming is an area where we have some good news - as a result of discussions at Pycon US, we've received support for raising iOS and Android to the status of Tier 3 supported platforms in CPython, with the initial goal of having this in place for Python 3.13. You should expect to see movement on upstreaming towards the end of this year, and early next year. A forge for mobile packages is also remains an important goal; the completion of upstreaming work will make the goal of building a forge much more viable.</p>
-</div>
-<div class="section" id="summary">
-<h2>Summary</h2>
-<p>At the end of Q2 2023, Toga's testing journey is nearing completion... but there's still lots of work to be done. However, the groundwork that we've been doing over the last 6 months has put us in a very strong position to develop Toga and the rest of the BeeWare ecosystem going forward.</p>
 </div>
 
 
