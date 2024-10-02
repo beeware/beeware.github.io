@@ -1,0 +1,31 @@
+title: 2024Q4 Roadmap
+---
+author: Russell Keith-Magee
+---
+body:
+
+Q3 has seen some major progress against long term goals of the BeeWare project. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment of features that will be made available on a specific deadline.
+
+Q3 progress
+-------------
+
+In Q3 the biggest milestone we achieved was the finalisation of Tier 3 support for Android in CPython. The last of the compatibility and documentation issues associated with Android have been resolved, and Android buildbots are now running for both x86_64 and ARM64. Python 3.13.0 is due for release in about a week; we should be in a position to support this release very soon after the official release.
+
+We've also made significant progress on binary packaging. We've backported all the Python 3.13 patches for iOS into BeeWare's support for Python 3.9-3.12, and we've updated our Mobile Forge infrastructure to generate binary wheels for a number of popular packages. We've developed iOS compatibility patches for pip and crossenv; these patches have been submitted and received initial reviews; we'll continue to work with those projects to land these patches upstream. 
+
+Q4 priorities
+--------------
+
+In Q4, we'll be focussing on the tools and documentation needed to for third-party Python packages to add Android and iOS support to their official CI and release processes. In addition to contributing to tools like ``pip`` and ``cibuildwheel``, we'll develop the tools and documentation needed so that it is easy to add CI configurations for mobile platforms. The hope is that by the end of the year, there will be at least one third-party package that produces Android and iOS wheels without any direct involvement of the BeeWare team.
+
+Longer term goals
+-----------------
+
+Once we've got a strong story for packaging third-party packages for iOS and Android, we'll be able to turn our focus back to Toga, and the work needed to make iOS and Android compelling app development platforms. There's a number of navigation and data organization widgets that need to be developed; we also need to improve documentation of some common development patterns that are sources of common questions in BeeWare support channels.
+
+There are also further improvements that we'd like to see in Python itself. This year we've been able to get Android and iOS to Tier 3 support; getting those platforms to Tier 2 is an obvious goal for future Python releases. We'd also like to contribute the tooling needed so that Python is able to distribute official binary releases of iOS and Android, and add an official macOS artefact that mirrors the "Windows embedded" installer. We've had discussions with the Python core team about how this could be achieved; over the coming year, we hope to land these changes.
+
+---
+mastodon_handle: @freakboy3742@cloudisland.nz
+---
+pub_date: 2024-10-02
