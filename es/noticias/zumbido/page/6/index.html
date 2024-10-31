@@ -188,6 +188,38 @@ Inicio
   
 
   
+  <h2><a href="/es/noticias/zumbido/proyecto-destacado-colosseum/">Proyecto destacado: Colosseum</a></h2>
+  <p class="meta">
+    
+Publicado por
+
+    
+      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
+    
+    
+en
+ 6 October 2017
+  </p>
+  
+  <p><em>Este artículo fue publicado originalmente en la lista de correo de Entusiastas BeeWare. Si deseas recibir actualizaciones periódicas sobre el proyecto BeeWare, ¿Por qué no</em> <a class="reference external" href="/community/keep-informed/">suscribirse</a>?</p>
+<p>Cuando diseñas una aplicación de interfaz gráfica, ya sea para escritorio, dispositivos móviles o navegador, una de las tareas más fundamentales es describir cómo colocar widgets en la pantalla. La mayoría de los kits de herramientas de widgets usarán un modelo de empaquetamiento de cuadrícula o caja de algún tipo para resolver este problema. Estos modelos tienden a ser relativamente fáciles al comienzo, pero se desmoronan rápidamente cuando tienes necesidades complejas de diseño o cuando tienes diseños que necesitan adaptarse a diferentes tamaños de pantalla.</p>
+<p>En lugar de inventar un nuevo modelo de cuadrícula o de caja, el kit de herramientas del widget <a class="reference external" href="https://toga.readthedocs.io">Toga</a> widget toolkit adopta un enfoque diferente, utilizando un esquema conocido para diseñar contenido: <a class="reference external" href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">Cascading Style Sheets</a>, o CSS. Aunque CSS es más conocido por especificar el diseño en las páginas web, no hay nada intrínsecamente específico de la web al respecto. Al final del día, es un sistema para describir el diseño de una colección jerárquica de nodos de contenido. Sin embargo, hasta la fecha, cada implementación de CSS está vinculada a un navegador, por lo que la percepción es que CSS es un estándar específico del navegador.</p>
+<p>Ahí es donde entra <a class="reference external" href="https://github.com/beeware/colosseum">Colosseum</a>. Colosseum es una implementación independiente del navegador de un motor de renderizado CSS. Toma un árbol de &quot;nodos&quot; de contenido, como un DOM de un documento HTML y aplica instrucciones de diseño CSS para diseñar esos nodos como cuadros en la pantalla. En el caso de Toga, en lugar de diseñar los elementos <tt class="docutils literal">&lt;div&gt;</tt> y <tt class="docutils literal">&lt;span&gt;</tt>, diseñas objetos Box y Button. Esto le permite especificar diseños adaptativos increíblemente complejos para aplicaciones Toga.</p>
+<p>Pero Colosseum como proyecto tiene muchos otros posibles usos. Se puede usar en cualquier lugar donde exista la necesidad de describir el diseño <em>fuera</em> del contexto de un navegador. Por ejemplo, Colosseum podría ser la piedra angular de un renderizador de HTML a PDF <em>que no requiere</em> el uso de un navegador. También podría usarse como una librería de pruebas e implementación de referencia para la especificación CSS en sí misma, proporcionando una forma ligera de codificar y probar los cambios propuestos a la especificación.</p>
+<p>La implementación actual se basa en el proyecto de Facebook <a class="reference external" href="https://github.com/facebook/yoga">yoga</a>: originalmente era un código portado de JavaScript a Python línea a línea. Sin embargo, yoga solo implementa la sección de Flexbox de la especificación CSS3.</p>
+<p>Esta semana, comenzamos un gran proyecto: reescribir Colosseum para que sea un motor de CSS totalmente compatible. El trabajo hasta ahora se puede encontrar en la rama globo del repositorio Colosseum en Github. El primer objetivo es el cumplimiento de CSS2.1, con una implementación del modelo de caja de CSS tradicional y el diseño de flujo. Una vez que tengamos una implementación razonable de eso, buscaremos agregar diseños Grid y FlexBox desde el conjunto de especificaciones CSS3.</p>
+<p>Esto es obviamente un trabajo grande. <a class="reference external" href="https://www.w3.org/TR/CSS/#css-levels">CSS es una gran especificación</a>, por lo que hay mucho trabajo por hacer, ¡pero eso también significa que hay muchos lugares para contribuir! Elije un párrafo de la especificación CSS, construye algunos casos de prueba que demuestren los casos descritos en ese párrafo y envía un parche que implemente ese comportamiento!</p>
+<p>Esto resalta por que tu apoyo financiero es muy importante. Si bien <em>podríamos</em>  hacer esto completamente con un esfuerzo voluntario, vamos a progresar mucho más rápido si un pequeño grupo de personas pudiera enfocarse en este proyecto de tiempo completo. El apoyo financiero permitiría aumentar significativamente la velocidad de desarrollo de Colosseum y el resto de la suite BeeWare.</p>
+<p>Si deseas que Colosseum y el resto de BeeWare se desarrollen hasta el punto en que puedan utilizarse para aplicaciones comerciales, considera apoyar a BeeWare financieramente. Y si tienes alguna idea para fuentes de financiación potenciales más grandes, por favor <a class="reference external" href="mailto:russell&#64;keith-magee.com">ponte en contacto</a>.</p>
+
+
+
+  
+
+  
+  
+
+  
   <h2><a href="/es/noticias/zumbido/2017-google-summer-of-code-informe-final-dayanne-fernandes/">2017 Google Summer of Code - Portar Cricket a Toga, en lugar de Tkinter</a></h2>
   <p class="meta">
     
