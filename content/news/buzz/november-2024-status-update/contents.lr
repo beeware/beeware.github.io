@@ -1,0 +1,56 @@
+title: November 2024 Status Update
+---
+author: Russell Keith-Magee
+---
+body:
+
+In November, BeeWare made more good progress on mobile packaging - however, that work has revealed a number of upstream tools that need modification before we can contribute wheels for mobile platforms.
+
+What we've done
+----------------
+
+* We attended `PyCon AU <https://2024.pycon.org.au>`__; video of the talk we gave on accessing phone hardware from Python `is available on YouTube <https://www.youtube.com/watch?v=cLNWwNHgTco>`__. We also had a very productive sprint - 9 contributors earned their `challenge coin <https://beeware.org/contributing/challenge-coins/>`__, for contributions ranging from `corrections to the tutorial <https://github.com/beeware/beeware/pull/450>`__, to the `addition of a dark mode flag to Toga <https://github.com/beeware/toga/pull/2992>`__. We also gave out one Yak Herder coin, for someone who helps other people to get their challenge coin. A huge thank you to everyone that came along and participated!
+
+* Our patch for Pillow `isolating its build system from Homebrew when building on macOS <https://github.com/python-pillow/Pillow/pull/8497>`__ has been finalised and merged. This is essential for iOS support, as it's easy for Homebrew macOS ARM64 binaries to leak into iOS builds; but it also has benefits for macOS builds.
+
+* We've completed work on modifications to the Pillow build system to support building for iOS. However, testing this work has revealed the need for additional changes to cibuildwheel and the upstream CPython support for iOS.
+
+* We've submitted a PR to cibuildwheel to `add a test-sources configuration item <https://github.com/pypa/cibuildwheel/pull/2062>`__. This feature is required for iOS testing, but can also be used on other platforms, so we've contributed it independently in order to make the iOS changes easier to test.
+
+* We've started work on some modifications to how the CPython iOS testbed project is run. This has become necessary because of `a change introduced in Xcode 16 <https://github.com/python/cpython/issues/126925>`__, but in order to fix the problem, we'll also be able to `improve the reporting of test output during a test run <https://github.com/python/cpython/issues/126821>`__, and also make the test harness useful as a generic utility for *any* iOS project.
+
+* We've made good progress towards resolving a `long-standing memory management issue in Rubicon <https://github.com/beeware/rubicon-objc/pull/543>`__. This change will remove almost all need for manual memory management of ObjC objects, making iOS and macOS development much more robust.
+
+* We resolved a number of CPython test stability issues on Android. In most cases, this wasn't an indicator of a broken feature, but of an unstable test - but as a result of the extensive testing done by CPython as a project, even a small instability can manifest as a semi-regular test failure.
+
+* We've started work on `modifying Toga's web backend to be compatible with Micropython <https://github.com/beeware/toga/pull/2976>`__. This significantly reduces the startup time for a Toga app; we're hoping to be able to spend a lot more time on the web backend in the coming year.
+
+* We've `formally taken on responsibility for restoring Emscripten to Tier 3 support in CPython <https://github.com/python/steering-council/issues/256>`__, and reviewed a number of patches aimed at restoring Emscripten support.
+
+What's next?
+--------------
+
+December will be a short month because of end-of-year holidays; we'll be continuing to work on binary packaging. The work we've done porting Pillow to iOS has revealed a number of gaps in the tooling needed to develop and test packages for iOS; so we will be working on getting that upstream tooling in place, using Pillow as a demonstrator for that work. Our overall goal hasn't changed - to get tools in place so that third-party projects can officially support iOS and Android - but it's become clear that there's a lot more upstream work required than we originally anticipated. However, we'll keep working toward this goal until creating packages for iOS and Android is as straightforward as any other platform.
+
+We'll also be continuing to work on Python Emscripten support, and Toga's Web backend, with the eventual aim of getting the web backend to the same level of support as the other Toga backends.
+
+Want to get involved?
+-----------------------
+
+Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
+
+1. `Update the Toga testbed test suite to use Pixel 7 Pro device sizes <https://github.com/beeware/toga/issues/2251>`__
+2. `Filter out a message generated after Xcode updates <https://github.com/beeware/briefcase/issues/780>`__
+3. `Add the ability to configure the ABIs built by an Android project <https://github.com/beeware/briefcase/issues/808>`__
+4. `Rationalise the application of adhoc signing on macOS <https://github.com/beeware/briefcase/issues/1099>`__
+5. `Document how to debug an application in popular IDEs <https://github.com/beeware/briefcase/issues/1393>`__
+6. `Add an option to select the Android base image when creating new emulators <https://github.com/beeware/briefcase/issues/737>`__
+7. `Add an API to entirely replace the style of a widget <https://github.com/beeware/toga/issues/2305>`__
+8. `Investigate the source of a Table column resize issue on Windows <https://github.com/beeware/toga/issues/2974>`__
+
+Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a `guide on setting up a Briefcase development environment <https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html>`__; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the `BeeWare Discord server <https://beeware.org/bee/chat/>`__.
+
+---
+mastodon_handle: @freakboy3742@cloudisland.nz
+---
+pub_date: 2024-12-01
