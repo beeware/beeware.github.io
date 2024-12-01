@@ -188,6 +188,105 @@ Home
   
 
   
+  <h2><a href="/cs_CZ/news/buzz/2018-google-summer-of-code-final-report-yap-boon-peng/">2018 Google Summer of Code - Implement asyncio support in VOC</a></h2>
+  <p class="meta">
+    
+Posted by
+
+    
+      Yap Boon Peng
+    
+    
+on
+ 11 August 2018
+  </p>
+  
+  <p>In the blink of an eye, Google Summer of Code (GSoC) 2018 has come to an end. During the three months long coding period, I have contributed several patches in VOC repository of BeeWare, all working towards the ultimate end goal of running <cite>asyncio</cite> module in VOC. In this blog post (which is my first actual blog post by the way 😄), I will document what I have done so far, why I couldn't make it to the end goal (yea, unfortunately I couldn't get <cite>asyncio</cite> to work at the end of GSoC 2018), and what's left that needs to be done in order to achieve the end goal (or at least make part of <cite>asyncio</cite> work).</p>
+<div class="section" id="building-foundation">
+<h2>Building Foundation</h2>
+<p>The first error that the transpiler throws when attempting to compile <cite>asyncio</cite> module was &quot;No handler for <cite>YieldFrom</cite>&quot;, so it makes sense to start from this issue first.</p>
+<p>Another feature related to generator was <cite>Yield</cite> expression. Before GSoC 2018, <cite>Yield</cite> statement in VOC was just a statement, meaning <cite>yield</cite> could not be used as expression. Generator methods such as <cite>generator.send</cite>, <cite>generator.throw</cite> and <cite>generator.close</cite> were not supported as well. Those features are what make asynchronous programming with generator possible, so I spent a few weeks to extend generator functionality in VOC, laying down the path to <cite>asyncio</cite> module.</p>
+<p>PRs related to generator are listed below:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/821">PR #821</a> : Added support for Yield from statement (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/823">PR #823</a> : Added generator send method (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/831">PR #831</a> : Support exceptions handling in generator (merged)</li>
+</ul>
+</div>
+<div class="section" id="nonlocal-statement">
+<h2>Nonlocal Statement</h2>
+<p><cite>Nonlocal</cite> statement was another syntax not supported by VOC. After completion of generator's features, implementing this is the next step towards compiling <cite>asyncio</cite> module.</p>
+<p>Implementing this feature took about 3 ~ 4 weeks as this is not as trivial as it seems. I took several approaches on this, while some of them do work, the code is not pretty and <cite>hacky</cite>, which could come back to bite me/other contributors in the long run. After many discussions with Russell, I refactored the closure mechanism in VOC and took a much cleaner approach in <cite>nonlocal</cite> implementations. I must admit that I took some short-cuts for the sake of &quot;making nonlocal works&quot; in the process of implementing <cite>nonlocal</cite> statement, resulting in poor design and messy codes. Many thanks to Russell, who helped me to improve my coding style and told me not to be discouraged when I'm stuck. 😄</p>
+<p>Related PRs:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/854">PR #854</a> : Nonlocal statement support (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/873">PR #873</a> : Added closure related test cases (merged)</li>
+</ul>
+</div>
+<div class="section" id="the-collections-module">
+<h2>The Collections Module</h2>
+<p>Next item on my hit list was pure Java implementations of the <cite>collections</cite> module. <cite>asyncio</cite> module depends on 3 data structures from <cite>collections</cite>, namely <cite>defauldict</cite>, <cite>Deque</cite> and <cite>OrderedDict</cite>. Two of them (<cite>defaultdict</cite> and <cite>Deque</cite>) are implemented in C in CPython, plus they have good analog in Java, so it makes senses to implement the module in Java. Porting <cite>defauldict</cite>, <cite>Deque</cite> and <cite>OrderedDict</cite> to Java in VOC is relatively straight-forward, taking about 1.5 weeks to complete.</p>
+<p>Related PRs:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/874">PR #874</a> : Implement collections.defauldict (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/896">PR #896</a> : Implements collections.Deque (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/897">PR #897</a> : Implements collections.OrderedDict` (merged)</li>
+</ul>
+</div>
+<div class="section" id="other-prs-submitted-during-gsoc-2018">
+<h2>Other PRs submitted during GSoC 2018</h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/817">PR #817</a> : Added coroutine related exception class [WIP] (closed due to not needed)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/836">PR #836</a> : Changed Bool construction to use getBool instead (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/847">PR #847</a> : Add custom exceptions test cases (closed due to more comprehensive handling in <a class="reference external" href="https://github.com/beeware/voc/pull/844">PR #844</a>)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/849">PR #849</a> : Fixed Unknown constant type &lt;class 'frozenset'&gt; in function definition (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/858">PR #858</a> : Added test case for <a class="reference external" href="https://github.com/beeware/voc/issues/857">Issue #857</a> (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/860">PR #860</a> : Added test case for <a class="reference external" href="https://github.com/beeware/voc/issues/859">Issue #859</a> (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/862">PR #862</a> : Added test case for <a class="reference external" href="https://github.com/beeware/voc/issues/861">Issue #861</a> (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/867">PR #867</a> : Fixed <a class="reference external" href="https://github.com/beeware/voc/issues/866">Issue #866</a> RunTimeError when generator is nested in more than 1 level of function definition (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/868">PR #868</a> : Fixed <a class="reference external" href="https://github.com/beeware/voc/issues/861">Issue #861</a> Redefining nested function from other function overrides original nested function (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/879">PR #879</a> : Fixed Incompatible Stack Height caused by expression statement (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/901">PR #901</a> : Added test case for <a class="reference external" href="https://github.com/beeware/voc/issues/900">Issue #900</a> (merged)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/pull/788">PR #788</a> : Implements asyncio.coroutines [WIP] (open, the dream 😎)</li>
+</ul>
+</div>
+<div class="section" id="issues-submitted-during-gsoc-2018">
+<h2>Issues submitted during GSoC 2018</h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/861">Issue #861</a> : Redefining nested function from other function overrides original nested function (fixed in <a class="reference external" href="https://github.com/beeware/voc/pull/868">PR #868</a>)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/866">Issue #866</a> : RunTimeError when generator is nested in more than 1 level of function definition (fixed in <a class="reference external" href="https://github.com/beeware/voc/pull/867">PR #867</a>)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/828">Issue #828</a> : Finally block of generator is not executed during garbage collection (open)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/857">Issue #857</a> : Complex datatype in set cause java.lang.StackOverflowError (open)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/859">Issue #859</a> : Duplicated values of equivalent but different data types in set (open)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/900">Issue #900</a> : Exception in nested try-catch suite is 'leaked' to another enclosing try-catch suite (open)</li>
+<li><a class="reference external" href="https://github.com/beeware/voc/issues/827">Issue #827</a> : Maps reserved Java keywords to Python built-in function/method call (closed)</li>
+</ul>
+</div>
+<div class="section" id="towards-the-ultimate-end-goal">
+<h2>Towards The Ultimate End Goal</h2>
+<p>Unfortunately, three months of GSoC coding period was not enough for me to bring <cite>asyncio</cite> module to VOC. The nonlocal statement implementation was the biggest blocker for me mainly because I didn't think thoroughly before writing code. If I were to plan carefully and lay out a general coding direction, I would've completed it in much shorter time and have time for other implementations. An advice for the aspiring and upcoming GSoC-er, don't rush your code, make sure you know 100% about what you're doing before diving into the codes.</p>
+<p>With that said, following are the list of modules to be implemented/ported to Java before <cite>asyncio</cite> will work in VOC:</p>
+<ul class="simple">
+<li><cite>socket</cite> module (a bit tricky since Java doesn't support Unix domain socket natively)</li>
+<li><cite>selectors</cite> module (high level I/O operations)</li>
+<li><cite>threading</cite> module (might be easier to implement this first since threading in Python is an emulation of Java's Thread)</li>
+<li><cite>time</cite> module (partially implemented in VOC)</li>
+</ul>
+</div>
+<div class="section" id="final-thoughts">
+<h2>Final Thoughts</h2>
+<p>Huge thanks to my mentor, Russell Keith-Magee for accepting my proposal, providing guidance and encouraging me when things didn't go as intended. It is truly an honor to be a part of the BeeWare community. I had a blast contributing to BeeWare project, and I'm sure I will stick around as a regular contributor.
+Also shout out to the BeeWare community for answering my queries and reviewing my pull requests. 😄</p>
+</div>
+
+
+
+  
+
+  
+  
+
+  
   <h2><a href="/cs_CZ/news/buzz/project-spotlight-colosseum/">Project Spotlight: Colosseum</a></h2>
   <p class="meta">
     
@@ -879,32 +978,6 @@ on
 
 
 
-  
-
-  
-  
-
-  
-  <h2><a href="/cs_CZ/news/buzz/tips-core-contributor/">Tips for Becoming a Core Contributor</a></h2>
-  <p class="meta">
-    
-Posted by
-
-    
-      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
-    
-    
-on
- 5 June 2016
-  </p>
-  
-  <p>At PyCon US 2016, Philip James became a Core Contributor to BeeWare!</p>
-<p>He wrote up some of his thoughts about the process in his article <a class="reference external" href="https://www.wordfugue.com/tips-becoming-core-contributor/">Tips for Becoming a Core Contributor</a>.</p>
-<p>Katie McLaughlin, who got her commit bit at DjangoCon Europe 2016, followed up with a post of her own, describing her path to <a class="reference external" href="http://glasnt.com/blog/2016/06/08/on-becoming-a-core-contributor.html">becoming a core contributor</a>.</p>
-<p>For those who aspire to become contributors to open source projects, it's helpful to hear how others got there.</p>
-
-
-
 
   </div>
   
@@ -926,9 +999,9 @@ Previous
     
     | 6 |
     
-      <span class="disabled">
+      <a href="/cs_CZ/news/buzz/page/7/">
 Next
- &raquo;</span>
+ &raquo;</a>
     
   </div>
 
