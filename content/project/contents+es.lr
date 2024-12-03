@@ -1,5 +1,31 @@
-_model: page
----
+from kivy.app import App
+from kivy.uix.button import Button
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.label import Label
+
+class MyApp(App):
+    def build(self):
+        # Layout principal
+        layout = BoxLayout(orientation='vertical', padding=20, spacing=10)
+
+        # Etiqueta inicial
+        self.label = Label(text="¡Bienvenido a tu app de iPad!", font_size=24)
+        layout.add_widget(self.label)
+
+        # Botón que cambia el texto
+        button = Button(text="Presiona aquí", size_hint=(0.5, 0.2), pos_hint={"center_x": 0.5})
+        button.bind(on_press=self.on_button_press)
+        layout.add_widget(button)
+
+        return layout
+
+    def on_button_press(self, instance):
+        # Cambiar el texto de la etiqueta
+        self.label.text = "¡Hola, iPad!"
+
+# Ejecutar la aplicación
+if __name__ == "__main__":
+    MyApp().run()
 _template: beeware.html
 ---
 title: Proyecto BeeWare
