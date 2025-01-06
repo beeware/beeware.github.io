@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Nowiny</title><link href="http://beeware.org/zh_TW/news/buzz/" rel="alternate"></link><link href="http://beeware.org/pl/news/buzz/atom.xml" rel="self"></link><id>urn:uuid:0f18b85e-c1d4-3086-935d-f801edebea16</id><updated>2024-12-01T00:00:00Z</updated><author><name></name></author><subtitle>BeeWare's official blog</subtitle><entry><title>November 2024 Status Update</title><link href="http://beeware.org/news/buzz/november-2024-status-update/" rel="alternate"></link><updated>2024-12-01T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:5962c2ab-33de-3c8a-acc5-d90ddd0b1c8c</id><content type="html">&lt;p&gt;In November, BeeWare made more good progress on mobile packaging - however, that work has revealed a number of upstream tools that need modification before we can contribute wheels for mobile platforms.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Nowiny</title><link href="http://beeware.org/zh_TW/news/buzz/" rel="alternate"></link><link href="http://beeware.org/pl/news/buzz/atom.xml" rel="self"></link><id>urn:uuid:0f18b85e-c1d4-3086-935d-f801edebea16</id><updated>2025-01-06T00:00:00Z</updated><author><name></name></author><subtitle>BeeWare's official blog</subtitle><entry><title>December 2024 Status Update</title><link href="http://beeware.org/news/buzz/december-2024-status-update/" rel="alternate"></link><updated>2025-01-06T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:0b8def2c-84a2-3cbe-a4fa-07cc6c8c7580</id><content type="html">&lt;p&gt;Work in December (and the publication of this update!) was slowed by the end-of-year break; but BeeWare still made some significant progress to round out the year.&lt;/p&gt;
+&lt;div class="section" id="what-we-ve-done"&gt;
+&lt;h2&gt;What we've done&lt;/h2&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;We added a &lt;a class="reference external" href="https://github.com/beeware/toga/pull/2999"&gt;GTK implementation of Geolocation services&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We made a number of improvements to Pack, Toga's style API. This includes &lt;a class="reference external" href="https://github.com/beeware/toga/pull/3054"&gt;adding a &amp;quot;justify-content&amp;quot; style directive&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/beeware/toga/pull/3036"&gt;adding a &amp;quot;gap&amp;quot; style directive&lt;/a&gt;, and &lt;a class="reference external" href="https://github.com/beeware/toga/pull/3033"&gt;updating a number of Pack properties to match their CSS names&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We &lt;a class="reference external" href="https://github.com/beeware/toga/pull/2942"&gt;standardised the way in which Toga widgets are instantiated&lt;/a&gt;. This simplifies the implementation process, and guarantees that the initial styles added to a widget are always applied.&lt;/li&gt;
+&lt;li&gt;We added an API for &lt;a class="reference external" href="https://github.com/beeware/toga/pull/2473"&gt;reporting and controlling the state of Toga windows&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We began modifying Toga to be &lt;a class="reference external" href="https://github.com/beeware/toga/pull/2976"&gt;compatible with MicroPython&lt;/a&gt;. MicroPython is significantly smaller than the full CPython install, reducing the startup time for web apps.&lt;/li&gt;
+&lt;li&gt;We updated &lt;a class="reference external" href="https://github.com/beeware/briefcase/pull/2080"&gt;Briefcase's web template to use a more recent PyScript version&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We added &lt;a class="reference external" href="https://github.com/beeware/briefcase/pull/2089"&gt;support for console apps in the Briefcase project conversion wizard&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We &lt;a class="reference external" href="https://github.com/beeware/briefcase/pull/2085"&gt;improved error handling when updating Briefcase templates&lt;/a&gt;, accounting for some global git configuration options that were causing problems for some users.&lt;/li&gt;
+&lt;li&gt;We added &lt;a class="reference external" href="https://github.com/beeware/briefcase/pull/2059"&gt;explicit support for passing options to pip&lt;/a&gt; when installing dependencies with Briefcase. This is mostly useful for specifying alternative package repositories (with &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;--index-url&lt;/span&gt;&lt;/tt&gt; or &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;--extra-index-url&lt;/span&gt;&lt;/tt&gt;) or local folders that contain wheels (with &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;--find-links&lt;/span&gt;&lt;/tt&gt;); but any pip arguments can be passed down to the pip invocation.&lt;/li&gt;
+&lt;li&gt;We &lt;a class="reference external" href="https://github.com/beeware/briefcase/pull/2075"&gt;corrected an error in the default D-Bus configuration of Flatpak apps&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We resolved a &lt;a class="reference external" href="https://github.com/beeware/rubicon-objc/pull/543"&gt;long-standing memory management issue in Rubicon&lt;/a&gt;. This change removes almost all need for manual memory management of ObjC objects, making iOS and macOS development much more robust. It also resolves some memory leak issues on Toga's iOS backend.&lt;/li&gt;
+&lt;li&gt;We added support for CPython to &lt;a class="reference external" href="https://github.com/python/cpython/pull/127592"&gt;stream stdout and stderr to the system log on iOS and macOS&lt;/a&gt;. This change included a improved tool for running CPython test suites, making it possible to stream the output of a CPython test suite while the test suite is running, and to run the an arbitrary test suite, not just the CPython test suite.&lt;/li&gt;
+&lt;li&gt;Our patch &lt;a class="reference external" href="https://github.com/pypa/cibuildwheel/pull/2062"&gt;adding a test-sources configuration in cibuildwheel&lt;/a&gt; has been accepted, and should be merged in a couple of days.&lt;/li&gt;
+&lt;li&gt;We reviewed a large number of improvements to Emscripten support in CPython.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="what-s-next"&gt;
+&lt;h2&gt;What's next?&lt;/h2&gt;
+&lt;p&gt;We'll publish a full Q1 roadmap in a day or two; but our goal for January will be to continue the work we were doing in December. We'll continue to push patches upstream to support binary packaging, with iOS support for Pillow being the immediate goal. We'll continue to work on Python Emscripten support, and Toga's Web backend, with the eventual aim of getting the web backend to the same level of support as the other Toga backends. We're planning to publish new versions of Rubicon ObjC, Travertino and Toga in the coming days; these are major updates that will involve some minor backwards compatibilities. Lastly, we've had a number of reports of bugs with Briefcase's macOS notarization and Windows packaging which we will be investigating.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="want-to-get-involved"&gt;
+&lt;h2&gt;Want to get involved?&lt;/h2&gt;
+&lt;p&gt;Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/toga/issues/2251"&gt;Update the Toga testbed test suite to use Pixel 7 Pro device sizes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/briefcase/issues/780"&gt;Filter out a message generated after Xcode updates&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/briefcase/issues/808"&gt;Add the ability to configure the ABIs built by an Android project&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/briefcase/issues/1099"&gt;Rationalise the application of adhoc signing on macOS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/briefcase/issues/1393"&gt;Document how to debug an application in popular IDEs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/briefcase/issues/737"&gt;Add an option to select the Android base image when creating new emulators&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/toga/issues/3032"&gt;Add an API to request that an app be given focus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/toga/issues/2974"&gt;Investigate the source of a Table column resize issue on Windows&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/briefcase/issues/2071"&gt;Correct the handling of double quotes in formal names&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/briefcase/issues/2006"&gt;Modify the default bootstrap to provide more helpful initial values&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a &lt;a class="reference external" href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html"&gt;guide on setting up a Briefcase development environment&lt;/a&gt;; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the &lt;a class="reference external" href="https://beeware.org/bee/chat/"&gt;BeeWare Discord server&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+</content></entry><entry><title>November 2024 Status Update</title><link href="http://beeware.org/news/buzz/november-2024-status-update/" rel="alternate"></link><updated>2024-12-01T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:5962c2ab-33de-3c8a-acc5-d90ddd0b1c8c</id><content type="html">&lt;p&gt;In November, BeeWare made more good progress on mobile packaging - however, that work has revealed a number of upstream tools that need modification before we can contribute wheels for mobile platforms.&lt;/p&gt;
 &lt;div class="section" id="what-we-ve-done"&gt;
 &lt;h2&gt;What we've done&lt;/h2&gt;
 &lt;ul class="simple"&gt;
@@ -1549,142 +1590,4 @@
 &lt;p&gt;Unfortunately, the task calls for some sophisticated skills, and we’re not in a position to provide extensive mentoring. A successful bid is likely to require some prior experience, and a history with the technologies involved.&lt;/p&gt;
 &lt;p&gt;A full &lt;a class="reference external" href="https://docs.google.com/document/d/18O2MDF49dHXDIKXyntfZUnXweXzR2i3jbHwWfHew-sE/edit?usp=sharing"&gt;role description&lt;/a&gt; and &lt;a class="reference external" href="https://docs.google.com/document/d/1IWhGs9C8V2TWcAsWhYvxmzi8slZ_vxncA5nn8LjR6ao/edit?usp=sharing"&gt;scope of work&lt;/a&gt; for the contract is available. To register your interest, please forward your resume and cover email to &lt;a class="reference external" href="mailto:contracts&amp;#64;beeware.org"&gt;contracts&amp;#64;beeware.org&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;We look forward to being able to announce full Android support in the near future!&lt;/p&gt;
-</content></entry><entry><title>2018 Google Summer of Code - VOC Optimization</title><link href="http://beeware.org/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/" rel="alternate"></link><updated>2018-08-14T00:00:00Z</updated><author><name>Patience Shyu</name></author><id>urn:uuid:5b1f869d-2249-3c97-89f9-0c8fcf3f1338</id><content type="html">&lt;p&gt;Google Summer of Code is coming to an end. I've spent the summer working on optimizing the
-&lt;a class="reference external" href="/project/projects/bridges/voc/"&gt;VOC compiler&lt;/a&gt;, and I’m super excited to share the results.&lt;/p&gt;
-&lt;div class="section" id="results"&gt;
-&lt;h2&gt;Results&lt;/h2&gt;
-&lt;p&gt;There are a couple of ways to evaluate the performance improvement from my project.&lt;/p&gt;
-&lt;div class="section" id="microbenchmarks"&gt;
-&lt;h3&gt;Microbenchmarks&lt;/h3&gt;
-&lt;p&gt;Firstly, we introduced a &lt;a class="reference external" href="https://github.com/beeware/voc/blob/master/tests/microbenchmarks.py"&gt;microbenchmarking suite&lt;/a&gt;. Each microbenchmark is a small piece
-of Python code that tests a single and specific Python construct, or datatype, or control flow.
-The benchmarking infrastructure itself is crude (essentially it just tells you the total amount
-of processor time it took to run, with no fancy statistics) but it has been extremely useful to
-me while working on performance features to verify performance gain.&lt;/p&gt;
-&lt;p&gt;The idea is that the benchmarking suite is not to be run as part of the full test suite,
-but rather as needed and manually whenever an optimization is implemented. It also provides a way to
-check and prevent performance regression, especially on the &amp;quot;optimized&amp;quot; parts of VOC. While it
-doesn't really make sense to record specific numbers, as they will always vary from machine to machine,
-it should be reasonably easy to compare two versions of VOC. Benchmark numbers are included on each
-optimization-related PR I've worked on this summer (see PR log below), and I hope that more benchmarks
-will be added as more performance efforts are carried out in the future.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="pystone"&gt;
-&lt;h3&gt;Pystone&lt;/h3&gt;
-&lt;p&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/blob/master/tests/benchmarks/pystone.py"&gt;Pystone&lt;/a&gt; is a Python &lt;a class="reference external" href="https://en.wikipedia.org/wiki/Dhrystone"&gt;Dhrystone&lt;/a&gt;, a standard benchmark for testing the performance of Python on a machine.
-Here are the before and after results on my machine:&lt;/p&gt;
-&lt;p&gt;May 10th, 2018:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;$ python setup.py test -s tests.test_pystone
-test_pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 101.833
-This machine benchmarks at 490.998 pystones/second&lt;/p&gt;
-&lt;p&gt;$ python setup.py test -s tests.test_pystone
-test_pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 101.298
-This machine benchmarks at 493.595 pystones/second&lt;/p&gt;
-&lt;p&gt;$ python setup.py test -s tests.test_pystone
-test_pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 102.247
-This machine benchmarks at 489.014 pystones/second&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;On current master (Aug 14th, 2018):&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;$ python setup.py test -s tests.test_pystone
-test_pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 11.2300
-This machine benchmarks at 4452.37 pystones/second&lt;/p&gt;
-&lt;p&gt;$ python setup.py test -s tests.test_pystone
-test_pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 10.9833
-This machine benchmarks at 4552.36 pystones/second&lt;/p&gt;
-&lt;p&gt;$ python setup.py test -s tests.test_pystone
-pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 10.9498
-This machine benchmarks at 4566.29 pystones/second&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="section" id="conclusions"&gt;
-&lt;h2&gt;Conclusions&lt;/h2&gt;
-&lt;p&gt;Some things that I learned about VOC while working on this project:&lt;/p&gt;
-&lt;p&gt;1. Object creation in the JVM is expensive. This definitely does not mean that the VOC user
-writing Python should think about minimizing the number of objects that she creates, but rather
-that any time we can non-trivially reduce the number of objects created during bytecode
-transpilation or in VOC-defined function calls, we can expect to see a huge performance boost.
-&lt;a class="reference external" href="https://github.com/beeware/voc/pull/825"&gt;Integer&lt;/a&gt; and &lt;a class="reference external" href="https://github.com/beeware/voc/pull/830"&gt;boolean preallocation&lt;/a&gt;, which is about reusing objects that have already been created,
-was one of the most significant improvements we made this summer.&lt;/p&gt;
-&lt;p&gt;2. Method calls in VOC are expensive. This is essentially due to the process of invoking a callable:
-you have to check that the method is defined on the object, then construct it (read: object creation!),
-and check the arguments, before it can actually be called. (This is done using reflection, which is super
-interesting and confusing in itself.) And this is the reason why &lt;a class="reference external" href="https://github.com/beeware/voc/pull/875"&gt;refactoring the Python comparison functions&lt;/a&gt;
-made such a big performance impact, because we were able to circumvent this process.&lt;/p&gt;
-&lt;p&gt;3. Exception-heavy code is expensive. Again, this is not to say that the programmer is on the hook for being
-frugal when throwing exceptions, but that VOC benefits greatly by avoiding the use of exceptions internally
-except when strictly necessary. For instance, Python uses StopIteration exceptions to signal the end of a for loop,
-and they quickly rack up when you have nested loops (everything is ultimately related to object creation!). That was
-the motivation for the &lt;a class="reference external" href="https://github.com/beeware/voc/pull/881"&gt;nested loops optimization&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;If I may be a bit more reflective here, one of the a-ha! moments I had this summer was realizing that to really
-optimize something, you have to understand where its biggest problems are first. I remember pitching to Russ at
-the start of the summer things like loop unrolling, constant folding, even converting to SSA-form (you know, stuff I
-heard about optimzation in my compilers class) and he was saying to me, think simpler. While working on my project,
-I used a &lt;a class="reference external" href="https://www.ej-technologies.com/products/jprofiler/overview.html"&gt;profiler&lt;/a&gt; to understand exactly which parts of VOC were slow, and that information drove the changes we
-implemented. I think it worked out pretty well!&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="future-work"&gt;
-&lt;h2&gt;Future Work&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;Minimize boxing of primitive types like String and Int. As VOC is written half in Python, half in Java, a single integer can be found in various representations on its way through the compiler -- as a Python object, unboxed to a primitive Java int, then packaged back up to a Python object. This problem was (somewhat incoherently) addressed in my proposal, but ultimately we couldn't come up with a good abstraction to support it.&lt;/li&gt;
-&lt;li&gt;Build a peephole optimizer. &lt;a class="reference external" href="https://github.com/python/cpython/blob/master/Python/peephole.c"&gt;CPython's peephole optimizer&lt;/a&gt; scans generated bytecode to identify sequences of bytecode that can be optimized, VOC could benefit from this too.&lt;/li&gt;
-&lt;li&gt;Hook up more benchmarks, which serve as both proof of the kinds of programs VOC can currently compile and areas ripe for performance improvement.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="thank-you"&gt;
-&lt;h2&gt;Thank you&lt;/h2&gt;
-&lt;p&gt;I will wrap this up by giving big thanks to &lt;a class="reference external" href="https://github.com/freakboy3742"&gt;Russ&lt;/a&gt;, my mentor. The time you spent helping
-me form my ideas, patiently answering my questions and reviewing my work was invaluable
-to me. It couldn't have been easy keeping up with what I was doing especially since I
-started improvising halfway through the summer. I am so grateful for your help, thank you.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class="section" id="pr-log-in-chronological-order"&gt;
-&lt;h2&gt;PR Log (in chronological order)&lt;/h2&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/issues/772"&gt;Original Proposal (with weekly status updates)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class="section" id="optimization-related-features"&gt;
-&lt;h3&gt;Optimization-related Features&lt;/h3&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/824"&gt;Introduce Performance Benchmarking Suite&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/825"&gt;Small Integer Preallocation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/830"&gt;Boolean Preallocation&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/839"&gt;Module Caching&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/851"&gt;Hook up Pystone&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/864"&gt;Optimize Zero Argument Function Calls&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/869"&gt;Remove Code Objects&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/875"&gt;Comparisons Optimization&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/881"&gt;Loop optimization by reusing StopIterations&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/893"&gt;String cleanup/optimization&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/899"&gt;Dictionary access optimization&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/902"&gt;Create functions only when needed&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class="section" id="bug-fixes-and-miscellaneous"&gt;
-&lt;h3&gt;Bug Fixes and Miscellaneous&lt;/h3&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/837"&gt;Fix Method repr&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/846"&gt;Fix custom substitutions&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/852"&gt;Fix List Bug&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/865"&gt;Remove Unnecessary Instruction&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/884"&gt;Fix __setitem__ error messages&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/877"&gt;Fix contains/not contains bugs and refactor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/883"&gt;Add tests for problematic exception raising&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/887"&gt;Add test for with + exception combo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/889"&gt;Add test for wrong iter error message&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/891"&gt;Add tests for globals bug&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/894"&gt;Remove unnecessary type casts and clean up&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/904"&gt;Add test for problematic builtin function call&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class="reference external" href="https://github.com/beeware/voc/pull/905"&gt;Introduce org/python/Object type tests&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
 </content></entry></feed>
