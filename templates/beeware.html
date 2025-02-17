@@ -41,12 +41,13 @@
     </div>
         {% endfor %}
     {% endfor %}
-    <div class="important-projects">
+    <div>
         {% set important_projects = site.query('/project', alt=this.alt) %}
         {% for important_project in important_projects %}
             {% for project in site.query(important_project.path, alt=this.alt).filter((F.project_type == "application").and(F.important == True)) %}
-            <div>
-              <h4><a href="{{ project|url(alt=this.alt) }}"><img src="{{ site.get(project.path, alt='_primary')|url }}{{ project.image }}" height="45px" alt="{{ project.name }}"> {{ project.name }}</h4></a>
+            <div class="clearfix project">
+                <img src="{{ site.get(project.path, alt='_primary')|url }}{{ project.image }}" height="72px" alt="{{ project.name }}" class="pull-xs-left">
+              <h2><a href="{{ project|url(alt=this.alt) }}">{{ project.name }}</a></h2>
               {{ project.short_description|safe }}
             </div>
             {% endfor %}
@@ -64,12 +65,13 @@
     </div>
         {% endfor %}
     {% endfor %}
-    <div class="important-projects">
+    <div>
         {% set important_projects = site.query('/project', alt=this.alt) %}
         {% for important_project in important_projects %}
             {% for project in site.query(important_project.path, alt=this.alt).filter((F.project_type == "utility").and(F.important == True)) %}
-            <div>
-              <h4><a href="{{ project|url(alt=this.alt) }}"><img src="{{ site.get(project.path, alt='_primary')|url }}{{ project.image }}" height="45px" alt="{{ project.name }}"> {{ project.name }}</h4></a>
+            <div class="clearfix project">
+                <img src="{{ site.get(project.path, alt='_primary')|url }}{{ project.image }}" height="72px" alt="{{ project.name }}" class="pull-xs-left">
+              <h2><a href="{{ project|url(alt=this.alt) }}">{{ project.name }}</a></h2>
               {{ project.short_description|safe }}
             </div>
             {% endfor %}
