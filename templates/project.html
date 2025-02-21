@@ -38,7 +38,7 @@
     {{ incomplete(this) }}
 
     {% if this.attic or "attic" in this.maturity %}
-    <p><i>{{ t_attic_before }} <a href="{{ '/project/projects/attic'|url(alt=this.alt) }}">{{ t_attic_link }}</a>{{ t_attic_after }}</i></p>
+    <p><i>{{ t_attic_before }} <a href="{{ '/project/attic'|url(alt=this.alt) }}">{{ t_attic_link }}</a>{{ t_attic_after }}</i></p>
     <hr>
     {% endif %}
 
@@ -67,19 +67,20 @@
 
   <div class="col-sm-4">
     <div class="sidebar-module sidebar-module-inset gutter">
-    <img class="img-fluid center-block" {% if this.image %}src="{{ site.get(this.path, alt='_primary')|url }}{{ this.image }}" {% else %} src="/static/images/defaultlogo.png"{% endif %}></div>
+      <img class="img-fluid center-block" {% if this.image %}src="{{ site.get(this.path, alt='_primary')|url }}{{ this.image }}" {% else %} src="/static/images/defaultlogo.png"{% endif %}>
     {% if this.github_repo or this.rtfd_name %}<br />{% endif %}
     {% if this.github_repo %}<p><a href="https://github.com/{{ this.github_repo }}"><i class="fa fa-github fa-lg" aria-hidden="true"></i> {{ t_source_code }}</a></p>{% endif %}
     {% if this.rtfd_name %}<p><a href="https://{{ this.rtfd_name }}.readthedocs.io/"><i class="fa fa-book fa-lg" aria-hidden="true"></i> {{ t_documentation }}</a></p>{% endif %}
-    <hr>
-    <dl>
+      <hr>
+      <dl>
         {{ badge(t_project_type, this.project_type, this.alt) }}
         {{ badge(t_maturity, this.maturity, this.alt) }}
         {{ badge(t_language, this.languages, this.alt) }}
         {{ badge(t_platform, this.platforms, this.alt) }}
-    </dl>
-    <hr>
-    <a href="https://labhr.github.io/hatrack/#repo=beeware/{{ this._id }}">{{ t_contributors }}</a>
+      </dl>
+      <hr>
+      <a href="https://labhr.github.io/hatrack/#repo=beeware/{{ this._id }}">{{ t_contributors }}</a>
+    </div>
   </div>
 </div>
 {% endblock %}

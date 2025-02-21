@@ -82,13 +82,13 @@
   </div>
   <div class="collapse navbar-collapse" id="navbarsDefault">
     <ul class="navbar-nav mr-auto">
+      {{ menu_item('about') }}
       {{ menu_item('project') }}
-      {{ menu_item('news') }}
       {{ menu_item('community') }}
       {{ menu_item('contributing') }}
-      {{ menu_item('contact') }}
+      {{ menu_item('news') }}
       <li class="nav-item">
-        <a class="nav-link" href="/contributing/membership/">
+        <a class="nav-link" href="/membership/">
           {{ transbag('menu', this.alt, 'donate') }}
         </a>
       </li>
@@ -197,7 +197,7 @@
         <p class="d-block d-sm-none footer-sitemap">
           <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ t_sitemap }}</a>
         </p>
-        {% set team = site.query('/community/team', alt=this.alt).all() %}
+        {% set team = site.query('/about/team', alt=this.alt).all() %}
         {% for member in team %}
           {% if member.mastodon_handle %}
         <a rel="me" href="https://{{ member.mastodon_handle.split('@')[2] }}/@{{ member.mastodon_handle.split('@')[1] }}" style="display:none" ></a>

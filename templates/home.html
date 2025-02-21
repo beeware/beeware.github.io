@@ -119,15 +119,15 @@
 
     <hr/>
     {% endif %}
-    <h2><a href="{{ '/project/projects/'|url(alt=this.alt) }}">{{ t_projects }}</a></h2>
-    {% set project_types = site.query('/project/projects', alt=this.alt) %}
-    {% for project_type in project_types %}
-    {%   for project in site.query(project_type.path, alt=this.alt).filter(F.showcase==True) %}
+    <h2><a href="{{ '/project'|url(alt=this.alt) }}">{{ t_projects }}</a></h2>
+    {% set project_types = site.query('/project', alt=this.alt) %}
+    {% for project in project_types %}
+        {% if not project.project_page_description %}
     <div>
       <h4><a href="{{ project|url(alt=this.alt) }}"><img src="{{ site.get(project.path, alt='_primary')|url }}{{ project.image }}" height="32px" alt="{{ project.name }}"> {{ project.name }}</h4></a>
       {{ project.short_description|safe }}
     </div>
-    {%   endfor %}
+        {% endif %}
     {% endfor %}
     {{ this.gutter_bottom }}
     </div>
@@ -196,15 +196,15 @@
 
     <hr/>
     {% endif %}
-    <h2><a href="{{ '/project/projects/'|url(alt=this.alt) }}">{{ t_projects }}</a></h2>
-    {% set project_types = site.query('/project/projects', alt=this.alt) %}
-    {% for project_type in project_types %}
-    {%   for project in site.query(project_type.path, alt=this.alt).filter(F.showcase==True) %}
+    <h2><a href="{{ '/project'|url(alt=this.alt) }}">{{ t_projects }}</a></h2>
+    {% set project_types = site.query('/project', alt=this.alt) %}
+    {% for project in project_types %}
+        {% if project.showcase %}
     <div>
       <h4><a href="{{ project|url(alt=this.alt) }}"><img src="{{ site.get(project.path, alt='_primary')|url }}{{ project.image }}" height="32px" alt="{{ project.name }}"> {{ project.name }}</h4></a>
       {{ project.short_description|safe }}
     </div>
-    {%   endfor %}
+        {% endif %}
     {% endfor %}
     {{ this.gutter_bottom }}
   </div>

@@ -1,0 +1,144 @@
+_model: page
+---
+title: Uso de GitHub
+---
+body:
+
+Este tutorial de GitHub se basa amorosamente en el `DjangoGirls - Tutorial de Cómo Contribuir  <https://github.com/DjangoGirls/tutorial/tree/master/es>`__ el cual está disponible bajo una licencia Creative Commons Atribución-CompartirIgual 4.0 licencia.
+
+Para este tutorial, usaremos el repositorio de `VOC <https://github.com/beeware/voc>`__ como base para los enlaces y referencias
+
+Introducción y requisitos previos
+------------------------------------------
+
+Para contribuir con BeeWare, lo siguiente es necesario para empezar:
+
+- una cuenta `GitHub <https://github.com>`__
+- en el caso de ediciones complejas familiaridad con `Git línea de comandos básicos <https://help.github.com/articles/set-up-git/>`__ o familiaridad con una aplicación (`Windows y Mac <https://desktop.github.com/>`__) para empujar las ediciones realizadas en su ordenador a GitHub.
+
+Hacer un Fork del repositorio
+------------------------------------------
+
+Primero guarde el repositorio de `VOC <https://github.com/beeware/voc>`__ en su cuenta personal de GitHub:
+
+|Fork button|
+
+Edición de la documentación
+-------------------------------------
+
+Cambios sencillos
+----------------------
+
+Para cambios simples como correcciones de errores, puede utilizar el editor en línea de GitHub:
+
+- Abra su página de local en GitHub,
+- ir al archivo *README.rst* en cualquier capítulo,
+- presione el icono *Editar*
+
+y puede editar el capítulo directamente en github.com.
+
+|Edit button|
+
+La sintaxis RST se utiliza para editar las páginas individuales de la documentación.
+
+|GitHub editor|
+
+.. note::
+
+    La captura de pantalla anterior podría no reflejar lo que está actualmente en el GitHub repositorio. El repositorio en vivo cambiará de vez en cuando. Sin embargo, el proceso para enviar Pull Requests sigue siendo el mismo.
+
+Guarde los cambios y cree un Pull Request como se explica a continuación.
+
+Código nuevo y cambios complejos
+--------------------------------------------
+
+Para agregar código nuevo, extender clases o realizar cambios complejos, debe obtener una copia del código en su computadora local.
+
+Utilice la aplicación GitHub para su sistema operativo (mencionada anteriormente) o ``git`` para obtener el repositorio localmente. Puedes obtener la direccioón del repositorio desde la primera página de su propio copia (fork) del repositorio en GitHub:
+
+::
+
+    git clone git@github.com:tunombredeusuario/voc.git
+
+A continuación, crea una nueva rama para que tus nuevos cambios permanezcan separados de la rama principal. Nombra la rama algo relacionado con los cambios que va a hacer.
+
+::
+
+    git checkout -b update_documentation
+
+Realiza cambios en el código y asegúrate de que se prueban y se guarden localmente.
+
+A continuación, confirme los cambios utilizando ``git`` y empuje los cambios a su repositorio remoto de GitHub.
+
+Ejemplo:
+
+::
+
+    $ git status
+    On branch update_documentation
+    Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+
+        README.md
+
+    $ git add README.md
+
+    $ git commit -m "Update README.md documentation for VOC"
+    [update_documentation fe36152] Added gitbook screenshot
+     1 file changed, 0 insertions(+), 0 deletions(-)
+     create mode 100644 README.md
+
+    $ git push
+    Counting objects: 11, done.
+    Delta compression using up to 8 threads.
+    Compressing objects: 100% (5/5), done.
+    Writing objects: 100% (5/5), 266.37 KiB | 0 bytes/s, done.
+    Total 5 (delta 1), reused 0 (delta 0)
+    To git@github.com:yourusername/voc.git
+       b37ca59..fe36152  update_documentation -> update_documentation
+
+Realización de un Pull Request
+-------------------------------------------
+
+Una vez que hayas terminado los cambios, necesitas crear `un pull request <https://help.github.com/articles/about-pull-requests/>`__ en GitHub. PyBee será notificado sobre la solicitud de Pull Request, revisaremos tus cambios, sugeriremos cualquier corrección si es necesario y luego uniremos tus cambios con la versión maestra.
+
+En tu propio repositorio en GitHub haz clic en *Compare and Pull Request*
+
+|image4|
+
+Rellena la información *por qué* este cambio se está realizando. El revisor puede ver los detalles del cambio real, por lo que no es necesario repetir el contenido del cambio.
+
+A continuación, haz clic en *Create Pull Request*.
+
+Los correos electrónicos de GitHub le notificarán el proceso de seguimiento.
+
+---------------
+
+
+
+.. |Fork button| image:: /contributing/first-time/github/fork.png
+  :class: img-fluid
+
+.. |Edit button| image:: /contributing/first-time/github/edit.png
+  :class: img-fluid
+
+.. |GitHub editor| image:: /contributing/first-time/github/github_editor.png
+  :class: img-fluid
+
+.. |image4| image:: /contributing/first-time/github/pull_request.png
+  :class: img-fluid
+
+---
+summary: Cómo enviar un Pull Request mediante GitHub
+---
+sort_key: 3
+---
+gutter:
+
+Más información sobre el proceso con git
+----------------------------------------------------
+
+Hay muchos recursos útiles para ayudarte a aprender a registrar problemas/tiquetes y Pull Requests en GitHub:
+
+* `Contribuyendo a un proyecto de Código Abierto <https://guides.github.com/activities/contributing-to-open-source/#contributing>`__
+* `Cómo hacer un Fork de un Repositorio <https://help.github.com/articles/fork-a-repo/>`__

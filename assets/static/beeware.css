@@ -156,7 +156,7 @@
   }
 
   .navbar-collapse {
-    background: #000;
+    background-color: #343a40;
     padding-top: 0.75em;
   }
 
@@ -294,10 +294,6 @@ nav {
   text-align: center;
 }
 
-.pull-xs-right, .pull-sm-right, .pull-md-right, .pull-lg-right, .pull-xl-right,
-.pull-xs-left, .pull-sm-left, .pull-md-left, .pull-lg-left, .pull-xl-left {
-  margin: 0rem 1rem;
-}
 
 .project-description h2, .project-description h3 {
   text-align: center;
@@ -353,6 +349,19 @@ blockquote {
 	position: relative;
 }
 
+/* Fix for separators in header menu when display is 760px-and-smaller wide */
+@media (max-width: 760px) {
+  .navbar-collapse li {
+    border-bottom: 1px solid #666;
+  }
+  .navbar-collapse .header-button li.nav-item {
+    border-bottom: 0
+  }
+  .navbar-collapse .header-button {
+    border-bottom: 1px solid #666;
+  }
+}
+
 /*----------------------------------------------------
   Homepage styles
  --------------------------------------------------- */
@@ -369,6 +378,22 @@ blockquote {
   margin: 2rem 0;
 }
 
+/*----------------------------------------------------
+  Project Showcase and Important Category Styles
+ --------------------------------------------------- */
+.showcase {
+  margin: 2vh;
+  font-size: larger;
+}
+
+.important-category {
+  margin: 2vh;
+  padding-bottom: 1rem;
+}
+
+.important-description {
+  margin-bottom: 1.2rem;
+}
 
 /*----------------------------------------------------
   Sticky footer styles
@@ -403,7 +428,7 @@ body {
   Carousels in gutter
  --------------------------------------------------- */
 
-.gutter h3, .gutter h5, .gutter h6 {
+.gutter h4, .gutter h5, .gutter h6 {
   margin: 0 0 1rem 0;
 }
 
@@ -478,7 +503,15 @@ body {
 }
 
 .project img {
-  margin-bottom: 2rem;
+  float: left;
+  margin: 0rem 1rem;
+  position: relative;
+  top: -0.3rem;
+}
+
+.project.showcase img {
+  margin: 0rem 1rem;
+  top: -2.0rem;
 }
 
 /*----------------------------------------------------

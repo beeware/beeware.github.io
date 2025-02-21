@@ -1,30 +1,50 @@
 {% extends "page.html" %}
+{% from "macros/breadcrumbs.html" import breadcrumbs %}
 
 {% block title %}{{ this.title }}{% endblock %}
-
+{% block preamble %}
+<div class="banner">
+  <div class="container">
+    <p>{{ breadcrumbs(this) }}</p>
+    <h1>{{ this.title }}</h1>
+    <p>{{ this.short_description }}</p>
+  </div>
+</div>
+{% endblock %}
 {% block body %}
 <div class="row">
-  <div class="col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
-    {{ this.body }}
-  </div>
-</div>
-<div class="row project-type">
-  {% for child in this.children %}
-    {% if child._id != 'attic' %}
-  <div class="col-md-4">
-    <h3><a href="{{ child|url(alt=this.alt) }}">{{ child.title }}</a></h3>
-    <p>{{ child.description }}</p>
-  </div>
+    <div class="col-md-7 mr-auto">
+        {{ this.body }}
+    {% for child in this.children %}
+    {% if child.sort_key %}
+        {% if child.project_page_description %}
+        <h2><a href="{{ child|url(alt=this.alt) }}">{{ child.title }}</a></h2>
+        <div class="important-description">{{ child.project_page_description }}</div>
+            {% for project in child.children %}
+                {% if project.featured %}
+        <div class="clearfix project">
+            <img src="{{ site.get(project.path, alt='_primary')|url }}{{ project.image }}" height="72px" alt="{{ project.name }}" class="pull-xs-left">
+            <h2><a href="{{ project|url(alt=project.alt) }}">{{ project.name }}</a></h2>
+                  {{ project.short_description|safe }}
+        </div>
+                {% endif %}
+            {% endfor %}
+            <a href="{{ child|url(alt=child.alt) }}">... and others</a>
+        {% else %}
+        <div class="clearfix project showcase">
+            <img src="{{ site.get(child.path, alt='_primary')|url }}{{ child.image }}" height="125px" class="pull-xs-left">
+            <h2><a href="{{ child|url(alt=this.alt) }}">{{ child.name }}</a></h2>
+            {{ child.short_description|safe }}
+        </div>
+        {% endif %}
     {% endif %}
-    {% if loop.index == 3 %}
+    {% endfor %}
+    </div>
+    <div class="col-md-4">
+        <div class="sidebar-module sidebar-module-inset gutter">
+            {{ this.gutter }}
+            </div>
+    </div>
 </div>
-<div class="row project-type">
-    {% endif %}
-  {% endfor %}
-</div>
-<div class="row">
-  <div class="col-sm-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
-    {{ this.gutter }}
-  </div>
 </div>
 {% endblock %}
