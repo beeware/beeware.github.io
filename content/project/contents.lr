@@ -19,3 +19,24 @@ Featured projects
 
 ---
 short_description: What makes up the BeeWare project?
+import tkinter as tk
+import random
+
+# Function to generate a random color
+def random_color():
+    return f"#{random.randint(0, 255):02x}{random.randint(0, 255):02x}{random.randint(0, 255):02x}"
+
+# Function to change background color on click
+def change_color(event):
+    root.configure(bg=random_color())
+
+# Create main window
+root = tk.Tk()
+root.geometry("500x500")  # Set window size
+root.title("Click to Change Color")
+
+# Bind left mouse click to change color
+root.bind("<Button-1>", change_color)
+
+# Start the main loop
+root.mainloop()
