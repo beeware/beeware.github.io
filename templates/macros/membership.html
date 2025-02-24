@@ -1,6 +1,6 @@
 {% from "macros/translation.html" import transbag %}
 
-{% macro sponsorship_level(sponsor) %}
-{% set t_sponsor = transbag('translate', sponsor.alt, 'sponsor')|trim %}
-{{ t_sponsor|capitalize }} {{ transbag('labels', sponsor.alt, sponsor.level) }}
+{% macro membership_level(member) %}
+{% set t_member = transbag('translate', member.alt, 'member')|trim %}
+{{ transbag('labels', member.alt, member.level) }} {{ t_member|capitalize }}
 {% endmacro %}

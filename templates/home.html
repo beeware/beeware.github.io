@@ -1,5 +1,4 @@
 {% extends "layout.html" %}
-{% from "macros/sponsor.html" import sponsorship_level %}
 {% from "macros/translation.html" import transbag %}
 
 {% set t_projects = transbag('translate', this.alt, 'projects') %}
@@ -12,7 +11,9 @@
 {% set t_tutorial = transbag('translate', this.alt, 'tutorial') %}
 {% set t_come_see_us = transbag('translate', this.alt, 'come_see_us') %}
 {% set t_sprinting = transbag('translate', this.alt, 'sprinting') %}
-{% set t_ad_hoc_sponsor = transbag('translate', this.alt, 'ad_hoc_sponsor') %}
+{% set t_member = transbag('translate', this.alt, 'member')|trim %}
+
+{% set t_gold_member = transbag('labels', this.alt, 'gold') %}
 
 {% block title %}{{ this.title }}{% endblock %}
 {% block preamble %}
@@ -60,24 +61,16 @@
 
   <div class="d-none d-sm-block col-sm-4">
     <div class="sidebar-module sidebar-module-inset gutter">
-{#
-  Mar 30 2019: Removed the sponsors block because there's no current sponsors.
-  However, any site redesign needs to keep a place for it.
 
       {{ this.gutter_top }}
-      <div id="carousel-members" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-members" data-slide-to="0" class="active"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-          <div class="carousel-item active">
-            <p><a href="{{ '/community/members/revsys/'|url(alt=this.alt) }}"><img class="img-fluid" src="/community/members/revsys/revsys-large.png"></a></p>
-            <p>{{ t_ad_hoc_sponsor }}</p>
-          </div>
-        </div>
-      </div>
+
+      {% set gold_members = site.query('/community/members', alt=this.alt).filter(F.level=='gold') %}
+      <h3>{{ t_gold_member }} {{ t_member|capitalize }}</h3>
+      {% for member in gold_members %}
+      <p><a href="{{ '/community/members/anaconda/'|url(alt=this.alt) }}"><img class="img-fluid" src="/community/members/anaconda/anaconda-large.png"></a></p>
+      {% endfor %}
+
       <hr/>
-#}
 
       <h3><a href="{{ '/news/buzz/'|url(alt=this.alt) }}">{{ t_latest_news }}</a></h3>
       {% set blog = site.query('/news/buzz', alt=this.alt).all() %}
@@ -138,24 +131,16 @@
 <div class="row" style="background-color: #e9ecef;">
   <div class="col-sm-12 d-block d-sm-none gutter">
     {{ this.gutter_top }}
-{#
-  Mar 30 2019: Removed the sponsors block because there's no current sponsors.
-  However, any site redesign needs to keep a place for it.
 
-    <div id="carousel-members" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-members" data-slide-to="0" class="active"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active">
-          <p><a href="{{ '/community/members/revsys/'|url(alt=this.alt) }}"><img class="img-fluid" src="/community/members/revsys/revsys-large.png"></a></p>
-          <p>{{ t_ad_hoc_sponsor }}</p>
-        </div>
-      </div>
+    {% set gold_members = site.query('/community/members', alt=this.alt).filter(F.level=='gold') %}
+    <h3>{{ t_gold_member }} {{ t_member|capitalize }}</h3>
+    {% for member in gold_members %}
+    <p><a href="{{ '/community/members/anaconda/'|url(alt=this.alt) }}"><img class="img-fluid" src="/community/members/anaconda/anaconda-small.png"></a></p>
+    {% endfor %}
     </div>
 
     <hr/>
-#}
+
     <h3><a href="{{ '/news/buzz/'|url(alt=this.alt) }}">{{ t_latest_news }}</a></h3>
     {% set blog = site.query('/news/buzz', alt=this.alt).all() %}
     <p><a href="{{ blog[0]|url(alt=this.alt) }}">{{ blog[0].pub_date.strftime("%d %b")}}: {{ blog[0].title }}</a></p>
