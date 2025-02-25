@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% from "macros/breadcrumbs.html" import breadcrumbs %}
-{% from "macros/sponsor.html" import sponsorship_level %}
+{% from "macros/membership.html" import membership_level %}
 {% from "macros/translation.html" import transbag %}
 
 {% set t_thanks_before_name = transbag('translate', this.alt, 'thanks_before_name') %}
@@ -11,9 +11,9 @@
 <div class="banner">
   <div class="container">
     <p>{{ breadcrumbs(this) }}</p>
-    <h2>{{ sponsorship_level(this) }}</h2>
+    <h2>{{ membership_level(this) }}</h2>
     {% if this.image %}
-    <a href="{{ this|url }}"><img src="{{ site.get(this.path, alt='_primary')|url }}{{ this.image }}"></a>
+    <a href="{{ this.url }}"><img src="{{ site.get(this.path, alt='_primary')|url }}{{ this.image }}"></a>
     {% endif %}
     {% if this.level == "historical" %}
     <p class="period">{{ this.join_date.strftime("%B %Y") }} - {{ this.end_date.strftime("%B %Y") }}
@@ -24,5 +24,6 @@
 {% block body %}
 {{ this.description }}
 {{ this.contribution }}
+<hr/>
 <p>{{ t_thanks_before_name }} {{ this.name or '' }} {{ t_thanks_after_name }}</p>
 {% endblock %}

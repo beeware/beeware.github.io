@@ -1,0 +1,6 @@
+{% from "macros/translation.html" import transbag %}
+
+{% macro membership_level(member) %}
+{% set t_member = transbag('translate', member.alt, 'member')|trim %}
+{{ transbag('labels', member.alt, member.level) }} {{ t_member|capitalize }}
+{% endmacro %}
