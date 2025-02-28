@@ -1,0 +1,61 @@
+title: February 2025 Status Update
+---
+author: Russell Keith-Magee
+---
+body:
+
+February may be the shortest month - but it's been a month of big progress for BeeWare!
+
+What we've done
+----------------
+
+* The biggest news for the month is that `it is now possible to upload iOS and Android wheels to PyPI <https://github.com/pypi/warehouse/pull/17559>`__! This is ultimately a very small change adding a list of allowed tags to the underlying PyPI codebase - but it is an important step towards the goal of having the Python ecosystem support iOS and Android as a first class citizen.
+
+* We submitted a pull request `adding iOS support to cibuildwheel <https://github.com/pypa/cibuildwheel/pull/2286>`__. With this change, a simple package can build binary wheels for iOS with a single command: ``CIBW_PLATFORM=ios cibuildwheel``. As proof, we `built and published iOS wheels for a simple binary package <https://pypi.org/project/pyspamsum/1.0.7/#files>`__. For completeness, we also built and uploaded Android wheels using our `existing Chaquopy-based build tooling <https://github.com/chaquo/chaquopy/blob/master/server/pypi/README.md>`__; in the near future, we're hoping to replace that with a cibuildwheel-based approach as well.
+
+* We `completed a major refactor of the BeeWare website <https://github.com/beeware/beeware.github.io/pull/578>`__. This dramatically simplifies the structure of some parts of the website - most notably, the projects page. A huge thanks to community member `Kattni <https://kattni.com>`__ for all their hard work on this refactor.
+
+* We `released Briefcase 0.3.22 <https://pypi.org/project/briefcase/0.3.22/>`__. This is a bug fix release to silence a warning raised during builds caused by the release of pip 25.0. This warning had the potential to become an error at an unknown point in the future, so we decided to push out a low-feature release to avoid that possibility.
+
+* We `released Toga 0.4.9 <https://pypi.org/project/toga/0.4.9/>`__. This release contains only 1 change over the 0.4.8 release - it imposes an upper bound on the version of Travertino that is specifies as a requirement. This ensures that when we release the next version of Travertino, we don't need to accomodate compatibility with Toga 0.4 APIs.
+
+* We added `initial support for GTK4 to Toga <https://github.com/beeware/toga/pull/3087>`__. This is only the very initial phases of GTK4 support - most widgets aren't currently supported - but the basic infrastructure that allows a GTK4 app to start *at all* now exists. We now need to go through the process of porting every GTK widget for GTK4 compatibility. Thankfully, thanks to the work we did on the Toga 0.4 widget audit, we have a comprehensive test suite that we can use to evaluate progress on this task.
+
+* We `corrected some issues with background color handling on Windows <https://github.com/beeware/toga/pull/2484>`__, including adding support for transparency on widget backgrounds. This also included adding support for `alpha blending to Travertino <https://github.com/beeware/toga/pull/3140>`__.
+
+* We `corrected a long-standing issue that caused instability in Toga's iOS tests <https://github.com/beeware/toga/pull/3181>`__.
+
+* We `corrected a problem with the CPython iOS test runner <https://github.com/python/cpython/issues/129200>`__ that prevented multiple test runners starting at the same time, and `another problem that was caused when running the runner under CI conditions <https://github.com/python/cpython/issues/130292>`__.
+
+* We upgraded the CPython iOS buildbot to run on macOS Sonoma, and Xcode 16.4; this some issues with iOS 18 compatibility that we have resolved.
+
+What's next?
+--------------
+
+In March we will continue to work on binary packaging. Although it is now possible to upload binary wheels to PyPI, that capability isn't much use unless projects are able to build those wheels in the first place. In the process of developing the pull request for cibuildwheel, we've identified a gap in the  `PEP 517 <https://peps.python.org/pep-0517/>`__ specification associated with building more complex binary packages, and a set of missing features in virtual environments in a cross-platform build configuration. We have some ideas for how to fill these gaps; but we need to do some more experimentation to prove that those approaches will work as expected. The eventual goal will be to author a PEP to address these gaps in the PEP 517 standard. We should also be able to begin the process of adding Android binary wheel support, mirroring the changes we've made for iOS over the past months.
+
+We'll also continue to work on Python Emscripten support. The Emscripten buildbot is almost ready to launch; we have one last technical issue to resolve, and then we'll be able to add Emscripten to the CPython buildbot fleet.
+
+Unfortunately, it looks like the work we were planning on Toga's Web backend will be deferred. We believed we may have had an opportunity to work with another group at Anaconda to improve Toga's web backend, but that opportunity looks like it will not eventuate. We're still interested in improving the web backend, but we probably won't be able to commit significant resources to that project in the near future.
+
+Want to get involved?
+-----------------------
+
+Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
+
+1. `Update the Toga testbed test suite to use Pixel 7 Pro device sizes <https://github.com/beeware/toga/issues/2251>`__
+2. `Filter out a message generated after Xcode updates <https://github.com/beeware/briefcase/issues/780>`__
+3. `Add the ability to configure the ABIs built by an Android project <https://github.com/beeware/briefcase/issues/808>`__
+4. `Rationalise the application of adhoc signing on macOS <https://github.com/beeware/briefcase/issues/1099>`__
+5. `Document how to debug an application in popular IDEs <https://github.com/beeware/briefcase/issues/1393>`__
+6. `Add an option to select the Android base image when creating new emulators <https://github.com/beeware/briefcase/issues/737>`__
+7. `Add an API to request that an app be given focus <https://github.com/beeware/toga/issues/3032>`__
+8. `Investigate the source of a Table column resize issue on Windows <https://github.com/beeware/toga/issues/2974>`__
+9. `Correct the handling of double quotes in formal names <https://github.com/beeware/briefcase/issues/2071>`__
+
+Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a `guide on setting up a Briefcase development environment <https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html>`__; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the `BeeWare Discord server <https://beeware.org/bee/chat/>`__.
+
+---
+mastodon_handle: @freakboy3742@cloudisland.nz
+---
+pub_date: 2025-03-03
