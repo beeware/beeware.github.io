@@ -12,7 +12,7 @@ def generate(filename, basedir):
 
         for line in reader:
             name = line[2]
-            email = line[4]
+            email = line[4] or line[3]
             join_date = line[6]
 
             uid = hashlib.sha1(email.encode()).hexdigest()[0:8]
@@ -27,6 +27,7 @@ def generate(filename, basedir):
                 got_header = True
                 continue
 
+            print(f"* {name} ({email})")
             level = {
                 'BeeWare Enthusiast Membership': 'individual',
                 'BeeWare Professional Membership': 'professional',
@@ -40,8 +41,9 @@ def generate(filename, basedir):
 
             outdir = os.path.join(basedir, uid)
             if os.path.exists(outdir):
-                print("User %s already exists" % uid)
+                print(f"  - User {uid} already exists")
             else:
+                print(f"  - Creating new user {uid}")
                 os.mkdir(outdir)
                 with open(os.path.join(outdir, 'contents.lr'), 'w') as outfile:
                     outfile.write('name: %s\n' % name)
