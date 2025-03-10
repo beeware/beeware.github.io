@@ -1,0 +1,24 @@
+name: Trigger BeeWare website republish
+
+on:
+    issues:
+        types:
+          - opened
+          - reopened
+          - transferred
+          - edited
+          - labeled
+          - unlabeled
+          - closed
+          - deleted
+
+jobs:
+    rebuild-request:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Submit dispatch event to BeeWare website repo
+          uses: peter-evans/repository-dispatch@v3
+          with:
+            token: ${{ secrets.REBUILD_TOKEN }}
+            repository: beeware/beeware.github.io
+            event-type: rebuild-request
