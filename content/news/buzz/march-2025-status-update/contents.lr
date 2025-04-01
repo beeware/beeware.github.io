@@ -19,7 +19,7 @@ What we've done
 
 * We improved Toga's `handling of the asyncio event loop on Windows <https://github.com/beeware/toga/pull/3270>`__. This change ensures that Winforms apps always clean up the event loop on exit; previously, it was possible for warnings to be raised on application exit, caused by open sockets and unawaited co-routines.
 
-* We `modified the handling of alignment style properties <https://github.com/beeware/toga/pull/3268>`__ to ensure that text *direction* is changed, the layout of the app is re-evaluated.
+* We `modified the handling of alignment style properties <https://github.com/beeware/toga/pull/3268>`__ to ensure that when text *direction* is changed, the layout of the app is re-evaluated.
 
 * We `added support for controlling inter-line spacing in multiline text on a canvas <https://github.com/beeware/toga/pull/3217>`__.
 
@@ -36,6 +36,10 @@ What we've done
 * We added the ability to invoke ``briefcase build`` and ``briefcase package`` on `a single application in a Briefcase project <https://github.com/beeware/briefcase/pull/2201>`__.
 
 * We began work on a patch to support generating iOS binary wheels for NumPy. This is a work in progress; we've got a set of patches that allows us to *compile* NumPy, but the test suite won't run yet.
+
+* We created a process to make an official `binary release of Python for Android <https://github.com/python/cpython/pull/131532>`__, which should be available on python.org starting with Python 3.14. This will reduce duplicated effort across Python on Android tools, and ensure binary compatibility in the packaging ecosystem.
+
+* We submitted pull requests adding Android support to `packaging <https://github.com/pypa/packaging/pull/880>`__ and `pip <https://github.com/pypa/pip/pull/13303>`__.
 
 What's next?
 --------------
