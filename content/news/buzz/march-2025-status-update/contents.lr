@@ -1,0 +1,62 @@
+title: March 2025 Status Update
+---
+author: Russell Keith-Magee
+---
+body:
+
+March has seen a big release for Toga, and a number of other notable improvements in the BeeWare ecosystem.
+
+What we've done
+----------------
+
+* `Toga 0.5.0 has been released <https://pypi.org/project/toga/0.5.0/>`__! It's been over 5 months since our last feature release of Toga; this release includes a number of major improvements to Toga's style layer, and some significant improvements in iOS and macOS memory handling. This release includes a number of backwards incompatible changes; check the `Toga 0.5.0 release notes <https://toga.readthedocs.io/en/stable/background/project/releases.html#backward-incompatible-changes>`__ for details.
+
+* We added a new `Toga-Positron bootstrap <https://github.com/beeware/toga/pull/3114>`__. This bootstrap is a Briefcase plugin that provides an easy way to start a new project that uses a web browser as the primary UI. This is effectively the equivalent of Electron-style apps - but the code is entirely written in Python, and works on iOS and Android. It also allows for hybrid apps: as the underlying app is a Toga app, you can mix Toga widgets into the layout that is being used. The bootstrap allows you to convert a Django website or static web server into a mobile app; it also provides a way to generate a "single site browser" - converting a single public URL into a standalone app on your desktop.
+
+* We `modified the way that style properties are applied to Toga widgets <https://github.com/beeware/toga/pull/3273>`__. Style updates are now applied in batch updates, dramatically reducing the amount of repeated work required when changing the appearance of a widget. 
+
+* We `improved the UX of the Winforms Table widget <https://github.com/beeware/toga/pull/3293>`__, ensuring that the selected row is still visible when a table doesn't have focus.
+
+* We improved Toga's `handling of the asyncio event loop on Windows <https://github.com/beeware/toga/pull/3270>`__. This change ensures that Winforms apps always clean up the event loop on exit; previously, it was possible for warnings to be raised on application exit, caused by open sockets and unawaited co-routines.
+
+* We `modified the handling of alignment style properties <https://github.com/beeware/toga/pull/3268>`__ to ensure that text *direction* is changed, the layout of the app is re-evaluated.
+
+* We `added support for controlling inter-line spacing in multiline text on a canvas <https://github.com/beeware/toga/pull/3217>`__.
+
+* We `corrected some issues with background color handling on Android <https://github.com/beeware/toga/pull/3118>`__.
+
+* We `corrected some issues with supporting PyGObject on Linux distributions that are based on Debian 12 (including Ubuntu 22.04) <https://github.com/beeware/toga/pull/3256>`__. This was necessary because of a backwards incompatible change introduced into the PyGObject 3.52.1 release; unfortunately, users of older Linux distributions may need to make some modifications to their projects.
+
+* The pull request `adding iOS support to cibuildwheel <https://github.com/pypa/cibuildwheel/pull/2286>`__ has been merged. With this change, a simple package can build binary wheels for iOS with a single command: ``CIBW_PLATFORM=ios cibuildwheel``. This PR then `required a follow-up investigation and fix <https://github.com/pypa/cibuildwheel/pull/2337>`__ to correct an intermittent issue that was seen when running the cibuildwheel tests in CI.
+
+* We've started work on a follow-up PR to cibuildwheel, `adding support for explicitly declaring safe cross-build tools <https://github.com/pypa/cibuildwheel/pull/2317>`__. This is a use case that was identified during the development of PR for iOS support.
+
+* We corrected a `long standing issue with PTH file handling in Briefcase <https://github.com/beeware/briefcase/pull/2212>`__. 
+
+* We added the ability to invoke ``briefcase build`` and ``briefcase package`` on `a single application in a Briefcase project <https://github.com/beeware/briefcase/pull/2201>`__.
+
+* We began work on a patch to support generating iOS binary wheels for NumPy. This is a work in progress; we've got a set of patches that allows us to *compile* NumPy, but the test suite won't run yet.
+
+What's next?
+--------------
+
+Binary packaging will continue to be an area of focus in April. In addition to finishing the work on the "safe cross-build tools" patch, we will continue to work on porting "real world" packages (like NumPy) to discover any gaps that exist in the mobile packaging story. During April, we also hope to submit a PR to support Android in cibuildwheel; and to start a discussion with the rest of the Python packaging community about the use of cross-platform build environments. 
+
+We'll also continue to work on Python Emscripten support. The Emscripten buildbot is almost ready to launch; we have one last technical issue to resolve, and then we'll be able to add Emscripten to the CPython buildbot fleet.
+
+There's also good news for Toga's Web backend - a group of students from Curtin University will be working on Toga's web backend as part of their final year capstone project. This will include making modifications to Briefcase to support testing web-based apps. Some of the improvements to Toga and Briefcase that landed this month are the result of those students becoming familiar with BeeWare's contribution process. This project will run until the end of the year; we look forward to seeing the progress they're able to make.
+
+Want to get involved?
+-----------------------
+
+Want to get involved? We curate issues that should be approachable for first-time contributors to BeeWare. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
+
+* If you're interested in the tooling for deploying applications to various platforms, take a look at `Briefcase <https://github.com/beeware/briefcase/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22>`__ 
+* Or, if you're interested in GUI widgets, take a look at `Toga <https://github.com/beeware/toga/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22>`__ 
+
+These lists can also be filtered by platform - so you can find issues that are specific to your preferred operating system. Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a `guide on setting up a Briefcase development environment <https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html>`__; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the `BeeWare Discord server <https://beeware.org/bee/chat/>`__.
+
+---
+mastodon_handle: @freakboy3742@cloudisland.nz
+---
+pub_date: 2025-04-02
