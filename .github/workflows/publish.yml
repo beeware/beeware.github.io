@@ -1,8 +1,15 @@
 name: Publish
+
 on:
   push:
     branches:
       - lektor
+  repository_dispatch:
+      types:
+        - republish-request
+
+concurrency:
+  group: ${{ github.workflow }}
 
 jobs:
   publish:
