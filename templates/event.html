@@ -34,11 +34,11 @@
 {% endblock %}
 {% block main %}
 {% if this.event_type == "talk" %}
-    <p>{{ this.speaker|join(t_and)}} {{ t_speaking_before_title }} {{ this.title }}{{ t_speaking_after_title }} "<a href="{{ this.url }}">{{ this.talk_title }}</a>".
+    <p>{{ this.speaker|join(t_and)}} {{ t_speaking_before_title }} {{ this.title }} {{ t_speaking_after_title }} "<a href="{{ this.url }}">{{ this.talk_title }}</a>".
 {% elif this.event_type == "keynote" %}
-    <p>{{ this.speaker|join(t_and)}} {{ t_keynoting_before_title }} {{ this.title }}{{ t_keynoting_after_title }} "<a href="{{ this.url }}">{{ this.talk_title }}</a>".
+    <p>{{ this.speaker|join(t_and)}} {{ t_keynoting_before_title }} {{ this.title }} {{ t_keynoting_after_title }} "<a href="{{ this.url }}">{{ this.talk_title }}</a>".
 {% elif this.event_type == "tutorial" %}
-    <p>{{ this.speaker|join(t_and)}} {{ t_tutorial_before_title }} {{ this.title }}{{ t_tutorial_after_title }} "<a href="{{ this.url }}">{{ this.talk_title }}</a>".
+    <p>{{ this.speaker|join(t_and)}} {{ t_tutorial_before_title }} {{ this.title }} {{ t_tutorial_after_title }} "<a href="{{ this.url }}">{{ this.talk_title }}</a>".
 {% elif this.event_type == "sprint" %}
     <p>{{ t_running_sprint }} {{ this.title }}.</p>
   <p>{{ this.speaker|join(t_and) }} {% if this.speaker|length > 1 %}{{ t_sprint_helping_plural }}{% else %}{{ t_sprint_helping }}{% endif %} <a href="{{ '/contributing/challenge-coins/'|url(alt=this.alt) }}">{{ t_challenge_coin }}</a>.
