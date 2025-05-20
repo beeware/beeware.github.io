@@ -174,7 +174,9 @@ Accueil
     var today = new Date();
     $('.upcoming.event').each(function() {
         var event_date = new Date($(this).data('date'));
-        if (event_date >= today) {
+        var event_end_date = $(this).data('end-date') ? new Date($(this).data('end-date')) : new Date($(this).data('date'));
+        $(this).hide();
+        if (event_date >= today || (event_date >= today && event_end_date >= today) || (event_date < today && event_end_date >= today)) {
             $(this).show();
         }
     });
@@ -316,6 +318,170 @@ le
 
     <ul>
     
+      <li class="upcoming event" data-date="2016-06-01" data-end-date="">Juin 1, 2016: <a href="/fr_FR/news/events/pycon-us-2016/">PyCon US 2016 talk</a></li>
+    
+      <li class="upcoming event" data-date="2016-06-03" data-end-date="">Juin 3, 2016: <a href="/fr_FR/news/events/pycon-us-2016-sprints/">PyCon US 2016 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2016-07-17" data-end-date="">Juillet 17, 2016: <a href="/fr_FR/news/events/pygotham-2016/">PyGotham 2016 talk</a></li>
+    
+      <li class="upcoming event" data-date="2016-07-18" data-end-date="">Juillet 18, 2016: <a href="/fr_FR/news/events/djangocon-us-2016/">DjangoCon US 2016 attending</a></li>
+    
+      <li class="upcoming event" data-date="2016-07-21" data-end-date="">Juillet 21, 2016: <a href="/fr_FR/news/events/djangocon-us-2016-sprints/">DjangoCon US 2016 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2016-08-01" data-end-date="">Août 1, 2016: <a href="/fr_FR/news/events/pyohio-2016-sprints/">PyOhio 2016 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2016-08-13" data-end-date="">Août 13, 2016: <a href="/fr_FR/news/events/pycon-au-2016/">PyCon AU 2016 keynote</a></li>
+    
+      <li class="upcoming event" data-date="2016-08-15" data-end-date="">Août 15, 2016: <a href="/fr_FR/news/events/pycon-au-2016-sprints/">PyCon AU 2016 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2016-08-29" data-end-date="">Août 29, 2016: <a href="/fr_FR/news/events/dev-world-2016/">/dev/world/2016 talk</a></li>
+    
+      <li class="upcoming event" data-date="2016-10-01" data-end-date="">Octobre 1, 2016: <a href="/fr_FR/news/events/pydx-2016/">PyDX 2016 attending</a></li>
+    
+      <li class="upcoming event" data-date="2016-10-15" data-end-date="">Octobre 15, 2016: <a href="/fr_FR/news/events/python-brasil-2016/">Python Brasil 12 keynote</a></li>
+    
+      <li class="upcoming event" data-date="2016-10-18" data-end-date="">Octobre 18, 2016: <a href="/fr_FR/news/events/python-brasil-2016-sprints/">Python Brasil 12 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2016-11-03" data-end-date="">Novembre 3, 2016: <a href="/fr_FR/news/events/django-under-the-hood-2016/">Django: Under The Hood 2016 attending</a></li>
+    
+      <li class="upcoming event" data-date="2017-01-16" data-end-date="">Janvier 16, 2017: <a href="/fr_FR/news/events/wootconf-2017/">WOOTConf 2017 organizing</a></li>
+    
+      <li class="upcoming event" data-date="2017-01-18" data-end-date="">Janvier 18, 2017: <a href="/fr_FR/news/events/linuxconfau-2017-rkm/">Linux.conf.au 2017 talk</a></li>
+    
+      <li class="upcoming event" data-date="2017-01-18" data-end-date="">Janvier 18, 2017: <a href="/fr_FR/news/events/linuxconfau-2017-km/">Linux.conf.au 2017 talk</a></li>
+    
+      <li class="upcoming event" data-date="2017-02-18" data-end-date="">Février 18, 2017: <a href="/fr_FR/news/events/pycaribbean-2017/">PyCaribbean 2017 keynote</a></li>
+    
+      <li class="upcoming event" data-date="2017-04-03" data-end-date="">Avril 3, 2017: <a href="/fr_FR/news/events/djangocon-europe-2017/">DjangoCon Europe 2017 talk</a></li>
+    
+      <li class="upcoming event" data-date="2017-04-06" data-end-date="">Avril 6, 2017: <a href="/fr_FR/news/events/djangocon-europe-2017-sprints/">DjangoCon Europe 2017 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2017-05-11" data-end-date="">Mai 11, 2017: <a href="/fr_FR/news/events/oscon-2017/">OSCON 2017 booth</a></li>
+    
+      <li class="upcoming event" data-date="2017-05-17" data-end-date="">Mai 17, 2017: <a href="/fr_FR/news/events/pycon-us-2017-tutorials/">PyCon US 2017 tutorial</a></li>
+    
+      <li class="upcoming event" data-date="2017-05-19" data-end-date="">Mai 19, 2017: <a href="/fr_FR/news/events/pycon-us-2017/">PyCon US 2017 booth</a></li>
+    
+      <li class="upcoming event" data-date="2017-05-19" data-end-date="">Mai 19, 2017: <a href="/fr_FR/news/events/pycon-us-2017-rkm/">PyCon US 2017 talk</a></li>
+    
+      <li class="upcoming event" data-date="2017-05-19" data-end-date="">Mai 19, 2017: <a href="/fr_FR/news/events/pycon-us-2017-km/">PyCon US 2017 talk</a></li>
+    
+      <li class="upcoming event" data-date="2017-05-22" data-end-date="">Mai 22, 2017: <a href="/fr_FR/news/events/pycon-us-2017-sprints/">PyCon US 2017 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2017-06-09" data-end-date="">Juin 9, 2017: <a href="/fr_FR/news/events/pycon-tw-2017/">PyCon TW 2017 keynote</a></li>
+    
+      <li class="upcoming event" data-date="2017-08-04" data-end-date="">Août 4, 2017: <a href="/fr_FR/news/events/djangocon-au-2017/">DjangoCon AU 2017 attending</a></li>
+    
+      <li class="upcoming event" data-date="2017-08-04" data-end-date="">Août 4, 2017: <a href="/fr_FR/news/events/djangocon-au-2017-rkm/">DjangoCon AU 2017 talk</a></li>
+    
+      <li class="upcoming event" data-date="2017-08-05" data-end-date="">Août 5, 2017: <a href="/fr_FR/news/events/pycon-au-2017/">PyCon AU 2017 attending</a></li>
+    
+      <li class="upcoming event" data-date="2017-08-06" data-end-date="">Août 6, 2017: <a href="/fr_FR/news/events/pycon-au-2017-keynote/">PyCon AU 2017 keynote</a></li>
+    
+      <li class="upcoming event" data-date="2017-08-06" data-end-date="">Août 6, 2017: <a href="/fr_FR/news/events/pycon-au-2017-rkm/">PyCon AU 2017 talk</a></li>
+    
+      <li class="upcoming event" data-date="2017-08-07" data-end-date="">Août 7, 2017: <a href="/fr_FR/news/events/pycon-au-2017-sprints/">PyCon AU 2017 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2017-08-13" data-end-date="">Août 13, 2017: <a href="/fr_FR/news/events/djangocon-us-2017/">DjangoCon US 2017 attending</a></li>
+    
+      <li class="upcoming event" data-date="2017-08-15" data-end-date="">Août 15, 2017: <a href="/fr_FR/news/events/djangocon-us-2017-km/">DjangoCon US 2017 talk</a></li>
+    
+      <li class="upcoming event" data-date="2017-08-16" data-end-date="">Août 16, 2017: <a href="/fr_FR/news/events/djangocon-us-2017-rkm/">DjangoCon US 2017 talk</a></li>
+    
+      <li class="upcoming event" data-date="2017-08-17" data-end-date="">Août 17, 2017: <a href="/fr_FR/news/events/djangocon-us-2017-sprints/">DjangoCon US 2017 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2018-05-11" data-end-date="">Mai 11, 2018: <a href="/fr_FR/news/events/pycon-us-2018-booth/">PyCon US 2018 booth</a></li>
+    
+      <li class="upcoming event" data-date="2018-05-13" data-end-date="">Mai 13, 2018: <a href="/fr_FR/news/events/pycon-us-2018/">PyCon US 2018 talk</a></li>
+    
+      <li class="upcoming event" data-date="2018-05-14" data-end-date="">Mai 14, 2018: <a href="/fr_FR/news/events/pycon-us-2018-sprints/">PyCon US 2018 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2018-05-24" data-end-date="">Mai 24, 2018: <a href="/fr_FR/news/events/djangocon-europe-2018/">DjangoCon Europe 2018 talk</a></li>
+    
+      <li class="upcoming event" data-date="2018-05-26" data-end-date="">Mai 26, 2018: <a href="/fr_FR/news/events/djangocon-europe-2018-sprints/">DjangoCon Europe 2018 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2018-08-26" data-end-date="">Août 26, 2018: <a href="/fr_FR/news/events/pycon-au-2018/">PyCon AU 2018 talk</a></li>
+    
+      <li class="upcoming event" data-date="2018-08-27" data-end-date="">Août 27, 2018: <a href="/fr_FR/news/events/pycon-au-2018-sprints/">PyCon AU 2018 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2018-10-15" data-end-date="">Octobre 15, 2018: <a href="/fr_FR/news/events/djangocon-us-2018/">DjangoCon US 2018 talk</a></li>
+    
+      <li class="upcoming event" data-date="2018-10-17" data-end-date="">Octobre 17, 2018: <a href="/fr_FR/news/events/djangocon-us-2018-sprints/">DjangoCon US 2018 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2018-11-17" data-end-date="">Novembre 17, 2018: <a href="/fr_FR/news/events/pycon-balkans-2018/">PyCon Balkan 2018 keynote</a></li>
+    
+      <li class="upcoming event" data-date="2019-02-10" data-end-date="">Février 10, 2019: <a href="/fr_FR/news/events/pycon-co-2019/">PyCon Colombia 2019 keynote</a></li>
+    
+      <li class="upcoming event" data-date="2019-04-10" data-end-date="">Avril 10, 2019: <a href="/fr_FR/news/events/djangocon-europe-2019/">DjangoCon Europe 2019 attending</a></li>
+    
+      <li class="upcoming event" data-date="2019-04-13" data-end-date="">Avril 13, 2019: <a href="/fr_FR/news/events/djangocon-europe-2019-sprints/">DjangoCon EU 2019 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2019-05-03" data-end-date="">Mai 3, 2019: <a href="/fr_FR/news/events/pycon-us-2019-booth/">PyCon US 2019 booth</a></li>
+    
+      <li class="upcoming event" data-date="2019-05-03" data-end-date="">Mai 3, 2019: <a href="/fr_FR/news/events/pycon-us-2019-rkm/">PyCon US 2019 keynote</a></li>
+    
+      <li class="upcoming event" data-date="2019-05-05" data-end-date="">Mai 5, 2019: <a href="/fr_FR/news/events/pycon-us-2019-dy/">PyCon US 2019 talk</a></li>
+    
+      <li class="upcoming event" data-date="2019-05-06" data-end-date="">Mai 6, 2019: <a href="/fr_FR/news/events/pycon-us-2019-sprints/">PyCon US 2019 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2019-06-16" data-end-date="">Juin 16, 2019: <a href="/fr_FR/news/events/pycon-th-2019/">PyCon Thailand 2019 keynote</a></li>
+    
+      <li class="upcoming event" data-date="2019-08-02" data-end-date="">Août 2, 2019: <a href="/fr_FR/news/events/pycon-au-2019/">PyCon AU 2019 talk</a></li>
+    
+      <li class="upcoming event" data-date="2019-08-05" data-end-date="">Août 5, 2019: <a href="/fr_FR/news/events/pycon-au-2019-sprints/">PyCon AU 2019 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2019-09-25" data-end-date="">Septembre 25, 2019: <a href="/fr_FR/news/events/djangocon-us-2019/">DjangoCon US 2019 talk</a></li>
+    
+      <li class="upcoming event" data-date="2019-09-26" data-end-date="">Septembre 26, 2019: <a href="/fr_FR/news/events/djangocon-us-2019-sprints/">DjangoCon US 2019 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2021-10-23" data-end-date="">Octobre 23, 2021: <a href="/fr_FR/news/events/foss4g-2021/">FOSS4G Perth 2021 keynote</a></li>
+    
+      <li class="upcoming event" data-date="2022-10-19" data-end-date="">Octobre 19, 2022: <a href="/fr_FR/news/events/djangocon-us-2022/">DjangoCon US 2022 talk</a></li>
+    
+      <li class="upcoming event" data-date="2022-10-20" data-end-date="">Octobre 20, 2022: <a href="/fr_FR/news/events/djangocon-us-2022-sprints/">DjangoCon US 2022 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2023-03-14" data-end-date="">Mars 14, 2023: <a href="/fr_FR/news/events/everything-open-2023/">Everything Open 2023 tutorial</a></li>
+    
+      <li class="upcoming event" data-date="2023-04-21" data-end-date="">Avril 21, 2023: <a href="/fr_FR/news/events/pycon-us-2023-rkm/">PyCon US 2023 talk</a></li>
+    
+      <li class="upcoming event" data-date="2023-04-21" data-end-date="">Avril 21, 2023: <a href="/fr_FR/news/events/pycon-us-2023-booth/">PyCon US 2023 booth</a></li>
+    
+      <li class="upcoming event" data-date="2023-04-23" data-end-date="">Avril 23, 2023: <a href="/fr_FR/news/events/pycon-us-2023-ms/">PyCon US 2023 talk</a></li>
+    
+      <li class="upcoming event" data-date="2023-04-24" data-end-date="">Avril 24, 2023: <a href="/fr_FR/news/events/pycon-us-2023-sprints/">PyCon US 2023 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2023-07-20" data-end-date="">Juillet 20, 2023: <a href="/fr_FR/news/events/europython-2023/">EuroPython 2023 talk</a></li>
+    
+      <li class="upcoming event" data-date="2023-07-22" data-end-date="">Juillet 22, 2023: <a href="/fr_FR/news/events/europython-2023-sprints/">EuroPython 2023 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2023-08-19" data-end-date="">Août 19, 2023: <a href="/fr_FR/news/events/pycon-au-2023/">PyCon AU 2023 talk</a></li>
+    
+      <li class="upcoming event" data-date="2023-08-21" data-end-date="">Août 21, 2023: <a href="/fr_FR/news/events/pycon-au-2023-sprints/">PyCon AU 2023 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2024-05-16" data-end-date="">Mai 16, 2024: <a href="/fr_FR/news/events/pycon-us-2024-tutorial/">PyCon US 2024 tutorial</a></li>
+    
+      <li class="upcoming event" data-date="2024-05-17" data-end-date="">Mai 17, 2024: <a href="/fr_FR/news/events/pycon-us-2024-booth/">PyCon US 2024 booth</a></li>
+    
+      <li class="upcoming event" data-date="2024-05-17" data-end-date="">Mai 17, 2024: <a href="/fr_FR/news/events/pycon-us-2024/">PyCon US 2024 talk</a></li>
+    
+      <li class="upcoming event" data-date="2024-05-20" data-end-date="">Mai 20, 2024: <a href="/fr_FR/news/events/pycon-us-2024-sprints/">PyCon US 2024 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2024-08-25" data-end-date="">Août 25, 2024: <a href="/fr_FR/news/events/kiwi-pycon-xiii/">Kiwi PyCon XIII keynote</a></li>
+    
+      <li class="upcoming event" data-date="2024-11-23" data-end-date="">Novembre 23, 2024: <a href="/fr_FR/news/events/pycon-au-2024/">PyCon AU 2024 talk</a></li>
+    
+      <li class="upcoming event" data-date="2024-11-25" data-end-date="">Novembre 25, 2024: <a href="/fr_FR/news/events/pycon-au-2024-sprints/">PyCon AU 2024 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2025-05-15" data-end-date="">Mai 15, 2025: <a href="/fr_FR/news/events/pycon-us-2025-tutorial/">PyCon US 2025 tutorial</a></li>
+    
+      <li class="upcoming event" data-date="2025-05-17" data-end-date="">Mai 17, 2025: <a href="/fr_FR/news/events/pycon-us-2025/">PyCon US 2025 talk</a></li>
+    
+      <li class="upcoming event" data-date="2025-05-19" data-end-date="2025-05-21">Mai 19, 2025 - Mai 21, 2025: <a href="/fr_FR/news/events/pycon-us-2025-sprints/">PyCon US 2025 sprint</a></li>
+    
+      <li class="upcoming event" data-date="2025-07-14" data-end-date="">Juillet 14, 2025: <a href="/fr_FR/news/events/europython-2025/">EuroPython 2025 tutorial</a></li>
+    
+      <li class="upcoming event" data-date="2025-07-19" data-end-date="2025-07-20">Juillet 19, 2025 - Juillet 20, 2025: <a href="/fr_FR/news/events/europython-2025-sprints/">EuroPython 2025 sprint</a></li>
+    
     </ul>
   </div>
 </div>
@@ -404,7 +570,9 @@ Plan du site
     var today = new Date();
     $('.upcoming.event').each(function() {
         var event_date = new Date($(this).data('date'));
-        if (event_date >= today) {
+        var event_end_date = $(this).data('end-date') ? new Date($(this).data('end-date')) : new Date($(this).data('date'));
+        $(this).hide();
+        if (event_date >= today || (event_date >= today && event_end_date >= today) || (event_date < today && event_end_date >= today)) {
             $(this).show();
         }
     });
