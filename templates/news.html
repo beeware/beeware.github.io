@@ -8,7 +8,7 @@
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
 {% set blog = site.query('/news/buzz', alt=this.alt).all() %}
-{% set events = site.query('/news/events', alt=this.alt).filter(F.date) %}
+{% set events = site.query('/news/events', alt=this.alt).filter(F.date).order_by("date") %}
 {% block extra_script %}
 <script>
 (function() {

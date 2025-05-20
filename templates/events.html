@@ -50,7 +50,7 @@
    and use Javascript (which will be evaluated at the time of viewing) to
    hide any events that shouldn't appear in each list. #}
 <h2>{{ t_upcoming_events }}</h2>
-{% for child in this.children %}
+{% for child in this.children.order_by("date") %}
     <p class="{% if (child.date < today and child.end_date is not defined) or (child.date < today and child.end_date < today) %}past {% endif %}event" data-date="{{ child.date }}" data-end-date="{{ child.end_date }}">
     {{ child.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if child.end_date %} - {{child.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}
     <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} ({{ child.event_type|title }})</a>
