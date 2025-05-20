@@ -8,14 +8,16 @@
 {% block title %}{{ this.title }}{% endblock %}
 {% block body %}
 {% set blog = site.query('/news/buzz', alt=this.alt).all() %}
-{% set events = site.query('/news/events', alt=this.alt).filter(F.upcoming == True) %}
+{% set events = site.query('/news/events', alt=this.alt).filter(F.date).order_by("date") %}
 {% block extra_script %}
 <script>
 (function() {
     var today = new Date();
     $('.upcoming.event').each(function() {
         var event_date = new Date($(this).data('date'));
-        if (event_date >= today) {
+        var event_end_date = $(this).data('end-date') ? new Date($(this).data('end-date')) : new Date($(this).data('date'));
+        $(this).hide();
+        if (event_date >= today || (event_date >= today && event_end_date >= today) || (event_date < today && event_end_date >= today)) {
             $(this).show();
         }
     });
@@ -43,7 +45,7 @@
     {{ this.gutter }}
     <ul>
     {% for child in events %}
-      <li class="upcoming event" data-date="{{ child.date }}">{{ child.date.strftime("%-d %B %Y") }}: <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} {{ child.event_type}}</a></li>
+      <li class="upcoming event" data-date="{{ child.date }}" data-end-date="{{ child.end_date }}">{{ child.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if child.end_date %} - {{child.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}: <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} {{ child.event_type}}</a></li>
     {% endfor %}
     </ul>
   </div>

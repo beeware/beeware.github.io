@@ -39,7 +39,21 @@
 {% endblock %}
 
 {% block body %}
-
+{% block extra_script %}
+<script>
+(function() {
+    var today = new Date();
+    $('.upcoming.event').each(function() {
+        var event_date = new Date($(this).data('date'));
+        var event_end_date = $(this).data('end-date') ? new Date($(this).data('end-date')) : new Date($(this).data('date'));
+        $(this).hide();
+        if (event_date >= today || (event_date >= today && event_end_date >= today) || (event_date < today && event_end_date >= today)) {
+            $(this).show();
+        }
+    });
+})();
+</script>
+{% endblock %}
 <!-- MD and Larger Project List -->
 <div class="row">
   <div class="col-sm-7 mr-auto">
@@ -76,20 +90,14 @@
 
       <hr/>
 
-      {% set events = site.query('/news/events', alt=this.alt).filter(F.upcoming==True) %}
+      {% set events = site.query('/news/events', alt=this.alt).filter(F.date).order_by('date') %}
       {% if events %}
       <h3><a href="{{ '/news/events/'|url(alt=this.alt) }}">{{ t_meet_team }}</a></h3>
 
-      <div id="carousel-events" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
           {% for event in events %}
-          <li data-target="#carousel-events" data-slide-to="{{ loop.index0 }} "{% if loop.index0 == 0 %} class="active"{% endif %}></li>
-          {% endfor %}
-        </ol>
-        <div class="carousel-inner" role="listbox">
-          {% for event in events %}
-          <div class="carousel-item{% if loop.index0 == 0 %} active{% endif %}">
-            <h4><a href="{{ event|url(alt=this.alt) }}">{{ event.title }}</a></h4>
+          <div class="upcoming event" data-date="{{ event.date }}" data-end-date="{{ event.end_date }}">
+            <h5><a href="{{ event|url(alt=this.alt) }}">{{ event.title }}</a></h5>
+          <div class="upcoming_event_info">
             {% if event.event_type == "keynote" %}
             {{ event.speaker[0] }} {{ t_keynoting }}
             {% elif event.event_type == "talk" %}
@@ -102,11 +110,11 @@
             {{ t_sprinting }}
             {% else %} <br>
             {% endif %}
-            <p>{{ event.date.strftime("%d %B %Y") }}</p>
+            <p class="upcoming_event_date">{{ event.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if event.end_date %} - {{event.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}</p>
+          </div>
           </div>
           {% endfor %}
-        </div>
-    </div>
+
 
     <hr/>
     {% endif %}
