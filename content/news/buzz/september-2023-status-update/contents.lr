@@ -6,53 +6,120 @@ body:
 
 September has been a month of slow, but significant progress.
 
-What we've done
-----------------
+## What we've done
 
-* We've resolved the issues around the iOS App Store rejecting BeeWare apps - and, by way of proof, we've updated our demo app, `Travel Tips <https://apps.apple.com/au/app/travel-tips/id1336372310#?platform=iphone>`__. We've also updated the `Android version of the app <https://play.google.com/store/apps/details?id=com.keith_magee.traveltips>`__.
+- We've resolved the issues around the iOS App Store rejecting BeeWare
+  apps - and, by way of proof, we've updated our demo app, [Travel
+  Tips](https://apps.apple.com/au/app/travel-tips/id1336372310#?platform=iphone).
+  We've also updated the [Android version of the
+  app](https://play.google.com/store/apps/details?id=com.keith_magee.traveltips).
+- We've completely reworked the tooling for building binary packages for
+  iOS. [Mobile Forge](https://github.com/beeware/mobile-forge) is our
+  new project for maintaining iOS binary builds. It provides a much more
+  robust environment for performing cross-compilation, making use of
+  [crossenv](https://github.com/benfogle/crossenv), rather than bespoke
+  site package overrides. Getting crossenv working has also required us
+  to do a deep audit of the various ways that Python reflects describes
+  the platform it is running on, from the obvious ones like the
+  `platform` and `sys` modules, down to `sysconfig` and the tags that
+  are used by `pip` to determine wheel compatibility.
+- We've completed an [initial port of the iOS patches to Python
+  3.12.0rc3](https://github.com/beeware/Python-Apple-support). We're
+  still hunting some edge cases, but initial signs are promising that
+  we'll be in a position to do a near "zero day" release of Python 3.12
+  support for iOS.
+- For Android, we've re-enabled [Fortran
+  support](https://github.com/chaquo/chaquopy/pull/937) in the package
+  build system, and used it to [upgrade
+  SciPy](https://github.com/chaquo/chaquopy/pull/949).
+- We were anticipating that would would complete the Toga Audit this
+  month; however, that unfortunately hasn't happened. We've hit a bunch
+  of complications with getting fonts and canvas support working on
+  Windows and Android, and the process of getting those platforms
+  working has revealed some inconsistencies in macOS, iOS and GTK font
+  handling. However, we have completed the audit of
+  [DetailedList](https://github.com/beeware/toga/pull/2019) and
+  [Font](https://github.com/beeware/toga/pull/1903), and the audit of
+  [Canvas](https://github.com/beeware/toga/pull/2029) is *almost*
+  complete.
+- We [decoupled the Winforms event loop from the main form in a Toga
+  app](https://github.com/beeware/toga/pull/2112). This doesn't have any
+  immediate impact on existing Toga apps - but it means we're now in a
+  position to have windowless apps, such as system tray apps.
+- We completed the [fixes needed to support Briefcase on Python
+  3.12](https://github.com/beeware/briefcase/pull/1290).
+- We made some [significant improvements to subprocess encoding
+  handling](https://github.com/beeware/briefcase/pull/1425). This should
+  significantly improve the user experience of Windows users, and users
+  from non-English speaking countries.
+- We [formally downgraded our support for AppImage to "Best
+  effort"](https://github.com/beeware/briefcase/pull/1449). AppImage has
+  proven increasingly difficult to work with as a format; now that we
+  have native system packages and Flatpak as options, the effort needed
+  to maintain AppImage support is better spent elsewhere. We'll still
+  merge fixes to AppImage support if a PR is provided, but we're no
+  longer actively fixing bugs, or running AppImage configurations in CI.
+- We added [filters to Xcode output to hide ignorable
+  warnings](https://github.com/beeware/briefcase/pull/1468). Xcode
+  builds have always been a little noisy; the new Xcode 15 release added
+  even more noise. The filter means that these warnings will no longer
+  distract from successful build output.
 
-* We've completely reworked the tooling for building binary packages for iOS. `Mobile Forge <https://github.com/beeware/mobile-forge>`__ is our new project for maintaining iOS binary builds. It provides a much more robust environment for performing cross-compilation, making use of `crossenv <https://github.com/benfogle/crossenv>`__, rather than bespoke site package overrides. Getting crossenv working has also required us to do a deep audit of the various ways that Python reflects describes the platform it is running on, from the obvious ones like the ``platform`` and ``sys`` modules, down to ``sysconfig`` and the tags that are used by ``pip`` to determine wheel compatibility.
+## What's next?
 
-* We've completed an `initial port of the iOS patches to Python 3.12.0rc3 <https://github.com/beeware/Python-Apple-support>`__. We're still hunting some edge cases, but initial signs are promising that we'll be in a position to do a near "zero day" release of Python 3.12 support for iOS.
+Unfortunately, we didn't complete the Toga audit in September as we
+anticipated. As mentioned, we hit a number of complications and
+inconsistencies in font handling, especially in the Canvas widget, which
+slowed progress. We'll keep working on this audit in October; and once
+we're done, we'll make a release a new version of Toga. This release
+will include a number of backwards-incompatible changes identified as
+part of the audit, so be prepared for a bumpier-than-usual upgrade
+process.
 
-* For Android, we've re-enabled `Fortran support <https://github.com/chaquo/chaquopy/pull/937>`__ in the package build system, and used it to `upgrade SciPy <https://github.com/chaquo/chaquopy/pull/949>`__.
+Once the audit is complete, we'll also be looking at a technical
+limitation that the widget audit has revealed on Android. A number of
+Toga's Android widgets aren't as fully featured as they could be, due to
+the fact that accessing the full API would require subclassing a Java
+base class. This is an area where Chaquopy has some limitations; so
+we're going to try and address these limitations.
 
-* We were anticipating that would would complete the Toga Audit this month; however, that unfortunately hasn't happened. We've hit a bunch of complications with getting fonts and canvas support working on Windows and Android, and the process of getting those platforms working has revealed some inconsistencies in macOS, iOS and GTK font handling. However, we have completed the audit of `DetailedList <https://github.com/beeware/toga/pull/2019>`__ and `Font <https://github.com/beeware/toga/pull/1903>`__, and the audit of `Canvas <https://github.com/beeware/toga/pull/2029>`__ is *almost* complete.
+We'll also begin the work of upstreaming patches to CPython core. We've
+been invited to attend the CPython Core Team Sprint this month, which
+will be great opportunity to lay out the roadmap for formal iOS and
+Android support in CPython 3.13. This will also involve working on
+improving the CI infrastructure for building Android and iOS packages.
 
-* We `decoupled the Winforms event loop from the main form in a Toga app <https://github.com/beeware/toga/pull/2112>`__. This doesn't have any immediate impact on existing Toga apps - but it means we're now in a position to have windowless apps, such as system tray apps.
+## Want to get involved?
 
-* We completed the `fixes needed to support Briefcase on Python 3.12 <https://github.com/beeware/briefcase/pull/1290>`__. 
+Want to get involved? Here are some open issues that would be a great
+place to get started with contributing to a BeeWare project. They're all
+relatively minor changes, but would provide a big improvement to the
+lives of BeeWare users:
 
-* We made some `significant improvements to subprocess encoding handling <https://github.com/beeware/briefcase/pull/1425>`__. This should significantly improve the user experience of Windows users, and users from non-English speaking countries.
+1.  [Filter out a message generated after Xcode
+    updates](https://github.com/beeware/briefcase/issues/780)
+2.  [Add the ability to configure the ABIs built by an Android
+    project](https://github.com/beeware/briefcase/issues/808)
+3.  [Rationalise the application of adhoc signing on
+    macOS](https://github.com/beeware/briefcase/issues/1099)
+4.  [Provide an option to override app settings from the command
+    line](https://github.com/beeware/briefcase/issues/1115)
+5.  [Add support for custom PyPI
+    repositories](https://github.com/beeware/briefcase/issues/1270)
+6.  [Document how to debug an application in popular
+    IDEs](https://github.com/beeware/briefcase/issues/1393)
+7.  [Correctly handle incomplete project
+    deletions](https://github.com/beeware/briefcase/issues/394)
+8.  [Add an option to select the Android base image when creating new
+    emulators](https://github.com/beeware/briefcase/issues/737)
 
-* We `formally downgraded our support for AppImage to "Best effort" <https://github.com/beeware/briefcase/pull/1449>`__. AppImage has proven increasingly difficult to work with as a format; now that we have native system packages and Flatpak as options, the effort needed to maintain AppImage support is better spent elsewhere. We'll still merge fixes to AppImage support if a PR is provided, but we're no longer actively fixing bugs, or running AppImage configurations in CI.
-
-* We added `filters to Xcode output to hide ignorable warnings <https://github.com/beeware/briefcase/pull/1468>`__. Xcode builds have always been a little noisy; the new Xcode 15 release added even more noise. The filter means that these warnings will no longer distract from successful build output.
-
-What's next?
---------------
-
-Unfortunately, we didn't complete the Toga audit in September as we anticipated. As mentioned, we hit a number of complications and inconsistencies in font handling, especially in the Canvas widget, which slowed progress. We'll keep working on this audit in October; and once we're done, we'll make a release a new version of Toga. This release will include a number of backwards-incompatible changes identified as part of the audit, so be prepared for a bumpier-than-usual upgrade process.
-
-Once the audit is complete, we'll also be looking at a technical limitation that the widget audit has revealed on Android. A number of Toga's Android widgets aren't as fully featured as they could be, due to the fact that accessing the full API would require subclassing a Java base class. This is an area where Chaquopy has some limitations; so we're going to try and address these limitations.
-
-We'll also begin the work of upstreaming patches to CPython core. We've been invited to attend the CPython Core Team Sprint this month, which will be great opportunity to lay out the roadmap for formal iOS and Android support in CPython 3.13. This will also involve working on improving the CI infrastructure for building Android and iOS packages.
-
-Want to get involved?
------------------------
-
-Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
-
-1. `Filter out a message generated after Xcode updates <https://github.com/beeware/briefcase/issues/780>`__
-2. `Add the ability to configure the ABIs built by an Android project <https://github.com/beeware/briefcase/issues/808>`__
-3. `Rationalise the application of adhoc signing on macOS <https://github.com/beeware/briefcase/issues/1099>`__
-4. `Provide an option to override app settings from the command line <https://github.com/beeware/briefcase/issues/1115>`__
-5. `Add support for custom PyPI repositories <https://github.com/beeware/briefcase/issues/1270>`__
-6. `Document how to debug an application in popular IDEs <https://github.com/beeware/briefcase/issues/1393>`__
-7. `Correctly handle incomplete project deletions <https://github.com/beeware/briefcase/issues/394>`__
-8. `Add an option to select the Android base image when creating new emulators <https://github.com/beeware/briefcase/issues/737>`__
-
-Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a `guide on setting up a Briefcase development environment <https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html>`__; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the `BeeWare Discord server <https://beeware.org/bee/chat/>`__.
+Pick one of these tickets, drop a comment on the ticket to let others
+know you're looking at it, and try your hand at a PR! We have a [guide
+on setting up a Briefcase development
+environment](https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html);
+but if you need any additional assistance or guidance, you can ask on
+the ticket, or join us on the [BeeWare Discord
+server](https://beeware.org/bee/chat/).
 
 ---
 mastodon_handle: @freakboy3742@cloudisland.nz

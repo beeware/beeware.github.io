@@ -4,39 +4,98 @@ author: Russell Keith-Magee
 ---
 body:
 
-As 2023 rolls to a close, BeeWare is more stable than ever, and is progressing well. However, there's still lots of work to be done. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment of features that will be made available on a specific deadline.
+As 2023 rolls to a close, BeeWare is more stable than ever, and is
+progressing well. However, there's still lots of work to be done. As
+always, this roadmap should be read as a guide to what we aim to focus
+on over the coming quarter, rather than a hard commitment of features
+that will be made available on a specific deadline.
 
-Q3 progress
--------------
+## Q3 progress
 
-During Q3, Toga testing continued to be a major focus area. We've completed testing on macOS, GTK and Linux; and testing on Windows and Android is nearing completion. Along the way, we've resolved dozens of bugs, discovered (and resolved) dozens more, and we've been able to eliminate a bunch of inconsistencies in naming and usage between widgets. We've also substantially improved the API documentation for widgets.
+During Q3, Toga testing continued to be a major focus area. We've
+completed testing on macOS, GTK and Linux; and testing on Windows and
+Android is nearing completion. Along the way, we've resolved dozens of
+bugs, discovered (and resolved) dozens more, and we've been able to
+eliminate a bunch of inconsistencies in naming and usage between
+widgets. We've also substantially improved the API documentation for
+widgets.
 
-As noted in our monthly status reports, progress has been slower than expected because of the large number of edge cases and platform inconsistencies that we've found along the way. We're still a couple of weeks away from completing this work; but once it's all completed, we'll be able to publish a new version of Toga.
+As noted in our monthly status reports, progress has been slower than
+expected because of the large number of edge cases and platform
+inconsistencies that we've found along the way. We're still a couple of
+weeks away from completing this work; but once it's all completed, we'll
+be able to publish a new version of Toga.
 
-This quarter, we've also resolved a major known limitation on iOS - binary module packaging. We are now able to confirm that BeeWare is able to produce apps with dynamically loaded binary modules that the iOS App Store will accept through their review process. In the process of resolving this limitation, we've started developing a Forge for mobile packages, significantly improving the tooling for building binary wheels for iOS. 
+This quarter, we've also resolved a major known limitation on iOS -
+binary module packaging. We are now able to confirm that BeeWare is able
+to produce apps with dynamically loaded binary modules that the iOS App
+Store will accept through their review process. In the process of
+resolving this limitation, we've started developing a Forge for mobile
+packages, significantly improving the tooling for building binary wheels
+for iOS.
 
-Q4 priorities
---------------
+## Q4 priorities
 
 Our Q4 goals are:
 
-* **Finalize Toga's test suite**. For real this time - we'll have 100% branch coverage on every line of Toga's core, and on the macOS, Windows, GTK, Android and iOS backends. Once we've released a version of Toga that includes all these fixes, we'll be able to publish a plan for the road to 1.0.
-* **Python 3.12 support**. We're expecting Python 3.12.0 to drop any day. We've already done some preliminary work on Python 3.12 support, but we'll need to finalise that work once the final release is available.
-* **Start upstreaming iOS and Android support to CPython**. This quarter, we'll begin the process of upstreaming the patches for iOS and Android support that we've been maintaining to CPython core, and developing the CI infrastructure to run CPython's full test suite on iOS and Android. The eventual goal is for iOS and Android to be Tier 3 supported platforms in Python 3.13. This will take a while to finalise, but we've got around 8 months until the feature freeze for Python 3.13, so we're confident we can make this happen. We're attending the CPython Core Team sprint this month to kick start this effort.
-* **OptionContainer widget for iOS and Android**. One of the big gaps identified during the Toga audit was the lack of content navigation widgets on iOS and Android. This quarter, we're going to start addressing this gap, adding an OptionContainer widget. This widget already exists for macOS, GTK and Windows, so we have an API design - we just need to find a way to make this API work on mobile platforms.
-* **Image Capture**. We're finally going to start addressing device hardware capabilities. We're going to start with image capture - the ability to select an image from either the photo library, or take an image with the camera, and have that image available to Python code. As well as implementing this API, we're going to need to tackle permission handling in Briefcase so that apps can declare that they need access to the camera in a cross-platform way.
+- **Finalize Toga's test suite**. For real this time - we'll have 100%
+  branch coverage on every line of Toga's core, and on the macOS,
+  Windows, GTK, Android and iOS backends. Once we've released a version
+  of Toga that includes all these fixes, we'll be able to publish a plan
+  for the road to 1.0.
+- **Python 3.12 support**. We're expecting Python 3.12.0 to drop any
+  day. We've already done some preliminary work on Python 3.12 support,
+  but we'll need to finalise that work once the final release is
+  available.
+- **Start upstreaming iOS and Android support to CPython**. This
+  quarter, we'll begin the process of upstreaming the patches for iOS
+  and Android support that we've been maintaining to CPython core, and
+  developing the CI infrastructure to run CPython's full test suite on
+  iOS and Android. The eventual goal is for iOS and Android to be Tier 3
+  supported platforms in Python 3.13. This will take a while to
+  finalise, but we've got around 8 months until the feature freeze for
+  Python 3.13, so we're confident we can make this happen. We're
+  attending the CPython Core Team sprint this month to kick start this
+  effort.
+- **OptionContainer widget for iOS and Android**. One of the big gaps
+  identified during the Toga audit was the lack of content navigation
+  widgets on iOS and Android. This quarter, we're going to start
+  addressing this gap, adding an OptionContainer widget. This widget
+  already exists for macOS, GTK and Windows, so we have an API design -
+  we just need to find a way to make this API work on mobile platforms.
+- **Image Capture**. We're finally going to start addressing device
+  hardware capabilities. We're going to start with image capture - the
+  ability to select an image from either the photo library, or take an
+  image with the camera, and have that image available to Python code.
+  As well as implementing this API, we're going to need to tackle
+  permission handling in Briefcase so that apps can declare that they
+  need access to the camera in a cross-platform way.
 
-Longer term goals
------------------
+## Longer term goals
 
-Over the last 18 months, a major focus has been ensuring that the tools we have are stable, tested, and fit for purpose. Looking forward, we'll be able to build on this foundation, adding more widgets (especially for app content navigation), and filling out notable gaps in widget platform support (such as Tree and Table widgets on mobile). We'll also start building out hardware support APIs (such as geolocation and accelerometers). 
+Over the last 18 months, a major focus has been ensuring that the tools
+we have are stable, tested, and fit for purpose. Looking forward, we'll
+be able to build on this foundation, adding more widgets (especially for
+app content navigation), and filling out notable gaps in widget platform
+support (such as Tree and Table widgets on mobile). We'll also start
+building out hardware support APIs (such as geolocation and
+accelerometers).
 
-However, in addition to adding new features, we're going to start drawing attention to the features we already have. The Toga audit has enabled us to revise our API documentation, but API documentation is only a small part of the overall documentation story. Now that we have a stable base to work with, we're going to start improving our tutorials and HowTo documentation, lowering the barrier to entry for new developers.
+However, in addition to adding new features, we're going to start
+drawing attention to the features we already have. The Toga audit has
+enabled us to revise our API documentation, but API documentation is
+only a small part of the overall documentation story. Now that we have a
+stable base to work with, we're going to start improving our tutorials
+and HowTo documentation, lowering the barrier to entry for new
+developers.
 
-Summary
----------
+## Summary
 
-Toga and Briefcase are more stable than ever, and we've addressed all the major technical challenges that existed when full-time work on BeeWare started early last year. Now we can begin the work of building on the foundation that we've established, ensuring that everyone in the Python community can build native applications for their devices.
+Toga and Briefcase are more stable than ever, and we've addressed all
+the major technical challenges that existed when full-time work on
+BeeWare started early last year. Now we can begin the work of building
+on the foundation that we've established, ensuring that everyone in the
+Python community can build native applications for their devices.
 
 ---
 mastodon_handle: @freakboy342@cloudisland.nz

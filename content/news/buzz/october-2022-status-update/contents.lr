@@ -4,44 +4,99 @@ author: Russell Keith-Magee
 ---
 body:
 
-How time flies! Progress in October was a little slower than in past months; preparing for and attending DjangoCon US, plus some well-earned holiday leave reduced the amount of time we had to work on new features. However, we were able to make a number of significant improvements.
+How time flies! Progress in October was a little slower than in past
+months; preparing for and attending DjangoCon US, plus some well-earned
+holiday leave reduced the amount of time we had to work on new features.
+However, we were able to make a number of significant improvements.
 
-What we've done
-----------------
+## What we've done
 
 During October:
 
-* We restored the `web backend for Toga <https://github.com/beeware/toga/pull/1475>`__! Web deployment has always been part of the BeeWare story, but we hit some technological challenges with the approach that we were taking in the Toga 0.2 branch. However, with the addition of WASM as an officially supported platform in CPython 3.11, and the release of PyScript, we have a new way of getting Python in the browser. We have been able to use these tools to build a much improved Toga web backend.
-* We added support for `deploying Briefcase apps as static web sites  <https://github.com/beeware/briefcase/pull/898>`__.
-* We released official support for Python 3.11 on macOS, iOS and Linux - on the day that Python 3.11 was released!. Python 3.11 support for Android and Windows is ready to go, and should be published in a day or two.
-* We modified Briefcase to `write its logs into subdirectory <https://github.com/beeware/briefcase/pull/911>`__, instead of littering them in the project directory.
-* We `presented a talk at DjangoCon US 2022 <https://2022.djangocon.us/talks/how-to-turn-your-website-into-an-app-and/>`__. The video for this talk should be up in around a month. A major feature of this talk was a demo of an Electron-style "web site as an app", built entirely in Python. This demo (called Positron) has been `included in the Toga repository as an example <https://github.com/beeware/toga/pull/1612>`__. 
-* We attended the DjangoCon US 2022 sprints, and handed out 4 `challenge coins <https://beeware.org/contributing/challenge-coins/>`__ to new contributors!
-* We added the ability to `retrieve widgets by ID <https://github.com/beeware/toga/pull/1599>`__ to the Toga API.
-* We made a big change to the way that `Toga backends are discovered <https://github.com/beeware/toga/pull/1534>`__. This new approach has two major advantages - firstly, it means third-parties can register their own backends; but more importantly, it means that code no longer needs to explicitly provide a backend. This simplifies the creation of test cases - but it also means that icons, images and fonts no longer need to be "late bound". This is an internal detail, but it significantly simplifies the code using those data types.
-* We added the ability to `create Image objects from raw data <https://github.com/beeware/toga/pull/1588>`__, rather than an image file.
-* We started the process of modernising the layout and tooling of the Toga repository. Some of these changes have already landed; more will come in the coming days. This ensures that we have a stable foundation for future work on Toga.
+- We restored the [web backend for
+  Toga](https://github.com/beeware/toga/pull/1475)! Web deployment has
+  always been part of the BeeWare story, but we hit some technological
+  challenges with the approach that we were taking in the Toga 0.2
+  branch. However, with the addition of WASM as an officially supported
+  platform in CPython 3.11, and the release of PyScript, we have a new
+  way of getting Python in the browser. We have been able to use these
+  tools to build a much improved Toga web backend.
+- We added support for [deploying Briefcase apps as static web
+  sites](https://github.com/beeware/briefcase/pull/898).
+- We released official support for Python 3.11 on macOS, iOS and Linux -
+  on the day that Python 3.11 was released!. Python 3.11 support for
+  Android and Windows is ready to go, and should be published in a day
+  or two.
+- We modified Briefcase to [write its logs into
+  subdirectory](https://github.com/beeware/briefcase/pull/911), instead
+  of littering them in the project directory.
+- We [presented a talk at DjangoCon US
+  2022](https://2022.djangocon.us/talks/how-to-turn-your-website-into-an-app-and/).
+  The video for this talk should be up in around a month. A major
+  feature of this talk was a demo of an Electron-style "web site as an
+  app", built entirely in Python. This demo (called Positron) has been
+  [included in the Toga repository as an
+  example](https://github.com/beeware/toga/pull/1612).
+- We attended the DjangoCon US 2022 sprints, and handed out 4 [challenge
+  coins](https://beeware.org/contributing/challenge-coins/) to new
+  contributors!
+- We added the ability to [retrieve widgets by
+  ID](https://github.com/beeware/toga/pull/1599) to the Toga API.
+- We made a big change to the way that [Toga backends are
+  discovered](https://github.com/beeware/toga/pull/1534). This new
+  approach has two major advantages - firstly, it means third-parties
+  can register their own backends; but more importantly, it means that
+  code no longer needs to explicitly provide a backend. This simplifies
+  the creation of test cases - but it also means that icons, images and
+  fonts no longer need to be "late bound". This is an internal detail,
+  but it significantly simplifies the code using those data types.
+- We added the ability to [create Image objects from raw
+  data](https://github.com/beeware/toga/pull/1588), rather than an image
+  file.
+- We started the process of modernising the layout and tooling of the
+  Toga repository. Some of these changes have already landed; more will
+  come in the coming days. This ensures that we have a stable foundation
+  for future work on Toga.
 
-What's next?
---------------
+## What's next?
 
-During November, we continuing to focus on Toga, with a particular focus on testing. A particular focus will be working out how to test graphical features of Toga - an area that has historically been managed entirely with manual testing. Having strong automated testing of graphical features will be a key milestone in ensuring Toga remains stable in the long term.
+During November, we continuing to focus on Toga, with a particular focus
+on testing. A particular focus will be working out how to test graphical
+features of Toga - an area that has historically been managed entirely
+with manual testing. Having strong automated testing of graphical
+features will be a key milestone in ensuring Toga remains stable in the
+long term.
 
-Want to get involved?
------------------------
+## Want to get involved?
 
-Want to get involved? Here's 8 open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
+Want to get involved? Here's 8 open issues that would be a great place
+to get started with contributing to a BeeWare project. They're all
+relatively minor changes, but would provide a big improvement to the
+lives of BeeWare users:
 
-1. `Improve protection against corrupted or incomplete downloads <https://github.com/beeware/briefcase/issues/753>`__
-2. `Modify the handling of app signing options <https://github.com/beeware/briefcase/issues/865>`__
-3. `Filter out a message generated after Xcode updates <https://github.com/beeware/briefcase/issues/780>`__
-4. `Add the ability to refresh the support package in a project <https://github.com/beeware/briefcase/issues/856>`__
-5. `Provide protection against creating projects with "semi-reserved" names <https://github.com/beeware/briefcase/issues/853>`__
-6. `Add the ability to configure the ABIs built by an Android project <https://github.com/beeware/briefcase/issues/808>`__
-7. `Add support for the ANDROID_HOME environment variable <https://github.com/beeware/briefcase/issues/463>`__
-8. `Silence an warning that is displayed when an Android emulator has no skin defined <https://github.com/beeware/briefcase/issues/882>`__
+1.  [Improve protection against corrupted or incomplete
+    downloads](https://github.com/beeware/briefcase/issues/753)
+2.  [Modify the handling of app signing
+    options](https://github.com/beeware/briefcase/issues/865)
+3.  [Filter out a message generated after Xcode
+    updates](https://github.com/beeware/briefcase/issues/780)
+4.  [Add the ability to refresh the support package in a
+    project](https://github.com/beeware/briefcase/issues/856)
+5.  [Provide protection against creating projects with "semi-reserved"
+    names](https://github.com/beeware/briefcase/issues/853)
+6.  [Add the ability to configure the ABIs built by an Android
+    project](https://github.com/beeware/briefcase/issues/808)
+7.  [Add support for the ANDROID\_HOME environment
+    variable](https://github.com/beeware/briefcase/issues/463)
+8.  [Silence an warning that is displayed when an Android emulator has
+    no skin defined](https://github.com/beeware/briefcase/issues/882)
 
-Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a `guide on setting up a Briefcase development environment <https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html>`__; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the `BeeWare Discord server </bee/chat/>`__.
+Pick one of these tickets, drop a comment on the ticket to let others
+know you're looking at it, and try your hand at a PR! We have a [guide
+on setting up a Briefcase development
+environment](https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html);
+but if you need any additional assistance or guidance, you can ask on
+the ticket, or join us on the [BeeWare Discord server](/bee/chat/).
 
 ---
 pub_date: 2022-11-01
