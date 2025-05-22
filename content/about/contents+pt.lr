@@ -1,129 +1,240 @@
 body:
 
-História
-==========
+## História
 
-O projeto BeeWare começou com uma pergunta simples: por que as ferramentas que usamos como desenvolvedores Python não estão melhorando no mesmo ritmo que o resto da tecnologia que usamos diariamente?
+O projeto BeeWare começou com uma pergunta simples: por que as
+ferramentas que usamos como desenvolvedores Python não estão melhorando
+no mesmo ritmo que o resto da tecnologia que usamos diariamente?
 
-Python tem se provado uma linguagem altamente capaz - acessível para iniciantes, mas poderosa nas mãos de experts. O Python está rapidamente se tornando uma parte importante de análises de dados, computação ciêntífica, e ambiente de desenvolvimento web. E iniciativas como "Django Girls" demonstraram que usando o Python, é possível fornecer cursos de treinamento de 1 dia que introduzam pessoas sem experiência de programação para o Python; e no final de um dia, os participantes desenvolveram e implantaram um site dinâmico com banco de dados, implantado em um servidor visível publicamente.
+Python tem se provado uma linguagem altamente capaz - acessível para
+iniciantes, mas poderosa nas mãos de experts. O Python está rapidamente
+se tornando uma parte importante de análises de dados, computação
+ciêntífica, e ambiente de desenvolvimento web. E iniciativas como
+"Django Girls" demonstraram que usando o Python, é possível fornecer
+cursos de treinamento de 1 dia que introduzam pessoas sem experiência de
+programação para o Python; e no final de um dia, os participantes
+desenvolveram e implantaram um site dinâmico com banco de dados,
+implantado em um servidor visível publicamente.
 
-.. _Django Girls: https://djangogirls.org/
+No entanto, a experiência do desenvolvedor para alguém que escreve
+Python às vezes reflete mais do início dos anos 90 do que o novo
+milênio. O ambiente de desenvolvimento padrão para Python ainda é uma
+janela de console 80x25. Para os usuários que vieram de um ambiente
+Windows ou Apple, onde eles são usados para interfaces gráficas
+altamente detalhadas e bem desenhadas, esse flashback de 30 anos pode
+ser uma experiência completamente alienadora.
 
-No entanto, a experiência do desenvolvedor para alguém que escreve Python às vezes reflete mais do início dos anos 90 do que o novo milênio. O ambiente de desenvolvimento padrão para Python ainda é uma janela de console 80x25. Para os usuários que vieram de um ambiente Windows ou Apple, onde eles são usados para interfaces gráficas altamente detalhadas e bem desenhadas, esse flashback de 30 anos pode ser uma experiência completamente alienadora.
+E, sim, há IDEs (Integrated Development Environments) que fornecem uma
+experiência de aplicação nativa para escrever código. Mas essas
+ferramentas exigem que você adote, completamente, o modo da IDE de ver o
+projeto. Que muitas vezes apresentam tantas dores de cabeça para o
+processo de desenvolvimento como eles resolveram.
 
-E, sim, há IDEs (Integrated Development Environments) que fornecem uma experiência de aplicação nativa para escrever código. Mas essas ferramentas exigem que você adote, completamente, o modo da IDE de ver o projeto. Que muitas vezes apresentam tantas dores de cabeça para o processo de desenvolvimento como eles resolveram.
+E assim, ficamos com um cisma interessante, entre o "jeito antigo" do
+desenvolvimento do Unix em uma janela de console e a "jeito novo" das
+IDEs todo-em-um.
 
-E assim, ficamos com um cisma interessante, entre o "jeito antigo" do desenvolvimento do Unix em uma janela de console e a "jeito novo" das IDEs todo-em-um.
+### A Filosofia Unix
 
+No entanto, não precisa ser assim. O princípio central da Filosofia do
+Unix é que "cada ferramenta faz uma coisa, bem". Esta é uma filosofia
+muito poderosa, e permite a composição de cadeias de ferramentas
+extremamente poderosas, juntando um conjunto de ferramentas
+independentes, extremamente focadas.
 
-A Filosofia Unix
-~~~~~~~~~~~~~~~~~~~
+Infelizmente, a maioria das ferramentas UNIX se convenceram que isso
+também significa que "todas as ferramentas devem usar uma interface em
+linha de comando". No entanto, não há nada na filosofia UNIX que diga
+que as ferramentas precisam usar uma interface em linha de comando -
+acabou de ser assim.
 
-No entanto, não precisa ser assim. O princípio central da Filosofia do Unix é que "cada ferramenta faz uma coisa, bem". Esta é uma filosofia muito poderosa, e permite a composição de cadeias de ferramentas extremamente poderosas, juntando um conjunto de ferramentas independentes, extremamente focadas.
+O projeto BeeWare começou com a premissa de que podemos ter o melhor dos
+dois mundos. Podemos ter uma cadeia de ferramentas agregáveis que cada
+uma faz uma coisa, bem. Mas essas ferramentas também podem expor suas
+funcionalidades usando uma interface gráfica rica.
 
-Infelizmente, a maioria das ferramentas UNIX se convenceram que  isso também significa que "todas as ferramentas devem usar uma interface em linha de comando". No entanto, não há nada na filosofia UNIX que diga que as ferramentas precisam usar uma interface em linha de comando - acabou de ser assim.
+## O Objetivo
 
-O projeto BeeWare começou com a premissa de que podemos ter o melhor dos dois mundos. Podemos ter uma cadeia de ferramentas agregáveis que cada uma faz uma coisa, bem. Mas essas ferramentas também podem expor suas funcionalidades usando uma interface gráfica rica.
+O objetivo final do projeto BeeWare: Ser capaz de fazer pelo
+desenvolvedor de softwares mobile e de desktop o mesmo que o Django fez
+para o software web - colocar nas mãos dos usuários um conjunto de
+ferramentas e bibliotecas que lhes permite desenvolver interfaces ricas
+e nativas, e implantá-los em seus dispositivos. Isso inclui:
 
-O Objetivo
-===========
+- Ferramentas para permitir que o Python seja executado em diferentes
+  dispositivos,
+- Ferramentas para empacotar um projeto Python para que ele possa ser
+  executado nesses dispositivos,
+- Bibliotecas para acessar os widgets nativos e as capacidades dos
+  dispositivos,
+- Ferramentas para ajudar a desenvolver, debugar, analisar e esses
+  projetos.
 
-O objetivo final do projeto BeeWare: Ser capaz de fazer pelo desenvolvedor de softwares mobile e de desktop o mesmo que o Django fez para o software web - colocar nas mãos dos usuários um conjunto de ferramentas e bibliotecas que lhes permite desenvolver interfaces ricas e nativas, e implantá-los em seus dispositivos. Isso inclui:
+Este objetivo é que este conjunto de ferramentas será fácil para os
+iniciantes usarem em um ambiente como o Django-Girls; mas poderoso o
+suficiente para que eles possam ser usados para produzir o próximo
+Instagram, Pinterest ou Disqus.
 
-* Ferramentas para permitir que o Python seja executado em diferentes dispositivos,
-* Ferramentas para empacotar um projeto Python para que ele possa ser executado nesses dispositivos,
-* Bibliotecas para acessar os widgets nativos e as capacidades dos dispositivos,
-* Ferramentas para ajudar a desenvolver, debugar, analisar e esses projetos.
+Mais importante ainda, pretende-se fazer tudo isso como uma comunidade
+de código aberto. O processo de desenvolvimento de código aberto provou
+ser a maneira mais confiável de desenvolver um software robusto e
+confiável, e o fato de qualquer um poder acessar o software significa
+que todos podem começar com o mesmo conjunto de ferramentas excelentes,
+sejam eles amadores, experts ou entusiastas.
 
-Este objetivo é que este conjunto de ferramentas será fácil para os iniciantes usarem em um ambiente como o Django-Girls; mas poderoso o suficiente para que eles possam ser usados para produzir o próximo Instagram, Pinterest ou Disqus.
+### Python em todo lugar
 
-Mais importante ainda, pretende-se fazer tudo isso como uma comunidade de código aberto. O processo de desenvolvimento de código aberto provou ser a maneira mais confiável de desenvolver um software robusto e confiável, e o fato de qualquer um poder acessar o software significa que todos podem começar com o mesmo conjunto de ferramentas excelentes, sejam eles amadores, experts ou entusiastas.
+Um projeto de computação moderno não pode ignorar um dos maiores
+desenvolvimento em computação dos últimos 10 anos. Python orgulha-se de
+ser uma linguagem multi-plataforma. Há 10 anos, a ser multi-plataforma
+significava estar disponível para Windows, MacOS e Linux. Atualmente, a
+computação móvel é muito mais importante. Apesar disso, não há muitas
+boas opções para a programação Python em plataformas móveis, e a
+codificação móvel multi-plataforma ainda é evasiva.
 
-Python em todo lugar
-~~~~~~~~~~~~~~~~~~~~
+A BeeWare abraça as plataformas móveis e outras plataformas emergentes
+(como relógios e set-top-boxes) como um cidadão de primeira classe do
+ecossistema de computação - porque se as pessoas possuírem esses
+dispositivos, por que eles não poderiam escrever software para eles em
+Python.
 
-Um projeto de computação moderno não pode ignorar um dos maiores desenvolvimento em computação dos últimos 10 anos. Python orgulha-se de ser uma linguagem multi-plataforma. Há 10 anos, a ser multi-plataforma significava estar disponível para Windows, MacOS e Linux. Atualmente, a computação móvel é muito mais importante. Apesar disso, não há muitas boas opções para a programação Python em plataformas móveis, e a codificação móvel multi-plataforma ainda é evasiva.
+### Nativo em todo lugar
 
-A BeeWare abraça as plataformas móveis e outras plataformas emergentes (como relógios e set-top-boxes) como um cidadão de primeira classe do ecossistema de computação - porque se as pessoas possuírem esses dispositivos, por que eles não poderiam escrever software para eles em Python.
+É fácil usar temas para alcançar ser multi-plataforma. No entanto, é
+fácil detectar aplicativos que foram criados usando temas - eles são
+aqueles que não se comportam como outros aplicativos nativos. Os widgets
+que não se \* encaixam \* , ou há uma barra de menu em uma janela em um
+aplicativo do OS X. Os temas podem ficar bem próximos - mas sempre há
+sinais que os revelam.
 
-Nativo em todo lugar
-~~~~~~~~~~~~~~~~~~~~
+Além disso, os widgets nativos são sempre mais rápidos do que um widget
+genérico. Afinal, você está usando o recurso de sistema nativo que foi
+otimizado, e não uma engine gráfica que tenha sido colocada como uma
+camada em cima de um widget genérico.
 
-É fácil usar temas para alcançar ser multi-plataforma. No entanto, é fácil detectar aplicativos que foram criados usando temas - eles são aqueles que não se comportam como outros aplicativos nativos. Os widgets que não  se * encaixam * , ou há uma barra de menu em uma janela em um aplicativo do OS X. Os temas podem ficar bem próximos - mas sempre há sinais que os revelam.
+Os temas também carecem de muitos dos benefícios de acessibilidade que
+as plataformas nativas possuem. Os autores de SO modernos passam muito
+tempo ajustando os recursos para pessoas com mobilidade , visão ou
+cognição prejudicadas. Se você usa widgets nativos, você geralmente
+obtém esses recursos gratuitamente. Se você reimplementar widgets com um
+tema, você também precisa re-implementar os recursos.
 
-Além disso, os widgets nativos são sempre mais rápidos do que um widget genérico. Afinal, você está usando o recurso de sistema nativo que foi otimizado, e não uma engine gráfica que tenha sido colocada como uma camada em cima de um widget genérico.
+BeeWare utiliza widgets e funcionalidades nativas. ao imvez de utilizar
+uma aproximação baseada em temas para desenvolvimento de aplicações.
 
-Os temas também carecem de muitos dos benefícios de acessibilidade que as plataformas nativas possuem. Os autores de SO modernos passam muito tempo ajustando os recursos para pessoas com mobilidade , visão ou cognição prejudicadas. Se você usa widgets nativos, você geralmente obtém esses recursos gratuitamente. Se você reimplementar widgets com um tema, você também precisa re-implementar os recursos.
+### Nativo em Python
 
-BeeWare utiliza widgets e funcionalidades nativas. ao imvez de utilizar uma aproximação baseada em temas para desenvolvimento de aplicações.
+O BeeWare também explicitamente é um framework de "Python primeiro
+lugar". Nós gostamos de Python. Nós gostamos da maneira como ele se
+parece e da maneira como ele funciona. Se o Python não estiver
+disponível como uma opção de inicial em uma plataforma específica,
+faremos o que for necessário para tornar o Python disponível como uma
+linguagem de desenvolvimento. E quando tivermos a oportunidade de
+abraçar um idioma de Python para uma API ou um design, vamos fazer
+exatamente isso. Isso significa que vamos usar generators, gerenciadores
+de contexto, "yield from" de chamadas assíncronas e muito mais para
+fornecer a melhor API nativa de Python para o desenvolvimento de
+aplicativos multiplataforma.
 
-Nativo em Python
-~~~~~~~~~~~~~~~~~
+Também estamos olhando para o futuro - isto significa que oferecemos
+suporte exclusivamente para Python 3.
 
-O BeeWare também explicitamente é um framework de "Python primeiro lugar". Nós gostamos de Python. Nós gostamos da maneira como ele se parece e da maneira como ele funciona. Se o Python não estiver disponível como uma opção de inicial em uma plataforma específica, faremos o que for necessário para tornar o Python disponível como uma linguagem de desenvolvimento. E quando tivermos a oportunidade de abraçar um idioma de Python para uma API ou um design, vamos fazer exatamente isso. Isso significa que vamos usar generators, gerenciadores de contexto, "yield from" de chamadas assíncronas e muito mais para fornecer a melhor API nativa de Python para o desenvolvimento de aplicativos multiplataforma.
+### Experiência nativa
 
-Também estamos olhando para o futuro - isto significa que oferecemos suporte exclusivamente para Python 3.
+A experiência de usar qualquer ferramenta começa com o processo de
+instalação. Parte da filosofia "Nativo em todo lugar" que a BeeWare está
+adotando inclui a utilização de mecanismos nativos apropriados para
+instalação. Se você estiver usando uma ferramenta de espaço de usuário,
+ele deve ser apresentado a você como um pacote que foi instalado da
+mesma forma que você instalaria qualquer outra ferramenta - seja através
+de uma loja de aplicativos, um instalador ou um pacote executável
+simples. Os usuários finais não devem saber que você escreveu o
+aplicativo no Python.
 
-Experiência nativa
-~~~~~~~~~~~~~~~~~~~
+Mas se você estiver usando uma ferramenta de desenvolvedor ou
+biblioteca, então ela deve se integrar ao seu ambiente de
+desenvolvimento. E já que estamos usando Python, isso significa que você
+deve ser capaz de instalá-lo em seu ambiente virtual usando
+<span class="title-ref">pip install</span> e nada mais. Sem extensões em
+C, sem compiladores, sem configurações de caminhos do sistema ou
+variáveis de ambiente - Basta instalá-lo, importá-lo e começar a
+escrever (ou em execução) o código.
 
-A experiência de usar qualquer ferramenta começa com o processo de instalação. Parte da filosofia "Nativo em todo lugar" que a BeeWare está adotando inclui a utilização de mecanismos nativos apropriados para instalação. Se você estiver usando uma ferramenta de espaço de usuário, ele deve ser apresentado a você como um pacote que foi instalado da mesma forma que você instalaria qualquer outra ferramenta - seja através de uma loja de aplicativos, um instalador ou um pacote executável simples. Os usuários finais não devem saber que você escreveu o aplicativo no Python.
+## Mais que apenas código
 
-Mas se você estiver usando uma ferramenta de desenvolvedor ou biblioteca, então ela deve se integrar ao seu ambiente de desenvolvimento. E já que estamos usando Python, isso significa que você deve ser capaz de instalá-lo em seu ambiente virtual usando `pip install` e nada mais. Sem extensões em C, sem compiladores, sem configurações de caminhos do sistema ou variáveis de ambiente - Basta instalá-lo, importá-lo e começar a escrever (ou em execução) o código.
+É muito mais do que apenas código. Um projeto de software bem sucedido
+requer documentação, habilidades de design, feedback e relatórios de
+erros. A comunidade BeeWare reconhece que as contribuições \* totais \*
+são importantes - não apenas as que vêm como pull-request no GitHub.
 
-Mais que apenas código
-=======================
+Mesmo assim, é fácil pensar em um projeto no vácuo, como a soma de todas
+as contribuições. Mas esse nunca é o caso. Um projeto de código aberto é
+sobre comunidade.
 
+### Diversidade de inclusão
 
-É  muito mais do que apenas código. Um projeto de software bem sucedido requer documentação, habilidades de design, feedback e relatórios de erros. A comunidade BeeWare reconhece que as contribuições * totais  * são importantes - não apenas as que vêm como pull-request no GitHub.
+Uma comunidade diversa é uma comunidade forte. Isso significa aceitar
+pessoas de todos os níveis de experiência, de todas as origens, de todas
+as raças, credos, orientações e expressões. O projeto BeeWare está
+empenhado em desenvolver e manter uma comunidade inclusiva,
+diversificada e acolhedora.
 
-Mesmo assim, é fácil pensar em um projeto no vácuo, como a soma de todas as contribuições. Mas esse nunca é o caso. Um projeto de código aberto é sobre comunidade.
+Para apoiar isso, temos uma oferta aberta para orientar qualquer pessoa
+que queira se envolver como contribuinte e um "Código de Conduta" que
+seja rigorosamente aplicado. Qualquer relato de violações deste código
+de conduta - mesmo por membros sênior da comunidade - será tratado com
+respeito e respondido adequadamente.
 
-Diversidade de inclusão
-~~~~~~~~~~~~~~~~~~~~~~~
+### Saudável e sustentável
 
-Uma comunidade diversa é uma comunidade forte. Isso significa aceitar pessoas de todos os níveis de experiência, de todas as origens, de todas as raças, credos, orientações e expressões. O projeto BeeWare está empenhado em desenvolver e manter uma comunidade inclusiva, diversificada e acolhedora.
+Também é importante garantir que a comunidade seja acessível e
+sustentável. Infelizmente, é uma parte aceita da cultura Open Source que
+os "verdadeiros" projetos Open Source devem ser desenvolvidos
+inteiramente por voluntários. Isso funciona como uma barreira à entrada
+para muitos grupos - as únicas pessoas capazes de gastar seu tempo livre
+voluntário são aquelas que \* têm \* tempo livre.
 
-Para apoiar isso, temos uma oferta aberta para orientar qualquer pessoa que queira se envolver como contribuinte e um "Código de Conduta" que seja rigorosamente aplicado. Qualquer relato de violações deste código de conduta - mesmo por membros sênior da comunidade - será tratado com respeito e respondido adequadamente.
+Também freqüentemente leva a problemas de esgotamento e outros problemas
+de saúde mental entre os colaboradores. O fato de que depressão,
+ansiedade e esgotamento são tão comuns em comunidades de desenvolvimento
+de software não deve ser considerado uma medalha de honra, nem uma
+demonstração de como um time de desenvolvimento comprometido pode ser. É
+um problema que precisa ser abordado de frente e abordado da mesma forma
+que um erro de software seria abordado - com soluções imediatas e planos
+de longo prazo para remover a causa sistêmica do problema.
 
-.. _Code of Conduct: /community/behavior/code-of-conduct/
+Embora atribuamos um valor imensurável às contribuições dos voluntários,
+também sabemos que os esforços de voluntariado sozinhos não são a
+maneira de desenvolver uma comunidade saudável e sustentável. Por essa
+razão, a sustentabilidade financeira é uma consideração chave na
+operação do projeto BeeWare. Como comunidade, não ignoramos o papel que
+o dinheiro tem para desempenhar ao fornecer os recursos que permitem que
+as pessoas comecem e continuem a contribuir. Nós, como comunidade,
+forneceremos mecanismos aceitos para que os indivíduos monetizem seu
+trabalho de maneiras significativas e, sempre que possível, compensem as
+pessoas por seu trabalho - sem comprometer os ideais do desenvolvimento
+de código aberto.
 
-Saudável e sustentável
-~~~~~~~~~~~~~~~~~~~~~~~
-Também é importante garantir que a comunidade seja acessível e sustentável. Infelizmente, é uma parte aceita da cultura Open Source que os "verdadeiros" projetos Open Source devem ser desenvolvidos inteiramente por voluntários. Isso funciona como uma barreira à entrada para muitos grupos - as únicas pessoas capazes de gastar seu tempo livre voluntário são aquelas que * têm * tempo livre.
+## BeeWare: As IDEs de Python
 
-Também freqüentemente leva a problemas de esgotamento e outros problemas de saúde mental entre os colaboradores. O fato de que depressão, ansiedade e esgotamento são tão comuns em comunidades de desenvolvimento de software não deve ser considerado uma medalha de honra, nem uma demonstração de como um time de desenvolvimento comprometido pode ser. É um problema que precisa ser abordado de frente e abordado da mesma forma que um erro de software seria abordado - com soluções imediatas e planos de longo prazo para remover a causa sistêmica do problema.
-
-Embora atribuamos um valor imensurável às contribuições dos voluntários, também sabemos que os esforços de voluntariado sozinhos não são a maneira de desenvolver uma comunidade saudável e sustentável. Por essa razão, a sustentabilidade financeira é uma consideração chave na operação do projeto BeeWare. Como comunidade, não ignoramos o papel que o dinheiro tem para desempenhar ao fornecer os recursos que permitem que as pessoas comecem e continuem a contribuir. Nós, como comunidade, forneceremos mecanismos aceitos para que os indivíduos monetizem seu trabalho de maneiras significativas e, sempre que possível, compensem as pessoas por seu trabalho - sem comprometer os ideais do desenvolvimento de código aberto.
-
-BeeWare: As IDEs de Python
-===========================
-Este é o BeeWare. Estamos muito entusiasmados com o que o futuro guarda para Python. Esperamos que você se junte a nós nesta jornada.
+Este é o BeeWare. Estamos muito entusiasmados com o que o futuro guarda
+para Python. Esperamos que você se junte a nós nesta jornada.
 
 ---
 gutter:
 
-* `History`_
-   - `The Unix Philosophy`_
-* `The Goal`_
-   - `Python everywhere`_
-   - `Native everywhere`_
-   - `Python native`_
-   - `Native experience`_
-* `More than just code`_
-   - `Diversity and inclusion`_
-   - `Healthy and sustainable`_
+- [History](./#history)  
+  - [The Unix Philosophy](./#the-unix-philosophy)
 
-.. _`History`: ./#history
-.. _`The Unix Philosophy`: ./#the-unix-philosophy
-.. _`The Goal`: ./#the-goal
-.. _`Python everywhere`: ./#python-everywhere
-.. _`Native everywhere`: ./#native-everywhere
-.. _`Python native`: ./#python-native
-.. _`Native experience`: ./#native-experience
-.. _`More than just code`: ./#more-than-just-code
-.. _`Diversity and inclusion`: ./#diversity-and-inclusion
-.. _`Healthy and sustainable`: ./#healthy-and-sustainable
+- [The Goal](./#the-goal)  
+  - [Python everywhere](./#python-everywhere)
+  - [Native everywhere](./#native-everywhere)
+  - [Python native](./#python-native)
+  - [Native experience](./#native-experience)
+
+- [More than just code](./#more-than-just-code)  
+  - [Diversity and inclusion](./#diversity-and-inclusion)
+  - [Healthy and sustainable](./#healthy-and-sustainable)
 
 ---
 sort_key: 2

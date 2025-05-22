@@ -4,65 +4,117 @@ author: Russell Keith-Magee
 ---
 body:
 
-February may be the shortest month, but that doesn't mean we've got any less progress to report!
+February may be the shortest month, but that doesn't mean we've got any
+less progress to report!
 
-What we've done
-----------------
+## What we've done
 
-* `PEP 738 <https://peps.python.org/pep-0738/>`__, adding official Android support to CPython, has been formally submitted to the Python Steering Council for approval.
+- [PEP 738](https://peps.python.org/pep-0738/), adding official Android
+  support to CPython, has been formally submitted to the Python Steering
+  Council for approval.
+- We've started landing patches in CPython to add formal support for
+  [iOS](https://github.com/python/cpython/issues/114099) and
+  [Android](https://github.com/python/cpython/issues/71052). There are
+  more patches in review, and more to come, but so far we've landed
+  patches that:
+  - [Fix the compilation of the grp module on
+    Android](https://github.com/python/cpython/pull/114876)
+  - [Disable tests that can't run on mobile
+    platforms](https://github.com/python/cpython/pull/114889)
+  - [Refactor the CPython build system to allow for some of the oddities
+    of iOS as a platform](https://github.com/python/cpython/pull/115120)
+  - [Add build targets for compiling iOS-compatible
+    frameworks](https://github.com/python/cpython/pull/115390)
+  - [Correct the linking of extension modules on
+    Android](https://github.com/python/cpython/pull/115780)
+  - [Enable the concurrent.futures tests on platforms that don't support
+    multiprocessing](https://github.com/python/cpython/pull/115917)
+- We added macOS ARM64 machines to our CI capabilities for
+  [Toga](https://github.com/beeware/toga/pull/2404) and
+  [Briefcase](https://github.com/beeware/briefcase/pull/1652). We've
+  officially supported ARM64 on macOS for some time, but we've been
+  unable to test this support as part of our CI and release procedure -
+  we've had to do ad-hoc testing on the machines we're using to develop
+  on a day to day basis. As a result of improvements to Github's CI
+  infrastructure, we're now able to perform automated testing. As part
+  of these changes, we've also added testing for Python 3.13 (which will
+  be released around October of this year).
+- We [added an API for detecting the displays attached to a computer,
+  and specifying the location of windows relative to those
+  displays](https://github.com/beeware/toga/pull/1930).
+- We [added a pluggable API for image
+  formats](https://github.com/beeware/toga/pull/2387). With this API,
+  any third party library that has an internal format for images can
+  implement support so that Toga can convert to and from images in that
+  format.
+- We've significantly improved shortcut key handling on GTK and
+  Winforms, including [improved coverage of non-alphanumeric
+  keys](https://github.com/beeware/toga/pull/2415), and support for
+  [numpad keys](https://github.com/beeware/toga/pull/2232).
+- We've [added a MapView
+  widget](https://github.com/beeware/toga/pull/2379). This widget is in
+  final review, but should land very soon.
+- We've improved error handling when the [Android emulator fails to
+  start](https://github.com/beeware/briefcase/pull/1630). This should
+  hopefully make it easier to identify the source of any emulator
+  failures.
+- We've added the ability to run [Linux apps that have been built for
+  different platforms](https://github.com/beeware/briefcase/pull/1603).
+  Using Docker, it's now possible to run a Fedora system app on an
+  Ubuntu machine, or any other combination of supported platforms.
+- We've added the ability to [pass extra arguments to Docker when
+  building images](https://github.com/beeware/briefcase/pull/1661).
+- We've [improved the console output for non-interactive
+  consoles](https://github.com/beeware/briefcase/pull/1649) on some
+  long-running commands.
 
-* We've started landing patches in CPython to add formal support for `iOS <https://github.com/python/cpython/issues/114099>`__ and `Android <https://github.com/python/cpython/issues/71052>`__. There are more patches in review, and more to come, but so far we've landed patches that: 
+## What's next?
 
-  - `Fix the compilation of the grp module on Android <https://github.com/python/cpython/pull/114876>`__
-  - `Disable tests that can't run on mobile platforms <https://github.com/python/cpython/pull/114889>`__
-  - `Refactor the CPython build system to allow for some of the oddities of iOS as a platform <https://github.com/python/cpython/pull/115120>`__
-  - `Add build targets for compiling iOS-compatible frameworks <https://github.com/python/cpython/pull/115390>`__
-  - `Correct the linking of extension modules on Android <https://github.com/python/cpython/pull/115780>`__
-  - `Enable the concurrent.futures tests on platforms that don't support multiprocessing <https://github.com/python/cpython/pull/115917>`__
+In March, we will continue to focus on iOS and Android patches for
+CPython; if all goes extremely well, the bulk of patches should be
+upstream (or at least submitted for review) by the end of the month.
+While we're waiting for CPython patches to be reviewed, we'll be adding
+geolocation APIs to Toga.
 
-* We added macOS ARM64 machines to our CI capabilities for `Toga <https://github.com/beeware/toga/pull/2404>`__ and `Briefcase <https://github.com/beeware/briefcase/pull/1652>`__. We've officially supported ARM64 on macOS for some time, but we've been unable to test this support as part of our CI and release procedure - we've had to do ad-hoc testing on the machines we're using to develop on a day to day basis. As a result of improvements to Github's CI infrastructure, we're now able to perform automated testing. As part of these changes, we've also added testing for Python 3.13 (which will be released around October of this year).
+## Want to get involved?
 
-* We `added an API for detecting the displays attached to a computer, and specifying the location of windows relative to those displays <https://github.com/beeware/toga/pull/1930>`__.
+Want to get involved? Here are some open issues that would be a great
+place to get started with contributing to a BeeWare project. They're all
+relatively minor changes, but would provide a big improvement to the
+lives of BeeWare users:
 
-* We `added a pluggable API for image formats <https://github.com/beeware/toga/pull/2387>`__. With this API, any third party library that has an internal format for images can implement support so that Toga can convert to and from images in that format.
+1.  [Update the Toga testbed test suite to use Pixel 7 Pro device
+    sizes](https://github.com/beeware/toga/issues/2251)
+2.  [Filter out a message generated after Xcode
+    updates](https://github.com/beeware/briefcase/issues/780)
+3.  [Add the ability to configure the ABIs built by an Android
+    project](https://github.com/beeware/briefcase/issues/808)
+4.  [Rationalise the application of adhoc signing on
+    macOS](https://github.com/beeware/briefcase/issues/1099)
+5.  [Add support for custom PyPI
+    repositories](https://github.com/beeware/briefcase/issues/1270)
+6.  [Document how to debug an application in popular
+    IDEs](https://github.com/beeware/briefcase/issues/1393)
+7.  [Correctly handle incomplete project
+    deletions](https://github.com/beeware/briefcase/issues/394)
+8.  [Add an option to select the Android base image when creating new
+    emulators](https://github.com/beeware/briefcase/issues/737)
+9.  [Print notarisation log failures when building macOS
+    apps](https://github.com/beeware/briefcase/issues/1472)
+10. [Add an API to replace a child of a
+    widget](https://github.com/beeware/toga/issues/2301)
+11. [Add an API to entirely replace the style of a
+    widget](https://github.com/beeware/toga/issues/2305)
+12. [Add the ability to define content when creating a
+    window](https://github.com/beeware/toga/issues/2307)
 
-* We've significantly improved shortcut key handling on GTK and Winforms, including `improved coverage of non-alphanumeric keys  <https://github.com/beeware/toga/pull/2415>`__, and support for `numpad keys <https://github.com/beeware/toga/pull/2232>`__.
-
-* We've `added a MapView widget <https://github.com/beeware/toga/pull/2379>`__. This widget is in final review, but should land very soon.
-
-* We've improved error handling when the `Android emulator fails to start <https://github.com/beeware/briefcase/pull/1630>`__. This should hopefully make it easier to identify the source of any emulator failures.
-
-* We've added the ability to run `Linux apps that have been built for different platforms <https://github.com/beeware/briefcase/pull/1603>`__. Using Docker, it's now possible to run a Fedora system app on an Ubuntu machine, or any other combination of supported platforms. 
-
-* We've added the ability to `pass extra arguments to Docker when building images <https://github.com/beeware/briefcase/pull/1661>`__.
-
-* We've `improved the console output for non-interactive consoles <https://github.com/beeware/briefcase/pull/1649>`__ on some long-running commands.
-
-What's next?
---------------
-
-In March, we will continue to focus on iOS and Android patches for CPython; if all goes extremely well, the bulk of patches should be upstream (or at least submitted for review) by the end of the month. While we're waiting for CPython patches to be reviewed, we'll be adding geolocation APIs to Toga.
-
-Want to get involved?
------------------------
-
-Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
-
-1. `Update the Toga testbed test suite to use Pixel 7 Pro device sizes <https://github.com/beeware/toga/issues/2251>`__
-2. `Filter out a message generated after Xcode updates <https://github.com/beeware/briefcase/issues/780>`__
-3. `Add the ability to configure the ABIs built by an Android project <https://github.com/beeware/briefcase/issues/808>`__
-4. `Rationalise the application of adhoc signing on macOS <https://github.com/beeware/briefcase/issues/1099>`__
-5. `Add support for custom PyPI repositories <https://github.com/beeware/briefcase/issues/1270>`__
-6. `Document how to debug an application in popular IDEs <https://github.com/beeware/briefcase/issues/1393>`__
-7. `Correctly handle incomplete project deletions <https://github.com/beeware/briefcase/issues/394>`__
-8. `Add an option to select the Android base image when creating new emulators <https://github.com/beeware/briefcase/issues/737>`__
-9. `Print notarisation log failures when building macOS apps <https://github.com/beeware/briefcase/issues/1472>`__
-10. `Add an API to replace a child of a widget <https://github.com/beeware/toga/issues/2301>`__
-11. `Add an API to entirely replace the style of a widget <https://github.com/beeware/toga/issues/2305>`__
-12. `Add the ability to define content when creating a window <https://github.com/beeware/toga/issues/2307>`__
-
-Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a `guide on setting up a Briefcase development environment <https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html>`__; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the `BeeWare Discord server <https://beeware.org/bee/chat/>`__.
-
+Pick one of these tickets, drop a comment on the ticket to let others
+know you're looking at it, and try your hand at a PR! We have a [guide
+on setting up a Briefcase development
+environment](https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html);
+but if you need any additional assistance or guidance, you can ask on
+the ticket, or join us on the [BeeWare Discord
+server](https://beeware.org/bee/chat/).
 
 ---
 mastodon_handle: @freakboy3742@cloudisland.nz

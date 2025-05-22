@@ -6,26 +6,76 @@ author: Russell Keith-Magee
 ---
 body:
 
-*This article was originally published on the BeeWare Enthusiasts mailing list. If you'd like to receive regular updates about the BeeWare project, why not* `subscribe`_?
+*This article was originally published on the BeeWare Enthusiasts
+mailing list. If you'd like to receive regular updates about the BeeWare
+project, why not* [subscribe](/community/keep-informed/)?
 
-.. _subscribe: /community/keep-informed/
+When you're designing a GUI app - be it for desktop, mobile, or
+browser - one of the most fundamental tasks is describing how to lay
+widgets out the screen. Most widget toolkits will use a grid or box
+packing model of some kind to solve this problem. These models tend to
+be relatively easy to get started, but rapidly fall apart when you have
+complex layout needs - or when you have layouts that need to adapt to
+different screen sizes.
 
-When you're designing a GUI app - be it for desktop, mobile, or browser - one of the most fundamental tasks is describing how to lay widgets out the screen. Most widget toolkits will use a grid or box packing model of some kind to solve this problem. These models tend to be relatively easy to get started, but rapidly fall apart when you have complex layout needs - or when you have layouts that need to adapt to different screen sizes.
+Instead of inventing a new grid or box model, the
+[Toga](https://toga.readthedocs.io) widget toolkit takes a different
+approach, using a well known scheme for laying out content: [Cascading
+Style Sheets](https://en.wikipedia.org/wiki/Cascading_Style_Sheets), or
+CSS. Although CSS is best known for specifying layout in web pages,
+there's nothing inherently web specific about it. At the end of the day,
+it's a system for describing the layout of a hierarchical collection of
+content nodes. However, to date, every implementation of CSS is bound to
+a browser, so the perception is that CSS is a browser-specific standard.
 
-Instead of inventing a new grid or box model, the `Toga <https://toga.readthedocs.io>`__ widget toolkit takes a different approach, using a well known scheme for laying out content: `Cascading Style Sheets <https://en.wikipedia.org/wiki/Cascading_Style_Sheets>`__, or CSS. Although CSS is best known for specifying layout in web pages, there's nothing inherently web specific about it. At the end of the day, it's a system for describing the layout of a hierarchical collection of content nodes. However, to date, every implementation of CSS is bound to a browser, so the perception is that CSS is a browser-specific standard.
+That's where [Colosseum](https://github.com/beeware/colosseum) comes in.
+Colosseum is a browser independent implementation of a CSS rendering
+engine. It takes a tree of content "nodes" - such as a DOM from a HTML
+document - an applies CSS styling instructions to layout those nodes as
+boxes on the screen. In the case of Toga, instead of laying out `<div>`
+and `<span>` elements, you lay out Box and Button objects. This allows
+you to specify incredibly complex, adaptive layouts for Toga
+applications.
 
-That's where `Colosseum <https://github.com/beeware/colosseum>`__ comes in. Colosseum is a browser independent implementation of a CSS rendering engine. It takes a tree of content "nodes" - such as a DOM from a HTML document - an applies CSS styling instructions to layout those nodes as boxes on the screen. In the case of Toga, instead of laying out ``<div>`` and ``<span>`` elements, you lay out Box and Button objects. This allows you to specify incredibly complex, adaptive layouts for Toga applications.
+But Colosseum as a project has many other possible uses. It could be
+used anywhere that there is a need for describing layout *outside* a
+browser context. For example, Colosseum could be the cornerstone of a
+HTML to PDF renderer that *doesn't* require the involvement of a
+browser. It could also be used as a test harness and reference
+implementation for the CSS specification itself, providing a lightweight
+way to encode and test proposed changes to the specification.
 
-But Colosseum as a project has many other possible uses. It could be used anywhere that there is a need for describing layout *outside* a browser context. For example, Colosseum could be the cornerstone of a HTML to PDF renderer that *doesn't* require the involvement of a browser. It could also be used as a test harness and reference implementation for the CSS specification itself, providing a lightweight way to encode and test proposed changes to the specification.
+The current implementation is based on Facebook's
+[yoga](https://github.com/facebook/yoga) project - it was originally a
+line-for-line port of yoga's javascript codebase into Python. However,
+yoga only implements the Flexbox portion of the CSS3 specification.
 
-The current implementation is based on Facebook's `yoga <https://github.com/facebook/yoga>`__ project - it was originally a line-for-line port of yoga's javascript codebase into Python. However, yoga only implements the Flexbox portion of the CSS3 specification.
+This week, we started a big project: rewriting Colosseum to be a fully
+standard-compliant CSS engine. The work so far can be found in the globe
+branch of the colosseum repository on Github. The first goal is CSS2.1
+compliance, with an implementation of the traditional CSS box model and
+flow layout. Once we've got a reasonable implementation of that, we'll
+look to adding Grid and FlexBox layouts from the CSS3 specification set.
 
-This week, we started a big project: rewriting Colosseum to be a fully standard-compliant CSS engine. The work so far can be found in the globe branch of the colosseum repository on Github. The first goal is CSS2.1 compliance, with an implementation of the traditional CSS box model and flow layout. Once we've got a reasonable implementation of that, we'll look to adding Grid and FlexBox layouts from the CSS3 specification set.
+This is obviously a big job. [CSS is a big
+specification](https://www.w3.org/TR/CSS/#css-levels), so there's a lot
+of work to be done - but that also means there's lots of places to
+contribute! Pick a paragraph of the CSS specification, build some test
+cases that demonstrate the cases described in that paragraph, and submit
+a patch implementing that behaviour!
 
-This is obviously a big job. `CSS is a big specification <https://www.w3.org/TR/CSS/#css-levels>`__, so there's a lot of work to be done - but that also means there's lots of places to contribute! Pick a paragraph of the CSS specification, build some test cases that demonstrate the cases described in that paragraph, and submit a patch implementing that behaviour!
+It also highlights why your financial support is so important. While we
+*could* do this entirely with volunteered effort, we're going to make
+much faster progress if a small group of people could focus on this
+project full time. Financial support would allow up to significantly
+ramp up the development speed of Colosseum, and the rest of the BeeWare
+suite.
 
-It also highlights why your financial support is so important. While we *could* do this entirely with volunteered effort, we're going to make much faster progress if a small group of people could focus on this project full time. Financial support would allow up to significantly ramp up the development speed of Colosseum, and the rest of the BeeWare suite.
+If you would like to see Colosseum and the rest of BeeWare develop to
+the point where it can be used for commercial applications, please
+consider supporting BeeWare financially. And if you have any leads for
+larger potential sources of funding, please [get in
+touch](mailto:russell@keith-magee.com).
 
-If you would like to see Colosseum and the rest of BeeWare develop to the point where it can be used for commercial applications, please consider supporting BeeWare financially. And if you have any leads for larger potential sources of funding, please `get in touch <mailto:russell@keith-magee.com>`__.
 ---
 mastodon_handle: @freakboy3742@cloudisland.nz

@@ -4,46 +4,119 @@ author: Russell Keith-Magee
 ---
 body:
 
-Although there haven't been a lot of new BeeWare features developed in February, the work that has been completed represents some important progress against our overall project goals.
+Although there haven't been a lot of new BeeWare features developed in
+February, the work that has been completed represents some important
+progress against our overall project goals.
 
-What we've done
-----------------
+## What we've done
 
-* The biggest milestone is that we have achieved 100% test coverage for our first widget - `Button <https://github.com/beeware/toga/pull/1761>`__! This may sound a little underwhelming - after all, Toga has had a Button widget for a long time, and has been fairly reliable. However, getting to this point has required a lot of smaller (seemingly unrelated) problems to be solved. It has also required setting up all the infrastructure that will be necessary to test every other widget, such as defining the probes to inspect colors and fonts, and to ensure that the GUI framework has finished applying changes before performing a test assertion). We've also taken this opportunity to start migrating the Toga unit tests to ``pytest``, which promises to significantly improve our testing capabilities.
-* We `formalised the relationship between Toga's Pack layout model and CSS <https://github.com/beeware/toga/pull/1778>`__. This should make it a lot easier to determine what "correct" layout behavior should be.
-* We `identified a low level issue with the way that layout is performed on GTK, and possibly with other platforms <https://github.com/beeware/toga/pull/1794>`__. We're still working through the consequences of this change, but it has indirectly resolved a number of issues we have seen reported with widget layouts, especially on GTK.
-* We've added the `ability to pass command line arguments to running apps <https://github.com/beeware/briefcase/pull/1078>`__ from the ``briefcase dev`` and ``briefcase run`` interface. This was primarily done to make it easier to run unit test suites; but it can be used for any other reason you might want to use a command line argument.
-* We have a `draft implementation of a Linux system packaging backend <https://github.com/beeware/briefcase/pull/1106>`__ for Briefcase. We've had consistent problems with both AppImage and Flatpak, most of which can be traced back to resolving links to system packages. We're not going to remove these backends - when AppImage and Flatpak work, they're great options - but we're going to change the default packaging backend on Linux to be system packages (i.e., DEB/RPM etc). This makes the simple case of building a package for your own system much easier, while retaining the ability to build packages for other distributions as required. We're hoping to land this PR in the coming month.
-* We `corrected an issue with threading modes <https://github.com/beeware/briefcase/pull/1102>`__ that prevented some Windows apps (especially PySide/Qt apps) from displaying dialogs.
-* We `corrected an issue with the Briefcase Web backend <https://github.com/beeware/briefcase/pull/1113>`__ that would cause intermittent errors when loading a web app.
-* We updated our CI infrastructure to make better use of shared task definitions. BeeWare has a lot of Github repositories, and a lot of common tasks (such as rolling out an app across multiple Python and operating system versions). Previously, each Github repository had an independent set of CI task definitions; we've now got a central collection of task definitions that is used by all repositories. 
-* We cleaned up the `table in Toga's documentation describing the state of support of each widget <https://github.com/beeware/toga/pull/1762>`__.  This allows us to differentiate between widgets that we've fully tested, and widgets that exist, but haven't been tested.
-* Thanks to a community contribution, we've been able to `publish a backlog of iOS binary packages for Python 3.8-3.11 <https://github.com/freakboy3742/chaquopy/pull/4>`__. For the packages we currently support (including Numpy, Pandas, Pillow and more), we're now able to offer an iOS binary wheel for every published version for which there is a corresponding macOS wheel, going back to 2019.
+- The biggest milestone is that we have achieved 100% test coverage for
+  our first widget -
+  [Button](https://github.com/beeware/toga/pull/1761)! This may sound a
+  little underwhelming - after all, Toga has had a Button widget for a
+  long time, and has been fairly reliable. However, getting to this
+  point has required a lot of smaller (seemingly unrelated) problems to
+  be solved. It has also required setting up all the infrastructure that
+  will be necessary to test every other widget, such as defining the
+  probes to inspect colors and fonts, and to ensure that the GUI
+  framework has finished applying changes before performing a test
+  assertion). We've also taken this opportunity to start migrating the
+  Toga unit tests to `pytest`, which promises to significantly improve
+  our testing capabilities.
+- We [formalised the relationship between Toga's Pack layout model and
+  CSS](https://github.com/beeware/toga/pull/1778). This should make it a
+  lot easier to determine what "correct" layout behavior should be.
+- We [identified a low level issue with the way that layout is performed
+  on GTK, and possibly with other
+  platforms](https://github.com/beeware/toga/pull/1794). We're still
+  working through the consequences of this change, but it has indirectly
+  resolved a number of issues we have seen reported with widget layouts,
+  especially on GTK.
+- We've added the [ability to pass command line arguments to running
+  apps](https://github.com/beeware/briefcase/pull/1078) from the
+  `briefcase dev` and `briefcase run` interface. This was primarily done
+  to make it easier to run unit test suites; but it can be used for any
+  other reason you might want to use a command line argument.
+- We have a [draft implementation of a Linux system packaging
+  backend](https://github.com/beeware/briefcase/pull/1106) for
+  Briefcase. We've had consistent problems with both AppImage and
+  Flatpak, most of which can be traced back to resolving links to system
+  packages. We're not going to remove these backends - when AppImage and
+  Flatpak work, they're great options - but we're going to change the
+  default packaging backend on Linux to be system packages (i.e.,
+  DEB/RPM etc). This makes the simple case of building a package for
+  your own system much easier, while retaining the ability to build
+  packages for other distributions as required. We're hoping to land
+  this PR in the coming month.
+- We [corrected an issue with threading
+  modes](https://github.com/beeware/briefcase/pull/1102) that prevented
+  some Windows apps (especially PySide/Qt apps) from displaying dialogs.
+- We [corrected an issue with the Briefcase Web
+  backend](https://github.com/beeware/briefcase/pull/1113) that would
+  cause intermittent errors when loading a web app.
+- We updated our CI infrastructure to make better use of shared task
+  definitions. BeeWare has a lot of Github repositories, and a lot of
+  common tasks (such as rolling out an app across multiple Python and
+  operating system versions). Previously, each Github repository had an
+  independent set of CI task definitions; we've now got a central
+  collection of task definitions that is used by all repositories.
+- We cleaned up the [table in Toga's documentation describing the state
+  of support of each widget](https://github.com/beeware/toga/pull/1762).
+  This allows us to differentiate between widgets that we've fully
+  tested, and widgets that exist, but haven't been tested.
+- Thanks to a community contribution, we've been able to [publish a
+  backlog of iOS binary packages for Python
+  3.8-3.11](https://github.com/freakboy3742/chaquopy/pull/4). For the
+  packages we currently support (including Numpy, Pandas, Pillow and
+  more), we're now able to offer an iOS binary wheel for every published
+  version for which there is a corresponding macOS wheel, going back to
+  2019.
 
-What's next?
---------------
+## What's next?
 
-In March, we'll be continuing to improve GUI test coverage. Now that we've got one widget to 100% coverage, we know we have all the core testing infrastructure in place, so it should be much easier to implement tests for the future widgets. By the end of March, we should have a lot more widgets at 100% coverage.
+In March, we'll be continuing to improve GUI test coverage. Now that
+we've got one widget to 100% coverage, we know we have all the core
+testing infrastructure in place, so it should be much easier to
+implement tests for the future widgets. By the end of March, we should
+have a lot more widgets at 100% coverage.
 
-We'll also be presenting at `Everything Open 2023 <https://2023.everythingopen.au>`__. If you're attending, come say hi!
+We'll also be presenting at [Everything Open
+2023](https://2023.everythingopen.au). If you're attending, come say hi!
 
-Want to get involved?
------------------------
+## Want to get involved?
 
-Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
+Want to get involved? Here are some open issues that would be a great
+place to get started with contributing to a BeeWare project. They're all
+relatively minor changes, but would provide a big improvement to the
+lives of BeeWare users:
 
-1. `Modify the handling of app signing options <https://github.com/beeware/briefcase/issues/865>`__
-2. `Filter out a message generated after Xcode updates <https://github.com/beeware/briefcase/issues/780>`__
-3. `Add the ability to refresh the support package in a project <https://github.com/beeware/briefcase/issues/856>`__
-4. `Provide protection against creating projects with "semi-reserved" names <https://github.com/beeware/briefcase/issues/853>`__
-5. `Add the ability to configure the ABIs built by an Android project <https://github.com/beeware/briefcase/issues/808>`__
-6. `Add support for the ANDROID_HOME environment variable <https://github.com/beeware/briefcase/issues/463>`__
-7. `Add a template branch option when creating a new project <https://github.com/beeware/briefcase/issues/1053>`__
-8. `Improve validation of project names in the Briefcase wizard <https://github.com/beeware/briefcase/issues/1011>`__
-9. `Rationalise the application of adhoc signing on macOS <https://github.com/beeware/briefcase/issues/1099>`__
-10. `Correct the capture of log messages on the web backend <https://github.com/beeware/briefcase/issues/1090>`__
+1.  [Modify the handling of app signing
+    options](https://github.com/beeware/briefcase/issues/865)
+2.  [Filter out a message generated after Xcode
+    updates](https://github.com/beeware/briefcase/issues/780)
+3.  [Add the ability to refresh the support package in a
+    project](https://github.com/beeware/briefcase/issues/856)
+4.  [Provide protection against creating projects with "semi-reserved"
+    names](https://github.com/beeware/briefcase/issues/853)
+5.  [Add the ability to configure the ABIs built by an Android
+    project](https://github.com/beeware/briefcase/issues/808)
+6.  [Add support for the ANDROID\_HOME environment
+    variable](https://github.com/beeware/briefcase/issues/463)
+7.  [Add a template branch option when creating a new
+    project](https://github.com/beeware/briefcase/issues/1053)
+8.  [Improve validation of project names in the Briefcase
+    wizard](https://github.com/beeware/briefcase/issues/1011)
+9.  [Rationalise the application of adhoc signing on
+    macOS](https://github.com/beeware/briefcase/issues/1099)
+10. [Correct the capture of log messages on the web
+    backend](https://github.com/beeware/briefcase/issues/1090)
 
-Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a `guide on setting up a Briefcase development environment <https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html>`__; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the `BeeWare Discord server </bee/chat/>`__.
+Pick one of these tickets, drop a comment on the ticket to let others
+know you're looking at it, and try your hand at a PR! We have a [guide
+on setting up a Briefcase development
+environment](https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html);
+but if you need any additional assistance or guidance, you can ask on
+the ticket, or join us on the [BeeWare Discord server](/bee/chat/).
 
 ---
 pub_date: 2023-03-01

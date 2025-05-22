@@ -8,66 +8,106 @@ sort_key: 5
 ---
 body:
 
+## The goal
 
-The goal
-========
+The end goal of the BeeWare project: To be able to do for mobile and
+desktop user-facing software the same thing that Django has done for web
+software - to put into the hands of users a set of tools and libraries
+that enables them to develop rich, native user interfaces, and deploy
+them to their devices. This includes:
 
-The end goal of the BeeWare project: To be able to do for mobile and desktop user-facing software the same thing that Django has done for web software - to put into the hands of users a set of tools and libraries that enables them to develop rich, native user interfaces, and deploy them to their devices. This includes:
+- Tools to enable Python to run on different devices,
+- Tools to package a Python project so it can run on those devices,
+- Libraries to access the native widgets and capabilities of devices,
+- Tools to help develop, debug, analyze and these projects.
 
- * Tools to enable Python to run on different devices,
- * Tools to package a Python project so it can run on those devices,
- * Libraries to access the native widgets and capabilities of devices,
- * Tools to help develop, debug, analyze and these projects.
+This aim is that this set of tools will be easy enough to use for
+complete newcomers to use in a Django Girls-like setting; but powerful
+enough that they could be used to drive the next Instagram, Pinterest or
+Disqus.
 
-This aim is that this set of tools will be easy enough to use for complete newcomers to use in a Django Girls-like setting; but powerful enough that they could be used to drive the next Instagram, Pinterest or Disqus.
+Most importantly, it aims to do all this as an Open Source community.
+The Open Source development process has proven itself to be the most
+reliable way to develop robust and reliable software, and the fact that
+anyone can access the software means that everyone can start with the
+same set of excellent tools, be they expert or enthusiastic amateur.
 
-Most importantly, it aims to do all this as an Open Source community. The Open Source development process has proven itself to be the most reliable way to develop robust and reliable software, and the fact that anyone can access the software means that everyone can start with the same set of excellent tools, be they expert or enthusiastic amateur.
+### Python everywhere
 
-Python everywhere
-~~~~~~~~~~~~~~~~~
+A modern computing project can't ignore the biggest development in
+computing of the last 10 years. Python prides itself on being a
+cross-platform language. 10 years ago, being cross-platform meant being
+available for Windows, macOS and Linux. These days, mobile computing is
+much more important. Despite this, there aren't many good options for
+Python programming on mobile platforms, and cross-platform mobile coding
+is still elusive.
 
-A modern computing project can't ignore the biggest development in computing of the last 10 years. Python prides itself on being a cross-platform language. 10 years ago, being cross-platform meant being available for Windows, macOS and Linux. These days, mobile computing is much more important. Despite this, there aren't many good options for Python programming on mobile platforms, and cross-platform mobile coding is still elusive.
+BeeWare embraces mobile and other emerging platforms (like watches and
+set-top-boxes) as a first class citizen of the computing ecosystem -
+because if people have these devices, why shouldn't they be able to
+write software for them in Python.
 
-BeeWare embraces mobile and other emerging platforms (like watches and set-top-boxes) as a first class citizen of the computing ecosystem - because if people have these devices, why shouldn't they be able to write software for them in Python.
+### Native everywhere
 
-Native everywhere
-~~~~~~~~~~~~~~~~~~
+It's easy to use themes to achieve cross-platform. However, it's easy to
+spot apps that have been built using themes - they're the ones that
+don't behave quite like any other app. Widgets don't look *quite* right,
+or there's a menu bar on a window in an OS X app. Themes can get quite
+close - but there are always telltale signs.
 
-It's easy to use themes to achieve cross-platform. However, it's easy to spot apps that have been built using themes - they're the ones that don't behave quite like any other app. Widgets don't look *quite* right, or there's a menu bar on a window in an OS X app. Themes can get quite close - but there are always telltale signs.
+On top of that, native widgets are always faster than a themed generic
+widget. After all, you're using native system capability that has been
+tuned and optimized, not a drawing engine that's been layered on top of
+a generic widget.
 
-On top of that, native widgets are always faster than a themed generic widget. After all, you're using native system capability that has been tuned and optimized, not a drawing engine that's been layered on top of a generic widget.
+Themes also miss many of the accessibility benefits of native platforms.
+Modern OS authors spend a lot of time tuning affordances for people with
+impaired mobility, vision or cognition. If you use native widgets, you
+usually get these affordances for free. If you reimplement widgets with
+a theme, you also have to re-implement the affordances.
 
-Themes also miss many of the accessibility benefits of native platforms. Modern OS authors spend a lot of time tuning affordances for people with impaired mobility, vision or cognition. If you use native widgets, you usually get these affordances for free. If you reimplement widgets with a theme, you also have to re-implement the affordances.
+BeeWare uses native widgets and native functionality, rather than using
+a theme-based approach to application development.
 
-BeeWare uses native widgets and native functionality, rather than using a theme-based approach to application development.
+### Python native
 
-Python native
-~~~~~~~~~~~~~
+BeeWare is also an unapologetically "Python first" framework. We like
+Python. We like the way it looks, and the way it works. If Python isn't
+available as a first-class option on a particular platform, we'll do
+whatever is necessary to make Python available as a development
+language. And when we have the opportunity to embrace Python idiom for
+an API or a design, we're going to do just that. That means we're going
+to use generators, context managers, <span class="title-ref">yield
+from</span> asynchronous calls, and more, in order to provide the best
+Python-native API for cross-platform app development.
 
-BeeWare is also an unapologetically "Python first" framework. We like Python. We like the way it looks, and the way it works. If Python isn't available as a first-class option on a particular platform, we'll do whatever is necessary to make Python available as a development language. And when we have the opportunity to embrace Python idiom for an API or a design, we're going to do just that. That means we're going to use generators, context managers, `yield from` asynchronous calls, and more, in order to provide the best Python-native API for cross-platform app development.
+We're also looking to the future - this means that we support Python 3
+exclusively.
 
-We're also looking to the future - this means that we support Python 3 exclusively.
+### Native experience
 
-Native experience
-~~~~~~~~~~~~~~~~~
+The experience of using any tool starts with the installation process.
+Part of BeeWare's "Native everywhere" philosophy is adopting appropriate
+native mechanisms for installation. If you're using a user-space tool,
+it should be presented to you as a package that is to be installed in
+the same way you would install any other tool - be that through an app
+store, an installer, or a simple executable package. End users shouldn't
+know that you've written the application in Python.
 
-The experience of using any tool starts with the installation process. Part of BeeWare's "Native everywhere" philosophy is adopting appropriate native mechanisms for installation. If you're using a user-space tool, it should be presented to you as a package that is to be installed in the same way you would install any other tool - be that through an app store, an installer, or a simple executable package. End users shouldn't know that you've written the application in Python.
-
-But if you're using a developer tool or library, then it should integrate with your development environment. And since we're using Python, that means you should be able to install it into your virtual environment using `pip install` and nothing more. No C-extensions, no compilers, no setting system paths or environment variables - Just install it, import it, and start writing (or running) code.
+But if you're using a developer tool or library, then it should
+integrate with your development environment. And since we're using
+Python, that means you should be able to install it into your virtual
+environment using <span class="title-ref">pip install</span> and nothing
+more. No C-extensions, no compilers, no setting system paths or
+environment variables - Just install it, import it, and start writing
+(or running) code.
 
 ---
 gutter:
 
-* `The Goal`_
-   - `Python everywhere`_
-   - `Native everywhere`_
-   - `Python native`_
-   - `Native experience`_
-
-
-.. _`The Goal`: ./#the-goal
-.. _`Python everywhere`: ./#python-everywhere
-.. _`Native everywhere`: ./#native-everywhere
-.. _`Python native`: ./#python-native
-.. _`Native experience`: ./#native-experience
+- [The Goal](./#the-goal)  
+  - [Python everywhere](./#python-everywhere)
+  - [Native everywhere](./#native-everywhere)
+  - [Python native](./#python-native)
+  - [Native experience](./#native-experience)
 

@@ -11,98 +11,98 @@ _slug: setup
 body:
 
 In order to get contributing, you're going to need to setup a
-**development environment** - a place where you can work on code where it can
-behave the same as everyone else's environment.
+**development environment** - a place where you can work on code where
+it can behave the same as everyone else's environment.
 
-Many parts of BeeWare use the same tools: a specific version of Python, and
-virtual environment controls.
+Many parts of BeeWare use the same tools: a specific version of Python,
+and virtual environment controls.
 
-Python
--------
+## Python
 
-Python is a scripting language, which is available on a number of different
-operating systems. However, depending on what system you are using, your
-version of Python is going to be different. Because of this reason, we specify
-exactly which version of Python we expect the code to work with.
+Python is a scripting language, which is available on a number of
+different operating systems. However, depending on what system you are
+using, your version of Python is going to be different. Because of this
+reason, we specify exactly which version of Python we expect the code to
+work with.
 
-For the following instructions, we're going to assume that you know exactly
-which version of Python you need to install. Normally, this is listed in the
-``README.md`` file or in the tutorial information. Our `CI
-</contributing/first-time/what-is-a/ci>`_ systems have to be told exactly
-which version of Python is required, too. So if you're really stuck, try
-looking at the :code:`.github/workflows/ci.yml` file for the specific version
-you need.
+For the following instructions, we're going to assume that you know
+exactly which version of Python you need to install. Normally, this is
+listed in the `README.md` file or in the tutorial information. Our
+[CI](/contributing/first-time/what-is-a/ci) systems have to be told
+exactly which version of Python is required, too. So if you're really
+stuck, try looking at the `.github/workflows/ci.yml` file for the
+specific version you need.
 
-In order to contribute to BeeWare, you'll need to have a Python interpreter
-installed on your machine. On macOS and Windows, we recommend using the
-`official Python.org installers <https://www.python.org/downloads/>`__; on
-Linux, we recommend using the version of Python provided by the package manager
-for your distribution.
+In order to contribute to BeeWare, you'll need to have a Python
+interpreter installed on your machine. On macOS and Windows, we
+recommend using the [official Python.org
+installers](https://www.python.org/downloads/); on Linux, we recommend
+using the version of Python provided by the package manager for your
+distribution.
 
-Virtual Environments
----------------------
+## Virtual Environments
 
-When Python is installed, it provides a single global environment. By default, if you
-install a package, it will be installed into this global environment.
+When Python is installed, it provides a single global environment. By
+default, if you install a package, it will be installed into this global
+environment.
 
-However, if you're working on more than one Python project, it's entirely likely that
-those multiple projects will have different - and in some cases, conflicting -
-requirements. What you need is a way to isolate each project so that installing a
-package for one project won't force that same package to be installed for the second
-project.
+However, if you're working on more than one Python project, it's
+entirely likely that those multiple projects will have different - and
+in some cases, conflicting -requirements. What you need is a way to
+isolate each project so that installing a package for one project won't
+force that same package to be installed for the second project.
 
-This is done using *Virtual Environments*. A Virtual Environment, or ``venv``, is an
-isolated environment that can be easily created, destroyed or recreated. Any package
-installed in the virtual environment is only accessible *inside* that virtual
-environment. Virtual environments are sometimes referred to as a "sandbox" - a safe
-place to play, where if you make a mistake, you can knock down everything you've built
-and start again.
+This is done using *Virtual Environments*. A Virtual Environment, or
+`venv`, is an isolated environment that can be easily created, destroyed
+or recreated. Any package installed in the virtual environment is only
+accessible *inside* that virtual environment. Virtual environments are
+sometimes referred to as a "sandbox" - a safe place to play, where if
+you make a mistake, you can knock down everything you've built and start
+again.
 
-Python provides the ``venv`` module to create new virtual environments. Each virtual
-environment has a name that can be used to identify the environment. To create a fresh
-virtual environment named "my-venv", run:
+Python provides the `venv` module to create new virtual environments.
+Each virtual environment has a name that can be used to identify the
+environment. To create a fresh virtual environment named "my-venv", run:
 
-.. code-block:: bash
+    $ python -m venv my-venv
 
-  $ python -m venv my-venv
+The version of Python that you use to create the virtual environment
+will be the version that is used by default *inside* the virtual
+environment. If you've got multiple Python versions installed, or you're
+using a tool like `pyenv` to manage Python versions, ensure that the
+Python version that is currently active (or the version you reference
+when invoking the `-m venv` command) is the version you intend. Once a
+virtual environment has been created, you can't change the Python
+version that it is using. To change the Python version, you need to
+create a fresh virtual environment.
 
-The version of Python that you use to create the virtual environment will be the version
-that is used by default *inside* the virtual environment. If you've got multiple Python
-versions installed, or you're using a tool like ``pyenv`` to manage Python versions,
-ensure that the Python version that is currently active (or the version you reference
-when invoking the ``-m venv`` command) is the version you intend. Once a virtual
-environment has been created, you can't change the Python version that it is using. To
-change the Python version, you need to create a fresh virtual environment.
+Invoking `-m venv` will *create* the virtual environment, but the
+environment is not yet *active*. The virtual environment is a collection
+of files on disk, stored in a directory that matches the name of the
+environment. To activate the virtual environment, you run one of the
+files generated as part of the environment:
 
-Invoking ``-m venv`` will *create* the virtual environment, but the environment is not
-yet *active*. The virtual environment is a collection of files on disk, stored in a
-directory that matches the name of the environment. To activate the virtual environment,
-you run one of the files generated as part of the environment:
+    $ source my-venv/bin/activate
 
-.. code-block:: bash
+This will result in a prefix being added to your command line prompt
+letting you know you're in a virtual environment:
 
- $ source my-venv/bin/activate
+    (my-venv) $
 
-This will result in a prefix being added to your command line prompt letting you know
-you're in a virtual environment:
+While the virtual environment is active, any `pip install` command will
+*only* affect the virtual environment. It doesn't matter if you change
+directories - if your prompt has a prefix, that virtual environment is
+active.
 
-.. code-block:: bash
-
- (my-venv) $
-
-While the virtual environment is active, any ``pip install`` command will *only* affect
-the virtual environment. It doesn't matter if you change directories - if your prompt
-has a prefix, that virtual environment is active.
-
-If you open a second terminal window, the environment will *not* be active - you need to
-re-activate the environment in every terminal session where you want to use the
-environment. If you get errors about libraries not being available that you're *certain*
-you've installed - check whether your virtual environment is active.
+If you open a second terminal window, the environment will *not* be
+active - you need to re-activate the environment in every terminal
+session where you want to use the environment. If you get errors about
+libraries not being available that you're *certain* you've installed -
+check whether your virtual environment is active.
 
 To deactivate the virtual environment, run:
 
-.. code-block:: bash
-
- (my-venv) $ deactivate
+    (my-venv) $ deactivate
 
 Once deactivated, the prefix will be dropped from the prompt.
+

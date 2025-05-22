@@ -4,62 +4,131 @@ author: Russell Keith-Magee
 ---
 body:
 
-BeeWare activity in May was dominated by preparing for and attending PyCon US in Pittsburgh. That event generated a lot of activity in the BeeWare project - but we've also added some other significant improvements.
+BeeWare activity in May was dominated by preparing for and attending
+PyCon US in Pittsburgh. That event generated a lot of activity in the
+BeeWare project - but we've also added some other significant
+improvements.
 
-What we've done
-----------------
+## What we've done
 
-* We attended PyCon US. We presented on the `state of mobile support in CPython to the Language Summit <https://us.pycon.org/2024/events/language-summit/>`__; we `presented a tutorial <https://us.pycon.org/2024/schedule/presentation/41/>`__ to over 30 attendees; we ran a booth in Community Row; we `presented a talk <https://us.pycon.org/2024/schedule/presentation/40/>`__ on writing a data visualisation app with BeeWare tools; and we ran an extremely successful sprint. At the peak, we had over 30 people sprinting on BeeWare projects; and we handed out over 20 challenge coins to first time contributors. Many of the new features in this status update can be attributed to contributions from sprint participants.
+- We attended PyCon US. We presented on the [state of mobile support in
+  CPython to the Language
+  Summit](https://us.pycon.org/2024/events/language-summit/); we
+  [presented a
+  tutorial](https://us.pycon.org/2024/schedule/presentation/41/) to over
+  30 attendees; we ran a booth in Community Row; we [presented a
+  talk](https://us.pycon.org/2024/schedule/presentation/40/) on writing
+  a data visualisation app with BeeWare tools; and we ran an extremely
+  successful sprint. At the peak, we had over 30 people sprinting on
+  BeeWare projects; and we handed out over 20 challenge coins to first
+  time contributors. Many of the new features in this status update can
+  be attributed to contributions from sprint participants.
+- We modified Toga's Window API to allow [setting the content of the
+  window when the window is
+  constructed](https://github.com/beeware/toga/pull/2314), and [improved
+  the APIs for replacing children in an existing window
+  layout](https://github.com/beeware/toga/pull/2591).
+- We modified how validation of TextInput widgets are handled so that
+  [change handlers aren't invoked until validation has been
+  performed](https://github.com/beeware/toga/pull/2596).
+- We modified how the DetailedList is created on Android so that [the
+  dependency on the native SwipeRefreshLayout widget only exists if your
+  app actually uses a DetailedList
+  widget](https://github.com/beeware/toga/pull/2595).
+- We [improved the error handling around camera permissions on
+  macOS](https://github.com/beeware/toga/pull/2590), and ensured that
+  [Briefcase will generate the right permissions for macOS
+  Sonoma](https://github.com/beeware/briefcase/pull/1820).
+- We diagnosed some issues associated with code signing on macOS [when
+  running on iCloud-mirrored
+  drives](https://github.com/beeware/briefcase/issues/1808), and when
+  [Git has been configured to preserve Windows
+  newlines](https://github.com/beeware/briefcase/issues/1831). We also
+  [improved the error handling when notarisation
+  fails](https://github.com/beeware/briefcase/pull/1825).
+- We [formally documented the plugin extension points that Briefcase
+  provides](https://github.com/beeware/briefcase/pull/1807). With this
+  formally documented interface, Pygame-CE and
+  [PPB](https://github.com/beeware/briefcase/pull/1834), have taken
+  formal ownership of their Briefcase bootstraps.
+- We [formally adopted PEP 621 format for specifying license files in
+  Briefcase](https://github.com/beeware/briefcase/pull/1812).
+- We [loosened the restrictions on bundle
+  identifiers](https://github.com/beeware/briefcase/pull/1824), and
+  [improved handling of applications with special characters in their
+  formal names](https://github.com/beeware/briefcase/pull/1811).
+- We developed a draft implementation of a change that will [allow
+  Briefcase to package console
+  applications](https://github.com/beeware/briefcase/pull/1781). We
+  expect this change will land in the next week or so, and be released
+  soon after that.
+- We started work on [removing binary stubs from the macOS and Windows
+  app templates](https://github.com/beeware/briefcase/pull/1849). This
+  was starting to become a significant performance issue for first-time
+  Briefcase users.
+- We improved the mechanism for invoking methods in Rubicon ObjC, making
+  it possible to [invoke methods with repeated argument
+  names](https://github.com/beeware/rubicon-objc/pull/462).
 
-* We modified Toga's Window API to allow `setting the content of the window when the window is constructed <https://github.com/beeware/toga/pull/2314>`__, and `improved the APIs for replacing children in an existing window layout <https://github.com/beeware/toga/pull/2591>`__.
-
-* We modified how validation of TextInput widgets are handled so that `change handlers aren't invoked until validation has been performed <https://github.com/beeware/toga/pull/2596>`__.
-
-* We modified how the DetailedList is created on Android so that `the dependency on the native SwipeRefreshLayout widget only exists if your app actually uses a DetailedList widget <https://github.com/beeware/toga/pull/2595>`__.
-
-* We `improved the error handling around camera permissions on macOS <https://github.com/beeware/toga/pull/2590>`__, and ensured that `Briefcase will generate the right permissions for macOS Sonoma <https://github.com/beeware/briefcase/pull/1820>`__.
-
-* We diagnosed some issues associated with code signing on macOS `when running on iCloud-mirrored drives <https://github.com/beeware/briefcase/issues/1808>`__, and when `Git has been configured to preserve Windows newlines <https://github.com/beeware/briefcase/issues/1831>`__. We also `improved the error handling when notarisation fails <https://github.com/beeware/briefcase/pull/1825>`__.
-
-* We `formally documented the plugin extension points that Briefcase provides <https://github.com/beeware/briefcase/pull/1807>`__. With this formally documented interface, Pygame-CE and `PPB <https://github.com/beeware/briefcase/pull/1834>`__, have taken formal ownership of their Briefcase bootstraps.
-
-* We `formally adopted PEP 621 format for specifying license files in Briefcase <https://github.com/beeware/briefcase/pull/1812>`__.
-
-* We `loosened the restrictions on bundle identifiers <https://github.com/beeware/briefcase/pull/1824>`__, and `improved handling of applications with special characters in their formal names <https://github.com/beeware/briefcase/pull/1811>`__.
-
-* We developed a draft implementation of a change that will `allow Briefcase to package console applications <https://github.com/beeware/briefcase/pull/1781>`__. We expect this change will land in the next week or so, and be released soon after that.
-
-* We started work on `removing binary stubs from the macOS and Windows app templates <https://github.com/beeware/briefcase/pull/1849>`__. This was starting to become a significant performance issue for first-time Briefcase users.
-
-* We improved the mechanism for invoking methods in Rubicon ObjC, making it possible to `invoke methods with repeated argument names <https://github.com/beeware/rubicon-objc/pull/462>`__.
-
-What's next?
---------------
+## What's next?
 
 In June, we're expecting to see progress in three main areas.
 
-Firstly, we'll be finalising the work on packaging console applications. We expect to see a Briefcase release by mid month that will incorporate this, and all the other improvements that have landed over the last month.
+Firstly, we'll be finalising the work on packaging console applications.
+We expect to see a Briefcase release by mid month that will incorporate
+this, and all the other improvements that have landed over the last
+month.
 
-Secondly, we'll be working on the APIs for the Toga App and Window classes. We've already done `a lot of prototyping work in this area <https://github.com/beeware/toga/pull/2244>`__; once this work is complete, Toga should have support for apps without a menubar in their main window, support for status bar apps without a main window, vastly improved abilities to customise standard menu items, and a stable API for document-based apps. 
+Secondly, we'll be working on the APIs for the Toga App and Window
+classes. We've already done [a lot of prototyping work in this
+area](https://github.com/beeware/toga/pull/2244); once this work is
+complete, Toga should have support for apps without a menubar in their
+main window, support for status bar apps without a main window, vastly
+improved abilities to customise standard menu items, and a stable API
+for document-based apps.
 
-Thirdly, we'll start looking at the broader CPython binary packaging ecosystem. The work we've done so far this year has led to CPython 3.13 formally supporting iOS and Android as Tier 3 supported platforms; the next step is ensuring that the rest of the community can build iOS and Android packages. This will involve improvements to tools like ``pip``, ``cibuildwheel``, ``meson-python`` and more. We expect that this work will take much longer than a month to complete, but we hope to be able to share some progress in June.
+Thirdly, we'll start looking at the broader CPython binary packaging
+ecosystem. The work we've done so far this year has led to CPython 3.13
+formally supporting iOS and Android as Tier 3 supported platforms; the
+next step is ensuring that the rest of the community can build iOS and
+Android packages. This will involve improvements to tools like `pip`,
+`cibuildwheel`, `meson-python` and more. We expect that this work will
+take much longer than a month to complete, but we hope to be able to
+share some progress in June.
 
-Want to get involved?
------------------------
+## Want to get involved?
 
-Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
+Want to get involved? Here are some open issues that would be a great
+place to get started with contributing to a BeeWare project. They're all
+relatively minor changes, but would provide a big improvement to the
+lives of BeeWare users:
 
-1. `Update the Toga testbed test suite to use Pixel 7 Pro device sizes <https://github.com/beeware/toga/issues/2251>`__
-2. `Filter out a message generated after Xcode updates <https://github.com/beeware/briefcase/issues/780>`__
-3. `Add the ability to configure the ABIs built by an Android project <https://github.com/beeware/briefcase/issues/808>`__
-4. `Rationalise the application of adhoc signing on macOS <https://github.com/beeware/briefcase/issues/1099>`__
-5. `Add support for custom PyPI repositories <https://github.com/beeware/briefcase/issues/1270>`__
-6. `Document how to debug an application in popular IDEs <https://github.com/beeware/briefcase/issues/1393>`__
-7. `Correctly handle incomplete project deletions <https://github.com/beeware/briefcase/issues/394>`__
-8. `Add an option to select the Android base image when creating new emulators <https://github.com/beeware/briefcase/issues/737>`__
-9. `Add an API to entirely replace the style of a widget <https://github.com/beeware/toga/issues/2305>`__
+1.  [Update the Toga testbed test suite to use Pixel 7 Pro device
+    sizes](https://github.com/beeware/toga/issues/2251)
+2.  [Filter out a message generated after Xcode
+    updates](https://github.com/beeware/briefcase/issues/780)
+3.  [Add the ability to configure the ABIs built by an Android
+    project](https://github.com/beeware/briefcase/issues/808)
+4.  [Rationalise the application of adhoc signing on
+    macOS](https://github.com/beeware/briefcase/issues/1099)
+5.  [Add support for custom PyPI
+    repositories](https://github.com/beeware/briefcase/issues/1270)
+6.  [Document how to debug an application in popular
+    IDEs](https://github.com/beeware/briefcase/issues/1393)
+7.  [Correctly handle incomplete project
+    deletions](https://github.com/beeware/briefcase/issues/394)
+8.  [Add an option to select the Android base image when creating new
+    emulators](https://github.com/beeware/briefcase/issues/737)
+9.  [Add an API to entirely replace the style of a
+    widget](https://github.com/beeware/toga/issues/2305)
 
-Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a `guide on setting up a Briefcase development environment <https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html>`__; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the `BeeWare Discord server <https://beeware.org/bee/chat/>`__.
+Pick one of these tickets, drop a comment on the ticket to let others
+know you're looking at it, and try your hand at a PR! We have a [guide
+on setting up a Briefcase development
+environment](https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html);
+but if you need any additional assistance or guidance, you can ask on
+the ticket, or join us on the [BeeWare Discord
+server](https://beeware.org/bee/chat/).
 
 ---
 mastodon_handle: @freakboy3742@cloudisland.nz

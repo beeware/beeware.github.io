@@ -4,52 +4,114 @@ author: Russell Keith-Magee
 ---
 body:
 
-BeeWare has had an exciting start to the new year, with a couple of significant releases
+BeeWare has had an exciting start to the new year, with a couple of
+significant releases
 
-What we've done
-----------------
+## What we've done
 
 We had two big releases in January.
 
-Firstly, we released Briefcase 0.3.12. This is the first Briefcase release in 3 months, so it includes a lot of improvements, but the most notable improvements are the new "Testing mode", a major improvement to the Android build process, and a huge number of bug fixes and improvements - especially on Windows. 
+Firstly, we released Briefcase 0.3.12. This is the first Briefcase
+release in 3 months, so it includes a lot of improvements, but the most
+notable improvements are the new "Testing mode", a major improvement to
+the Android build process, and a huge number of bug fixes and
+improvements - especially on Windows.
 
-Secondly - and more importantly - we released Toga 0.3.0! No more dev releases or ``--pre`` flags for ``pip`` - the stable release of Toga on PyPI is now closely tracking actual development. It's been over 5 years since we last released an official stable Toga version, even though we've been recommending the dev releases for most of that time. However, as a result of a number of changes that landed this month, we're finally committing to the 0.3.0 branch properly.
+Secondly - and more importantly - we released Toga 0.3.0! No more dev
+releases or `--pre` flags for `pip` - the stable release of Toga on PyPI
+is now closely tracking actual development. It's been over 5 years since
+we last released an official stable Toga version, even though we've been
+recommending the dev releases for most of that time. However, as a
+result of a number of changes that landed this month, we're finally
+committing to the 0.3.0 branch properly.
 
-These releases incorporate changes going back months (and years); but we made some very specific progress during January:
+These releases incorporate changes going back months (and years); but we
+made some very specific progress during January:
 
-* Chaquopy `had a new release. <https://chaquo.com/chaquopy/chaquopy-version-14-0-2/>`__, significantly improving build times on Android, improving the rendering of ``stdout`` content in the Android logs, adding some features that make it easier to expose the original project source code in the running app bundle, and enabling PEP517 builds of project dependencies.
-* Briefcase is now able to `reference local source packages when building Linux AppImage binaries <https://github.com/beeware/briefcase/pull/1058>`__.
-* Some errors caused by the way the Windows Store version of Python handles local application data `have been corrected <https://github.com/beeware/briefcase/pull/1054>`__.
-* Briefcase's help text now `shows the list of platforms and output formats <https://github.com/beeware/briefcase/pull/1005>`__, rather than requiring an additional help call to retrieve that information.
-* Some issues with thread and asyncio safety in Rubicon ObjC were `identified and resolved <https://github.com/beeware/rubicon-objc/pull/246>`__, along with an issue associated with the way some Objective C classes (such as NSWindow) are `renamed at runtime <https://github.com/beeware/rubicon-objc/pull/258>`__.
-* Initial GUI testing backends for `macOS <https://github.com/beeware/toga/pull/1707>`__, `iOS <https://github.com/beeware/toga/pull/1749>`__ and `GTK <https://github.com/beeware/toga/pull/1755>`__ were added.
-* A long standing issue with the `replacement of root window content <https://github.com/beeware/toga/issues/1439>`__ on GTK and iOS has been resolved.
-* Coverage testing was `added to the Toga Android GUI test backend <https://github.com/beeware/toga/pull/1747>`__.
-* An API was added to `allow scrolling MultilineTextInput widgets <https://github.com/beeware/toga/pull/1728>`__ to the top and bottom of the widget content.
-* The work `moving Toga to use Setuptools-SCM <https://github.com/beeware/toga/pull/1675>`__ was completed. Development versions of Toga will now report a specific version control commit; release versions have their version determined by the git tag used to produce the release.
-* We completed a major review of the way we're using Github issue labels, and modified those labels to be consistent across all repositories.
+- Chaquopy [had a new
+  release.](https://chaquo.com/chaquopy/chaquopy-version-14-0-2/),
+  significantly improving build times on Android, improving the
+  rendering of `stdout` content in the Android logs, adding some
+  features that make it easier to expose the original project source
+  code in the running app bundle, and enabling PEP517 builds of project
+  dependencies.
+- Briefcase is now able to [reference local source packages when
+  building Linux AppImage
+  binaries](https://github.com/beeware/briefcase/pull/1058).
+- Some errors caused by the way the Windows Store version of Python
+  handles local application data [have been
+  corrected](https://github.com/beeware/briefcase/pull/1054).
+- Briefcase's help text now [shows the list of platforms and output
+  formats](https://github.com/beeware/briefcase/pull/1005), rather than
+  requiring an additional help call to retrieve that information.
+- Some issues with thread and asyncio safety in Rubicon ObjC were
+  [identified and
+  resolved](https://github.com/beeware/rubicon-objc/pull/246), along
+  with an issue associated with the way some Objective C classes (such
+  as NSWindow) are [renamed at
+  runtime](https://github.com/beeware/rubicon-objc/pull/258).
+- Initial GUI testing backends for
+  [macOS](https://github.com/beeware/toga/pull/1707),
+  [iOS](https://github.com/beeware/toga/pull/1749) and
+  [GTK](https://github.com/beeware/toga/pull/1755) were added.
+- A long standing issue with the [replacement of root window
+  content](https://github.com/beeware/toga/issues/1439) on GTK and iOS
+  has been resolved.
+- Coverage testing was [added to the Toga Android GUI test
+  backend](https://github.com/beeware/toga/pull/1747).
+- An API was added to [allow scrolling MultilineTextInput
+  widgets](https://github.com/beeware/toga/pull/1728) to the top and
+  bottom of the widget content.
+- The work [moving Toga to use
+  Setuptools-SCM](https://github.com/beeware/toga/pull/1675) was
+  completed. Development versions of Toga will now report a specific
+  version control commit; release versions have their version determined
+  by the git tag used to produce the release.
+- We completed a major review of the way we're using Github issue
+  labels, and modified those labels to be consistent across all
+  repositories.
 
-What's next?
---------------
+## What's next?
 
-Much of the last 3 months have been spent getting a GUI testing framework in place for Toga. That work is now in place, so now we'll be working full time on writing GUI tests for Toga, with the aim of getting Toga to 100% coverage. Along the way, we'll discover all the edge cases, bugs, and partially missing implementations that are lurking in the individual Toga widgets. 
+Much of the last 3 months have been spent getting a GUI testing
+framework in place for Toga. That work is now in place, so now we'll be
+working full time on writing GUI tests for Toga, with the aim of getting
+Toga to 100% coverage. Along the way, we'll discover all the edge cases,
+bugs, and partially missing implementations that are lurking in the
+individual Toga widgets.
 
-Want to get involved?
------------------------
+## Want to get involved?
 
-Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
+Want to get involved? Here are some open issues that would be a great
+place to get started with contributing to a BeeWare project. They're all
+relatively minor changes, but would provide a big improvement to the
+lives of BeeWare users:
 
-1. `Modify the handling of app signing options <https://github.com/beeware/briefcase/issues/865>`__
-2. `Filter out a message generated after Xcode updates <https://github.com/beeware/briefcase/issues/780>`__
-3. `Add the ability to refresh the support package in a project <https://github.com/beeware/briefcase/issues/856>`__
-4. `Provide protection against creating projects with "semi-reserved" names <https://github.com/beeware/briefcase/issues/853>`__
-5. `Add the ability to configure the ABIs built by an Android project <https://github.com/beeware/briefcase/issues/808>`__
-6. `Add support for the ANDROID_HOME environment variable <https://github.com/beeware/briefcase/issues/463>`__
-7.  `Purge cache folders when installing app code in Briefcase <https://github.com/beeware/briefcase/issues/986>`__
-8. `Add a template branch option when creating a new project <https://github.com/beeware/briefcase/issues/1053>`__
-9. `Improve validation of project names in the Briefcase wizard <https://github.com/beeware/briefcase/issues/1011>`__
+1.  [Modify the handling of app signing
+    options](https://github.com/beeware/briefcase/issues/865)
+2.  [Filter out a message generated after Xcode
+    updates](https://github.com/beeware/briefcase/issues/780)
+3.  [Add the ability to refresh the support package in a
+    project](https://github.com/beeware/briefcase/issues/856)
+4.  [Provide protection against creating projects with "semi-reserved"
+    names](https://github.com/beeware/briefcase/issues/853)
+5.  [Add the ability to configure the ABIs built by an Android
+    project](https://github.com/beeware/briefcase/issues/808)
+6.  [Add support for the ANDROID\_HOME environment
+    variable](https://github.com/beeware/briefcase/issues/463)
+7.  [Purge cache folders when installing app code in
+    Briefcase](https://github.com/beeware/briefcase/issues/986)
+8.  [Add a template branch option when creating a new
+    project](https://github.com/beeware/briefcase/issues/1053)
+9.  [Improve validation of project names in the Briefcase
+    wizard](https://github.com/beeware/briefcase/issues/1011)
 
-Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a `guide on setting up a Briefcase development environment <https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html>`__; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the `BeeWare Discord server </bee/chat/>`__.
+Pick one of these tickets, drop a comment on the ticket to let others
+know you're looking at it, and try your hand at a PR! We have a [guide
+on setting up a Briefcase development
+environment](https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html);
+but if you need any additional assistance or guidance, you can ask on
+the ticket, or join us on the [BeeWare Discord server](/bee/chat/).
 
 ---
 pub_date: 2023-02-01

@@ -4,31 +4,80 @@ author: Russell Keith-Magee
 ---
 body:
 
-The main focus of the BeeWare team during August was binary module support on mobile platforms. Although we haven't got the final results of this work yet, we have significant progress to report for both iOS and Android. We've also had a number of other improvements land over the course of the month. 
+The main focus of the BeeWare team during August was binary module
+support on mobile platforms. Although we haven't got the final results
+of this work yet, we have significant progress to report for both iOS
+and Android. We've also had a number of other improvements land over the
+course of the month.
 
-What we've done
-----------------
+## What we've done
 
 During August:
 
-* We have continued to work on the changes needed to migrate Android support to Chaquopy. This has included some `major changes to the Android Gradle template <https://github.com/beeware/briefcase-android-gradle-template/pull/52>`__, and developing a Rubicon Java compatibility layer. Eventually, Toga will migrate to use the Chaquopy APIs directly, but in the interim, the Rubicon APIs will continue to work. 
-* We have started updating Chaquopy to support multiple Python versions. Historically, Chaquopy has only supported a single Python3 version (3.8); for compatibility with Briefcase, we are adding support for Python 3.9 and 3.10, as well as preparing the ground for a 3.11 release when Python 3.11 is finalised. 
-* We have modified the Python Apple support packages to `provide the binary portions of the Python standard library as dynamically loaded binary modules <https://github.com/beeware/Python-Apple-support/pull/161>`__, and modified the `iOS <https://github.com/beeware/briefcase-iOS-Xcode-template/pull/7>`__ and `macOS <https://github.com/beeware/briefcase-macOS-Xcode-template/pull/10>`__ templates to use and sign these binary modules. These changes haven't landed yet, but they have been tested on simulators and physical devices. Along the way, we've also updated the support packages to use OpenSSL 3. 
-* We have modified Briefcase to `make the Python support package optional <https://github.com/beeware/briefcase/pull/805>`__, at the discretion of the project template. This was needed because Chaquopy provides the Python library using a Gradle plugin, rather than requiring a project to source a pre-compiled support package.
-* We have addressed an issue with the way Briefcase handles `requirements references when they are relative file references <https://github.com/beeware/briefcase/pull/816>`__. Although this was added to allow rapid debugging of changes to Toga on Android, it also affected the recently added Linuxdeploy backend.
-* We've `added an "open" subcommand to Briefcase <https://github.com/beeware/briefcase/pull/846>`__, making it easier to open project-based templates in their respective IDEs.
-* We've `improved Android log handling <https://github.com/beeware/briefcase/pull/821>`__, ensuring that more app-specific logs are displayed to the user.
-* We've `dramatically improved our CI testing of Briefcase <https://github.com/beeware/briefcase/pull/844>`__. We now build an app on every platform we support, using every backend.
-* We've addressed a number of bugs in the Pack layout algorithm.
-* We've continued the process of making Toga widget APIs naming internally consistent. 
-* We've fixed some canvas bugs that were causing problems on Windowns with our native Matplotlib rendering backend, `toga-chart <https://github.com/beeware/toga-chart>`__.
-* We've addressed some bugs associated with `changing the main content of a Toga window <https://github.com/beeware/toga/pull/1572>`__.
-* We added an `initial implementation of a DetailedList widget on Windows <https://github.com/beeware/toga/pull/1574>`__.
+- We have continued to work on the changes needed to migrate Android
+  support to Chaquopy. This has included some [major changes to the
+  Android Gradle
+  template](https://github.com/beeware/briefcase-android-gradle-template/pull/52),
+  and developing a Rubicon Java compatibility layer. Eventually, Toga
+  will migrate to use the Chaquopy APIs directly, but in the interim,
+  the Rubicon APIs will continue to work.
+- We have started updating Chaquopy to support multiple Python versions.
+  Historically, Chaquopy has only supported a single Python3 version
+  (3.8); for compatibility with Briefcase, we are adding support for
+  Python 3.9 and 3.10, as well as preparing the ground for a 3.11
+  release when Python 3.11 is finalised.
+- We have modified the Python Apple support packages to [provide the
+  binary portions of the Python standard library as dynamically loaded
+  binary
+  modules](https://github.com/beeware/Python-Apple-support/pull/161),
+  and modified the
+  [iOS](https://github.com/beeware/briefcase-iOS-Xcode-template/pull/7)
+  and
+  [macOS](https://github.com/beeware/briefcase-macOS-Xcode-template/pull/10)
+  templates to use and sign these binary modules. These changes haven't
+  landed yet, but they have been tested on simulators and physical
+  devices. Along the way, we've also updated the support packages to use
+  OpenSSL 3.
+- We have modified Briefcase to [make the Python support package
+  optional](https://github.com/beeware/briefcase/pull/805), at the
+  discretion of the project template. This was needed because Chaquopy
+  provides the Python library using a Gradle plugin, rather than
+  requiring a project to source a pre-compiled support package.
+- We have addressed an issue with the way Briefcase handles
+  [requirements references when they are relative file
+  references](https://github.com/beeware/briefcase/pull/816). Although
+  this was added to allow rapid debugging of changes to Toga on Android,
+  it also affected the recently added Linuxdeploy backend.
+- We've [added an "open" subcommand to
+  Briefcase](https://github.com/beeware/briefcase/pull/846), making it
+  easier to open project-based templates in their respective IDEs.
+- We've [improved Android log
+  handling](https://github.com/beeware/briefcase/pull/821), ensuring
+  that more app-specific logs are displayed to the user.
+- We've [dramatically improved our CI testing of
+  Briefcase](https://github.com/beeware/briefcase/pull/844). We now
+  build an app on every platform we support, using every backend.
+- We've addressed a number of bugs in the Pack layout algorithm.
+- We've continued the process of making Toga widget APIs naming
+  internally consistent.
+- We've fixed some canvas bugs that were causing problems on Windowns
+  with our native Matplotlib rendering backend,
+  [toga-chart](https://github.com/beeware/toga-chart).
+- We've addressed some bugs associated with [changing the main content
+  of a Toga window](https://github.com/beeware/toga/pull/1572).
+- We added an [initial implementation of a DetailedList widget on
+  Windows](https://github.com/beeware/toga/pull/1574).
 
-What's next?
--------------
+## What's next?
 
-In September, we hope to wrap up the work on binary dependencies. On Android, this is mostly a matter of completing the work to support multiple Python versions. On iOS, we need to develop the tools to manage the compilation of third-party binary libraries. We have an initial proof of concept of this; we need to finish these tools, and develop the infrastructure to distribute. We're also hoping to start conversations with the Anaconda team about Conda integration with Briefcase, and start improving GUI testing in Toga.
+In September, we hope to wrap up the work on binary dependencies. On
+Android, this is mostly a matter of completing the work to support
+multiple Python versions. On iOS, we need to develop the tools to manage
+the compilation of third-party binary libraries. We have an initial
+proof of concept of this; we need to finish these tools, and develop the
+infrastructure to distribute. We're also hoping to start conversations
+with the Anaconda team about Conda integration with Briefcase, and start
+improving GUI testing in Toga.
 
 ---
 pub_date: 2022-09-01

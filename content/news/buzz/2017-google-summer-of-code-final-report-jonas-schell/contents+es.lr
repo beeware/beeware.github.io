@@ -4,66 +4,130 @@ author: Jonas Schell
 ---
 body:
 
-Google Summer of Code 2017 está llegando a su fin. Después de tres meses de trabajo en el proyecto BeeWare, quisiera resumir mi trabajo y compartir mis experiencias.
+Google Summer of Code 2017 está llegando a su fin. Después de tres meses
+de trabajo en el proyecto BeeWare, quisiera resumir mi trabajo y
+compartir mis experiencias.
 
-"Ningún plan de batalla sobrevive al primer contacto".
---------------------------------------------------------------------
-Esta fue una de las primeras cosas que Russell me dijo después de que decidimos fundamentalmente reestructurar mi `calendario y metas de GSoC propuestos <https://github.com/beeware/toga/issues/118>`__. Durante el período inicial con la comunidad descubrimos que Toga era aún más difícil de probar como esperábamos. El estrecho acoplamiento entre el código independiente de la plataforma en  Toga-Core y las implementaciones dependientes de la plataforma para (Windows, MacOS, iOS, Linux, Android, Django, ...) nos estaba dando problemas para escribir pruebas significativas.
+## "Ningún plan de batalla sobrevive al primer contacto".
 
-Esperamos que Toga se convierta en un proyecto de tamaño decente, por lo tanto queremos que tenga una base sólida y bien probada. Por esta razón, decidimos que pasaría la mayor parte de GSoC para reestructurar Toga para que ejecutar pruebas resultara más fácil de hacer. Además de eso, también añadiría pruebas de implementación para comprobar si un backend dado se implementa de la manera correcta. Si terminara antes del final del verano, empezaría con mi propuesta de proyecto original.
+Esta fue una de las primeras cosas que Russell me dijo después de que
+decidimos fundamentalmente reestructurar mi [calendario y metas de GSoC
+propuestos](https://github.com/beeware/toga/issues/118). Durante el
+período inicial con la comunidad descubrimos que Toga era aún más
+difícil de probar como esperábamos. El estrecho acoplamiento entre el
+código independiente de la plataforma en Toga-Core y las
+implementaciones dependientes de la plataforma para (Windows, MacOS,
+iOS, Linux, Android, Django, ...) nos estaba dando problemas para
+escribir pruebas significativas.
 
-La gran reestructuración de Toga
-------------------------------------------
-Con los nuevos objetivos y una nueva rama comencé el viaje para reestructurar el proyecto Toga para hacerlo más fácil de probar.
+Esperamos que Toga se convierta en un proyecto de tamaño decente, por lo
+tanto queremos que tenga una base sólida y bien probada. Por esta razón,
+decidimos que pasaría la mayor parte de GSoC para reestructurar Toga
+para que ejecutar pruebas resultara más fácil de hacer. Además de eso,
+también añadiría pruebas de implementación para comprobar si un backend
+dado se implementa de la manera correcta. Si terminara antes del final
+del verano, empezaría con mi propuesta de proyecto original.
 
-Después de hackear y probar diferentes cosas en una `rama separada <https://github.com/Ocupe/restruc_toga>`__. Identifiqué que las dependencias entrelazadas de la plataforma son el problema principal. Para separar el módulo Toga-Core de sus implementaciones de backend decidimos usar el patrón de fábrica en lugar del modelo de herencia que teníamos antes. Ahora cada backend tiene su propia fábrica que produce los widgets adecuados para la plataforma en la que se está ejecutando. De esta manera tenemos una clara separación entre Toga-Core y el nivel de implementación. Las dependencias de la plataforma ahora están incluidas en el nivel de implementación.
+## La gran reestructuración de Toga
 
-Después de que la nueva estructura fuera clara porté Toga-Core así como los backends para el Cocoa, iOS y GTK. Hice esto en la rama de Toga `(La gran reestructuración de Toga [WIP] # 185) <https://github.com/beeware/toga/pull/185>`__.
+Con los nuevos objetivos y una nueva rama comencé el viaje para
+reestructurar el proyecto Toga para hacerlo más fácil de probar.
 
-En la práctica, esto significaba que tenía que tocar manualmente casi todos los widgets de todos los backends para conectarlos al nuevo patrón de fábrica.
+Después de hackear y probar diferentes cosas en una [rama
+separada](https://github.com/Ocupe/restruc_toga). Identifiqué que las
+dependencias entrelazadas de la plataforma son el problema principal.
+Para separar el módulo Toga-Core de sus implementaciones de backend
+decidimos usar el patrón de fábrica en lugar del modelo de herencia que
+teníamos antes. Ahora cada backend tiene su propia fábrica que produce
+los widgets adecuados para la plataforma en la que se está ejecutando.
+De esta manera tenemos una clara separación entre Toga-Core y el nivel
+de implementación. Las dependencias de la plataforma ahora están
+incluidas en el nivel de implementación.
 
-Desafíos
-------------
-Toga habla con los frameworks nativos GUI, por lo tanto tuve que tener un buen entendimiento acerca de los principios y conceptos detrás de cada uno de estos marcos. A veces me sentía abrumado por la complejidad combinada de todas las partes que componen Toga. La siguiente es la lista:
+Después de que la nueva estructura fuera clara porté Toga-Core así como
+los backends para el Cocoa, iOS y GTK. Hice esto en la rama de Toga [(La
+gran reestructuración de Toga \[WIP\] \#
+185)](https://github.com/beeware/toga/pull/185).
 
-* Cada backend de Toga se envuelve alrededor de un marco existente y único. Para envolver el marco que tiene que entender el marco.
-* "Me encanta Python, ¿por qué tengo que entender Objetive C"? Para trabajar eficazmente en los backends de iOS y macOS, tenía que aprender los conceptos básicos del Objetivo C, aunque sólo fuera para leer los documentos de Apple.
-* Toga tiene un montón de partes móviles. Hay backends, marcos, librerías para hablar con backends, librerías para realizar el diseño de la interfaz de usuario y más. Me tomó una buena cantidad de tiempo para entender todas estas partes. Lo siguiente es sólo una visión general de los conocimientos recién adquiridos durante GSoC:
+En la práctica, esto significaba que tenía que tocar manualmente casi
+todos los widgets de todos los backends para conectarlos al nuevo patrón
+de fábrica.
 
-* `Rubicon-ObjC <https://github.com/beeware/rubicon-objc>`__ para hablar con los backends de iOS y macOS.
-* `Colosseum </project/utilities/colosseum/>`__ para entender y solucionar problemas de diseño.
-* `Módulo AST <https://docs.python.org/3.6/library/ast.html>`__ para realizar las pruebas de implementación.
-* El uso de patrones de diseño
-* Cómo estructurar grandes proyectos.
-* Leer y entender grandes y complejos pedazos de código.
+## Desafíos
 
-Otro trabajo que realicé
---------------------------------
+Toga habla con los frameworks nativos GUI, por lo tanto tuve que tener
+un buen entendimiento acerca de los principios y conceptos detrás de
+cada uno de estos marcos. A veces me sentía abrumado por la complejidad
+combinada de todas las partes que componen Toga. La siguiente es la
+lista:
 
-* PR: Translated part of the beeware.org webpage into german. `(PR #173) <https://github.com/beeware/beeware.github.io/pull/173>`__
-* Helped newcomers on Gitter and GitHub.
-* Tested if Toga would profit from static typing `(toga/static_typing) <https://github.com/Ocupe/toga/tree/static_typing>`__.
-* Created an implementation test suite based on the AST module.
-* Added test for Toga-Core.
-* Updated and extended documentation on Toga-Core as well as the macOS and iOS Backend.
-* Created a toga-dummy backend.
-* First draft of the Settings API and working backend implementation for macOS.
-* Many small and big fixes on Toga-Core, cocoa, iOS, and GTK backends. All in the main PR `beeware/toga The Big Restructure of Toga [WIP] <https://github.com/beeware/toga/pull/185>`__
-* PR: `beeware/toga fix for getting the length of the filenames array <https://github.com/beeware/toga/pull/171>`__
-* PR: `beeware/toga Fixed #189 cocoa.progressbar with rehint <https://github.com/beeware/toga/pull/193>`__
-* PR: `beeware/briefcase-template Fix for spaces in app name. Issue #2 <https://github.com/beeware/briefcase-template/pull/3>`__
-* PR: `beeware/toga Toga Settings API [WIP] <https://github.com/beeware/toga/pull/222>`__
+- Cada backend de Toga se envuelve alrededor de un marco existente y
+  único. Para envolver el marco que tiene que entender el marco.
+- "Me encanta Python, ¿por qué tengo que entender Objetive C"? Para
+  trabajar eficazmente en los backends de iOS y macOS, tenía que
+  aprender los conceptos básicos del Objetivo C, aunque sólo fuera para
+  leer los documentos de Apple.
+- Toga tiene un montón de partes móviles. Hay backends, marcos,
+  librerías para hablar con backends, librerías para realizar el diseño
+  de la interfaz de usuario y más. Me tomó una buena cantidad de tiempo
+  para entender todas estas partes. Lo siguiente es sólo una visión
+  general de los conocimientos recién adquiridos durante GSoC:
+- [Rubicon-ObjC](https://github.com/beeware/rubicon-objc) para hablar
+  con los backends de iOS y macOS.
+- [Colosseum](/project/utilities/colosseum/) para entender y solucionar
+  problemas de diseño.
+- [Módulo AST](https://docs.python.org/3.6/library/ast.html) para
+  realizar las pruebas de implementación.
+- El uso de patrones de diseño
+- Cómo estructurar grandes proyectos.
+- Leer y entender grandes y complejos pedazos de código.
 
-Futuro trabajo por hacer
-------------------------------
+## Otro trabajo que realicé
 
-* Todo mi trabajo se encuentra en el PR `"La gran reestructuración de Toga [WIP]" <https://github.com/beeware/toga/pull/185>`__. Después de que los backends que faltan, a saber, Windows y Android, se incluyan, todo se puede emerger con la rama master. Tenemos que esperar a los backends que faltan, porque el nuevo esquema es incompatible con las versiones antiguas y no pueden coexistir.
+- PR: Translated part of the beeware.org webpage into german. [(PR
+  \#173)](https://github.com/beeware/beeware.github.io/pull/173)
+- Helped newcomers on Gitter and GitHub.
+- Tested if Toga would profit from static typing
+  [(toga/static\_typing)](https://github.com/Ocupe/toga/tree/static_typing).
+- Created an implementation test suite based on the AST module.
+- Added test for Toga-Core.
+- Updated and extended documentation on Toga-Core as well as the macOS
+  and iOS Backend.
+- Created a toga-dummy backend.
+- First draft of the Settings API and working backend implementation for
+  macOS.
+- Many small and big fixes on Toga-Core, cocoa, iOS, and GTK backends.
+  All in the main PR [beeware/toga The Big Restructure of Toga
+  \[WIP\]](https://github.com/beeware/toga/pull/185)
+- PR: [beeware/toga fix for getting the length of the filenames
+  array](https://github.com/beeware/toga/pull/171)
+- PR: [beeware/toga Fixed \#189 cocoa.progressbar with
+  rehint](https://github.com/beeware/toga/pull/193)
+- PR: [beeware/briefcase-template Fix for spaces in app name. Issue
+  \#2](https://github.com/beeware/briefcase-template/pull/3)
+- PR: [beeware/toga Toga Settings API
+  \[WIP\]](https://github.com/beeware/toga/pull/222)
 
-* La API de configuración de mi propuesta original no se ha terminado debido a las razones mencionadas anteriormente. Tengo un primer borrador de trabajo y seguiré trabajando en él después de GSoC en `este Pull Request <https://github.com/beeware/toga/pull/222>`__.
+## Futuro trabajo por hacer
 
-"Shout out"
----------------
-Me gustaría dar las gracias a Russell Keith-Magee por ser un Mentor impresionante y por todo el tiempo que invirtió en mí durante GSoC. También quiero agradecer a la comunidad BeeWare por ayudarme cuando alguna vez tuve un problema. ¡Gracias!
+- Todo mi trabajo se encuentra en el PR ["La gran reestructuración de
+  Toga \[WIP\]"](https://github.com/beeware/toga/pull/185). Después de
+  que los backends que faltan, a saber, Windows y Android, se incluyan,
+  todo se puede emerger con la rama master. Tenemos que esperar a los
+  backends que faltan, porque el nuevo esquema es incompatible con las
+  versiones antiguas y no pueden coexistir.
+- La API de configuración de mi propuesta original no se ha terminado
+  debido a las razones mencionadas anteriormente. Tengo un primer
+  borrador de trabajo y seguiré trabajando en él después de GSoC en
+  [este Pull Request](https://github.com/beeware/toga/pull/222).
+
+## "Shout out"
+
+Me gustaría dar las gracias a Russell Keith-Magee por ser un Mentor
+impresionante y por todo el tiempo que invirtió en mí durante GSoC.
+También quiero agradecer a la comunidad BeeWare por ayudarme cuando
+alguna vez tuve un problema. ¡Gracias!
+
 ---
 pub_date: 2017-08-22
 ---
