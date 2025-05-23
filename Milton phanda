@@ -1,0 +1,229 @@
+import MetaTrader5 as mt5
+
+def connect_mt5(login, password, server):
+    if not mt5.initialize(login=login, password=password, server=server):
+        raise Exception("MT5 connection failed: " + mt5.last_error()[1])
+    return True
+
+def disconnect_mt5():
+    mt5.shutdown()
+import MetaTrader5 as mt5
+
+def get_account_info():
+    account = mt5.account_info()
+    if account is None:
+        raise Exception("Failed to get account info")
+    return {
+        "balance": account.balance,
+        "equity": account.equity,
+        "profit": account.profit,
+        "margin": account.margin,
+    }
+
+def get_open_trades():
+    positions = mt5.positions_get()
+    return [dict(pos._asdict()) for pos in positions] if positions else []
+
+def get_trade_history(from_date, to_date):
+    deals = mt5.history_deals_get(from_date, to_date)
+    return [dict(deal._asdict()) for deal in deals] if deals else []
+class RobotSettings:
+    def __init__(self, lot_size=0.01, risk_percent=1.0, symbols=None):
+        self.lot_size = lot_size
+        self.risk_percent = risk_percent
+        self.symbols = symbols or ["XAUUSD", "NAS100", "US30"]
+
+    def update(self, lot_size=None, risk_percent=None, symbols=None):
+        if lot_size is not None:
+            self.lot_size = lot_size
+        if risk_percent is not None:
+            self.risk_percent = risk_percent
+        if symbols is not None:
+            self.symbols = symbols
+import requests
+
+# You must get your OneSignal REST API key and App ID from your OneSignal dashboard
+ONESIGNAL_APP_ID = "YOUR-ONESIGNAL-APP-ID"
+ONESIGNAL_API_KEY = "YOUR-ONESIGNAL-REST-API-KEY"
+
+def send_notification(title, message, player_ids):
+    url = "https://onesignal.com/api/v1/notifications"
+    headers = {
+        "Authorization": f"Basic {ONESIGNAL_API_KEY}",
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "app_id": ONESIGNAL_APP_ID,
+        "include_player_ids": player_ids,
+        "headings": {"en": title},
+        "contents": {"en": message}
+    }
+    response = requests.post(url, json=payload, headers=headers)
+    if not response.ok:
+        raise Exception(f"Notification failed: {response.text}")
+    return response.json()
+import toga
+from toga.style import Pack
+from toga.style.pack import COLUMN, ROW
+
+class MiltonPandaApp(toga.App):
+    def startup(self):
+        main_box = toga.Box(style=Pack(direction=COLUMN))
+        # Add navigation and page widgets here
+        # Example: Dashboard, Open Trades, Settings, Manual Trading, etc.
+        self.main_window = toga.MainWindow(title=self.formal_name)
+        self.main_window.content = main_box
+        self.main_window.show()
+
+def main():
+    return MiltonPandaApp("Milton Panda", "com.example.miltonpanda")
+# Packaging with BeeWare/Briefcase for Android
+
+1. Install BeeWare tools:
+
+2. Create your project structure (if not already):
+
+3. Add dependencies to `pyproject.toml`:
+
+4. Build for Android:
+
+5. For OneSignal, you may need to write platform-specific code (Java/Kotlin) or use a REST API for notifications.
+import MetaTrader5 as mt5
+
+def connect_mt5(login, password, server):
+    if not mt5.initialize(login=login, password=password, server=server):
+        raise Exception(f"MT5 connection failed: {mt5.last_error()}")
+    return True
+
+def disconnect_mt5():
+    mt5.shutdown()
+import MetaTrader5 as mt5
+from datetime import datetime, timedelta
+
+def get_account_info():
+    account = mt5.account_info()
+    if account is None:
+        raise Exception("Failed to get account info")
+    return {
+        "login": account.login,
+        "balance": account.balance,
+        "equity": account.equity,
+        "profit": account.profit,
+        "margin": account.margin,
+        "currency": account.currency,
+    }
+
+def get_open_trades():
+    positions = mt5.positions_get()
+    return [dict(pos._asdict()) for pos in positions] if positions else []
+
+def get_trade_history(days=7):
+    to_date = datetime.now()
+    from_date = to_date - timedelta(days=days)
+    deals = mt5.history_deals_get(from_date, to_date)
+    return [dict(deal._asdict()) for deal in deals] if deals else []
+class RobotSettings:
+    def __init__(self, lot_size=0.01, risk_percent=1.0, symbols=None):
+        self.lot_size = lot_size
+        self.risk_percent = risk_percent
+        self.symbols = symbols or ["XAUUSD", "NAS100", "US30"]
+
+    def update(self, lot_size=None, risk_percent=None, symbols=None):
+        if lot_size is not None:
+            self.lot_size = lot_size
+        if risk_percent is not None:
+            self.risk_percent = risk_percent
+        if symbols is not None:
+            self.symbols = symbols
+
+    def as_dict(self):
+        return {
+            "lot_size": self.lot_size,
+            "risk_percent": self.risk_percent,
+            "symbols": self.symbols,
+        }
+import MetaTrader5 as mt5
+
+def send_order(symbol, lot, order_type, sl=None, tp=None):
+    order_mapping = {
+        "buy": mt5.ORDER_TYPE_BUY,
+        "sell": mt5.ORDER_TYPE_SELL
+    }
+    if order_type not in order_mapping:
+        raise ValueError("order_type must be 'buy' or 'sell'")
+    price = mt5.symbol_info_tick(symbol).ask if order_type == "buy" else mt5.symbol_info_tick(symbol).bid
+    request = {
+        "action": mt5.TRADE_ACTION_DEAL,
+        "symbol": symbol,
+        "volume": lot,
+        "type": order_mapping[order_type],
+        "price": price,
+        "sl": sl,
+        "tp": tp,
+        "deviation": 10,
+        "magic": 123456,
+        "comment": "Milton Panda Manual Trade"
+    }
+    result = mt5.order_send(request)
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+        raise Exception(f"Trade failed: {result.comment}")
+    return result
+import requests
+
+ONESIGNAL_APP_ID = "YOUR-ONESIGNAL-APP-ID"
+ONESIGNAL_API_KEY = "YOUR-ONESIGNAL-REST-API-KEY"
+
+def send_notification(title, message, player_ids):
+    url = "https://onesignal.com/api/v1/notifications"
+    headers = {
+        "Authorization": f"Basic {ONESIGNAL_API_KEY}",
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "app_id": ONESIGNAL_APP_ID,
+        "include_player_ids": player_ids,
+        "headings": {"en": title},
+        "contents": {"en": message}
+    }
+    response = requests.post(url, json=payload, headers=headers)
+    if not response.ok:
+        raise Exception(f"Notification failed: {response.text}")
+    return response.json()
+# Packaging with BeeWare/Briefcase for Android
+
+1. **Install BeeWare tools:**
+   ```sh
+   pip install beeware briefcase
+   ```
+
+2. **Create your project structure:**
+   ```sh
+   briefcase new
+   ```
+
+3. **Add dependencies to `pyproject.toml`:**
+   ```toml
+   [tool.briefcase.app.miltonpanda]
+   requirements = ["MetaTrader5", "toga", "requests"]
+   ```
+
+4. **Build for Android:**
+   ```sh
+   briefcase create android
+   briefcase build android
+   briefcase run android
+   ```
+
+5. **Notes:**
+   - OneSignal notifications via REST API are supported from Python.
+   - For native push, further Android integration may be needed.
+milton_panda/
+│
+├── mt5_connection.py
+├── real_time_data.py
+├── robot_settings.py
+├── manual_trading.py
+├── notifications.py
+├── ui_main.py         # Main Toga UI and app entrypoint
+├── __init__.py
+└── (other resources)
