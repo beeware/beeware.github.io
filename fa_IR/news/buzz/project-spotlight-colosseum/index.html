@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Project Spotlight: Colosseum— BeeWare</title>
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/images/brutus-114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/images/brutus-72.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/images/brutus-57.png">
+    <link rel="shortcut icon" href="/static/images/brutus-32.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap-grid.min.css">
+
+    <!-- Project CSS -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cutive">
+    <link rel="stylesheet" type="text/css" href="/static/beeware.css"><link rel="stylesheet" type="text/css" href="/static/rtl.css"><!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/078c86a30a.js" crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2943925-4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-2943925-4');
+    </script></head>
+  <body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="nav-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-brand-block">
+      <a class="navbar-brand" href="/fa_IR/"><img class="mx-2" src="/static/images/brutus-32.png?h=e18afe42">BeeWare</a>
+    </div>
+  </div>
+  <div class="collapse navbar-collapse" id="navbarsDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+    <a class="nav-link" href="/fa_IR/about/">
+About
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/fa_IR/project/">
+Projects
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/fa_IR/community/">
+Community
+</a>
+  </li>
+      <li class="nav-item">
+    <a class="nav-link" href="/fa_IR/contributing/">
+Contributing
+</a>
+  </li>
+      <li class="nav-item active">
+    <a class="nav-link" href="/fa_IR/news/">
+News
+<span class="sr-only">(current)</span></a>
+  </li>
+      <li class="nav-item">
+        <a class="nav-link" href=/fa_IR/membership/>
+          
+Donate
+
+        </a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/new/lektor/content/news/buzz/project-spotlight-colosseum/contents%2Bfa.lr?filename=contents%2Bfa.lr&value=title%3A+Project+Spotlight%3A+Colosseum%0A---%0Apub_date%3A+2017-10-06%0A---%0Aauthor%3A+Russell+Keith-Magee%0A---%0Abody%3A%0A%0A%2AThis+article+was+originally+published+on+the+BeeWare+Enthusiasts%0Amailing+list.+If+you%27d+like+to+receive+regular+updates+about+the+BeeWare%0Aproject%2C+why+not%2A+%5Bsubscribe%5D%28%2Fcommunity%2Fkeep-informed%2F%29%3F%0A%0AWhen+you%27re+designing+a+GUI+app+-+be+it+for+desktop%2C+mobile%2C+or%0Abrowser+-+one+of+the+most+fundamental+tasks+is+describing+how+to+lay%0Awidgets+out+the+screen.+Most+widget+toolkits+will+use+a+grid+or+box%0Apacking+model+of+some+kind+to+solve+this+problem.+These+models+tend+to%0Abe+relatively+easy+to+get+started%2C+but+rapidly+fall+apart+when+you+have%0Acomplex+layout+needs+-+or+when+you+have+layouts+that+need+to+adapt+to%0Adifferent+screen+sizes.%0A%0AInstead+of+inventing+a+new+grid+or+box+model%2C+the%0A%5BToga%5D%28https%3A%2F%2Ftoga.readthedocs.io%29+widget+toolkit+takes+a+different%0Aapproach%2C+using+a+well+known+scheme+for+laying+out+content%3A+%5BCascading%0AStyle+Sheets%5D%28https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FCascading_Style_Sheets%29%2C+or%0ACSS.+Although+CSS+is+best+known+for+specifying+layout+in+web+pages%2C%0Athere%27s+nothing+inherently+web+specific+about+it.+At+the+end+of+the+day%2C%0Ait%27s+a+system+for+describing+the+layout+of+a+hierarchical+collection+of%0Acontent+nodes.+However%2C+to+date%2C+every+implementation+of+CSS+is+bound+to%0Aa+browser%2C+so+the+perception+is+that+CSS+is+a+browser-specific+standard.%0A%0AThat%27s+where+%5BColosseum%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Fcolosseum%29+comes+in.%0AColosseum+is+a+browser+independent+implementation+of+a+CSS+rendering%0Aengine.+It+takes+a+tree+of+content+%22nodes%22+-+such+as+a+DOM+from+a+HTML%0Adocument+-+an+applies+CSS+styling+instructions+to+layout+those+nodes+as%0Aboxes+on+the+screen.+In+the+case+of+Toga%2C+instead+of+laying+out+%60%3Cdiv%3E%60%0Aand+%60%3Cspan%3E%60+elements%2C+you+lay+out+Box+and+Button+objects.+This+allows%0Ayou+to+specify+incredibly+complex%2C+adaptive+layouts+for+Toga%0Aapplications.%0A%0ABut+Colosseum+as+a+project+has+many+other+possible+uses.+It+could+be%0Aused+anywhere+that+there+is+a+need+for+describing+layout+%2Aoutside%2A+a%0Abrowser+context.+For+example%2C+Colosseum+could+be+the+cornerstone+of+a%0AHTML+to+PDF+renderer+that+%2Adoesn%27t%2A+require+the+involvement+of+a%0Abrowser.+It+could+also+be+used+as+a+test+harness+and+reference%0Aimplementation+for+the+CSS+specification+itself%2C+providing+a+lightweight%0Away+to+encode+and+test+proposed+changes+to+the+specification.%0A%0AThe+current+implementation+is+based+on+Facebook%27s%0A%5Byoga%5D%28https%3A%2F%2Fgithub.com%2Ffacebook%2Fyoga%29+project+-+it+was+originally+a%0Aline-for-line+port+of+yoga%27s+javascript+codebase+into+Python.+However%2C%0Ayoga+only+implements+the+Flexbox+portion+of+the+CSS3+specification.%0A%0AThis+week%2C+we+started+a+big+project%3A+rewriting+Colosseum+to+be+a+fully%0Astandard-compliant+CSS+engine.+The+work+so+far+can+be+found+in+the+globe%0Abranch+of+the+colosseum+repository+on+Github.+The+first+goal+is+CSS2.1%0Acompliance%2C+with+an+implementation+of+the+traditional+CSS+box+model+and%0Aflow+layout.+Once+we%27ve+got+a+reasonable+implementation+of+that%2C+we%27ll%0Alook+to+adding+Grid+and+FlexBox+layouts+from+the+CSS3+specification+set.%0A%0AThis+is+obviously+a+big+job.+%5BCSS+is+a+big%0Aspecification%5D%28https%3A%2F%2Fwww.w3.org%2FTR%2FCSS%2F%23css-levels%29%2C+so+there%27s+a+lot%0Aof+work+to+be+done+-+but+that+also+means+there%27s+lots+of+places+to%0Acontribute%21+Pick+a+paragraph+of+the+CSS+specification%2C+build+some+test%0Acases+that+demonstrate+the+cases+described+in+that+paragraph%2C+and+submit%0Aa+patch+implementing+that+behaviour%21%0A%0AIt+also+highlights+why+your+financial+support+is+so+important.+While+we%0A%2Acould%2A+do+this+entirely+with+volunteered+effort%2C+we%27re+going+to+make%0Amuch+faster+progress+if+a+small+group+of+people+could+focus+on+this%0Aproject+full+time.+Financial+support+would+allow+up+to+significantly%0Aramp+up+the+development+speed+of+Colosseum%2C+and+the+rest+of+the+BeeWare%0Asuite.%0A%0AIf+you+would+like+to+see+Colosseum+and+the+rest+of+BeeWare+develop+to%0Athe+point+where+it+can+be+used+for+commercial+applications%2C+please%0Aconsider+supporting+BeeWare+financially.+And+if+you+have+any+leads+for%0Alarger+potential+sources+of+funding%2C+please+%5Bget+in%0Atouch%5D%28mailto%3Arussell%40keith-magee.com%29.%0A%0A---%0Amastodon_handle%3A+%40freakboy3742%40cloudisland.nz%0A" target="_blank">
+            <i class="fa fa-github "></i><small>&nbsp;
+Translate on GitHub
+</small>
+          </a></li>
+     <li class="nav-item dropdown dropdown-pull-right">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item " href="/news/buzz/project-spotlight-colosseum/">
+          English
+          </a><a class="dropdown-item " href="/ar_AR/news/buzz/project-spotlight-colosseum/">
+          
+العَرَبِيَّة
+
+          </a><a class="dropdown-item " href="/cs_CZ/news/buzz/project-spotlight-colosseum/">
+          
+Čeština
+
+          </a><a class="dropdown-item " href="/da_DK/news/buzz/project-spotlight-colosseum/">
+          
+Dansk
+
+          </a><a class="dropdown-item " href="/de_DE/news/buzz/project-spotlight-colosseum/">
+          
+Deutsch
+
+          </a><a class="dropdown-item " href="/es/noticias/zumbido/proyecto-destacado-colosseum/">
+          
+Español
+
+          </a><a class="dropdown-item active" href="/fa_IR/news/buzz/project-spotlight-colosseum/">
+          
+فارسی
+
+          </a><a class="dropdown-item " href="/fr_FR/news/buzz/project-spotlight-colosseum/">
+          
+Français
+
+          </a><a class="dropdown-item " href="/it_IT/news/buzz/project-spotlight-colosseum/">
+          
+Italiano
+
+          </a><a class="dropdown-item " href="/ko_KR/news/buzz/project-spotlight-colosseum/">
+          
+한국어
+
+          </a><a class="dropdown-item " href="/pl_PL/news/buzz/project-spotlight-colosseum/">
+          
+Polski
+
+          </a><a class="dropdown-item " href="/pt_BR/news/buzz/project-spotlight-colosseum/">
+          
+Português
+
+          </a><a class="dropdown-item " href="/tr_TR/news/buzz/project-spotlight-colosseum/">
+          
+Türkçe
+
+          </a><a class="dropdown-item " href="/zh_CN/news/buzz/project-spotlight-colosseum/">
+          
+中文(简体)
+
+          </a><a class="dropdown-item " href="/zh_TW/news/buzz/project-spotlight-colosseum/">
+          
+中文(繁體)
+
+          </a></div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+    <div class="content">
+<div class="banner">
+  <div class="container">
+    <p>
+  
+
+  
+  
+  
+
+  
+  
+  
+
+  
+  <a href="/fa_IR/">
+Home
+</a>
+  
+ >
+  <a href="/fa_IR/news/">News</a>
+  
+ >
+  <a href="/fa_IR/news/buzz/">The Buzz</a>
+  
+</p>
+    <h1>Project Spotlight: Colosseum</h1>
+    <p>
+Posted by
+
+        
+        <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
+        
+        
+on
+ 2017/10/06
+    </p>
+  </div>
+</div>
+<div class="container">
+<div class="row-fluid">
+  <div class="col-sm-12 col-md-10 col-lg-8" >
+  
+
+  
+  
+
+  
+  <p><em>This article was originally published on the BeeWare Enthusiasts
+mailing list. If you'd like to receive regular updates about the BeeWare
+project, why not</em> <a href="/community/keep-informed/">subscribe</a>?</p>
+<p>When you're designing a GUI app - be it for desktop, mobile, or
+browser - one of the most fundamental tasks is describing how to lay
+widgets out the screen. Most widget toolkits will use a grid or box
+packing model of some kind to solve this problem. These models tend to
+be relatively easy to get started, but rapidly fall apart when you have
+complex layout needs - or when you have layouts that need to adapt to
+different screen sizes.</p>
+<p>Instead of inventing a new grid or box model, the
+<a href="https://toga.readthedocs.io">Toga</a> widget toolkit takes a different
+approach, using a well known scheme for laying out content: <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">Cascading
+Style Sheets</a>, or
+CSS. Although CSS is best known for specifying layout in web pages,
+there's nothing inherently web specific about it. At the end of the day,
+it's a system for describing the layout of a hierarchical collection of
+content nodes. However, to date, every implementation of CSS is bound to
+a browser, so the perception is that CSS is a browser-specific standard.</p>
+<p>That's where <a href="https://github.com/beeware/colosseum">Colosseum</a> comes in.
+Colosseum is a browser independent implementation of a CSS rendering
+engine. It takes a tree of content "nodes" - such as a DOM from a HTML
+document - an applies CSS styling instructions to layout those nodes as
+boxes on the screen. In the case of Toga, instead of laying out <code>&lt;div&gt;</code>
+and <code>&lt;span&gt;</code> elements, you lay out Box and Button objects. This allows
+you to specify incredibly complex, adaptive layouts for Toga
+applications.</p>
+<p>But Colosseum as a project has many other possible uses. It could be
+used anywhere that there is a need for describing layout <em>outside</em> a
+browser context. For example, Colosseum could be the cornerstone of a
+HTML to PDF renderer that <em>doesn't</em> require the involvement of a
+browser. It could also be used as a test harness and reference
+implementation for the CSS specification itself, providing a lightweight
+way to encode and test proposed changes to the specification.</p>
+<p>The current implementation is based on Facebook's
+<a href="https://github.com/facebook/yoga">yoga</a> project - it was originally a
+line-for-line port of yoga's javascript codebase into Python. However,
+yoga only implements the Flexbox portion of the CSS3 specification.</p>
+<p>This week, we started a big project: rewriting Colosseum to be a fully
+standard-compliant CSS engine. The work so far can be found in the globe
+branch of the colosseum repository on Github. The first goal is CSS2.1
+compliance, with an implementation of the traditional CSS box model and
+flow layout. Once we've got a reasonable implementation of that, we'll
+look to adding Grid and FlexBox layouts from the CSS3 specification set.</p>
+<p>This is obviously a big job. <a href="https://www.w3.org/TR/CSS/#css-levels">CSS is a big
+specification</a>, so there's a lot
+of work to be done - but that also means there's lots of places to
+contribute! Pick a paragraph of the CSS specification, build some test
+cases that demonstrate the cases described in that paragraph, and submit
+a patch implementing that behaviour!</p>
+<p>It also highlights why your financial support is so important. While we
+<em>could</em> do this entirely with volunteered effort, we're going to make
+much faster progress if a small group of people could focus on this
+project full time. Financial support would allow up to significantly
+ramp up the development speed of Colosseum, and the rest of the BeeWare
+suite.</p>
+<p>If you would like to see Colosseum and the rest of BeeWare develop to
+the point where it can be used for commercial applications, please
+consider supporting BeeWare financially. And if you have any leads for
+larger potential sources of funding, please <a href="mailto:russell@keith-magee.com">get in
+touch</a>.</p>
+
+
+  </div>
+  <div class="hidden-sm-down col-md-2 col-lg-4"></div>
+
+  <div class="col-sm-12 col-md-4 gutter">
+    <dl>
+      
+      <dt>
+Next entry
+</dt>
+      <dd><a href="/fa_IR/news/buzz/2018-google-summer-of-code-final-report-yap-boon-peng/">2018 Google Summer of Code - Implement asyncio support in VOC</a></dd>
+      
+
+      
+      <dt>
+Previous entry
+</dt>
+      <dd><a href="/fa_IR/news/buzz/2017-google-summer-of-code-final-report-dayanne-fernandes/">2017 Google Summer of Code - Port Cricket to use Toga, instead of Tkinter</a></dd>
+      
+    </dl>
+  </div></div>
+</div>
+    </div>
+
+    <footer class="footer">
+      <div class="container text-muted">
+	      <div class="d-block d-sm-none copyright">&copy; Russell Keith-Magee 2025</div>
+	      <div class="float-right clearfix d-sm-block d-none">&copy; Russell Keith-Magee 2025</div>
+        <p class="d-sm-block d-none">
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://beeware.org/bee/chat/"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i> Discord</a> |
+          <a href="https://fosstodon.org/@beeware"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i> Mastodon</a> |
+          <a href="/fa_IR/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+        <p class="d-block d-sm-none footer-social">
+          <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
+          <a href="https://beeware.org/bee/chat/"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i> Discord</a> |
+          <a rel="me" href="https://fosstodon.org/@beeware"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i> Mastodon</a>
+        </p>
+        <p class="d-block d-sm-none footer-sitemap">
+          <a href="/fa_IR/sitemap/"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> 
+Sitemap
+</a>
+        </p>
+        
+        
+          
+        <a rel="me" href="https://cloudisland.nz/@freakboy3742" style="display:none" ></a>
+          
+        
+          
+        <a rel="me" href="https://cloudisland.nz/@glasnt" style="display:none" ></a>
+          
+        
+          
+        <a rel="me" href="https://phildini.net/@phildini" style="display:none" ></a>
+          
+        
+          
+        <a rel="me" href="https://tweets.icu/@chris_swenson" style="display:none" ></a>
+          
+        
+          
+        
+          
+        
+          
+        <a rel="me" href="https://hachyderm.io/@cflee" style="display:none" ></a>
+          
+        
+          
+        <a rel="me" href="https://hachyderm.io/@charlotte" style="display:none" ></a>
+          
+        
+          
+        <a rel="me" href="https://fosstodon.org/@danyeaw" style="display:none" ></a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      </div>
+    </footer>
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+    <script src="/static/tether-1.3.3/js/tether.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script></body>
+</html>

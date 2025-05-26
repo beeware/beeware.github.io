@@ -72,7 +72,7 @@
 <span class="sr-only">(current)</span></a>
   </li>
       <li class="nav-item">
-        <a class="nav-link" href="/membership/">
+        <a class="nav-link" href=/ko_KR/membership/>
           
 기부하기
 
@@ -106,6 +106,10 @@ Deutsch
           </a><a class="dropdown-item " href="/es/noticias/zumbido/2018-google-summer-of-code-final-report-patience-shyu/">
           
 Español
+
+          </a><a class="dropdown-item " href="/fa_IR/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/">
+          
+فارسی
 
           </a><a class="dropdown-item " href="/fr_FR/news/buzz/2018-google-summer-of-code-final-report-patience-shyu/">
           
@@ -193,144 +197,174 @@ on
   
 
   
-  <p>Google Summer of Code is coming to an end. I've spent the summer working on optimizing the
-<a class="reference external" href="/project/attic/voc/">VOC compiler</a>, and I’m super excited to share the results.</p>
-<div class="section" id="results">
+  <p>Google Summer of Code is coming to an end. I've spent the summer working
+on optimizing the <a href="/project/attic/voc/">VOC compiler</a>, and I’m super
+excited to share the results.</p>
 <h2>Results</h2>
-<p>There are a couple of ways to evaluate the performance improvement from my project.</p>
-<div class="section" id="microbenchmarks">
+<p>There are a couple of ways to evaluate the performance improvement from
+my project.</p>
 <h3>Microbenchmarks</h3>
-<p>Firstly, we introduced a <a class="reference external" href="https://github.com/beeware/voc/blob/master/tests/microbenchmarks.py">microbenchmarking suite</a>. Each microbenchmark is a small piece
-of Python code that tests a single and specific Python construct, or datatype, or control flow.
-The benchmarking infrastructure itself is crude (essentially it just tells you the total amount
-of processor time it took to run, with no fancy statistics) but it has been extremely useful to
-me while working on performance features to verify performance gain.</p>
-<p>The idea is that the benchmarking suite is not to be run as part of the full test suite,
-but rather as needed and manually whenever an optimization is implemented. It also provides a way to
-check and prevent performance regression, especially on the &quot;optimized&quot; parts of VOC. While it
-doesn't really make sense to record specific numbers, as they will always vary from machine to machine,
-it should be reasonably easy to compare two versions of VOC. Benchmark numbers are included on each
-optimization-related PR I've worked on this summer (see PR log below), and I hope that more benchmarks
-will be added as more performance efforts are carried out in the future.</p>
-</div>
-<div class="section" id="pystone">
+<p>Firstly, we introduced a <a href="https://github.com/beeware/voc/blob/master/tests/microbenchmarks.py">microbenchmarking
+suite</a>.
+Each microbenchmark is a small piece of Python code that tests a single
+and specific Python construct, or datatype, or control flow. The
+benchmarking infrastructure itself is crude (essentially it just tells
+you the total amount of processor time it took to run, with no fancy
+statistics) but it has been extremely useful to me while working on
+performance features to verify performance gain.</p>
+<p>The idea is that the benchmarking suite is not to be run as part of the
+full test suite, but rather as needed and manually whenever an
+optimization is implemented. It also provides a way to check and prevent
+performance regression, especially on the "optimized" parts of VOC.
+While it doesn't really make sense to record specific numbers, as they
+will always vary from machine to machine, it should be reasonably easy
+to compare two versions of VOC. Benchmark numbers are included on each
+optimization-related PR I've worked on this summer (see PR log below),
+and I hope that more benchmarks will be added as more performance
+efforts are carried out in the future.</p>
 <h3>Pystone</h3>
-<p><a class="reference external" href="https://github.com/beeware/voc/blob/master/tests/benchmarks/pystone.py">Pystone</a> is a Python <a class="reference external" href="https://en.wikipedia.org/wiki/Dhrystone">Dhrystone</a>, a standard benchmark for testing the performance of Python on a machine.
+<p><a href="https://github.com/beeware/voc/blob/master/tests/benchmarks/pystone.py">Pystone</a>
+is a Python <a href="https://en.wikipedia.org/wiki/Dhrystone">Dhrystone</a>, a
+standard benchmark for testing the performance of Python on a machine.
 Here are the before and after results on my machine:</p>
 <p>May 10th, 2018:</p>
-<blockquote>
-<p>$ python setup.py test -s tests.test_pystone
-test_pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 101.833
-This machine benchmarks at 490.998 pystones/second</p>
-<p>$ python setup.py test -s tests.test_pystone
-test_pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 101.298
-This machine benchmarks at 493.595 pystones/second</p>
-<p>$ python setup.py test -s tests.test_pystone
-test_pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 102.247
-This machine benchmarks at 489.014 pystones/second</p>
-</blockquote>
+<pre><code>$ python setup.py test -s tests.test\_pystone test\_pystone
+(tests.test\_pystone.PystoneTest) ... Pystone(1.2) time for 50000
+passes = 101.833 This machine benchmarks at 490.998 pystones/second
+
+$ python setup.py test -s tests.test\_pystone test\_pystone
+(tests.test\_pystone.PystoneTest) ... Pystone(1.2) time for 50000
+passes = 101.298 This machine benchmarks at 493.595 pystones/second
+
+$ python setup.py test -s tests.test\_pystone test\_pystone
+(tests.test\_pystone.PystoneTest) ... Pystone(1.2) time for 50000
+passes = 102.247 This machine benchmarks at 489.014 pystones/second
+</code></pre>
 <p>On current master (Aug 14th, 2018):</p>
-<blockquote>
-<p>$ python setup.py test -s tests.test_pystone
-test_pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 11.2300
-This machine benchmarks at 4452.37 pystones/second</p>
-<p>$ python setup.py test -s tests.test_pystone
-test_pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 10.9833
-This machine benchmarks at 4552.36 pystones/second</p>
-<p>$ python setup.py test -s tests.test_pystone
-pystone (tests.test_pystone.PystoneTest) ...
-Pystone(1.2) time for 50000 passes = 10.9498
-This machine benchmarks at 4566.29 pystones/second</p>
-</blockquote>
-</div>
-</div>
-<div class="section" id="conclusions">
+<pre><code>$ python setup.py test -s tests.test\_pystone test\_pystone
+(tests.test\_pystone.PystoneTest) ... Pystone(1.2) time for 50000
+passes = 11.2300 This machine benchmarks at 4452.37 pystones/second
+
+$ python setup.py test -s tests.test\_pystone test\_pystone
+(tests.test\_pystone.PystoneTest) ... Pystone(1.2) time for 50000
+passes = 10.9833 This machine benchmarks at 4552.36 pystones/second
+
+$ python setup.py test -s tests.test\_pystone pystone
+(tests.test\_pystone.PystoneTest) ... Pystone(1.2) time for 50000
+passes = 10.9498 This machine benchmarks at 4566.29 pystones/second
+</code></pre>
 <h2>Conclusions</h2>
 <p>Some things that I learned about VOC while working on this project:</p>
-<p>1. Object creation in the JVM is expensive. This definitely does not mean that the VOC user
-writing Python should think about minimizing the number of objects that she creates, but rather
-that any time we can non-trivially reduce the number of objects created during bytecode
-transpilation or in VOC-defined function calls, we can expect to see a huge performance boost.
-<a class="reference external" href="https://github.com/beeware/voc/pull/825">Integer</a> and <a class="reference external" href="https://github.com/beeware/voc/pull/830">boolean preallocation</a>, which is about reusing objects that have already been created,
-was one of the most significant improvements we made this summer.</p>
-<p>2. Method calls in VOC are expensive. This is essentially due to the process of invoking a callable:
-you have to check that the method is defined on the object, then construct it (read: object creation!),
-and check the arguments, before it can actually be called. (This is done using reflection, which is super
-interesting and confusing in itself.) And this is the reason why <a class="reference external" href="https://github.com/beeware/voc/pull/875">refactoring the Python comparison functions</a>
-made such a big performance impact, because we were able to circumvent this process.</p>
-<p>3. Exception-heavy code is expensive. Again, this is not to say that the programmer is on the hook for being
-frugal when throwing exceptions, but that VOC benefits greatly by avoiding the use of exceptions internally
-except when strictly necessary. For instance, Python uses StopIteration exceptions to signal the end of a for loop,
-and they quickly rack up when you have nested loops (everything is ultimately related to object creation!). That was
-the motivation for the <a class="reference external" href="https://github.com/beeware/voc/pull/881">nested loops optimization</a>.</p>
-<p>If I may be a bit more reflective here, one of the a-ha! moments I had this summer was realizing that to really
-optimize something, you have to understand where its biggest problems are first. I remember pitching to Russ at
-the start of the summer things like loop unrolling, constant folding, even converting to SSA-form (you know, stuff I
-heard about optimization in my compilers class) and he was saying to me, think simpler. While working on my project,
-I used a <a class="reference external" href="https://www.ej-technologies.com/products/jprofiler/overview.html">profiler</a> to understand exactly which parts of VOC were slow, and that information drove the changes we
-implemented. I think it worked out pretty well!</p>
-</div>
-<div class="section" id="future-work">
+<p>1. Object creation in the JVM is expensive. This definitely does not
+mean that the VOC user writing Python should think about minimizing the
+number of objects that she creates, but rather that any time we can
+non-trivially reduce the number of objects created during bytecode
+transpilation or in VOC-defined function calls, we can expect to see a
+huge performance boost.
+<a href="https://github.com/beeware/voc/pull/825">Integer</a> and <a href="https://github.com/beeware/voc/pull/830">boolean
+preallocation</a>, which is about
+reusing objects that have already been created, was one of the most
+significant improvements we made this summer.</p>
+<p>2. Method calls in VOC are expensive. This is essentially due to the
+process of invoking a callable: you have to check that the method is
+defined on the object, then construct it (read: object creation!), and
+check the arguments, before it can actually be called. (This is done
+using reflection, which is super interesting and confusing in itself.)
+And this is the reason why <a href="https://github.com/beeware/voc/pull/875">refactoring the Python comparison
+functions</a> made such a big
+performance impact, because we were able to circumvent this process.</p>
+<p>3. Exception-heavy code is expensive. Again, this is not to say that
+the programmer is on the hook for being frugal when throwing exceptions,
+but that VOC benefits greatly by avoiding the use of exceptions
+internally except when strictly necessary. For instance, Python uses
+StopIteration exceptions to signal the end of a for loop, and they
+quickly rack up when you have nested loops (everything is ultimately
+related to object creation!). That was the motivation for the <a href="https://github.com/beeware/voc/pull/881">nested
+loops optimization</a>.</p>
+<p>If I may be a bit more reflective here, one of the a-ha! moments I had
+this summer was realizing that to really optimize something, you have to
+understand where its biggest problems are first. I remember pitching to
+Russ at the start of the summer things like loop unrolling, constant
+folding, even converting to SSA-form (you know, stuff I heard about
+optimization in my compilers class) and he was saying to me, think
+simpler. While working on my project, I used a
+<a href="https://www.ej-technologies.com/products/jprofiler/overview.html">profiler</a>
+to understand exactly which parts of VOC were slow, and that information
+drove the changes we implemented. I think it worked out pretty well!</p>
 <h2>Future Work</h2>
-<ul class="simple">
-<li>Minimize boxing of primitive types like String and Int. As VOC is written half in Python, half in Java, a single integer can be found in various representations on its way through the compiler -- as a Python object, unboxed to a primitive Java int, then packaged back up to a Python object. This problem was (somewhat incoherently) addressed in my proposal, but ultimately we couldn't come up with a good abstraction to support it.</li>
-<li>Build a peephole optimizer. <a class="reference external" href="https://github.com/python/cpython/blob/master/Python/peephole.c">CPython's peephole optimizer</a> scans generated bytecode to identify sequences of bytecode that can be optimized, VOC could benefit from this too.</li>
-<li>Hook up more benchmarks, which serve as both proof of the kinds of programs VOC can currently compile and areas ripe for performance improvement.</li>
+<ul>
+<li>Minimize boxing of primitive types like String and Int. As VOC is
+written half in Python, half in Java, a single integer can be found in
+various representations on its way through the compiler -- as a Python
+object, unboxed to a primitive Java int, then packaged back up to a
+Python object. This problem was (somewhat incoherently) addressed in
+my proposal, but ultimately we couldn't come up with a good
+abstraction to support it.</li>
+<li>Build a peephole optimizer. <a href="https://github.com/python/cpython/blob/master/Python/peephole.c">CPython's peephole
+optimizer</a>
+scans generated bytecode to identify sequences of bytecode that can be
+optimized, VOC could benefit from this too.</li>
+<li>Hook up more benchmarks, which serve as both proof of the kinds of
+programs VOC can currently compile and areas ripe for performance
+improvement.</li>
 </ul>
-</div>
-<div class="section" id="thank-you">
 <h2>Thank you</h2>
-<p>I will wrap this up by giving big thanks to <a class="reference external" href="https://github.com/freakboy3742">Russ</a>, my mentor. The time you spent helping
-me form my ideas, patiently answering my questions and reviewing my work was invaluable
-to me. It couldn't have been easy keeping up with what I was doing especially since I
-started improvising halfway through the summer. I am so grateful for your help, thank you.</p>
-</div>
-<div class="section" id="pr-log-in-chronological-order">
+<p>I will wrap this up by giving big thanks to
+<a href="https://github.com/freakboy3742">Russ</a>, my mentor. The time you spent
+helping me form my ideas, patiently answering my questions and reviewing
+my work was invaluable to me. It couldn't have been easy keeping up with
+what I was doing especially since I started improvising halfway through
+the summer. I am so grateful for your help, thank you.</p>
 <h2>PR Log (in chronological order)</h2>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/beeware/voc/issues/772">Original Proposal (with weekly status updates)</a></li>
+<ul>
+<li><a href="https://github.com/beeware/voc/issues/772">Original Proposal (with weekly status
+updates)</a></li>
 </ul>
-<div class="section" id="optimization-related-features">
 <h3>Optimization-related Features</h3>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/824">Introduce Performance Benchmarking Suite</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/825">Small Integer Preallocation</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/830">Boolean Preallocation</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/839">Module Caching</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/851">Hook up Pystone</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/864">Optimize Zero Argument Function Calls</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/869">Remove Code Objects</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/875">Comparisons Optimization</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/881">Loop optimization by reusing StopIterations</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/893">String cleanup/optimization</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/899">Dictionary access optimization</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/902">Create functions only when needed</a></li>
+<ul>
+<li><a href="https://github.com/beeware/voc/pull/824">Introduce Performance Benchmarking
+Suite</a></li>
+<li><a href="https://github.com/beeware/voc/pull/825">Small Integer Preallocation</a></li>
+<li><a href="https://github.com/beeware/voc/pull/830">Boolean Preallocation</a></li>
+<li><a href="https://github.com/beeware/voc/pull/839">Module Caching</a></li>
+<li><a href="https://github.com/beeware/voc/pull/851">Hook up Pystone</a></li>
+<li><a href="https://github.com/beeware/voc/pull/864">Optimize Zero Argument Function
+Calls</a></li>
+<li><a href="https://github.com/beeware/voc/pull/869">Remove Code Objects</a></li>
+<li><a href="https://github.com/beeware/voc/pull/875">Comparisons Optimization</a></li>
+<li><a href="https://github.com/beeware/voc/pull/881">Loop optimization by reusing
+StopIterations</a></li>
+<li><a href="https://github.com/beeware/voc/pull/893">String cleanup/optimization</a></li>
+<li><a href="https://github.com/beeware/voc/pull/899">Dictionary access
+optimization</a></li>
+<li><a href="https://github.com/beeware/voc/pull/902">Create functions only when
+needed</a></li>
 </ul>
-</div>
-<div class="section" id="bug-fixes-and-miscellaneous">
 <h3>Bug Fixes and Miscellaneous</h3>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/837">Fix Method repr</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/846">Fix custom substitutions</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/852">Fix List Bug</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/865">Remove Unnecessary Instruction</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/884">Fix __setitem__ error messages</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/877">Fix contains/not contains bugs and refactor</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/883">Add tests for problematic exception raising</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/887">Add test for with + exception combo</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/889">Add test for wrong iter error message</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/891">Add tests for globals bug</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/894">Remove unnecessary type casts and clean up</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/904">Add test for problematic builtin function call</a></li>
-<li><a class="reference external" href="https://github.com/beeware/voc/pull/905">Introduce org/python/Object type tests</a></li>
+<ul>
+<li><a href="https://github.com/beeware/voc/pull/837">Fix Method repr</a></li>
+<li><a href="https://github.com/beeware/voc/pull/846">Fix custom substitutions</a></li>
+<li><a href="https://github.com/beeware/voc/pull/852">Fix List Bug</a></li>
+<li><a href="https://github.com/beeware/voc/pull/865">Remove Unnecessary
+Instruction</a></li>
+<li><a href="https://github.com/beeware/voc/pull/884">Fix __setitem__ error
+messages</a></li>
+<li><a href="https://github.com/beeware/voc/pull/877">Fix contains/not contains bugs and
+refactor</a></li>
+<li><a href="https://github.com/beeware/voc/pull/883">Add tests for problematic exception
+raising</a></li>
+<li><a href="https://github.com/beeware/voc/pull/887">Add test for with + exception
+combo</a></li>
+<li><a href="https://github.com/beeware/voc/pull/889">Add test for wrong iter error
+message</a></li>
+<li><a href="https://github.com/beeware/voc/pull/891">Add tests for globals bug</a></li>
+<li><a href="https://github.com/beeware/voc/pull/894">Remove unnecessary type casts and clean
+up</a></li>
+<li><a href="https://github.com/beeware/voc/pull/904">Add test for problematic builtin function
+call</a></li>
+<li><a href="https://github.com/beeware/voc/pull/905">Introduce org/python/Object type
+tests</a></li>
 </ul>
-</div>
-</div>
 
 
   </div>

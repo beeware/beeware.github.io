@@ -72,7 +72,7 @@ Notícias
 </a>
   </li>
       <li class="nav-item">
-        <a class="nav-link" href="/membership/">
+        <a class="nav-link" href=/pt_BR/membership/>
           
 Doar
 
@@ -107,9 +107,13 @@ Dansk
           
 Deutsch
 
-          </a><a class="dropdown-item " href="/es/contribuir/principiantes/configuracion/">
+          </a><a class="dropdown-item " href="/es/contributing/principiantes/configuracion/">
           
 Español
+
+          </a><a class="dropdown-item " href="/fa_IR/contributing/first-time/setup/">
+          
+فارسی
 
           </a><a class="dropdown-item " href="/fr_FR/contributing/first-time/setup/">
           
@@ -169,7 +173,7 @@ Início
 </a>
   
  >
-  <a href="/pt_BR/contributing/">Contribuir</a>
+  <a href="/pt_BR/contributing/">Contributing</a>
   
  >
   <a href="/pt_BR/contributing/first-time/">Primeiras Contribuições</a>
@@ -186,80 +190,75 @@ Início
   
 
   
-    <p>Para poder contribuir, você precisara configurar um
-<strong>ambiente de desenvolvimento</strong> - um lugar onde você pode codificar tendo o
-mesmo comportamento no ambiente de outras pessoas.</p>
-<p>Muitas partes do BeeWare usam as mesmas ferramentas: uma versão específica
-do Python, e controles virtuais de ambiente.</p>
-<div class="section" id="python">
+    <p>Para poder contribuir, você precisara configurar um <strong>ambiente de
+desenvolvimento</strong> - um lugar onde você pode codificar tendo o mesmo
+comportamento no ambiente de outras pessoas.</p>
+<p>Muitas partes do BeeWare usam as mesmas ferramentas: uma versão
+específica do Python, e controles virtuais de ambiente.</p>
 <h2>Python</h2>
 <p>Python é uma linguagem interpretada, que está disponível em diversos
-sistemas operacionais. No entanto, dependendo de qual sistema você estiver usando,
-sua versão do Python será diferente. Por essa razão, nós especificamos exatamente em
-qual versão do Python esperamos que o código funcione.</p>
+sistemas operacionais. No entanto, dependendo de qual sistema você
+estiver usando, sua versão do Python será diferente. Por essa razão, nós
+especificamos exatamente em qual versão do Python esperamos que o código
+funcione.</p>
 <p>Para as próximas instruções, nós vamos presumir que você sabe exatamente
-qual versão do Python você precisa instalar. Normalmente isso está listado no
-arquivo README.md ou no tutorial de informação. Nosso sistema <a class="reference external" href="/pt_BR/contributing/first-time/what-is-a/ci">CI</a> deve falar exatamente qual versão
-do Python é necessária também. Então se você estiver perdido, tente procurar
-no arquivo <code>.travis.yml</code> ou <code>circle.yml</code> para a versão específica que
-você precisa.</p>
-<div class="section" id="pyenv">
+qual versão do Python você precisa instalar. Normalmente isso está
+listado no arquivo README.md ou no tutorial de informação. Nosso sistema
+<a href="/pt_BR/contributing/first-time/what-is-a/ci">CI</a> deve falar exatamente
+qual versão do Python é necessária também. Então se você estiver
+perdido, tente procurar no arquivo <code>.travis.yml</code> ou <code>circle.yml</code> para a
+versão específica que você precisa.</p>
 <h3>pyenv</h3>
-<p><a class="reference external" href="https://github.com/pyenv/pyenv">pyenv</a> é uma forma de ter múltiplas versões do
-Python funcionando na mesma máquina ao mesmo tempo. Ele te permite escolher qualquer
-versão que você precisa para um projeto em particular.</p>
-<blockquote>
-<ul class="simple">
-<li>MacOSX - Você pode instalar pyenv via <a class="reference external" href="/pt_BR/contributing/first-time/what-is-a/package-manager">brew</a>, executando <code>brew install pyenv</code></li>
-<li>Outros - use o <a class="reference external" href="https://github.com/pyenv/pyenv-installer">instalador automático</a>.</li>
+<p><a href="https://github.com/pyenv/pyenv">pyenv</a> é uma forma de ter múltiplas
+versões do Python funcionando na mesma máquina ao mesmo tempo. Ele te
+permite escolher qualquer versão que você precisa para um projeto em
+particular.</p>
+<ul>
+<li>MacOSX - Você pode instalar pyenv via
+<a href="/pt_BR/contributing/first-time/what-is-a/package-manager">brew</a>,
+executando <code>brew install pyenv</code></li>
+<li>Outros - use o <a href="https://github.com/pyenv/pyenv-installer">instalador
+automático</a>.</li>
 </ul>
-</blockquote>
-<p>Uma vez que <code>pyenv</code> esteja instalado, você precisa instalar a versão especifica
-do Python. Essa informação está guardada em um arquivo <code>.python-version</code>, o
-que significa que você pode usar diferentes versões do Python em diferentes projetos
-no seu computador.</p>
+<p>Uma vez que <code>pyenv</code> esteja instalado, você precisa instalar a versão
+especifica do Python. Essa informação está guardada em um arquivo
+<code>.python-version</code>, o que significa que você pode usar diferentes versões
+do Python em diferentes projetos no seu computador.</p>
 <p>Para instalar e configurar uma versão do Python:</p>
-<pre class="code bash literal-block">
-$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/path/to/your/project<span class="w">
-</span>$<span class="w"> </span>pyenv<span class="w"> </span>install<span class="w"> </span><span class="m">3</span>.5.1<span class="w">
-</span>$<span class="w"> </span>pyenv<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="m">3</span>.5.1
-</pre>
-<p>Mais informações sobre o pyenv estão disponíveis em <a class="reference external" href="https://github.com/pyenv/pyenv/blob/master/COMMANDS.md">seu website</a></p>
-</div>
-</div>
-<div class="section" id="virtualenv">
+<pre><code>$ cd /path/to/your/project
+$ pyenv install 3.5.1
+$ pyenv local 3.5.1
+</code></pre>
+<p>Mais informações sobre o pyenv estão disponíveis em <a href="https://github.com/pyenv/pyenv/blob/master/COMMANDS.md">seu
+website</a></p>
 <h2>virtualenv</h2>
 <p>Uma vez que Python esteja instalado, você vai querer instalar diferentes
-pacotes do Python. Já que você pode estar trabalhando em mais de um projeto, e
-mais de uma versão do Python, ter uma forma de garantir que somente
-determinados pacotes do Python estejam disponíveis por vez é de grande ajuda.</p>
-<p>Uma forma de fazer isso é via <a class="reference external" href="https://virtualenv.pypa.io/en/stable/">virtualenv</a>.</p>
-<p>Usando <a class="reference external" href="/pt_BR/contributing/first-time/what-is-a/package-manager">pip</a>, nós podemos instalar
-o virtualenv.</p>
-<pre class="code bash literal-block">
-$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>virtualenv
-</pre>
-<p>Agora nós queremos configurar uma virtualenv para depois ativa-la. Ter mais
-de uma virtualenv é ok, mas somente uma pode ser ativada por vez. Tenha certeza
-que você tenha selecionado seu Python com <code>pyenv</code>, assim nós saberemos qual
-versão do Python usar.</p>
-<pre class="code bash literal-block">
-$<span class="w"> </span>virtualenv<span class="w"> </span>-p<span class="w"> </span><span class="k">$(</span>pyenv<span class="w"> </span>which<span class="w"> </span>python<span class="k">)</span><span class="w"> </span>env
-</pre>
+pacotes do Python. Já que você pode estar trabalhando em mais de um
+projeto, e mais de uma versão do Python, ter uma forma de garantir que
+somente determinados pacotes do Python estejam disponíveis por vez é de
+grande ajuda.</p>
+<p>Uma forma de fazer isso é via
+<a href="https://virtualenv.pypa.io/en/stable/">virtualenv</a>.</p>
+<p>Usando <a href="/pt_BR/contributing/first-time/what-is-a/package-manager">pip</a>,
+nós podemos instalar o virtualenv.</p>
+<pre><code>$ pip install virtualenv
+</code></pre>
+<p>Agora nós queremos configurar uma virtualenv para depois ativa-la. Ter
+mais de uma virtualenv é ok, mas somente uma pode ser ativada por vez.
+Tenha certeza que você tenha selecionado seu Python com <code>pyenv</code>, assim
+nós saberemos qual versão do Python usar.</p>
+<pre><code>$ virtualenv -p $(pyenv which python) env
+</code></pre>
 <p>Agora nós podemos ativar o ambiente virtual.</p>
-<pre class="code bash literal-block">
-$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>env/bin/activate
-</pre>
+<pre><code>$ source env/bin/activate
+</code></pre>
 <p>Isso vai gerar uma pequena notificação na sua linha de comando para você
 saber que está em um ambiente virtual.</p>
-<pre class="code bash literal-block">
-<span class="o">(</span>env<span class="o">)</span><span class="w"> </span>$
-</pre>
+<pre><code>(env) $
+</code></pre>
 <p>Para desabilitar seu virtualenv.</p>
-<pre class="code bash literal-block">
-$<span class="w"> </span>deactivate
-</pre>
-</div>
+<pre><code>$ deactivate
+</code></pre>
 
     
   

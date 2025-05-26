@@ -72,14 +72,14 @@ Notizie
 <span class="sr-only">(current)</span></a>
   </li>
       <li class="nav-item">
-        <a class="nav-link" href="/membership/">
+        <a class="nav-link" href=/it_IT/membership/>
           
 Donare
 
         </a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/new/lektor/content/news/buzz/july-2022-status-update/contents%2Bit.lr?filename=contents%2Bit.lr&value=title%3A+July+2022+Status+Update%0A---%0Aauthor%3A+Russell+Keith-Magee%0A---%0Abody%3A%0A%0AAnother+month+of+important+updates+to+the+BeeWare+project%21+This+month%2C+our+focus+was+on+packaging+improvements+on+Linux+and+Windows.%0A%0AIn+addition+the+technical+progress%2C+we+welcomed+%60Malcolm+Smith+%28%40mhsmith+on+Github%29+%3Chttps%3A%2F%2Fgithub.com%2Fmhsmith%3E%60__+to+the+Anaconda+BeeWare+team%21+Malcolm+brings+his+considerable+experience+developing+and+maintaining+%60Chaquopy+%3Chttps%3A%2F%2Fgithub.com%2Fchaquo%3E%60__%2C+a+set+of+tools+and+libraries+for+building+Android+applications+that+use+Python.+Chaquopy+tackles+the+%22Python+on+Android%22+problem+from+the+perspective+of+adding+Python+to+an+existing+Android+Studio+project+rather+than+writing+apps+entirely+with+Python%3B+as+a+result%2C+it+features+much+tighter+integration+with+native+Android+Studio+tooling.+One+particularly+interesting+feature+of+Chaquopy+is+that+it+supports+binary+dependencies+on+Android+-+a+key+feature+that+BeeWare%27s+Android+tooling+currently+lacks.+Historically%2C+Chaquopy+was+a+closed+source+tool+with+licenses+available+for+open+source+projects%3B+however%2C+as+a+result+of+joining+Anaconda%2C+Malcolm+has+%60released+Chaquopy+as+an+Open+Source+project+%3Chttps%3A%2F%2Fchaquo.com%2Fchaquopy%2Fchaquopy-is-now-open-source%2F%3E%60__%21%0A%0AWhat+we%27ve+done%0A----------------%0A%0ADuring+July%3A%0A%0A%2A+We+%60added+support+for+Linuxdeploy+plugins+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F756%3E%60__+for+Linux+AppImages.+These+plugins+are+an+important+part+of+making+AppImages+self-contained%2C+as+many+libraries+need+to+provide+the+Linuxdeploy+tooling+hints+to+help+find+all+the+resources+needed+at+runtime.+Adding+support+for+these+plugins+should+address+most+of+the+issues+we%27ve+been+seeing+with+moving+AppImages+between+Linux+versions.%0A%2A+We+%60added+a+Flatpak+backend+for+Linux+packaging+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F802%3E%60__.+Flatpak+is+an+alternative+packaging+format+to+AppImage+which+has+the+support+of+a+number+of+large+Linux+distributions.+For+now%2C+AppImage+continues+to+be+the+default+Linux+packaging+format%2C+but+we+may+change+this+default+in+the+future.%0A%2A+We+%60improved+the+packaging+of+Windows+apps+by+adding+a+stub+binary+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F782%3E%60__.+We%27re+still+hunting+some+bugs+in+this+stub+binary%2C+but+when+those+are+resolved%2C+the+Windows+apps+generated+by+Briefcase+will+present+to+the+operating+system+with+consistent+app+naming+and+icons.+The+stub+binary+also+enables+us+to+catch+runtime+problems+with+the+app+in+a+way+that+makes+diagnosing+app+problems+much+easier.%0A%2A+We+presented+a+webinar+about+native+application+development.+If+you+weren%27t+able+to+attend+the+webinar+live%2C+a+recording+is+available%3B+%60register+here+to+watch+%3Chttps%3A%2F%2Fevent.on24.com%2Fwcc%2Fr%2F3766379%2FB50F020E006CF935D87609BF3E247ED7%3Fpartnerref%3Danaconda.com%3E%60__.%0A%2A+We+got+an+initial+proof+of+concept+of+a+Toga+app+running+on+Android+using+Chaquopy+as+a+base%2C+accessing+a+binary+library+%28matplotlib%29%2C+deployed+with+Briefcase.+Over+the+coming+weeks%2C+we%27re+hoping+this+proof+of+concept+will+evolve+into+major+improvement+to+BeeWare%27s+Android+tooling.%0A%2A+We+modified+Briefcase+to+%60use+OS-appropriate+directories+for+caching+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F777%3E%60__.+While+the+%60%60~%2F.briefcase%60%60+location+has+served+us+well%2C+it+isn%27t+a+location+that+adheres+to+platform-native+conventions+for+storing+app+resources%2C+so+we%27ve+moved+Briefcase%27s+cache+of+downloads%2C+tools+and+templates+to+a+platform-appropriate+location.%0A%2A+We+addressed+an+issue+with+the+%60current+working+directory+leaking+into+the+runtime+path+%3Chttps%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F803%3E%60__.+This+was+especially+common+with+Linux+apps%2C+but+it+could+potentially+be+an+issue+with+other+platforms+as+well.%0A%2A+We%27ve+started+the+process+of+making+Toga+widget+APIs+internally+consistent.+While+we%27ve+aimed+to+keep+naming+of+widgets%27+attributes+and+handlers+consistent%2C+there+are+a+couple+of+annoying+inconsistencies.+We%27ve+started+the+process+of+cleaning+up+these+inconsistencies.%0A%2A+We%27ve+started+looking+into+binary+dependencies+on+iOS+apps.%0A%0AWhat%27s+next%3F%0A-------------%0A%0AIn+August%2C+our+major+focus+will+be+binary+dependencies+on+mobile.+This+is+one+of+the+biggest+missing+pieces+of+the+BeeWare+story+at+present.+Being+able+to+utilize+Chaquopy+as+a+base+gives+us+a+huge+head+start+on+Android%2C+so+it+seems+likely+we%27ll+have+a+working+solution+for+Android+in+the+near+future.+However%2C+on+iOS%2C+we%27re+still+at+the+%22we+don%27t+know+what+we+don%27t+know%22+stage.+It%27s+unclear+if+we%27ll+have+a+fully+working+solution+by+the+end+of+the+month%2C+but+we+should+have+at+least+some+progress+to+report.%0A%0A---%0Apub_date%3A+2022-08-01%0A---%0Amastodon_handle%3A+%40freakboy3742%40cloudisland.nz%0A" target="_blank">
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/new/lektor/content/news/buzz/july-2022-status-update/contents%2Bit.lr?filename=contents%2Bit.lr&value=title%3A+July+2022+Status+Update%0A---%0Aauthor%3A+Russell+Keith-Magee%0A---%0Abody%3A%0A%0AAnother+month+of+important+updates+to+the+BeeWare+project%21+This+month%2C%0Aour+focus+was+on+packaging+improvements+on+Linux+and+Windows.%0A%0AIn+addition+the+technical+progress%2C+we+welcomed+%5BMalcolm+Smith+%28%40mhsmith%0Aon+Github%29%5D%28https%3A%2F%2Fgithub.com%2Fmhsmith%29+to+the+Anaconda+BeeWare+team%21%0AMalcolm+brings+his+considerable+experience+developing+and+maintaining%0A%5BChaquopy%5D%28https%3A%2F%2Fgithub.com%2Fchaquo%29%2C+a+set+of+tools+and+libraries+for%0Abuilding+Android+applications+that+use+Python.+Chaquopy+tackles+the%0A%22Python+on+Android%22+problem+from+the+perspective+of+adding+Python+to+an%0Aexisting+Android+Studio+project+rather+than+writing+apps+entirely+with%0APython%3B+as+a+result%2C+it+features+much+tighter+integration+with+native%0AAndroid+Studio+tooling.+One+particularly+interesting+feature+of+Chaquopy%0Ais+that+it+supports+binary+dependencies+on+Android+-+a+key+feature+that%0ABeeWare%27s+Android+tooling+currently+lacks.+Historically%2C+Chaquopy+was+a%0Aclosed+source+tool+with+licenses+available+for+open+source+projects%3B%0Ahowever%2C+as+a+result+of+joining+Anaconda%2C+Malcolm+has+%5Breleased+Chaquopy%0Aas+an+Open+Source%0Aproject%5D%28https%3A%2F%2Fchaquo.com%2Fchaquopy%2Fchaquopy-is-now-open-source%2F%29%21%0A%0A%23%23+What+we%27ve+done%0A%0ADuring+July%3A%0A%0A-+We+%5Badded+support+for+Linuxdeploy%0A++plugins%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F756%29+for+Linux%0A++AppImages.+These+plugins+are+an+important+part+of+making+AppImages%0A++self-contained%2C+as+many+libraries+need+to+provide+the+Linuxdeploy%0A++tooling+hints+to+help+find+all+the+resources+needed+at+runtime.+Adding%0A++support+for+these+plugins+should+address+most+of+the+issues+we%27ve+been%0A++seeing+with+moving+AppImages+between+Linux+versions.%0A-+We+%5Badded+a+Flatpak+backend+for+Linux%0A++packaging%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F802%29.+Flatpak+is%0A++an+alternative+packaging+format+to+AppImage+which+has+the+support+of+a%0A++number+of+large+Linux+distributions.+For+now%2C+AppImage+continues+to+be%0A++the+default+Linux+packaging+format%2C+but+we+may+change+this+default+in%0A++the+future.%0A-+We+%5Bimproved+the+packaging+of+Windows+apps+by+adding+a+stub%0A++binary%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F782%29.+We%27re+still%0A++hunting+some+bugs+in+this+stub+binary%2C+but+when+those+are+resolved%2C%0A++the+Windows+apps+generated+by+Briefcase+will+present+to+the+operating%0A++system+with+consistent+app+naming+and+icons.+The+stub+binary+also%0A++enables+us+to+catch+runtime+problems+with+the+app+in+a+way+that+makes%0A++diagnosing+app+problems+much+easier.%0A-+We+presented+a+webinar+about+native+application+development.+If+you%0A++weren%27t+able+to+attend+the+webinar+live%2C+a+recording+is+available%3B%0A++%5Bregister+here+to%0A++watch%5D%28https%3A%2F%2Fevent.on24.com%2Fwcc%2Fr%2F3766379%2FB50F020E006CF935D87609BF3E247ED7%3Fpartnerref%3Danaconda.com%29.%0A-+We+got+an+initial+proof+of+concept+of+a+Toga+app+running+on+Android%0A++using+Chaquopy+as+a+base%2C+accessing+a+binary+library+%28matplotlib%29%2C%0A++deployed+with+Briefcase.+Over+the+coming+weeks%2C+we%27re+hoping+this%0A++proof+of+concept+will+evolve+into+major+improvement+to+BeeWare%27s%0A++Android+tooling.%0A-+We+modified+Briefcase+to+%5Buse+OS-appropriate+directories+for%0A++caching%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F777%29.+While+the%0A++%60~%2F.briefcase%60+location+has+served+us+well%2C+it+isn%27t+a+location+that%0A++adheres+to+platform-native+conventions+for+storing+app+resources%2C+so%0A++we%27ve+moved+Briefcase%27s+cache+of+downloads%2C+tools+and+templates+to+a%0A++platform-appropriate+location.%0A-+We+addressed+an+issue+with+the+%5Bcurrent+working+directory+leaking+into%0A++the+runtime+path%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F803%29.+This%0A++was+especially+common+with+Linux+apps%2C+but+it+could+potentially+be+an%0A++issue+with+other+platforms+as+well.%0A-+We%27ve+started+the+process+of+making+Toga+widget+APIs+internally%0A++consistent.+While+we%27ve+aimed+to+keep+naming+of+widgets%27+attributes%0A++and+handlers+consistent%2C+there+are+a+couple+of+annoying%0A++inconsistencies.+We%27ve+started+the+process+of+cleaning+up+these%0A++inconsistencies.%0A-+We%27ve+started+looking+into+binary+dependencies+on+iOS+apps.%0A%0A%23%23+What%27s+next%3F%0A%0AIn+August%2C+our+major+focus+will+be+binary+dependencies+on+mobile.+This%0Ais+one+of+the+biggest+missing+pieces+of+the+BeeWare+story+at+present.%0ABeing+able+to+utilize+Chaquopy+as+a+base+gives+us+a+huge+head+start+on%0AAndroid%2C+so+it+seems+likely+we%27ll+have+a+working+solution+for+Android+in%0Athe+near+future.+However%2C+on+iOS%2C+we%27re+still+at+the+%22we+don%27t+know+what%0Awe+don%27t+know%22+stage.+It%27s+unclear+if+we%27ll+have+a+fully+working%0Asolution+by+the+end+of+the+month%2C+but+we+should+have+at+least+some%0Aprogress+to+report.%0A%0A---%0Apub_date%3A+2022-08-01%0A---%0Amastodon_handle%3A+%40freakboy3742%40cloudisland.nz%0A" target="_blank">
             <i class="fa fa-github "></i><small>&nbsp;
 Tradurre su GitHub
 </small>
@@ -110,6 +110,10 @@ Deutsch
           </a><a class="dropdown-item " href="/es/noticias/zumbido/july-2022-status-update/">
           
 Español
+
+          </a><a class="dropdown-item " href="/fa_IR/news/buzz/july-2022-status-update/">
+          
+فارسی
 
           </a><a class="dropdown-item " href="/fr_FR/news/buzz/july-2022-status-update/">
           
@@ -197,27 +201,81 @@ il
   
 
   
-  <p>Another month of important updates to the BeeWare project! This month, our focus was on packaging improvements on Linux and Windows.</p>
-<p>In addition the technical progress, we welcomed <a class="reference external" href="https://github.com/mhsmith">Malcolm Smith (&#64;mhsmith on Github)</a> to the Anaconda BeeWare team! Malcolm brings his considerable experience developing and maintaining <a class="reference external" href="https://github.com/chaquo">Chaquopy</a>, a set of tools and libraries for building Android applications that use Python. Chaquopy tackles the &quot;Python on Android&quot; problem from the perspective of adding Python to an existing Android Studio project rather than writing apps entirely with Python; as a result, it features much tighter integration with native Android Studio tooling. One particularly interesting feature of Chaquopy is that it supports binary dependencies on Android - a key feature that BeeWare's Android tooling currently lacks. Historically, Chaquopy was a closed source tool with licenses available for open source projects; however, as a result of joining Anaconda, Malcolm has <a class="reference external" href="https://chaquo.com/chaquopy/chaquopy-is-now-open-source/">released Chaquopy as an Open Source project</a>!</p>
-<div class="section" id="what-we-ve-done">
+  <p>Another month of important updates to the BeeWare project! This month,
+our focus was on packaging improvements on Linux and Windows.</p>
+<p>In addition the technical progress, we welcomed <a href="https://github.com/mhsmith">Malcolm Smith (@mhsmith
+on Github)</a> to the Anaconda BeeWare team!
+Malcolm brings his considerable experience developing and maintaining
+<a href="https://github.com/chaquo">Chaquopy</a>, a set of tools and libraries for
+building Android applications that use Python. Chaquopy tackles the
+"Python on Android" problem from the perspective of adding Python to an
+existing Android Studio project rather than writing apps entirely with
+Python; as a result, it features much tighter integration with native
+Android Studio tooling. One particularly interesting feature of Chaquopy
+is that it supports binary dependencies on Android - a key feature that
+BeeWare's Android tooling currently lacks. Historically, Chaquopy was a
+closed source tool with licenses available for open source projects;
+however, as a result of joining Anaconda, Malcolm has <a href="https://chaquo.com/chaquopy/chaquopy-is-now-open-source/">released Chaquopy
+as an Open Source
+project</a>!</p>
 <h2>What we've done</h2>
 <p>During July:</p>
-<ul class="simple">
-<li>We <a class="reference external" href="https://github.com/beeware/briefcase/pull/756">added support for Linuxdeploy plugins</a> for Linux AppImages. These plugins are an important part of making AppImages self-contained, as many libraries need to provide the Linuxdeploy tooling hints to help find all the resources needed at runtime. Adding support for these plugins should address most of the issues we've been seeing with moving AppImages between Linux versions.</li>
-<li>We <a class="reference external" href="https://github.com/beeware/briefcase/pull/802">added a Flatpak backend for Linux packaging</a>. Flatpak is an alternative packaging format to AppImage which has the support of a number of large Linux distributions. For now, AppImage continues to be the default Linux packaging format, but we may change this default in the future.</li>
-<li>We <a class="reference external" href="https://github.com/beeware/briefcase/pull/782">improved the packaging of Windows apps by adding a stub binary</a>. We're still hunting some bugs in this stub binary, but when those are resolved, the Windows apps generated by Briefcase will present to the operating system with consistent app naming and icons. The stub binary also enables us to catch runtime problems with the app in a way that makes diagnosing app problems much easier.</li>
-<li>We presented a webinar about native application development. If you weren't able to attend the webinar live, a recording is available; <a class="reference external" href="https://event.on24.com/wcc/r/3766379/B50F020E006CF935D87609BF3E247ED7?partnerref=anaconda.com">register here to watch</a>.</li>
-<li>We got an initial proof of concept of a Toga app running on Android using Chaquopy as a base, accessing a binary library (matplotlib), deployed with Briefcase. Over the coming weeks, we're hoping this proof of concept will evolve into major improvement to BeeWare's Android tooling.</li>
-<li>We modified Briefcase to <a class="reference external" href="https://github.com/beeware/briefcase/pull/777">use OS-appropriate directories for caching</a>. While the <tt class="docutils literal"><span class="pre">~/.briefcase</span></tt> location has served us well, it isn't a location that adheres to platform-native conventions for storing app resources, so we've moved Briefcase's cache of downloads, tools and templates to a platform-appropriate location.</li>
-<li>We addressed an issue with the <a class="reference external" href="https://github.com/beeware/briefcase/pull/803">current working directory leaking into the runtime path</a>. This was especially common with Linux apps, but it could potentially be an issue with other platforms as well.</li>
-<li>We've started the process of making Toga widget APIs internally consistent. While we've aimed to keep naming of widgets' attributes and handlers consistent, there are a couple of annoying inconsistencies. We've started the process of cleaning up these inconsistencies.</li>
+<ul>
+<li>We <a href="https://github.com/beeware/briefcase/pull/756">added support for Linuxdeploy
+plugins</a> for Linux
+AppImages. These plugins are an important part of making AppImages
+self-contained, as many libraries need to provide the Linuxdeploy
+tooling hints to help find all the resources needed at runtime. Adding
+support for these plugins should address most of the issues we've been
+seeing with moving AppImages between Linux versions.</li>
+<li>We <a href="https://github.com/beeware/briefcase/pull/802">added a Flatpak backend for Linux
+packaging</a>. Flatpak is
+an alternative packaging format to AppImage which has the support of a
+number of large Linux distributions. For now, AppImage continues to be
+the default Linux packaging format, but we may change this default in
+the future.</li>
+<li>We <a href="https://github.com/beeware/briefcase/pull/782">improved the packaging of Windows apps by adding a stub
+binary</a>. We're still
+hunting some bugs in this stub binary, but when those are resolved,
+the Windows apps generated by Briefcase will present to the operating
+system with consistent app naming and icons. The stub binary also
+enables us to catch runtime problems with the app in a way that makes
+diagnosing app problems much easier.</li>
+<li>We presented a webinar about native application development. If you
+weren't able to attend the webinar live, a recording is available;
+<a href="https://event.on24.com/wcc/r/3766379/B50F020E006CF935D87609BF3E247ED7?partnerref=anaconda.com">register here to
+watch</a>.</li>
+<li>We got an initial proof of concept of a Toga app running on Android
+using Chaquopy as a base, accessing a binary library (matplotlib),
+deployed with Briefcase. Over the coming weeks, we're hoping this
+proof of concept will evolve into major improvement to BeeWare's
+Android tooling.</li>
+<li>We modified Briefcase to <a href="https://github.com/beeware/briefcase/pull/777">use OS-appropriate directories for
+caching</a>. While the
+<code>~/.briefcase</code> location has served us well, it isn't a location that
+adheres to platform-native conventions for storing app resources, so
+we've moved Briefcase's cache of downloads, tools and templates to a
+platform-appropriate location.</li>
+<li>We addressed an issue with the <a href="https://github.com/beeware/briefcase/pull/803">current working directory leaking into
+the runtime path</a>. This
+was especially common with Linux apps, but it could potentially be an
+issue with other platforms as well.</li>
+<li>We've started the process of making Toga widget APIs internally
+consistent. While we've aimed to keep naming of widgets' attributes
+and handlers consistent, there are a couple of annoying
+inconsistencies. We've started the process of cleaning up these
+inconsistencies.</li>
 <li>We've started looking into binary dependencies on iOS apps.</li>
 </ul>
-</div>
-<div class="section" id="what-s-next">
 <h2>What's next?</h2>
-<p>In August, our major focus will be binary dependencies on mobile. This is one of the biggest missing pieces of the BeeWare story at present. Being able to utilize Chaquopy as a base gives us a huge head start on Android, so it seems likely we'll have a working solution for Android in the near future. However, on iOS, we're still at the &quot;we don't know what we don't know&quot; stage. It's unclear if we'll have a fully working solution by the end of the month, but we should have at least some progress to report.</p>
-</div>
+<p>In August, our major focus will be binary dependencies on mobile. This
+is one of the biggest missing pieces of the BeeWare story at present.
+Being able to utilize Chaquopy as a base gives us a huge head start on
+Android, so it seems likely we'll have a working solution for Android in
+the near future. However, on iOS, we're still at the "we don't know what
+we don't know" stage. It's unclear if we'll have a fully working
+solution by the end of the month, but we should have at least some
+progress to report.</p>
 
 
   </div>

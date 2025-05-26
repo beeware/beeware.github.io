@@ -72,7 +72,7 @@ News
 </a>
   </li>
       <li class="nav-item">
-        <a class="nav-link" href="/membership/">
+        <a class="nav-link" href=/membership/>
           
 Donate
 
@@ -110,6 +110,10 @@ Deutsch
           </a><a class="dropdown-item " href="/es/project/atico/sealang/">
           
 Español
+
+          </a><a class="dropdown-item " href="/fa_IR/project/attic/sealang/">
+          
+فارسی
 
           </a><a class="dropdown-item " href="/fr_FR/project/attic/sealang/">
           
@@ -194,42 +198,48 @@ Home
 
     
 
-    <p><p>Sealang is an improved set of Python bindings for <tt class="docutils literal">libclang</tt>.</p>
-<p>The upstream maintainers of <tt class="docutils literal">libclang</tt> have not been especially responsive
-to patches that address issues like Python 3 compatibility, and the
-significant omissions in the API (such as extracting literals and operators).</p>
-<p>This package is a fork of the official Python bindings for <tt class="docutils literal">libclang</tt>, patched to correct these problems.</p>
-<div class="section" id="how-it-works">
+    <p><p>Sealang is an improved set of Python bindings for <code>libclang</code>.</p>
+<p>The upstream maintainers of <code>libclang</code> have not been especially
+responsive to patches that address issues like Python 3 compatibility,
+and the significant omissions in the API (such as extracting literals
+and operators).</p>
+<p>This package is a fork of the official Python bindings for <code>libclang</code>,
+patched to correct these problems.</p>
 <h2>How it works</h2>
-<p>Sealang is a bit of a nasty hack. <tt class="docutils literal">libclang</tt> is a set of C bindings to a C++
-API; Python <tt class="docutils literal">ctypes</tt> are then used to wrap the C API. However, while the C++
-API is quite rich, <tt class="docutils literal">libclang</tt> is less so.</p>
-<p>Sealang bridges this gap by providing C wrappers around the C++ calls that
-provide the useful functionality. This library of C functions is wrapped up as
-a Python C module for delivery purposes - this C module contains no exposed
-<em>Python</em> objects or methods, but because it's a module, the underlying
-compiled <cite>sealang.so</cite> file is easy to find. <cite>ctypes</cite> are then used to expose
-the <cite>sealang</cite> wrapper functions;</p>
-<p>Internally, Sealang reproduces some minor pieces of the <tt class="docutils literal">libclang</tt> API;
-these are methods (such as the string creation and manipulation methods) that
-aren't exposed as symbols for third-party use.</p>
-<p>All this functionality is potentially a candidate to be passed upstream to
-libclang.</p>
-<div class="section" id="relationship-to-clang">
+<p>Sealang is a bit of a nasty hack. <code>libclang</code> is a set of C bindings to a
+C++ API; Python <code>ctypes</code> are then used to wrap the C API. However, while
+the C++ API is quite rich, <code>libclang</code> is less so.</p>
+<p>Sealang bridges this gap by providing C wrappers around the C++ calls
+that provide the useful functionality. This library of C functions is
+wrapped up as a Python C module for delivery purposes - this C module
+contains no exposed <em>Python</em> objects or methods, but because it's a
+module, the underlying compiled
+<span class="title-ref">sealang.so</span> file is easy to find.
+<span class="title-ref">ctypes</span> are then used to expose the
+<span class="title-ref">sealang</span> wrapper functions;</p>
+<p>Internally, Sealang reproduces some minor pieces of the <code>libclang</code> API;
+these are methods (such as the string creation and manipulation methods)
+that aren't exposed as symbols for third-party use.</p>
+<p>All this functionality is potentially a candidate to be passed upstream
+to libclang.</p>
 <h3>Relationship to Clang</h3>
-<p>This project aims to mirror what is currently available in the Python bindings
-to <tt class="docutils literal">libclang</tt>. The version number for this project is drawn from the version
-and SVN revision of the official clang repository.</p>
-<p>Any changes made upstream to <tt class="docutils literal">libclang</tt> will be mirrored here; any changes
-made here will, where possible, be pushed upstream to <tt class="docutils literal">libclang</tt>.</p>
-</div>
-<div class="section" id="development-status">
+<p>This project aims to mirror what is currently available in the Python
+bindings to <code>libclang</code>. The version number for this project is drawn
+from the version and SVN revision of the official clang repository.</p>
+<p>Any changes made upstream to <code>libclang</code> will be mirrored here; any
+changes made here will, where possible, be pushed upstream to
+<code>libclang</code>.</p>
 <h3>Development status</h3>
-<p>This project was an experiment developed to support <a class="reference external" href="/project/attic/seasnake">Seasnake</a>. Since Seasnake has been abandoned, so has this project.</p>
-</div>
-</div>
+<p>This project was an experiment developed to support
+<a href="/project/attic/seasnake">Seasnake</a>. Since Seasnake has been abandoned,
+so has this project.</p>
 </p>
 
+    
+    <h3>
+How to help
+</h3>
+    <p></p>
     
 
     
