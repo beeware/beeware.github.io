@@ -4,44 +4,94 @@ author: Russell Keith-Magee
 ---
 body:
 
-Welcome to a new year! 2022 saw some amazing progress for BeeWare; and we've got some big plans for 2023. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment of features that will be made available on a specific deadline.
+Welcome to a new year! 2022 saw some amazing progress for BeeWare; and
+we've got some big plans for 2023. As always, this roadmap should be
+read as a guide to what we aim to focus on over the coming quarter,
+rather than a hard commitment of features that will be made available on
+a specific deadline.
 
-Q4 progress
--------------
+## Q4 progress
 
-Progress in Q4 was not as significant as we originally planned. A combination of conference travel and holiday leave meant the quarter was shorter than most; but even then, our goals for the quarter were extremely optimistic.
+Progress in Q4 was not as significant as we originally planned. A
+combination of conference travel and holiday leave meant the quarter was
+shorter than most; but even then, our goals for the quarter were
+extremely optimistic.
 
-We were able to hit our goal for **Web deployment**. We've restored the Toga web backend to a working state, and we've added a Web deployment backend to Briefcase. There's still a lot of work required before Web deployment is a viable as a production solution, but the initial pieces are now in place.
+We were able to hit our goal for **Web deployment**. We've restored the
+Toga web backend to a working state, and we've added a Web deployment
+backend to Briefcase. There's still a lot of work required before Web
+deployment is a viable as a production solution, but the initial pieces
+are now in place.
 
-We were also able to hit our goals on **housekeeping**. We've made a lot of improvements to the base infrastructure of repositories, enabling Black, pre-commit, and towncrier in Toga, and improving coverage reporting (including getting to 100% branch coverage in Briefcase's test suite).
+We were also able to hit our goals on **housekeeping**. We've made a lot
+of improvements to the base infrastructure of repositories, enabling
+Black, pre-commit, and towncrier in Toga, and improving coverage
+reporting (including getting to 100% branch coverage in Briefcase's test
+suite).
 
-We've made significant progress on improving the **testing** story for BeeWare apps. We've added the ability for Briefcase projects to run normal Python test suites inside a packaged app, and we've demonstrated that we can use this capability to run CI for iOS and Android apps (as well as desktop platforms). This feature will be included in the next Briefcase release. 
+We've made significant progress on improving the **testing** story for
+BeeWare apps. We've added the ability for Briefcase projects to run
+normal Python test suites inside a packaged app, and we've demonstrated
+that we can use this capability to run CI for iOS and Android apps (as
+well as desktop platforms). This feature will be included in the next
+Briefcase release.
 
-Using this new testing capability, we've started building a GUI test suite for Toga. This is a critical part of ensuring the quality of Toga going forward; but getting this testing framework in place has revealed lots of complications and bugs. We're making progress, but there's still a lot of work to be done.
+Using this new testing capability, we've started building a GUI test
+suite for Toga. This is a critical part of ensuring the quality of Toga
+going forward; but getting this testing framework in place has revealed
+lots of complications and bugs. We're making progress, but there's still
+a lot of work to be done.
 
-Our plans to release Toga v0.3 final have also been delayed. The process of adding SCM-based versioning to the repository (part of the housekeeping task) revealed a bug that prevented code running on Android; fixing that bug became a blocker on the release of Toga v0.3. We've now resolved that problem, so we should be able to release Toga v0.3 final as soon as the fix has been released into the BeeWare's Android tooling.
+Our plans to release Toga v0.3 final have also been delayed. The process
+of adding SCM-based versioning to the repository (part of the
+housekeeping task) revealed a bug that prevented code running on
+Android; fixing that bug became a blocker on the release of Toga v0.3.
+We've now resolved that problem, so we should be able to release Toga
+v0.3 final as soon as the fix has been released into the BeeWare's
+Android tooling.
 
-Unfortunately, that leaves a lot on the Q4 TODO list. We haven't made any changes to the example apps; Toga documentation is mostly unchanged; we haven't been able to do any substantial Toga planning; and we haven't been able to add any native cross-platform hardware support.
+Unfortunately, that leaves a lot on the Q4 TODO list. We haven't made
+any changes to the example apps; Toga documentation is mostly unchanged;
+we haven't been able to do any substantial Toga planning; and we haven't
+been able to add any native cross-platform hardware support.
 
-Q1 priorities
---------------
+## Q1 priorities
 
-It's probably unsurprising that Q1 2023 will be picking up on items we didn't get around to in Q4 2022.
+It's probably unsurprising that Q1 2023 will be picking up on items we
+didn't get around to in Q4 2022.
 
-* **Testing** - Completing the Toga GUI testing suite will be our primary focus for the quarter.
-* **Planning** - Once we've got the test harness in place, we'll be in a much better position to evaluate what work remains to get to v1.0.
-* **Documentation** - The process of systematically building a test suite also gives us an opportunity to update the API documentation for each widget as we go. There's still lots of documentation required on top of the API guide, but complete API documentation will be a big start.
-* **Cross-platform hardware** - Cross-platform support for device hardware (especially mobile) is one of the banner features that makes mobile device support worthwhile. Providing proof that this hardware support is easy to use will be a key demonstrator for BeeWare as a platform.
+- **Testing** - Completing the Toga GUI testing suite will be our
+  primary focus for the quarter.
+- **Planning** - Once we've got the test harness in place, we'll be in a
+  much better position to evaluate what work remains to get to v1.0.
+- **Documentation** - The process of systematically building a test
+  suite also gives us an opportunity to update the API documentation for
+  each widget as we go. There's still lots of documentation required on
+  top of the API guide, but complete API documentation will be a big
+  start.
+- **Cross-platform hardware** - Cross-platform support for device
+  hardware (especially mobile) is one of the banner features that makes
+  mobile device support worthwhile. Providing proof that this hardware
+  support is easy to use will be a key demonstrator for BeeWare as a
+  platform.
 
-Longer term goals
------------------
+## Longer term goals
 
-Our longer term goals are largely `unchanged from Q4 2022 <../2022q4-roadmap>`__. Upstreaming, Toga 1.0, and a forge for mobile packages are all important goals for the BeeWare ecosystem. However, we don't expect to make any significant progress on these goals until we have solidified Toga's testing story.
+Our longer term goals are largely [unchanged from Q4
+2022](../2022q4-roadmap). Upstreaming, Toga 1.0, and a forge for mobile
+packages are all important goals for the BeeWare ecosystem. However, we
+don't expect to make any significant progress on these goals until we
+have solidified Toga's testing story.
 
-Summary
---------
+## Summary
 
-The seeming lack of progress made in Q4 was definitely disappointing; but the work hasn't been wasted. Progress has been slow specifically because the problems we're trying to solve are hard, and reveal every gnarled edge case that platforms have to offer. We *are* making progress, though; and once we've got the Toga testing framework stabilized, we'll be in a much stronger position to make predictions for future work on Toga.
+The seeming lack of progress made in Q4 was definitely disappointing;
+but the work hasn't been wasted. Progress has been slow specifically
+because the problems we're trying to solve are hard, and reveal every
+gnarled edge case that platforms have to offer. We *are* making
+progress, though; and once we've got the Toga testing framework
+stabilized, we'll be in a much stronger position to make predictions for
+future work on Toga.
 
 ---
 pub_date: 2023-01-11

@@ -6,43 +6,117 @@ body:
 
 March has been a month of slow but steady progress for BeeWare.
 
-What we've done
-----------------
+## What we've done
 
-* Progress on GUI testing in Toga is continuing. We now have 7 widgets fully tested, with another 2 in progress. As with last month's update, getting these tests passing has required wrestling a lot of fundamentals, in particular around the simulation of events such as mouse clicks. We're also discovering (and fixing) lots of corner cases in widget implementations that only surface when you're doing rigorous and repeatable testing.
-* We've made some `major changes to the way GTK widgets are rendered <https://github.com/beeware/toga/pull/1794>`__. This change significantly reduces the amount of re-rendering that is performed by GTK, as well as resolving a number of long standing issues related to resizing widgets.
-* Thanks to some community contributions, we were were able to add support for `focus events and text alignment <https://github.com/beeware/toga/pull/1817>`__ on GTK's TextInput widget, and support for `text alignment and fonts <https://github.com/beeware/toga/pull/1821>`__ on GTK's NumberInput widget.
-* We landed the implementation of a `Linux system package backend <https://github.com/beeware/briefcase/pull/1106>`__ for Briefcase, which can output DEB and RPM packages. Thanks to a community contribution, we were also able to add support for `Arch packages <https://github.com/beeware/briefcase/pull/1143>`__
-* We modified the `locations where Briefcase outputs build artefacts <https://github.com/beeware/briefcase/pull/1107>`__. This removes some sources of bugs associated with tools not supporting spaces in filenames, and makes Briefcase's output consistent with other tools in the Python ecosystem.
-* We made significant progress on `modifying Briefcase's AppImage and Flatpak backends <https://github.com/beeware/briefcase/pull/1132>`__ to use Indygreg's `Standalone Python <https://github.com/indygreg/python-build-standalone>`__, rather than BeeWare's Linux support package. Standalone Python is becoming a de facto standard for pre-compiled Python builds (especially on Linux), so it makes sense for BeeWare to converge on this common standard. This change will also significantly speed up Flatpak builds, should be more stable on AppImage, allows us to switch to `manylinux <http://github.com/pypa/manylinux>`__ base images - and it reduces the number of projects that BeeWare is responsible for maintaining. We're currently waiting on a `fix to the linuxdeploy GTK plugin <https://github.com/linuxdeploy/linuxdeploy-plugin-gtk/pull/45>`__ to be merged before we can land this change.
-* Thanks to a community contribution, we added support for `PyGame <https://github.com/beeware/briefcase/pull/1125>`__ to Briefcase.
-* We migrated BeeWare's CI to `use the new System packaging backend <https://github.com/beeware/.github/pull/14>`__ on Linux. This means that CI is significantly faster, as building system packages requires a lot less processing than an AppImage.
-* We `released Travertino 0.2.0 <https://pypi.org/project/travertino/>`__. Travertino is the library that underpins Toga's Pack layout algorithm. It's been several years since we last did a Travertino release, but some recent bug fixes warranted an update.
-* We presented a tutorial at `Everything Open 2023 <https://2023.everythingopen.au>`__. 
+- Progress on GUI testing in Toga is continuing. We now have 7 widgets
+  fully tested, with another 2 in progress. As with last month's update,
+  getting these tests passing has required wrestling a lot of
+  fundamentals, in particular around the simulation of events such as
+  mouse clicks. We're also discovering (and fixing) lots of corner cases
+  in widget implementations that only surface when you're doing rigorous
+  and repeatable testing.
+- We've made some [major changes to the way GTK widgets are
+  rendered](https://github.com/beeware/toga/pull/1794). This change
+  significantly reduces the amount of re-rendering that is performed by
+  GTK, as well as resolving a number of long standing issues related to
+  resizing widgets.
+- Thanks to some community contributions, we were were able to add
+  support for [focus events and text
+  alignment](https://github.com/beeware/toga/pull/1817) on GTK's
+  TextInput widget, and support for [text alignment and
+  fonts](https://github.com/beeware/toga/pull/1821) on GTK's NumberInput
+  widget.
+- We landed the implementation of a [Linux system package
+  backend](https://github.com/beeware/briefcase/pull/1106) for
+  Briefcase, which can output DEB and RPM packages. Thanks to a
+  community contribution, we were also able to add support for [Arch
+  packages](https://github.com/beeware/briefcase/pull/1143)
+- We modified the [locations where Briefcase outputs build
+  artefacts](https://github.com/beeware/briefcase/pull/1107). This
+  removes some sources of bugs associated with tools not supporting
+  spaces in filenames, and makes Briefcase's output consistent with
+  other tools in the Python ecosystem.
+- We made significant progress on [modifying Briefcase's AppImage and
+  Flatpak backends](https://github.com/beeware/briefcase/pull/1132) to
+  use Indygreg's [Standalone
+  Python](https://github.com/indygreg/python-build-standalone), rather
+  than BeeWare's Linux support package. Standalone Python is becoming a
+  de facto standard for pre-compiled Python builds (especially on
+  Linux), so it makes sense for BeeWare to converge on this common
+  standard. This change will also significantly speed up Flatpak builds,
+  should be more stable on AppImage, allows us to switch to
+  [manylinux](http://github.com/pypa/manylinux) base images - and it
+  reduces the number of projects that BeeWare is responsible for
+  maintaining. We're currently waiting on a [fix to the linuxdeploy GTK
+  plugin](https://github.com/linuxdeploy/linuxdeploy-plugin-gtk/pull/45)
+  to be merged before we can land this change.
+- Thanks to a community contribution, we added support for
+  [PyGame](https://github.com/beeware/briefcase/pull/1125) to Briefcase.
+- We migrated BeeWare's CI to [use the new System packaging
+  backend](https://github.com/beeware/.github/pull/14) on Linux. This
+  means that CI is significantly faster, as building system packages
+  requires a lot less processing than an AppImage.
+- We [released Travertino 0.2.0](https://pypi.org/project/travertino/).
+  Travertino is the library that underpins Toga's Pack layout algorithm.
+  It's been several years since we last did a Travertino release, but
+  some recent bug fixes warranted an update.
+- We presented a tutorial at [Everything Open
+  2023](https://2023.everythingopen.au).
 
-We also made a big change to our social media strategy: we started a Mastodon account. We've wound down our Twitter usage at the end of last year; going forward, you can get your bite size BeeWare updates from `@beeware@fosstodon.org <https://fosstodon.org/@beeware>`__.
+We also made a big change to our social media strategy: we started a
+Mastodon account. We've wound down our Twitter usage at the end of last
+year; going forward, you can get your bite size BeeWare updates from
+[@beeware@fosstodon.org](https://fosstodon.org/@beeware).
 
-What's next?
---------------
+## What's next?
 
-In terms of technical goals, April will continue our push for GUI test coverage. However, we're expecting progress to be a little slower, because of one big event - `PyCon US <https://pycon.us/2023>`__. We'll have a booth in the community section of the conference floor; the core team are presenting 2 talks; we're presenting at the Language Summit; and we'll be at the sprints for the first 3 days. Preparing for these talks will take up a lot of our time in April, as will the event itself - so progress is likely to be a little slower than normal. If you're going to be there, come by the booth and say hi! If you'd like to help us to staff the booth - get in touch `on Discord <https://beeware.org/bee/chat/>`__, `on Mastodon <https://fosstodon.org/@beeware>`__, `or email <mailto:contact@beeware.org>`__!
+In terms of technical goals, April will continue our push for GUI test
+coverage. However, we're expecting progress to be a little slower,
+because of one big event - [PyCon US](https://pycon.us/2023). We'll have
+a booth in the community section of the conference floor; the core team
+are presenting 2 talks; we're presenting at the Language Summit; and
+we'll be at the sprints for the first 3 days. Preparing for these talks
+will take up a lot of our time in April, as will the event itself - so
+progress is likely to be a little slower than normal. If you're going to
+be there, come by the booth and say hi! If you'd like to help us to
+staff the booth - get in touch [on
+Discord](https://beeware.org/bee/chat/), [on
+Mastodon](https://fosstodon.org/@beeware), [or
+email](mailto:contact@beeware.org)!
 
-Want to get involved?
------------------------
+## Want to get involved?
 
-Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
+Want to get involved? Here are some open issues that would be a great
+place to get started with contributing to a BeeWare project. They're all
+relatively minor changes, but would provide a big improvement to the
+lives of BeeWare users:
 
-1. `Modify the handling of app signing options <https://github.com/beeware/briefcase/issues/865>`__
-2. `Filter out a message generated after Xcode updates <https://github.com/beeware/briefcase/issues/780>`__
-3. `Add the ability to refresh the support package in a project <https://github.com/beeware/briefcase/issues/856>`__
-4. `Provide protection against creating projects with "semi-reserved" names <https://github.com/beeware/briefcase/issues/853>`__
-5. `Add the ability to configure the ABIs built by an Android project <https://github.com/beeware/briefcase/issues/808>`__
-6. `Add support for the ANDROID_HOME environment variable <https://github.com/beeware/briefcase/issues/463>`__
-7. `Improve validation of project names in the Briefcase wizard <https://github.com/beeware/briefcase/issues/1011>`__
-8. `Rationalise the application of adhoc signing on macOS <https://github.com/beeware/briefcase/issues/1099>`__
-9. `Correct the capture of log messages on the web backend <https://github.com/beeware/briefcase/issues/1090>`__
+1.  [Modify the handling of app signing
+    options](https://github.com/beeware/briefcase/issues/865)
+2.  [Filter out a message generated after Xcode
+    updates](https://github.com/beeware/briefcase/issues/780)
+3.  [Add the ability to refresh the support package in a
+    project](https://github.com/beeware/briefcase/issues/856)
+4.  [Provide protection against creating projects with "semi-reserved"
+    names](https://github.com/beeware/briefcase/issues/853)
+5.  [Add the ability to configure the ABIs built by an Android
+    project](https://github.com/beeware/briefcase/issues/808)
+6.  [Add support for the ANDROID\_HOME environment
+    variable](https://github.com/beeware/briefcase/issues/463)
+7.  [Improve validation of project names in the Briefcase
+    wizard](https://github.com/beeware/briefcase/issues/1011)
+8.  [Rationalise the application of adhoc signing on
+    macOS](https://github.com/beeware/briefcase/issues/1099)
+9.  [Correct the capture of log messages on the web
+    backend](https://github.com/beeware/briefcase/issues/1090)
 
-Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a `guide on setting up a Briefcase development environment <https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html>`__; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the `BeeWare Discord server <https://beeware.org/bee/chat/>`__.
+Pick one of these tickets, drop a comment on the ticket to let others
+know you're looking at it, and try your hand at a PR! We have a [guide
+on setting up a Briefcase development
+environment](https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html);
+but if you need any additional assistance or guidance, you can ask on
+the ticket, or join us on the [BeeWare Discord
+server](https://beeware.org/bee/chat/).
 
 ---
 pub_date: 2023-04-03

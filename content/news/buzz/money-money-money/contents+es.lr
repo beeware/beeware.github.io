@@ -8,310 +8,755 @@ pub_date: 2016-12-10
 ---
 body:
 
-En PyCon AU 2015, y de nuevo en DjangoCon US 2015, di una charla titulada "Dinero, dinero, dinero: Escribiendo software, en un mundo de hombres ricos". La charla fue un resumen de los problemas relacionados con uno de los mayores problemas que veo frente a la comunidad de código abierto: cómo proporcionar los recursos que se necesitan para desarrollar y mantener el software del que nosotros, como comunidad, dependemos. Esto significa proporcionar mantenimiento y apoyo a proyectos establecidos, grandes y pequeños; sino que también proporciona un ecosistema donde las nuevas ideas pueden ser incubadas, desarrolladas y maduradas hasta que presenten alternativas atractivas o beneficios significativos sobre las ofertas de fuentes cerradas.
+En PyCon AU 2015, y de nuevo en DjangoCon US 2015, di una charla
+titulada "Dinero, dinero, dinero: Escribiendo software, en un mundo de
+hombres ricos". La charla fue un resumen de los problemas relacionados
+con uno de los mayores problemas que veo frente a la comunidad de código
+abierto: cómo proporcionar los recursos que se necesitan para
+desarrollar y mantener el software del que nosotros, como comunidad,
+dependemos. Esto significa proporcionar mantenimiento y apoyo a
+proyectos establecidos, grandes y pequeños; sino que también proporciona
+un ecosistema donde las nuevas ideas pueden ser incubadas, desarrolladas
+y maduradas hasta que presenten alternativas atractivas o beneficios
+significativos sobre las ofertas de fuentes cerradas.
 
-Han pasado casi 18 meses desde que presenté esta charla, pero el problema persiste. No he estado solo al notar y llamar la atención sobre este asunto, tampoco. `Nadia Eghbal <https://twitter.com/nayafia>`_ fue encargada de redactar un libro para la Fundación Ford titulado `Caminos y puentes <http://www.fordfoundation.org/library/reports-and-studies/roads-and-bridges-the-unseen-labor-behind-our-digital-infrastructure>`__ resaltando las necesidades crónicas en infraestructura que subyacen a gran parte de la economía moderna. Eric Holscher (mantenedor de `Read the Docs <https://readthedocs.com>`_) `escribió sobre los problemas que tuvo para recaudar fondos <http://ericholscher.com/blog/2016/aug/31/funding-oss-marketing-money/>`_, a pesar de que el servicio que él ofrece corresponde a una parte ampliamente utilizada - posiblemente indispensable - del ecosistema Python.
+Han pasado casi 18 meses desde que presenté esta charla, pero el
+problema persiste. No he estado solo al notar y llamar la atención sobre
+este asunto, tampoco. [Nadia Eghbal](https://twitter.com/nayafia) fue
+encargada de redactar un libro para la Fundación Ford titulado [Caminos
+y
+puentes](http://www.fordfoundation.org/library/reports-and-studies/roads-and-bridges-the-unseen-labor-behind-our-digital-infrastructure)
+resaltando las necesidades crónicas en infraestructura que subyacen a
+gran parte de la economía moderna. Eric Holscher (mantenedor de [Read
+the Docs](https://readthedocs.com)) [escribió sobre los problemas que
+tuvo para recaudar
+fondos](http://ericholscher.com/blog/2016/aug/31/funding-oss-marketing-money/),
+a pesar de que el servicio que él ofrece corresponde a una parte
+ampliamente utilizada - posiblemente indispensable - del ecosistema
+Python.
 
-Sin embargo, a pesar de esta atención, todavía no llega a estar tan cerca de la atención que debería tener. Y es una cuestión que es de gran importancia para mí, ya que el proyecto BeeWare está buscando formas de financiar el desarrollo necesario para pasar de una "interesante demostración técnica" a una "solución técnica convincente".
+Sin embargo, a pesar de esta atención, todavía no llega a estar tan
+cerca de la atención que debería tener. Y es una cuestión que es de gran
+importancia para mí, ya que el proyecto BeeWare está buscando formas de
+financiar el desarrollo necesario para pasar de una "interesante
+demostración técnica" a una "solución técnica convincente".
 
-Hace unos meses, se sugirió que publicara una entrada en el blog para acompañar la presentación del video. Me arrastré los pies al hacer esto, hasta que el trabajador colaborador de BeeWare y simpático chico 'Elias Dorneles' se ofreció a tomar mis notas y convertirla en una transcripción.
+Hace unos meses, se sugirió que publicara una entrada en el blog para
+acompañar la presentación del video. Me arrastré los pies al hacer esto,
+hasta que el trabajador colaborador de BeeWare y simpático chico 'Elias
+Dorneles' se ofreció a tomar mis notas y convertirla en una
+transcripción.
 
-Así que aquí está. Dinero, Dinero, Dinero: Escribiendo software, en un mundo de hombres ricos. Si tienes alguna pregunta, desacuerdo, peticiones para presentar esto en tu conferencia, o simplemente una oferta genérica de una bolsa de dinero en efectivo, puedes contactarme en: `russell@keith-magee.com <mailto: russell@keith-magee.com>`_.
+Así que aquí está. Dinero, Dinero, Dinero: Escribiendo software, en un
+mundo de hombres ricos. Si tienes alguna pregunta, desacuerdo,
+peticiones para presentar esto en tu conferencia, o simplemente una
+oferta genérica de una bolsa de dinero en efectivo, puedes contactarme
+en: [russell@keith-magee.com](mailto: russell@keith-magee.com).
 
-.. raw:: html
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Jw6wnIopVVg" frameborder="0" allowfullscreen></iframe>
 
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/Jw6wnIopVVg" frameborder="0" allowfullscreen></iframe>
+## Transcripción
 
+Hola, soy Russell Keith-Magee, si ya has oído hablar de mí,
+probablemente sea por mi trabajo en el proyecto Django; He sido un
+miembro del equipo central durante casi 10 años, y presidente de la
+Fundación de Software Django desde 2011.
 
-Transcripción
-==============
+Uno de los grandes retos del proyecto Django - y cualquier gran proyecto
+para el caso - ha sido asegurar la seguridad de su desarrollo futuro.
 
-Hola, soy Russell Keith-Magee, si ya has oído hablar de mí, probablemente sea por mi trabajo en el proyecto Django; He sido un miembro del equipo central durante casi 10 años, y presidente de la Fundación de Software Django desde 2011.
+Mi trabajo diario es como CTO y co-fundador de TradesCloud. Somos un
+software como servicio para los comerciantes - plomeros, electricistas,
+carpinteros y similares. TradesCloud depende de una serie de proyectos
+de código abierto - Django, Apache, memcache, muchos otros. Así que
+tengo un interés comercial en la continuidad de estos proyectos de
+código abierto - pero ciertamente no tengo los recursos para
+financiarlos a *todos* por mí mismo.
 
-Uno de los grandes retos del proyecto Django - y cualquier gran proyecto para el caso - ha sido asegurar la seguridad de su desarrollo futuro.
+También tengo un interés declarado en los problemas de interfaces
+gráficas, especialmente en lo que se refiere a las herramientas de
+desarrollo. Tengo grandes visiones de lo que *me gustaría* hacer con
+este proyecto, y he recibido algunas grandes contribuciones de la
+comunidad, pero todavía es en gran medida mi propio trabajo. Mi start-up
+sería capaz de hacer un gran uso de estas herramientas si estuvieran
+maduras.
 
-Mi trabajo diario es como CTO y co-fundador de TradesCloud. Somos un software como servicio para los comerciantes - plomeros, electricistas, carpinteros y similares. TradesCloud depende de una serie de proyectos de código abierto - Django, Apache, memcache, muchos otros. Así que tengo un interés comercial en la continuidad de estos proyectos de código abierto - pero ciertamente no tengo los recursos para financiarlos a *todos* por mí mismo.
+También soy un mantenedor de algunos proyectos más pequeños, como el
+envoltorio Python para la API Xero. Comencé el proyecto porque tenía una
+picazón. Pero ahora he abierto el proyecto, lo que significa que he
+heredado una tarea de mantenimiento. He aceptado la ayuda de un par de
+personas - sobre todo Matthew Schinkel y Aidan Lister, que han hecho un
+gran trabajo. Pero si soy honesto, la carga de mantenimiento de PyXero
+excede el tiempo que puedo dedicarle razonablemente.
 
-También tengo un interés declarado en los problemas de interfaces gráficas, especialmente en lo que se refiere a las herramientas de desarrollo. Tengo grandes visiones de lo que *me gustaría* hacer con este proyecto, y he recibido algunas grandes contribuciones de la comunidad, pero todavía es en gran medida mi propio trabajo. Mi start-up  sería capaz de hacer un gran uso de estas herramientas si estuvieran maduras.
+Entonces, tengo intereses creados en el software libre. Tengo un interés
+como productor de un proyecto exitoso con un alto perfil; como productor
+de un pequeño proyecto con muchos usuarios pero poco incentivo personal;
+y como productor de proyectos más pequeños con casi ningún perfil pero
+grandes planes. Todos estos proyectos tienen diferentes necesidades de
+recursos, reflejando su madurez como proyectos.
 
-También soy un mantenedor de algunos proyectos más pequeños, como el envoltorio Python para la API Xero. Comencé el proyecto porque tenía una picazón. Pero ahora he abierto el proyecto, lo que significa que he heredado una tarea de mantenimiento. He aceptado la ayuda de un par de personas - sobre todo Matthew Schinkel y Aidan Lister, que han hecho un gran trabajo. Pero si soy honesto, la carga de mantenimiento de PyXero excede el tiempo que puedo dedicarle razonablemente.
-
-Entonces, tengo intereses creados en el software libre. Tengo un interés como productor de un proyecto exitoso con un alto perfil; como productor de un pequeño proyecto con muchos usuarios pero poco incentivo personal; y como productor de proyectos más pequeños con casi ningún perfil pero grandes planes. Todos estos proyectos tienen diferentes necesidades de recursos, reflejando su madurez como proyectos.
-
-También tengo intereses como consumidor de software libre, tanto en términos de software en el que confío para desarrollar mis propios proyectos, como en términos de mi interés comercial en el mantenimiento a largo plazo de herramientas y plataformas. Necesito estos proyectos para seguir desarrollándose, sobrevivir y prosperar.
+También tengo intereses como consumidor de software libre, tanto en
+términos de software en el que confío para desarrollar mis propios
+proyectos, como en términos de mi interés comercial en el mantenimiento
+a largo plazo de herramientas y plataformas. Necesito estos proyectos
+para seguir desarrollándose, sobrevivir y prosperar.
 
 Sobre la base de mi experiencia, me gustaría hacer una audaz afirmación:
 
-.. pull-quote::
+A falta de otras limitaciones, dados recursos equivalentes, el enfoque
+de software libre produce resultados de ingeniería mucho mayores que
+el enfoque de código cerrado.
 
-    A falta de otras limitaciones, dados recursos equivalentes, el enfoque de software libre produce resultados de ingeniería mucho mayores que el enfoque de código cerrado.
+La frase clave es "dado recursos equivalentes". La mayoría de los
+proyectos de software libre no se desarrollan usando nada cercano a
+recursos "equivalentes".
 
-La frase clave es "dado recursos equivalentes". La mayoría de los proyectos de software libre no se desarrollan usando nada cercano a recursos "equivalentes".
+En algunos casos, esto es una bendición disfrazada - sin importar el
+proyecto, tener escasos recursos es un excelente crisol para quemar lo
+innecesario y dejar sólo el metal base. Pero no siempre es una
+bendición.
 
-En algunos casos, esto es una bendición disfrazada - sin importar el proyecto, tener escasos recursos es un excelente crisol para quemar lo innecesario y dejar sólo el metal base. Pero no siempre es una bendición.
+### El camino moral alto está lleno de cadáveres de nuestros aliados
 
-El camino moral alto está lleno de cadáveres de nuestros aliados
----------------------------------------------------------------------------------
+Hable con cualquier desarrollador de software libre prominente, y entre
+las historias de éxito, también escuchará algunos problemas
+consistentes - que tienen grandes ideas y grandes planes, pero no hay
+tiempo para ejecutarlas; que están a punto de quemarse debido a las
+presiones de mantener su proyecto; o que han tenido otra discusión de
+lista de correo con alguien que no entiende por qué no dejo todo para
+ayudarles a solucionar su problema. Y hay muchos ejemplos.
 
-Hable con cualquier desarrollador de software libre prominente, y entre las historias de éxito, también escuchará algunos problemas consistentes - que tienen grandes ideas y grandes planes, pero no hay tiempo para ejecutarlas; que están a punto de quemarse debido a las presiones de mantener su proyecto; o que han tenido otra discusión de lista de correo con alguien que no entiende por qué no dejo todo para ayudarles a solucionar su problema. Y hay muchos ejemplos.
+OpenSSL es el software que maneja prácticamente todas las conexiones
+"seguras" en Internet, y sin embargo, solo hasta el descubrimiento de
+Heartbleed -una vulnerabilidad crítica que envió a Internet en un
+remolino - pudo encontrar financiación para pagar a los mantenedores.
 
-OpenSSL es el software que maneja prácticamente todas las conexiones "seguras" en Internet, y sin embargo, solo hasta el descubrimiento de Heartbleed -una vulnerabilidad crítica que envió a Internet en un remolino - pudo  encontrar financiación para pagar a los mantenedores.
+Otro ejemplo - GnuPG - Werner Koch casi se declaró en bancarrota
+tratando de apoyar a GPG - un proyecto que muchos otros dependen de la
+confianza en su proceso de lanzamiento. Fue rescatado, en la puerta de
+las muerte, por la iniciativa Infraestructura principal de la fundación
+linux.
 
-Otro ejemplo - GnuPG - Werner Koch casi se declaró en bancarrota tratando de apoyar a GPG - un proyecto que muchos otros dependen de la confianza en su proceso de lanzamiento. Fue rescatado, en la puerta de las muerte, por la iniciativa Infraestructura principal de la fundación linux.
+Estos son ejemplos que terminaron con fondos; pero no todos los finales
+felices.
 
-Estos son ejemplos que terminaron con fondos; pero no todos los finales felices.
+Tomemos el ejemplo de Capistrano. Herramienta de gestión de
+configuración muy popular alrededor de 2007-8, mantenido por Jamis Buck.
+En 2008, citando el agotamiento y el mantenimiento general, él renunció
+a apoyar a Windows, diciendo que "Windows puede ser el gorila de 800
+libras en la habitación, pero no es mi gorila, y no está en mi
+habitación". Este fue un movimiento increíblemente impopular; pero
+incluso con esa reducción, Jamis se quemó en 2009, abandonando
+Capistrano, y una serie de otros proyectos, sin mantenedores.
 
-Tomemos el ejemplo de Capistrano. Herramienta de gestión de configuración muy popular alrededor de 2007-8, mantenido por Jamis Buck. En 2008, citando el agotamiento y el mantenimiento general, él renunció a apoyar a Windows, diciendo que "Windows puede ser el gorila de 800 libras en la habitación, pero no es mi gorila, y no está en mi habitación". Este fue un movimiento increíblemente impopular; pero incluso con esa reducción, Jamis se quemó en 2009, abandonando Capistrano, y una serie de otros proyectos, sin mantenedores.
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;Hi I&#39;m an engineer at a well-funded company and we need this feature can someone implement it for free?&quot; -- Every FOSS mailing list.</p>&mdash; Christophe (@Xof) <a href="https://twitter.com/Xof/status/622113231218192384">July 17, 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-.. raw:: html
+La cosa es - que esta es una comunidad que tiene un montón de dinero en
+efectivo. En el gran esquema de cosas, el desarrollo de software es una
+industria bien financiada. Si las empresas pueden encontrar dinero para
+mesas de futbolín y bolas de bolas meditativas, deben ser capaces de
+encontrar recursos para ayudar a mantener el software en el que han
+basado su éxito. Y si estás en el extremo receptor del problema - un
+desarrollador de software libre - puede ser realmente frustrante.
 
-    <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;Hi I&#39;m an engineer at a well-funded company and we need this feature can someone implement it for free?&quot; -- Every FOSS mailing list.</p>&mdash; Christophe (@Xof) <a href="https://twitter.com/Xof/status/622113231218192384">July 17, 2015</a></blockquote>
-    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+Para mí, esta es la gran pregunta sin respuesta del movimiento del
+software libre: cómo reconciliar la discrepancia entre la clara demanda
+de un producto de software y la capacidad de convertir esa demanda en el
+tiempo y los recursos necesarios para atender esa demanda.
 
+### Software libre: Sueño vs Realidad
 
-La cosa es - que esta es una comunidad que tiene un montón de dinero en efectivo. En el gran esquema de cosas, el desarrollo de software es una industria bien financiada. Si las empresas pueden encontrar dinero para mesas de futbolín y bolas de bolas meditativas, deben ser capaces de encontrar recursos para ayudar a mantener el software en el que han basado su éxito. Y si estás en el extremo receptor del problema - un desarrollador de software libre -  puede ser realmente frustrante.
+Aunque la teoría dice que cualquier persona puede contribuir a un
+proyecto de software libre, en realidad, cada proyecto de cualquier
+significado tiene líderes. En el nivel más básico, es quien tiene el
+"bit de commit". Y usted necesita ese liderazgo, especialmente cuando se
+trata de algo relacionado con el diseño. La mordaza corriente es que un
+camello es un caballo diseñado por comité. Las peores API que tratamos
+diariamente son las que fueron diseñadas por comité. Necesitas a alguien
+con gusto corriendo el espectáculo.
 
-Para mí, esta es la gran pregunta sin respuesta del movimiento del software libre: cómo reconciliar la discrepancia entre la clara demanda de un producto de software y la capacidad de convertir esa demanda en el tiempo y los recursos necesarios para atender esa demanda.
+Pero hay un problema más grande - la extensión del compromiso que los
+usuarios tienen con un proyecto. Aquí hay un experimento para probar mi
+punto. Estamos en una habitación llena de usuarios de Python. Django es
+un proyecto de software libre.
 
-Software libre: Sueño vs Realidad
-----------------------------------------
+- ¿Quién en esta sala ha encontrado un error en Django, o tiene una
+  pequeña cosa que les gustaría ver arreglada en la API de Django?
+- ¿Quién ha convertido esa pequeña cosa un informe de error de Django?
+- ¿Quién ha enviado un parche a Django para esa arreglo?
+- De aquellos, quienes han tenido ese parche emergido?
 
-Aunque la teoría dice que cualquier persona puede contribuir a un proyecto de software libre, en realidad, cada proyecto de cualquier significado tiene líderes. En el nivel más básico, es quien tiene el "bit de commit". Y usted necesita ese liderazgo, especialmente cuando se trata de algo relacionado con el diseño. La mordaza corriente es que un camello es un caballo diseñado por comité. Las peores API que tratamos diariamente son las que fueron diseñadas por comité. Necesitas a alguien con gusto corriendo el espectáculo.
+Note
 
-Pero hay un problema más grande - la extensión del compromiso que los usuarios tienen con un proyecto. Aquí hay un experimento para probar mi punto. Estamos en una habitación llena de usuarios de Python. Django es un proyecto de software libre.
+Cuando esto se hace delante de una audiencia en vivo, en cada pregunta,
+hay menos gente levantando sus manos
 
-* ¿Quién en esta sala ha encontrado un error en Django, o tiene una pequeña cosa que les gustaría ver arreglada en la API de Django?
-* ¿Quién ha convertido esa pequeña cosa  un informe de error de Django?
-* ¿Quién ha enviado un parche a Django para esa arreglo?
-* De aquellos, quienes han tenido ese parche emergido?
+### Productos vs Proyectos
 
-.. note::
+Entonces, ¿qué está pasando aquí? Bueno, refleja 2 maneras diferentes de
+mirar un pedazo de software - proyectos y productos. Y es una cuestión
+de perspectiva personal - mi proyecto puede ser su producto, y
+viceversa.
 
-    Cuando esto se hace delante de una audiencia en vivo, en cada pregunta, hay menos gente levantando sus manos
+Cuando veo algún código como un proyecto, es un cuerpo de código en el
+que estoy contribuyendo a un objetivo mayor. Estoy dispuesto a gastar
+recursos enfocados en las necesidades de otras personas con la esperanza
+de que sus necesidades ayudarán a mejorar el proyecto como un todo.
+Estoy dispuesto a hacer esto porque obtengo ganancias personales, como
+un perfil público mejorado; o si la herramienta está muy cerca de mi
+trabajo; o donde sé que puedo hacer una contribución sustantiva.
 
-Productos vs Proyectos
-------------------------------
+Pero cuanto más lejos me alejo de mi "trabajo", y cuanto más difícil es
+hacer una contribución, menos inclinado estoy a *querer* contribuir al
+proyecto. La mayoría de las veces, es un producto que estoy usando, con
+las verrugas y todo. Si un producto tiene errores, trabajaré alrededor
+de ellos, o encontraré una alternativa, en vez de navegar por el proceso
+de contribución y contribuir con un parche.
 
-Entonces, ¿qué está pasando aquí? Bueno, refleja 2 maneras diferentes de mirar un pedazo de software - proyectos y productos. Y es una cuestión de perspectiva personal - mi proyecto puede ser su producto, y viceversa.
+En el caso de un producto, las libertades proporcionadas por el software
+libre son un poco como la libertad de expresión - es una libertad que
+definitivamente quiero, es reconfortante saber que está ahí, pero no
+paso todos los días asegurándome de explotar plenamente esas libertades.
+Hay personas que lo hacen - manifestantes, defensores de posiciones
+sociales controvertidas - y un día, dadas las circunstancias adecuadas,
+podría unirme y ayudarles. Pero la mayoría de las veces, sólo quiero ser
+pragmático, y seguir con la vida.
 
-Cuando veo algún código como un proyecto, es un cuerpo de código en el que estoy contribuyendo a un objetivo mayor. Estoy dispuesto a gastar recursos enfocados en las necesidades de otras personas con la esperanza de que sus necesidades ayudarán a mejorar el proyecto como un todo. Estoy dispuesto a hacer esto porque obtengo ganancias personales, como un perfil público mejorado; o si la herramienta está muy cerca de mi trabajo; o donde sé que puedo hacer una contribución sustantiva.
+Esta dicotomía entre la teoría y la práctica es también la razón por la
+que comentarios como "Parches bienvenidos" se hacen en las listas de
+correo de software libre. Por un lado, es completamente correcto.
+Cualquiera *puede* contribuir, y en la mayoría de los proyectos los
+*parches* son bienvenidos. Pero la mayoría de la gente no mira un nuevo
+proyecto de código abierto como una oportunidad para participar y
+contribuir. La mayoría de la gente sólo quiere usar el maldito software.
 
-Pero cuanto más lejos me alejo de mi "trabajo", y cuanto más difícil es hacer una contribución, menos inclinado estoy a *querer* contribuir al proyecto. La mayoría de las veces, es un producto que estoy usando, con las verrugas y todo. Si un producto tiene errores, trabajaré alrededor de ellos, o encontraré una alternativa, en vez de navegar por el proceso de contribución y contribuir con un parche.
+Y se puede argumentar que es porque la gente se está centrando en la
+interpretación equivocada de "libre", y no han "capturado el espíritu
+del software libre". Lo cual es 100% cierto, pero totalmente
+contraproducente como una posición. Cualquier persona que ha hecho
+cualquier trabajo de diseño UX sabe que si los usuarios están cometiendo
+un error consistentemente, culpar al usuario no te lleva a ninguna
+parte. Usted estaba a cargo de lo que el usuario experimentó, y
+cometieron el "error" debido a una desconexión cognitiva fundamental.
 
-En el caso de un producto, las libertades proporcionadas por el software libre son un poco como la libertad de expresión - es una libertad que definitivamente quiero, es reconfortante saber que está ahí, pero no paso todos los días asegurándome de explotar plenamente esas libertades. Hay personas que lo hacen - manifestantes, defensores de posiciones sociales controvertidas - y un día, dadas las circunstancias adecuadas, podría unirme y ayudarles. Pero la mayoría de las veces, sólo quiero ser pragmático, y seguir con la vida.
+E incluso si todo el mundo *obtuvo* el mensaje correcto - vamos a ser
+realistas - no funcionaría de todos modos. [El mítico
+hombre-mes](https://es.wikipedia.org/wiki/El_M%C3%ADtico_Hombre-Mes) nos
+mostró que no podemos entregar un proyecto más rápidamente o mejor,
+arrojando más personas en él. 9 mujeres no pueden hacer un bebé en 1
+mes - un proyecto no sólo necesita recursos - que necesita los recursos
+*adecuados*, en las cantidades adecuadas. Y en última instancia, eso
+significa que los proyectos deben encontrar una manera de obtener los
+recursos que necesitan para ser autosostenibles.
 
-Esta dicotomía entre la teoría y la práctica es también la razón por la que comentarios como "Parches bienvenidos" se hacen en las listas de correo de software libre. Por un lado, es completamente correcto. Cualquiera *puede* contribuir, y en la mayoría de los proyectos los *parches* son bienvenidos. Pero la mayoría de la gente no mira un nuevo proyecto de código abierto como una oportunidad para participar y contribuir. La mayoría de la gente sólo quiere usar el maldito software.
+Por lo tanto, eso significa que si queremos que el software libre se
+mantenga y mantenga bien, necesitamos encontrar una manera de financiar
+su mantenimiento.
 
-Y se puede argumentar que es porque la gente se está centrando en la interpretación equivocada de "libre", y no han "capturado el espíritu del software libre". Lo cual es 100% cierto, pero totalmente contraproducente como una posición. Cualquier persona que ha hecho cualquier trabajo de diseño UX sabe que si los usuarios están cometiendo un error consistentemente, culpar al usuario no te lleva a ninguna parte. Usted estaba a cargo de lo que el usuario experimentó, y cometieron el "error" debido a una desconexión cognitiva fundamental.
+### Valor de uso vs Valor de venta
 
-E incluso si todo el mundo *obtuvo* el mensaje correcto - vamos a ser realistas - no funcionaría de todos modos. `El mítico hombre-mes <https://es.wikipedia.org/wiki/El_M%C3%ADtico_Hombre-Mes>`__ nos mostró que no podemos entregar un proyecto más rápidamente o mejor, arrojando más personas en él. 9 mujeres no pueden hacer un bebé en 1 mes - un proyecto no sólo necesita recursos - que necesita los recursos *adecuados*, en las cantidades adecuadas. Y en última instancia, eso significa que los proyectos deben encontrar una manera de obtener los recursos que necesitan para ser autosostenibles.
+Hace 18 años, Eric S Raymond publicó un ensayo titulado "La Catedral y
+el Bazar". Este ensayo catalizó el inicio del movimiento de código
+abierto - una redefinición del "software libre" para dejar claro que la
+apertura, no el precio, era la propiedad importante. Lo que no es tan
+bien recordado es que "La Catedral y el Bazar" no es el único ensayo
+escrito por Raymond en ese momento. Publicó otros 2 ensayos poco
+después - "Homesteading the Noosphere", sobre la organización social y
+las motivaciones detrás de los proyectos de software libre, y "The Magic
+Cauldron", sobre la *economía* del software libre.
 
-Por lo tanto, eso significa que si queremos que el software libre se mantenga y mantenga bien, necesitamos encontrar una manera de financiar su mantenimiento.
+Una de las distinciones clave que Raymond destaca en ese ensayo es la
+diferencia entre el valor de uso y el valor de venta.
 
+El valor de venta de un producto es su valor como un producto vendible -
+literalmente, por lo que usted lo vende.
 
-Valor de uso vs Valor de venta
---------------------------------------
+El valor de uso de un producto es su valor económico como herramienta,
+como multiplicador de productividad. Este es el beneficio económico que
+el usuario obtendrá del producto.
 
-Hace 18 años, Eric S Raymond publicó un ensayo titulado "La Catedral y el Bazar". Este ensayo catalizó el inicio del movimiento de código abierto - una redefinición del "software libre" para dejar claro que la apertura, no el precio, era la propiedad importante. Lo que no es tan bien recordado es que "La Catedral y el Bazar" no es el único ensayo escrito por Raymond en ese momento. Publicó otros 2 ensayos poco después - "Homesteading the Noosphere", sobre la organización social y las motivaciones detrás de los proyectos de software libre, y "The Magic Cauldron", sobre la *economía* del software libre.
+Lo importante es que los dos no están necesariamente conectados. En un
+entorno de fabricación tradicional, el foco está en el valor de venta,
+ya que por lo general está vinculado al costo de fabricación - el costo
+de las piezas y los materiales.
 
-Una de las distinciones clave que Raymond destaca en ese ensayo es la diferencia entre el valor de uso y el valor de venta.
-
-El valor de venta de un producto es su valor como un producto vendible - literalmente, por lo que usted lo vende.
-
-El valor de uso de un producto es su valor económico como herramienta, como multiplicador de productividad. Este es el beneficio económico que el usuario obtendrá del producto.
-
-Lo importante es que los dos no están necesariamente conectados. En un entorno de fabricación tradicional, el foco está en el valor de venta, ya que por lo general está vinculado al costo de fabricación - el costo de las piezas y los materiales.
-
-Pero la mayoría del software no se produce para el valor de la venta - es en casa el software producido para el valor de uso. En el caso del software libre, el valor de "venta" para el software libre es 0. Pero eso no significa que no hay valor de uso, y el problema es averiguar cómo explotar el valor de uso que existe dentro de una organización como un canal de monetización.
+Pero la mayoría del software no se produce para el valor de la venta -
+es en casa el software producido para el valor de uso. En el caso del
+software libre, el valor de "venta" para el software libre es 0. Pero
+eso no significa que no hay valor de uso, y el problema es averiguar
+cómo explotar el valor de uso que existe dentro de una organización como
+un canal de monetización.
 
 ¿Entonces cuales son tus opciones?
 
-Bueno, puedes vender mercancía. Y aunque esto es relativamente fácil de hacer, seamos honestos - no vas a financiar un imperio de software vendiendo camisetas.
+Bueno, puedes vender mercancía. Y aunque esto es relativamente fácil de
+hacer, seamos honestos - no vas a financiar un imperio de software
+vendiendo camisetas.
 
-Puede hacer que los usuarios paguen por la documentación. Escribe un libro, y haz que los usuarios lo paguen.
+Puede hacer que los usuarios paguen por la documentación. Escribe un
+libro, y haz que los usuarios lo paguen.
 
-Desafortunadamente, el pequeño secreto sucio de la escena de la escritura de la tecnología es que nadie se vuelve rico escribiendo libros de tecnología. Son recursos increíblemente valiosos para la comunidad, son ideales para rellenar tu currículum, pero no son grandes como flujo de ingresos.
+Desafortunadamente, el pequeño secreto sucio de la escena de la
+escritura de la tecnología es que nadie se vuelve rico escribiendo
+libros de tecnología. Son recursos increíblemente valiosos para la
+comunidad, son ideales para rellenar tu currículum, pero no son grandes
+como flujo de ingresos.
 
-Un área que *si* paga bien es la de entrenamiento. Los empleadores están dispuestos a pagar mucho dinero por los cursos de capacitación; si usted puede juntar un taller intensivo de 3 días, usted puede venderlo una y otra vez.
+Un área que *si* paga bien es la de entrenamiento. Los empleadores están
+dispuestos a pagar mucho dinero por los cursos de capacitación; si usted
+puede juntar un taller intensivo de 3 días, usted puede venderlo una y
+otra vez.
 
-Puede producir su oferta. El código fuente sigue siendo gratuito, pero un instalador simple y fácil de usar cuesta dinero. Esto funciona muy bien cuando cuando lo que tienes es un producto claramente identificable - como una interfaz gráfica de desarrollo - IDE.
+Puede producir su oferta. El código fuente sigue siendo gratuito, pero
+un instalador simple y fácil de usar cuesta dinero. Esto funciona muy
+bien cuando cuando lo que tienes es un producto claramente
+identificable - como una interfaz gráfica de desarrollo - IDE.
 
-Un modelo específico de generar un producto es Software como servicio - SaaS - dar el código de forma gratuita, pero pagar por la conveniencia de tener a alguien más para administrarlo por usted. Cualquier software de código abierto de la web es un buen ejemplo de esto - puede instalar el software en sus propios servidores, pero honestamente, a menos que tenga una razón, usted utiliza la solución alojada de alguien más y deja que ellos cuiden sus servidores por usted.
+Un modelo específico de generar un producto es Software como servicio -
+SaaS - dar el código de forma gratuita, pero pagar por la conveniencia
+de tener a alguien más para administrarlo por usted. Cualquier software
+de código abierto de la web es un buen ejemplo de esto - puede instalar
+el software en sus propios servidores, pero honestamente, a menos que
+tenga una razón, usted utiliza la solución alojada de alguien más y deja
+que ellos cuiden sus servidores por usted.
 
-Pero, SaaS sólo es viable si se puede ofrecer *como un servicio* - lo que significa que es realmente sólo viable para la web. Y, como las tecnologías como docker comercializan el despliegue, es posible que incluso este flujo de ingresos se evapore.
+Pero, SaaS sólo es viable si se puede ofrecer *como un servicio* - lo
+que significa que es realmente sólo viable para la web. Y, como las
+tecnologías como docker comercializan el despliegue, es posible que
+incluso este flujo de ingresos se evapore.
 
 Entonces, ¿qué más se puede vender?
 
-Usted puede vender el acceso a los desarrolladores. Si eres el mantenedor de un proyecto, estás en la mejor posición para brindarle soporte o depurar problemas complejos, lo que significa que estás en una posición privilegiada para vender soporte y consultoría. `Honza Král <https://twitter.com/honzakral>` de ElasticSearch llama a esto el modelo de negocio "Ghostbusters" - "¿A quién vas a llamar?"
+Usted puede vender el acceso a los desarrolladores. Si eres el
+mantenedor de un proyecto, estás en la mejor posición para brindarle
+soporte o depurar problemas complejos, lo que significa que estás en una
+posición privilegiada para vender soporte y consultoría.
+<span class="title-ref">Honza Král
+&lt;https://twitter.com/honzakral&gt;</span> de ElasticSearch llama a
+esto el modelo de negocio "Ghostbusters" - "¿A quién vas a llamar?"
 
-Puede vender el acceso al software. Trolltech hizo esto con Qt; Riverbank todavía hace con los enlaces de PyQt. La biblioteca en sí es GPL - pero si quieres usarla en un proyecto de código cerrado, puedes hacerlo, por un alto cargo. Esto tiene la ventaja de que obliga a los intereses comerciales a pagar por lo que están utilizando; pero también desincentiva el uso comercial a pequeña escala - si estoy escribiendo una nueva herramienta, y me veo obligado a elegir entre el código abierto de mi herramienta o un precio de $ 1000, probablemente elija un juego de herramientas diferente.
+Puede vender el acceso al software. Trolltech hizo esto con Qt;
+Riverbank todavía hace con los enlaces de PyQt. La biblioteca en sí es
+GPL - pero si quieres usarla en un proyecto de código cerrado, puedes
+hacerlo, por un alto cargo. Esto tiene la ventaja de que obliga a los
+intereses comerciales a pagar por lo que están utilizando; pero también
+desincentiva el uso comercial a pequeña escala - si estoy escribiendo
+una nueva herramienta, y me veo obligado a elegir entre el código
+abierto de mi herramienta o un precio de $ 1000, probablemente elija un
+juego de herramientas diferente.
 
-También puede entrar en el negocio de proporcionar certificaciones y garantías - código de auditoría para garantizar la calidad o compatibilidad, proporcionando garantías sobre el arreglo de errores, y certificar que las personas son expertos en el uso del producto. Esta es una parte importante de los modelos de negocio de RedHat, los paquetes de auditoría, asegurándose de que todos interactúan como se esperaba, asegurando que las actualizaciones de seguridad están disponibles y cumplen con los mismos estándares y certificando a los administradores del sistema.
+También puede entrar en el negocio de proporcionar certificaciones y
+garantías - código de auditoría para garantizar la calidad o
+compatibilidad, proporcionando garantías sobre el arreglo de errores, y
+certificar que las personas son expertos en el uso del producto. Esta es
+una parte importante de los modelos de negocio de RedHat, los paquetes
+de auditoría, asegurándose de que todos interactúan como se esperaba,
+asegurando que las actualizaciones de seguridad están disponibles y
+cumplen con los mismos estándares y certificando a los administradores
+del sistema.
 
-Este es un conjunto de productos que atrae a la "empresa" de gama alta de la ciudad - y es un segmento lucrativo  del mercado. Pero esos clientes tienden a sólo necesitar estas garantías para ciertos tipos de software - en términos generales,  software "aburrido". Su sistema operativo, sus base de datos - son piezas de software que necesitan ser sólidas en una empresa. Su barra de herramientas de depuración - no tanto, a menos que tal vez sean ofrecidas como parte de un conjunto/paquete de herramientas.
+Este es un conjunto de productos que atrae a la "empresa" de gama alta
+de la ciudad - y es un segmento lucrativo del mercado. Pero esos
+clientes tienden a sólo necesitar estas garantías para ciertos tipos de
+software - en términos generales, software "aburrido". Su sistema
+operativo, sus base de datos - son piezas de software que necesitan ser
+sólidas en una empresa. Su barra de herramientas de depuración - no
+tanto, a menos que tal vez sean ofrecidas como parte de un
+conjunto/paquete de herramientas.
 
-Socavar tu propuesta de valor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#### Socavar tu propuesta de valor
 
-Otro problema con muchas de estas fuentes de ingresos es que si se ejecuta bien su proyecto, muchos de ellos se descartan - o por lo menos se ven severamente reducidas.
+Otro problema con muchas de estas fuentes de ingresos es que si se
+ejecuta bien su proyecto, muchos de ellos se descartan - o por lo menos
+se ven severamente reducidas.
 
-Si haces algo realmente fácil de usar, acabas de eliminar la necesidad de libros y cursos de formación, o, por lo menos, movido el terreno a cursos "avanzados", que son más difíciles de escribir y tienen un público más pequeño.
+Si haces algo realmente fácil de usar, acabas de eliminar la necesidad
+de libros y cursos de formación, o, por lo menos, movido el terreno a
+cursos "avanzados", que son más difíciles de escribir y tienen un
+público más pequeño.
 
-Django vio esto de primera mano - la documentación de Django era reconocida por lo buena desde una  temprana etapa, y como resultado, era muy difícil conseguir que los editores aceptaran proyectos de libros de Django - porque la documentación era demasiado buena y estaba socavando el mercado para libros. Se ha tardado mucho tiempo, y sobre todo la auto-publicación, para obtener buenos libros Django disponibles para la venta.
+Django vio esto de primera mano - la documentación de Django era
+reconocida por lo buena desde una temprana etapa, y como resultado, era
+muy difícil conseguir que los editores aceptaran proyectos de libros de
+Django - porque la documentación era demasiado buena y estaba socavando
+el mercado para libros. Se ha tardado mucho tiempo, y sobre todo la
+auto-publicación, para obtener buenos libros Django disponibles para la
+venta.
 
-Si usted tiene una lista de correo del proyecto, donde la comunidad responde a las preguntas de forma gratuita, y es una lista de correo saludable y sensible ... ¿por qué pagaría por el apoyo?
+Si usted tiene una lista de correo del proyecto, donde la comunidad
+responde a las preguntas de forma gratuita, y es una lista de correo
+saludable y sensible ... ¿por qué pagaría por el apoyo?
 
-Si su software está bien diseñado, es modular, y esas interfaces están bien documentadas, y necesito una modificación - ¿por qué no acabo de escribir el modulo yo mismo?
+Si su software está bien diseñado, es modular, y esas interfaces están
+bien documentadas, y necesito una modificación - ¿por qué no acabo de
+escribir el modulo yo mismo?
 
-Ahora, Ok - estoy exagerando. Hay razones legítimas para pagar por el apoyo o para traer un consultor incluso si las interfaces están limpias y bien documentadas. Pero mi punto es que cuanto mejor haces un trabajo como ingeniero de software libre, se hace más difícil hacer el caso de negocio para tu flujo de ingresos, porque la propuesta de valor se vuelve menos obvia.
+Ahora, Ok - estoy exagerando. Hay razones legítimas para pagar por el
+apoyo o para traer un consultor incluso si las interfaces están limpias
+y bien documentadas. Pero mi punto es que cuanto mejor haces un trabajo
+como ingeniero de software libre, se hace más difícil hacer el caso de
+negocio para tu flujo de ingresos, porque la propuesta de valor se
+vuelve menos obvia.
 
-Y si no está socavando directamente su propuesta de valor, todavía puede socavarle indirectamente, porque cuanto más tiempo gasta dinero, menos gasta haciendo lo que el dinero paga. Administrar un programa de certificación lleva tiempo. Escribir y ofrecer cursos de capacitación toma tiempo. La consultoría puede ser lucrativa, pero desarrollar un pipeline de ventas lleva tiempo. Y si usted está consultando, usted necesita cerciorarse de que el pipeline de las ventas esté lleno, que significa que usted va a errar en el lado de tomar más trabajo que menos ... que significa que usted acaba de cerrar la puerta en el el tiempo que tiene disponible para trabajar en código abierto.
+Y si no está socavando directamente su propuesta de valor, todavía puede
+socavarle indirectamente, porque cuanto más tiempo gasta dinero, menos
+gasta haciendo lo que el dinero paga. Administrar un programa de
+certificación lleva tiempo. Escribir y ofrecer cursos de capacitación
+toma tiempo. La consultoría puede ser lucrativa, pero desarrollar un
+pipeline de ventas lleva tiempo. Y si usted está consultando, usted
+necesita cerciorarse de que el pipeline de las ventas esté lleno, que
+significa que usted va a errar en el lado de tomar más trabajo que menos
+... que significa que usted acaba de cerrar la puerta en el el tiempo
+que tiene disponible para trabajar en código abierto.
 
-También debe tener cuidado de que en la venta de su caso de negocio, no socave su proyecto principal. Si cada pregunta difícil en la lista de correo se responde con "Podemos responder por una tarifa", va a sonar como un *shill*.
+También debe tener cuidado de que en la venta de su caso de negocio, no
+socave su proyecto principal. Si cada pregunta difícil en la lista de
+correo se responde con "Podemos responder por una tarifa", va a sonar
+como un *shill*.
 
-Si un proyecto dice que necesita dinero para asegurarse de que nos mantenemos al tanto de los problemas de seguridad ... usted tiene que ser muy cuidadoso cómo lo dice, porque la interpretación fácil es "bueno, el proyecto debe ser inseguro, porque no están en la parte superior de la seguridad ahora ".
+Si un proyecto dice que necesita dinero para asegurarse de que nos
+mantenemos al tanto de los problemas de seguridad ... usted tiene que
+ser muy cuidadoso cómo lo dice, porque la interpretación fácil es
+"bueno, el proyecto debe ser inseguro, porque no están en la parte
+superior de la seguridad ahora ".
 
-Una cuestión de escala
------------------------------
+### Una cuestión de escala
 
-También hay una cuestión de escala. Python, Django - estos son grandes proyectos con grandes comunidades. Hacer un caso de negocio para Python o Django no es demasiado difícil. No trivial, pero posible. Pero ser el mantenedor de un proyecto más pequeño - como, digamos, Django Debug Toolbar - se espera seriamente que escriban y vendan un libro sobre Debug Toolbar? ¿O capacitación y certificación en su uso?
+También hay una cuestión de escala. Python, Django - estos son grandes
+proyectos con grandes comunidades. Hacer un caso de negocio para Python
+o Django no es demasiado difícil. No trivial, pero posible. Pero ser el
+mantenedor de un proyecto más pequeño - como, digamos, Django Debug
+Toolbar - se espera seriamente que escriban y vendan un libro sobre
+Debug Toolbar? ¿O capacitación y certificación en su uso?
 
-Los proyectos más pequeños no son menos importantes para la vitalidad del ecosistema general de Django, pero estos proyectos no tienen las mismas oportunidades para la recaudación de fondos que los proyectos más grandes.
+Los proyectos más pequeños no son menos importantes para la vitalidad
+del ecosistema general de Django, pero estos proyectos no tienen las
+mismas oportunidades para la recaudación de fondos que los proyectos más
+grandes.
 
-También es importante darse cuenta de que no todos los productos tienen todas estas oportunidades de ingresos. Un IDE puede volverse un producto más fácil de mercadear; una librería de desarrollado probablemente no puede. Diferentes proyectos necesitarán diferentes mezclas de flujos de ingresos.
+También es importante darse cuenta de que no todos los productos tienen
+todas estas oportunidades de ingresos. Un IDE puede volverse un producto
+más fácil de mercadear; una librería de desarrollado probablemente no
+puede. Diferentes proyectos necesitarán diferentes mezclas de flujos de
+ingresos.
 
-¿Tienes que vender algo?
---------------------------------
+### ¿Tienes que vender algo?
 
 Ok - pero podemos hacer esto sin vender nada en absoluto?
 
-.. raw:: html
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;How to make money from open source&quot; is like &quot;How to make money from clean water&quot; or public education or science.</p>&mdash; Pieter Hintjens (@hintjens) <a href="https://twitter.com/hintjens/status/603446810183610368">May 27, 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-    <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">&quot;How to make money from open source&quot; is like &quot;How to make money from clean water&quot; or public education or science.</p>&mdash; Pieter Hintjens (@hintjens) <a href="https://twitter.com/hintjens/status/603446810183610368">May 27, 2015</a></blockquote>
-    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+El software libre se deriva de un imperativo moral - así que podemos
+financiar el desarrollo a través del altruismo y el patrocinio? Bueno,
+es más difícil, pero hay pruebas de que se puede hacer.
 
-El software libre se deriva de un imperativo moral - así que podemos financiar el desarrollo a través del altruismo y el patrocinio? Bueno, es más difícil, pero hay pruebas de que se puede hacer.
+#### Crowdfunding y recompensas
 
-Crowdfunding y recompensas
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Una opción que ha visto mucha actividad recientemente es crowdfunding.
+Plataformas como Kickstarter e Indiegogo proporcionan un camino a un
+grupo de personas para lanzar y contribuir a un objetivo.
 
-Una opción que ha visto mucha actividad recientemente es crowdfunding. Plataformas como Kickstarter e Indiegogo proporcionan un camino a un grupo de personas para lanzar y contribuir a un objetivo.
+La comunidad de Django tiene un par de ejemplos de proyectos de
+crowdfunding muy exitosos, cada uno levantando decenas de miles de
+dólares (Django Migrations, Multiple Template engines,
+django.contrib.postgres, Django Rest Framework). Pero - si le preguntas
+a las personas que hicieron estos proyectos, no hicieron dinero en estos
+proyectos. La cantidad de tiempo de ingeniería que se invirtió en estos
+proyectos superó (con creces) el dinero recaudado.
 
-La comunidad de Django tiene un par de ejemplos de proyectos de crowdfunding muy exitosos, cada uno levantando decenas de miles de dólares (Django Migrations, Multiple Template engines, django.contrib.postgres, Django Rest Framework). Pero - si le preguntas a las personas que hicieron estos proyectos, no hicieron dinero en estos proyectos. La cantidad de tiempo de ingeniería que se invirtió en estos proyectos superó (con creces) el dinero recaudado.
+Otra idea que se escucha regularmente es la idea de recompensas de la
+resolución de problemas (Bug Bounties) - la asignación de un precio para
+resolver un error específico. Esto es realmente sólo otra forma de
+crowdfunding - ¿Quieres arreglar un error específico o implementar una
+nueva característica? Contribuye con el dinero. Si tu *realmente* lo
+deseas - contribuye más. Y eventualmente alguien tomará el cebo y
+arreglará el error o implementará la característica.
 
-Otra idea que se escucha regularmente es la idea de recompensas de la resolución de problemas (Bug Bounties) - la asignación de un precio para resolver un error específico. Esto es realmente sólo otra forma de crowdfunding - ¿Quieres arreglar un error específico o implementar una nueva característica? Contribuye con el dinero. Si tu *realmente* lo deseas - contribuye más. Y eventualmente alguien tomará el cebo y arreglará el error o implementará la característica.
+Es un modelo atractivo - pero también tiene problemas - más
+notablemente, quién recibe el pago. ¿Pagas por líneas de código escrito?
+Esto ignora la contribución de los revisores del código. ¿Qué tan
+importante es escribir código comparado con revisar código o con
+encontrar un error?
 
-Es un modelo atractivo - pero también tiene problemas - más notablemente, quién recibe el pago. ¿Pagas por líneas de código escrito? Esto ignora la contribución de los revisores del código. ¿Qué tan importante es escribir código comparado con revisar código o con encontrar un error?
+Pero el mayor problema que veo con los enfoques de crowdfunding es que
+están en conflicto con el establecimiento de un ingreso laboral. Si te
+estás contratando a ti mismo, cuanto más corto sea el compromiso, mayor
+será tu tarifa por hora. Esta es una cobertura contra el desempleo al
+final del contrato. Si estás organizando un Kickstarter, es mejor tener
+un objetivo pequeño, claramente definido y claramente alcanzable. Así
+que lo puedes hacer en un mes o dos de trabajo.
 
-Pero el mayor problema que veo con los enfoques de crowdfunding es que están en conflicto con el establecimiento de un ingreso laboral. Si te estás contratando a ti mismo, cuanto más corto sea el compromiso, mayor será tu tarifa por hora. Esta es una cobertura contra el desempleo al final del contrato. Si estás organizando un Kickstarter, es mejor tener un objetivo pequeño, claramente definido y claramente alcanzable. Así que lo puedes hacer en un mes o dos de trabajo.
+Esto significa que necesitas para cobrar tu tasa de corto plazo con el
+fin de garantizar los ingresos a largo plazo. Pero también es de tu
+interés tener un objetivo de recaudación de fondos bajo, para que la
+campaña sea realmente exitosa. Si es demasiado alto, podría asustar a
+posibles patrocinadores. También significa que la comunidad paga una
+prima por cualquier característica nueva, que no es el mejor uso de los
+ya escasos recursos comunitarios.
 
-Esto significa que necesitas para cobrar tu tasa de corto plazo con el fin de garantizar los ingresos a largo plazo. Pero también es de tu interés tener un objetivo de recaudación de fondos bajo, para que la campaña sea realmente exitosa. Si es demasiado alto, podría asustar a posibles patrocinadores. También significa que la comunidad paga una prima por cualquier característica nueva, que no es el mejor uso de los ya escasos recursos comunitarios.
+#### Becas, Patreon
 
-Becas, Patreon
-~~~~~~~~~~~~~~~~~~~~~~
+Ok - si deseas ingresos a largo plazo, es necesario mirar a compromisos
+a más largo plazo. Eso significa que deja de buscar fondos para
+proyectos específicos y empiezas a buscar financiación para la persona,
+con becas.
 
-Ok - si deseas ingresos a largo plazo, es necesario mirar a compromisos a más largo plazo. Eso significa que deja de buscar fondos para proyectos específicos y empiezas a buscar financiación para la persona, con becas.
+Estoy incluyendo a Patreon en esa lista porque es efectivamente
+"crowdsourced patronage". No estás pagando por una cosa específica -
+estás pagando para que "sigas haciendo lo que estás haciendo".
 
-Estoy incluyendo a Patreon en esa lista porque es efectivamente "crowdsourced patronage". No estás pagando por una cosa específica - estás pagando para que "sigas haciendo lo que estás haciendo".
+En los últimos 10 meses, Django ha estado utilizando este modelo.
+Contratamos a un desarrollador a finales del año pasado. El
+desarrollador - cuyo nombre es Tim Graham - es responsable de mantener
+las ruedas del proyecto engrasadas.
 
-En los últimos 10 meses, Django ha estado utilizando este modelo. Contratamos a un desarrollador a finales del año pasado. El desarrollador - cuyo nombre es Tim Graham - es responsable de mantener las ruedas del proyecto engrasadas.
-
-Desde un punto de vista técnico, este ha sido un éxito rotundo. Tim ha hecho un gran trabajo con el manejador de tiquetes (Issue Tracker), y los tiempos de respuesta en las revisiones de Pull Requests son más bajos.
+Desde un punto de vista técnico, este ha sido un éxito rotundo. Tim ha
+hecho un gran trabajo con el manejador de tiquetes (Issue Tracker), y
+los tiempos de respuesta en las revisiones de Pull Requests son más
+bajos.
 
 La parte difícil ha sido recaudar el dinero para pagarle.
 
-Hicimos una recaudación de fondos al principio del año específicamente para financiar al becario; esa campaña ha recaudado algo más de $ 50.000. Eso no es un cantidad pequeño de dinero - pero no es tampoco mucho cuando estás hablando de un empleado de tiempo completo. Vamos a necesitar hacer otra recaudación de fondos muy pronto si queremos que la beca continue.
+Hicimos una recaudación de fondos al principio del año específicamente
+para financiar al becario; esa campaña ha recaudado algo más de $
+50.000. Eso no es un cantidad pequeño de dinero - pero no es tampoco
+mucho cuando estás hablando de un empleado de tiempo completo. Vamos a
+necesitar hacer otra recaudación de fondos muy pronto si queremos que la
+beca continue.
 
-Casi todos están de acuerdo en que ha sido dinero bien gastado, pero convertirlo en donaciones ha sido un trabajo duro.
+Casi todos están de acuerdo en que ha sido dinero bien gastado, pero
+convertirlo en donaciones ha sido un trabajo duro.
 
-Patrocinio corporativo
-~~~~~~~~~~~~~~~~~~~~~~~
+#### Patrocinio corporativo
 
-Otro otro enfoque para recaudar dinero es abrazar al diablo, e ir a los proveedores comerciales. Los intereses comerciales tienen dinero, así que ¿por qué no deberían pagar por ello? Esto puede ser muy exitoso bajo ciertas circunstancias - pero tienes que ser capaz de hacer un caso de negocio para el propietario corporativo.
+Otro otro enfoque para recaudar dinero es abrazar al diablo, e ir a los
+proveedores comerciales. Los intereses comerciales tienen dinero, así
+que ¿por qué no deberían pagar por ello? Esto puede ser muy exitoso bajo
+ciertas circunstancias - pero tienes que ser capaz de hacer un caso de
+negocio para el propietario corporativo.
 
-OpenStack es un gran ejemplo de esto. ¿Por qué Rackspace, HP, Redhat, Ubuntu están interesados en OpenStack? Porque venden productos que se benefician de la mercantilización del entorno de alojamiento. Al hacer que sea barato y fácil de controlar las implementaciones en la nube, aumentan el tamaño del mercado para el alojamiento en la nube, lo que significa más dinero para su negocio principal - ya sea directamente (como Rackspace), o indirectamente (como RedHat, porque los servidores en la nube todavía necesitan sistemas operativos).
+OpenStack es un gran ejemplo de esto. ¿Por qué Rackspace, HP, Redhat,
+Ubuntu están interesados en OpenStack? Porque venden productos que se
+benefician de la mercantilización del entorno de alojamiento. Al hacer
+que sea barato y fácil de controlar las implementaciones en la nube,
+aumentan el tamaño del mercado para el alojamiento en la nube, lo que
+significa más dinero para su negocio principal - ya sea directamente
+(como Rackspace), o indirectamente (como RedHat, porque los servidores
+en la nube todavía necesitan sistemas operativos).
 
-Node.js es financiado por Joyent por razones similares - Joyent está haciendo una apuesta a largo plazo, en la que si es más fácil desarrollar el software para la web, más gente escribirá dicho software , aumentando el mercado para los servicios de Joyent.
+Node.js es financiado por Joyent por razones similares - Joyent está
+haciendo una apuesta a largo plazo, en la que si es más fácil
+desarrollar el software para la web, más gente escribirá dicho software
+, aumentando el mercado para los servicios de Joyent.
 
-Sin embargo, Node.js es también un recordatorio sobre los problemas asociados a los intereses corporativos - ¿qué sucede cuando la comunidad y el patrocinador corporativo no están de acuerdo con la dirección del proyecto? Bueno, obtienes divisiones del proyecto, como la división io.js. El dinero corporativo puede corromper. Debemos tener cuidado de que la gobernanza del proyecto sea independiente de la fuente de financiamiento.
+Sin embargo, Node.js es también un recordatorio sobre los problemas
+asociados a los intereses corporativos - ¿qué sucede cuando la comunidad
+y el patrocinador corporativo no están de acuerdo con la dirección del
+proyecto? Bueno, obtienes divisiones del proyecto, como la división
+io.js. El dinero corporativo puede corromper. Debemos tener cuidado de
+que la gobernanza del proyecto sea independiente de la fuente de
+financiamiento.
 
-Tener un solo "jefe" corporativo también pone el proyecto en riesgo si ese "jefe" corporativo pierde interés. Django estaba originalmente bajo el ala de la World Company. Eventualmente, ese interés disminuyó, y el apoyo corporativo se acabó.
+Tener un solo "jefe" corporativo también pone el proyecto en riesgo si
+ese "jefe" corporativo pierde interés. Django estaba originalmente bajo
+el ala de la World Company. Eventualmente, ese interés disminuyó, y el
+apoyo corporativo se acabó.
 
-Venture funding
-~~~~~~~~~~~~~~~~
+#### Venture funding
 
-La otra respuesta corporativa que se escucha es ir a buscar dinero/capital de riesgo/inversión. Y hay algunos ejemplos de gente haciendo esto. Meteor, por ejemplo, está financiando su desarrollo con dinero de un fondo de riesgo. Tienen mucho dinero para contratar a ingenieros, diseñadores - lo que necesiten.
+La otra respuesta corporativa que se escucha es ir a buscar
+dinero/capital de riesgo/inversión. Y hay algunos ejemplos de gente
+haciendo esto. Meteor, por ejemplo, está financiando su desarrollo con
+dinero de un fondo de riesgo. Tienen mucho dinero para contratar a
+ingenieros, diseñadores - lo que necesiten.
 
-¿Qué me pone nervioso sobre este modelo? Hemos estado aquí antes. ¿Quién recuerda aquí a Eazel? Para aquellos que no recuerdan, a finales de los 90, Eazel fue una empresa dot-com fundada para desarrollar el gestor de archivos Nautilus. Y, tenemos 2 años de código abierto. Y entonces estalló la burbuja, y la compañía se estropeó. Ahora, lo bueno es que todavía tenemos el código. Pero sería mejor tener el código en desarrollo activo.
+¿Qué me pone nervioso sobre este modelo? Hemos estado aquí antes. ¿Quién
+recuerda aquí a Eazel? Para aquellos que no recuerdan, a finales de los
+90, Eazel fue una empresa dot-com fundada para desarrollar el gestor de
+archivos Nautilus. Y, tenemos 2 años de código abierto. Y entonces
+estalló la burbuja, y la compañía se estropeó. Ahora, lo bueno es que
+todavía tenemos el código. Pero sería mejor tener el código en
+desarrollo activo.
 
-Desarrollo de una cultura de patrocinadores
-------------------------------------------------------
+### Desarrollo de una cultura de patrocinadores
 
-Y otra vez, toda esta discusión está sucediendo en una industria donde las valuaciones del mil millones de dólares están dando vueltas alrededor.
+Y otra vez, toda esta discusión está sucediendo en una industria donde
+las valuaciones del mil millones de dólares están dando vueltas
+alrededor.
 
-Grandes partes de nuestra industria, se basan en software libre - pero los que tienen más capacidad para contribuir, en muchos casos, no están contribuyendo.
+Grandes partes de nuestra industria, se basan en software libre - pero
+los que tienen más capacidad para contribuir, en muchos casos, no están
+contribuyendo.
 
-Algunos lo están haciendo - hay algunas empresas que dan grandes cantidades de nuevo a las comunidades de código abierto. Pero también hay un montón de empresas que no retribuyen.
+Algunos lo están haciendo - hay algunas empresas que dan grandes
+cantidades de nuevo a las comunidades de código abierto. Pero también
+hay un montón de empresas que no retribuyen.
 
-E incluso muchos aquellos que *si* retribuyen dan la ayuda que son capaces de dar, que no es necesariamente la ayuda que se necesita. La Django Software Foundation recibe regularmente ofertas de alojamiento gratuito o subvencionado de proveedores de alojamiento. Y no me malinterpreten - esto es genial, e increíblemente útil.
+E incluso muchos aquellos que *si* retribuyen dan la ayuda que son
+capaces de dar, que no es necesariamente la ayuda que se necesita. La
+Django Software Foundation recibe regularmente ofertas de alojamiento
+gratuito o subvencionado de proveedores de alojamiento. Y no me
+malinterpreten - esto es genial, e increíblemente útil.
 
-Pero lo que realmente necesitamos es alguien en la nómina para revisar los errores. Anteriormente en el ciclo de vida de Django, necesitábamos que la gente escribiera nuevas grandes características. Estamos en una constante necesidad de diseñadores gráficos, artistas, escritores de tecnología. Necesitamos personas que sepan cómo hacer administración de sistemas, y el alcance comunitario. Y no necesitamos 400 personas donando 1 hora; necesitamos 10 personas muy específicas donando 40 horas.
+Pero lo que realmente necesitamos es alguien en la nómina para revisar
+los errores. Anteriormente en el ciclo de vida de Django, necesitábamos
+que la gente escribiera nuevas grandes características. Estamos en una
+constante necesidad de diseñadores gráficos, artistas, escritores de
+tecnología. Necesitamos personas que sepan cómo hacer administración de
+sistemas, y el alcance comunitario. Y no necesitamos 400 personas
+donando 1 hora; necesitamos 10 personas muy específicas donando 40
+horas.
 
-Cuando ocurre un desastre, organizaciones como la Cruz Roja piden donaciones. Y por lo general dicen "por favor darnos dinero, no latas de comida o mantas". ¿La razón? El dinero puede comprar lo que se necesita. No puedes controlar lo que la gente dona, e incluso si la gente dona exactamente lo que se necesita, hay una enorme tarea logística de inventariar lo que se ha donado, y llevarlo donde se necesita.
+Cuando ocurre un desastre, organizaciones como la Cruz Roja piden
+donaciones. Y por lo general dicen "por favor darnos dinero, no latas de
+comida o mantas". ¿La razón? El dinero puede comprar lo que se necesita.
+No puedes controlar lo que la gente dona, e incluso si la gente dona
+exactamente lo que se necesita, hay una enorme tarea logística de
+inventariar lo que se ha donado, y llevarlo donde se necesita.
 
-Los proyectos de software libre son iguales - requieren recursos. Algunas empresas donan en especie, y eso es genial, pero rara vez es lo que se necesita, y es fácil distraerse averiguando qué hacer con todos los recursos que se han donado, pero no tienen un uso inmediato.
+Los proyectos de software libre son iguales - requieren recursos.
+Algunas empresas donan en especie, y eso es genial, pero rara vez es lo
+que se necesita, y es fácil distraerse averiguando qué hacer con todos
+los recursos que se han donado, pero no tienen un uso inmediato.
 
-Y tristemente, al igual que con las organizaciones benéficas - muchas empresas no donan en absoluto. Y no estoy diciendo que estas compañías están siendo deliberadamente maliciosas en no financiar el código abierto - si algo, nosotros como comunidad les hemos fallado porque no les hemos ayudado a ayudarnos.
+Y tristemente, al igual que con las organizaciones benéficas - muchas
+empresas no donan en absoluto. Y no estoy diciendo que estas compañías
+están siendo deliberadamente maliciosas en no financiar el código
+abierto - si algo, nosotros como comunidad les hemos fallado porque no
+les hemos ayudado a ayudarnos.
 
-Lo más importante, no tenemos un mecanismo para que sea fácil gastar dinero, y sea fácil recibir dinero. El estado actual de las cosas demuestra claramente que no es suficiente que haya mucho dinero en una comunidad - hay que crear el mecanismo para que donar ese dinero sea tan obvio y sin fisuras como sea posible, y hay que tener a alguien para direccionar ese dinero donde se necesita.
+Lo más importante, no tenemos un mecanismo para que sea fácil gastar
+dinero, y sea fácil recibir dinero. El estado actual de las cosas
+demuestra claramente que no es suficiente que haya mucho dinero en una
+comunidad - hay que crear el mecanismo para que donar ese dinero sea tan
+obvio y sin fisuras como sea posible, y hay que tener a alguien para
+direccionar ese dinero donde se necesita.
 
-Una comunidad modelo que creo que hace esto realmente bien es la comunidad de Wordpress. Wordpress es software GPL. Hay libros, videos, blogs sobre cómo escribir plugins y temas de Wordpress, lo mismo que para cualquier comunidad de software de código abierto. Pero  también hay libros, videos y blogs sobre cómo hacer un *negocio* escribiendo plugins y temas de Wordpress. Wordpress es GPL. Y por lo tanto, también lo son todos los complementos. Tienen una tienda donde puedes comprar complementos (y obtener los gratuitos), e instalarlos fácilmente en tu instancia de Wordpress.
+Una comunidad modelo que creo que hace esto realmente bien es la
+comunidad de Wordpress. Wordpress es software GPL. Hay libros, videos,
+blogs sobre cómo escribir plugins y temas de Wordpress, lo mismo que
+para cualquier comunidad de software de código abierto. Pero también hay
+libros, videos y blogs sobre cómo hacer un *negocio* escribiendo plugins
+y temas de Wordpress. Wordpress es GPL. Y por lo tanto, también lo son
+todos los complementos. Tienen una tienda donde puedes comprar
+complementos (y obtener los gratuitos), e instalarlos fácilmente en tu
+instancia de Wordpress.
 
-El ecosistema de Wordpress ha aceptado fundamentalmente el hecho de que el dinero necesita ser parte de la ecuación, y al hacerlo han creado una industria que se autofinancia, y esto, diría yo, es una de las razones principales del éxito de Wordpress como una plataforma.
+El ecosistema de Wordpress ha aceptado fundamentalmente el hecho de que
+el dinero necesita ser parte de la ecuación, y al hacerlo han creado una
+industria que se autofinancia, y esto, diría yo, es una de las razones
+principales del éxito de Wordpress como una plataforma.
 
-Una propuesta polémica
----------------------------------
+### Una propuesta polémica
 
 En ese sentido, me gustaría hacer una propuesta polémica.
 
-¿Qué pasaría si `PyPI`_ fuese una fuente de ingresos? ¿Qué sucedería si, al registrar una aplicación con `PyPI`_, pudieras especificar un precio: por instalación, o por versión, o por aplicación o por mes. Cuando hago "pip install", el coste se agrega a mi cuenta PyPI, y recibo un cargo mensual en mi tarjeta de crédito; y que se pasa de nuevo a los proyectos de desarrollo.
+¿Qué pasaría si [PyPI](https://pypi.python.org/pypi) fuese una fuente de
+ingresos? ¿Qué sucedería si, al registrar una aplicación con
+[PyPI](https://pypi.python.org/pypi), pudieras especificar un precio:
+por instalación, o por versión, o por aplicación o por mes. Cuando hago
+"pip install", el coste se agrega a mi cuenta PyPI, y recibo un cargo
+mensual en mi tarjeta de crédito; y que se pasa de nuevo a los proyectos
+de desarrollo.
 
-Si hemos de creer en las estadísticas de PyPI, Django se descarga de PyPI más de 1 millón de veces al mes. Si hubiese un peaje de 10 centavos de dólar en cada descarga, eso recaudarían $ 100,000 por mes - suficiente para pagar 10 desarrolladores a tiempo completo bien pagos, o una cantidad considerable de diversidad, alcance, DjangoGirls y apoyo de la comunidad.
+Si hemos de creer en las estadísticas de PyPI, Django se descarga de
+PyPI más de 1 millón de veces al mes. Si hubiese un peaje de 10 centavos
+de dólar en cada descarga, eso recaudarían $ 100,000 por mes -
+suficiente para pagar 10 desarrolladores a tiempo completo bien pagos, o
+una cantidad considerable de diversidad, alcance, DjangoGirls y apoyo de
+la comunidad.
 
-También podrías aprovechar la información de la dependencias de PyPi para pagar un porcentaje hacia estos proyectos. Si está escribiendo un proyecto que depende de otro, podría optar por pasar parte de sus ingresos hacia este proyecto. O bien, solicitar que los flujos proporcionen un "peaje".
+También podrías aprovechar la información de la dependencias de PyPi
+para pagar un porcentaje hacia estos proyectos. Si está escribiendo un
+proyecto que depende de otro, podría optar por pasar parte de sus
+ingresos hacia este proyecto. O bien, solicitar que los flujos
+proporcionen un "peaje".
 
-Y luego están las mayores dependencias de todos: PyPI y Python. Si PyPI tomara un pequeño recorte de los ingresos recaudados, eso podría ayudar a pagar por el desarrollo y mantenimiento de PyPI - y potencialmente Python también.
+Y luego están las mayores dependencias de todos: PyPI y Python. Si PyPI
+tomara un pequeño recorte de los ingresos recaudados, eso podría ayudar
+a pagar por el desarrollo y mantenimiento de PyPI - y potencialmente
+Python también.
 
-También puede tomar parte del dinero recaudado y ponerlo en un grupo de desarrollo, por lo que si hay un nuevo proyecto que necesita un poco de efectivo de arranque para empezar, o un proyecto establecido que necesita alguna ayuda para una gran tarea (como una actualización de Python 3 ), la comunidad en su conjunto puede fácilmente canalizar dinero hacia ese proyecto.
+También puede tomar parte del dinero recaudado y ponerlo en un grupo de
+desarrollo, por lo que si hay un nuevo proyecto que necesita un poco de
+efectivo de arranque para empezar, o un proyecto establecido que
+necesita alguna ayuda para una gran tarea (como una actualización de
+Python 3 ), la comunidad en su conjunto puede fácilmente canalizar
+dinero hacia ese proyecto.
 
-¿Qué pasa con las personas que no tienen dinero? Bueno, podemos ofrecer pases gratis. ¿Estás en un evento de DjangoGirls? Utilice este código promocional para obtener acceso gratuito.
+¿Qué pasa con las personas que no tienen dinero? Bueno, podemos ofrecer
+pases gratis. ¿Estás en un evento de DjangoGirls? Utilice este código
+promocional para obtener acceso gratuito.
 
-Todavía puede regalar su software sin costo alguno. Y todavía es software libre - todavía estás entregando Python, así que todavía vas a obtener la fuente. Probablemente podrías incluso hacer que el proceso de inscripción sea completamente opcional. Todo lo que estaríamos haciendo es pavimentar el mecanismo - lo que facilita recaudar un peaje en la forma fácil en que utilizas un software.
+Todavía puede regalar su software sin costo alguno. Y todavía es
+software libre - todavía estás entregando Python, así que todavía vas a
+obtener la fuente. Probablemente podrías incluso hacer que el proceso de
+inscripción sea completamente opcional. Todo lo que estaríamos haciendo
+es pavimentar el mecanismo - lo que facilita recaudar un peaje en la
+forma fácil en que utilizas un software.
 
-No estoy diciendo que nada de esto sea fácil de implementar. Completamente aparte de cualquier reto técnico y solucionando los detalles, es un cambio filosófico grande para la comunidad, y ése es un asunto mucho más grande. Pero esta pregunta filosófica sobre el dinero es una discusión que nosotros, como comunidad necesitamos tener.
+No estoy diciendo que nada de esto sea fácil de implementar.
+Completamente aparte de cualquier reto técnico y solucionando los
+detalles, es un cambio filosófico grande para la comunidad, y ése es un
+asunto mucho más grande. Pero esta pregunta filosófica sobre el dinero
+es una discusión que nosotros, como comunidad necesitamos tener.
 
-Lo que tenemos aquí es una `tragedia de los comunes <https://es.wikipedia.org/wiki/Tragedia_de_los_comunes>`__. Todo el mundo está de acuerdo en que este software es bueno. Todo el mundo sabe que el software debe mantenerse. Pero, ¿por qué una empresa individual debería asumir la carga económica de financiar el mantenimiento cuando sus competidores obtienen el beneficio de forma gratuita?
+Lo que tenemos aquí es una [tragedia de los
+comunes](https://es.wikipedia.org/wiki/Tragedia_de_los_comunes). Todo el
+mundo está de acuerdo en que este software es bueno. Todo el mundo sabe
+que el software debe mantenerse. Pero, ¿por qué una empresa individual
+debería asumir la carga económica de financiar el mantenimiento cuando
+sus competidores obtienen el beneficio de forma gratuita?
 
-Aprende de la MPAA y RIAA: Haz que sea fácil hacer lo correcto
--------------------------------------------------------------------------------
+### Aprende de la MPAA y RIAA: Haz que sea fácil hacer lo correcto
 
-Para mí, la lección clave de la industria de la música y el cine de los últimos 20 años es que si usted hace más fácil hacer lo correcto, la gente hará lo correcto. Si tu puedes hacer simple y sin problemas para una gran empresa  deslizar tu tarjeta de crédito y que te cobren $ 100 al mes por usar todo este software de código abierto que se ha desarrollado, lo harán. Sí, la gente hará trampa. No te preocupes por ello, siempre y cuando la trampa no sea más fácil que hacer lo correcto.
+Para mí, la lección clave de la industria de la música y el cine de los
+últimos 20 años es que si usted hace más fácil hacer lo correcto, la
+gente hará lo correcto. Si tu puedes hacer simple y sin problemas para
+una gran empresa deslizar tu tarjeta de crédito y que te cobren $ 100 al
+mes por usar todo este software de código abierto que se ha
+desarrollado, lo harán. Sí, la gente hará trampa. No te preocupes por
+ello, siempre y cuando la trampa no sea más fácil que hacer lo correcto.
 
-La mayor razón por la cual esto no está sucediendo ahora es que no es obvio lo que es lo "correcto". Podrías donar a la DSF o PSF ... pero es un poco complicado de organizar, y no está claro a dónde va el dinero ... Podrías inscribirte para soportar a algunos Patreons, o inscribirte para un programa de la recompensas ... pero no todo el mundo está allí, y los que están no ganan realmente lo suficiente para ganarse la vida, y no quiero sólo aportar dinero para cerveza.
+La mayor razón por la cual esto no está sucediendo ahora es que no es
+obvio lo que es lo "correcto". Podrías donar a la DSF o PSF ... pero es
+un poco complicado de organizar, y no está claro a dónde va el dinero
+... Podrías inscribirte para soportar a algunos Patreons, o inscribirte
+para un programa de la recompensas ... pero no todo el mundo está allí,
+y los que están no ganan realmente lo suficiente para ganarse la vida, y
+no quiero sólo aportar dinero para cerveza.
 
-Entonces, ¿qué vamos a hacer? La respuesta corta es "No sé". Probablemente no existe una solución mágica. Me gustaría pensar que un canal de monetización en PyPI funcionaría, pero seré el primero en admitir que podría no ser la respuesta, o que puede haber problemas que no he previsto.
+Entonces, ¿qué vamos a hacer? La respuesta corta es "No sé".
+Probablemente no existe una solución mágica. Me gustaría pensar que un
+canal de monetización en PyPI funcionaría, pero seré el primero en
+admitir que podría no ser la respuesta, o que puede haber problemas que
+no he previsto.
 
-Pero creo firmemente que esta conversación sobre el dinero es una conversación que tenemos que tener. El software libre como movimiento tiene más de 30 años de antigüedad. El código abierto casi 20. Hemos superado los obstáculos técnicos. Incluso estamos conquistados los obstáculos políticos. Ahora es el momento de abordar la forma en que hacemos de esta una industria sostenible a largo plazo, no sólo los intereses comerciales que se aprovechan de la ingenuidad de una corriente de voluntarios de ojos azules.
+Pero creo firmemente que esta conversación sobre el dinero es una
+conversación que tenemos que tener. El software libre como movimiento
+tiene más de 30 años de antigüedad. El código abierto casi 20. Hemos
+superado los obstáculos técnicos. Incluso estamos conquistados los
+obstáculos políticos. Ahora es el momento de abordar la forma en que
+hacemos de esta una industria sostenible a largo plazo, no sólo los
+intereses comerciales que se aprovechan de la ingenuidad de una
+corriente de voluntarios de ojos azules.
 
-En realidad voy a tomar otra posición ligeramente controversial, y *no* voy a tomar preguntas en este punto, por dos razones - en primer lugar, porque este tipo de charla son un imán para "Tengo un comentario, no una pregunta"; y también porque este no es un tema donde yo tenga las respuestas.
+En realidad voy a tomar otra posición ligeramente controversial, y *no*
+voy a tomar preguntas en este punto, por dos razones - en primer lugar,
+porque este tipo de charla son un imán para "Tengo un comentario, no una
+pregunta"; y también porque este no es un tema donde yo tenga las
+respuestas.
 
-Esta es una discusión que necesitamos tener como comunidad - y estoy ansioso por tener esa discusión - no sólo en esta etapa.
+Esta es una discusión que necesitamos tener como comunidad - y estoy
+ansioso por tener esa discusión - no sólo en esta etapa.
 
-* `russell@keith-magee.com <mailto: russell@keith-magee.com>`_
-* `@freakboy3742 <https://twitter.com/freakboy3742>`_
-* `cecinestpasun.com <https://cecinestpasun.com>`_
+- [russell@keith-magee.com](mailto: russell@keith-magee.com)
+- [@freakboy3742](https://twitter.com/freakboy3742)
+- [cecinestpasun.com](https://cecinestpasun.com)
 
-.. _PyPI: https://pypi.python.org/pypi
 ---
 mastodon_handle: @freakboy3742@cloudisland.nz
 ---

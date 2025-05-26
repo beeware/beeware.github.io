@@ -49,7 +49,7 @@
     {{- get_pygments_css_styles('default')|safe -}}
     {%- endif -%}
 
-    {%- if this.alt  == 'ar' -%}
+    {%- if this.alt in ['ar', 'fa'] -%}
       <link rel="stylesheet" type="text/css" href="/static/rtl.css">
     {%- endif -%}
 
@@ -88,7 +88,7 @@
       {{ menu_item('contributing') }}
       {{ menu_item('news') }}
       <li class="nav-item">
-        <a class="nav-link" href="/membership/">
+        <a class="nav-link" href={{ "/membership"|url(alt=this.alt) }}>
           {{ transbag('menu', this.alt, 'donate') }}
         </a>
       </li>
