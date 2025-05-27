@@ -1,5 +1,7 @@
 # Lektor i18n plugin
 
+**This version of the plugin is a modified copy of the updated version used by [The Tor Project](https://gitlab.torproject.org/tpo/web/lego/-/blob/main/packages/i18n/lektor_i18n.py).**
+
 This plugin enables a smarter way to translate a [Lektor](http://getlektor.com) static website using old-good PO files. So you can use your beloved translation processes and tools.
 
 ## Principles
