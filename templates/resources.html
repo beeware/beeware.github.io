@@ -16,11 +16,11 @@
     <h3><a href="{{ child|url(alt=this.alt) }}">{{ child.title }}</a></h3>
   {% endif %}
 {% endfor %}
+    {{ render_pagination(this.pagination, alt=this.alt) }}
 {% endblock %}
 {% block gutter %}
   <div class="col-sm-12 col-md-4 gutter">
     {{ this.gutter_top }}
-    {{ render_pagination(this.pagination, alt=this.alt) }}
     <hr>
     {{ this.gutter }}
     <ul>
