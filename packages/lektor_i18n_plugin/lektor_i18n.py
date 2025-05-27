@@ -112,17 +112,18 @@ class Translations():
         return PrettyPrinter(2).pformat(self.translations)
 
     def as_pot(self, content_language):
-        """returns a POT version of the translation dictionnary"""
+        """returns a POT version of the translation dictionary"""
         now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M')
         now += '+%s'%(time.tzname[0])
-        result = POT_HEADER % {'LANGUAGE' : content_language, 'NOW' : now}
+        result = POT_HEADER % {'LANGUAGE': content_language, 'NOW': now}
 
         for msg, paths in self.translations.items():
-            result += "#: %s\n"%" ".join(paths)
-            for token, repl in {'\\': '\\\\', '\n': '\\n', '\t': '\\t', '"': '\\"'}.items():
-                msg = msg.replace(token, repl)
-            result+='msgid "%s"\n' % msg
-            result+='msgstr ""\n\n'
+            if msg:
+                result += "#: %s\n" % " ".join(paths)
+                for token, repl in {'\\': '\\\\', '\n': '\\n', '\t': '\\t', '"': '\\"'}.items():
+                    msg = msg.replace(token, repl)
+                result += 'msgid "%s"\n' % msg
+                result += 'msgstr ""\n\n'
         return result
 
     def write_pot(self, pot_filename, language):
