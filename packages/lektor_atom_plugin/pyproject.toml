@@ -1,0 +1,43 @@
+# This is an updated copy of lektor-atom plugin
+# which replaces the deprecated Werkzeug's atom with Pelican's feedgenerator.
+
+[build-system]
+requires = [
+    "setuptools==80.7.1",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lektor-atom"
+version = "0.4.1"
+description = ""
+readme = "README.md"
+license = "MIT"
+requires-python = ">= 3.9"
+authors = [
+    {name="A. Jesse Jiryu Davis", email="jesse@emptysquare.net"},
+]
+maintainers = [
+    {name="BeeWare Team", email="team@beeware.org"},
+]
+classifiers = [
+    "Environment :: Plugins",
+    "Environment :: Web Environment",
+    "Framework :: Lektor",
+    "Intended Audience :: Developers",
+]
+keywords = [
+    "Lektor",
+    "plugin",
+    "static-site",
+    "blog",
+    "atom",
+    "rss",
+]
+dependencies = ["MarkupSafe", "feedgenerator"]
+
+[project.urls]
+Source = "https://github.com/nixjdm/lektor-atom"
+
+[project.entry-points."lektor.plugins"]
+atom = "lektor_atom:AtomPlugin"

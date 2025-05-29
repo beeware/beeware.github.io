@@ -1,0 +1,38 @@
+# This is a custom local plugin to add extra functionality to BeeWare site.
+
+[build-system]
+requires = [
+    "setuptools==80.7.1",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lektor-beeware-plugin"
+version = "0.2.1"
+description = ""
+license = "MIT"
+requires-python = ">= 3.9"
+authors = [
+    {name="Gonzalo Peña-Castellanos", email="goanpeca@gmail.com"},
+]
+maintainers = [
+    {name="BeeWare Team", email="team@beeware.org"},
+]
+classifiers = [
+    "Environment :: Plugins",
+    "Environment :: Web Environment",
+    "Framework :: Lektor",
+    "Intended Audience :: Developers",
+]
+keywords = [
+    "Lektor",
+    "plugin",
+    "static-site",
+]
+dependencies = ["Lektor", "MarkupSafe", "Pygments"]
+
+[project.urls]
+Source = "https://github.com/beeware/beeware.github.io/tree/lektor/packages/lektor_beeware_plugin"
+
+[project.entry-points."lektor.plugins"]
+beeware-plugin = "lektor_beeware_plugin:BeeWarePlugin"
