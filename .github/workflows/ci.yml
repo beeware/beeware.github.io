@@ -1,0 +1,41 @@
+name: CI
+on:
+  pull_request_target:
+    types: [labeled]
+
+jobs:
+  build:
+    name: Build and preview site
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'preview')
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install --upgrade setuptools wheel
+          pip install -r requirements.txt
+          lektor plugins reinstall
+          brew install gettext
+      - name: Clean
+        run : |
+          lektor clean -O output --yes
+      - name: Build site
+        run: |
+          lektor build --prune -O output
+      # Generated from 'firebase init hosting'
+      - name: Deploy preview
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BEEWARE_ORG }}'
+          projectId: beeware-org
