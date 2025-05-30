@@ -2,8 +2,6 @@
 
 # beeware.github.io
 
----
-
 This is the homepage for the [BeeWare project](http://beeware.org).
 
 It is a [Lektor](https://getlektor.com)-based site.
@@ -32,8 +30,6 @@ autoreload whenever you make a change to site content.
 
 ## Community
 
----
-
 You can talk to the community through:
 
 - [@beeware@fosstodon.org on Mastodon](https://fosstodon.org/@beeware)
@@ -41,8 +37,6 @@ You can talk to the community through:
 - [Tickets on the beeware.github.io issue tracker](https://github.com/beeware/beeware.github.io/issues)
 
 ## Contributing
-
----
 
 If you find problems with this website, [log them on GitHub](https://github.com/beeware/beeware.github.io/issues). If you want to contribute, please [fork the code](https://github.com/beeware/beeware.github.io/tree/lektor) and [submit a pull request](https://github.com/beeware/beeware.github.io/pulls).
 
