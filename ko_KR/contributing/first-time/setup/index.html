@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Setting up your environment— BeeWare</title>
+    <title>환경 설정— BeeWare</title>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
@@ -79,9 +79,9 @@
         </a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/new/lektor/content/contributing/first-time/setting-up-your-environment/contents%2Bko.lr?filename=contents%2Bko.lr&value=_model%3A+page%0A---%0Asort_key%3A+4%0A---%0Atitle%3A+Setting+up+your+environment%0A---%0Asummary%3A+How+to+get+your+system+setup+to+contribute%0A---%0A_slug%3A+setup%0A---%0Abody%3A%0A%0AIn+order+to+get+contributing%2C+you%27re+going+to+need+to+setup+a%0A%2A%2Adevelopment+environment%2A%2A+-+a+place+where+you+can+work+on+code+where%0Ait+can+behave+the+same+as+everyone+else%27s+environment.%0A%0AMany+parts+of+BeeWare+use+the+same+tools%3A+a+specific+version+of+Python%2C%0Aand+virtual+environment+controls.%0A%0A%23%23+Python%0A%0APython+is+a+scripting+language%2C+which+is+available+on+a+number+of%0Adifferent+operating+systems.+However%2C+depending+on+what+system+you+are%0Ausing%2C+your+version+of+Python+is+going+to+be+different.+Because+of+this%0Areason%2C+we+specify+exactly+which+version+of+Python+we+expect+the+code+to%0Awork+with.%0A%0AFor+the+following+instructions%2C+we%27re+going+to+assume+that+you+know%0Aexactly+which+version+of+Python+you+need+to+install.+Normally%2C+this+is%0Alisted+in+the+%60README.md%60+file+or+in+the+tutorial+information.+Our%0A%5BCI%5D%28%2Fcontributing%2Ffirst-time%2Fwhat-is-a%2Fci%29+systems+have+to+be+told%0Aexactly+which+version+of+Python+is+required%2C+too.+So+if+you%27re+really%0Astuck%2C+try+looking+at+the+%60.github%2Fworkflows%2Fci.yml%60+file+for+the%0Aspecific+version+you+need.%0A%0AIn+order+to+contribute+to+BeeWare%2C+you%27ll+need+to+have+a+Python%0Ainterpreter+installed+on+your+machine.+On+macOS+and+Windows%2C+we%0Arecommend+using+the+%5Bofficial+Python.org%0Ainstallers%5D%28https%3A%2F%2Fwww.python.org%2Fdownloads%2F%29%3B+on+Linux%2C+we+recommend%0Ausing+the+version+of+Python+provided+by+the+package+manager+for+your%0Adistribution.%0A%0A%23%23+Virtual+Environments%0A%0AWhen+Python+is+installed%2C+it+provides+a+single+global+environment.+By%0Adefault%2C+if+you+install+a+package%2C+it+will+be+installed+into+this+global%0Aenvironment.%0A%0AHowever%2C+if+you%27re+working+on+more+than+one+Python+project%2C+it%27s%0Aentirely+likely+that+those+multiple+projects+will+have+different+-+and%0Ain+some+cases%2C+conflicting+-requirements.+What+you+need+is+a+way+to%0Aisolate+each+project+so+that+installing+a+package+for+one+project+won%27t%0Aforce+that+same+package+to+be+installed+for+the+second+project.%0A%0AThis+is+done+using+%2AVirtual+Environments%2A.+A+Virtual+Environment%2C+or%0A%60venv%60%2C+is+an+isolated+environment+that+can+be+easily+created%2C+destroyed%0Aor+recreated.+Any+package+installed+in+the+virtual+environment+is+only%0Aaccessible+%2Ainside%2A+that+virtual+environment.+Virtual+environments+are%0Asometimes+referred+to+as+a+%22sandbox%22+-+a+safe+place+to+play%2C+where+if%0Ayou+make+a+mistake%2C+you+can+knock+down+everything+you%27ve+built+and+start%0Aagain.%0A%0APython+provides+the+%60venv%60+module+to+create+new+virtual+environments.%0AEach+virtual+environment+has+a+name+that+can+be+used+to+identify+the%0Aenvironment.+To+create+a+fresh+virtual+environment+named+%22my-venv%22%2C+run%3A%0A%0A++++%24+python+-m+venv+my-venv%0A%0AThe+version+of+Python+that+you+use+to+create+the+virtual+environment%0Awill+be+the+version+that+is+used+by+default+%2Ainside%2A+the+virtual%0Aenvironment.+If+you%27ve+got+multiple+Python+versions+installed%2C+or+you%27re%0Ausing+a+tool+like+%60pyenv%60+to+manage+Python+versions%2C+ensure+that+the%0APython+version+that+is+currently+active+%28or+the+version+you+reference%0Awhen+invoking+the+%60-m+venv%60+command%29+is+the+version+you+intend.+Once+a%0Avirtual+environment+has+been+created%2C+you+can%27t+change+the+Python%0Aversion+that+it+is+using.+To+change+the+Python+version%2C+you+need+to%0Acreate+a+fresh+virtual+environment.%0A%0AInvoking+%60-m+venv%60+will+%2Acreate%2A+the+virtual+environment%2C+but+the%0Aenvironment+is+not+yet+%2Aactive%2A.+The+virtual+environment+is+a+collection%0Aof+files+on+disk%2C+stored+in+a+directory+that+matches+the+name+of+the%0Aenvironment.+To+activate+the+virtual+environment%2C+you+run+one+of+the%0Afiles+generated+as+part+of+the+environment%3A%0A%0A++++%24+source+my-venv%2Fbin%2Factivate%0A%0AThis+will+result+in+a+prefix+being+added+to+your+command+line+prompt%0Aletting+you+know+you%27re+in+a+virtual+environment%3A%0A%0A++++%28my-venv%29+%24%0A%0AWhile+the+virtual+environment+is+active%2C+any+%60pip+install%60+command+will%0A%2Aonly%2A+affect+the+virtual+environment.+It+doesn%27t+matter+if+you+change%0Adirectories+-+if+your+prompt+has+a+prefix%2C+that+virtual+environment+is%0Aactive.%0A%0AIf+you+open+a+second+terminal+window%2C+the+environment+will+%2Anot%2A+be%0Aactive+-+you+need+to+re-activate+the+environment+in+every+terminal%0Asession+where+you+want+to+use+the+environment.+If+you+get+errors+about%0Alibraries+not+being+available+that+you%27re+%2Acertain%2A+you%27ve+installed+-%0Acheck+whether+your+virtual+environment+is+active.%0A%0ATo+deactivate+the+virtual+environment%2C+run%3A%0A%0A++++%28my-venv%29+%24+deactivate%0A%0AOnce+deactivated%2C+the+prefix+will+be+dropped+from+the+prompt.%0A%0A" target="_blank">
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/edit/lektor/content/contributing/first-time/setting-up-your-environment/contents%2Bko.lr" rel="noopener noreferrer" target="_blank">
             <i class="fa fa-github "></i><small>&nbsp;
-Translate on GitHub
+Edit on GitHub
 </small>
           </a></li>
      <li class="nav-item dropdown dropdown-pull-right">
@@ -107,7 +107,7 @@ Dansk
           
 Deutsch
 
-          </a><a class="dropdown-item " href="/es/contributing/principiantes/configuracion/">
+          </a><a class="dropdown-item " href="/es/contributing/first-time/setup/">
           
 Español
 
@@ -173,14 +173,14 @@ Home
 </a>
   
  >
-  <a href="/ko_KR/contributing/">Contributing</a>
+  <a href="/ko_KR/contributing/">기여</a>
   
  >
-  <a href="/ko_KR/contributing/first-time/">First-time contributors</a>
+  <a href="/ko_KR/contributing/first-time/">첫 번째 기여자</a>
   
 </p>
-    <h1>Setting up your environment</h1>
-    <p>How to get your system setup to contribute</p>
+    <h1>환경 설정</h1>
+    <p>기여를 위한 시스템 설정 방법</p>
   </div>
 </div>
 <div class="container">
@@ -190,84 +190,84 @@ Home
   
 
   
-    <p>In order to get contributing, you're going to need to setup a
-<strong>development environment</strong> - a place where you can work on code where
-it can behave the same as everyone else's environment.</p>
-<p>Many parts of BeeWare use the same tools: a specific version of Python,
-and virtual environment controls.</p>
-<h2>Python</h2>
-<p>Python is a scripting language, which is available on a number of
-different operating systems. However, depending on what system you are
-using, your version of Python is going to be different. Because of this
-reason, we specify exactly which version of Python we expect the code to
-work with.</p>
-<p>For the following instructions, we're going to assume that you know
-exactly which version of Python you need to install. Normally, this is
-listed in the <code>README.md</code> file or in the tutorial information. Our
-<a href="/contributing/first-time/what-is-a/ci">CI</a> systems have to be told
-exactly which version of Python is required, too. So if you're really
-stuck, try looking at the <code>.github/workflows/ci.yml</code> file for the
-specific version you need.</p>
-<p>In order to contribute to BeeWare, you'll need to have a Python
-interpreter installed on your machine. On macOS and Windows, we
-recommend using the <a href="https://www.python.org/downloads/">official Python.org
-installers</a>; on Linux, we recommend
-using the version of Python provided by the package manager for your
-distribution.</p>
-<h2>Virtual Environments</h2>
-<p>When Python is installed, it provides a single global environment. By
-default, if you install a package, it will be installed into this global
-environment.</p>
-<p>However, if you're working on more than one Python project, it's
-entirely likely that those multiple projects will have different - and
-in some cases, conflicting -requirements. What you need is a way to
-isolate each project so that installing a package for one project won't
-force that same package to be installed for the second project.</p>
-<p>This is done using <em>Virtual Environments</em>. A Virtual Environment, or
-<code>venv</code>, is an isolated environment that can be easily created, destroyed
-or recreated. Any package installed in the virtual environment is only
-accessible <em>inside</em> that virtual environment. Virtual environments are
-sometimes referred to as a "sandbox" - a safe place to play, where if
-you make a mistake, you can knock down everything you've built and start
-again.</p>
-<p>Python provides the <code>venv</code> module to create new virtual environments.
-Each virtual environment has a name that can be used to identify the
-environment. To create a fresh virtual environment named "my-venv", run:</p>
+    <p>기여를 하려면 다음과 같이 설정해야 합니다.
+<strong>개발 환경</strong> - 다른 모든 사람의 환경과 동일하게 작동할 수 있는
+다른 모든 사람의 환경과 동일하게 작동할 수 있는 곳입니다.</p>
+<p>BeeWare의 많은 부분이 동일한 도구, 즉 특정 버전의 Python을 사용합니다,
+및 가상 환경 제어.</p>
+<h2>파이썬</h2>
+<p>Python은 스크립팅 언어로, 다양한 운영 체제에서 사용할 수 있으며
+다양한 운영 체제에서 사용할 수 있습니다. 하지만 어떤 시스템을 사용하느냐에 따라
+사용 중인 시스템에 따라 사용 중인 파이썬 버전이 달라집니다. 이 때문에
+따라서 코드가 작동할 것으로 예상되는 Python 버전을 정확히 지정합니다.
+정확히 지정합니다.</p>
+<p>다음 안내에서는 사용자가 다음 사항을 알고 있다고 가정합니다.
+설치해야 하는 파이썬 버전을 정확히 알고 있다고 가정합니다. 일반적으로 이것은
+파일이나 튜토리얼 정보에 나와 있습니다. 우리의
+<a href="/contributing/first-time/what-is-a/ci">CI</a> 시스템에서 사용자에게
+필요한 파이썬 버전도 정확히 알려줘야 합니다. 그러니 정말
+막막하다면, '.github/workflows/ci.yml' 파일에서 필요한 특정 버전의
+파일을 찾아보세요.</p>
+<p>BeeWare에 기여하려면 컴퓨터에 Python
+인터프리터가 설치되어 있어야 합니다. macOS와 Windows에서는
+공식 Python.org
+설치 프로그램](<a href="https://www.python.org/downloads/)을">https://www.python.org/downloads/)을</a> 사용하는 것이 좋습니다.
+패키지 관리자가 제공하는 Python 버전을 사용하는 것이 좋습니다.
+배포판을 사용하는 것이 좋습니다.</p>
+<p>가상 환경 ## 가상 환경</p>
+<p>파이썬이 설치되면 단일 글로벌 환경을 제공합니다. By
+기본적으로 패키지를 설치하면 이 전역 환경인
+환경에 설치됩니다.</p>
+<p>하지만 둘 이상의 파이썬 프로젝트에서 작업하는 경우에는
+여러 프로젝트가 서로 다른, 그리고 경우에 따라서는
+경우에 따라서는 서로 상충되는 요구 사항을 가지고 있을 가능성이 높습니다. 필요한 것은 다음과 같은 방법입니다.
+각 프로젝트를 분리하여 한 프로젝트에 대한 패키지를 설치하더라도
+두 번째 프로젝트에도 동일한 패키지가 강제로 설치되지 않도록 각 프로젝트를 분리하는 방법이 필요합니다.</p>
+<p>이는 <em>가상 환경</em>을 사용하여 수행됩니다. 가상 환경 또는
+'가상 환경'은 쉽게 생성, 파괴 또는
+또는 다시 생성할 수 있는 격리된 환경입니다. 가상 환경에 설치된 모든 패키지는
+해당 가상 환경 <em>내부</em>에서만 액세스할 수 있습니다. 가상 환경은
+"샌드박스"라고도 하는 안전한 플레이 공간으로, 실수를 하더라도
+실수를 하면 구축한 모든 것을 무너뜨리고 다시 시작할 수 있는
+다시 시작할 수 있는 안전한 공간입니다.</p>
+<p>파이썬은 새로운 가상 환경을 생성하는 <code>venv</code> 모듈을 제공합니다.
+각 가상 환경에는 해당 환경을 식별하는 데 사용할 수 있는 이름이 있습니다.
+환경이 있습니다. 'my-venv'라는 이름의 새 가상 환경을 만들려면 실행합니다:</p>
 <pre><code>$ python -m venv my-venv
 </code></pre>
-<p>The version of Python that you use to create the virtual environment
-will be the version that is used by default <em>inside</em> the virtual
-environment. If you've got multiple Python versions installed, or you're
-using a tool like <code>pyenv</code> to manage Python versions, ensure that the
-Python version that is currently active (or the version you reference
-when invoking the <code>-m venv</code> command) is the version you intend. Once a
-virtual environment has been created, you can't change the Python
-version that it is using. To change the Python version, you need to
-create a fresh virtual environment.</p>
-<p>Invoking <code>-m venv</code> will <em>create</em> the virtual environment, but the
-environment is not yet <em>active</em>. The virtual environment is a collection
-of files on disk, stored in a directory that matches the name of the
-environment. To activate the virtual environment, you run one of the
-files generated as part of the environment:</p>
+<p>가상 환경을 생성하는 데 사용하는 파이썬 버전은
+은 가상 환경 <em>내부에서 </em>기본으로 사용되는 버전이 됩니다.
+환경에서 기본적으로 사용되는 버전입니다. 여러 Python 버전이 설치되어 있거나 <code>pyenv</code>와 같은 도구를 사용하여
+Python 버전을 관리하기 위해 <code>pyenv</code>와 같은 도구를 사용하는 경우, 다음 사항을 확인하세요.
+현재 활성화된 파이썬 버전(또는 <code>-m 버전</code> 호출 시 참조하는 버전
+명령을 호출할 때 참조하는 버전)이 의도한 버전인지 확인하세요. 일단
+가상 환경이 생성되면 사용 중인 Python
+버전을 변경할 수 없습니다. Python 버전을 변경하려면 다음을 수행해야 합니다.
+새 가상 환경을 만듭니다.</p>
+<p>m venv`를 호출하면 가상 환경이 <em>생성</em>되지만, 가상 환경은 아직
+환경은 아직 <em>활성화</em>되지 않습니다. 가상 환경은 디스크에 있는 파일의 모음
+디스크에 있는 파일의 모음으로, 환경의 이름과 일치하는 디렉터리에 저장됩니다.
+환경의 이름과 일치하는 디렉터리에 저장됩니다. 가상 환경을 활성화하려면 환경의 일부로 생성된 파일 중 하나를 실행합니다.
+환경의 일부로 생성된 파일 중 하나를 실행합니다:</p>
 <pre><code>$ source my-venv/bin/activate
 </code></pre>
-<p>This will result in a prefix being added to your command line prompt
-letting you know you're in a virtual environment:</p>
-<pre><code>(my-venv) $
+<p>이렇게 하면 명령줄 프롬프트에 접두사가 추가됩니다.
+라는 접두사가 추가되어 가상 환경에 있음을 알려줍니다:</p>
+<pre><code>(MY-VENV) $
 </code></pre>
-<p>While the virtual environment is active, any <code>pip install</code> command will
-<em>only</em> affect the virtual environment. It doesn't matter if you change
-directories - if your prompt has a prefix, that virtual environment is
-active.</p>
-<p>If you open a second terminal window, the environment will <em>not</em> be
-active - you need to re-activate the environment in every terminal
-session where you want to use the environment. If you get errors about
-libraries not being available that you're <em>certain</em> you've installed -
-check whether your virtual environment is active.</p>
-<p>To deactivate the virtual environment, run:</p>
-<pre><code>(my-venv) $ deactivate
+<p>가상 환경이 활성화되어 있는 동안에는 모든 <code>pip install</code> 명령은
+*가상 환경에만 영향을 미칩니다. 디렉터리를 변경해도 상관없습니다.
+디렉터리를 변경해도 상관없습니다. 프롬프트에 접두사가 있는 경우 해당 가상 환경은
+활성 상태입니다.</p>
+<p>두 번째 터미널 창을 열면 환경이 <em>활성화되지</em> 않습니다.
+활성화되지 않습니다 - 환경을 사용하려는 모든 터미널에서 환경을 다시 활성화해야 합니다.
+세션에서 환경을 다시 활성화해야 합니다. 다음과 같은 오류가 발생하는 경우
+설치했다고 <em>확실하게</em> 확신하는 라이브러리를 사용할 수 없습니다.
+가상 환경이 활성화되어 있는지 확인하세요.</p>
+<p>가상 환경을 비활성화하려면 실행합니다:</p>
+<pre><code>(MY-VENV) $ 비활성화
 </code></pre>
-<p>Once deactivated, the prefix will be dropped from the prompt.</p>
+<p>비활성화하면 프롬프트에서 접두사가 삭제됩니다.</p>
 
     
   

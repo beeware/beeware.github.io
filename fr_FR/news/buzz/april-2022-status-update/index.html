@@ -79,9 +79,9 @@ Donation
         </a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/new/lektor/content/news/buzz/april-2022-status-update/contents%2Bfr.lr?filename=contents%2Bfr.lr&value=title%3A+April+2022+Status+Update%0A---%0Aauthor%3A+Russell+Keith-Magee%0A---%0Abody%3A%0A%0AOne+of+the+benefits+of+%5Bhaving+the+support+of+an+organization+like%0AAnaconda%5D%28..%2Fexciting-news-for-the-future-of-beeware%29+is+that+we+now%0Ahave+the+time+to+perform+little+housekeeping+tasks+like+publishing%0Acommunity+updates.+As+a+result%2C+this+is+the+first+%28of+hopefully+many%29%0Amonthly+updates+letting+you+know+what+progress+has+been+made+in+the%0ABeeWare+suite.%0A%0A%23%23+What+we%27ve+done%0A%0ADuring+April%3A%0A%0A-+We%27ve+cleared+the+backlog+of+pull+requests+and+issue+triage.+At+this%0A++point%2C+the+only+PRs+that+are+open+are+ones+that+require+updates+or%0A++changes+from+the+submitters.+A+lot+of+stale+or+duplicated+issues+have%0A++also+been+closed+or+consolidated.%0A-+%5BWebviews+on+Windows+now+use+the+EdgeChromium+renderer%2C+rather+than%0A++the+IE11+renderer%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Ftoga%2Fpull%2F1448%29.+This%0A++massively+improves+the+HTML+compatibility+of+web+views+on+Windows.%0A-+%5BToga+windows+now+use+a+%22single+source+of+truth%22%0A++approach%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Ftoga%2Fpull%2F1461%29%2C+using+the+API%0A++calls+of+the+underlying+GUI+platform+to+determine+the+title%2C+position%0A++and+size+of+a+window.+This%2C+in+turn%2C+allowed+for+the+implementation+of%0A++APIs+that+allow+you+to+set+the+title%2C+position+and+size+of+windows+on%0A++desktop+platforms.%0A-+%60on_exit%60+handlers+on+an+App+%5Bcan+now+be+asynchronous%0A++co-routines%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Ftoga%2Fpull%2F1463%29%0A-+Toga+dialogs+that+return+a+result+%28such+as+YesNoDialog%29+now+%5Buse+an%0A++asynchronous+API%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Ftoga%2Fpull%2F1464%29.+This+is%0A++a+backwards+incompatible+change+that+was+required+to+support+dialogs%0A++on+Android%3B+it+also+allows+us+to+remove+a+nasty+hack+that+was+needed%0A++on+iOS.+However%2C+we%27ve+been+able+to+implement+this+in+such+a+way+that%0A++any+existing+usage+that+is+incompatible+with+the+new+required+usage%0A++will+be+flagged+with+a+helpful+error.%0A-+The+%5BGTK+web+view+has+been%0A++improved%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Ftoga%2Fpull%2F1470%29%2C+correcting+some%0A++odd+caching+behaviour.%0A-+Following+the+%5Bannouncement+of+PyScript+at+PyCon+US%0A++2022%5D%28https%3A%2F%2Fpyscript.net%29%2C+we%27ve+been+able+to+%5Bresurrect+the+Web%0A++backend+for+Toga%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Ftoga%2Fpull%2F1475%29.+This+is%0A++still+in+the+very+early+stages+-+but+it%27s+sufficiently+advanced+that%0A++we+can+run+the+first+2+tutorials%2C+in+both+a+%22server+side+rendering%22%0A++and+%22single+page+app%22+format.%0A-+We%27ve+%5Bimproved+Briefcase%27s+code+signing+integration+on%0A++macOS%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F690%29.+This+should%0A++prevent+some+errors+we%27ve+seen+when+signing+apps+that+contain%0A++third-party+binary+modules%0A-+We%27ve+significantly+improved+validation+and+error+handling+when+an+app%0A++name+contains+%5Bnon-Latin%0A++characters%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F698%29+%2C%0A++%5Bpunctuation%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F697%29%2C+or%0A++%5Breserved+words%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F617%29.%0A-+We%27ve+added+CI+checks+to+%5Bensure+that+Briefcase+is+always+able+to%0A++generate+a+valid+signed+app%0A++bundles%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F700%29%0A-+We%27ve+%5Bimproved+the+output+generated+by+verbose+debug%0A++output%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F704%29+to+improve+full%0A++environment+details+.+This+should+make+it+easier+to+identify+why+a%0A++command+is+failing+due+to+unexpected+user+environments%2C+and+to+assist%0A++in+manually+reproducing+Briefcase%27s+behaviour+outside+Briefcase.%0A-+We+now+ensure+that+%5BmacOS+apps+are+%5C%2Aalways%5C%2A%0A++signed%5D%28https%3A%2F%2Fgithub.com%2Fbeeware%2Fbriefcase%2Fpull%2F714%29.+This+is+needed%0A++because+%2Aall%2A+apps+required+at+least+ad-hoc+signing+to+execute+on+M1%0A++hardware.%0A%0AMany+of+these+PRs+either+began+as%2C+or+are+entirely+the+work+of+community%0Amembers.+There+are+also+dozens+of+smaller+PRs%2C+bug+fixes%2C+and+bug%0Areports+that+are+just+as+important%2C+but+are+too+numerous+to+list+in+a%0Apost+like+this.+A+huge+thanks+to+everyone+who+has+contributed+to+BeeWare%0Aduring+April.%0A%0A%23%23+What%27s+next%3F%0A%0AIn+May%2C+we%27ll+be+focussing+on%3A%0A%0A-+Updating+the+support+packages+for+macOS+and+iOS+apps.+Apple%27s%0A++transition+to+M1+hardware+means+there+are+new+simulator+architectures%0A++that+require+support%3B+this%2C+in+turn%2C+requires+that+we+adopt+Xcode%27s%0A++new+XCFramework+for+the+packaging+libraries%2C+which+requires+some%0A++fairly+major+changes+to+the+way+the+support+packages+are+built.%0A-+Updating+the+support+packages+on+Android+to+support+Python+3.10.%0A-+Notarization+on+M1.+This+is+becoming+an+increasingly+required+part+of%0A++macOS+app+publishing%2C+as+Apple+cranks+up+the+security+requirements.%0A%0AWe%27re+also+expecting+to+start+the+hiring+process+in+the+coming+month.%0AWe%27ll+provide+more+details+when+we+can+point+a+full+job+description.+If%0Ayou+think+you%27d+like+to+make+BeeWare+your+day+job+%28or+you+know+someone%0Awho+might%29%2C+now+would+be+a+good+time+to+start+polishing+your+resume.%0A%0A---%0Apub_date%3A+2022-05-02%0A---%0Amastodon_handle%3A+%40freakboy3742%40cloudisland.nz%0A" target="_blank">
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/edit/lektor/content/news/buzz/april-2022-status-update/contents%2Bfr.lr" rel="noopener noreferrer" target="_blank">
             <i class="fa fa-github "></i><small>&nbsp;
-Traduire sur GitHub
+Editer sur GitHub
 </small>
           </a></li>
      <li class="nav-item dropdown dropdown-pull-right">
@@ -107,7 +107,7 @@ Dansk
           
 Deutsch
 
-          </a><a class="dropdown-item " href="/es/noticias/zumbido/april-2022-status-update/">
+          </a><a class="dropdown-item " href="/es/news/buzz/april-2022-status-update/">
           
 Español
 
@@ -173,10 +173,10 @@ Accueil
 </a>
   
  >
-  <a href="/fr_FR/news/">News</a>
+  <a href="/fr_FR/news/">Actualités</a>
   
  >
-  <a href="/fr_FR/news/buzz/">The Buzz</a>
+  <a href="/fr_FR/news/buzz/">Le buzz</a>
   
 </p>
     <h1>April 2022 Status Update</h1>

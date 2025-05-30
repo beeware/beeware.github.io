@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Development Process— BeeWare</title>
+    <title>개발 프로세스— BeeWare</title>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
@@ -79,7 +79,11 @@
         </a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right"><li class="nav-item"></li>
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/edit/lektor/content/contributing/process/contents%2Bko.lr" rel="noopener noreferrer" target="_blank">
+            <i class="fa fa-github "></i><small>&nbsp;
+Edit on GitHub
+</small>
+          </a></li>
      <li class="nav-item dropdown dropdown-pull-right">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
@@ -165,11 +169,11 @@ Home
 </a>
   
  >
-  <a href="/ko_KR/contributing/">Contributing</a>
+  <a href="/ko_KR/contributing/">기여</a>
   
 </p>
-    <h1>Development Process</h1>
-    <p>The BeeWare development process</p>
+    <h1>개발 프로세스</h1>
+    <p>BeeWare 개발 프로세스</p>
   </div>
 </div>
 <div class="container">
@@ -179,133 +183,133 @@ Home
   
 
   
-    <h2>Overview</h2>
-<p>All changes to code and documentation should be
-<a href="/contributing/first-time/github/">submitted</a> via a pull request to the
-GitHub repository for the project.</p>
-<p>Most projects have a dedicated contribution guide with details specific
-to that project, or specific types of contribution. This documentation
-can be found on Read the Docs. For example, <a href="https://briefcase.readthedocs.io">Briefcase's
-documentation</a> contains contribution
-guides for both
-<a href="https://briefcase.readthedocs.io/en/stable/how-to/contribute-code.html">code</a>
-and
-<a href="https://briefcase.readthedocs.io/en/stable/how-to/contribute-docs.html">documentation</a>.</p>
-<p>All submissions should abide by the <a href="/community/behavior/code-of-conduct/">BeeWare Code of
-Conduct</a>.</p>
-<h2>Change Notes</h2>
-<p>Several BeeWare projects, notably Briefcase and Toga, require that each
-pull request is submitted with a change note. These change notes are
-compiled together when a new release is cut for the project, producing
-the release notes for the new release.</p>
-<p>BeeWare uses <a href="https://towncrier.readthedocs.io/en/stable/">Towncrier</a> to
-manage change notes.</p>
-<p>A change note file should be created in the <code>changes</code> directory and
-named using this format:</p>
-<pre><code>&lt;PR/Issue #&gt;.&lt;Change Type&gt;.rst
+    <h2>개요</h2>
+<p>코드와 문서에 대한 모든 변경 사항은
+프로젝트에 대한 풀 리퀘스트를 통해 <a href="/contributing/first-time/github/">제출</a>해야 합니다.
+프로젝트의 GitHub 리포지토리에 풀 리퀘스트를 통해 제출해야 합니다.</p>
+<p>대부분의 프로젝트에는 해당 프로젝트 또는 특정 유형의 기여에 대한 세부 정보가 포함된 전용 기여 가이드가
+또는 특정 유형의 기여에 대한 세부 정보가 포함된 전용 기여 가이드가 있습니다. 이 문서
+는 문서 읽기에서 찾을 수 있습니다. 예를 들어, <a href="https://briefcase.readthedocs.io">Briefcase의
+문서</a>에는 두 가지 유형의 기여
+가이드와
+<a href="https://briefcase.readthedocs.io/en/stable/how-to/contribute-code.html">코드</a>
+와
+<a href="https://briefcase.readthedocs.io/en/stable/how-to/contribute-docs.html">문서</a>.</p>
+<p>모든 제출물은 <a href="/커뮤니티/행동/행동 규범/">BeeWare 행동 규범](/커뮤니티/행동 규범)을 준수해야 합니다.
+행동 규범</a>을 준수해야 합니다.</p>
+<h2>변경 노트</h2>
+<p>브리프케이스와 토가를 비롯한 여러 BeeWare 프로젝트에서는 각 프로젝트마다
+풀 리퀘스트는 변경 노트와 함께 제출해야 합니다. 이러한 변경 노트는
+프로젝트의 새 릴리스가 커팅될 때 함께 컴파일되어
+새 릴리즈에 대한 릴리즈 노트를 생성합니다.</p>
+<p>BeeWare는 <a href="https://towncrier.readthedocs.io/en/stable/">Towncrier</a>를 사용하여 다음을 수행합니다.
+변경 노트를 관리합니다.</p>
+<p>변경 노트 파일은 <code>changes</code> 디렉터리에 생성하고
+이 형식을 사용하여 이름을 지정해야 합니다:</p>
+<pre><code>&lt;PR/이슈 #&gt;.&lt;변경 유형&gt;.rst
 </code></pre>
-<p>For instance, a pull request that fixes GitHub issue #42 would be named
-<code>42.bugfix.rst</code>. If a pull request is not associated with a specific
-issue, then the pull request number can be used instead. You may need to
-create the pull request <em>without</em> a change note to get a pull request
-number allocated, then push an update that includes the change note with
-the newly allocated pull request number.</p>
-<p>The change types for the change note should be one of the following:</p>
+<p>예를 들어, GitHub 이슈 #42를 수정하는 풀 리퀘스트의 이름은
+42.bugfix.rst`. 풀 리퀘스트가 특정 이슈와 연관되지 않은 경우
+이슈와 연관되지 않은 경우에는 풀 리퀘스트 번호를 대신 사용할 수 있습니다. 다음과 같이 해야 할 수 있습니다.
+풀 리퀘스트를 받기 위해 변경 노트 없이 풀 리퀘스트를 만든 다음
+번호를 할당받은 다음, 변경 노트가 포함된 업데이트를 푸시하고
+변경 노트가 포함된 업데이트를 푸시해야 합니다.</p>
+<p>변경 노트의 변경 유형은 다음 중 하나이어야 합니다:</p>
 <ul>
-<li><code>feature</code></li>
+<li><code>기능</code></li>
 <li><code>bugfix</code></li>
 <li><code>doc</code></li>
 <li><code>removal</code></li>
 <li><code>misc</code></li>
 </ul>
-<p>The <code>misc</code> type is reserved for changes that do not affect users, and
-don't need to be noted in the release notes. Minor typographical fixes
-in documentation, updates to CI configuration, and bug fixes for
-features that haven't yet been formally released are examples of
-features that would be described using <code>misc</code> markers.</p>
-<p>A change note should be a single line of text, providing a high level
-summary of the change from the perspective of the user, not a deep
-technical description or implementation detail. It is distinct from a
-commit message. A commit message describes what has been done so that
-future developers can follow the reasoning for a change. A change note
-is a "user facing" description, described in terms of the new capability
-that is available as a result of change. It may help to think of the
-change note as a press release announcing the change, rather than a
-commit description.</p>
-<p>For example, if you fix a bug caused by date handling, the commit
-message or pull request description might read:</p>
-<p>Added a MM-DD-YYYY format validator to the DateWidget validation
-chain.</p>
-<p>This describes the change that was made to the implementation - detail
-that will be helpful to the person reviewing the code. However, the
-corresponding change note might read something like:</p>
-<pre><code>Date widgets can now accept dates in US format.
+<p>'기타' 유형은 사용자에게 영향을 주지 않는 변경을 위해 예약되어 있으며
+릴리스 노트에 기록할 필요가 없습니다. 사소한 오타 수정
+문서에서 사소한 오타 수정, CI 구성 업데이트 및 버그 수정
+아직 공식적으로 릴리스되지 않은 기능의 예는 다음과 같습니다.
+기타` 마커를 사용하여 설명할 수 있는 기능의 예입니다.</p>
+<p>변경 노트는 한 줄의 텍스트로 작성해야 하며, 사용자의 관점에서 변경 사항에 대한 높은 수준의
+깊은 기술 설명이나 구현 세부 사항이 아닌 사용자 관점에서 변경 사항을 요약한
+기술적인 설명이나 구현 세부 사항이 아닙니다. 변경 노트는
+커밋 메시지와 구별됩니다. 커밋 메시지는 어떤 작업이 수행되었는지를 설명하므로
+향후 개발자가 변경 이유를 따라갈 수 있도록 설명합니다. 변경 노트
+는 "사용자를 대상으로 하는" 설명으로, 변경으로 인해 사용할 수 있는 새로운 기능에 대해
+의 관점에서 설명하는 "사용자 대면" 설명입니다. 변경 노트를
+변경 노트를 변경 사항을 알리는 보도 자료로 생각하는 것이 도움이 될 수 있습니다.
+커밋 설명.</p>
+<p>예를 들어, 날짜 처리로 인한 버그를 수정하는 경우 커밋
+메시지 또는 풀 리퀘스트 설명이 표시될 수 있습니다:</p>
+<p>날짜 위젯 유효성 검사에 MM-DD-YYYY 형식 유효성 검사기를 추가했습니다.
+체인에 추가했습니다.</p>
+<p>구현에 적용된 변경 사항을 자세히 설명합니다.
+코드를 검토하는 사람에게 도움이 될 것입니다. 그러나
+해당 변경 노트는 다음과 같이 표시될 수 있습니다:</p>
+<pre><code>날짜 위젯은 이제 미국 형식의 날짜를 사용할 수 있습니다.
 </code></pre>
-<p>This describes the functional change as it will be experienced by end
-users. A user can read this description without needing to know anything
-about the implementation.</p>
-<h2>Code style</h2>
-<p>BeeWare's projects use <a href="https://pre-commit.com/">Pre-commit</a> to automate
-code style adherence. These checks are defined in the
-<code>.pre-commit-config.yaml</code> file for each repository and are automatically
-run in <a href="/contributing/first-time/what-is-a/ci">CI</a> when a Pull Request
-is opened.</p>
-<p>To automate the Pre-commit checks in your local development environment
-with each <code>git</code> commit, run <code>pre-commit install</code>.</p>
-<p>Included Pre-commit checks:</p>
+<p>최종 사용자가 경험하게 될 기능적 변화를 설명합니다.
+사용자가 경험하게 될 기능적 변화를 설명합니다. 사용자는 구현에 대해 아무것도 몰라도 이 설명을 읽을 수 있습니다.
+아무것도 몰라도 이 설명을 읽을 수 있습니다.</p>
+<h2>코드 스타일</h2>
+<p>BeeWare의 프로젝트는 <a href="https://pre-commit.com/">사전 커밋</a>을 사용하여 자동화합니다.
+코드 스타일 준수를 자동화합니다. 이러한 검사는 각 저장소의
+'.pre-commit-config.yaml' 파일에 정의되며 자동으로
+풀 리퀘스트가 열릴 때 <a href="/contributing/first-time/what-is-a/ci">CI</a>에서 자동으로 실행됩니다.
+가 열리면 자동으로 실행된다.</p>
+<p>로컬 개발 환경에서 커밋 전 검사를 자동화하려면
+각 <code>git</code> 커밋과 함께 <code>pre-commit install</code>을 실행합니다.</p>
+<p>포함된 사전 커밋 확인:</p>
 <ul>
-<li><a href="https://black.readthedocs.io/en/stable/index.html">Black</a> ensures
-uniform code formatting</li>
-<li><a href="https://docformatter.readthedocs.io/en/latest/">docformatter</a> ensures
-uniform formatting for docstrings and comments</li>
-<li><a href="https://github.com/asottile/pyupgrade">pyupgrade</a> ensures code is
-using the latest best practices for Python</li>
-<li><a href="https://pycqa.github.io/isort/">isort</a> ensures uniform <code>import</code>
-statements</li>
-<li><a href="https://flake8.pycqa.org/en/latest/">flake8</a> checks for common coding
-and syntax issues</li>
-<li>Misc checks that validate structured documents such as TOML files and
-remove unnecessary whitespace</li>
+<li><a href="https://black.readthedocs.io/en/stable/index.html">검정</a>은 다음을 보장합니다.
+균일한 코드 서식</li>
+<li><a href="https://docformatter.readthedocs.io/en/latest/">docformatter</a>는
+문서 문자열과 주석의 균일한 서식을 보장합니다.</li>
+<li>파이업그레이드](<a href="https://github.com/asottile/pyupgrade)는">https://github.com/asottile/pyupgrade)는</a> 코드가
+파이썬의 최신 모범 사례를 사용하도록 합니다.</li>
+<li>isort](<a href="https://pycqa.github.io/isort/">https://pycqa.github.io/isort/</a>) 균일한 `import'
+문을 균일하게 만듭니다</li>
+<li>flake8](<a href="https://flake8.pycqa.org/en/latest/">https://flake8.pycqa.org/en/latest/</a>) 일반적인 코딩과 구문 문제를 확인합니다.
+및 구문 문제 확인</li>
+<li>TOML 파일과 같은 구조화된 문서의 유효성을 검사하는 기타 검사 및
+불필요한 공백 제거</li>
 </ul>
-<p>Additional guidelines:</p>
+<p>추가 가이드라인:</p>
 <ul>
-<li><p>Avoid use of "we" in comments, e.g. "Loop over" rather than "We loop
+<li><p>댓글에 '우리'를 사용하지 않도록 하세요(예: "우리는 반복합니다"가 아닌 "반복합니다.
 over"</p>
 </li>
-<li><p>Use underscores, not camelCase, for variable, function and method
-names</p>
+<li><p>변수, 함수 및 메서드에는 대/소문자가 아닌 밑줄을 사용합니다.
+이름</p>
 </li>
-<li><p>Use InitialCaps for class names (or for factory functions that return
-classes)</p>
+<li><p>클래스 이름(또는 클래스를 반환하는 팩토리 함수의 경우
+클래스를 반환하는 팩토리 함수)</p>
 </li>
-<li><p>Use Sphinx-style docstrings and <code>257</code>; type annotation with <code>484</code> is
-optional but encouraged.</p>
-<p>For example:</p>
+<li><p>스핑크스 스타일 독스트링과 <code>257</code> 사용, <code>484</code>를 사용한 유형 주석은
+선택 사항이지만 권장됩니다.</p>
+<p>예를 들어</p>
 <pre><code>def function_name(param1: int, param2: str) -&gt; bool:
-    """Example function with types and a docstring.
+    """타입과 독스트링이 있는 함수 예제입니다.
 
-    :param param1: The first parameter.
-    :param param2: The second parameter.
+    :파라미터 파라미터1: 첫 번째 매개변수입니다.
+    :param param2: 두 번째 파라미터.
 
-    :returns: The return value. True for success, False otherwise.
+    :반환합니다: 반환 값입니다. 성공하면 참, 그렇지 않으면 거짓입니다.
     """
 </code></pre>
 </li>
-<li><p>In test docstrings, state the expected behavior that each test
-demonstrates. Don't include preambles such as "Tests that" or "Ensures
-that".</p>
+<li><p>테스트 문서 문자열에 각 테스트가 보여줄 것으로 예상되는 동작을 명시합니다.
+가 보여줄 예상 동작을 명시하세요. "다음을 테스트합니다" 또는 "다음을 보장합니다" 등의 프리앰블은 포함하지 마세요.
+그" 등의 전치사를 포함하지 마세요.</p>
 </li>
-<li><p>Reserve ticket references for obscure issues where the ticket has
-additional details that can't be easily described in docstrings or
-comments. Include the ticket number at the end of a sentence like
+<li><p>티켓에 다음과 같은 애매한 문제가 있는 경우 티켓 참조를 예약합니다.
+문서 문자열이나
+댓글에 추가하세요. 다음과 같이 문장 끝에 티켓 번호를 포함하세요.
 this:</p>
 <pre><code>def test_foo():
-    """A test docstring looks like this (#123456)."""
+    """테스트 문서 문자열은 다음과 같습니다(#123456)."""
 </code></pre>
 </li>
-<li><p>Unless otherwise specified, follow <code>8</code> (with careful attention paid to
-<a href="https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">Section
-2</a>).</p>
+<li><p>달리 명시되지 않는 한, <code>8</code>을 따르십시오('8'에 주의하여
+<a href="https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">섹션
+2</a>를 참고하세요.)</p>
 </li>
 </ul>
 

@@ -79,9 +79,9 @@
         </a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/new/lektor/content/project/attic/sealang/contents%2Bzh_CN.lr?filename=contents%2Bzh_CN.lr&value=name%3A+Sealang%0A---%0Aproject_type%3A+library%0A---%0Amaturity%3A+alpha%0A---%0Alanguages%3A+py%0A---%0Aplatforms%3A+macOS%2C+linux%0A---%0Ashort_description%3A%0A%0AAn+extended+set+of+Python+bindings+for+libclang%0A%0A---%0Adescription%3A%0A%0ASealang+is+an+improved+set+of+Python+bindings+for+%60libclang%60.%0A%0AThe+upstream+maintainers+of+%60libclang%60+have+not+been+especially%0Aresponsive+to+patches+that+address+issues+like+Python+3+compatibility%2C%0Aand+the+significant+omissions+in+the+API+%28such+as+extracting+literals%0Aand+operators%29.%0A%0AThis+package+is+a+fork+of+the+official+Python+bindings+for+%60libclang%60%2C%0Apatched+to+correct+these+problems.%0A%0A%23%23+How+it+works%0A%0ASealang+is+a+bit+of+a+nasty+hack.+%60libclang%60+is+a+set+of+C+bindings+to+a%0AC%2B%2B+API%3B+Python+%60ctypes%60+are+then+used+to+wrap+the+C+API.+However%2C+while%0Athe+C%2B%2B+API+is+quite+rich%2C+%60libclang%60+is+less+so.%0A%0ASealang+bridges+this+gap+by+providing+C+wrappers+around+the+C%2B%2B+calls%0Athat+provide+the+useful+functionality.+This+library+of+C+functions+is%0Awrapped+up+as+a+Python+C+module+for+delivery+purposes+-+this+C+module%0Acontains+no+exposed+%2APython%2A+objects+or+methods%2C+but+because+it%27s+a%0Amodule%2C+the+underlying+compiled%0A%3Cspan+class%3D%22title-ref%22%3Esealang.so%3C%2Fspan%3E+file+is+easy+to+find.%0A%3Cspan+class%3D%22title-ref%22%3Ectypes%3C%2Fspan%3E+are+then+used+to+expose+the%0A%3Cspan+class%3D%22title-ref%22%3Esealang%3C%2Fspan%3E+wrapper+functions%3B%0A%0AInternally%2C+Sealang+reproduces+some+minor+pieces+of+the+%60libclang%60+API%3B%0Athese+are+methods+%28such+as+the+string+creation+and+manipulation+methods%29%0Athat+aren%27t+exposed+as+symbols+for+third-party+use.%0A%0AAll+this+functionality+is+potentially+a+candidate+to+be+passed+upstream%0Ato+libclang.%0A%0A%23%23%23+Relationship+to+Clang%0A%0AThis+project+aims+to+mirror+what+is+currently+available+in+the+Python%0Abindings+to+%60libclang%60.+The+version+number+for+this+project+is+drawn%0Afrom+the+version+and+SVN+revision+of+the+official+clang+repository.%0A%0AAny+changes+made+upstream+to+%60libclang%60+will+be+mirrored+here%3B+any%0Achanges+made+here+will%2C+where+possible%2C+be+pushed+upstream+to%0A%60libclang%60.%0A%0A%23%23%23+Development+status%0A%0AThis+project+was+an+experiment+developed+to+support%0A%5BSeasnake%5D%28%2Fproject%2Fattic%2Fseasnake%29.+Since+Seasnake+has+been+abandoned%2C%0Aso+has+this+project.%0A%0A---%0Ahelp_required%3A%0A%0A%0A%0A---%0Aattic%3A+yes%0A---%0Aimage%3A+sealang.png%0A" target="_blank">
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/edit/lektor/content/project/attic/sealang/contents%2Bzh_CN.lr" rel="noopener noreferrer" target="_blank">
             <i class="fa fa-github "></i><small>&nbsp;
-在GitHub上翻译
+在GitHub上编辑
 </small>
           </a></li>
      <li class="nav-item dropdown dropdown-pull-right">
@@ -107,7 +107,7 @@ Dansk
           
 Deutsch
 
-          </a><a class="dropdown-item " href="/es/project/atico/sealang/">
+          </a><a class="dropdown-item " href="/es/project/attic/sealang/">
           
 Español
 
@@ -173,14 +173,14 @@ Türkçe
 </a>
   
  >
-  <a href="/zh_CN/project/">Projects</a>
+  <a href="/zh_CN/project/">项目</a>
   
  >
-  <a href="/zh_CN/project/attic/">Attic</a>
+  <a href="/zh_CN/project/attic/">阁楼</a>
   
 </p>
     <h1>Sealang</h1>
-    <p><p>An extended set of Python bindings for libclang</p>
+    <p><p>libclang 的 Python 扩展绑定集</p>
 </p>
   </div>
 </div>
@@ -198,41 +198,41 @@ Türkçe
 
     
 
-    <p><p>Sealang is an improved set of Python bindings for <code>libclang</code>.</p>
-<p>The upstream maintainers of <code>libclang</code> have not been especially
-responsive to patches that address issues like Python 3 compatibility,
-and the significant omissions in the API (such as extracting literals
-and operators).</p>
-<p>This package is a fork of the official Python bindings for <code>libclang</code>,
-patched to correct these problems.</p>
-<h2>How it works</h2>
-<p>Sealang is a bit of a nasty hack. <code>libclang</code> is a set of C bindings to a
-C++ API; Python <code>ctypes</code> are then used to wrap the C API. However, while
-the C++ API is quite rich, <code>libclang</code> is less so.</p>
-<p>Sealang bridges this gap by providing C wrappers around the C++ calls
-that provide the useful functionality. This library of C functions is
-wrapped up as a Python C module for delivery purposes - this C module
-contains no exposed <em>Python</em> objects or methods, but because it's a
-module, the underlying compiled
-<span class="title-ref">sealang.so</span> file is easy to find.
-<span class="title-ref">ctypes</span> are then used to expose the
-<span class="title-ref">sealang</span> wrapper functions;</p>
-<p>Internally, Sealang reproduces some minor pieces of the <code>libclang</code> API;
-these are methods (such as the string creation and manipulation methods)
-that aren't exposed as symbols for third-party use.</p>
-<p>All this functionality is potentially a candidate to be passed upstream
-to libclang.</p>
-<h3>Relationship to Clang</h3>
-<p>This project aims to mirror what is currently available in the Python
-bindings to <code>libclang</code>. The version number for this project is drawn
-from the version and SVN revision of the official clang repository.</p>
-<p>Any changes made upstream to <code>libclang</code> will be mirrored here; any
-changes made here will, where possible, be pushed upstream to
-<code>libclang</code>.</p>
-<h3>Development status</h3>
-<p>This project was an experiment developed to support
-<a href="/project/attic/seasnake">Seasnake</a>. Since Seasnake has been abandoned,
-so has this project.</p>
+    <p><p>Sealang 是一套改进的 <code>libclang</code> Python 绑定程序。</p>
+<p>libclang "的上游维护者并没有特别积极地
+上游维护者对解决 Python 3 兼容性等问题的补丁反应并不积极、
+以及 API 中的重大遗漏（如提取字面量和运算符
+和操作符）。</p>
+<p>此软件包是 <code>libclang</code> 的官方 Python 绑定的分叉、
+的官方绑定。</p>
+<h2>工作原理</h2>
+<p>Sealang 是一个有点恶心的黑客程序。<code>libclang</code> 是一套 C++ API 的 C 绑定；然后用 Python <code>ctypes</code> 封装 C API。
+C++ API 的一套 C 绑定；然后使用 Python <code>ctypes</code> 对 C API 进行封装。然而，虽然
+C++ API 相当丰富，而 <code>libclang</code> 就没那么丰富了。</p>
+<p>Sealang 提供了 C++ 调用的 C 语言封装器，从而弥补了这一差距。
+提供了有用的功能。这个 C 函数库
+封装为一个 Python C 模块，用于交付目的。
+不包含暴露的<em>Python</em>对象或方法，但由于它是一个
+模块，底层的编译
+<span class="title-ref">sealang.so</span>文件很容易找到。
+<span class="title-ref">ctypes</span>然后用于公开
+<span class="title-ref">sealang</span>封装函数；</p>
+<p>在内部，Sealang 重现了 <code>libclang</code> API 的一些次要部分；
+这些方法（如字符串创建和操作方法）
+这些方法（如字符串创建和操作方法）没有以符号的形式公开，供第三方使用。</p>
+<p>所有这些功能都有可能被上游的
+传递给 libclang。</p>
+<h3>与 Clang 的关系</h3>
+<p>该项目旨在反映当前 Python
+与 <code>libclang</code> 的绑定。本项目的版本号
+版本号取自官方 clang 代码库的版本和 SVN 修订版。</p>
+<p>上游对 <code>libclang</code> 所做的任何修改都将在此处进行镜像；此处所做的任何修改都将尽可能推送到上游的 <code>libclang</code> 中。
+的任何更改都将尽可能推送到
+libclang`。</p>
+<h4>发展状况</h4>
+<p>该项目是为支持
+<a href="/project/attic/seasnake">海蛇</a>。由于 Seasnake 已被放弃、
+这个项目也被放弃了。</p>
 </p>
 
     

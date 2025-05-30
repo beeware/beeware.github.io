@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Configurando o seu ambiente— BeeWare</title>
+    <title>Configuração de seu ambiente— BeeWare</title>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
@@ -107,7 +107,7 @@ Dansk
           
 Deutsch
 
-          </a><a class="dropdown-item " href="/es/contributing/principiantes/configuracion/">
+          </a><a class="dropdown-item " href="/es/contributing/first-time/setup/">
           
 Español
 
@@ -173,13 +173,13 @@ Início
 </a>
   
  >
-  <a href="/pt_BR/contributing/">Contributing</a>
+  <a href="/pt_BR/contributing/">Contribuição</a>
   
  >
-  <a href="/pt_BR/contributing/first-time/">Primeiras Contribuições</a>
+  <a href="/pt_BR/contributing/first-time/">Contribuintes de primeira viagem</a>
   
 </p>
-    <h1>Configurando o seu ambiente</h1>
+    <h1>Configuração de seu ambiente</h1>
     <p>Como configurar seu sistema para contribuir</p>
   </div>
 </div>
@@ -190,75 +190,84 @@ Início
   
 
   
-    <p>Para poder contribuir, você precisara configurar um <strong>ambiente de
-desenvolvimento</strong> - um lugar onde você pode codificar tendo o mesmo
-comportamento no ambiente de outras pessoas.</p>
-<p>Muitas partes do BeeWare usam as mesmas ferramentas: uma versão
-específica do Python, e controles virtuais de ambiente.</p>
+    <p>Para começar a contribuir, você precisará configurar um
+<strong>ambiente de desenvolvimento</strong> - um local onde você possa trabalhar no código e onde
+ele possa se comportar da mesma forma que o ambiente de todos os outros.</p>
+<p>Muitas partes do BeeWare usam as mesmas ferramentas: uma versão específica do Python,
+e controles de ambiente virtual.</p>
 <h2>Python</h2>
-<p>Python é uma linguagem interpretada, que está disponível em diversos
-sistemas operacionais. No entanto, dependendo de qual sistema você
-estiver usando, sua versão do Python será diferente. Por essa razão, nós
-especificamos exatamente em qual versão do Python esperamos que o código
+<p>Python é uma linguagem de script que está disponível em vários
+sistemas operacionais diferentes. Entretanto, dependendo do sistema que você estiver
+estiver usando, sua versão do Python será diferente. Por esse motivo
+razão, especificamos exatamente com qual versão do Python esperamos que o código funcione.
 funcione.</p>
-<p>Para as próximas instruções, nós vamos presumir que você sabe exatamente
-qual versão do Python você precisa instalar. Normalmente isso está
-listado no arquivo README.md ou no tutorial de informação. Nosso sistema
-<a href="/pt_BR/contributing/first-time/what-is-a/ci">CI</a> deve falar exatamente
-qual versão do Python é necessária também. Então se você estiver
-perdido, tente procurar no arquivo <code>.travis.yml</code> ou <code>circle.yml</code> para a
-versão específica que você precisa.</p>
-<h3>pyenv</h3>
-<p><a href="https://github.com/pyenv/pyenv">pyenv</a> é uma forma de ter múltiplas
-versões do Python funcionando na mesma máquina ao mesmo tempo. Ele te
-permite escolher qualquer versão que você precisa para um projeto em
-particular.</p>
-<ul>
-<li>MacOSX - Você pode instalar pyenv via
-<a href="/pt_BR/contributing/first-time/what-is-a/package-manager">brew</a>,
-executando <code>brew install pyenv</code></li>
-<li>Outros - use o <a href="https://github.com/pyenv/pyenv-installer">instalador
-automático</a>.</li>
-</ul>
-<p>Uma vez que <code>pyenv</code> esteja instalado, você precisa instalar a versão
-especifica do Python. Essa informação está guardada em um arquivo
-<code>.python-version</code>, o que significa que você pode usar diferentes versões
-do Python em diferentes projetos no seu computador.</p>
-<p>Para instalar e configurar uma versão do Python:</p>
-<pre><code>$ cd /path/to/your/project
-$ pyenv install 3.5.1
-$ pyenv local 3.5.1
+<p>Para as instruções a seguir, vamos supor que você saiba
+exatamente qual versão do Python você precisa instalar. Normalmente, isso está
+listada no arquivo <code>README.md</code> ou nas informações do tutorial. Nosso
+<a href="/contributing/first-time/what-is-a/ci">CI</a> precisam ser informados
+exatamente qual versão do Python é necessária também. Portanto, se você estiver realmente
+preso, tente consultar o arquivo <code>.github/workflows/ci.yml</code> para obter a versão específica de que você precisa.
+versão específica de que você precisa.</p>
+<p>Para contribuir com o BeeWare, você precisará ter um interpretador Python
+instalado em seu computador. No macOS e no Windows, recomendamos
+recomendamos usar os [instaladores oficiais do Python.org
+installers] (<a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a>); no Linux, recomendamos
+usar a versão do Python fornecida pelo gerenciador de pacotes de sua
+distribuição.</p>
+<h2>Ambientes virtuais</h2>
+<p>Quando o Python é instalado, ele fornece um único ambiente global. Por
+padrão, se você instalar um pacote, ele será instalado nesse ambiente global.
+global.</p>
+<p>No entanto, se você estiver trabalhando em mais de um projeto Python, é
+é muito provável que esses vários projetos tenham requisitos diferentes e, em alguns
+em alguns casos, conflitantes. O que você precisa é de uma maneira de
+isolar cada projeto de modo que a instalação de um pacote para um projeto não
+forçar a instalação do mesmo pacote no segundo projeto.</p>
+<p>Isso é feito usando <em>Ambientes virtuais</em>. Um ambiente virtual, ou
+ou <code>venv</code>, é um ambiente isolado que pode ser facilmente criado, destruído
+ou recriado. Qualquer pacote instalado no ambiente virtual só pode ser acessado
+acessível <em>dentro</em> desse ambiente virtual. Os ambientes virtuais são
+às vezes chamados de "sandbox", um lugar seguro para brincar, onde, se você cometer um
+se você cometer um erro, poderá derrubar tudo o que construiu e começar
+novamente.</p>
+<p>O Python fornece o módulo <code>venv</code> para criar novos ambientes virtuais.
+Cada ambiente virtual tem um nome que pode ser usado para identificar o ambiente
+ambiente. Para criar um novo ambiente virtual chamado "my-venv", execute:</p>
+<pre><code>$ python -m venv my-venv
 </code></pre>
-<p>Mais informações sobre o pyenv estão disponíveis em <a href="https://github.com/pyenv/pyenv/blob/master/COMMANDS.md">seu
-website</a></p>
-<h2>virtualenv</h2>
-<p>Uma vez que Python esteja instalado, você vai querer instalar diferentes
-pacotes do Python. Já que você pode estar trabalhando em mais de um
-projeto, e mais de uma versão do Python, ter uma forma de garantir que
-somente determinados pacotes do Python estejam disponíveis por vez é de
-grande ajuda.</p>
-<p>Uma forma de fazer isso é via
-<a href="https://virtualenv.pypa.io/en/stable/">virtualenv</a>.</p>
-<p>Usando <a href="/pt_BR/contributing/first-time/what-is-a/package-manager">pip</a>,
-nós podemos instalar o virtualenv.</p>
-<pre><code>$ pip install virtualenv
+<p>A versão do Python que você usa para criar o ambiente virtual
+será a versão usada por padrão <em>dentro</em> do ambiente virtual.
+virtual. Se você tiver várias versões do Python instaladas ou estiver
+estiver usando uma ferramenta como o <code>pyenv</code> para gerenciar as versões do Python, certifique-se de que a versão do
+versão do Python que está ativa no momento (ou a versão que você referencia
+ao invocar o comando <code>-m venv</code>) é a versão que você pretende. Depois que um ambiente
+ambiente virtual tiver sido criado, você não poderá alterar a versão do Python
+que ele está usando. Para alterar a versão do Python, você precisa
+criar um novo ambiente virtual.</p>
+<p>Invocar <code>-m venv</code> irá <em>criar</em> o ambiente virtual, mas o ambiente
+ambiente ainda não está <em>ativo</em>. O ambiente virtual é uma coleção
+de arquivos no disco, armazenados em um diretório que corresponde ao nome do
+ambiente. Para ativar o ambiente virtual, você executa um dos arquivos
+arquivos gerados como parte do ambiente:</p>
+<pre><code>$ source my-venv/bin/activate
 </code></pre>
-<p>Agora nós queremos configurar uma virtualenv para depois ativa-la. Ter
-mais de uma virtualenv é ok, mas somente uma pode ser ativada por vez.
-Tenha certeza que você tenha selecionado seu Python com <code>pyenv</code>, assim
-nós saberemos qual versão do Python usar.</p>
-<pre><code>$ virtualenv -p $(pyenv which python) env
+<p>Isso fará com que um prefixo seja adicionado ao prompt da linha de comando
+informando que você está em um ambiente virtual:</p>
+<pre><code>(my-venv) $
 </code></pre>
-<p>Agora nós podemos ativar o ambiente virtual.</p>
-<pre><code>$ source env/bin/activate
+<p>Enquanto o ambiente virtual estiver ativo, qualquer comando <code>pip install</code> afetará
+*afetará somente o ambiente virtual. Não importa se você alterar os diretórios
+diretórios - se seu prompt tiver um prefixo, esse ambiente virtual está
+ativo.</p>
+<p>Se você abrir uma segunda janela de terminal, o ambiente <em>não</em> estará ativo.
+ativo - você precisará reativar o ambiente em cada sessão de terminal
+sessão de terminal em que você deseja usar o ambiente. Se você receber erros sobre
+bibliotecas não disponíveis que você tem certeza de que instalou
+verifique se o ambiente virtual está ativo.</p>
+<p>Para desativar o ambiente virtual, execute:</p>
+<pre><code>(my-venv) $ desativar
 </code></pre>
-<p>Isso vai gerar uma pequena notificação na sua linha de comando para você
-saber que está em um ambiente virtual.</p>
-<pre><code>(env) $
-</code></pre>
-<p>Para desabilitar seu virtualenv.</p>
-<pre><code>$ deactivate
-</code></pre>
+<p>Depois de desativado, o prefixo será removido do prompt.</p>
 
     
   

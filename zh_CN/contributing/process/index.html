@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Development Process— BeeWare</title>
+    <title>开发过程— BeeWare</title>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
@@ -79,7 +79,11 @@
         </a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right"><li class="nav-item"></li>
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/edit/lektor/content/contributing/process/contents%2Bzh_CN.lr" rel="noopener noreferrer" target="_blank">
+            <i class="fa fa-github "></i><small>&nbsp;
+在GitHub上编辑
+</small>
+          </a></li>
      <li class="nav-item dropdown dropdown-pull-right">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
@@ -165,11 +169,11 @@ Türkçe
 </a>
   
  >
-  <a href="/zh_CN/contributing/">捐助</a>
+  <a href="/zh_CN/contributing/">捐款</a>
   
 </p>
-    <h1>Development Process</h1>
-    <p>The BeeWare development process</p>
+    <h1>开发过程</h1>
+    <p>BeeWare 开发流程</p>
   </div>
 </div>
 <div class="container">
@@ -179,133 +183,133 @@ Türkçe
   
 
   
-    <h2>Overview</h2>
-<p>All changes to code and documentation should be
-<a href="/contributing/first-time/github/">submitted</a> via a pull request to the
-GitHub repository for the project.</p>
-<p>Most projects have a dedicated contribution guide with details specific
-to that project, or specific types of contribution. This documentation
-can be found on Read the Docs. For example, <a href="https://briefcase.readthedocs.io">Briefcase's
-documentation</a> contains contribution
-guides for both
-<a href="https://briefcase.readthedocs.io/en/stable/how-to/contribute-code.html">code</a>
-and
-<a href="https://briefcase.readthedocs.io/en/stable/how-to/contribute-docs.html">documentation</a>.</p>
-<p>All submissions should abide by the <a href="/community/behavior/code-of-conduct/">BeeWare Code of
-Conduct</a>.</p>
-<h2>Change Notes</h2>
-<p>Several BeeWare projects, notably Briefcase and Toga, require that each
-pull request is submitted with a change note. These change notes are
-compiled together when a new release is cut for the project, producing
-the release notes for the new release.</p>
-<p>BeeWare uses <a href="https://towncrier.readthedocs.io/en/stable/">Towncrier</a> to
-manage change notes.</p>
-<p>A change note file should be created in the <code>changes</code> directory and
-named using this format:</p>
+    <h2>概览</h2>
+<p>对代码和文档的所有更改都应
+<a href="/contributing/first-time/github/">提交</a>。
+提交。</p>
+<p>大多数项目都有专门的贡献指南，其中包含针对该项目或特定贡献类型的详细信息。
+或特定类型的贡献。这些文档
+可以在阅读文档中找到。例如，<a href="https://briefcase.readthedocs.io">公文包的
+文档</a>
+指南
+<a href="https://briefcase.readthedocs.io/en/stable/how-to/contribute-code.html">代码</a>
+和
+<a href="https://briefcase.readthedocs.io/en/stable/how-to/contribute-docs.html">文档</a> 的贡献指南。</p>
+<p>所有提交的内容均应遵守<a href="/community/behavior/code-of-conduct/">BeeWare 行为准则](/社区/行为/行为准则/)。
+行为准则</a>。</p>
+<h2>更改说明</h2>
+<p>一些 BeeWare 项目，特别是 Briefcase 和 Toga，要求每个
+拉取请求都要提交一份变更说明。这些变更注释
+编译在一起，生成新版本的发布说明。
+新版本的发布说明。</p>
+<p>BeeWare 使用 <a href="https://towncrier.readthedocs.io/en/stable/">Towncrier</a>来
+管理更改说明。</p>
+<p>应在 "changes "目录下创建变更注释文件，并按以下格式命名
+使用此格式命名：</p>
 <pre><code>&lt;PR/Issue #&gt;.&lt;Change Type&gt;.rst
 </code></pre>
-<p>For instance, a pull request that fixes GitHub issue #42 would be named
-<code>42.bugfix.rst</code>. If a pull request is not associated with a specific
-issue, then the pull request number can be used instead. You may need to
-create the pull request <em>without</em> a change note to get a pull request
-number allocated, then push an update that includes the change note with
-the newly allocated pull request number.</p>
-<p>The change types for the change note should be one of the following:</p>
+<p>例如，修复 GitHub 问题 #42 的拉取请求将命名为
+42.bugfix.rst`。如果拉取请求与特定的
+问题相关联，则可以使用拉取请求编号来代替。您可能需要
+创建拉取请求<em>无</em>变更注释，以获得分配的拉取请求编号，然后推送与该编号相关的更新。
+编号，然后推送包含变更注释的更新，并使用新分配的拉取请求编号。
+新分配的拉取请求编号。</p>
+<p>更改说明的更改类型应为以下类型之一：</p>
 <ul>
-<li><code>feature</code></li>
-<li><code>bugfix</code></li>
-<li><code>doc</code></li>
-<li><code>removal</code></li>
-<li><code>misc</code></li>
+<li>特征</li>
+<li>错误修正</li>
+<li>文档</li>
+<li>删除</li>
+<li>杂项</li>
 </ul>
-<p>The <code>misc</code> type is reserved for changes that do not affect users, and
-don't need to be noted in the release notes. Minor typographical fixes
-in documentation, updates to CI configuration, and bug fixes for
-features that haven't yet been formally released are examples of
-features that would be described using <code>misc</code> markers.</p>
-<p>A change note should be a single line of text, providing a high level
-summary of the change from the perspective of the user, not a deep
-technical description or implementation detail. It is distinct from a
-commit message. A commit message describes what has been done so that
-future developers can follow the reasoning for a change. A change note
-is a "user facing" description, described in terms of the new capability
-that is available as a result of change. It may help to think of the
-change note as a press release announcing the change, rather than a
-commit description.</p>
-<p>For example, if you fix a bug caused by date handling, the commit
-message or pull request description might read:</p>
-<p>Added a MM-DD-YYYY format validator to the DateWidget validation
-chain.</p>
-<p>This describes the change that was made to the implementation - detail
-that will be helpful to the person reviewing the code. However, the
-corresponding change note might read something like:</p>
-<pre><code>Date widgets can now accept dates in US format.
+<p>misc "类型是为不影响用户的更改保留的，不需要在发布说明中注明。
+无需在发布说明中注明的更改。小的排版修正
+文档中的小排版修正、CI 配置更新以及尚未正式发布的
+尚未正式发布的功能的错误修复都属于
+使用 <code>misc</code> 标记描述的功能。</p>
+<p>变更说明应该是一行文字，从用户的角度提供一个高层次的
+从用户角度对变更进行高度概括，而不是深层次的技术描述或实施细节。
+技术描述或实施细节。它有别于
+提交信息。提交信息描述了所做的工作，以便
+未来的开发人员可以了解变更的原因。变更说明
+是一种 "面向用户 "的说明，描述的是变更后的新功能
+的新功能。把变更说明看作
+变更注释是宣布变更的新闻稿，而不是提交说明。
+提交说明。</p>
+<p>例如，如果您修复了一个由日期处理引起的错误，那么提交信息或拉伸请求的描述可能会是
+消息或拉动请求的描述可能是</p>
+<p>在 DateWidget 验证链中添加了 MM-DD-YYYY 格式验证器。
+链。</p>
+<p>这将描述对实现所做的更改--对审查代码的人有帮助的细节。
+这对审查代码的人很有帮助。然而，相应的
+相应的变更注释可能是这样的</p>
+<pre><code>日期部件现在可以接受 US 格式的日期。
 </code></pre>
-<p>This describes the functional change as it will be experienced by end
-users. A user can read this description without needing to know anything
-about the implementation.</p>
-<h2>Code style</h2>
-<p>BeeWare's projects use <a href="https://pre-commit.com/">Pre-commit</a> to automate
-code style adherence. These checks are defined in the
-<code>.pre-commit-config.yaml</code> file for each repository and are automatically
-run in <a href="/contributing/first-time/what-is-a/ci">CI</a> when a Pull Request
-is opened.</p>
-<p>To automate the Pre-commit checks in your local development environment
-with each <code>git</code> commit, run <code>pre-commit install</code>.</p>
-<p>Included Pre-commit checks:</p>
+<p>这描述了最终用户将体验到的功能变化。
+用户将体验到的功能变化。用户无需了解任何
+有关实现的任何信息。</p>
+<h2>代码风格</h2>
+<p>BeeWare的项目使用<a href="/contributing/first-time/what-is-a/ci">Pre-commit](https://pre-commit.com/)来自动遵守代码风格。
+代码风格。这些检查在每个版本库的
+.pre-commit-config.yaml "文件中定义，并自动
+CI</a> 中自动运行。
+打开时，会在 [CI](/contributing/first-time/what-is-a/ci 中自动运行。</p>
+<p>要在本地开发环境中自动执行预提交检查
+在每次 <code>git</code> 提交时运行 <code>pre-commit install</code>。</p>
+<p>包括预先承诺检查：</p>
 <ul>
-<li><a href="https://black.readthedocs.io/en/stable/index.html">Black</a> ensures
-uniform code formatting</li>
-<li><a href="https://docformatter.readthedocs.io/en/latest/">docformatter</a> ensures
-uniform formatting for docstrings and comments</li>
-<li><a href="https://github.com/asottile/pyupgrade">pyupgrade</a> ensures code is
-using the latest best practices for Python</li>
-<li><a href="https://pycqa.github.io/isort/">isort</a> ensures uniform <code>import</code>
-statements</li>
-<li><a href="https://flake8.pycqa.org/en/latest/">flake8</a> checks for common coding
-and syntax issues</li>
-<li>Misc checks that validate structured documents such as TOML files and
-remove unnecessary whitespace</li>
+<li><a href="https://black.readthedocs.io/en/stable/index.html">黑色</a> 确保
+统一代码格式</li>
+<li><a href="https://docformatter.readthedocs.io/en/latest/">docformatter</a>确保
+文档字符串和注释的统一格式</li>
+<li><a href="https://github.com/asottile/pyupgrade">pyupgrade</a>确保代码
+使用最新的 Python 最佳实践</li>
+<li><a href="https://pycqa.github.io/isort/">isort</a>确保统一的 "import
+语句</li>
+<li><a href="https://flake8.pycqa.org/en/latest/">flake8</a>检查常见的编码和语法问题
+和语法问题</li>
+<li>验证结构化文档（如 TOML 文件）的杂项检查，以及
+删除不必要的空白</li>
 </ul>
-<p>Additional guidelines:</p>
+<p>其他指导原则：</p>
 <ul>
-<li><p>Avoid use of "we" in comments, e.g. "Loop over" rather than "We loop
-over"</p>
+<li><p>避免在注释中使用 "我们"，例如 "Loop over "而不是 "We loop over
+过"</p>
 </li>
-<li><p>Use underscores, not camelCase, for variable, function and method
-names</p>
+<li><p>变量名、函数名和方法名使用下划线，而不是驼峰字母
+名称</p>
 </li>
-<li><p>Use InitialCaps for class names (or for factory functions that return
-classes)</p>
+<li><p>类名（或返回类名的工厂函数）使用 InitialCaps
+类名）</p>
 </li>
-<li><p>Use Sphinx-style docstrings and <code>257</code>; type annotation with <code>484</code> is
-optional but encouraged.</p>
-<p>For example:</p>
-<pre><code>def function_name(param1: int, param2: str) -&gt; bool:
-    """Example function with types and a docstring.
+<li><p>使用 Sphinx 风格的 docstrings 和 <code>257</code>；使用 <code>484</code> 的类型注释是可选的，但值得鼓励。
+类型注释。</p>
+<p>例如</p>
+<pre><code>def function_name(param1: int, param2: str) -&gt; bool：
+    ""带有类型和 docstring 的示例函数。
 
-    :param param1: The first parameter.
-    :param param2: The second parameter.
+    :param param1：第一个参数。
+    :param param2：第二个参数。
 
-    :returns: The return value. True for success, False otherwise.
+    :returns：返回值。为 True 表示成功，否则为 False。
     """
 </code></pre>
 </li>
-<li><p>In test docstrings, state the expected behavior that each test
-demonstrates. Don't include preambles such as "Tests that" or "Ensures
-that".</p>
+<li><p>在测试文档说明中，说明每个测试
+演示的预期行为。不要包含诸如 "测试 "或 "确保
+确保 "之类的前言。</p>
 </li>
-<li><p>Reserve ticket references for obscure issues where the ticket has
-additional details that can't be easily described in docstrings or
-comments. Include the ticket number at the end of a sentence like
-this:</p>
-<pre><code>def test_foo():
-    """A test docstring looks like this (#123456)."""
+<li><p>为晦涩难懂的问题保留票单引用，因为票单中的
+文档或注释中不易描述的额外细节。
+注释。在句子末尾包含票单编号，如
+这样</p>
+<pre><code>def test_foo()：
+    ""测试文档字符串看起来像这样 (#123456)."""
 </code></pre>
 </li>
-<li><p>Unless otherwise specified, follow <code>8</code> (with careful attention paid to
-<a href="https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">Section
-2</a>).</p>
+<li><p>除非另有说明，否则应遵循 <code>8</code> （仔细注意
+<a href="https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">第
+2</a>）。</p>
 </li>
 </ul>
 

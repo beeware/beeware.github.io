@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Development Process— BeeWare</title>
+    <title>Geliştirme Süreci— BeeWare</title>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
@@ -79,7 +79,11 @@ Bağış
         </a>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right"><li class="nav-item"></li>
+    <ul class="nav navbar-nav navbar-right"><li class="nav-item"><a class="nav-link" href="https://github.com/beeware/beeware.github.io/edit/lektor/content/contributing/process/contents%2Btr.lr" rel="noopener noreferrer" target="_blank">
+            <i class="fa fa-github "></i><small>&nbsp;
+Edit on GitHub
+</small>
+          </a></li>
      <li class="nav-item dropdown dropdown-pull-right">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
@@ -165,11 +169,11 @@ Home
 </a>
   
  >
-  <a href="/tr_TR/contributing/">Contributing</a>
+  <a href="/tr_TR/contributing/">Katkıda Bulunmak</a>
   
 </p>
-    <h1>Development Process</h1>
-    <p>The BeeWare development process</p>
+    <h1>Geliştirme Süreci</h1>
+    <p>BeeWare geliştirme süreci</p>
   </div>
 </div>
 <div class="container">
@@ -179,132 +183,132 @@ Home
   
 
   
-    <h2>Overview</h2>
-<p>All changes to code and documentation should be
-<a href="/contributing/first-time/github/">submitted</a> via a pull request to the
-GitHub repository for the project.</p>
-<p>Most projects have a dedicated contribution guide with details specific
-to that project, or specific types of contribution. This documentation
-can be found on Read the Docs. For example, <a href="https://briefcase.readthedocs.io">Briefcase's
-documentation</a> contains contribution
-guides for both
-<a href="https://briefcase.readthedocs.io/en/stable/how-to/contribute-code.html">code</a>
-and
-<a href="https://briefcase.readthedocs.io/en/stable/how-to/contribute-docs.html">documentation</a>.</p>
-<p>All submissions should abide by the <a href="/community/behavior/code-of-conduct/">BeeWare Code of
-Conduct</a>.</p>
-<h2>Change Notes</h2>
-<p>Several BeeWare projects, notably Briefcase and Toga, require that each
-pull request is submitted with a change note. These change notes are
-compiled together when a new release is cut for the project, producing
-the release notes for the new release.</p>
-<p>BeeWare uses <a href="https://towncrier.readthedocs.io/en/stable/">Towncrier</a> to
-manage change notes.</p>
-<p>A change note file should be created in the <code>changes</code> directory and
-named using this format:</p>
+    <h2>Genel Bakış</h2>
+<p>Kod ve dokümantasyondaki tüm değişiklikler
+<a href="/contributing/first-time/github/">submitted</a> adresine bir çekme isteği aracılığıyla
+Proje için GitHub deposu.</p>
+<p>Çoğu projenin, özel ayrıntılar içeren özel bir katkı kılavuzu vardır
+ya da belirli katkı türlerini içermelidir. Bu dokümantasyon
+Read the Docs sayfasında bulunabilir. Örneğin, <a href="https://briefcase.readthedocs.io">Evrak Çantası'nın
+documentation</a> katkı içerir
+her ikisi için de kılavuzlar
+<a href="https://briefcase.readthedocs.io/en/stable/how-to/contribute-code.html">kod</a>
+ve
+<a href="https://briefcase.readthedocs.io/en/stable/how-to/contribute-docs.html">dokümantasyon</a>.</p>
+<p>Tüm gönderimler [BeeWare Kuralları]'na uygun olmalıdır.
+Davranış] (/community/behavior/code-of-conduct/).</p>
+<h2>Değişiklik Notları</h2>
+<p>Başta Evrak Çantası ve Toga olmak üzere bazı BeeWare projeleri, her bir
+Çekme talebi bir değişiklik notu ile birlikte gönderilir. Bu değişiklik notları şunlardır
+Proje için yeni bir sürüm kesildiğinde bir araya getirilerek
+yeni sürüm için sürüm notları.</p>
+<p>BeeWare, [Towncrier] (<a href="https://towncrier.readthedocs.io/en/stable/">https://towncrier.readthedocs.io/en/stable/</a>) adresini kullanarak
+değişiklik notlarını yönetin.</p>
+<p>Bir değişiklik notu dosyası <code>changes</code> dizininde oluşturulmalı ve
+bu format kullanılarak adlandırılmıştır:</p>
 <pre><code>&lt;PR/Issue #&gt;.&lt;Change Type&gt;.rst
 </code></pre>
-<p>For instance, a pull request that fixes GitHub issue #42 would be named
-<code>42.bugfix.rst</code>. If a pull request is not associated with a specific
-issue, then the pull request number can be used instead. You may need to
-create the pull request <em>without</em> a change note to get a pull request
-number allocated, then push an update that includes the change note with
-the newly allocated pull request number.</p>
-<p>The change types for the change note should be one of the following:</p>
+<p>Örneğin, GitHub sorunu #42'yi düzelten bir çekme isteği şu şekilde adlandırılır
+<code>42.bugfix.rst</code>. Eğer bir çekme isteği belirli bir
+sorunu varsa, bunun yerine çekme isteği numarası kullanılabilir. Şunları yapmanız gerekebilir
+bir çekme isteği almak için <em>değişiklik notu olmadan</em> çekme isteği oluşturun
+numarası tahsis edin, ardından değişiklik notunu içeren bir güncellemeyi
+yeni tahsis edilen çekme isteği numarası.</p>
+<p>Değişiklik notu için değişiklik türleri aşağıdakilerden biri olmalıdır:</p>
 <ul>
-<li><code>feature</code></li>
+<li><code>özellik</code></li>
 <li><code>bugfix</code></li>
 <li><code>doc</code></li>
-<li><code>removal</code></li>
+<li><code>kaldırma</code></li>
 <li><code>misc</code></li>
 </ul>
-<p>The <code>misc</code> type is reserved for changes that do not affect users, and
-don't need to be noted in the release notes. Minor typographical fixes
-in documentation, updates to CI configuration, and bug fixes for
-features that haven't yet been formally released are examples of
-features that would be described using <code>misc</code> markers.</p>
-<p>A change note should be a single line of text, providing a high level
-summary of the change from the perspective of the user, not a deep
-technical description or implementation detail. It is distinct from a
-commit message. A commit message describes what has been done so that
-future developers can follow the reasoning for a change. A change note
-is a "user facing" description, described in terms of the new capability
-that is available as a result of change. It may help to think of the
-change note as a press release announcing the change, rather than a
-commit description.</p>
-<p>For example, if you fix a bug caused by date handling, the commit
-message or pull request description might read:</p>
-<p>Added a MM-DD-YYYY format validator to the DateWidget validation
-chain.</p>
-<p>This describes the change that was made to the implementation - detail
-that will be helpful to the person reviewing the code. However, the
-corresponding change note might read something like:</p>
-<pre><code>Date widgets can now accept dates in US format.
+<p>Kullanıcıları etkilemeyen değişiklikler için <code>misc</code> türü ayrılmıştır ve
+sürüm notlarında belirtilmesine gerek yoktur. Küçük tipografik düzeltmeler
+dokümantasyonda, CI yapılandırmasında güncellemeler ve hata düzeltmeleri için
+henüz resmi olarak yayınlanmamış özellikler şunlara örnektir
+işaretleri kullanılarak tanımlanabilecek özellikler.</p>
+<p>Bir değişiklik notu tek satırlık bir metin olmalı ve üst düzey bir bilgi sağlamalıdır
+kullanıcı perspektifinden değişikliğin özeti, derinlemesine değil
+teknik açıklama veya uygulama detayı. Aşağıdakilerden farklıdır
+taahhüt mesajı. Bir commit mesajı ne yapıldığını açıklar, böylece
+gelecekteki geliştiriciler bir değişikliğin gerekçesini takip edebilir. Bir değişiklik notu
+yeni kabiliyet açısından tanımlanan "kullanıcıya dönük" bir açıklamadır.
+değişimin bir sonucu olarak mevcut olan. Şunları düşünmek yardımcı olabilir
+değişiklik notunu bir basın bülteni olarak duyurmak yerine
+Açıklama yap.</p>
+<p>Örneğin, tarih işlemeden kaynaklanan bir hatayı düzeltirseniz, commit
+mesajı veya çekme isteği açıklaması okunabilir:</p>
+<p>DateWidget doğrulamasına bir MM-DD-YYY format doğrulayıcısı eklendi
+Zincir.</p>
+<p>Bu, uygulamada yapılan değişikliği açıklamaktadır - detay
+kodu gözden geçiren kişiye yardımcı olacaktır. Bununla birlikte
+ilgili değişiklik notu aşağıdaki gibi bir şey olabilir:</p>
+<pre><code>Tarih widget'ları artık ABD formatındaki tarihleri kabul edebilir.
 </code></pre>
-<p>This describes the functional change as it will be experienced by end
-users. A user can read this description without needing to know anything
-about the implementation.</p>
-<h2>Code style</h2>
-<p>BeeWare's projects use <a href="https://pre-commit.com/">Pre-commit</a> to automate
-code style adherence. These checks are defined in the
-<code>.pre-commit-config.yaml</code> file for each repository and are automatically
-run in <a href="/contributing/first-time/what-is-a/ci">CI</a> when a Pull Request
-is opened.</p>
-<p>To automate the Pre-commit checks in your local development environment
-with each <code>git</code> commit, run <code>pre-commit install</code>.</p>
-<p>Included Pre-commit checks:</p>
+<p>Bu, son kullanıcılar tarafından deneyimleneceği şekliyle işlevsel değişikliği tanımlar.
+kullanıcılar. Bir kullanıcı hiçbir şey bilmesine gerek kalmadan bu açıklamayı okuyabilir
+uygulama hakkında.</p>
+<h2>Kod stili</h2>
+<p>BeeWare'in projeleri otomatikleştirmek için [Pre-commit] (<a href="https://pre-commit.com/">https://pre-commit.com/</a>) kullanır
+kod stiline bağlılık. Bu kontroller şu şekilde tanımlanır
+Her depo için <code>.pre-commit-config.yaml</code> dosyası ve otomatik olarak
+bir Çekme İsteği olduğunda <a href="/contributing/first-time/what-is-a/ci">CI</a> içinde çalıştırılır
+açıldı.</p>
+<p>Yerel geliştirme ortamınızda Pre-commit kontrollerini otomatikleştirmek için
+her <code>git</code> işlemiyle birlikte <code>pre-commit install</code> çalıştırın.</p>
+<p>Ön taahhüt kontrolleri dahil:</p>
 <ul>
-<li><a href="https://black.readthedocs.io/en/stable/index.html">Black</a> ensures
-uniform code formatting</li>
-<li><a href="https://docformatter.readthedocs.io/en/latest/">docformatter</a> ensures
-uniform formatting for docstrings and comments</li>
-<li><a href="https://github.com/asottile/pyupgrade">pyupgrade</a> ensures code is
-using the latest best practices for Python</li>
-<li><a href="https://pycqa.github.io/isort/">isort</a> ensures uniform <code>import</code>
-statements</li>
-<li><a href="https://flake8.pycqa.org/en/latest/">flake8</a> checks for common coding
-and syntax issues</li>
-<li>Misc checks that validate structured documents such as TOML files and
-remove unnecessary whitespace</li>
+<li><a href="https://black.readthedocs.io/en/stable/index.html">Black</a> sağlar
+tek tip kod biçimlendirmesi</li>
+<li><a href="https://docformatter.readthedocs.io/en/latest/">docformatter</a> sağlar
+doküman dizileri ve yorumlar için tek tip biçimlendirme</li>
+<li><a href="https://github.com/asottile/pyupgrade">pyupgrade</a> kodun şu şekilde olmasını sağlar
+Python için en son en iyi uygulamaları kullanma</li>
+<li><a href="https://pycqa.github.io/isort/">isort</a> tek tip <code>ithalat</code> sağlar
+ifadeler</li>
+<li><a href="https://flake8.pycqa.org/en/latest/">flake8</a> ortak kodlama için kontroller
+ve sözdizimi sorunları</li>
+<li>TOML dosyaları gibi yapılandırılmış belgeleri doğrulayan çeşitli kontroller ve
+Gereksiz boşlukları kaldırın</li>
 </ul>
-<p>Additional guidelines:</p>
+<p>Ek yönergeler:</p>
 <ul>
-<li><p>Avoid use of "we" in comments, e.g. "Loop over" rather than "We loop
-over"</p>
+<li><p>Yorumlarda "biz" kelimesini kullanmaktan kaçının, örneğin "Döngü yapıyoruz" yerine "Döngü bitti
+bitti"</p>
 </li>
-<li><p>Use underscores, not camelCase, for variable, function and method
-names</p>
+<li><p>Değişken, işlev ve yöntem için camelCase değil, alt çizgi kullanın
+isimler</p>
 </li>
-<li><p>Use InitialCaps for class names (or for factory functions that return
-classes)</p>
+<li><p>Sınıf adları için InitialCaps kullanın (veya dönen fabrika işlevleri için
+sınıflar)</p>
 </li>
-<li><p>Use Sphinx-style docstrings and <code>257</code>; type annotation with <code>484</code> is
-optional but encouraged.</p>
-<p>For example:</p>
+<li><p>Sphinx tarzı dokümanlar ve <code>257</code> kullanın; <code>484</code> ile tür ek açıklaması
+isteğe bağlı ama teşvik edilir.</p>
+<p>Örneğin:</p>
 <pre><code>def function_name(param1: int, param2: str) -&gt; bool:
-    """Example function with types and a docstring.
+    """Tipleri ve docstring'i olan örnek fonksiyon.
 
-    :param param1: The first parameter.
-    :param param2: The second parameter.
+    :param param1: İlk parametre.
+    :param param2: İkinci parametre.
 
-    :returns: The return value. True for success, False otherwise.
+    :döner: Dönüş değeri. Başarı için True, aksi takdirde False.
     """
 </code></pre>
 </li>
-<li><p>In test docstrings, state the expected behavior that each test
-demonstrates. Don't include preambles such as "Tests that" or "Ensures
-that".</p>
+<li><p>Test dokümanlarında, her testten beklenen davranışı belirtin
+gösterir. "Şunu test eder" veya "Şunu sağlar" gibi giriş cümlelerine yer vermeyin.
+o".</p>
 </li>
-<li><p>Reserve ticket references for obscure issues where the ticket has
-additional details that can't be easily described in docstrings or
-comments. Include the ticket number at the end of a sentence like
-this:</p>
+<li><p>Biletin sahip olduğu belirsiz sorunlar için bilet referanslarını ayırın
+dokümanlarda kolayca açıklanamayan ek ayrıntılar veya
+Yorumlar. Bilet numarasını aşağıdaki gibi bir cümlenin sonuna ekleyin
+Bu:</p>
 <pre><code>def test_foo():
-    """A test docstring looks like this (#123456)."""
+    """Bir test doküman dizisi şuna benzer (#123456)."""
 </code></pre>
 </li>
-<li><p>Unless otherwise specified, follow <code>8</code> (with careful attention paid to
-<a href="https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">Section
+<li><p>Aksi belirtilmedikçe, <code>8</code>i takip edin (aşağıdakilere dikkat ederek)
+<a href="https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">Bölüm
 2</a>).</p>
 </li>
 </ul>
