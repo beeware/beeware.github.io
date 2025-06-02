@@ -6,9 +6,7 @@
 {% set t_posted_by = transbag('translate', this.alt, 'posted_by') %}
 
 {% block title %}{{ this.title }}{% endblock %}
-{% block body %}
-{% set blog = site.query('/news/buzz', alt=this.alt).all() %}
-{% set events = site.query('/news/events', alt=this.alt).filter(F.date >= today or F.end_date >= today).order_by('date') %}
+
 {% block extra_script %}
 <script>
 (function() {
@@ -22,6 +20,10 @@
 })();
 </script>
 {% endblock %}
+
+{% block body %}
+{% set blog = site.query('/news/buzz', alt=this.alt).all() %}
+{% set events = site.query('/news/events', alt=this.alt).filter(F.date >= today or F.end_date >= today).order_by('date') %}
 <div class="row">
   <div class="col-md-12 col-lg-8">
     {% for child in blog[:10] %}
