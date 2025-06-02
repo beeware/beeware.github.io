@@ -56,3 +56,11 @@ jobs:
         LEKTOR_DEPLOY_PASSWORD: ${{ secrets.LEKTOR_DEPLOY_PASSWORD }}
       run: |
         lektor deploy ghpages-https
+
+    # This step is only needed if you're trying to diagnose test failures that
+    # only occur in CI, and can't be reproduced locally. When it runs, it will
+    # open an SSH server (URL reported in the logs) so you can ssh into the CI
+    # machine.
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+      if: failure()
