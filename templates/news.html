@@ -9,15 +9,16 @@
 
 {% block extra_script %}
 <script>
-(function() {
-    var today = new Date();
-    $('.upcoming.event').each(function() {
-        var date = new Date($(this).data('end-date'))
-        if (date < today) {
-            $(this).hide();
-        }
-    });
-})();
+{
+  let today = new Date();
+
+  $('.upcoming.event').each(function() {
+      let date = new Date($(this).data('end-date'))
+      if (date < today) {
+          $(this).hide();
+      }
+  });
+}
 </script>
 {% endblock %}
 
