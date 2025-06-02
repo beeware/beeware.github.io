@@ -10,6 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - name: Configure git
+      run: |
+        git config --local user.email "$(git log --pretty='%ae' -1)"
+        git config --local user.name "brutusthebee[bot]"
     - name: Set up Python
       uses: actions/setup-python@v1
       with:
@@ -25,7 +29,28 @@ jobs:
     - name: Build site
       run: |
         lektor build --no-prune
+
+    - name: Translation update required?
+      id: updated
+      run: |
+        if [[ $(git status --porcelain) ]]; then
+          echo "updated=true" >> ${GITHUB_OUTPUT}
+        else
+          echo "updated=false" >> ${GITHUB_OUTPUT}
+        fi
+
+    - name: Commit updated translations
+      if: steps.updated.outputs.updated == 'true'
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      run: |
+        # Commit the updated PO files.
+        git add i18n
+        git commit -m "Update translations to $(git rev-parse --short HEAD)."
+        git push origin
+
     - name: Publish site
+      if: steps.updated.outputs.updated == 'false'
       env:
         LEKTOR_DEPLOY_USERNAME: brutusthebee
         LEKTOR_DEPLOY_PASSWORD: ${{ secrets.LEKTOR_DEPLOY_PASSWORD }}
