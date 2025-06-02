@@ -4,18 +4,33 @@ on:
     branches:
       - lektor
 
+# Cancel active CI runs for a PR before starting another run
+concurrency:
+  group: translate-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash  # https://github.com/beeware/briefcase/pull/912
+
+env:
+  FORCE_COLOR: "1"
+
 jobs:
   publish:
     name: Publish site
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout
+      uses: actions/checkout@v4.2.2
+      with:
+        fetch-depth: 1
     - name: Configure git
       run: |
         git config --local user.email "$(git log --pretty='%ae' -1)"
         git config --local user.name "brutusthebee[bot]"
     - name: Set up Python
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@v5.6.0
       with:
         python-version: "3.12"
     - name: Install dependencies
