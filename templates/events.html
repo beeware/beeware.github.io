@@ -10,25 +10,11 @@
 <script>
 (function() {
     var today = new Date();
-    $('.upcoming.event').each(function() {
-      var event_date = new Date($(this).data('date'));
-      var event_end_date = $(this).data('end_date') ? new Date($(this).data('end_date')) : new Date($(this).data('date'));
-      if (event_date > today || (event_date >= today && event_end_date >= today)) {
-        $(this).hide();
-      }
-    });
-    $('.current.event').each(function() {
-      var event_date = new Date($(this).data('date'));
-      var event_end_date = $(this).data('end_date') ? new Date($(this).data('end_date')) : new Date($(this).data('date'));
-      if ((event_date = today) || (event_date < today && event_end_date >= today)) {
-        $(this).hide();
-      }
-    });
-    $('.past.event').each(function() {
-      var event_date = new Date($(this).data('date'));
-      var event_end_date = $(this).data('end_date') ? new Date($(this).data('end_date')) : new Date($(this).data('date'));
-      if (event_date < today || (event_date < today && event_end_date < today) || (event_date < today && event_end_date >= today)) {
-        $(this).hide();
+
+    $('#past-events p').each(function() {
+      var date = new Date($(this).data('date'));
+      if (date >= today) {
+        $(this).appendTo("#upcoming-events")
       }
   });
 })();
@@ -48,21 +34,20 @@
    events, because the date is computed at the time the page is generated.
    As a workaround, we render *all* the events in the past events list,
    and use Javascript (which will be evaluated at the time of viewing) to
-   hide any events that shouldn't appear in each list. #}
+   move upcoming events into the upcoming list. #}
+
 <h2>{{ t_upcoming_events }}</h2>
-{% for child in this.children.order_by("date") %}
-    <p class="{% if (child.date < today and child.end_date is not defined) or (child.date < today and child.end_date < today) %}past {% endif %}event" data-date="{{ child.date }}" data-end-date="{{ child.end_date }}">
-    {{ child.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if child.end_date %} - {{child.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}
-    <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} ({{ child.event_type|title }})</a>
-    </p>
-{% endfor %}
+<div id="upcoming-events"></div>
+
 <h2>{{ t_past_events }}</h2>
+<div id="past-events">
 {% for child in this.children %}
-    <p class="{% if (child.date > today and child.end_date is not defined) or (child.date >= today and child.end_date >= today) %}upcoming
-    {% elif (child.date == today and child.end_date is not defined) or (child.date < today and child.end_date is defined and child.end_date >= today) %}current {% endif %}event" data-date="{{ child.date }}" data-end-date="{{ child.end_date }}">
+    <p data-date="{{ child.date }}" data-end-date="{{ child.end_date or child.date }}">
     {{ child.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if child.end_date %} - {{child.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}
     <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} ({{ child.event_type|title }})</a></p>
 {% endfor %}
+</div>
+
 {% endblock %}
 {% block gutter %}
   <div class="col-sm-12 col-md-4 gutter">
