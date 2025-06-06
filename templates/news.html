@@ -27,7 +27,7 @@
 {# This *should* be as simple as filter((F.date >= today).or(F.end_date >= today)).
    But this doesn't work correctly, due to inconsistent handling of missing values. #}
 
-{% set all_events = site.query('/news/events', alt=this.alt).order_by('date') %}
+{% set all_events = site.query('/news/events', alt=this.alt).order_by('date', 'event_type') %}
 {% set ongoing = all_events.filter(F.date < today).filter(F.end_date >= today).all() %}
 {% set not_started = all_events.filter(F.date >= today).all() %}
 {% set events = ongoing + not_started %}
@@ -55,9 +55,8 @@
     {% if events %}
     {% for event in events %}
       <div class="upcoming event" data-date="{{ event.date }}" data-end-date="{{ event.end_date or event.date }}">
-        <h5><a href="{{ event|url(alt=this.alt) }}">{{ event.title }}</a></h5>
+        <h5><a href="{{ event|url(alt=this.alt) }}">{{ event.title }} ({{ event.event_type|title }})</a></h5>
         <div class="upcoming_event_info">
-          <p>{{ event.event_type|title }}</p>
           <p>{{ event.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if event.end_date %} - {{event.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}</p>
         </div>
       </div>
