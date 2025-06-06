@@ -18,21 +18,11 @@
           {% for event in events %}
           <div class="upcoming event" data-date="{{ event.date }}" data-end-date="{{ event.end_date or event.date }}">
             <h5><a href="{{ event|url(alt=this.alt) }}">{{ event.title }}</a></h5>
-          <div class="upcoming_event_info">
-            {% if event.event_type == "keynote" %}
-            {{ event.speaker[0] }} {{ t_keynoting }}
-            {% elif event.event_type == "talk" %}
-            {{ event.speaker[0] }} {{ t_speaking }}
-            {% elif event.event_type == "tutorial" %}
-            {{ event.speaker[0] }} {{ t_tutorial }}
-            {% elif event.event_type == "booth" %}
-            {{ t_come_see_us }}
-            {% elif event.event_type == "sprint" %}
-            {{ t_sprinting }}
-            {% else %} <br>
-            {% endif %}
-            <p class="upcoming_event_date">{{ event.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if event.end_date %} - {{event.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}</p>
-          </div>
+            <div class="upcoming_event_info">
+              <p class="upcoming_event_date">
+                {{ event.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if event.end_date %} - {{event.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}
+              </p>
+            </div>
           </div>
           {% endfor %}
       <p><a href="{{ '/news/events/'|url(alt=this.alt) }}">See all events</a><p>

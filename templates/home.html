@@ -57,7 +57,12 @@
 
 {# This *should* be as simple as filter((F.date >= today).or(F.end_date >= today)).
    But this doesn't work correctly, due to inconsistent handling of missing values. #}
-{% set all_events = site.query('/news/events', alt=this.alt).order_by('date') %}
+{%
+    set all_events = (
+        site.query('/news/events', alt=this.alt)
+        .order_by('date').filter(F.event_type == 'attending')
+    )
+%}
 {% set ongoing = all_events.filter(F.date < today).filter(F.end_date >= today).all() %}
 {% set not_started = all_events.filter(F.date >= today).all() %}
 {% set events = (ongoing + not_started)[:3] %}

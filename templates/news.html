@@ -50,14 +50,18 @@
     {% endfor %}
     <a href="{{ '/news/buzz/'|url(alt=this.alt) }}">{{ t_more_articles }}</a>
   </div>
-  <div class="col-md-12 col-lg-4 gutter">
+  <div class="col-md-12 col-lg-4 gutter" id="news-gutter">
     {{ this.gutter }}
     {% if events %}
-    <ul>
     {% for event in events %}
-      <li class="upcoming event" data-date="{{ event.date }}" data-end-date="{{ event.end_date or event.date }}">{{ event.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if event.end_date %} - {{event.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}: <a href="{{ event|url(alt=this.alt) }}">{{ event.title }} {{ event.event_type}}</a></li>
+      <div class="upcoming event" data-date="{{ event.date }}" data-end-date="{{ event.end_date or event.date }}">
+        <h5><a href="{{ event|url(alt=this.alt) }}">{{ event.title }}</a></h5>
+        <div class="upcoming_event_info">
+          <p>{{ event.event_type|title }}</p>
+          <p>{{ event.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if event.end_date %} - {{event.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}</p>
+        </div>
+      </div>
     {% endfor %}
-    </ul>
     {% else %}
     <p>None currently planned...</p>
     {% endif %}
