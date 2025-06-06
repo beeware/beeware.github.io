@@ -53,6 +53,18 @@
 </script>
 {% endblock %}
 
+{% set gold_members = site.query('/community/members', alt=this.alt).filter(F.level=='gold') %}
+
+{# This *should* be as simple as filter((F.date >= today).or(F.end_date >= today)).
+   But this doesn't work correctly, due to inconsistent handling of missing values. #}
+{% set all_events = site.query('/news/events', alt=this.alt).order_by('date') %}
+{% set ongoing = all_events.filter(F.date < today).filter(F.end_date >= today).all() %}
+{% set not_started = all_events.filter(F.date >= today).all() %}
+{% set events = (ongoing + not_started)[:3] %}
+
+{% set blog = site.query('/news/buzz', alt=this.alt).first() %}
+{% set project_types = site.query('/project', alt=this.alt) %}
+
 {% block body %}
 <!-- MD and Larger Project List -->
 <div class="row">
@@ -71,11 +83,6 @@
     {% endif %}
     {% endfor %}
   </div><!-- / main content -->
-
-  {% set gold_members = site.query('/community/members', alt=this.alt).filter(F.level=='gold') %}
-  {% set events = site.query('/news/events', alt=this.alt).filter(F.date >= today or F.end_date >= today).order_by('date') %}
-  {% set blog = site.query('/news/buzz', alt=this.alt).first() %}
-  {% set project_types = site.query('/project', alt=this.alt) %}
 
   <div class="d-none d-sm-block col-sm-4">
     <div class="sidebar-module sidebar-module-inset gutter">

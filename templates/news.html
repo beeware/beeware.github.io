@@ -22,9 +22,17 @@
 </script>
 {% endblock %}
 
-{% block body %}
 {% set blog = site.query('/news/buzz', alt=this.alt).all() %}
-{% set events = site.query('/news/events', alt=this.alt).filter(F.date >= today or F.end_date >= today).order_by('date') %}
+
+{# This *should* be as simple as filter((F.date >= today).or(F.end_date >= today)).
+   But this doesn't work correctly, due to inconsistent handling of missing values. #}
+
+{% set all_events = site.query('/news/events', alt=this.alt).order_by('date') %}
+{% set ongoing = all_events.filter(F.date < today).filter(F.end_date >= today).all() %}
+{% set not_started = all_events.filter(F.date >= today).all() %}
+{% set events = ongoing + not_started %}
+
+{% block body %}
 <div class="row">
   <div class="col-md-12 col-lg-8">
     {% for child in blog[:10] %}
@@ -44,11 +52,15 @@
   </div>
   <div class="col-md-12 col-lg-4 gutter">
     {{ this.gutter }}
+    {% if events %}
     <ul>
-    {% for child in events %}
-      <li class="upcoming event" data-date="{{ child.date }}" data-end-date="{{ child.end_date or child.date }}">{{ child.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if child.end_date %} - {{child.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}: <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} {{ child.event_type}}</a></li>
+    {% for event in events %}
+      <li class="upcoming event" data-date="{{ event.date }}" data-end-date="{{ event.end_date or event.date }}">{{ event.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if event.end_date %} - {{event.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}: <a href="{{ event|url(alt=this.alt) }}">{{ event.title }} {{ event.event_type}}</a></li>
     {% endfor %}
     </ul>
+    {% else %}
+    <p>None currently planned...</p>
+    {% endif %}
     <p><a href="{{ '/news/events'|url(alt=this.alt) }}">See all events</a></p>
   </div>
 </div>
