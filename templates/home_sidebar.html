@@ -1,0 +1,42 @@
+    {{ this.gutter_top }}
+
+    <h3>{{ t_gold_member }} {{ t_member|capitalize }}</h3>
+    {% for member in gold_members %}
+    <p><a href="{{ '/community/members'|url(alt=this.alt) }}"><img class="img-fluid" src="/community/members/anaconda/anaconda-small.png"></a></p>
+    {% endfor %}
+
+    <hr/>
+
+    <h3><a href="{{ '/news/buzz/'|url(alt=this.alt) }}">{{ t_latest_news }}</a></h3>
+    <p><a href="{{ blog|url(alt=this.alt) }}">{{ blog.pub_date.strftime("%d %b")}}: {{ blog.title }}</a></p>
+
+    <hr/>
+
+    {% if events %}
+      <h3>{{ t_meet_team }}</h3>
+
+          {% for event in events %}
+          <div class="upcoming event" data-date="{{ event.date }}" data-end-date="{{ event.end_date or event.date }}">
+            <h5><a href="{{ event|url(alt=this.alt) }}">{{ event.title }}</a></h5>
+            <div class="upcoming_event_info">
+              <p class="upcoming_event_date">
+                {{ event.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if event.end_date %} - {{event.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}
+              </p>
+            </div>
+          </div>
+          {% endfor %}
+      <p><a href="{{ '/news/events/'|url(alt=this.alt) }}">See all events</a><p>
+
+
+    <hr/>
+    {% endif %}
+    <h2><a href="{{ '/project'|url(alt=this.alt) }}">{{ t_projects }}</a></h2>
+    {% for project in project_types %}
+        {% if not project.project_page_description %}
+    <div>
+      <h4><a href="{{ project|url(alt=this.alt) }}"><img src="{{ site.get(project.path, alt='_primary')|url }}{{ project.image }}" height="32px" alt="{{ project.name }}"> {{ project.name }}</h4></a>
+      {{ project.short_description|safe }}
+    </div>
+        {% endif %}
+    {% endfor %}
+    {{ this.gutter_bottom }}

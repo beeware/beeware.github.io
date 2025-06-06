@@ -6,24 +6,33 @@
 {% set t_posted_by = transbag('translate', this.alt, 'posted_by') %}
 
 {% block title %}{{ this.title }}{% endblock %}
-{% block body %}
-{% set blog = site.query('/news/buzz', alt=this.alt).all() %}
-{% set events = site.query('/news/events', alt=this.alt).filter(F.date).order_by("date") %}
+
 {% block extra_script %}
 <script>
-(function() {
-    var today = new Date();
-    $('.upcoming.event').each(function() {
-        var event_date = new Date($(this).data('date'));
-        var event_end_date = $(this).data('end-date') ? new Date($(this).data('end-date')) : new Date($(this).data('date'));
-        $(this).hide();
-        if (event_date >= today || (event_date >= today && event_end_date >= today) || (event_date < today && event_end_date >= today)) {
-            $(this).show();
-        }
-    });
-})();
+{
+  let today = new Date();
+
+  $('.upcoming.event').each(function() {
+      let date = new Date($(this).data('end-date'))
+      if (date < today) {
+          $(this).hide();
+      }
+  });
+}
 </script>
 {% endblock %}
+
+{% set blog = site.query('/news/buzz', alt=this.alt).all() %}
+
+{# This *should* be as simple as filter((F.date >= today).or(F.end_date >= today)).
+   But this doesn't work correctly, due to inconsistent handling of missing values. #}
+
+{% set all_events = site.query('/news/events', alt=this.alt).order_by('date', 'event_type') %}
+{% set ongoing = all_events.filter(F.date < today).filter(F.end_date >= today).all() %}
+{% set not_started = all_events.filter(F.date >= today).all() %}
+{% set events = ongoing + not_started %}
+
+{% block body %}
 <div class="row">
   <div class="col-md-12 col-lg-8">
     {% for child in blog[:10] %}
@@ -41,13 +50,21 @@
     {% endfor %}
     <a href="{{ '/news/buzz/'|url(alt=this.alt) }}">{{ t_more_articles }}</a>
   </div>
-  <div class="col-md-12 col-lg-4 gutter">
+  <div class="col-md-12 col-lg-4 gutter" id="news-gutter">
     {{ this.gutter }}
-    <ul>
-    {% for child in events %}
-      <li class="upcoming event" data-date="{{ child.date }}" data-end-date="{{ child.end_date }}">{{ child.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if child.end_date %} - {{child.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}: <a href="{{ child|url(alt=this.alt) }}">{{ child.title }} {{ child.event_type}}</a></li>
+    {% if events %}
+    {% for event in events %}
+      <div class="upcoming event" data-date="{{ event.date }}" data-end-date="{{ event.end_date or event.date }}">
+        <h5><a href="{{ event|url(alt=this.alt) }}">{{ event.title }} ({{ event.event_type|title }})</a></h5>
+        <div class="upcoming_event_info">
+          <p>{{ event.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if event.end_date %} - {{event.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}</p>
+        </div>
+      </div>
     {% endfor %}
-    </ul>
+    {% else %}
+    <p>None currently planned...</p>
+    {% endif %}
+    <p><a href="{{ '/news/events'|url(alt=this.alt) }}">See all events</a></p>
   </div>
 </div>
 {% endblock %}
