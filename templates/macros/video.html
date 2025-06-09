@@ -2,13 +2,13 @@
 
 {% macro render_video_index(video) %}
   {% set t_as_seen_at = transbag('translate', video.alt, 'as_seen_at') %}
-  {% set t_by = transbag('translate', video.alt, 'by') %}
+  {% set t_by = transbag('translate', video.alt, 'by').strip() %}
   {% set t_published = transbag('translate', video.alt, 'published') %}
-  {% set t_space_after_by = transbag('translate', video.alt, 'space_after_by') %}
+  {% set t_space_after_by = transbag('translate', video.alt, 'space_after_by').strip() %}
 
   <h2><i class="fa fa-video-camera" aria-hidden="true"></i> {{ video.title }}</h2>
   <p>
-    {{ t_by }}{{ '' if t_space_after_by == 'false' else ' ' }}{{ video.author }};
+    {{ t_by }}{% if t_space_after_by != 'false' %} {% endif %}{{ video.author }};
     {{ t_published }} {{ video.pub_date.strftime('%-d %B %Y') }}
   </p>
   <iframe class="video" src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
