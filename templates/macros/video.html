@@ -7,7 +7,7 @@
   {% set t_space_after_by = transbag('translate', video.alt, 'space_after_by') %}
 
   <h2><i class="fa fa-video-camera" aria-hidden="true"></i> {{ video.title }}</h2>
-  <p>{{ t_by }}{{ '' if t_space_after_by else ' ' }}{{ video.author }}; {{ t_published }} {{ video.pub_date.strftime('%-d %B %Y') }}</p>
+  <p>{{ t_by }}{{ ' ' if t_space_after_by else '' }}{{ video.author }}; {{ t_published }} {{ video.pub_date.strftime('%-d %B %Y') }}</p>
   <iframe class="video" src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
   <p>{{ video.description }}</p>
   {% if video.event_url %}
