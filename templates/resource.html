@@ -7,6 +7,7 @@
 
 {% set t_as_seen_at = transbag('translate', this.alt, 'as_seen_at') %}
 {% set t_by = transbag('translate', this.alt, 'by') %}}
+{% set t_space_after_by = transbag('translate', this.alt, 'space_after_by') %}}
 {% set t_published = transbag('translate', this.alt, 'published') %}
 {% set t_unknown_resource = transbag('translate', this.alt, 'unknown_resource') %}
 
@@ -15,7 +16,10 @@
   <div class="container">
     <p>{{ breadcrumbs(this) }}</p>
     <h2>{{ this.title }}</h2>
-    <p>{{ t_by|capitalize }} {{ this.author }}; {{ t_published }} {{ this.pub_date|datetimeformat("MMMM d, YYYY" ,locale=this.alt)|capitalize }}</p>
+    <p>
+      {{ t_by|capitalize }}{{ '' if t_space_after_by == 'false' else ' ' }}{{ this.author }};
+      {{ t_published }} {{ this.pub_date|datetimeformat("MMMM d, YYYY" ,locale=this.alt)|capitalize }}
+    </p>
   </div>
 </div>
 {% endblock %}
