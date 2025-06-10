@@ -1,0 +1,18 @@
+{% macro join_and(items, join_word="and") %}{% 
+    if items|length == 1 
+%}{{ 
+    items[0]
+}}{% 
+    elif items|length == 2
+%}{{
+    " {} ".format(join_word).format(items)
+}}{%
+    else
+%}{{ 
+    ", ".join(
+        items[:-2]
+        + [", {} ".format(join_word).join(items[-2:])]
+    )
+}}{% 
+    endif 
+%}{% endmacro %}
