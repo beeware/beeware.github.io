@@ -67,16 +67,16 @@ We were first tasked with contributing to a first timer issue before moving on t
 
 Now that we’re more familiar with the BeeWare ecosystem, through both our initial PRs and widget implementations, and having concluded our semester 1 research phase, we’re shifting our focus to larger, more structural improvements for the second half of the project.
 
-Our Primary Goals moving forward include:
+Our primary goals moving forward include:
 
 ### Toga Web Testing
 
 [DISCUSSION STILL ONGOING]
 
 [https://github.com/beeware/toga/discussions/3440](https://github.com/beeware/toga/discussions/3440)
-Toga does not currently support testing for the Web platform, due to the fact that WebAssembly does not support multithreading. Currently, the test suite is a second thread inside the testbed application, which requires multithreading.This poses a few problems as the testbed is built assuming that these are running in the same process.
+Toga does not currently support testing for the Web platform, due to the fact that WebAssembly does not support multithreading. Currently, the test suite is a second thread inside the testbed application, which requires multithreading. This poses a few problems as the testbed is built assuming that these are running in the same process.
 
-First, the probes that need to test the rendered widget in the web browser will be using a testing tool called Playwright. Playwright will allow us to ‘poke’ or ‘probe’ the DOM state of the app, looking at different attributes, styling, hierarchy, etc.
+First, the probes that are needed to test the rendered widget in the web browser will be using a testing tool called Playwright. Playwright will allow us to ‘poke’ or ‘probe’ the DOM state of the app, looking at different attributes, styling, hierarchy, etc.
 
 Second, there has to be some kind of communication bridge between the test suite and the app. We are currently looking at using Pyodide to run Python in the browser context remotely using Playwright. Though we will have to expose Pyodide when in test mode, as it is currently inaccessible when running the app normally.
 
@@ -86,9 +86,9 @@ Lastly, [about proxies]
 
 ### PyScript Briefcase and Toga Dependencies
 
-During Mitchell’s development of the Date Input Web Widget, we discovered some issues resulting from create_proxy. This issue was resolved separately, but led to discussions regarding ownership of Pyscript, as well as Shoelace and Bootstrap, within the wider Beeware architecture. Currently, the Briefcase Web Template inserts these into index.html, although these should be dependencies of Toga.
+During Mitchell’s development of the DateInput Web Widget, we discovered some issues resulting from create_proxy. This issue was resolved separately, but led to discussions regarding ownership of Pyscript, as well as Shoelace and Bootstrap, within the wider Beeware architecture. Currently, the Briefcase Web Template inserts these into index.html, although these should be dependencies of Toga.
 
-Russell has previously attempted this in the pull requests [https://github.com/beeware/briefcase/pull/1285](https://github.com/beeware/briefcase/pull/1285), [https://github.com/beeware/toga/pull/1945](https://github.com/beeware/toga/pull/1945) and [https://github.com/beeware/briefcase-web-static-template/pull/9](https://github.com/beeware/briefcase-web-static-template/pull/9). Currently, we plan on reviving parts of these to allow for Toga to specify Pyscript versioning. Discussion is ongoing regarding decoupling Pyscript from Briefcase and handling multiple dependencies.
+Russell has previously attempted this in the pull requests [https://github.com/beeware/briefcase/pull/1285](https://github.com/beeware/briefcase/pull/1285), [https://github.com/beeware/toga/pull/1945](https://github.com/beeware/toga/pull/1945) and [https://github.com/beeware/briefcase-web-static-template/pull/9](https://github.com/beeware/briefcase-web-static-template/pull/9). Currently, we plan on reviving parts of these to allow for Toga to specify PyScript versioning. Discussion is ongoing regarding decoupling PyScript from Briefcase and handling multiple dependencies.
 
 More details can be found in our [Discussion Post on Briefcase.](https://github.com/beeware/briefcase/discussions/2283)
 
