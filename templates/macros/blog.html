@@ -4,6 +4,7 @@
 
   {% set t_posted_by = transbag('translate', post.alt, 'posted_by') %}
   {% set t_on = transbag('translate', post.alt, 'on') %}
+  {% set t_post_posted_date = transbag('translate', post.alt, 'post_posted_date') %}
 
   {% if from_index %}
   <h2><a href="{{ post|url(alt=post.alt) }}">{{ post.title }}</a></h2>
@@ -16,7 +17,7 @@
     {% else %}
       {{ post.author }}
     {% endif %}
-    {{ t_on }} {{ post.pub_date.strftime('%-d %B %Y') }}
+    {{ t_on }} {{ post.pub_date.strftime('%-d %B %Y') }} {{ t_post_posted_date }}
   </p>
   {% endif %}
   {{ post.body }}
