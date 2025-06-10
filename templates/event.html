@@ -51,7 +51,9 @@
 {% endblock %}
 
 {% block main %}
-{% if this.event_type == "sprint" %}
+{% if this.event_type in event_type_verbs %}
+  <p>{{ speakers }} {{ event_type_verbs[this.event_type]["before"] }} {{ this.title }} {{ event_type_verbs[this.event_type]["after"] }} "<a href="{{ this.url }}">{{ this.talk_title }}</a>".</p>
+{% elif this.event_type == "sprint" %}
   <p>{{ t_running_sprint }} {{ this.title }}.</p>
   <p>
     {{ speakers }} {% if this.speaker|length > 1 %}{{ t_sprint_helping_plural }}{% else %}{{ t_sprint_helping }}{% endif %} <a href="{{ '/contributing/challenge-coins/'|url(alt=this.alt) }}">{{ t_challenge_coin }}</a>.
@@ -59,8 +61,6 @@
   <p>{{ t_event_more_info }} <a href="{{ this.url }}">{{ this.title }} {{ t_website }}</a>.</p>
   <h3>{{ t_what_is_a_sprint }}</h3>
   <p>{{ t_sprint_description }} <a href="https://www.youtube.com/watch?v=hOtKgFaFcz0">{{ t_sprint_video }}</a> {{ t_post_sprint_pycon_video }} </p>
-{% else %}
-  <p>{{ speakers }} {{ event_type_verbs[this.event_type]["before"] }} {{ this.title }} {{ event_type_verbs[this.event_type]["after"] }} "<a href="{{ this.url }}">{{ this.talk_title }}</a>".</p>
 {% endif %}
 <p><em>{{ this.description }}</em></p>
 {% endblock %}
