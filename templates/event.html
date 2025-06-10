@@ -36,7 +36,18 @@
   }
 %}
 
-{% set speakers = join_and(this.speaker, t_and) %}
+{% set member_slugs = this.speaker %}
+{% set members = site.query("/about/team") %}
+{% set speaker_names = {} %}
+
+{% for slug in this.speaker %}
+    {%
+        do speaker_names.update(
+            {slug: members.filter(F._slug == slug).first().name}
+        )
+    %}
+{% endfor %}
+{% set t_speakers_list = join_and(speaker_names.values()|list, t_and) %}
 
 {% block title %}{{ this.title }}{% endblock %}
 
@@ -52,11 +63,11 @@
 
 {% block main %}
 {% if this.event_type in event_type_verbs %}
-  <p>{{ speakers }} {{ event_type_verbs[this.event_type]["before"] }} {{ this.title }} {{ event_type_verbs[this.event_type]["after"] }} "<a href="{{ this.url }}">{{ this.talk_title }}</a>".</p>
+  <p>{{ t_speakers_list }} {{ event_type_verbs[this.event_type]["before"] }} {{ this.title }} {{ event_type_verbs[this.event_type]["after"] }} "<a href="{{ this.url }}">{{ this.talk_title }}</a>".</p>
 {% elif this.event_type == "sprint" %}
   <p>{{ t_running_sprint }} {{ this.title }}.</p>
   <p>
-    {{ speakers }} {% if this.speaker|length > 1 %}{{ t_sprint_helping_plural }}{% else %}{{ t_sprint_helping }}{% endif %} <a href="{{ '/contributing/challenge-coins/'|url(alt=this.alt) }}">{{ t_challenge_coin }}</a>.
+    {{ t_speakers_list }} {% if this.speaker|length > 1 %}{{ t_sprint_helping_plural }}{% else %}{{ t_sprint_helping }}{% endif %} <a href="{{ '/contributing/challenge-coins/'|url(alt=this.alt) }}">{{ t_challenge_coin }}</a>.
   </p>
   <p>{{ t_event_more_info }} <a href="{{ this.url }}">{{ this.title }} {{ t_website }}</a>.</p>
   <h3>{{ t_what_is_a_sprint }}</h3>
@@ -78,12 +89,12 @@
       {% endif %}
       <dd>
         <ul>
-        {% for name in this.speaker %}
+        {% for slug in speaker_names %}
           <li><a href="{{
               "/about/team"|url
               + "#"
-              + site.query("/about/team").filter(F.name == name).first()._slug
-        }}">{{ name }}</a></li>
+              + slug
+        }}">{{ speaker_names[slug] }}</a></li>
         {% endfor %}
         </ul>
       </dd>
