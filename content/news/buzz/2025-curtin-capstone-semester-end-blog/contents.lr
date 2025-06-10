@@ -61,7 +61,7 @@ We were first tasked with contributing to a first timer issue before moving on t
 - PR [#3405](https://github.com/beeware/toga/pull/3405): TimeInput
 - PR [#3362](https://github.com/beeware/toga/pull/3362): ScrollContainer
 - PR [#3425](https://github.com/beeware/toga/pull/3425): Table (work in progress)
-- PR [#3402](https://github.com/beeware/toga/pull/3402): Selection (work in progress)
+- PR [#3402](https://github.com/beeware/toga/pull/3402): Selection
 
 ## What We're Working Towards
 
@@ -71,18 +71,17 @@ Our primary goals moving forward include:
 
 ### Toga Web Testing
 
-[DISCUSSION STILL ONGOING]
+Toga does not currently support testing for the web platform. This is because when Toga runs tests for the other platforms, it starts a testbed application with the Pytest test suite running as a thread. Additionally, since the testbed app and test suite are running in the same process, they share the same memory space. The test suite is built assuming this is the case as it creates Toga objects, then adds them directly to the testbed app, later modifying them at the API level to then test that the platform being tested has rendered the changes as expected.
 
-[https://github.com/beeware/toga/discussions/3440](https://github.com/beeware/toga/discussions/3440)
-Toga does not currently support testing for the Web platform, due to the fact that WebAssembly does not support multithreading. Currently, the test suite is a second thread inside the testbed application, which requires multithreading. This poses a few problems as the testbed is built assuming that these are running in the same process.
+This cannot happen with Toga web apps, as they do not support multithreading due to WebAssembly only running single-threaded. Therefore, we have to find a way for the test suite to run correctly when it is running in its own process, separate from the testbed app. Our goals are to prove-out a general approach that will allow this to occur, which will include proof-of-concepts that show it is feasible and provide some initial specifications and guidelines for future pieces of work.
 
-First, the probes that are needed to test the rendered widget in the web browser will be using a testing tool called Playwright. Playwright will allow us to ‘poke’ or ‘probe’ the DOM state of the app, looking at different attributes, styling, hierarchy, etc.
+Our current idea is to ‘replace’ any Toga objects created in the test suite with proxy objects, which will act as a ‘wrapper’ around its counterpart in the remote testbed app. This will involve remotely creating the object in the testbed app and forwarding commands to modify its attributes and retrieve data from it. This will allow the testbed app to render any changes the test suite is expecting so that the test suite can test the web app at the API as well as the platform level.
 
-Second, there has to be some kind of communication bridge between the test suite and the app. We are currently looking at using Pyodide to run Python in the browser context remotely using Playwright. Though we will have to expose Pyodide when in test mode, as it is currently inaccessible when running the app normally.
+Speaking of testing the testbed app at the platform level, we need a way for the test suite to test that any modifications at the API level are correctly rendered in-app. This is where Playwright will come in. Playwright allows us to inspect the testbed web app at the DOM level and verify that its state matches the expectations of the test suite.
 
-Lastly, [about proxies]
+Lastly, we want to have a look at how Briefcase could run the testbed app and the Pytest test suite as two separate processes, while still allowing the collection and reporting of test suite results and code coverage results.
 
-…tbd…
+For more information, the discussion leading up to this point can be found in our [Discussion Post on Toga](https://github.com/beeware/toga/discussions/3440). The corresponding ticket to this part of our capstone project can be found in our [Issue Ticket](https://github.com/beeware/toga/issues/3545).
 
 ### PyScript Briefcase and Toga Dependencies
 
