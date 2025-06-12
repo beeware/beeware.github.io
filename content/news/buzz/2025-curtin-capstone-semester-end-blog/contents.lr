@@ -94,15 +94,9 @@ More details can be found in our [Discussion Post on Briefcase.](https://github.
 
 ### Briefcase Web Development Optimisations
 
-While contributing to Toga’s web widgets, we noticed that testing even small changes requires rebuilding all project wheels, which can take a significant amount of time. This makes local development slow and interrupts the feedback loop needed for efficient frontend iteration.
+While contributing to Toga's web widgets, we noticied that testing even small changes requires rrebuilding all project wheels(`briefcase run web -r -u`), which can take a significant amount of time. This makes local development slow and interrupts the feedback loop needed for eddigient frontend iteration.
 
-To improve this, we’re exploring ways to optimise how Briefcase handles builds.
-
-Ideas:
-- A selective rebuild mechanism that only regenerates wheels when relevant files have changed
-- A `--dev` implementation for web that skips wheel building and instead directly references source files during development.
-
-We’ve outlined this in more detail in our [Discussion post on Briefcase](https://github.com/beeware/briefcase/discussions/2282) and are actively researching and working on prototypes
+To improve this we're going to be working on extending the `dev` command to be platform aware and make it so `dev web` utilises editbale installs to serve your project to the brower making it so with simple refresh of the browser you can quickly see your changes instead of waiting for a full wheel rebuild. To following along with our work next semster check out our ticket [#2334](https://github.com/beeware/briefcase/issues/2334)
 
 ---
 pub_date: 2025-06-13
