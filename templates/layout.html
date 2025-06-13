@@ -94,25 +94,25 @@
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-        {%- set extra_slash = '/' if this.path[-1] != '/' else '' -%}
-        {%- set alt_path = '%2B' + this.alt if this.alt and this.alt != 'en' else '' -%}
-        <li class="nav-item">
-        {%- if this.alt in get_alts(source=this, fallback=False) -%}
-          {%- set edit_link = 'https://github.com/beeware/beeware.github.io/edit/lektor/content' + this.path.split('@')[0] + extra_slash + 'contents' + alt_path + '.lr' -%}
-          <a class="nav-link" href="{{ edit_link }}" rel="noopener noreferrer" target="_blank">
-            <i class="fa fa-github "></i><small>&nbsp;{{ t_edit_on_github }}</small>
-          </a>
-          {%- else -%}
-          {# This method is provided by a custom plugin found in /packages/lektor_beeware_plugin/ #}
-          {%- set content_value = urlencode_limit(site.get(this.path, alt='_primary').contents.as_text(), limit=5000) -%}
-          {%- if content_value and '@' not in this.path -%}
-          <a class="nav-link" href="https://github.com/beeware/beeware.github.io/new/lektor/content{{ this.path }}/contents{{ alt_path }}.lr?filename=contents{{ alt_path }}.lr&value={{ content_value }}" target="_blank">
-            <i class="fa fa-github "></i><small>&nbsp;{{ t_create_on_github }}</small>
-          </a>
-          {%- endif -%}
+      {%- set extra_slash = '/' if this.path[-1] != '/' else '' -%}
+      {%- set alt_path = '%2B' + this.alt if this.alt and this.alt != 'en' else '' -%}
+      <li class="nav-item">
+      {%- if this.alt in get_alts(source=this, fallback=False) -%}
+        {%- set edit_link = 'https://github.com/beeware/beeware.github.io/edit/lektor/content' + this.path.split('@')[0] + extra_slash + 'contents' + alt_path + '.lr' -%}
+        <a class="nav-link" href="{{ edit_link }}" rel="noopener noreferrer" target="_blank">
+          <i class="fa fa-github "></i><small>&nbsp;{{ t_edit_on_github }}</small>
+        </a>
+        {%- else -%}
+        {# This method is provided by a custom plugin found in /packages/lektor_beeware_plugin/ #}
+        {%- set content_value = urlencode_limit(site.get(this.path, alt='_primary').contents.as_text(), limit=5000) -%}
+        {%- if content_value and '@' not in this.path -%}
+        <a class="nav-link" href="https://github.com/beeware/beeware.github.io/new/lektor/content{{ this.path }}/contents{{ alt_path }}.lr?filename=contents{{ alt_path }}.lr&value={{ content_value }}" target="_blank">
+          <i class="fa fa-github "></i><small>&nbsp;{{ t_create_on_github }}</small>
+        </a>
         {%- endif -%}
-        </li>
-     <li class="nav-item dropdown dropdown-pull-right">
+      {%- endif -%}
+      </li>
+      <li class="nav-item dropdown dropdown-pull-right">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-globe" aria-hidden="true"></i> <span class="caret"></span>
         </a>
@@ -124,12 +124,12 @@
 
           {%- for alt, alternative in config.ALTERNATIVES.items()|sort -%}
           {%- set alt_active = alt == this.alt -%}
-          {%- if alt != config.primary_alternative -%}
-          <a class="dropdown-item {% if alt_active %}active{% endif %}" href="{{ '.'|url(alt=alt) }}">
-          {{ transbag('translate', alt, alternative.name.en.lower()) }}
+          {%- if alt != config.primary_alternative %}
+          <a class="dropdown-item{% if alt_active %} active{% endif %}" href="{{ '.'|url(alt=alt) }}">
+          {{- transbag('translate', alt, alternative.name.en.lower()) -}}
           </a>
           {%- endif -%}
-          {%- endfor -%}
+          {%- endfor %}
         </div>
       </li>
 
