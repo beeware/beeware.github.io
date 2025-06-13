@@ -59,9 +59,9 @@ Our primary goals moving forward include:
 
 ### Toga Web Testing
 
-Toga does not currently support testing for the web platform, due to the limitations of WebAssembly and the need for the test suite and testbed app to run in separate threads. To address this, we are working on a general approach that allows the test suite to interact with the web app indirectly, using a mechanism for proxying widget requests into the browser.
+Toga does not currently support testing for the web platform as the test suite and testbed app run multithreaded in the same process. The web platform is incompatible with this as WebAssembly does not support multithreading. To address this, we are working on developing a general approach that allows the test suite and testbed app to run in separate processes. This will include using proxy objects in place of Toga objects in the test suite that will ‘wrap’ the respective object in the testbed app and ‘forward’ commands to it in order to change its state and retrieve data from it
 
-To verify the rendered state of the UI, we plan to use Playwright to inspect the browser's DOM and compare it against the expected state. This setup will enable reliable, automated testing of Toga’s web backend. 
+Additionally, to verify the rendered state of the testbed app, we plan to use Playwright to inspect the browser's DOM and compare it against what the test suite expects. This setup should allow the web platform to be effectively tested while still using the existing test suite. 
 
 More technical details and discussion can be found in our [Discussion Post](https://github.com/beeware/toga/discussions/3440) on Toga and the associated [Issue Ticket](https://github.com/beeware/toga/issues/3545).
 
