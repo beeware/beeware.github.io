@@ -59,7 +59,7 @@ Our primary goals moving forward include:
 
 ### Toga Web Testing
 
-Toga does not currently support testing for the web platform as the test suite and testbed app run multithreaded in the same process. The web platform is incompatible with this as WebAssembly does not support multithreading. To address this, we are working on developing a general approach that allows the test suite and testbed app to run in separate processes. This will include using proxy objects in place of Toga objects in the test suite that will ‘wrap’ the respective object in the testbed app and ‘forward’ commands to it in order to change its state and retrieve data from it
+Toga does not currently support testing for the web platform as the test suite and testbed app run multithreaded in the same process. The web platform is incompatible with this as WebAssembly does not support multithreading. To address this, we are working on developing a general approach that allows the test suite and testbed app to run in separate processes. This will include using proxy objects in place of Toga objects in the test suite that will wrap the respective object in the testbed app, forwarding commands to it in order to change its state and retrieve data.
 
 Additionally, to verify the rendered state of the testbed app, we plan to use Playwright to inspect the browser's DOM and compare it against what the test suite expects. This setup should allow the web platform to be effectively tested while still using the existing test suite. 
 
