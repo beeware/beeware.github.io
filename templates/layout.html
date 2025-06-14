@@ -13,11 +13,14 @@
 {%- set t_sitemap = transbag('translate', this.alt, 'sitemap') -%}
 {%- set t_welcome = transbag('translate', this.alt, 'welcome') -%}
 {%- set t_edit_on_github = transbag('translate', this.alt, 'edit_on_github') -%}
-{%- set t_create_on_github = transbag('translate', this.alt, 'create_on_github') -%}
-{%- set t_translation_out_of_date = transbag('translate', this.alt, 'translation_out_of_date') -%}
-{%- set t_see_original_content = transbag('translate', this.alt, 'see_original_content') -%}
-{%- set t_update_translation = transbag('translate', this.alt, 'update_translation') -%}
-{%- set diff = alt_outdated_diff(this) -%}
+{%- set t_edit_translation = transbag('translate', this.alt, 'edit_translation') -%}
+
+{%-
+    set language_codes = {
+        "zh_CN": "zh_Hans",
+        "zh_TW": "zh_Hant",
+    }
+-%}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -94,23 +97,28 @@
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      {%- set extra_slash = '/' if this.path[-1] != '/' else '' -%}
-      {%- set alt_path = '%2B' + this.alt if this.alt and this.alt != 'en' else '' -%}
-      <li class="nav-item">
-      {%- if this.alt in get_alts(source=this, fallback=False) -%}
-        {%- set edit_link = 'https://github.com/beeware/beeware.github.io/edit/lektor/content' + this.path.split('@')[0] + extra_slash + 'contents' + alt_path + '.lr' -%}
-        <a class="nav-link" href="{{ edit_link }}" rel="noopener noreferrer" target="_blank">
-          <i class="fa fa-github "></i><small>&nbsp;{{ t_edit_on_github }}</small>
-        </a>
-        {%- else -%}
-        {# This method is provided by a custom plugin found in /packages/lektor_beeware_plugin/ #}
-        {%- set content_value = urlencode_limit(site.get(this.path, alt='_primary').contents.as_text(), limit=5000) -%}
-        {%- if content_value and '@' not in this.path -%}
-        <a class="nav-link" href="https://github.com/beeware/beeware.github.io/new/lektor/content{{ this.path }}/contents{{ alt_path }}.lr?filename=contents{{ alt_path }}.lr&value={{ content_value }}" target="_blank">
-          <i class="fa fa-github "></i><small>&nbsp;{{ t_create_on_github }}</small>
-        </a>
-        {%- endif -%}
+      {%- if this.alt == "en" -%}
+        {%-
+            set edit_link = (
+              "https://github.com/beeware/beeware.github.io/tree/lektor/content"
+              + this.path.split("@")[0] + "/contents.lr"
+            )
+        -%}
+        {%- set edit_text = t_edit_on_github -%}
+        {%- set icon_name = "github" -%}
+      {%- else -%}
+        {%- set edit_link = (
+              "https://hosted.weblate.org/projects/beeware/website/"
+              + {"zh_CN": "zh_Hans", "zh_TW": "zh_Hant"}.get(this.alt, this.alt[:2])
+            )
+        -%}
+        {%- set edit_text = t_edit_translation -%}
+        {# Bootstrap doesn't have a Weblate icon. #}
+        {%- set icon_name = "pencil" -%}
       {%- endif -%}
+        <a class="nav-link" href="{{ edit_link }}" target="_blank">
+          <i class="fa fa-{{ icon_name }}"></i><small>&nbsp;{{ edit_text }}</small>
+        </a>
       </li>
       <li class="nav-item dropdown dropdown-pull-right">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -140,42 +148,8 @@
       {%- block preamble -%}
       {%- endblock -%}
       <div class="container">
-        {%- if this.alt in get_alts(source=this, fallback=False) and diff -%}
-        <div class="alert alert-warning">
-          <i class="fa fa-warning"></i>&nbsp;{{ t_translation_out_of_date }}&nbsp;&nbsp;
-          <a href="{{ site.get(this.path, alt='_primary')|url }}" data-toggle="modal" data-target="#myModal">{{ t_see_original_content }}</a>
-        </div>
-
-        <!-- Modal -->
-        <div id="myModal" class="modal fade" role="dialog">
-          <div class="modal-dialog modal-lg">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">
-                  <a href="{{ edit_link }}" target="_blank">
-                    <i class="fa fa-github "></i>&nbsp;{{ t_update_translation }}
-                  </a>
-                </h4>
-              </div>
-              <div class="modal-body">
-                <small>
-                {{- diff|safe -}}
-                </small>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-            <!-- End Modal content -->
-          </div>
-        </div>
-        <!-- End Modal -->
-
-        {%- endif -%}
-        {%- block body -%}{%- endblock -%}
+        {%- block body -%}
+        {%- endblock -%}
       </div>
     </div>
 
