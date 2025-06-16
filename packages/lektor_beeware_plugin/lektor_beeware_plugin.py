@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""This is a custom local plugin to ad extra functionality to BeeWare site."""
+"""This is a custom local plugin to add extra functionality to BeeWare site."""
 
 from datetime import date
 
