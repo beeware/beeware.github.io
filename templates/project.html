@@ -1,25 +1,8 @@
 {% extends "layout.html" %}
-{% from "macros/breadcrumbs.html" import breadcrumbs %}
-{% from "macros/badge.html" import badge %}
-{% from "macros/incomplete.html" import incomplete %}
-{% from "macros/translation.html" import transbag %}
+{% from "macros/breadcrumbs.html" import breadcrumbs with context %}
+{% from "macros/badge.html" import badge with context %}
+{% from "macros/incomplete.html" import incomplete with context %}
 
-{% set t_project_support = transbag('translate', this.alt, 'project_support') %}
-{% set t_project_help = transbag('translate', this.alt, 'project_help') %}
-{% set t_contributors = transbag('translate', this.alt, 'contributors') %}
-{% set t_pun_before = transbag('translate', this.alt, 'pun_before').strip() %}
-{% set t_pun_after = transbag('translate', this.alt, 'pun_after').strip() %}
-{% set t_attic_before = transbag('translate', this.alt, 'attic_before').strip() %}
-{% set t_attic_link = transbag('translate', this.alt, 'attic_link').strip() %}
-{% set t_attic_after = transbag('translate', this.alt, 'attic_after').strip() %}
-{% set t_cookie_before = transbag('translate', this.alt, 'cookie_before').strip() %}
-{% set t_cookie_after = transbag('translate', this.alt, 'cookie_after').strip() %}
-{% set t_project_type = transbag('translate', this.alt, 'project_type').strip() %}
-{% set t_maturity = transbag('translate', this.alt, 'maturity').strip() %}
-{% set t_language = transbag('translate', this.alt, 'language').strip() %}
-{% set t_platform = transbag('translate', this.alt, 'platform').strip() %}
-{% set t_source_code = transbag('translate', this.alt, 'source_code').strip() %}
-{% set t_documentation = transbag('translate', this.alt, 'documentation').strip() %}
 
 {% block title %}{{ this.name }}{% endblock %}
 {% block preamble %}
@@ -38,29 +21,29 @@
     {{ incomplete(this) }}
 
     {% if this.attic or "attic" in this.maturity %}
-    <p><i>{{ t_attic_before }} <a href="{{ '/project/attic'|url(alt=this.alt) }}">{{ t_attic_link }}</a>{{ t_attic_after }}</i></p>
+    <p><i>{{ "attic_before"|trans }} <a href="{{ '/project/attic'|url(alt=this.alt) }}">{{ "attic_link"|trans }}</a>{{ "attic_after"|trans }}</i></p>
     <hr>
     {% endif %}
 
     {% if this.project_type == "template" %}
-    <p>{{ t_cookie_before }} <a href="https://github.com/audreyr/cookiecutter">CookieCutter</a> {{ t_cookie_after }}</p>
+    <p>{{ "cookie_before"|trans }} <a href="https://github.com/audreyr/cookiecutter">CookieCutter</a> {{ "cookie_after"|trans }}</p>
     <hr>
     {% endif %}
 
     {% if this.project_type == "support" %}
-    <p>{{ t_project_support }}</p>
+    <p>{{ "project_support"|trans }}</p>
     <hr>
     {% endif %}
 
     <p>{{ this.description }}</p>
 
     {% if this.help_required %}
-    <h3>{{ t_project_help }}</h3>
+    <h3>{{ "project_help"|trans }}</h3>
     <p>{{ this.help_required }}</p>
     {% endif %}
 
     {% if this.pun %}
-    <h3>{{ t_pun_before }} "{{ this.name }}"{{ t_pun_after }}</h3>
+    <h3>{{ "pun_before"|trans }} "{{ this.name }}"{{ "pun_after"|trans }}</h3>
     <p>{{ this.pun }}</p>
     {% endif %}
   </div>
@@ -69,17 +52,17 @@
     <div class="sidebar-module sidebar-module-inset gutter">
       <img class="img-fluid center-block" {% if this.image %}src="{{ site.get(this.path, alt='_primary')|url }}{{ this.image }}" {% else %} src="/static/images/defaultlogo.png"{% endif %}>
     {% if this.github_repo or this.rtfd_name %}<br />{% endif %}
-    {% if this.github_repo %}<p><a href="https://github.com/{{ this.github_repo }}"><i class="fa fa-github fa-lg" aria-hidden="true"></i> {{ t_source_code }}</a></p>{% endif %}
-    {% if this.rtfd_name %}<p><a href="https://{{ this.rtfd_name }}.readthedocs.io/"><i class="fa fa-book fa-lg" aria-hidden="true"></i> {{ t_documentation }}</a></p>{% endif %}
+    {% if this.github_repo %}<p><a href="https://github.com/{{ this.github_repo }}"><i class="fa fa-github fa-lg" aria-hidden="true"></i> {{ "source_code"|trans }}</a></p>{% endif %}
+    {% if this.rtfd_name %}<p><a href="https://{{ this.rtfd_name }}.readthedocs.io/"><i class="fa fa-book fa-lg" aria-hidden="true"></i> {{ "documentation"|trans }}</a></p>{% endif %}
       <hr>
       <dl>
-        {{ badge(t_project_type, this.project_type, this.alt) }}
-        {{ badge(t_maturity, this.maturity, this.alt) }}
-        {{ badge(t_language, this.languages, this.alt) }}
-        {{ badge(t_platform, this.platforms, this.alt) }}
+        {{ badge("project_type", this.project_type) }}
+        {{ badge("maturity", this.maturity) }}
+        {{ badge("language", this.languages) }}
+        {{ badge("platform", this.platforms) }}
       </dl>
       <hr>
-      <a href="https://labhr.github.io/hatrack/#repo=beeware/{{ this._id }}">{{ t_contributors }}</a>
+      <a href="https://labhr.github.io/hatrack/#repo=beeware/{{ this._id }}">{{ "contributors"|trans }}</a>
     </div>
   </div>
 </div>

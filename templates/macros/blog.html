@@ -1,15 +1,8 @@
-{% from "macros/translation.html" import transbag %}
-
 {% macro render_blog_post(post, from_index=false) %}
-
-  {% set t_posted_by = transbag('translate', post.alt, 'posted_by') %}
-  {% set t_on = transbag('translate', post.alt, 'on') %}
-  {% set t_post_posted_date = transbag('translate', post.alt, 'post_posted_date') %}
-
   {% if from_index %}
   <h2><a href="{{ post|url(alt=post.alt) }}">{{ post.title }}</a></h2>
   <p class="meta">
-    {{ t_posted_by }}
+    {{ "posted_by"|trans }}
     {% if post.mastodon_handle %}
       <a href="https://{{ post.mastodon_handle.split('@')[2] }}/@{{ post.mastodon_handle.split('@')[1] }}">{{ post.author or post.mastodon_handle }}</a>
     {% elif post.twitter_handle %}
@@ -17,7 +10,7 @@
     {% else %}
       {{ post.author }}
     {% endif %}
-    {{ t_on }} {{ post.pub_date.strftime('%-d %B %Y') }} {{ t_post_posted_date }}
+    {{ "on"|trans }} {{ post.pub_date.strftime('%-d %B %Y') }} {{ "post_posted_date"|trans }}
   </p>
   {% endif %}
   {{ post.body }}

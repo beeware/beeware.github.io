@@ -1,20 +1,15 @@
-{% from "macros/translation.html" import transbag %}
-
 {% macro render_pagination(pagination, alt) %}
-  {% set t_previous = transbag('translate', alt, 'previous') %}
-  {% set t_next = transbag('translate', alt, 'next') %}
-  
-  <div class="pagination">
+<div class="pagination">
     {% if pagination.has_prev %}
-      <a href="{{ pagination.prev|url(alt=alt) }}">&laquo; {{ t_previous }}</a>
+      <a href="{{ pagination.prev|url(alt=alt) }}">&laquo; {{ "previous"|trans }}</a>
     {% else %}
-      <span class="disabled">&laquo; {{ t_previous }}</span>
+      <span class="disabled">&laquo; {{ "previous"|trans }}</span>
     {% endif %}
     | {{ pagination.page }} |
     {% if pagination.has_next %}
-      <a href="{{ pagination.next|url(alt=alt) }}">{{ t_next }} &raquo;</a>
+      <a href="{{ pagination.next|url(alt=alt) }}">{{ "next"|trans }} &raquo;</a>
     {% else %}
-      <span class="disabled">{{ t_next }} &raquo;</span>
+      <span class="disabled">{{ "next"|trans }} &raquo;</span>
     {% endif %}
   </div>
 {% endmacro %}

@@ -1,9 +1,5 @@
 {% extends "page.html" %}
-{% from "macros/breadcrumbs.html" import breadcrumbs %}
-{% from "macros/translation.html" import transbag %}
-
-{% set t_past_events = transbag('translate', this.alt, 'past_events') %}
-{% set t_upcoming_events = transbag('translate', this.alt, 'upcoming_events') %}
+{% from "macros/breadcrumbs.html" import breadcrumbs with context %}
 
 {% block title %}{{ this.title }}{% endblock %}
 
@@ -38,10 +34,10 @@
    and use Javascript (which will be evaluated at the time of viewing) to
    move upcoming events into the upcoming list. #}
 
-<h2>{{ t_upcoming_events }}</h2>
+<h2>{{ "upcoming_events"|trans }}</h2>
 <div id="upcoming-events"></div>
 
-<h2>{{ t_past_events }}</h2>
+<h2>{{ "past_events"|trans }}</h2>
 <div id="past-events">
 {% for child in this.children %}
     <p data-date="{{ child.date }}" data-end-date="{{ child.end_date or child.date }}">

@@ -1,23 +1,15 @@
-{% from "macros/translation.html" import transbag %}
-
 {% macro render_article_index(article) %}
-  {% set t_click_here_article = transbag('translate', article.alt, 'click_here_full_article') %}
-  {% set t_by = transbag('translate', article.alt, 'by').strip() %}
-  {% set t_published = transbag('translate', article.alt, 'published') %}
-  {% set t_space_after_by = transbag('translate', article.alt, 'space_after_by').strip() %}
-
   <h2><a href="{{ article.url }}"><i class="fa fa-file-text" aria-hidden="true"></i> {{ article.title }}</a></h2>
   <p>
-    {{ t_by }}{% if t_space_after_by != 'false' %} {% endif %}{{ article.author }};
-    {{ t_published }} {{ article.pub_date.strftime('%-d %B %Y') }}
+    {{ "by"|trans }}{% if "space_after_by"|trans != 'false' %} {% endif %}{{ article.author }};
+    {{ "published"|trans }} {{ article.pub_date.strftime('%-d %B %Y') }}
   </p>
   <p>{{ article.description }}</p>
-  <h6><a href="{{ article.url }}">{{ t_click_here_article }}</a></h6>
+  <h6><a href="{{ article.url }}">{{ "click_here_full_article"|trans }}</a></h6>
 {% endmacro %}
 
 {% macro render_article(article) %}
-  {% set t_click_here_article = transbag('translate', article.alt, 'click_here_full_article') %}
   {{ article.description }}
 
-  <h6><a href="{{ article.url }}">{{ t_click_here_article }}</a></h6>
+  <h6><a href="{{ article.url }}">{{ "click_here_full_article"|trans }}</a></h6>
 {% endmacro %}

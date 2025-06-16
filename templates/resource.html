@@ -1,15 +1,8 @@
 {% extends "page.html" %}
-{% from "macros/video.html" import render_video %}
-{% from "macros/podcast.html" import render_podcast %}
-{% from "macros/article.html" import render_article %}
-{% from "macros/breadcrumbs.html" import breadcrumbs %}
-{% from "macros/translation.html" import transbag %}
-
-{% set t_as_seen_at = transbag('translate', this.alt, 'as_seen_at') %}
-{% set t_by = transbag('translate', this.alt, 'by').strip() %}}
-{% set t_space_after_by = transbag('translate', this.alt, 'space_after_by').strip() %}}
-{% set t_published = transbag('translate', this.alt, 'published') %}
-{% set t_unknown_resource = transbag('translate', this.alt, 'unknown_resource') %}
+{% from "macros/video.html" import render_video with context %}
+{% from "macros/podcast.html" import render_podcast with context %}
+{% from "macros/article.html" import render_article with context %}
+{% from "macros/breadcrumbs.html" import breadcrumbs with context %}
 
 {% block preamble %}
 <div class="banner">
@@ -17,8 +10,8 @@
     <p>{{ breadcrumbs(this) }}</p>
     <h2>{{ this.title }}</h2>
     <p>
-      {{ t_by|capitalize }}{% if t_space_after_by != 'false' %} {% endif %}{{ this.author }};
-      {{ t_published }} {{ this.pub_date|datetimeformat("MMMM d, YYYY" ,locale=this.alt)|capitalize }}
+      {{ "by"|trans|capitalize }}{% if "space_after_by"|trans != 'false' %} {% endif %}{{ this.author }};
+      {{ "published"|trans }} {{ this.pub_date|datetimeformat("MMMM d, YYYY" ,locale=this.alt)|capitalize }}
     </p>
   </div>
 </div>
@@ -31,16 +24,16 @@
 {% elif this.resource_type == 'podcast' %}
   {{ render_podcast(this) }}
 {% else %}
-  {{ t_unknown_resource }}
+  {{ "unknown_resource"|trans }}
 {% endif %}
 {% endblock %}
 {% block gutter %}
 {% if this.event_name %}
   <div class="col-sm-12 col-md-4 gutter">
     {% if this.event_url %}
-    <p><a href="{{ this.event_url }}">{{ t_as_seen_at }} {{ this.event_name }}</a></p>
+    <p><a href="{{ this.event_url }}">{{ "as_seen_at"|trans }} {{ this.event_name }}</a></p>
     {% else %}
-    <p>{{ t_as_seen_at }} {{ this.event_name }}</p>
+    <p>{{ "as_seen_at"|trans }} {{ this.event_name }}</p>
     {% endif %}
   </div>
 {% endif %}

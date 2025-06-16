@@ -1,12 +1,6 @@
 {% extends "layout.html" %}
-{% from "macros/blog.html" import render_blog_post %}
-{% from "macros/breadcrumbs.html" import breadcrumbs %}
-{% from "macros/translation.html" import transbag %}
-
-{% set t_on = transbag('translate', this.alt, 'on') %}
-{% set t_posted_by = transbag('translate', this.alt, 'posted_by') %}
-{% set t_next_entry = transbag('translate', this.alt, 'next_entry') %}
-{% set t_previous_entry = transbag('translate', this.alt, 'previous_entry') %}
+{% from "macros/blog.html" import render_blog_post with context %}
+{% from "macros/breadcrumbs.html" import breadcrumbs with context %}
 
 {% block title %}{{ this.title }}{% endblock %}
 {% block preamble %}
@@ -14,7 +8,7 @@
   <div class="container">
     <p>{{ breadcrumbs(this) }}</p>
     <h1>{{ this.title }}</h1>
-    <p>{{ t_posted_by }}
+    <p>{{ "posted_by"|trans }}
         {% if this.mastodon_handle %}
         <a href="https://{{ this.mastodon_handle.split('@')[2] }}/@{{ this.mastodon_handle.split('@')[1] }}">{{ this.author or this.mastodon_handle }}</a>
         {% elif this.twitter_handle %}
@@ -22,7 +16,7 @@
         {% else %}
         {{ this.author }}
         {% endif %}
-        {{ t_on }} {{ this.pub_date.strftime('%Y/%m/%d')}}
+        {{ "on"|trans }} {{ this.pub_date.strftime('%Y/%m/%d')}}
     </p>
   </div>
 </div>
@@ -37,12 +31,12 @@
   <div class="col-sm-12 col-md-4 gutter">
     <dl>
       {% if this.has_prev() %}
-      <dt>{{ t_next_entry }}</dt>
+      <dt>{{ "next_entry"|trans }}</dt>
       <dd><a href="{{ this.get_siblings().prev_page|url(alt=this.alt)  }}">{{ this.get_siblings().prev_page.title }}</a></dd>
       {% endif %}
 
       {% if this.has_next() %}
-      <dt>{{ t_previous_entry }}</dt>
+      <dt>{{ "previous_entry"|trans }}</dt>
       <dd><a href="{{ this.get_siblings().next_page|url(alt=this.alt)  }}">{{ this.get_siblings().next_page.title }}</a></dd>
       {% endif %}
     </dl>

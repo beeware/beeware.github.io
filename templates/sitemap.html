@@ -1,9 +1,6 @@
 {% extends "page.html" %}
-{% from "macros/translation.html" import transbag %}
 
-{% set t_sitemap = transbag('translate', this.alt, 'sitemap') %}
-
-{% block title %}{{ t_sitemap }}{% endblock %}
+{% block title %}{{ "sitemap"|trans }}{% endblock %}
 {% block body %}
 <ul class="sitemap">
   {% for page in site.query('/', alt=this.alt) recursive %}

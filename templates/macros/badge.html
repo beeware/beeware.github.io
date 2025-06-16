@@ -1,12 +1,11 @@
-{% from "macros/translation.html" import transbag %}
+{% macro badge(name, value) %}
 
-{% macro badge(type, name, alt) %}
-
-{% if name is string  %}
-    <dt>{{ type }}:</dt><dd>{{ transbag('labels', alt, name) }}</dd>
+{% if value is string  %}
+    <dt>{{ name|trans }}:</dt><dd>{{ value|trans("labels") }}</dd>
 {% else %}
-    <dt>{{ type }}:</dt><dd>{% for n in name %}{% if loop.index != 1 %}, {% endif %} {{ transbag('labels', alt, n)|trim }}{% endfor %}</dd>
+{%- set comma = joiner() %}
+    <dt>{{ name|trans }}:</dt><dd>{% for v in value %}{{ comma() }}{{ v|trans("labels") }}{% endfor %}</dd>
 {% endif %}
 
-<!-- <img src="badges/{{type}}/{{name}}"> -->
+{#<!-- <img src="badges/{{type}}/{{name}}"> -->#}
 {% endmacro %}
