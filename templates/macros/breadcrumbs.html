@@ -1,10 +1,6 @@
-{% from "macros/translation.html" import transbag %}
-
 {% macro breadcrumbs(page) %}
-  {% set t_home = transbag('translate', page.alt, 'home') %}
-
   {% if not page.parent.parent %}
-  <a href="{{ '/'|url(alt=page.alt) }}">{{ t_home }}</a>
+  <a href="{{ '/'|url(alt=page.alt) }}">{{ "home"|trans}}</a>
   {% else %}
   {{ breadcrumbs(page.parent) }} &gt;
   <a href="{{ page.parent|url(alt=page.alt) }}">{{ page.parent.title }}</a>

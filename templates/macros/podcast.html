@@ -1,22 +1,15 @@
-{% from "macros/translation.html" import transbag %}
-
 {% macro render_podcast_index(episode) %}
-  {% set t_click_here_listen = transbag('translate', episode.alt, 'click_here_listen') %}
-  {% set t_by = transbag('translate', episode.alt, 'by').strip() %}
-  {% set t_published = transbag('translate', episode.alt, 'published') %}
-  {% set t_space_after_by = transbag('translate', episode.alt, 'space_after_by').strip() %}
-
   <h2><a href="{{ episode.url }}"><i class="fa fa-headphones" aria-hidden="true"></i> {{ episode.title }}</a></h2>
   <p>
-    {{ t_by }}{% if t_space_after_by != 'false' %} {% endif %}{{ episode.author }};
-    {{ t_published }} {{ episode.pub_date.strftime('%-d %B %Y') }}
+    {{ "by"|trans }}{% if "space_after_by"|trans != 'false' %} {% endif %}{{ episode.author }};
+    {{ "published"|trans }} {{ episode.pub_date.strftime('%-d %B %Y') }}
   </p>
   <p>{{ episode.description }}</p>
-  <h6><a href="{{ episode.url }}">{{ t_click_here_listen }}</a></h6>
+  <h6><a href="{{ episode.url }}">{{ "click_here_listen"|trans }}</a></h6>
 {% endmacro %}
 
 {% macro render_podcast(episode) %}
   {{ episode.description }}
 
-  <h6><a href="{{ episode.url }}">{{ t_click_here_listen }}</a></h6>
+  <h6><a href="{{ episode.url }}">{{ "click_here_listen"|trans }}</a></h6>
 {% endmacro %}

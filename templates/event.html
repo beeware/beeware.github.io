@@ -1,37 +1,20 @@
 {% extends "page.html" %}
-{% from "macros/breadcrumbs.html" import breadcrumbs %}
-{% from "macros/translation.html" import transbag %}
-{% from "macros/join_and.html" import join_and %}
-
-{% set t_running_sprint = transbag('translate', this.alt, 'running_sprint') %}
-{% set t_what_is_a_sprint = transbag('translate', this.alt, 'what_is_a_sprint') %}
-{% set t_challenge_coin = transbag('translate', this.alt, 'challenge_coin') %}
-{% set t_sprint_description = transbag('translate', this.alt, 'sprint_description') %}
-{% set t_sprint_video = transbag('translate', this.alt, 'sprint_pycon_video') %}
-{% set t_post_sprint_pycon_video = transbag('translate', this.alt, 'post_sprint_pycon_video') %}
-{% set t_date = transbag('translate', this.alt, 'date') %}
-{% set t_speakers = transbag('translate', this.alt, 'speakers') %}
-{% set t_sprinters = transbag('translate', this.alt, 'sprinters') %}
-{% set t_and = transbag('translate', this.alt, 'and') %}
-{% set t_event_more_info = transbag('translate', this.alt, 'event_more_info') %}
-{% set t_website = transbag('translate', this.alt, 'website') %}
-
-{% set t_sprint_helping = transbag('translate', this.alt, 'sprint_helping') %}
-{% set t_sprint_helping_plural = transbag('translate', this.alt, 'sprint_helping_plural') %}
+{% from "macros/breadcrumbs.html" import breadcrumbs with context %}
+{% from "macros/join_and.html" import join_and with context %}
 
 {%
   set event_type_verbs = {
     "talk": {
-        "before": transbag('translate', this.alt, 'speaking_before_title'),
-        "after": transbag('translate', this.alt, 'speaking_after_title'),
+        "before": "speaking_before_title"|trans,
+        "after": "speaking_after_title"|trans,
     },
     "keynote": {
-        "before": transbag('translate', this.alt, 'keynoting_before_title'),
-        "after": transbag('translate', this.alt, 'keynoting_after_title'),
+        "before": "keynoting_before_title"|trans,
+        "after": "keynoting_after_title"|trans,
     },
     "tutorial": {
-        "before": transbag('translate', this.alt, 'tutorial_before_title'),
-        "after": transbag('translate', this.alt, 'tutorial_after_title'),
+        "before": "tutorial_before_title"|trans,
+        "after": "tutorial_after_title"|trans,
     },
   }
 %}
@@ -47,7 +30,7 @@
         )
     %}
 {% endfor %}
-{% set t_speakers_list = join_and(speaker_names.values()|list, t_and) %}
+{% set speakers_list = join_and(speaker_names.values()|list) %}
 
 {% block title %}{{ this.title }}{% endblock %}
 
@@ -63,15 +46,16 @@
 
 {% block main %}
 {% if this.event_type in event_type_verbs %}
-  <p>{{ t_speakers_list }} {{ event_type_verbs[this.event_type]["before"] }} {{ this.title }} {{ event_type_verbs[this.event_type]["after"] }} "<a href="{{ this.url }}">{{ this.talk_title }}</a>".</p>
+  <p>{{ speakers_list }} {{ event_type_verbs[this.event_type]["before"] }} {{ this.title }} {{ event_type_verbs[this.event_type]["after"] }} "<a href="{{ this.url }}">{{ this.talk_title }}</a>".</p>
 {% elif this.event_type == "sprint" %}
-  <p>{{ t_running_sprint }} {{ this.title }}.</p>
+  <p>{{ "running_sprint"|trans }} {{ this.title }}.</p>
   <p>
-    {{ t_speakers_list }} {% if this.speaker|length > 1 %}{{ t_sprint_helping_plural }}{% else %}{{ t_sprint_helping }}{% endif %} <a href="{{ '/contributing/challenge-coins/'|url(alt=this.alt) }}">{{ t_challenge_coin }}</a>.
+    {{ speakers_list }} {% if this.speaker|length > 1 %}{{ "sprint_helping_plural"|trans }}{% else %}{{ "sprint_helping"|trans }}{% endif %} <a href="{{ '/contributing/challenge-coins/'|url(alt=this.alt) }}">{{ "challenge_coin"|trans }}</a>.
   </p>
-  <p>{{ t_event_more_info }} <a href="{{ this.url }}">{{ this.title }} {{ t_website }}</a>.</p>
-  <h3>{{ t_what_is_a_sprint }}</h3>
-  <p>{{ t_sprint_description }} <a href="https://www.youtube.com/watch?v=hOtKgFaFcz0">{{ t_sprint_video }}</a> {{ t_post_sprint_pycon_video }} </p>
+  <p>{{ "event_more_info"|trans }} <a href="{{ this.url }}">{{ this.title }} {{ "website"|trans }}</a>.</p>
+  <h3>{{ "what_is_a_sprint"|trans }}</h3>
+  {%- set post = "post_sprint_pycon_video"|trans %}
+  <p>{{ "sprint_description"|trans }} <a href="https://www.youtube.com/watch?v=hOtKgFaFcz0">{{ "sprint_pycon_video"|trans }}</a>{% if post %} {% endif %}{{ post }}.</p>
 {% endif %}
 <p><em>{{ this.description }}</em></p>
 {% endblock %}
@@ -79,13 +63,13 @@
 {% block gutter %}
   <div class="col-sm-12 col-md-4 gutter">
     <dl>
-      <dt>{{ t_date }}:</dt>
+      <dt>{{ "date"|trans }}:</dt>
       <dd>{{ this.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if this.end_date %} - {{this.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}</dd>
 
       {% if this.event_type == "sprint" %}
-        <dt>{{ t_sprinters }}:</dt>
+        <dt>{{ "sprinters"|trans }}:</dt>
       {% elif this.event_type == "talk" %}
-        <dt>{{ t_speakers }}:</dt>
+        <dt>{{ "speakers"|trans }}:</dt>
       {% endif %}
       <dd>
         <ul>

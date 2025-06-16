@@ -1,22 +1,15 @@
-{% from "macros/translation.html" import transbag %}
-
 {% macro render_video_index(video) %}
-  {% set t_as_seen_at = transbag('translate', video.alt, 'as_seen_at') %}
-  {% set t_by = transbag('translate', video.alt, 'by').strip() %}
-  {% set t_published = transbag('translate', video.alt, 'published') %}
-  {% set t_space_after_by = transbag('translate', video.alt, 'space_after_by').strip() %}
-
   <h2><i class="fa fa-video-camera" aria-hidden="true"></i> {{ video.title }}</h2>
   <p>
-    {{ t_by }}{% if t_space_after_by != 'false' %} {% endif %}{{ video.author }};
-    {{ t_published }} {{ video.pub_date.strftime('%-d %B %Y') }}
+    {{ "by"|trans }}{% if "space_after_by"|trans != 'false' %} {% endif %}{{ video.author }};
+    {{ "published"|trans }} {{ video.pub_date.strftime('%-d %B %Y') }}
   </p>
   <iframe class="video" src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
   <p>{{ video.description }}</p>
   {% if video.event_url %}
-  <p><a href="{{ video.event_url }}">{{ t_as_seen_at }} {{ video.event_name }}</a></p>
+  <p><a href="{{ video.event_url }}">{{ "as_seen_at"|trans }} {{ video.event_name }}</a></p>
   {% else %}
-  <p>{{ t_as_seen_at }} {{ video.event_name }}</p>
+  <p>{{ "as_seen_at"|trans }} {{ video.event_name }}</p>
   {% endif %}
 {% endmacro %}
 
