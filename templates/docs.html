@@ -57,9 +57,14 @@
                 </div>
             </div>
         </div>
+    <div class="apps-and-utilities">
+    <div class="d-flex justify-content-center">
+        <h2>Documentation</h2>
+    </div>
     {% for child in this.children %}
     {% if child.sort_key %}
         {% if child.project_page_description %}
+            <div class="col-md-6 docs-{{ child.title }}">
         <h2><a href="{{ child|url(alt=this.alt) }}">{{ child.title }}</a></h2>
         <div class="important-description">{{ child.project_page_description }}</div>
             {% for project in child.children %}
@@ -68,11 +73,11 @@
             <img src="{{ site.get(project.path, alt='_primary')|url }}{{ project.image }}" height="72px" alt="{{ project.name }}" class="pull-xs-left">
             <h2><a href="{{ project|url(alt=project.alt) }}">{{ project.name }}</a></h2>
                   {{ project.short_description|safe }}
-        </div>
                 {% endif %}
             {% endfor %}
             <a href="{{ child|url(alt=child.alt) }}">... and others</a>
-        {% else %}
+            </div>
+        </div>
         {% endif %}
     {% endif %}
     {% endfor %}
@@ -83,5 +88,5 @@
 {#            </div>#}
 {#    </div>#}
 </div>
-</div>
+
 {% endblock %}
