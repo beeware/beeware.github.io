@@ -19,6 +19,8 @@
   }
 %}
 
+{# Note: for some reason this has to be defined outside of the block it's needed in. #}
+{% set pycon_link = link_to("https://www.youtube.com/watch?v=hOtKgFaFcz0") %}
 {% set member_slugs = this.speaker %}
 {% set members = site.query("/about/team") %}
 {% set speaker_names = {} %}
@@ -54,8 +56,7 @@
   </p>
   <p>{{ "event_more_info"|trans }} <a href="{{ this.url }}">{{ this.title }} {{ "website"|trans }}</a>.</p>
   <h3>{{ "what_is_a_sprint"|trans }}</h3>
-  {%- set post = "post_sprint_pycon_video"|trans %}
-  <p>{{ "sprint_description"|trans }} <a href="https://www.youtube.com/watch?v=hOtKgFaFcz0">{{ "sprint_pycon_video"|trans }}</a>{% if post %} {% endif %}{{ post }}.</p>
+  <p>{{ "sprint_description"|trans }}</p>
 {% endif %}
 <p><em>{{ this.description }}</em></p>
 {% endblock %}
