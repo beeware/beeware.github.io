@@ -6,22 +6,57 @@
 <div class="banner">
   <div class="container">
       <div class="row">
-          <div class="col">
             <p>{{ breadcrumbs(this) }}</p>
             <h1>{{ this.title }}</h1>
-            <p>{{ this.summary }}</p>
-          </div>
-          <div class="col tutorial-button-docs">
-          </div>
+{#            <p>{{ this.summary }}</p>#}
       </div>
   </div>
 </div>
 {% endblock %}
 {% block body %}
 <div class="row">
-    <div class="col-md-7 mr-auto">
-            <a role="button" href="https://tutorial.beeware.org" class="btn btn-primary btn-lg tutorial-button">Take the Tutorial</a>
-        {{ this.body }}
+    <div class="col">
+        <div class="tutorial-docs row">
+            <div class="tutorial-bee-docs col-4">
+                <img src="{{ '/static/images/brutus-128.png'|asseturl }}">
+            </div>
+            <div class="col">
+                <div class="row tutorial-info-docs">
+                    <h3>New to BeeWare?</h3>
+                </div>
+                <div class="row tutorial-button-docs">
+                    <a role="button" href="https://tutorial.beeware.org" class="btn btn-primary btn-lg tutorial-button">Take the Tutorial</a>
+                </div>
+            </div>
+        </div>
+{#        {{ this.body }}#}
+    <div class="featured-title d-flex justify-content-center">
+        <h2>Featured Documentation</h2>
+    </div>
+        <div class="row">
+            <div class="col">
+                <div class="featured-documentation">
+                    <img src="/docs/toga/toga.png" height="125px" class="pull-xs-left">
+                </div>
+                <div class="featured-documentation">
+                    <h2><a href="https://toga.beeware.org">Toga</a></h2>
+                </div>
+                <div class="featured-documentation">
+                    A Python native, OS native GUI toolkit.
+                </div>
+            </div>
+            <div class="col">
+                <div class="featured-documentation">
+                <img src="/docs/briefcase/briefcase.png" height="125px" class="pull-xs-left">
+                </div>
+                <div class="featured-documentation">
+                <h2><a href="https://briefcase.beeware.org">Briefcase</a></h2>
+                </div>
+                <div class="featured-documentation">
+                Convert a Python project into a standalone native application.
+                </div>
+            </div>
+        </div>
     {% for child in this.children %}
     {% if child.sort_key %}
         {% if child.project_page_description %}
@@ -38,20 +73,15 @@
             {% endfor %}
             <a href="{{ child|url(alt=child.alt) }}">... and others</a>
         {% else %}
-        <div class="clearfix project showcase">
-            <img src="{{ site.get(child.path, alt='_primary')|url }}{{ child.image }}" height="125px" class="pull-xs-left">
-            <h2><a href="{{ child|url(alt=this.alt) }}">{{ child.name }}</a></h2>
-            {{ child.short_description|safe }}
-        </div>
         {% endif %}
     {% endif %}
     {% endfor %}
     </div>
-    <div class="col-md-4">
-        <div class="sidebar-module sidebar-module-inset gutter">
-            {{ this.gutter }}
-            </div>
-    </div>
+{#    <div class="col-md-4">#}
+{#        <div class="sidebar-module sidebar-module-inset gutter">#}
+{#            {{ this.gutter }}#}
+{#            </div>#}
+{#    </div>#}
 </div>
 </div>
 {% endblock %}
