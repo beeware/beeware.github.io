@@ -5,15 +5,22 @@
 {% block preamble %}
 <div class="banner">
   <div class="container">
-    <p>{{ breadcrumbs(this) }}</p>
-    <h1>{{ this.title }}</h1>
-    <p>{{ this.short_description }}</p>
+      <div class="row">
+          <div class="col">
+            <p>{{ breadcrumbs(this) }}</p>
+            <h1>{{ this.title }}</h1>
+            <p>{{ this.summary }}</p>
+          </div>
+          <div class="col tutorial-button-docs">
+          </div>
+      </div>
   </div>
 </div>
 {% endblock %}
 {% block body %}
 <div class="row">
     <div class="col-md-7 mr-auto">
+            <a role="button" href="https://tutorial.beeware.org" class="btn btn-primary btn-lg tutorial-button">Take the Tutorial</a>
         {{ this.body }}
     {% for child in this.children %}
     {% if child.sort_key %}
