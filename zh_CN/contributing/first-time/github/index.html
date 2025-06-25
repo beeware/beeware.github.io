@@ -114,7 +114,7 @@
   <a href="/zh_CN/contributing/">贡献</a>
   
  &gt;
-  <a href="/zh_CN/contributing/first-time/">首次撰稿人</a>
+  <a href="/zh_CN/contributing/first-time/">首次贡献者</a>
   
 </p>
     <h1>使用 GitHub</h1>
@@ -128,29 +128,26 @@
   
 
   
-    <p>本 GitHub 教程以<a href="https://github.com/DjangoGirls/tutorial">DjangoGirls 如何
-贡献教程</a>的基础上精心编写而成。
-以知识共享署名-相同方式共享 4.0 许可协议发布。</p>
+    <p>本 GitHub 教程以 <a href="https://github.com/DjangoGirls/tutorial">DjangoGirls 如何贡献教程</a> 的基础上精心编写而成，以
+CC 署名—相同方式共享 4.0 协议发布。</p>
 <p>在本教程中，我们将以
-<a href="https://github.com/beeware/briefcase">公文包</a> 资源库作为链接和参考的基础。
-链接和参考资料。</p>
+<a href="https://github.com/beeware/briefcase">Briefcase</a>
+仓库作为链接和参考的基础。</p>
 <h2>开始和先决条件</h2>
 <p>要为 BeeWare 做出贡献，您需要具备以下条件：</p>
 <ul>
 <li>一个 <a href="https://github.com">GitHub 账户</a></li>
-<li>如果是复杂的编辑，熟悉<a href="https://docs.github.com/articles/set-up-git">Git 命令行
-基础知识</a> 或熟悉
-应用程序（<a href="https://desktop.github.com/">Windows 和 Mac</a>），以便将电脑上的编辑推送到 GitHub。
-将电脑上的编辑推送到 GitHub。</li>
+<li>如果是复杂的编辑，熟悉 <a href="https://docs.github.com/articles/set-up-git">Git
+命令行基础知识</a>或熟悉可讲将电脑上的编辑推送到
+GitHub
+的应用程序（<a href="https://desktop.github.com/">Windows 和 Mac</a>）。</li>
 </ul>
-<h2>叉仓库</h2>
-<p>首先，将 <a href="https://github.com/beeware/briefcase">Briefcase</a>
-仓库到您的个人 GitHub 账户：</p>
+<h2>Fork 仓库</h2>
+<p>首先，将 <a href="https://github.com/beeware/briefcase">Briefcase</a> 仓库 Fork 到您的个人 GitHub 账户：</p>
 <p><img src="/contributing/first-time/github/fork.png" class="img-fluid" alt="Fork 按钮" /></p>
 <h2>编辑文档</h2>
 <h2>简单更改</h2>
-<p>对于简单的更改，如错字更正，您可以使用 GitHub 在线
-编辑器：</p>
+<p>对于简单的更改，如错字更正，您可以使用 GitHub 在线编辑器：</p>
 <ul>
 <li>打开 GitHub 上的本地 fork 页面、</li>
 <li>进入任意章节的 <em>README.rst</em> 文件、</li>
@@ -158,61 +155,55 @@
 </ul>
 <p>并可直接在 github.com 上编辑该章节。</p>
 <p><img src="/contributing/first-time/github/edit.png" class="img-fluid" alt="编辑按钮" /></p>
-<p>RST 语法用于编辑文件的各个页面。</p>
+<p>文档的各个页面使用 RST 语法编辑。</p>
 <p><img src="/contributing/first-time/github/github_editor.png"
 class="img-fluid" alt="GitHub 编辑器" /></p>
 <p>备注</p>
-<p>!以上截图可能无法反映 GitHub 仓库中的当前内容。实时版本库会不时更改。但是，提交拉取请求的流程保持不变。</p>
-<p>保存更改并创建拉取请求，如下所述。</p>
+<div class="admonition admonition-note"><p>以上截图可能无法反映 GitHub 仓库中的当前内容。实时仓库会不时更改。但是，提交拉取请求的流程保持不变。</p></div><p>保存更改并创建 PR，如下所述。</p>
 <h2>新代码和复杂更改</h2>
-<p>如果要添加新代码、扩展类或进行复杂的修改，您需要
-将代码拷贝到本地计算机。</p>
-<p>使用操作系统的 GitHub 应用程序（如上所述）或
-命令行获取本地版本库。您可以从自己的
-地址：</p>
+<p>如果要添加新代码、扩展类或进行复杂的修改，您需要将代码拷贝到本地计算机。</p>
+<p>使用操作系统的 GitHub 应用程序（如上所述）或命令行在本地获取仓库。您可以从自己的
+GitHub 仓库
+Fork 的首页获取地址：</p>
 <pre><code>git clone git@github.com:yourusername/briefcase.git
 </code></pre>
-<p>然后，创建一个分支，将新的更改放在其中。将分支称为
-分支的名称。</p>
+<p>然后，创建一个 branch，将新的更改放在其中。将 branch 的命名为跟您将做的更改相关的名字。</p>
 <pre><code>git checkout -b update_documentation
 </code></pre>
-<p>对代码进行任何修改，确保这些修改经过测试，并保存在本地
-本地保存。</p>
-<p>然后使用 <code>git</code> 提交更改，并将更改推送到远程
-GitHub 仓库。</p>
+<p>对代码进行任何修改，确保这些修改经过测试，并保存在本地保存。</p>
+<p>然后使用 <code>git</code> 提交更改，并将更改推送到远程 GitHub
+仓库。</p>
 <p>例如：</p>
 <pre><code>$ git status
-在分支 update_documentation 上
-未跟踪文件：
-  (使用 "git add &lt;file&gt;..." 添加将提交的文件）
+On branch update_documentation
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
 
     README.rst
 
-git add README.rst
+$ git add README.rst
 
-$ git commit -m "更新公文包的 README.rst 文档" [update_documentation fe36152] 已添加 gitbook 截图
-[update_documentation fe36152] 已添加 gitbook 截图
- 更改了 1 个文件，0 个插入(+)，0 个删除(-)
- 创建模式 100644 README.rst
+$ git commit -m "Update README.rst documentation for Briefcase"
+[update_documentation fe36152] Added gitbook screenshot
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.rst
 
 $ git push
-清点对象：11 个，已完成。
-最多使用 8 个线程进行 Delta 压缩。
-压缩对象：100% (5/5)，已完成。
-写入对象：100% (5/5), 266.37 KiB | 0 bytes/s, 已完成。
-总计 5 (三角 1)，重复使用 0 (三角 0)
-至 git@github.com:yourusername/briefcase.git
-   b37ca59...fe36152 update_documentation -&gt; update_documentation
+Counting objects: 11, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 266.37 KiB | 0 bytes/s, done.
+Total 5 (delta 1), reused 0 (delta 0)
+To git@github.com:yourusername/briefcase.git
+   b37ca59..fe36152  update_documentation -&gt; update_documentation
 </code></pre>
-<h2>提交拉取请求</h2>
+<h2>提交 PR (pull request)</h2>
 <p>完成修改后，您需要在 GitHub 上创建<a href="https://help.github.com/articles/about-pull-requests/">一个 pull request</a>。BeeWare 将收到拉取请求的通知，审核您的修改，并根据需要提出修改建议，然后<em>拉取</em>您的修改到主版本中。</p>
 <p>在 GitHub 上自己的仓库中，按 <em>Compare &amp; pull request</em> 键</p>
 <p><img src="/contributing/first-time/github/pull_request.png"
 class="img-fluid" alt="image4" /></p>
-<p>填写*为什么要做此更改的信息。审核人
-可以看到实际更改的细节，因此您无需重复更改的
-更改内容。</p>
-<p>然后按<em>创建拉取请求</em>。</p>
+<p>填写<em>为什么</em>要做此更改的信息。审核人可以看到实际更改的细节，因此您无需重复更改内容。</p>
+<p>然后按下 <em>Create pull request</em>。</p>
 <p>GitHub 会通过电子邮件通知您后续流程。</p>
 <hr>
 
