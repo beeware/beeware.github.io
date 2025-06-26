@@ -14,6 +14,10 @@
 {% endmacro %}
 
 {% macro render_video(video) %}
+  {% if video.embeddable == 'false' %}
+  <p><a href="{{ video.url }}">Click here to watch video</a></p>
+  {% else %}
   <iframe class="video" src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
+  {% endif %}
   {{ video.description }}
 {% endmacro %}
