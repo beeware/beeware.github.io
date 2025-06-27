@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Buzz</title><link href="http://beeware.org/zh_TW/news/buzz/" rel="alternate"></link><link href="http://beeware.org/ar_AR/news/buzz/atom.xml" rel="self"></link><id>urn:uuid:0f18b85e-c1d4-3086-935d-f801edebea16</id><updated>2025-06-13T00:00:00Z</updated><author><name></name></author><subtitle>BeeWare 官方部落格</subtitle><entry><title>2025 Curtin University Capstone Project</title><link href="http://beeware.org/news/buzz/2025-curtin-capstone-semester-end-blog/" rel="alternate"></link><updated>2025-06-13T00:00:00Z</updated><author><name>Curtin Capstone Team</name></author><id>urn:uuid:5f58a655-292a-3332-b3ae-b0daf706f448</id><content type="html">&lt;p&gt;Over the past semester, a team of final year students from &lt;a href="https://www.curtin.edu.au"&gt;Curtin University&lt;/a&gt; has been collaborating with the BeeWare Project as part of a capstone project for their degrees. Here's a summary of what they've done so far this semester, and what they have planned for the rest of the year.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Buzz</title><link href="http://beeware.org/zh_TW/news/buzz/" rel="alternate"></link><link href="http://beeware.org/ar_AR/news/buzz/atom.xml" rel="self"></link><id>urn:uuid:0f18b85e-c1d4-3086-935d-f801edebea16</id><updated>2025-07-01T00:00:00Z</updated><author><name></name></author><subtitle>BeeWare 官方部落格</subtitle><entry><title>June 2025 Status Update</title><link href="http://beeware.org/news/buzz/june-2025-status-update/" rel="alternate"></link><updated>2025-07-01T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:f5f7d9b7-ca61-3061-b007-eb6de01b34b4</id><content type="html">&lt;p&gt;June has been a busy month, with some big improvements to BeeWare's websites and documentation, and some major milestones reached in our work on mobile packaging.&lt;/p&gt;
+&lt;h2&gt;What we've done&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://pypi.org/project/cibuildwheel/3.0.0/"&gt;cibuildwheel 3.0&lt;/a&gt; has been released - including iOS support! As a result, we've been able to submit pull requests for &lt;a href="https://github.com/amitdev/lru-dict/pull/73"&gt;lru-dict&lt;/a&gt; and &lt;a href="https://github.com/python-pillow/Pillow/pull/9030"&gt;Pillow&lt;/a&gt;, proposing the addition of iOS support. Work on &lt;a href="https://github.com/pypa/cibuildwheel/pull/2349"&gt;adding Android support&lt;/a&gt; is still underway.&lt;/li&gt;
+&lt;li&gt;An &lt;a href="https://buildbot.python.org/#/builders/1810"&gt;Emscripten CPython buildbot is now live&lt;/a&gt;! The buildbot is currently failing 2 tests; but having a buildbot &lt;em&gt;at all&lt;/em&gt; is a major step towards restoring Tier-3 support, and will help detect regressions on Emscripten as a platform.&lt;/li&gt;
+&lt;li&gt;We've started a big review of the structure of our documentation, with a view to resolving a number of inconsistencies between platforms. This review will also involve a visual refresh, making BeeWare docs have a style consistent with the homepage; and improvements to how the documentation for BeeWare's individual projects fit into the overall BeeWare website. &lt;/li&gt;
+&lt;li&gt;We added &lt;a href="https://github.com/beeware/briefcase/pull/2336"&gt;iCloud detection to Briefcase&lt;/a&gt;. iCloud Drive synchronisation adds metadata to some folders that prevents signing infrastructure from working; this has been a recurring source of problems during tutorials.&lt;/li&gt;
+&lt;li&gt;We massively &lt;a href="https://github.com/beeware/briefcase/pull/2284"&gt;improved file type associations for macOS&lt;/a&gt;. Briefcase previously supported macOS file associations, but expressed some very specific opinions on how files would be used. With these new improvements, it should be possible to support almost any macOS file type association requirements that an application might have.&lt;/li&gt;
+&lt;li&gt;We modified Briefcase so &lt;a href="https://github.com/beeware/briefcase/pull/2333"&gt;it can package, sign and notarise applications that weren't built with Briefcase&lt;/a&gt;. We've spent a lot of time automating the processes for building installers, and for managing signing and notarization - and almost none of that work depends on using Briefcase to build the app being packaged. With these modifications, you can now point Briefcase at an app that was built with a different tool, and Briefcase will manage the packaging and signing that is required.&lt;/li&gt;
+&lt;li&gt;We've started the process of &lt;a href="https://github.com/beeware/briefcase/pull/2355"&gt;upgrading Briefcase to use a newer version of WiX for Windows MSI packaging&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We added a &lt;a href="https://github.com/beeware/toga/pull/3527"&gt;Slider widget to the Web backend&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We added a DateInput widget to the &lt;a href="https://github.com/beeware/toga/pull/3483"&gt;iOS&lt;/a&gt; and &lt;a href="https://github.com/beeware/toga/pull/3574"&gt;macOS&lt;/a&gt; backends.&lt;/li&gt;
+&lt;li&gt;We added a TimeInput widget to the &lt;a href="https://github.com/beeware/toga/pull/3536"&gt;iOS&lt;/a&gt; and &lt;a href="https://github.com/beeware/toga/pull/3574"&gt;macOS&lt;/a&gt; backends. &lt;/li&gt;
+&lt;li&gt;We modified the handling of Toga app paths so that &lt;a href="https://github.com/beeware/toga/pull/3543"&gt;requesting a path guarantees that it exists&lt;/a&gt;. This is a significant improvement to user experience, as it's no longer necessary to "check and create" every time you access an app path.&lt;/li&gt;
+&lt;li&gt;We resolved a long-standing instability in the macOS and iOS testbed app that &lt;a href="https://github.com/beeware/toga/pull/3557"&gt;caused intermittent failures in the WebView tests&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;We added a new &lt;a href="https://github.com/beeware/toga/pull/3552"&gt;topic guide on managing file system access in Toga apps&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We modified the handling of font specifications in Toga apps. You can now provide &lt;a href="https://github.com/beeware/toga/pull/3526"&gt;a list of fonts&lt;/a&gt;, as you would in CSS, and the first available font in that list will be used.&lt;/li&gt;
+&lt;li&gt;We &lt;a href="https://github.com/beeware/toga/pull/3570"&gt;corrected a number of issues with document-based apps&lt;/a&gt;. This was detected while upgrading Podium, BeeWare's slide presentation tool, to use a recent version of Toga.&lt;/li&gt;
+&lt;li&gt;Our Curtin students &lt;a href="https://beeware.org/news/buzz/2025-curtin-capstone-semester-end-blog/"&gt;delivered their mid-year report&lt;/a&gt; - including plans for the work they're intending to complete in the second half of the year.&lt;/li&gt;
+&lt;li&gt;We completed the process of migrating BeeWare's core projects to use Ruff, rather than a combination of flake8, sort, pyupgrade, and more.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;What's next?&lt;/h2&gt;
+&lt;p&gt;With the public release of cibuildwheel 3.0, we've been able to start submitting pull requests upstream for projects to officially support iOS. In July, we'll continue that work, with the aim of having some official iOS wheels for major projects that &lt;em&gt;aren't&lt;/em&gt; published by BeeWare. We'll also continue working on adding Android support to cibuildwheel, with the hope that it will be included in version 3.1.&lt;/p&gt;
+&lt;p&gt;We're also hoping to start the process of integrating the production of iOS and Android binary artefacts into Python releases. This will hopefully also involve integrating iOS and Android into CPython's pre-merge CI tooling, which will hopefully limit the incidence of changes that are landed into CPython that break iOS and Android.&lt;/p&gt;
+&lt;p&gt;We'll also be attending EuroPython, where we will be &lt;a href="https://ep2025.europython.eu/session/building-a-cross-platform-app-with-beeware"&gt;giving a tutorial&lt;/a&gt;, attending the &lt;a href="https://ep2025.europython.eu/session/webassembly-summit"&gt;WebAssembly summit&lt;/a&gt;, and &lt;a href="https://ep2025.europython.eu/sprints/"&gt;running a BeeWare sprint&lt;/a&gt;. If you can make it  to Prague in July, &lt;a href="https://ep2025.europython.eu/tickets/"&gt;tickets are still available&lt;/a&gt; - we hope to see you there!&lt;/p&gt;
+&lt;h2&gt;Want to get involved?&lt;/h2&gt;
+&lt;p&gt;Want to get involved? We curate issues that should be approachable for first-time contributors to BeeWare. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you're interested in the tooling for deploying applications to various platforms, take a look at &lt;a href="https://github.com/beeware/briefcase/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22"&gt;Briefcase&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Or, if you're interested in GUI widgets, take a look at &lt;a href="https://github.com/beeware/toga/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22"&gt;Toga&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These lists can also be filtered by platform - so you can find issues that are specific to your preferred operating system. Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a &lt;a href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html"&gt;guide on setting up a Briefcase development environment&lt;/a&gt;; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the &lt;a href="https://beeware.org/bee/chat/"&gt;BeeWare Discord server&lt;/a&gt;.&lt;/p&gt;
+</content></entry><entry><title>2025 Curtin University Capstone Project</title><link href="http://beeware.org/news/buzz/2025-curtin-capstone-semester-end-blog/" rel="alternate"></link><updated>2025-06-13T00:00:00Z</updated><author><name>Curtin Capstone Team</name></author><id>urn:uuid:5f58a655-292a-3332-b3ae-b0daf706f448</id><content type="html">&lt;p&gt;Over the past semester, a team of final year students from &lt;a href="https://www.curtin.edu.au"&gt;Curtin University&lt;/a&gt; has been collaborating with the BeeWare Project as part of a capstone project for their degrees. Here's a summary of what they've done so far this semester, and what they have planned for the rest of the year.&lt;/p&gt;
 &lt;h2&gt;Curtin Capstone&lt;/h2&gt;
 &lt;p&gt;Capstone is the final year project undertaken by students across all computing disciplines at Curtin University, including Computer Science, Software Engineering, Cyber Security, and Information Technology. It allows students the opportunity to work in teams on real-world projects in collaboration with industry partners, gaining practical experience and professional exposure before graduating.&lt;/p&gt;
 &lt;p&gt;This year our team has had the exciting opportunity to contribute to BeeWare for our Capstone project.&lt;/p&gt;
@@ -4524,91 +4556,4 @@ and reliable development story. Once this foundation is established,
 we'll be in a much better position to rapidly develop new features that
 &lt;em&gt;are&lt;/em&gt; visible - and to ensure that those features are stable and
 reliable as BeeWare develops.&lt;/p&gt;
-</content></entry><entry><title>May 2022 Status Update</title><link href="http://beeware.org/news/buzz/may-2022-status-update/" rel="alternate"></link><updated>2022-06-01T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:26a35eae-e73a-3108-939b-9e50b9b06937</id><content type="html">&lt;p&gt;It's been another busy month at the hive! The progress we made in May
-isn't as obvious as last month - but the changes that have been made are
-an essential part of ensuring we have a stable foundation for future
-work on the BeeWare ecosystem.&lt;/p&gt;
-&lt;h2&gt;What we've done&lt;/h2&gt;
-&lt;p&gt;During May:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/Python-Apple-support/pull/145"&gt;We updated the Apple support
-packages&lt;/a&gt;.
-These updates aren't &lt;em&gt;just&lt;/em&gt; a version bump - they also added support
-that enables the iOS emulator to run natively on M1 devices. This
-required a major restructure of the way the support packages are
-bundled, using Apple's new XCframework library packaging format.&lt;/li&gt;
-&lt;li&gt;We addressed an issue with the use of ctypes on physical iOS devices.
-ctypes is a core part of the infrastructure we use to integrate with
-the iOS system libraries, so resolving this bug was critical for
-distributing apps. The fix was &lt;a href="https://github.com/libffi/libffi/pull/718"&gt;deep in the core of
-libFFI&lt;/a&gt;, and has been
-submitted for integration into the upstream project.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/Python-Android-support/pull/37"&gt;We released an Android support package for Python
-3.10&lt;/a&gt;, as
-well as updated support packages for Python 3.7, 3.8, and 3.9. These
-support packages dramatically are now dramatically smaller, and result
-in smaller end-user applications, thanks to some compiler flag
-optimisations suggested by the community.&lt;/li&gt;
-&lt;li&gt;We began the process of adding support for Python 3.11 to the Apple
-and Android support packages. This is the first time BeeWare has been
-able to contribute prerelease testing to the CPython project. In the
-process, we &lt;a href="https://github.com/python/cpython/issues/92913"&gt;discovered a small backwards
-incompatibility&lt;/a&gt;.
-Baring major incidents, we should be in a position to release
-BeeWare's support for Python 3.11 on the same day as the official
-3.11.0 is finalised.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/Python-support-testbed"&gt;We developed an acceptance test suite for the Apple and Android
-support packages&lt;/a&gt;.
-This test suite tests for features in the Python core that have a
-history of being broken (such as modules in the standard library that
-have binary components, but have been incorrectly compiled or
-inadvertently excluded from the build). This test suite isn't yet
-formally integrated into the build process, but the hope is that it
-will be in the near future.&lt;/li&gt;
-&lt;li&gt;We modified Briefcase so that it is able to &lt;a href="https://github.com/beeware/briefcase/pull/719"&gt;run the Android emulator
-on M1 hardware&lt;/a&gt;. This
-required a major rebuild of the way the Android SDK tooling is
-managed.&lt;/li&gt;
-&lt;li&gt;We made further improvements to the log capture tools on macOS. This
-ensures that &lt;a href="https://github.com/beeware/briefcase/pull/731"&gt;the first few seconds of application logs are reliably
-captured&lt;/a&gt;, and the &lt;a href="https://github.com/beeware/briefcase/pull/742"&gt;log
-stream is terminated when the app
-exits&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/pull/744"&gt;We started the introduction of Black as a part of BeeWare's
-development tooling&lt;/a&gt;.
-BeeWare's repositories have always enforced code style guidelines, and
-those code styles are very closely aligned with Black's choices. With
-Black formally moving out of Beta status at the start of this year,
-the time has come to start adopting Black as a formal project
-requirement. For now, Briefcase is the only project that has formally
-adopted Black, but you can expect this to continue to roll out over
-the other projects in BeeWare over the coming months.&lt;/li&gt;
-&lt;li&gt;We resolved some minor bugs that were present in the 0.3.0dev33
-release of Toga. Most important of these was a bug that &lt;a href="https://github.com/beeware/toga/pull/1492"&gt;prevented the
-BeeWare tutorial running on iOS
-devices&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Many of these changes either began as, or are entirely the work of
-community members. There are also plenty of smaller PRs, bug fixes, and
-bug reports that are just as important, but are too numerous to list. A
-huge thanks to everyone who has contributed to BeeWare during May.&lt;/p&gt;
-&lt;h2&gt;What's next?&lt;/h2&gt;
-&lt;p&gt;In June, we'll be focussing on:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Publishing our roadmap for Q3 and beyond! Now that we have reliable
-development resources, we're in a position to make public commitments
-on the future direction of the project.&lt;/li&gt;
-&lt;li&gt;Completing the hiring process for another engineer to work on BeeWare
-full time. This hiring process is underway, but it's not too late to
-apply if you're interested. Full details of the position &lt;a href="https://boards.greenhouse.io/anaconda/jobs/4211521"&gt;can be found
-on Greenhouse&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;App Notarization on macOS. This is becoming an increasingly required
-part of macOS app publishing, as Apple cranks up their security
-requirements.&lt;/li&gt;
-&lt;li&gt;Improving Windows packaging. This includes improving the way the
-running app presents to the Task Manager, improving log capture, and
-app signing.&lt;/li&gt;
-&lt;li&gt;Improving Linux packaging. This includes addressing some issues with
-packaging binary dependencies.&lt;/li&gt;
-&lt;/ul&gt;
 </content></entry></feed>
