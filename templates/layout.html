@@ -71,7 +71,8 @@
       {{ menu_item('contributing') }}
       {{ menu_item('news') }}
       <li class="nav-item">
-        <a class="nav-link" href={{ "/membership"|url(alt=this.alt) }}>
+	{%- set this_is_membership_child = this.is_child_of('/membership') -%}
+        <a class="nav-link{% if this_is_membership_child %} active{% endif %}" href={{ "/membership"|url(alt=this.alt) }}>
           {{ "donate"|trans("menu") }}
         </a>
       </li>
