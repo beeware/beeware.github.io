@@ -1,5 +1,5 @@
 {%- macro menu_item(identifier) -%}
-  {%- set identifier_url = '/' + identifier -%}
+  {%- set identifier_url = ('/' + identifier).replace('/donate', '/membership') -%}
   {%- set trans_url = identifier_url|url(alt=this.alt) -%}
   {%- set this_is_child = this.is_child_of(identifier_url) -%}
   <li class="nav-item{% if this_is_child %} active{% endif %}">
@@ -70,12 +70,7 @@
       {{ menu_item('community') }}
       {{ menu_item('contributing') }}
       {{ menu_item('news') }}
-      <li class="nav-item">
-	{%- set this_is_membership_child = this.is_child_of('/membership') -%}
-        <a class="nav-link{% if this_is_membership_child %} active{% endif %}" href={{ "/membership"|url(alt=this.alt) }}>
-          {{ "donate"|trans("menu") }}
-        </a>
-      </li>
+      {{ menu_item('donate') }}
     </ul>
     <ul class="nav navbar-nav navbar-right">
       {%- if this.alt == "en" -%}
