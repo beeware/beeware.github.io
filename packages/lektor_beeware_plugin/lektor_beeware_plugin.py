@@ -9,6 +9,9 @@ from jinja2 import pass_context
 
 @pass_context
 def translate(context, string, bag_name="translate"):
+    if bag_name == 'translate':
+        raise RuntimeError("Use the new gettext system instead")
+
     # Make sure that any macros which need to call this are imported with context.
     alt = context["this"].alt
     bag = context["bag"]
