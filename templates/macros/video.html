@@ -1,14 +1,15 @@
 {% macro render_video_index(video) %}
   <h2><i class="fa fa-video-camera" aria-hidden="true"></i> {{ video.title }}</h2>
   <p>
-    {{ "by"|trans }}{% if "space_after_by"|trans != 'false' %} {% endif %}{{ video.author }};
-    {{ "published"|trans }} {{ video.pub_date.strftime('%-d %B %Y') }}
+    {% trans author=video.author, date=video.pub_date.strftime('%-d %B %Y') %}
+    by {{ author }}; published {{ date }}
+    {% endtrans %}
   </p>
   {{ render_video(video) }}
   {% if video.event_url %}
-  <p><a href="{{ video.event_url }}">{{ "as_seen_at"|trans }} {{ video.event_name }}</a></p>
+  <p><a href="{{ video.event_url }}">{% trans event_name=video.event_name %}As seen at {{ event_name }}{% endtrans %}</a></p>
   {% else %}
-  <p>{{ "as_seen_at"|trans }} {{ video.event_name }}</p>
+  <p>{% trans event_name=video.event_name %}As seen at {{ event_name }}{% endtrans %}</p>
   {% endif %}
 {% endmacro %}
 

@@ -2,23 +2,6 @@
 {% from "macros/breadcrumbs.html" import breadcrumbs with context %}
 {% from "macros/join_and.html" import join_and with context %}
 
-{%
-  set event_type_verbs = {
-    "talk": {
-        "before": "speaking_before_title"|trans,
-        "after": "speaking_after_title"|trans,
-    },
-    "keynote": {
-        "before": "keynoting_before_title"|trans,
-        "after": "keynoting_after_title"|trans,
-    },
-    "tutorial": {
-        "before": "tutorial_before_title"|trans,
-        "after": "tutorial_after_title"|trans,
-    },
-  }
-%}
-
 {% set member_slugs = this.speaker %}
 {% set members = site.query("/about/team") %}
 {% set speaker_names = {} %}
@@ -45,17 +28,28 @@
 {% endblock %}
 
 {% block main %}
-{% if this.event_type in event_type_verbs %}
-  <p>{{ speakers_list }} {{ event_type_verbs[this.event_type]["before"] }} {{ this.title }} {{ event_type_verbs[this.event_type]["after"] }} "<a href="{{ this.url }}">{{ this.talk_title }}</a>".</p>
+{% if this.event_type == "talk" %}
+  <p>{% trans title=this.title, url=this.url, talk_title=this.talk_title %}{{ speakers_list }} will be speaking at {{ title }}, giving a presentation entitled "<a href="{{ url }}">{{ talk_title }}</a>".{% endtrans %}</p>
+{% elif this.event_type == "keynote" %}
+  <p>{% trans title=this.title, url=this.url, talk_title=this.talk_title %}{{ speakers_list }} will be keynoting at {{ title }}, giving a presentation entitled "<a href="{{ url }}">{{ talk_title }}</a>".{% endtrans %}</p>
+{% elif this.event_type == "tutorial" %}
+  <p>{% trans title=this.title, url=this.url, talk_title=this.talk_title %}{{ speakers_list }} will be presenting a tutorial at {{ title }} entitled "<a href="{{ url }}">{{ talk_title }}</a>".{% endtrans %}</p>
 {% elif this.event_type == "sprint" %}
-  <p>{{ "running_sprint"|trans }} {{ this.title }}.</p>
+  <p>{% trans title=this.title %} BeeWare will be running a sprint at {{ title }}. {% endtrans %}</p>
   <p>
-    {{ speakers_list }} {% if this.speaker|length > 1 %}{{ "sprint_helping_plural"|trans }}{% else %}{{ "sprint_helping"|trans }}{% endif %} <a href="{{ '/contributing/challenge-coins/'|url(alt=this.alt) }}">{{ "challenge_coin"|trans }}</a>.
+    {% trans coin_link='/contributing/challenge-coins/'|url(alt=this.alt), speaker_count=speakers_list|length %}
+    {{ speakers_list }} will be at the sprints, and will be more than willing to help First Time Contributors earn their own shiny <a href="{{ coin_link }}">Challenge Coin</a>.
+    {% pluralize speaker_count %}
+    {{ speakers_list }} will be at the sprints, and will be more than willing to help First Time Contributors earn their own shiny <a href="{{ coin_link }}">Challenge Coin</a>.
+    {% endtrans %}
   </p>
-  <p>{{ "event_more_info"|trans }} <a href="{{ this.url }}">{{ this.title }} {{ "website"|trans }}</a>.</p>
-  <h3>{{ "what_is_a_sprint"|trans }}</h3>
-  {%- set post = "post_sprint_pycon_video"|trans %}
-  <p>{{ "sprint_description"|trans }} <a href="https://www.youtube.com/watch?v=hOtKgFaFcz0">{{ "sprint_pycon_video"|trans }}</a>{% if post %} {% endif %}{{ post }}.</p>
+  <p>{% trans url=this.url, title=this.title%}For more information, check the <a href="{{ url }}">{{ title }} website</a>.{% endtrans %}</p>
+  <h3>{{ _("What is a Sprint") }}</h3>
+  <p>{% trans video_link='https://www.youtube.com/watch?v=hOtKgFaFcz0' %}
+    Code sprints are events held normally after a conference where attendees can use
+    the conference venue to work in small groups on various projects. Learn more about
+    how sprints work with the
+    <a href="{{ video_link }}">PyCon US 'What is a sprint?' video</a>.{% endtrans %}</p>
 {% endif %}
 <p><em>{{ this.description }}</em></p>
 {% endblock %}
@@ -63,13 +57,13 @@
 {% block gutter %}
   <div class="col-sm-12 col-md-4 gutter">
     <dl>
-      <dt>{{ "date"|trans }}:</dt>
+      <dt>{{ _("Date:") }}</dt>
       <dd>{{ this.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if this.end_date %} - {{this.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}</dd>
 
       {% if this.event_type == "sprint" %}
-        <dt>{{ "sprinters"|trans }}:</dt>
+        <dt>{{ _("Sprinters") }}:</dt>
       {% elif this.event_type == "talk" %}
-        <dt>{{ "speakers"|trans }}:</dt>
+        <dt>{{ _("Speakers") }}:</dt>
       {% endif %}
       <dd>
         <ul>

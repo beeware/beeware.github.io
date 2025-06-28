@@ -14,10 +14,10 @@
   {% if member.superpower %}
   <br>
   {% if member.superpower is string %}
-  {{ "superpower"|trans }}: {{ member.superpower|trans("labels") }}
+  {{ _("Superpower") }}: {{ member.superpower|trans("labels") }}
   {% else %}
   {%- set comma = joiner() -%}
-  {{ "superpower"|trans }}: {% for s in member.superpower %}{{ comma() }}{{ s|trans("labels") }}{% endfor %}
+  {{ _("Superpower") }}: {% for s in member.superpower %}{{ comma() }}{{ s|trans("labels") }}{% endfor %}
   {% endif %}
   {% endif %}
 {% endmacro %}

@@ -10,8 +10,9 @@
     <p>{{ breadcrumbs(this) }}</p>
     <h2>{{ this.title }}</h2>
     <p>
-      {{ "by"|trans|capitalize }}{% if "space_after_by"|trans != 'false' %} {% endif %}{{ this.author }};
-      {{ "published"|trans }} {{ this.pub_date|datetimeformat("MMMM d, YYYY" ,locale=this.alt)|capitalize }}
+      {% trans author=this.author, date=this.pub_date|datetimeformat("MMMM d, YYYY" ,locale=this.alt)|capitalize %}
+      By {{ author }}; published {{ date }}
+      {% endtrans %}
     </p>
   </div>
 </div>
@@ -24,16 +25,16 @@
 {% elif this.resource_type == 'podcast' %}
   {{ render_podcast(this) }}
 {% else %}
-  {{ "unknown_resource"|trans }}
+  {{ _("Unknown resource type") }}
 {% endif %}
 {% endblock %}
 {% block gutter %}
 {% if this.event_name %}
   <div class="col-sm-12 col-md-4 gutter">
     {% if this.event_url %}
-    <p><a href="{{ this.event_url }}">{{ "as_seen_at"|trans }} {{ this.event_name }}</a></p>
+    <p><a href="{{ this.event_url }}">{{ _("As seen at") }} {{ this.event_name }}</a></p>
     {% else %}
-    <p>{{ "as_seen_at"|trans }} {{ this.event_name }}</p>
+    <p>{{ _("As seen at") }} {{ this.event_name }}</p>
     {% endif %}
   </div>
 {% endif %}

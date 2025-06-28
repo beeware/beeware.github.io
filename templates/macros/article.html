@@ -1,15 +1,16 @@
 {% macro render_article_index(article) %}
   <h2><a href="{{ article.url }}"><i class="fa fa-file-text" aria-hidden="true"></i> {{ article.title }}</a></h2>
   <p>
-    {{ "by"|trans }}{% if "space_after_by"|trans != 'false' %} {% endif %}{{ article.author }};
-    {{ "published"|trans }} {{ article.pub_date.strftime('%-d %B %Y') }}
+    {% trans author=article.author, date=article.pub_date.strftime('%-d %B %Y') %}
+    by {{ author }}; published {{ date }}
+    {% endtrans %}
   </p>
   <p>{{ article.description }}</p>
-  <h6><a href="{{ article.url }}">{{ "click_here_full_article"|trans }}</a></h6>
+  <h6><a href="{{ article.url }}">{{ _("Click here to read the full article") }}</a></h6>
 {% endmacro %}
 
 {% macro render_article(article) %}
   {{ article.description }}
 
-  <h6><a href="{{ article.url }}">{{ "click_here_full_article"|trans }}</a></h6>
+  <h6><a href="{{ article.url }}">{{ _("Click here to read the full article") }}</a></h6>
 {% endmacro %}

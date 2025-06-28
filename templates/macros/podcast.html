@@ -1,15 +1,16 @@
 {% macro render_podcast_index(episode) %}
   <h2><a href="{{ episode.url }}"><i class="fa fa-headphones" aria-hidden="true"></i> {{ episode.title }}</a></h2>
   <p>
-    {{ "by"|trans }}{% if "space_after_by"|trans != 'false' %} {% endif %}{{ episode.author }};
-    {{ "published"|trans }} {{ episode.pub_date.strftime('%-d %B %Y') }}
+    {% trans author=episode.author, date=episode.pub_date.strftime('%-d %B %Y') %}
+    by {{ author }}; published {{ date }}
+    {% endtrans %}
   </p>
   <p>{{ episode.description }}</p>
-  <h6><a href="{{ episode.url }}">{{ "click_here_listen"|trans }}</a></h6>
+  <h6><a href="{{ episode.url }}">{{ _("Click here to listen") }}</a></h6>
 {% endmacro %}
 
 {% macro render_podcast(episode) %}
   {{ episode.description }}
 
-  <h6><a href="{{ episode.url }}">{{ "click_here_listen"|trans }}</a></h6>
+  <h6><a href="{{ episode.url }}">{{ _("Click here to listen") }}</a></h6>
 {% endmacro %}
