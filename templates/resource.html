@@ -32,9 +32,9 @@
 {% if this.event_name %}
   <div class="col-sm-12 col-md-4 gutter">
     {% if this.event_url %}
-    <p><a href="{{ this.event_url }}">{{ _("As seen at") }} {{ this.event_name }}</a></p>
+    <p><a href="{{ this.event_url }}">{% trans event_name=this.event_name %} As seen at {{ event_name }} {% endtrans %}</a></p>
     {% else %}
-    <p>{{ _("As seen at") }} {{ this.event_name }}</p>
+    <p>{% trans event_name=this.event_name %} As seen at {{ event_name }} {% endtrans %}</p>
     {% endif %}
   </div>
 {% endif %}
