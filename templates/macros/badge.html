@@ -1,10 +1,10 @@
 {% macro badge(name, value) %}
 
 {% if value is string  %}
-    <dt>{{ _(name) }}:</dt><dd>{{ value|trans("labels") }}</dd>
+    <dt>{{ name }}:</dt><dd>{{ value|trans("labels") }}</dd>
 {% else %}
 {%- set comma = joiner() %}
-    <dt>{{ _(name) }}:</dt><dd>{% for v in value %}{{ comma() }}{{ v|trans("labels") }}{% endfor %}</dd>
+    <dt>{{ name }}:</dt><dd>{% for v in value %}{{ comma() }}{{ v|trans("labels") }}{% endfor %}</dd>
 {% endif %}
 
 {#<!-- <img src="badges/{{type}}/{{name}}"> -->#}
