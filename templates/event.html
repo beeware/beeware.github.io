@@ -29,17 +29,23 @@
 
 {% block main %}
 {% if this.event_type == "talk" %}
-  <p>{% trans title=this.title, url=this.url, talk_title=this.talk_title %}{{ speakers_list }} will be speaking at {{ title }}, giving a presentation entitled "<a href="{{ url }}">{{ talk_title }}</a>".{% endtrans %}</p>
+  <p>{% trans title=this.title, url=this.url, talk_title=this.talk_title %}
+    {{ speakers_list }} will be speaking at {{ title }}, giving a presentation entitled "<a href="{{ url }}">{{ talk_title }}</a>".
+    {% endtrans %}</p>
 {% elif this.event_type == "keynote" %}
-  <p>{% trans title=this.title, url=this.url, talk_title=this.talk_title %}{{ speakers_list }} will be keynoting at {{ title }}, giving a presentation entitled "<a href="{{ url }}">{{ talk_title }}</a>".{% endtrans %}</p>
+  <p>{% trans title=this.title, url=this.url, talk_title=this.talk_title %}
+    {{ speakers_list }} will be keynoting at {{ title }}, giving a presentation entitled "<a href="{{ url }}">{{ talk_title }}</a>".
+    {% endtrans %}</p>
 {% elif this.event_type == "tutorial" %}
-  <p>{% trans title=this.title, url=this.url, talk_title=this.talk_title %}{{ speakers_list }} will be presenting a tutorial at {{ title }} entitled "<a href="{{ url }}">{{ talk_title }}</a>".{% endtrans %}</p>
+  <p>{% trans title=this.title, url=this.url, talk_title=this.talk_title %}
+    {{ speakers_list }} will be presenting a tutorial at {{ title }} entitled "<a href="{{ url }}">{{ talk_title }}</a>".
+    {% endtrans %}</p>
 {% elif this.event_type == "sprint" %}
-  <p>{% trans title=this.title %} BeeWare will be running a sprint at {{ title }}. {% endtrans %}</p>
+  <p>{% trans title=this.title %}
+    BeeWare will be running a sprint at {{ title }}.
+    {% endtrans %}</p>
   <p>
     {% trans coin_link='/contributing/challenge-coins/'|url(alt=this.alt), speaker_count=speakers_list|length %}
-    {{ speakers_list }} will be at the sprints, and will be more than willing to help First Time Contributors earn their own shiny <a href="{{ coin_link }}">Challenge Coin</a>.
-    {% pluralize speaker_count %}
     {{ speakers_list }} will be at the sprints, and will be more than willing to help First Time Contributors earn their own shiny <a href="{{ coin_link }}">Challenge Coin</a>.
     {% endtrans %}
   </p>
@@ -49,7 +55,8 @@
     Code sprints are events held normally after a conference where attendees can use
     the conference venue to work in small groups on various projects. Learn more about
     how sprints work with the
-    <a href="{{ video_link }}">PyCon US 'What is a sprint?' video</a>.{% endtrans %}</p>
+    <a href="{{ video_link }}">PyCon US 'What is a sprint?' video</a>.
+    {% endtrans %}</p>
 {% endif %}
 <p><em>{{ this.description }}</em></p>
 {% endblock %}
@@ -57,7 +64,7 @@
 {% block gutter %}
   <div class="col-sm-12 col-md-4 gutter">
     <dl>
-      <dt>{{ _("Date:") }}</dt>
+      <dt>{{ _("Date") }}:</dt>
       <dd>{{ this.date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title }}{% if this.end_date %} - {{this.end_date|datetimeformat("MMMM d, YYYY", locale=this.alt)|title}}{% endif %}</dd>
 
       {% if this.event_type == "sprint" %}
