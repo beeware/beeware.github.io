@@ -1,18 +1,14 @@
 {% extends "page.html" %}
 {% from "macros/breadcrumbs.html" import breadcrumbs with context %}
 {% from "macros/join_and.html" import join_and with context %}
+{% from "macros/speakers.html" import get_speaker_names %}
+
 
 {% set member_slugs = this.speaker %}
 {% set members = site.query("/about/team") %}
-{% set speaker_names = {} %}
 
-{% for slug in this.speaker %}
-    {%
-        do speaker_names.update(
-            {slug: members.filter(F._slug == slug).first().name}
-        )
-    %}
-{% endfor %}
+
+{% set speaker_names = get_speaker_names(member_slugs, members)|from_json %}
 {% set speakers_list = join_and(speaker_names.values()|list) %}
 
 {% block title %}{{ this.title }}{% endblock %}
@@ -45,11 +41,13 @@
     BeeWare will be running a sprint at {{ title }}.
     {% endtrans %}</p>
   <p>
-    {% trans coin_link='/contributing/challenge-coins/'|url(alt=this.alt), speaker_count=speakers_list|length %}
+    {% trans coin_link='/contributing/challenge-coins/'|url(alt=this.alt) %}
     {{ speakers_list }} will be at the sprints, and will be more than willing to help First Time Contributors earn their own shiny <a href="{{ coin_link }}">Challenge Coin</a>.
     {% endtrans %}
   </p>
-  <p>{% trans url=this.url, title=this.title%}For more information, check the <a href="{{ url }}">{{ title }} website</a>.{% endtrans %}</p>
+  <p>{% trans url=this.url, title=this.title %}
+    For more information, check the <a href="{{ url }}">{{ title }} website</a>.
+  {% endtrans %}</p>
   <h3>{{ _("What is a Sprint") }}</h3>
   <p>{% trans video_link='https://www.youtube.com/watch?v=hOtKgFaFcz0' %}
     Code sprints are events held normally after a conference where attendees can use

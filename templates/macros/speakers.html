@@ -1,0 +1,7 @@
+{% macro get_speaker_names(speaker_slugs, members) %}
+    {%- set speaker_names = {} -%}
+    {%- for slug in speaker_slugs %}
+        {%- do speaker_names.update({slug: members.filter(F._slug == slug).first().name}) -%}
+    {%- endfor -%}
+    {{- speaker_names|to_json|safe -}}
+{% endmacro %}

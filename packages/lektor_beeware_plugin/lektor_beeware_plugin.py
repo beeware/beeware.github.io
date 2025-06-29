@@ -6,6 +6,8 @@ from datetime import date
 from lektor.pluginsystem import Plugin
 from jinja2 import pass_context
 
+import json
+
 
 @pass_context
 def translate(context, string, bag_name="translate"):
@@ -23,6 +25,15 @@ def translate(context, string, bag_name="translate"):
 
     return ""
 
+def from_json(val):
+    return json.loads(val)
+
+def to_json(val):
+    return json.dumps(val)
+
+def debug(val):
+    print(val)
+    return ''
 
 class BeeWarePlugin(Plugin):
     name = "BeeWare Custom Lektor Plugin"
@@ -31,3 +42,6 @@ class BeeWarePlugin(Plugin):
     def on_setup_env(self, **extra):
         self.env.jinja_env.globals["today"] = date.today()
         self.env.jinja_env.filters["trans"] = translate
+        self.env.jinja_env.filters["from_json"] = from_json
+        self.env.jinja_env.filters["to_json"] = to_json
+        self.env.jinja_env.filters["debug"] = debug
