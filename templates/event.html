@@ -7,7 +7,7 @@
 {% set member_slugs = this.speaker %}
 {% set members = site.query("/about/team") %}
 
-
+{# This is used to work around a bug with Babel extraction #}
 {% set speaker_names = get_speaker_names(member_slugs, members)|from_json %}
 {% set speakers_list = join_and(speaker_names.values()|list) %}
 
