@@ -31,19 +31,19 @@
 <div class="row">
   <div class="col-md-12 col-lg-8">
     {% for child in blog[:10] %}
-    <h3><a href="{{ child|url(alt=this.alt) }}">{{ child.title }}</a></h3>
-    <p>{{ "posted_by"|trans }}
-      {% if this.mastodon_handle %}
-      <a href="https://{{ this.mastodon_handle.split('@')[2] }}/@{{ this.mastodon_handle.split('@')[1] }}">{{ this.author or this.mastodon_handle }}</a>
-      {% elif this.twitter_handle %}
-      <a href="https://twitter.com/{{ this.twitter_handle }}">{{ this.author or this.twitter_handle }}</a>
+    {% set author_link %}
+      {% if child.mastodon_handle %}
+        <a href="https://{{ child.mastodon_handle.split('@')[2] }}/@{{ child.mastodon_handle.split('@')[1] }}">{{ child.author or child.mastodon_handle }}</a>
+      {% elif child.twitter_handle %}
+        <a href="https://twitter.com/{{ child.twitter_handle }}">{{ child.author or child.twitter_handle }}</a>
       {% else %}
-      {{ child.author }}
+        {{ child.author }}
       {% endif %}
-      {{ "on"|trans }} {{ child.pub_date }} {{ "post_posted_date"|trans }}
-    </p>
+    {% endset %}
+    <h3><a href="{{ child|url(alt=this.alt) }}">{{ child.title }}</a></h3>
+    <p>{% trans date=child.pub_date %}Posted by {{ author_link }} on {{ date }}{% endtrans %}</p>
     {% endfor %}
-    <a href="{{ '/news/buzz/'|url(alt=this.alt) }}">{{ "more_articles"|trans }}</a>
+    <a href="{{ '/news/buzz/'|url(alt=this.alt) }}">{{ _("... more articles") }}</a>
   </div>
   <div class="col-md-12 col-lg-4 gutter" id="news-gutter">
     {{ this.gutter }}
