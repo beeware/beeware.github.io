@@ -110,7 +110,7 @@
           {%- set alt_active = alt == this.alt -%}
           {%- if alt != config.primary_alternative %}
           <a class="dropdown-item{% if alt_active %} active{% endif %}" href="{{ '.'|url(alt=alt) }}">
-          {{- _(alternative.name.en.lower()) -}}
+          {{- alternative.name.en.lower()|languagename -}}
           </a>
           {%- endif -%}
           {%- endfor %}

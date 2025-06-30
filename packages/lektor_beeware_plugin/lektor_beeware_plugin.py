@@ -25,15 +25,16 @@ def translate(context, string, bag_name="translate"):
 
     return ""
 
+@pass_context
+def languagename(context, string):
+	return context["bag"](f"languages.langs.{string}")
+
 def from_json(val):
     return json.loads(val)
 
 def to_json(val):
     return json.dumps(val)
 
-def debug(val):
-    print(val)
-    return ''
 
 class BeeWarePlugin(Plugin):
     name = "BeeWare Custom Lektor Plugin"
@@ -44,4 +45,5 @@ class BeeWarePlugin(Plugin):
         self.env.jinja_env.filters["trans"] = translate
         self.env.jinja_env.filters["from_json"] = from_json
         self.env.jinja_env.filters["to_json"] = to_json
-        self.env.jinja_env.filters["debug"] = debug
+        self.env.jinja_env.filters["languagename"] = languagename
+
