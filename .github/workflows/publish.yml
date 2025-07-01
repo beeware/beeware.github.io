@@ -58,11 +58,26 @@ jobs:
       if: steps.updated.outputs.updated == 'true'
       env:
         GITHUB_TOKEN: ${{ github.token }}
+        WEBLATE_API_TOKEN: ${{ secrets.WEBLATE_API_TOKEN }}
       run: |
+        pip install wlc
+        mkdir -p ~/.config && cat <<EOF > ~/.config/weblate
+        [weblate]
+        url = https://hosted.weblate.org/api/
+        key = $WEBLATE_API_TOKEN
+        translation = weblate/application
+        EOF
+        wlc lock
+        wlc push
+        git pull origin
+
         # Commit the updated PO files.
         git add i18n
         git commit -m "Update translations to $(git rev-parse --short HEAD)."
         git push origin
+
+        wlc push
+        wlc unlock
 
     - name: Publish site
       env:
