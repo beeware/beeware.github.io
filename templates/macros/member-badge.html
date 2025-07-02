@@ -16,9 +16,9 @@
   {% if member.superpower %}
   <br>
   {% if member.superpower is string %}
-  {{ _("Superpower: ") -}}{{ get_label(member.superpower) }}
+  {{ pgettext("Label before list of superpowers, keep the space if it's needed before the list starts", "Superpower: ") }}{{- get_label(member.superpower) -}}
   {% else %}
-  {{ _("Superpower: ") -}}{% for s in member.superpower %}{% if not loop.first %}{{- get_comma() -}}{% endif %}{{ get_label(s) }}{% endfor %}
+  {{ pgettext("Label before list of superpowers, keep the space if it's needed before the list starts", "Superpower: ") }}{% for s in member.superpower %}{% if not loop.first %}{{- get_comma() -}}{% endif %}{{- get_label(s) -}}{% endfor %}
   {% endif %}
   {% endif %}
 {% endmacro %}
