@@ -1,3 +1,5 @@
+{% from 'macros/labels.html' import get_label, get_comma %}
+
 {% macro member_badge(member) %}
   <img src="/about/team/{{member._id}}/{{ member._id}}.png" width="100%">
   <a href="https://github.com/{{ member.github_handle }}"><i class="fa fa-github fa-lg icon" aria-hidden="true"></i>&nbsp;{{ member.github_handle }}</a>
@@ -14,10 +16,9 @@
   {% if member.superpower %}
   <br>
   {% if member.superpower is string %}
-  {{ _("Superpower") }}: {{ member.superpower|trans("labels") }}
+  {{ _("Superpower: ") -}}{{ get_label(member.superpower) }}
   {% else %}
-  {%- set comma = joiner() -%}
-  {{ _("Superpower") }}: {% for s in member.superpower %}{{ comma() }}{{ s|trans("labels") }}{% endfor %}
+  {{ _("Superpower: ") -}}{% for s in member.superpower %}{% if not loop.first %}{{- get_comma() -}}{% endif %}{{ get_label(s) }}{% endfor %}
   {% endif %}
   {% endif %}
 {% endmacro %}

@@ -1,6 +1,6 @@
     {{ this.gutter_top }}
 
-    <h3>{{ "gold"|trans("labels") }} {{ _("member")|capitalize }}</h3>
+    <h3>{{ ngettext("Gold Member", "Gold Members", gold_members|list|count) }}</h3>
     {% for member in gold_members %}
     <p><a href="{{ '/community/members'|url(alt=this.alt) }}"><img class="img-fluid" src="/community/members/anaconda/anaconda-small.png"></a></p>
     {% endfor %}

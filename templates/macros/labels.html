@@ -1,0 +1,62 @@
+{% set labels = {
+    "app": _("Application"),
+    "application": _("Application"),
+    "tool": _("Tool"),
+    "library": _("Library"),
+    "bridge": _("Bridge"),
+    "template": _("Template"),
+    "support": _("Support"),
+    "utility": _("Utility"),
+
+    "attic": _("Attic"),
+    "experimental": _("Experimental"),
+    "alpha": _("Early Development"),
+    "beta": _("In Development"),
+    "production": _("Stable"),
+
+    "independent": _("Platform independent"),
+    "macOS": "macOS",
+    "linux": "Linux (GTK+)",
+    "win": "Windows",
+    "iOS": "iOS",
+    "android": "Android",
+    "tvOS": "tvOS",
+    "watchOS": "watchOS",
+    "browser": _("Browser"),
+    "terminal": _("Terminal"),
+
+    "py": "Python",
+    "c": "C",
+    "m": "Objective C",
+    "cpp": "C++",
+    "java": "Java",
+    "js": "JavaScript",
+
+    "platinum": _("Platinum Member"),
+    "gold": _("Gold Member"),
+    "silver": _("Silver Member"),
+    "bronze": _("Bronze Member"),
+    "adhoc": _("Ad hoc Member"),
+    "individual": _("Individual Member"),
+    "professional": _("Professional Member"),
+    "inkind": _("In kind Member"),
+
+    "batavia": "Batavia",
+    "voc": "VOC",
+    "lektor": _("Website"),
+    "bdfn": _("Bee-nevolent Dictator, For Now"),
+    "toga": "Toga",
+    "senior": _("Senior Apiarist"),
+    "cricket": "Cricket",
+    "briefcase": "Briefcase",
+    "travertino": "Travertino",
+} %}
+
+{% macro get_label(key, fallback='') %}
+  {{- labels.get(key, fallback) -}}
+{% endmacro %}
+
+{% macro get_comma() -%}
+  {{ pgettext("Character to separate items in a list, with trailing space if needed", ", ") }}
+{%- endmacro %}
+
