@@ -5,8 +5,7 @@
 {% if value is string  %}
     <dt>{{ name }}</dt><dd>{{ get_label(value) }}</dd>
 {% else %}
-    <dt>{{ name }}</dt><dd>{% for v in value %}{% if not loop.first %}{{ get_comma() }}{% endif -%}
-    {{ get_label(v) }}{% endfor %}</dd>
+    <dt>{{ name }}</dt><dd>{% for v in value %}{% if not loop.first %}{{- get_comma() -}}{% endif %}{{- get_label(v) -}}{% endfor %}</dd>
 {% endif %}
 
 {#<!-- <img src="badges/{{type}}/{{name}}"> -->#}

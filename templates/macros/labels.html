@@ -1,4 +1,5 @@
-{% set labels = {
+{% macro get_label(key, fallback='') -%}
+  {%- set labels = {
     "app": _("Application"),
     "application": _("Application"),
     "tool": _("Tool"),
@@ -50,11 +51,9 @@
     "cricket": "Cricket",
     "briefcase": "Briefcase",
     "travertino": "Travertino",
-} %}
-
-{% macro get_label(key, fallback='') %}
+  } -%}
   {{- labels.get(key, fallback) -}}
-{% endmacro %}
+{%- endmacro %}
 
 {% macro get_comma() -%}
   {{ pgettext("Character to separate items in a list, with trailing space if needed", ", ") }}
