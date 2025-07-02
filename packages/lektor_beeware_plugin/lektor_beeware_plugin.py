@@ -10,24 +10,8 @@ import json
 
 
 @pass_context
-def translate(context, string, bag_name="translate"):
-    if bag_name == 'translate':
-        raise RuntimeError("Use the new gettext system instead")
-
-    # Make sure that any macros which need to call this are imported with context.
-    alt = context["this"].alt
-    bag = context["bag"]
-    if trans := bag(f"{bag_name}.{alt}.{string}"):
-        return trans
-
-    if en := bag(f"{bag_name}.en.{string}"):
-        return en
-
-    return ""
-
-@pass_context
 def languagename(context, string):
-	return context["bag"](f"languages.langs.{string}")
+    return context["bag"](f"languages.langs.{string}")
 
 def from_json(val):
     return json.loads(val)
@@ -42,7 +26,6 @@ class BeeWarePlugin(Plugin):
 
     def on_setup_env(self, **extra):
         self.env.jinja_env.globals["today"] = date.today()
-        self.env.jinja_env.filters["trans"] = translate
         self.env.jinja_env.filters["from_json"] = from_json
         self.env.jinja_env.filters["to_json"] = to_json
         self.env.jinja_env.filters["languagename"] = languagename
