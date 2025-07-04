@@ -142,8 +142,7 @@ and
 新版本的发布说明。</p>
 <p>BeeWare 使用 <a href="https://towncrier.readthedocs.io/en/stable/">Towncrier</a>来
 管理更改说明。</p>
-<p>应在 "changes "目录下创建变更注释文件，并按以下格式命名
-使用此格式命名：</p>
+<p>应在 <code>changes</code> 目录下创建变更注释文件，并按以下格式命名它：</p>
 <pre><code>&lt;PR/Issue #&gt;.&lt;Change Type&gt;.rst
 </code></pre>
 <p>例如，修复 GitHub 问题 #42 的拉取请求将命名为
@@ -154,11 +153,11 @@ and
 新分配的拉取请求编号。</p>
 <p>更改说明的更改类型应为以下类型之一：</p>
 <ul>
-<li>特征</li>
-<li>错误修正</li>
-<li>文档</li>
-<li>删除</li>
-<li>杂项</li>
+<li><code>feature</code> (功能)</li>
+<li><code>bugfix</code> (问题修复)</li>
+<li><code>doc</code> (文档)</li>
+<li><code>removal</code> (删除)</li>
+<li><code>misc</code> (杂项)</li>
 </ul>
 <p>misc "类型是为不影响用户的更改保留的，不需要在发布说明中注明。
 无需在发布说明中注明的更改。小的排版修正
@@ -195,54 +194,42 @@ CI</a> 中自动运行。
 <p>要在本地开发环境中在每次 <code>git commit</code> 时自动执行预提交检查，请运行 <code>pre-commit install</code>。</p>
 <p>包括预先承诺检查：</p>
 <ul>
-<li><a href="https://black.readthedocs.io/en/stable/index.html">黑色</a> 确保
-统一代码格式</li>
-<li><a href="https://docformatter.readthedocs.io/en/latest/">docformatter</a>确保
-文档字符串和注释的统一格式</li>
-<li><a href="https://github.com/asottile/pyupgrade">pyupgrade</a>确保代码
-使用最新的 Python 最佳实践</li>
-<li><a href="https://pycqa.github.io/isort/">isort</a>确保统一的 "import
-语句</li>
-<li><a href="https://flake8.pycqa.org/en/latest/">flake8</a>检查常见的编码和语法问题
-和语法问题</li>
-<li>验证结构化文档（如 TOML 文件）的杂项检查，以及
-删除不必要的空白</li>
+<li><a href="https://black.readthedocs.io/en/stable/index.html">Black</a> 以确保统一代码格式</li>
+<li><a href="https://docformatter.readthedocs.io/en/latest/">docformatter</a> 以确保文档字符串和注释的统一格式</li>
+<li><a href="https://github.com/asottile/pyupgrade">pyupgrade</a> 以确保代码使用最新的 Python 最佳实践</li>
+<li><a href="https://pycqa.github.io/isort/">isort</a> 以确保统一的 <code>import</code> 语句</li>
+<li><a href="https://flake8.pycqa.org/en/latest/">flake8</a> 以检查常见的编码和语法问题</li>
+<li>验证结构化文档（如 TOML 文件）的杂项检查，以及删除不必要的空格</li>
 </ul>
 <p>其他指导原则：</p>
 <ul>
-<li><p>避免在注释中使用 "我们"，例如 "Loop over "而不是 "We loop over
-过"</p>
+<li><p>避免在注释中使用 “we”（我们）, 例如 "Loop over" 而不是 "We loop
+over"</p>
 </li>
-<li><p>变量名、函数名和方法名使用下划线，而不是驼峰字母
-名称</p>
+<li><p>变量名、函数名和方法名使用下划线，而不是
+camelCase</p>
 </li>
-<li><p>类名（或返回类名的工厂函数）使用 InitialCaps
-类名）</p>
+<li><p>类名（或返回类的工厂函数）应使用 InitialCaps</p>
 </li>
-<li><p>Use Sphinx-style docstrings and <a href="https://peps.python.org/pep-0257/">PEP 257</a>;
-type annotation with <a href="https://peps.python.org/pep-0484/">PEP 484</a> is
-optional but encouraged.</p>
+<li><p>使用 Sphinx 格式的文档字符串 (docstrings) 且遵循
+<a href="https://peps.python.org/pep-0257/">PEP 257</a>；使用 <a href="https://peps.python.org/pep-0484/">PEP 484</a>
+格式标注类型是可选但被鼓励的。</p>
 <p>例如：</p>
-<pre><code>def function_name(param1: int, param2: str) -&gt; bool：
-    ""带有类型和 docstring 的示例函数。
+<pre><code>def function_name(param1: int, param2: str) -&gt; bool:
+    """Example function with types and a docstring.
 
-    :param param1：第一个参数。
-    :param param2：第二个参数。
+    :param param1: The first parameter.
+    :param param2: The second parameter.
 
-    :returns：返回值。为 True 表示成功，否则为 False。
+    :returns: The return value. True for success, False otherwise.
     """
 </code></pre>
 </li>
-<li><p>在测试文档说明中，说明每个测试
-演示的预期行为。不要包含诸如 "测试 "或 "确保
-确保 "之类的前言。</p>
+<li><p>在测试中的文档字符串 (docstring) 中，说明每个测试演示的预期行为。不要包含诸如“测试”或”确保”之类的前言。</p>
 </li>
-<li><p>为晦涩难懂的问题保留票单引用，因为票单中的
-文档或注释中不易描述的额外细节。
-注释。在句子末尾包含票单编号，如
-这样</p>
-<pre><code>def test_foo()：
-    ""测试文档字符串看起来像这样 (#123456)."""
+<li><p>只在有晦涩难懂的问题时，且当记录单中有不可简单的在文档字符串或注释中描述的更多细节时，才使用记录单引用。在句子末尾像如下这样包含记录单编号：</p>
+<pre><code>def test_foo():
+    """A test docstring looks like this (#123456)."""
 </code></pre>
 </li>
 <li><p>除非另有说明，请遵循 <a href="https://peps.python.org/pep-0008/">PEP 8</a>（特别注意<a href="https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">第 2 节</a>的内容）。</p>
