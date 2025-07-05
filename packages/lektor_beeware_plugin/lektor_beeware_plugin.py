@@ -6,19 +6,18 @@ from datetime import date
 from lektor.pluginsystem import Plugin
 from jinja2 import pass_context
 
+import json
+
 
 @pass_context
-def translate(context, string, bag_name="translate"):
-    # Make sure that any macros which need to call this are imported with context.
-    alt = context["this"].alt
-    bag = context["bag"]
-    if trans := bag(f"{bag_name}.{alt}.{string}"):
-        return trans
+def languagename(context, string):
+    return context["bag"](f"languages.langs.{string}")
 
-    if en := bag(f"{bag_name}.en.{string}"):
-        return en
+def from_json(val):
+    return json.loads(val)
 
-    return ""
+def to_json(val):
+    return json.dumps(val)
 
 
 class BeeWarePlugin(Plugin):
@@ -27,4 +26,7 @@ class BeeWarePlugin(Plugin):
 
     def on_setup_env(self, **extra):
         self.env.jinja_env.globals["today"] = date.today()
-        self.env.jinja_env.filters["trans"] = translate
+        self.env.jinja_env.filters["from_json"] = from_json
+        self.env.jinja_env.filters["to_json"] = to_json
+        self.env.jinja_env.filters["languagename"] = languagename
+

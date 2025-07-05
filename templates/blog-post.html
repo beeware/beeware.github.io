@@ -8,16 +8,16 @@
   <div class="container">
     <p>{{ breadcrumbs(this) }}</p>
     <h1>{{ this.title }}</h1>
-    <p>{{ "posted_by"|trans }}
-        {% if this.mastodon_handle %}
+    {% set author_link %}
+      {% if this.mastodon_handle %}
         <a href="https://{{ this.mastodon_handle.split('@')[2] }}/@{{ this.mastodon_handle.split('@')[1] }}">{{ this.author or this.mastodon_handle }}</a>
-        {% elif this.twitter_handle %}
+      {% elif this.twitter_handle %}
         <a href="https://twitter.com/{{ this.twitter_handle }}">{{ this.author or this.twitter_handle }}</a>
-        {% else %}
+      {% else %}
         {{ this.author }}
-        {% endif %}
-        {{ "on"|trans }} {{ this.pub_date.strftime('%Y/%m/%d')}} {{ "post_posted_date"|trans }}
-    </p>
+      {% endif %}
+    {% endset %}
+    <p>{% trans date=this.pub_date.strftime('%Y/%m/%d') %}Posted by {{ author_link }} on {{ date }}{% endtrans %}</p>
   </div>
 </div>
 {% endblock %}
@@ -31,12 +31,12 @@
   <div class="col-sm-12 col-md-4 gutter">
     <dl>
       {% if this.has_prev() %}
-      <dt>{{ "next_entry"|trans }}</dt>
+      <dt>{{ _("Next entry") }}</dt>
       <dd><a href="{{ this.get_siblings().prev_page|url(alt=this.alt)  }}">{{ this.get_siblings().prev_page.title }}</a></dd>
       {% endif %}
 
       {% if this.has_next() %}
-      <dt>{{ "previous_entry"|trans }}</dt>
+      <dt>{{ _("Previous entry") }}</dt>
       <dd><a href="{{ this.get_siblings().next_page|url(alt=this.alt)  }}">{{ this.get_siblings().next_page.title }}</a></dd>
       {% endif %}
     </dl>

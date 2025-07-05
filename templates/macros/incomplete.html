@@ -2,10 +2,9 @@
   {% if page.incomplete %}
   <p class="incomplete">
     <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-    {{ "incomplete_text"|trans }}{% if "incomplete_space_before_link"|trans == "true" %} {% endif %}
-    <a href="https://github.com/beeware/beeware.github.io/edit/lektor/content{{ page.path }}/contents.lr">
-      {{ "incomplete_link"|trans }}
-    </a>{% if "incomplete_space_after_link"|trans == "true" %} {% endif %}{{ "incomplete_after_link_text"|trans }}
+    {% trans editlink="https://github.com/beeware/beeware.github.io/edit/lektor/content" + page.path + "/contents.lr" %}
+    This page's contents is incomplete. You can help by <a href="{{ editlink }}">expanding it</a>.
+    {% endtrans %}
   </p>
   {% endif %}
 {% endmacro %}
