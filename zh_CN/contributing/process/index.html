@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>开发过程— BeeWare</title>
+    <title>开发流程— BeeWare</title>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
@@ -110,7 +110,7 @@
   <a href="/zh_CN/contributing/">贡献</a>
   
 </p>
-    <h1>开发过程</h1>
+    <h1>开发流程</h1>
     <p>BeeWare 开发流程</p>
   </div>
 </div>
@@ -140,13 +140,9 @@ and
 <p>应在 <code>changes</code> 目录下创建变更注释文件，并按以下格式命名它：</p>
 <pre><code>&lt;PR/问题 编号&gt;.&lt;变更类型&gt;.rst
 </code></pre>
-<p>例如，修复 GitHub 问题 #42 的拉取请求将命名为
-42.bugfix.rst`。如果拉取请求与特定的
-问题相关联，则可以使用拉取请求编号来代替。您可能需要
-创建拉取请求<em>无</em>变更注释，以获得分配的拉取请求编号，然后推送与该编号相关的更新。
-编号，然后推送包含变更注释的更新，并使用新分配的拉取请求编号。
-新分配的拉取请求编号。</p>
-<p>更改说明的更改类型应为以下类型之一：</p>
+<p>例如，修复 GitHub 问题 #42 的拉取请求将会被命名为
+<code>42.bugfix.rst</code>。如果拉取请求不与任何特定的问题相关联，则可以使用拉取请求编号来代替。您可能需要先创建一个<em>不包含</em>变更注释的拉取请求，以获得分配的拉取请求编号，然后在 push 包含使用该编号的更改说明的更新。</p>
+<p>更改说明的类型应为以下之一：</p>
 <ul>
 <li><code>feature</code> (功能)</li>
 <li><code>bugfix</code> (问题修复)</li>
@@ -160,23 +156,18 @@ and
 尚未正式发布的功能的错误修复都属于
 使用 <code>misc</code> 标记描述的功能。</p>
 <p>变更说明应该是一行文字，从用户角度对变更进行高度概括，而不是深层次的技术描述或实施细节。它有别于提交信息 (commit message)。提交信息描述变更做了什么，以便未来的开发人员了解变更的原因。变更说明是一种面向用户的说明，描述的是变更后的新功能。把变更说明看作宣布变更的新闻稿，而不是提交说明。</p>
-<p>例如，如果您修复了一个由日期处理引起的错误，那么提交信息或拉伸请求的描述可能会是
-消息或拉动请求的描述可能是</p>
+<p>例如，如果您修复了一个由日期处理引起的错误，那么提交信息或拉取请求的描述可能会是：</p>
 <p>在 DateWidget 验证链中添加了 MM-DD-YYYY 验证器。</p>
 <p>这将描述对实现所做的更改--对审查代码的人有帮助的细节。
 这对审查代码的人很有帮助。然而，相应的
 相应的变更注释可能是这样的</p>
 <pre><code>Date widgets can now accept dates in US format.
 </code></pre>
-<p>这描述了最终用户将体验到的功能变化。
-用户将体验到的功能变化。用户无需了解任何
-有关实现的任何信息。</p>
+<p>这描述了最终用户将体验到的功能变化。用户无需了解任何与实现相关的任何信息。</p>
 <h2>代码风格</h2>
-<p>BeeWare的项目使用<a href="/contributing/first-time/what-is-a/ci">Pre-commit](https://pre-commit.com/)来自动遵守代码风格。
-代码风格。这些检查在每个版本库的
-.pre-commit-config.yaml "文件中定义，并自动
-CI</a> 中自动运行。
-打开时，会在 [CI](/contributing/first-time/what-is-a/ci 中自动运行。</p>
+<p>BeeWare 的项目使用 <a href="https://pre-commit.com/">Pre-commit</a> 来自动保证代码风格遵守。这些检查在每个版本库的
+<code>.pre-commit-config.yaml</code> 文件中定义，并在拉取请求打开时自动在
+<a href="/zh_CN/contributing/first-time/what-is-a/ci">CI</a>中运行。</p>
 <p>要在本地开发环境中在每次 <code>git commit</code> 时自动执行预提交检查，请运行 <code>pre-commit install</code>。</p>
 <p>包括以下提交前 (pre-commit) 检查：</p>
 <ul>
