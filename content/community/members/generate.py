@@ -36,8 +36,7 @@ def generate(filename, basedir):
                 'BeeWare Gold Membership': 'gold',
             }.get(line[1], 'other')
 
-            if level != "professional":
-                email = "%s@******.com" % email.split("@")[0]
+            email = "%s@******.com" % email.split("@")[0]
 
             outdir = os.path.join(basedir, uid)
             if os.path.exists(outdir):
@@ -55,6 +54,10 @@ def generate(filename, basedir):
                     outfile.write('level: %s\n' % level)
                     outfile.write('---\n')
                     outfile.write('join_date: %s\n' % join_date)
+                    outfile.write('---\n')
+                    outfile.write('image: avatar.png')
+                if level == 'professional':
+                    print(f"Professional member {uid} - add 80x80px image to members/{uid} directory.")
 
 if __name__ == '__main__':
     if len(sys.argv) != 3:
