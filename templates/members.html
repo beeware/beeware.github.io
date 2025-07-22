@@ -17,7 +17,7 @@
 
 {% set members = this.children.filter(F.level == 'gold').filter(F.end_date == null) %}
 {% if members %}
-    <h2>{{ ngettext("Gold Member", "Gold Members", len(members)) }}</h2>
+    <h2>{{ ngettext("Gold Member", "Gold Members", members.count()) }}</h2>
   {% for member in members %}
     {% if member.image %}
     <img class="img-fluid" src="{{ site.get(member.path, alt='_primary')|url }}{{ member.image }}" alt="{{ member.name }}">
@@ -28,7 +28,7 @@
 
 {% set members = this.children.filter(F.level == 'silver').filter(F.end_date == null) %}
 {% if members %}
-    <h2>{{ ngettext("Silver Member", "Silver Members", len(members)) }}</h2>
+    <h2>{{ ngettext("Silver Member", "Silver Members", members.count()) }}</h2>
   {% for member in members %}
     {% if member.image %}
     <img class="img-fluid" src="{{ site.get(member.path, alt='_primary')|url }}{{ member.image }}" alt="{{ member.name }}">
@@ -39,7 +39,7 @@
 
 {% set members = this.children.filter(F.level == 'bronze').filter(F.end_date == null) %}
 {% if members %}
-    <h2>{{ ngettext("Bronze Member", "Bronze Members", len(members)) }}</h2>
+    <h2>{{ ngettext("Bronze Member", "Bronze Members", members.count()) }}</h2>
   {% for member in members %}
     {% if member.image_small %}
     <img class="img-fluid" src="{{ site.get(member.path, alt='_primary')|url }}{{ member.image_small }}" alt="{{ member.name }}">
@@ -50,7 +50,7 @@
 
 {% set members = this.children.filter(F.level == 'adhoc').filter(F.end_date == null) %}
 {% if members %}
-    <h2>{{ ngettext("AdHoc Member", "AdHoc Members", len(members)) }}</h2>
+    <h2>{{ ngettext("AdHoc Member", "AdHoc Members", members.count()) }}</h2>
   {% for member in members %}
     {% if member.image_small %}
     <img class="img-fluid" src="{{ site.get(member.path, alt='_primary')|url }}{{ member.image_small }}" alt="{{ member.name }}">
@@ -64,7 +64,7 @@
 
 {% set members = this.children.filter(F.level == 'professional').filter(F.end_date == null) %}
 {% if members %}
-    <h2>{{ ngettext("Professional Member", "Professional Members", len(members)) }}</h2>
+    <h2>{{ ngettext("Professional Member", "Professional Members", members.count()) }}</h2>
     <ul>
   {% for member in members %}
       <li class="professional"><img class="img-fluid" src="/community/members/{{ member.uid }}/{{ member.image }}" alt="{{ member.name }}">{% if member.name %}{{ member.name }}{% else %}{{ member.email }}{% endif %}</li>
@@ -74,7 +74,7 @@
 
 {% set members = this.children.filter(F.level == 'individual').filter(F.end_date == null) %}
 {% if members %}
-  <h2>{{ ngettext("Individual Member", "Individual Members", len(members)) }}</h2>
+  <h2>{{ ngettext("Individual Member", "Individual Members", members.count()) }}</h2>
   <ul>
   {% for member in members %}
     <li>{% if member.name %}{{ member.name }}{% else %}{{ member.email }}{% endif %}</li>
@@ -84,7 +84,7 @@
 
 {% set members = this.children.filter(F.level == 'inkind').filter(F.end_date == null) %}
 {% if members %}
-  <h2>{{ ngettext("In-Kind Member", "In-Kind Members", len(members)) }}</h2>
+  <h2>{{ ngettext("In-Kind Member", "In-Kind Members", members.count()) }}</h2>
   {% for member in members %}
     {% if member.image_small %}
     <img class="img-fluid" src="{{ site.get(member.path, alt='_primary')|url }}{{ member.image_small }}" alt="{{ member.name }}">
