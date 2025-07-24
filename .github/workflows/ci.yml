@@ -18,7 +18,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
-          persist-credentials: false # This will not store the git credentails on disk, only in memory
+          fetch-depth: 0
+          persist-credentials: false # This will not store the git credentials on disk, only in memory
 
       - name: Set up Python
         uses: actions/setup-python@v5
