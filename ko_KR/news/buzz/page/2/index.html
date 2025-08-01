@@ -126,6 +126,122 @@
 
   
   
+  <h2><a href="/ko_KR/news/buzz/2025q1-roadmap/">2025Q1 Roadmap</a></h2>
+  <p class="meta">
+    Posted by
+    
+      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
+    
+    on 7 January 2025 
+  </p>
+  
+  <p>Progress in Q4 was slower than anticipated, but there have been some
+notable success in achieving BeeWare's overall project goals. As always,
+this roadmap should be read as a guide to what we aim to focus on over
+the coming quarter, rather than a hard commitment of features that will
+be made available on a specific deadline.</p>
+<h2>Q4 progress</h2>
+<p>Our goal for Q4 was to have at least one third-party package producing
+Android and iOS packages as part of their release process. We were
+unable to achieve this goal, for four reasons.</p>
+<p>Firstly, we underestimated the chain of downstream dependencies that
+needed to be addressed before it would be possible to submit mobile
+packaging PRs to upstream projects. We correctly identified <code>pip</code> and
+<code>cibuildwheel</code> as two projects that would need to be updated; however,
+we didn't anticipate that those projects would themselves have upstream
+dependencies and issues that would require patching. The process of
+coming up to speed with the development tooling of multiple upstream
+projects, navigating the review processes of each of those projects, and
+sequencing changes over multiple projects so they are easier to merge
+has taken much longer than we anticipated.</p>
+<p>Secondly, we underestimated how much work would be needed on the target
+projects themselves to make them ready for mobile support. We picked
+Pillow as one of our target projects because of its complex chain of
+binary dependencies. However we soon discovered that the way those
+binary dependencies were compiled for <em>macOS</em> required significant
+alteration before working on an iOS patch would be possible.</p>
+<p>Third, the release of Xcode 16 included an unexpected surprise - it
+broke the mechanism we were using to gather results from test suites
+running on the iOS simulator. This required a significant change in
+CPython; however, as a result, we now have a much better mechanism for
+collecting test results, and the test harness the CPython uses to run
+its own tests can now be used to run test suites for any other Python
+project.</p>
+<p>Lastly, we were presented with an opportunity to work closely with the
+PyScript team on web support, to the benefit of both projects. This
+redirected some of the resources that we originally anticipated would be
+used for Android binary packaging. However, it does mean that some
+significant improvements to Toga's web backend have been made, with more
+on the horizon in the new year.</p>
+<p>Despite these challenges, we have made significant progress. <code>pip</code> now
+includes full support for iOS wheel tags. The patch adding a major
+feature to <code>cibuildwheel</code> that is a pre-requisite for iOS support has
+been accepted; we've been told this patch should be merged within days.
+We've submitted changes to Pillow that allow macOS builds to be
+completely isolated from Homebrew, and the patches required to support
+cross-platform builds of Pillow's binary dependencies have been merged.
+This leaves 2 patches that need to be merged - a patch to cibuildwheel
+adding support for building on iOS; and the patch to Pillow adding an
+iOS build configuration. These patches have been prepared, and are
+mostly ready for submission upstream; using these patches, it is
+possible to fully build and test Pillow wheels for iOS with
+cibuildwheel.</p>
+<h2>Q1 priorities</h2>
+<p>In Q1, we will continue to work on binary packaging for mobile
+platforms. We will continue to work on landing the patches to
+<code>cibuildwheel</code> and Pillow for iOS support; once that work has concluded,
+we hope to start making the analogous changes required to support
+Android.</p>
+<p>Q1 will also see the continuation of our collaboration with PyScript.
+The major focus for BeeWare in this work will be Toga's Web backend -
+and in particular, Toga's testing infrastructure. We're not currently
+able to run Toga's testbed project on the web backend (or the Textual
+backend, for that matter). We have some ideas for how this could be
+addressed; these ideas may not be fully realised by the end of Q1, but
+we hope to at least have a concrete plan, and maybe even a prototype in
+place.</p>
+<p>Lastly, with the CPython 3.14 development process well underway, there
+are two projects that we intend to work on, with the goal of having this
+work incorporated into Python 3.14. The first is the creation of
+official "embedded" distributions of CPython for more platforms. Python
+already produces an embedded build for Windows, and Briefcase is able to
+use this distribution as part of the process of creating Windows
+binaries. We hope that Python 3.14 will contain analogous builds for
+macOS, iOS and Android, removing the need for BeeWare (and other
+projects) to maintain independent CPython builds. We've had some initial
+discussions with the CPython release team; we hope that by the end of
+the quarter, we'll have a plan for how to deliver this work.</p>
+<p>The second CPython feature we'd like to address is handling of
+cross-platform virtual environments - that is, creating a virtual
+environment that can "pretend" it is running on a different host
+platform. This is necessary for cross-platform builds, which require the
+ability to create an isolated PEP 517 build environment that can run
+Python on the local machine, but report platform-identifying information
+as if it were running on the target machine. A version of this
+cross-environment virtualization has been necessary to support
+<code>cibuildwheel</code>; however, it would be desirable to upstream this work so
+that it can be standardised as part of a stock Python environment. We
+hope to start discussions about this with the CPython core team in the
+near future.</p>
+<h2>Longer term goals</h2>
+<p>Once we've got a strong story for packaging third-party packages for iOS
+and Android, we'll be able to turn our focus back to Toga, and the work
+needed to make iOS and Android compelling app development platforms.
+There's a number of navigation and data organization widgets that need
+to be developed; we also need to improve documentation of some common
+development patterns that are sources of common questions in BeeWare
+support channels.</p>
+<p>We'll should also be in a position to start working on the long list of
+projects in the Python ecosystem that would benefit from having iOS and
+Android support upstream. <code>cryptography</code>, <code>numpy</code> and <code>pandas</code> will be
+the highest priority for this work, but there's a very long tail of
+useful projects that have binary modules; ideally they'd all have iOS
+and Android support.</p>
+
+
+
+  
+  
   <h2><a href="/ko_KR/news/buzz/december-2024-status-update/">December 2024 Status Update</a></h2>
   <p class="meta">
     Posted by
@@ -1037,138 +1153,6 @@ emulators</a></li>
 widget</a></li>
 <li><a href="https://github.com/beeware/briefcase/issues/1876">Correct the handling of quotation marks in Android
 apps</a></li>
-</ol>
-<p>Pick one of these tickets, drop a comment on the ticket to let others
-know you're looking at it, and try your hand at a PR! We have a <a href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html">guide
-on setting up a Briefcase development
-environment</a>;
-but if you need any additional assistance or guidance, you can ask on
-the ticket, or join us on the <a href="https://beeware.org/bee/chat/">BeeWare Discord
-server</a>.</p>
-
-
-
-  
-  
-  <h2><a href="/ko_KR/news/buzz/may-2024-status-update/">May 2024 Status Update</a></h2>
-  <p class="meta">
-    Posted by
-    
-      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
-    
-    on 3 June 2024 
-  </p>
-  
-  <p>BeeWare activity in May was dominated by preparing for and attending
-PyCon US in Pittsburgh. That event generated a lot of activity in the
-BeeWare project - but we've also added some other significant
-improvements.</p>
-<h2>What we've done</h2>
-<ul>
-<li>We attended PyCon US. We presented on the <a href="https://us.pycon.org/2024/events/language-summit/">state of mobile support in
-CPython to the Language
-Summit</a>; we
-<a href="https://us.pycon.org/2024/schedule/presentation/41/">presented a
-tutorial</a> to over
-30 attendees; we ran a booth in Community Row; we <a href="https://us.pycon.org/2024/schedule/presentation/40/">presented a
-talk</a> on writing
-a data visualisation app with BeeWare tools; and we ran an extremely
-successful sprint. At the peak, we had over 30 people sprinting on
-BeeWare projects; and we handed out over 20 challenge coins to first
-time contributors. Many of the new features in this status update can
-be attributed to contributions from sprint participants.</li>
-<li>We modified Toga's Window API to allow <a href="https://github.com/beeware/toga/pull/2314">setting the content of the
-window when the window is
-constructed</a>, and <a href="https://github.com/beeware/toga/pull/2591">improved
-the APIs for replacing children in an existing window
-layout</a>.</li>
-<li>We modified how validation of TextInput widgets are handled so that
-<a href="https://github.com/beeware/toga/pull/2596">change handlers aren't invoked until validation has been
-performed</a>.</li>
-<li>We modified how the DetailedList is created on Android so that <a href="https://github.com/beeware/toga/pull/2595">the
-dependency on the native SwipeRefreshLayout widget only exists if your
-app actually uses a DetailedList
-widget</a>.</li>
-<li>We <a href="https://github.com/beeware/toga/pull/2590">improved the error handling around camera permissions on
-macOS</a>, and ensured that
-<a href="https://github.com/beeware/briefcase/pull/1820">Briefcase will generate the right permissions for macOS
-Sonoma</a>.</li>
-<li>We diagnosed some issues associated with code signing on macOS <a href="https://github.com/beeware/briefcase/issues/1808">when
-running on iCloud-mirrored
-drives</a>, and when
-<a href="https://github.com/beeware/briefcase/issues/1831">Git has been configured to preserve Windows
-newlines</a>. We also
-<a href="https://github.com/beeware/briefcase/pull/1825">improved the error handling when notarisation
-fails</a>.</li>
-<li>We <a href="https://github.com/beeware/briefcase/pull/1807">formally documented the plugin extension points that Briefcase
-provides</a>. With this
-formally documented interface, Pygame-CE and
-<a href="https://github.com/beeware/briefcase/pull/1834">PPB</a>, have taken
-formal ownership of their Briefcase bootstraps.</li>
-<li>We <a href="https://github.com/beeware/briefcase/pull/1812">formally adopted PEP 621 format for specifying license files in
-Briefcase</a>.</li>
-<li>We <a href="https://github.com/beeware/briefcase/pull/1824">loosened the restrictions on bundle
-identifiers</a>, and
-<a href="https://github.com/beeware/briefcase/pull/1811">improved handling of applications with special characters in their
-formal names</a>.</li>
-<li>We developed a draft implementation of a change that will <a href="https://github.com/beeware/briefcase/pull/1781">allow
-Briefcase to package console
-applications</a>. We
-expect this change will land in the next week or so, and be released
-soon after that.</li>
-<li>We started work on <a href="https://github.com/beeware/briefcase/pull/1849">removing binary stubs from the macOS and Windows
-app templates</a>. This
-was starting to become a significant performance issue for first-time
-Briefcase users.</li>
-<li>We improved the mechanism for invoking methods in Rubicon ObjC, making
-it possible to <a href="https://github.com/beeware/rubicon-objc/pull/462">invoke methods with repeated argument
-names</a>.</li>
-</ul>
-<h2>What's next?</h2>
-<p>In June, we're expecting to see progress in three main areas.</p>
-<p>Firstly, we'll be finalising the work on packaging console applications.
-We expect to see a Briefcase release by mid month that will incorporate
-this, and all the other improvements that have landed over the last
-month.</p>
-<p>Secondly, we'll be working on the APIs for the Toga App and Window
-classes. We've already done <a href="https://github.com/beeware/toga/pull/2244">a lot of prototyping work in this
-area</a>; once this work is
-complete, Toga should have support for apps without a menubar in their
-main window, support for status bar apps without a main window, vastly
-improved abilities to customise standard menu items, and a stable API
-for document-based apps.</p>
-<p>Thirdly, we'll start looking at the broader CPython binary packaging
-ecosystem. The work we've done so far this year has led to CPython 3.13
-formally supporting iOS and Android as Tier 3 supported platforms; the
-next step is ensuring that the rest of the community can build iOS and
-Android packages. This will involve improvements to tools like <code>pip</code>,
-<code>cibuildwheel</code>, <code>meson-python</code> and more. We expect that this work will
-take much longer than a month to complete, but we hope to be able to
-share some progress in June.</p>
-<h2>Want to get involved?</h2>
-<p>Want to get involved? Here are some open issues that would be a great
-place to get started with contributing to a BeeWare project. They're all
-relatively minor changes, but would provide a big improvement to the
-lives of BeeWare users:</p>
-<ol>
-<li><a href="https://github.com/beeware/toga/issues/2251">Update the Toga testbed test suite to use Pixel 7 Pro device
-sizes</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/780">Filter out a message generated after Xcode
-updates</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/808">Add the ability to configure the ABIs built by an Android
-project</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1099">Rationalise the application of adhoc signing on
-macOS</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1270">Add support for custom PyPI
-repositories</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1393">Document how to debug an application in popular
-IDEs</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/394">Correctly handle incomplete project
-deletions</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/737">Add an option to select the Android base image when creating new
-emulators</a></li>
-<li><a href="https://github.com/beeware/toga/issues/2305">Add an API to entirely replace the style of a
-widget</a></li>
 </ol>
 <p>Pick one of these tickets, drop a comment on the ticket to let others
 know you're looking at it, and try your hand at a PR! We have a <a href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html">guide
