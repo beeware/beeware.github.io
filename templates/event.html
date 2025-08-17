@@ -6,10 +6,15 @@
 {% set member_slugs = this.speaker %}
 {% set members = site.query("/about/team") %}
 
-{%- set speaker_names = {} -%}
-{%- for slug in speaker_slugs %}
-    {%- do speaker_names.update({slug: members.filter(F._slug == slug).first().name}) -%}
-{%- endfor -%}
+{% set speaker_names = {} %}
+
+{% for slug in this.speaker %}
+    {%
+        do speaker_names.update(
+            {slug: members.filter(F._slug == slug).first().name}
+        )
+    %}
+{% endfor %}
 {% set speakers_list = join_and(speaker_names.values()|list) %}
 
 {% block title %}{{ this.title }}{% endblock %}

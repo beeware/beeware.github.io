@@ -15,10 +15,14 @@
   <a href="mailto:{{ member.email }}"><i class="fa fa-envelope fa-lg icon" aria-hidden="true"></i>&nbsp;{{ member.email }}</a>
   {% if member.superpower %}
   <br>
-  {% if member.superpower is string %}
-  {{ pgettext("Label before list of superpowers, keep the space if it's needed before the list starts", "Superpower: ") }}{{- get_label(member.superpower) -}}
-  {% else %}
-  {{ pgettext("Label before list of superpowers, keep the space if it's needed before the list starts", "Superpower: ") }}{% for s in member.superpower %}{% if not loop.first %}{{- get_comma() -}}{% endif %}{{- get_label(s) -}}{% endfor %}
+  {% set superpower_label = pgettext(
+      "Label before list of superpowers, keep the space if it's needed before the list starts",
+      "Superpower: "
+  ) -%}
+  {%- if member.superpower is string -%}
+  {{ superpower_label }}{{- get_label(member.superpower) -}}
+  {%- else -%}
+  {{ superpower_label }}{% for s in member.superpower %}{% if not loop.first %}{{- get_comma() -}}{% endif %}{{- get_label(s) -}}{% endfor %}
   {% endif %}
   {% endif %}
 {% endmacro %}
