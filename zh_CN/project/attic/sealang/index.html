@@ -134,41 +134,19 @@
 
     
 
-    <p><p>Sealang 是一套改进的 <code>libclang</code> Python 绑定程序。</p>
-<p>libclang "的上游维护者并没有特别积极地
-上游维护者对解决 Python 3 兼容性等问题的补丁反应并不积极、
-以及 API 中的重大遗漏（如提取字面量和运算符
-和操作符）。</p>
-<p>此软件包是 <code>libclang</code> 的官方 Python 绑定的分叉、
-的官方绑定。</p>
+    <p><p>Sealang 是一套改进的 <code>libclang</code> Python 绑定。</p>
+<p><code>libclang</code> 的上游维护者并没有特别积极地对解决 Python 3 兼容性等问题的补丁反应，以及 API 中的重大遗漏（如提取字面量和运算符）。</p>
+<p>此软件包是 <code>libclang</code> 的官方 Python 绑定的派生。</p>
 <h2>工作原理</h2>
-<p>Sealang 是一个有点恶心的黑客程序。<code>libclang</code> 是一套 C++ API 的 C 绑定；然后用 Python <code>ctypes</code> 封装 C API。
-C++ API 的一套 C 绑定；然后使用 Python <code>ctypes</code> 对 C API 进行封装。然而，虽然
-C++ API 相当丰富，而 <code>libclang</code> 就没那么丰富了。</p>
-<p>Sealang 提供了 C++ 调用的 C 语言封装器，从而弥补了这一差距。
-提供了有用的功能。这个 C 函数库
-封装为一个 Python C 模块，用于交付目的。
-不包含暴露的<em>Python</em>对象或方法，但由于它是一个
-模块，底层的编译
-<span class="title-ref">sealang.so</span>文件很容易找到。
-<span class="title-ref">ctypes</span>然后用于公开
-<span class="title-ref">sealang</span>封装函数；</p>
-<p>在内部，Sealang 重现了 <code>libclang</code> API 的一些次要部分；
-这些方法（如字符串创建和操作方法）
-这些方法（如字符串创建和操作方法）没有以符号的形式公开，供第三方使用。</p>
-<p>所有这些功能都有可能被上游的
-传递给 libclang。</p>
+<p>Sealang 是一个有点恶心的小妙招。<code>libclang</code> 是一套 C++ API 的 C 绑定；然后用 Python <code>ctypes</code> 封装 C API。然而，虽然 C++ 的 API 相当丰富，<code>libclang</code> 则没有那么这样。</p>
+<p>Sealang 提供了调用这些提供有用功能的 C++ 调用的 C 语言封装，从而弥补了这一差距。这个 C 函数库只因为分发用途而封装为一个 Python C 模块；它不包含暴露的 <em>Python</em> 对象或方法，但由于它是一个模块，底层的编译好的 <span class="title-ref">sealang.so</span> 文件很容易查找。然后，我们使用 <span class="title-ref">ctypes</span> 用于公开 <span class="title-ref">sealang</span> 封装函数；</p>
+<p>在内部，Sealang 重现了 <code>libclang</code> API 的一些次要部分；这些方法（如字符串创建和操作方法）没有以可供第三方使用的符号的形式公开。</p>
+<p>所有这些功能都有可能被传递给上游 libclang。</p>
 <h3>与 Clang 的关系</h3>
-<p>该项目旨在反映当前 Python
-与 <code>libclang</code> 的绑定。本项目的版本号
-版本号取自官方 clang 代码库的版本和 SVN 修订版。</p>
-<p>上游对 <code>libclang</code> 所做的任何修改都将在此处进行镜像；此处所做的任何修改都将尽可能推送到上游的 <code>libclang</code> 中。
-的任何更改都将尽可能推送到
-libclang`。</p>
-<h4>发展状况</h4>
-<p>该项目是为支持
-<a href="/project/attic/seasnake">海蛇</a>。由于 Seasnake 已被放弃、
-这个项目也被放弃了。</p>
+<p>该项目旨在反映当前 Python 与 <code>libclang</code> 的已有绑定。本项目的版本号取自官方 clang 代码库的版本和 SVN 修订版。</p>
+<p>上游对 <code>libclang</code> 所做的任何修改都将在此处进行镜像；此处所做的任何修改都将尽可能推送到上游的 <code>libclang</code> 中。</p>
+<h3>开发状况</h3>
+<p>该项目是为支持为了支持 <a href="/zh_CN/project/attic/seasnake">Seasnake</a> 的实验。由于 Seasnake 已被放弃，这个项目也被放弃了。</p>
 </p>
 
     
