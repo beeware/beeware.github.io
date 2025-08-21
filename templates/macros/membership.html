@@ -1,3 +1,5 @@
+{% from 'macros/labels.html' import get_label %}
+
 {% macro membership_level(member) %}
-{{ member.level|trans("labels") }} {{ "member"|trans|capitalize }}
+{{ get_label(member.level) }}
 {% endmacro %}
