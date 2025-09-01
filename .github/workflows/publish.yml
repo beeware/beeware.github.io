@@ -41,18 +41,17 @@ jobs:
         lektor plugins reinstall
         sudo apt update -y
         sudo apt install -y --no-install-recommends gettext
-    - name: Setup Weblate Install and Configurations
+    - name: Configure Weblate
       env:
         WEBLATE_API_TOKEN: ${{ secrets.WEBLATE_API_TOKEN }}
       run: |
-        pip install wlc
         mkdir -p ~/.config && cat <<EOF > ~/.config/weblate
         [weblate]
         url = https://hosted.weblate.org/api/
         key = $WEBLATE_API_TOKEN
         translation = weblate/application
         EOF
-    - name: Lock and Sync with Weblate
+    - name: Lock Weblate and Sync
       run: |
         wlc commit
         wlc lock
@@ -82,11 +81,14 @@ jobs:
         git commit -m "Update translations to $(git rev-parse --short HEAD)."
         git push origin
 
-    - name: Unlock Weblate and Remove Configuration
+    - name: Ensure Weblate has current updates
+      if: steps.updated.outputs.updated == 'true'
       run: |
         wlc pull
+
+    - name: Unlock Weblate
+      run: |
         wlc unlock
-        rm ~/.config/weblate
 
     - name: Publish site
       env:
