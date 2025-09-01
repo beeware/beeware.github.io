@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Buzz</title><link href="http://beeware.org/zh_TW/news/buzz/" rel="alternate"/><link href="http://beeware.org/ar_AR/news/buzz/atom.xml" rel="self"/><id>urn:uuid:0f18b85e-c1d4-3086-935d-f801edebea16</id><updated>2025-08-01T00:00:00Z</updated><author><name/></author><subtitle>BeeWare 官方部落格</subtitle><entry><title>July 2025 Status Update</title><link href="http://beeware.org/news/buzz/july-2025-status-update/" rel="alternate"/><updated>2025-08-01T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:79564a10-3974-3f5e-9334-92e3db85af5c</id><content type="html">&lt;p&gt;In July, BeeWare hit some more major milestones in our work on mobile packaging - but we also found time to make some improvements to other parts of BeeWare.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Buzz</title><link href="http://beeware.org/zh_TW/news/buzz/" rel="alternate"/><link href="http://beeware.org/ar_AR/news/buzz/atom.xml" rel="self"/><id>urn:uuid:0f18b85e-c1d4-3086-935d-f801edebea16</id><updated>2025-09-01T00:00:00Z</updated><author><name/></author><subtitle>BeeWare 官方部落格</subtitle><entry><title>August 2025 Status Update</title><link href="http://beeware.org/news/buzz/august-2025-status-update/" rel="alternate"/><updated>2025-09-01T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:412c2539-a559-3a6f-8ed6-2d4fc2697d0a</id><content type="html">&lt;p&gt;August has been a slow month due to some personal leave, and some unexpected road bumps from GitHub - but BeeWare has still made some notable progress.&lt;/p&gt;
+&lt;h2&gt;What we've done&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.python.org/downloads/release/python-3140rc2/"&gt;Python 3.14.0rc2 has been released&lt;/a&gt; - including, for the first time, official Android binaries! You can now download official, pre-compiled Android binaries for CPython. This is a major milestone for Android support, as it means BeeWare is able to use official binaries when building Android apps. &lt;/li&gt;
+&lt;li&gt;As part of the changes adding official Android binaries to the release process, &lt;a href="https://github.com/python/cpython/pull/137186"&gt;Android was added to the CI checks that are performed as part of every CPython pull request on GitHub&lt;/a&gt;. This will significantly reduce the likelihood of bugs landing in main that will break the Android buildbots.&lt;/li&gt;
+&lt;li&gt;We spent a significant amount of time &lt;a href="https://github.com/actions/runner-images/issues/12777"&gt;dealing with an update to  GitHub Actions&lt;/a&gt;. On August 11, GitHub rolled out an update to the disk image they use for macOS 15 machines - and in the process, broke the tools that BeeWare uses to test iOS applications. It took almost a week to identify the cause of this problem, and develop a fix. However, the good news is that &lt;a href="https://github.com/python/cpython/pull/138018"&gt;the fix significantly simplifies the iOS testing process&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We &lt;a href="https://github.com/python/cpython/pull/138176"&gt;began the process of adding official Python binaries for iOS&lt;/a&gt;. The complexity of iOS multi-architecture builds makes official builds a little more complicated than Android, but we're hopeful this work will be able to land in the near future.&lt;/li&gt;
+&lt;li&gt;We added a recipe for building &lt;a href="https://github.com/beeware/cpython-apple-source-deps/pull/64"&gt;iOS binaries for zstandard&lt;/a&gt;. These are needed to support the new zstandard compression library in Python 3.14.&lt;/li&gt;
+&lt;li&gt;We released a &lt;a href="https://beeware.org/mobile-wheels/"&gt;website to track the status of binary wheel support for iOS and Android&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We released &lt;a href="http://pypi.org/project/briefcase/0.3.25/"&gt;Briefcase 0.3.25&lt;/a&gt;. This release was primarily required because of a change to Android Play Store target SDK requirements.&lt;/li&gt;
+&lt;li&gt;We modified how Briefcase &lt;a href="https://github.com/beeware/briefcase/pull/2443"&gt;determines the minimum supported macOS/iOS version that Python requires&lt;/a&gt;. This change allows us to simplify the contents of the support packages.&lt;/li&gt;
+&lt;li&gt;We made Briefcase &lt;a href="https://github.com/beeware/briefcase/pull/2429"&gt;more resilient to badly packaged binary wheels on macOS&lt;/a&gt;. Many packages publish &lt;code&gt;py3-none-any&lt;/code&gt; wheels, which &lt;em&gt;should&lt;/em&gt; be platform independent - but then include platform-specific binaries or dynamic library content in the wheels. Briefcase will now ignore these files.&lt;/li&gt;
+&lt;li&gt;Briefcase's unit tests have been made &lt;a href="https://github.com/beeware/briefcase/pull/2434"&gt;more resilient to temporary network outages&lt;/a&gt; - something that happens surprisingly often in the GitHub Actions environment.&lt;/li&gt;
+&lt;li&gt;We dropped support for Python 3.9, and added support for Python 3.14 across BeeWare projects. For the first time, this includes the ability to release Windows support &lt;a href="https://github.com/beeware/briefcase/pull/2432"&gt;based on pre-releases of Python&lt;/a&gt; - previously, we had to wait until the &lt;code&gt;.0&lt;/code&gt; release of a new Python version before we could add support.&lt;/li&gt;
+&lt;li&gt;We &lt;a href="https://github.com/beeware/toga/pull/3683"&gt;improved the checks (and error reporting) associated with using new versions of Travertino with old versions of Toga&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We resolved a long standing bug on iOS where &lt;a href="https://github.com/beeware/toga/pull/3680"&gt;touch events wouldn't be triggered if content was "below the fold" on a scroll container&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We started work on a &lt;a href="https://github.com/beeware/xbuild"&gt;new tool to consolidate the cross-platform building tools used on Android, iOS and Emscripten&lt;/a&gt;. This tool still needs a lot of work before it's production-ready, but it draws from our lessons learned on cibuildwheel, and should allow us to simplify and consolidate the approaches taken to implement cross-platform builds. &lt;/li&gt;
+&lt;li&gt;We made significant progress on migrating BeeWare's documentation to use Markdown, instead of Restructured Text. We've got &lt;a href="https://github.com/beeware/beeware-docs-tools"&gt;tools and themes in place&lt;/a&gt;, and the &lt;a href="https://github.com/beeware/beeware-tutorial/pull/3"&gt;tutorial is almost ready to switch to new Markdown-based content&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;What's next?&lt;/h2&gt;
+&lt;p&gt;September will involve a lot of travel - we'll be attending &lt;a href="https://2025.pycon.org.au"&gt;PyCon AU&lt;/a&gt;, the CPython core team summit, and &lt;a href="/news/buzz/august-2025-status-update/"&gt;PyCon UK&lt;/a&gt;. We'll be speaking at &lt;a href="https://2025.pycon.org.au/program/SQUT77/"&gt;PyCon AU&lt;/a&gt; and &lt;a href="https://pretalx.com/pyconuk-2025/talk/PUBM3T/"&gt;PyCon UK&lt;/a&gt;, and running a &lt;a href="https://2025.pyconuk.org/sprints/"&gt;sprint at PyCon UK&lt;/a&gt; as well. Tickets are still on sale for both events - we hope to see you there!&lt;/p&gt;
+&lt;p&gt;When we're not travelling, we're going to continue working on getting iOS binary artefacts into Python's CI and release processes, and on improving the tools for packaging binary wheels for mobile platforms.&lt;/p&gt;
+&lt;p&gt;Lastly, we're planning to look at adding post-install scripts to Briefcase installers. We'll be focussing on Windows installers initially; but the intention is that any changes we implement could also be implemented on macOS or Linux.&lt;/p&gt;
+&lt;h2&gt;Want to get involved?&lt;/h2&gt;
+&lt;p&gt;Want to get involved? We curate issues that should be approachable for first-time contributors to BeeWare. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you're interested in the tooling for deploying applications to various platforms, take a look at &lt;a href="https://github.com/beeware/briefcase/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22"&gt;Briefcase&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Or, if you're interested in GUI widgets, take a look at &lt;a href="https://github.com/beeware/toga/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22"&gt;Toga&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These lists can also be filtered by platform - so you can find issues that are specific to your preferred operating system. Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a &lt;a href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html"&gt;guide on setting up a Briefcase development environment&lt;/a&gt;; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the &lt;a href="https://beeware.org/bee/chat/"&gt;BeeWare Discord server&lt;/a&gt;.&lt;/p&gt;
+</content></entry><entry><title>July 2025 Status Update</title><link href="http://beeware.org/news/buzz/july-2025-status-update/" rel="alternate"/><updated>2025-08-01T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:79564a10-3974-3f5e-9334-92e3db85af5c</id><content type="html">&lt;p&gt;In July, BeeWare hit some more major milestones in our work on mobile packaging - but we also found time to make some improvements to other parts of BeeWare.&lt;/p&gt;
 &lt;h2&gt;What we've done&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;We attended &lt;a href="https://ep2025.europython.eu"&gt;EuroPython&lt;/a&gt;, where we gave a tutorial and a talk, attended the WebAssembly summit, and ran a sprint - at which we gave out 25 BeeWare challenge coins to first-time contributors.&lt;/li&gt;
@@ -4286,79 +4316,4 @@ proof of concept of this; we need to finish these tools, and develop the
 infrastructure to distribute. We're also hoping to start conversations
 with the Anaconda team about Conda integration with Briefcase, and start
 improving GUI testing in Toga.&lt;/p&gt;
-</content></entry><entry><title>July 2022 Status Update</title><link href="http://beeware.org/news/buzz/july-2022-status-update/" rel="alternate"/><updated>2022-08-01T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:de3ac9af-8a78-3b2c-a96c-bb051abf9f8f</id><content type="html">&lt;p&gt;Another month of important updates to the BeeWare project! This month,
-our focus was on packaging improvements on Linux and Windows.&lt;/p&gt;
-&lt;p&gt;In addition the technical progress, we welcomed &lt;a href="https://github.com/mhsmith"&gt;Malcolm Smith (@mhsmith
-on GitHub)&lt;/a&gt; to the Anaconda BeeWare team!
-Malcolm brings his considerable experience developing and maintaining
-&lt;a href="https://github.com/chaquo"&gt;Chaquopy&lt;/a&gt;, a set of tools and libraries for
-building Android applications that use Python. Chaquopy tackles the
-"Python on Android" problem from the perspective of adding Python to an
-existing Android Studio project rather than writing apps entirely with
-Python; as a result, it features much tighter integration with native
-Android Studio tooling. One particularly interesting feature of Chaquopy
-is that it supports binary dependencies on Android - a key feature that
-BeeWare's Android tooling currently lacks. Historically, Chaquopy was a
-closed source tool with licenses available for open source projects;
-however, as a result of joining Anaconda, Malcolm has &lt;a href="https://chaquo.com/chaquopy/chaquopy-is-now-open-source/"&gt;released Chaquopy
-as an Open Source
-project&lt;/a&gt;!&lt;/p&gt;
-&lt;h2&gt;What we've done&lt;/h2&gt;
-&lt;p&gt;During July:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;We &lt;a href="https://github.com/beeware/briefcase/pull/756"&gt;added support for Linuxdeploy
-plugins&lt;/a&gt; for Linux
-AppImages. These plugins are an important part of making AppImages
-self-contained, as many libraries need to provide the Linuxdeploy
-tooling hints to help find all the resources needed at runtime. Adding
-support for these plugins should address most of the issues we've been
-seeing with moving AppImages between Linux versions.&lt;/li&gt;
-&lt;li&gt;We &lt;a href="https://github.com/beeware/briefcase/pull/802"&gt;added a Flatpak backend for Linux
-packaging&lt;/a&gt;. Flatpak is
-an alternative packaging format to AppImage which has the support of a
-number of large Linux distributions. For now, AppImage continues to be
-the default Linux packaging format, but we may change this default in
-the future.&lt;/li&gt;
-&lt;li&gt;We &lt;a href="https://github.com/beeware/briefcase/pull/782"&gt;improved the packaging of Windows apps by adding a stub
-binary&lt;/a&gt;. We're still
-hunting some bugs in this stub binary, but when those are resolved,
-the Windows apps generated by Briefcase will present to the operating
-system with consistent app naming and icons. The stub binary also
-enables us to catch runtime problems with the app in a way that makes
-diagnosing app problems much easier.&lt;/li&gt;
-&lt;li&gt;We presented a webinar about native application development. If you
-weren't able to attend the webinar live, a recording is available;
-&lt;a href="https://event.on24.com/wcc/r/3766379/B50F020E006CF935D87609BF3E247ED7?partnerref=anaconda.com"&gt;register here to
-watch&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;We got an initial proof of concept of a Toga app running on Android
-using Chaquopy as a base, accessing a binary library (matplotlib),
-deployed with Briefcase. Over the coming weeks, we're hoping this
-proof of concept will evolve into major improvement to BeeWare's
-Android tooling.&lt;/li&gt;
-&lt;li&gt;We modified Briefcase to &lt;a href="https://github.com/beeware/briefcase/pull/777"&gt;use OS-appropriate directories for
-caching&lt;/a&gt;. While the
-&lt;code&gt;~/.briefcase&lt;/code&gt; location has served us well, it isn't a location that
-adheres to platform-native conventions for storing app resources, so
-we've moved Briefcase's cache of downloads, tools and templates to a
-platform-appropriate location.&lt;/li&gt;
-&lt;li&gt;We addressed an issue with the &lt;a href="https://github.com/beeware/briefcase/pull/803"&gt;current working directory leaking into
-the runtime path&lt;/a&gt;. This
-was especially common with Linux apps, but it could potentially be an
-issue with other platforms as well.&lt;/li&gt;
-&lt;li&gt;We've started the process of making Toga widget APIs internally
-consistent. While we've aimed to keep naming of widgets' attributes
-and handlers consistent, there are a couple of annoying
-inconsistencies. We've started the process of cleaning up these
-inconsistencies.&lt;/li&gt;
-&lt;li&gt;We've started looking into binary dependencies on iOS apps.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;What's next?&lt;/h2&gt;
-&lt;p&gt;In August, our major focus will be binary dependencies on mobile. This
-is one of the biggest missing pieces of the BeeWare story at present.
-Being able to utilize Chaquopy as a base gives us a huge head start on
-Android, so it seems likely we'll have a working solution for Android in
-the near future. However, on iOS, we're still at the "we don't know what
-we don't know" stage. It's unclear if we'll have a fully working
-solution by the end of the month, but we should have at least some
-progress to report.&lt;/p&gt;
 </content></entry></feed>
