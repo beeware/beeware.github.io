@@ -54,6 +54,7 @@ jobs:
         EOF
     - name: Lock and Sync with Weblate
       run: |
+        wlc commit
         wlc lock
         wlc push
         git pull origin
@@ -83,7 +84,7 @@ jobs:
 
     - name: Unlock Weblate and Remove Configuration
       run: |
-        wlc push
+        wlc pull
         wlc unlock
         rm ~/.config/weblate
 
