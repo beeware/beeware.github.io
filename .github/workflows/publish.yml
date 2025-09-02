@@ -45,11 +45,11 @@ jobs:
       env:
         WEBLATE_API_TOKEN: ${{ secrets.WEBLATE_API_TOKEN }}
       run: |
-        mkdir -p ~/.config && cat <<EOF > ~/.config/weblate
+        cat <<EOF > ~/.weblate
         [weblate]
         url = https://hosted.weblate.org/api/
         key = $WEBLATE_API_TOKEN
-        translation = weblate/application
+        translation = beeware/website
         EOF
     - name: Lock Weblate and Sync
       run: |
