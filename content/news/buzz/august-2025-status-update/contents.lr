@@ -1,0 +1,47 @@
+title: August 2025 Status Update
+---
+author: Russell Keith-Magee
+---
+body:
+
+August has been a slow month due to some personal leave, and some unexpected road bumps from GitHub - but BeeWare has still made some notable progress.
+
+## What we've done
+
+- [Python 3.14.0rc2 has been released](https://www.python.org/downloads/release/python-3140rc2/) - including, for the first time, official Android binaries! You can now download official, pre-compiled Android binaries for CPython. This is a major milestone for Android support, as it means BeeWare is able to use official binaries when building Android apps. 
+- As part of the changes adding official Android binaries to the release process, [Android was added to the CI checks that are performed as part of every CPython pull request on GitHub](https://github.com/python/cpython/pull/137186). This will significantly reduce the likelihood of bugs landing in main that will break the Android buildbots.
+- We spent a significant amount of time [dealing with an update to  GitHub Actions](https://github.com/actions/runner-images/issues/12777). On August 11, GitHub rolled out an update to the disk image they use for macOS 15 machines - and in the process, broke the tools that BeeWare uses to test iOS applications. It took almost a week to identify the cause of this problem, and develop a fix. However, the good news is that [the fix significantly simplifies the iOS testing process](https://github.com/python/cpython/pull/138018).
+- We [began the process of adding official Python binaries for iOS](https://github.com/python/cpython/pull/138176). The complexity of iOS multi-architecture builds makes official builds a little more complicated than Android, but we're hopeful this work will be able to land in the near future.
+- We added a recipe for building [iOS binaries for zstandard](https://github.com/beeware/cpython-apple-source-deps/pull/64). These are needed to support the new zstandard compression library in Python 3.14.
+- We released a [website to track the status of binary wheel support for iOS and Android](https://beeware.org/mobile-wheels/).
+- We released [Briefcase 0.3.25](http://pypi.org/project/briefcase/0.3.25/). This release was primarily required because of a change to Android Play Store target SDK requirements.
+- We modified how Briefcase [determines the minimum supported macOS/iOS version that Python requires](https://github.com/beeware/briefcase/pull/2443). This change allows us to simplify the contents of the support packages.
+- We made Briefcase [more resilient to badly packaged binary wheels on macOS](https://github.com/beeware/briefcase/pull/2429). Many packages publish `py3-none-any` wheels, which *should* be platform independent - but then include platform-specific binaries or dynamic library content in the wheels. Briefcase will now ignore these files.
+- Briefcase's unit tests have been made [more resilient to temporary network outages](https://github.com/beeware/briefcase/pull/2434) - something that happens surprisingly often in the GitHub Actions environment.
+- We dropped support for Python 3.9, and added support for Python 3.14 across BeeWare projects. For the first time, this includes the ability to release Windows support [based on pre-releases of Python](https://github.com/beeware/briefcase/pull/2432) - previously, we had to wait until the `.0` release of a new Python version before we could add support.
+- We [improved the checks (and error reporting) associated with using new versions of Travertino with old versions of Toga](https://github.com/beeware/toga/pull/3683).
+- We resolved a long standing bug on iOS where [touch events wouldn't be triggered if content was "below the fold" on a scroll container](https://github.com/beeware/toga/pull/3680).
+- We started work on a [new tool to consolidate the cross-platform building tools used on Android, iOS and Emscripten](https://github.com/beeware/xbuild). This tool still needs a lot of work before it's production-ready, but it draws from our lessons learned on cibuildwheel, and should allow us to simplify and consolidate the approaches taken to implement cross-platform builds. 
+- We made significant progress on migrating BeeWare's documentation to use Markdown, instead of Restructured Text. We've got [tools and themes in place](https://github.com/beeware/beeware-docs-tools), and the [tutorial is almost ready to switch to new Markdown-based content](https://github.com/beeware/beeware-tutorial/pull/3).
+
+## What's next?
+
+September will involve a lot of travel - we'll be attending [PyCon AU](https://2025.pycon.org.au), the CPython core team summit, and [PyCon UK](https://2025.pyconuk.org/). We'll be speaking at [PyCon AU](https://2025.pycon.org.au/program/SQUT77/) and [PyCon UK](https://pretalx.com/pyconuk-2025/talk/PUBM3T/), and running a [sprint at PyCon UK](https://2025.pyconuk.org/sprints/) as well. Tickets are still on sale for both events - we hope to see you there!
+
+When we're not travelling, we're going to continue working on getting iOS binary artefacts into Python's CI and release processes, and on improving the tools for packaging binary wheels for mobile platforms.
+
+Lastly, we're planning to look at adding post-install scripts to Briefcase installers. We'll be focussing on Windows installers initially; but the intention is that any changes we implement could also be implemented on macOS or Linux.
+
+## Want to get involved?
+
+Want to get involved? We curate issues that should be approachable for first-time contributors to BeeWare. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
+
+- If you're interested in the tooling for deploying applications to various platforms, take a look at [Briefcase](https://github.com/beeware/briefcase/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22)
+- Or, if you're interested in GUI widgets, take a look at [Toga](https://github.com/beeware/toga/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22)
+
+These lists can also be filtered by platform - so you can find issues that are specific to your preferred operating system. Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a [guide on setting up a Briefcase development environment](https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html); but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the [BeeWare Discord server](https://beeware.org/bee/chat/).
+
+---
+mastodon_handle: @freakboy3742@cloudisland.nz
+---
+pub_date: 2025-09-01
