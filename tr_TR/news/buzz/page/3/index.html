@@ -126,6 +126,79 @@
 
   
   
+  <h2><a href="/tr_TR/news/buzz/2024q3-roadmap/">2024Q3 Roadmap</a></h2>
+  <p class="meta">
+    Posted by
+    
+      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
+    
+    on 2 July 2024 
+  </p>
+  
+  <p>We're halfway through the year, and BeeWare has seen another quarter of
+significant progress. As always, this roadmap should be read as a guide
+to what we aim to focus on over the coming quarter, rather than a hard
+commitment of features that will be made available on a specific
+deadline.</p>
+<h2>Q2 progress</h2>
+<p>The biggest news for the quarter is that iOS is now officially a Tier 3
+supported platform in CPython. All the patches required for iOS
+compatibility have been landed, and a buildbot is in place; as of
+3.13.0b1, CPython will build for iOS without any patching. Android
+support is close behind; the only missing piece is the buildbot.</p>
+<p>We made some major improvements to the BeeWare tutorial, adding sections
+on customization of the packaged app, and handling permissions for apps.
+We were able to use these changes as part of a well-received tutorial at
+PyCon US. We also ran a very successful booth and sprint at PyCon US.</p>
+<p>We also completed a lot of improvements in Briefcase and Toga, expanding
+the types of apps that can be supported. Briefcase can now package
+console apps; and Toga now has an official API for apps that don't have
+menu bars, background apps, and apps that aren't governed by the
+lifecycle of a single "main" window. These have been the subject of
+long-standing feature requests (some of them almost as old as Toga
+itself), so it's great to be able to finally address these limitations.</p>
+<p>The one area where we weren't able to make an progress was in packaging
+for mobile platforms. However, we did have some very productive
+discussions at PyCon US, so we're confident we'll be able to make good
+progress on this in the coming quarter.</p>
+<h2>Q3 priorities</h2>
+<p>The highest priority for Q3 is to get ready for the Python 3.13 release
+in early October. This involves finalising the work on the Android
+buildbot so that Android is officially Tier 3; preparing Briefcase and
+the Python builds that BeeWare supports to be ready for the 3.13
+release; and doing as much work as we can on the packaging ecosystem so
+that package maintainers can publish wheels for iOS and Android.</p>
+<p>We'll also be attending <a href="https://kiwipycon.nz">Kiwi PyCon</a> in August,
+and attending the Python Core Team summit in September.</p>
+<h2>Longer term goals</h2>
+<p>Getting the Python ecosystem to support iOS and Android is requires a
+lot more than just adding patches to CPython and some related tools.
+There will be a lot of education and support work required to help the
+community adopt iOS and Android; and there is certain to be ongoing
+maintenance as Python and the platforms evolve. There are also many ways
+that Python mobile support could be made even better, including the
+publication of official iOS and Android binaries, and potentially
+getting to Tier 2 (or even Tier 1) support.</p>
+<p>There's also a lot of work that can be done to Toga to make iOS and
+Android compelling platforms to develop for. Toga is still missing some
+key widgets to support navigation and data organization; and even when
+these widgets exist, there will be a need for documentation and examples
+to demonstrate how to build apps for these platforms. We anticipate
+we'll be looking at these towards the end of the year. We also
+anticipate that we'll start looking more seriously at Toga's web
+backend, attempting to bring it to a level of support comparable to the
+desktop and mobile platforms.</p>
+<h2>Summary</h2>
+<p>It's been another busy quarter with a lot of progress, but as always,
+there's still plenty to do. Completing official support for iOS and
+Android means the foundational work needed to support mobile platforms
+will be complete; we can then focus on what we - and the community -
+build on that foundation.</p>
+
+
+
+  
+  
   <h2><a href="/tr_TR/news/buzz/june-2024-status-update/">June 2024 Status update</a></h2>
   <p class="meta">
     Posted by
@@ -1088,129 +1161,6 @@ widget</a></li>
 widget</a></li>
 <li><a href="https://github.com/beeware/toga/issues/2307">Add the ability to define content when creating a
 window</a></li>
-</ol>
-<p>Pick one of these tickets, drop a comment on the ticket to let others
-know you're looking at it, and try your hand at a PR! We have a <a href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html">guide
-on setting up a Briefcase development
-environment</a>;
-but if you need any additional assistance or guidance, you can ask on
-the ticket, or join us on the <a href="https://beeware.org/bee/chat/">BeeWare Discord
-server</a>.</p>
-
-
-
-  
-  
-  <h2><a href="/tr_TR/news/buzz/november-2023-status-update/">November 2023 Status Update</a></h2>
-  <p class="meta">
-    Posted by
-    
-      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
-    
-    on 1 December 2023 
-  </p>
-  
-  <p>November has been a month of focus on the code that enables us to run
-Python on iOS and Android - but there has still been some other high
-profile developments in other parts of BeeWare.</p>
-<h2>What we've done</h2>
-<ul>
-<li><a href="https://peps.python.org/pep-0730/">PEP730</a>, formalizing the
-introduction of iOS as a Tier 3 platform in CPython, has been
-<a href="https://github.com/python/steering-council/issues/218">submitted to the Python Steering Council for
-ratification</a>.</li>
-<li>One of the major topics covered by the <a href="https://discuss.python.org/t/pep-730-adding-ios-as-a-supported-platform/35854">discussion about
-PEP730</a>
-was the use of a deprecated compiler argument. This led to some
-re-examination of how CPython could be delivered on iOS without using
-that argument. As a result of that discussion, modifications to <a href="https://github.com/beeware/Python-Apple-support/pull/191">use
-CPython as a dynamically loaded
-framework</a>
-have been prepared. Although the original focus of this work was iOS,
-the same change will be also used for macOS - which means BeeWare no
-longer needs to compile a macOS support package (although we will
-still be lightly re-packaging the official CPython installer).</li>
-<li>We modified Toga's Image APIs so that <a href="https://github.com/beeware/toga/pull/2231">Pillow images can be used as
-source data</a>.</li>
-<li>We <a href="https://github.com/beeware/toga/pull/2230">switched CI testing of Android apps to use a Linux
-machine</a>. This wasn't
-previously possible, because GitHub didn't expose the necessary
-permissions in their Linux images; however, now that <em>is</em> possible,
-our Android tests run up to 5 times faster, and are less likely to be
-held up in CI because of availability of macOS testing machines.</li>
-<li>We corrected an issue on macOS where an OS-level setting controlling
-the use of tabs could <a href="https://github.com/beeware/toga/pull/2218">cause test failures in the Toga test
-suite</a>.</li>
-<li>There have been some extended discussions and draft PRs related to
-Toga's <a href="https://github.com/beeware/toga/pull/2244">Application base
-class</a>, and the addition of
-support for <a href="https://github.com/beeware/toga/pull/2238">status icons</a>.
-These PRs are still in active development, but they will open up some
-interesting possibilities for Toga apps when they are completed.</li>
-<li><a href="https://github.com/beeware/briefcase/pull/1550">Briefcase</a>,
-<a href="https://github.com/beeware/toga/pull/2229">Toga</a> and <a href="https://github.com/beeware/rubicon-objc/pull/387">Rubicon
-ObjC</a> were all
-modified to use PEP621 metadata, removing the need for <code>setup.cfg</code>,
-<code>setup.py</code>, and <code>MANIFEST.in</code> files. As part of this change, we wrote
-a new <a href="https://github.com/beeware/setuptools_dynamic_dependencies">setuptools
-plugin</a> to
-allow for dependencies to be dynamically defined.</li>
-<li>We modified Briefcase so that <a href="https://github.com/beeware/briefcase/pull/1552">answers to the new project
-wizard</a> and <a href="https://github.com/beeware/briefcase/pull/1542">values
-for configuration settings when running
-commands</a> can be
-overridden at the command line. This is mostly useful for testing
-purposes - it's now possible to generate a project and build it
-against a local template or support package build without needing to
-modify a <code>pyproject.toml</code> file or override input handling.</li>
-<li>We refactored the new project wizard so that <a href="https://github.com/beeware/briefcase/pull/1524">support for GUI toolkits
-is generated by an extensible
-plugin</a>. Although we
-still ship with support for Toga, PySide, Pygame and PPB, this support
-is provided through a public interface, allowing other GUI toolkits to
-provide Briefcase with toolkit-specific modifications to the new
-project.</li>
-<li>We switched the default Android skin used by Briefcase from the <a href="https://github.com/beeware/briefcase/pull/1554">Pixel
-3a device skin to the Pixel 7
-skin</a>. This is an
-entirely cosmetic change, but it does mean that screenshots will use a
-device that looks a little more modern.</li>
-<li>We've made significant progress on the <a href="https://github.com/chaquo/chaquopy/milestone/3">modifications to Chaquopy to
-support CPython 3.12</a>.
-This support will hopefully be released at the same time as the
-upcoming Android Studio "Hedgehog" release.</li>
-<li>We've made significant progress on running CPython's unit test suite
-on iOS in a CI configuration.</li>
-</ul>
-<h2>What's next?</h2>
-<p>We won't see as much progress as normal in December as a result of the
-end-of-year holidays. However, before we sign off for the year, we're
-hoping to start looking at OptionContainer on mobile platforms, and
-possibly start looking at Camera API support.</p>
-<h2>Want to get involved?</h2>
-<p>Want to get involved? Here are some open issues that would be a great
-place to get started with contributing to a BeeWare project. They're all
-relatively minor changes, but would provide a big improvement to the
-lives of BeeWare users:</p>
-<ol>
-<li><a href="https://github.com/beeware/toga/issues/2251">Update the Toga testbed test suite to use Pixel 7 Pro device
-sizes</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/780">Filter out a message generated after Xcode
-updates</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/808">Add the ability to configure the ABIs built by an Android
-project</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1099">Rationalise the application of adhoc signing on
-macOS</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1270">Add support for custom PyPI
-repositories</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1393">Document how to debug an application in popular
-IDEs</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/394">Correctly handle incomplete project
-deletions</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/737">Add an option to select the Android base image when creating new
-emulators</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1472">Print notarisation log failures when building macOS
-apps</a></li>
 </ol>
 <p>Pick one of these tickets, drop a comment on the ticket to let others
 know you're looking at it, and try your hand at a PR! We have a <a href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html">guide
