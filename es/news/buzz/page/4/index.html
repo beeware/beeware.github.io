@@ -126,6 +126,108 @@
 
   
   
+  <h2><a href="/es/news/buzz/december-2023-status-update/">December 2023 Status Update</a></h2>
+  <p class="meta">
+    Publicado por
+    
+      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
+    
+    en 31 December 2023 
+  </p>
+  
+  <p>December has been a short month due to end-of-year holidays, but BeeWare
+has still made some important progress.</p>
+<h2>What we've done</h2>
+<ul>
+<li><a href="https://peps.python.org/pep-0730/">PEP730</a>, formalizing the
+introduction of iOS as a Tier 3 platform in CPython, has been
+<a href="https://github.com/python/steering-council/issues/218#issuecomment-1839333665">ratified by the CPython Steering
+Council</a>.</li>
+<li>The <a href="https://github.com/python/cpython/pull/112738">first patch to CPython that explicitly mentions
+iOS</a> has been merged.
+This is a relatively minor change that is required for building
+cross-platform binary modules; we'll start submitting more substantial
+patches in the new year.</li>
+<li><a href="https://peps.python.org/pep-0738/">PEP738</a>, formalizing the
+introduction of Android as a Tier 3 platform in CPython, has been
+drafted, and is <a href="https://discuss.python.org/t/pep-738-adding-android-as-a-supported-platform/40975">currently under
+discussion</a>.</li>
+<li><a href="https://chaquo.com/chaquopy/chaquopy-version-15-0-1/">Chaquopy 15 was
+released</a>,
+adding support for Python 3.12 on Android. This release also improves
+compatibility with Android Studio's transition away from Groovy,
+towards Kotlin for configuration.</li>
+<li>An <a href="https://github.com/beeware/toga/pull/2259">implementation of OptionContainer was added for
+iOS</a>.</li>
+<li>A number of improvements were made to image handling, including
+<a href="https://github.com/beeware/toga/pull/2263">optimizations when creating images from internal
+APIs</a>, and a <a href="https://github.com/beeware/toga/pull/2276">correction to
+flexible image resizing
+behavior</a>.</li>
+<li>A <a href="https://github.com/beeware/toga/pull/2291">long standing bug that would cause macOS tables to
+crash</a> was resolved.</li>
+<li>The <a href="https://github.com/beeware/toga/pull/2260">ability to define platform-specific
+icons</a> was added to Toga.</li>
+<li><a href="https://pypi.org/project/toga/0.4.1/">Toga 0.4.1 was released</a>,
+incorporating the features and bug fixes from the last 2 months.</li>
+<li>Work has begun on a <a href="https://github.com/beeware/toga/pull/2266">cross-platform Camera
+API</a> . This currently works
+on iOS, with a draft implementation on macOS. Before this work can
+land, we need to <a href="https://github.com/beeware/briefcase/issues/547">add support in Briefcase for declaring
+permissions</a>; a
+design for this has been proposed, and will be implemented early in
+the new year.</li>
+</ul>
+<h2>What's next?</h2>
+<p>When we return from the end-of-year break, we'll be back into developing
+Toga. In the near future, you should see an OptionContainer on Android,
+and permission support in Briefcase; once that work is wrapped, we'll
+start looking at more more hardware APIs and missing widgets. You should
+also start to see more patches land in CPython to support iOS, and the
+finalisation of <a href="https://peps.python.org/pep-0738/">PEP 738</a>.</p>
+<h2>Want to get involved?</h2>
+<p>Want to get involved? Here are some open issues that would be a great
+place to get started with contributing to a BeeWare project. They're all
+relatively minor changes, but would provide a big improvement to the
+lives of BeeWare users:</p>
+<ol>
+<li><a href="https://github.com/beeware/toga/issues/2251">Update the Toga testbed test suite to use Pixel 7 Pro device
+sizes</a></li>
+<li><a href="https://github.com/beeware/briefcase/issues/780">Filter out a message generated after Xcode
+updates</a></li>
+<li><a href="https://github.com/beeware/briefcase/issues/808">Add the ability to configure the ABIs built by an Android
+project</a></li>
+<li><a href="https://github.com/beeware/briefcase/issues/1099">Rationalise the application of adhoc signing on
+macOS</a></li>
+<li><a href="https://github.com/beeware/briefcase/issues/1270">Add support for custom PyPI
+repositories</a></li>
+<li><a href="https://github.com/beeware/briefcase/issues/1393">Document how to debug an application in popular
+IDEs</a></li>
+<li><a href="https://github.com/beeware/briefcase/issues/394">Correctly handle incomplete project
+deletions</a></li>
+<li><a href="https://github.com/beeware/briefcase/issues/737">Add an option to select the Android base image when creating new
+emulators</a></li>
+<li><a href="https://github.com/beeware/briefcase/issues/1472">Print notarisation log failures when building macOS
+apps</a></li>
+<li><a href="https://github.com/beeware/toga/issues/2301">Add an API to replace a child of a
+widget</a></li>
+<li><a href="https://github.com/beeware/toga/issues/2305">Add an API to entirely replace the style of a
+widget</a></li>
+<li><a href="https://github.com/beeware/toga/issues/2307">Add the ability to define content when creating a
+window</a></li>
+</ol>
+<p>Pick one of these tickets, drop a comment on the ticket to let others
+know you're looking at it, and try your hand at a PR! We have a <a href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html">guide
+on setting up a Briefcase development
+environment</a>;
+but if you need any additional assistance or guidance, you can ask on
+the ticket, or join us on the <a href="https://beeware.org/bee/chat/">BeeWare Discord
+server</a>.</p>
+
+
+
+  
+  
   <h2><a href="/es/news/buzz/november-2023-status-update/">November 2023 Status Update</a></h2>
   <p class="meta">
     Publicado por
@@ -1028,127 +1130,6 @@ place to get started with contributing to a BeeWare project. They're all
 relatively minor changes, but would provide a big improvement to the
 lives of BeeWare users:</p>
 <ol>
-<li><a href="https://github.com/beeware/briefcase/issues/780">Filter out a message generated after Xcode
-updates</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/808">Add the ability to configure the ABIs built by an Android
-project</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/463">Add support for the ANDROID_HOME environment
-variable</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1099">Rationalise the application of adhoc signing on
-macOS</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1157">Detect a failure when trying to install on an Android device that
-is too old</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1146">Use the on-device clock to filter Android device
-logs</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1136">Add an APK packaging target for
-Android</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1115">Provide an option to override app settings from the command
-line</a></li>
-</ol>
-<p>Pick one of these tickets, drop a comment on the ticket to let others
-know you're looking at it, and try your hand at a PR! We have a <a href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html">guide
-on setting up a Briefcase development
-environment</a>;
-but if you need any additional assistance or guidance, you can ask on
-the ticket, or join us on the <a href="https://beeware.org/bee/chat/">BeeWare Discord
-server</a>.</p>
-
-
-
-  
-  
-  <h2><a href="/es/news/buzz/april-2023-status-update/">April 2023 Status Update</a></h2>
-  <p class="meta">
-    Publicado por
-    
-      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
-    
-    en 1 May 2023 
-  </p>
-  
-  <p>April was dominated by preparation and attendance at PyCon US 2023 - but
-we've seen some good progress over the month.</p>
-<h2>What we've done</h2>
-<p>PyCon US saw a lot of BeeWare activity:</p>
-<ul>
-<li>We presented 2 talks at PyCon US - one on
-<a href="https://us.pycon.org/2023/schedule/presentation/20/">Briefcase</a>, and
-one on the <a href="https://us.pycon.org/2023/schedule/presentation/145/">state of Android support on
-Python</a>. Videos
-of these talks should appear on the <a href="https://www.youtube.com/pyconus">PyCon US Youtube
-channel</a> in the near future.</li>
-<li>We presented at the <a href="https://us.pycon.org/2023/events/language-summit/">Language
-Summit</a>, where we
-received provisional approval to push for iOS and Android to become
-Tier 3 supported platforms in CPython 3.13.</li>
-<li>We presented at the <a href="https://us.pycon.org/2023/events/packaging-summit/">Packaging
-Summit</a>, providing
-the needs of packaging from a mobile perspective.</li>
-<li>We had a booth in the community section of the conference show floor.</li>
-<li>We ran a successful sprint where we handed out over a dozen Challenge
-Coins. Many of the improvements listed in this status update come from
-community contributions, and we have a backlog of other PRs we're
-still working on.</li>
-<li>We donated an <a href="https://fosstodon.org/@beeware/110245889923864511">leather Briefcase to the PyLadies Auction, raising
-US$800!</a>.</li>
-</ul>
-<p>In non-PyCon activity:</p>
-<ul>
-<li>We added the ability to <a href="https://github.com/beeware/briefcase/pull/890">code sign Windows release
-artefacts</a>.</li>
-<li>We added a new distribution format for Windows apps - <a href="https://github.com/beeware/briefcase/pull/1183">simple ZIP
-archives</a>.</li>
-<li>We modified Briefcase to <a href="https://github.com/beeware/briefcase/pull/1219">support PEP621 metadata
-standards</a>. Briefcase
-predates the definition of PEP621, but there's a lot of overlap in
-what PEP621 defines and what Briefcase defines, so it makes sense for
-Briefcase to adhere to the common standard. In future, we expect to
-see more convergence with PEP621 standards.</li>
-<li>We landed major updates to <a href="https://github.com/beeware/briefcase/pull/1132">Briefcase's AppImage and Flatpak
-backends</a>. They now
-use Indygreg's <a href="https://github.com/indygreg/python-build-standalone">Standalone
-Python</a>; this
-significantly speeds up Flatpak builds, should be more stable on
-AppImage, allows us to switch to
-<a href="http://github.com/pypa/manylinux">manylinux</a> base images - and it
-reduces the number of projects that BeeWare is responsible for
-maintaining.</li>
-<li>We got 2 more widgets to 100% GUI test coverage. One of these is the
-<a href="https://github.com/beeware/toga/pull/1834">base widget</a>, so we're now
-able to guarantee basic functionality across all widgets.</li>
-<li>We migrated Toga's web backend to use the <a href="https://github.com/beeware/toga/pull/1838">Shoelace web components
-framework</a>. This is a much
-better match for Toga than Bootstrap was, as it is primarily focussed
-on rendering <em>widgets</em>, rather than HTML layout. We only have a
-handful of widgets ported over at this point - but the process of
-implementing widgets is relatively straightforward, so if you have web
-skills and are looking for a way to contribute, this would be a great
-place to get involved.</li>
-<li>We added support for <a href="https://github.com/beeware/toga/pull/1894">cursor
-visibility</a>, <a href="https://github.com/beeware/toga/pull/1863">full screen
-mode</a> and <a href="https://github.com/beeware/toga/pull/1871">determining the
-current window</a> on Windows.</li>
-<li>We added an API for <a href="https://github.com/beeware/toga/pull/1880">catching a 'confirm' action on TextInput
-widgets</a>.</li>
-<li>We added support for <a href="https://github.com/beeware/toga/pull/1836">FreeBSD in
-Toga</a>.</li>
-<li>We made a number of significant improvements to the Tox configurations
-to improve reliability, work around a bugs in the release of pip 23.1,
-speed up and parallelise test execution, enforce spelling and external
-linking in documentation, and to make easier to obtain coverage
-reports.</li>
-</ul>
-<h2>What's next?</h2>
-<p>In May, we'll be continuing our push for GUI test coverage. Our current
-aim is to have complete widget coverage by the end of June.</p>
-<h2>Want to get involved?</h2>
-<p>Want to get involved? Here are some open issues that would be a great
-place to get started with contributing to a BeeWare project. They're all
-relatively minor changes, but would provide a big improvement to the
-lives of BeeWare users:</p>
-<ol>
-<li><a href="https://github.com/beeware/briefcase/issues/865">Modify the handling of app signing
-options</a></li>
 <li><a href="https://github.com/beeware/briefcase/issues/780">Filter out a message generated after Xcode
 updates</a></li>
 <li><a href="https://github.com/beeware/briefcase/issues/808">Add the ability to configure the ABIs built by an Android
