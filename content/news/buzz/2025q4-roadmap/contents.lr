@@ -1,0 +1,38 @@
+title: 2025Q4 Roadmap
+---
+author: Russell Keith-Magee
+---
+body:
+
+In Q3, BeeWare saw the release of Python 3.14 with official Android artefacts, more Python packaging improvements, and significant improvements to our documentation infrastructure. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment of features that will be made available on a specific deadline.
+
+This Q4 roadmap has been published a little later than normal so that we can fit in with quarterly planning cadence at Anaconda (who employ two of the BeeWare core team). Going forward, you can expect that BeeWare's quarterly plans will be published a couple of weeks into the quarter.
+
+## Q3 progress
+
+The end of Q3 sees the release of a new Python version - 3.14. The 3.14 release contains official Android binary artefacts, and a number of improvements to the iOS build process that will lead to official iOS binary artefacts, hopefully in the near future. It also contains restored support for Emscripten as a Tier 3 supported platform. Landing these improvements in 3.14, and ensuring that the BeeWare ecosystem is in a position to use those changes, was a subject of considerable effort in Q3. We we also forced to respond to a number of significant changes to the GitHub Actions macOS ecosystem - work that is ongoing as the side effects of macOS 26 changes and the deprecation of Intel as supported macOS platform is rolled out.
+
+We continued to make progress on the state of binary packaging for iOS and Android. cibuildwheel 3.1 included support for Android that we contributed; as a result, it is now possible for projects to have CI pipelines that generate both iOS and Android. We now have a [leaderboard of mobile wheel support in Python](https://beeware.org/mobile-wheels/), and we're starting to see others in the Python community contribute iOS and Android support updates to popular Python projects. We've also been able to consolidate some of the work that we've done on establishing cross-platform environments into a single standalone package - [`xbuild`](https://pypi.org/project/xbuild/) - that can be used to replicate the functionality that cibuildwheel relies on for cross-platform builds.
+
+BeeWare's documentation has also seen some significant improvements. Building on the improvements to the website, we've been able to begin switching our documentation from using Restructured Text to Markdown. Restructured Text is a markup standard that is historically significant in the Python community, but sees very little use elsewhere. It's clear that the rest of the online world has adopted Markdown, and Markdown is also a significantly simpler as a syntax; we're hoping that these two factors should make it easier for new contributors to get involved in BeeWare development, and simplify some documentation tasks for BeeWare maintainers. We've already ported many of our READMEs, our tutorial, and Toga's documentation to Markdown format, with more changes to come.
+
+Our students from Curtin University have almost concluded their capstone projects. As a result, Briefcase now has significantly improved deployment options for web-based projects, and the foundations for some significant improvements to how Briefcase uses virtual environments are in place. Although our students will be signing off shortly, we expect to be able to deliver some substantial improvements to Briefcase using these features in the coming quarter.
+
+Lastly, we had a successful attendance at EuroPython, PyCon AU, and PyCon UK, presenting multiple talks, tutorials, and introducing a large number of people to Open Source contribution through the sprints. We also attended the Python Core Team sprint, providing a great opportunity to finalize some details in discuss our plans for the upcoming 3.15 release.
+
+## Q4 priorities
+
+In Q4, we're hoping to make one final push on binary packaging for mobile platforms. In addition to wrapping up work on some of the more notable scientific Python packages (such as NumPy and Pandas), we intend to look into packages that are built using Rust. Rust is becoming an increasingly important part of the Python binary ecosystem, and Rust already has support for iOS and Android. However, we need to make sure that tools like Maturin are able to support cross compilation.
+
+We also want to wrap up our work getting iOS binary artefacts as part of the CPython release process, and work on getting those artefacts into use with Briefcase. This will require some improvements to Briefcase, making use of the `xbuild` package, and the work contributed by our Curtin University students.
+
+## Longer term goals
+
+Looking to 2026, after 2 years of building a foundation for a stable, officially supported story for Python on mobile, we can turn our attention back to the apps that people build with BeeWare. This will mean filling some functionality gaps in Toga to satisfy some common app requirements, and writing more documentation and tutorials to help people write apps with BeeWare's tools.
+
+We're also expecting that 2026 will see more integration between BeeWare's tools and other packaging tools. We're already exploring ways that Briefcase can integrate better with Conda. `uv` is another tool that might fit well in the Briefcase development story, and some of the changes landed by our Curtin students make exploring these options much easier.
+
+---
+mastodon_handle: @freakboy3742@cloudisland.nz
+---
+pub_date: 2025-10-15
