@@ -1,0 +1,40 @@
+title: 2025Q3 Roadmap
+---
+author: Russell Keith-Magee
+---
+body:
+
+In Q2, BeeWare reached some public milestones in our iOS binary packaging, and saw some unexpected improvements in our documentation and website. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment of features that will be made available on a specific deadline.
+
+## Q2 progress
+
+In Q2, we continued to make progress on the state of binary packaging for iOS and Android. cibuildwheel 3.0 has now been released, incorporating the iOS support that we contributed; as a result, we've been able to start the process of submitting patches to Python projects to add iOS support. We're still waiting on a formal release of meson and meson-python that includes the iOS changes that we provided; once those releases occur, we'll be able to submit patches for even more projects. We also continued to work on supporting Android in cibuildwheel. This work is still in the review phase; we're hoping it will be concluded in the near future.
+
+A CPython buildbot for Emscripten is now live. The process of launching this buildbot revealed a number of bugs that required resolution; a small number of bugs still remain. We don't anticipate any issue resolving these before the 3.14.0 final release. The draft PEPs defining the Emscripten platform (PEP 776) and Emscripten wheel tagging (PEP 783) have not seen any major progress.
+
+Our students from Curtin University have concluded their first semester of work, providing implementations for a range of Toga widgets on the web platform, finding (and resolving) a number of bugs along the way. They've also made a number of small improvements to Briefcase. As part of their work, they've laid out plans for more substantial contributions in the second half of the year. These contributions should result in significant improvements to the development experience for Toga's web backend.
+
+We also saw a lot of unexpected improvements in BeeWare's documentation and website. We now have a much improved translation infrastructure for BeeWare's website. A significant review of the structure of the documentation of the major BeeWare projects is also underway, addressing both visual consistency, and the integration of the documentation projects into the overall web presence of the BeeWare project.
+
+Lastly, we had a successful PyCon US attendance, presenting multiple talks, a tutorials, and introducing a large number of people to Open Source contribution through the sprints.
+
+## Q3 priorities
+
+In Q3, we will have two major areas of focus for BeeWare development.
+
+The first, unsurprisingly, is to continue working on binary packaging. We'll continue working on the cibuildwheel patch to support building Android wheels; and we'll continue the process of submitting patches for iOS support to notable packages. Some of this work is dependent on formal releases of meson and meson-python; we'll progress as fast as the published state of the ecosystem allows.
+
+The second area of focus is generating iOS and Android binary artefacts as part of the CPython release process. This will hopefully also involve integrating iOS and Android into CPython's pre-merge CI tooling, which should limit the incidence of changes that are landed into CPython that break iOS and Android.
+
+We'll also be attending EuroPython in July; PyCon AU, CPython core team summit and PyCon UK in September. These are important events for community outreach and for collaboration with other projects and the core team - but they'll obviously place constraints on the progress we make in the quarter.
+
+## Longer term goals
+
+The long term goals of BeeWare remain largely the same. Once we've developed a compelling story for mobile binary packaging, we'll be able to turn our focus back to Toga. There's a number of navigation and data organization widgets that need to be developed; we also need to improve documentation of some common development patterns that are sources of common questions in BeeWare support channels. Unless pull requests are submitted from the broader community, it is unlikely that we'll make any substantial progress on this front until the end of this year, or perhaps early next year.
+
+We're also intending to look at tooling other than `pip` and `venv` for building Briefcase packages. Integration with Conda is one obvious goal, as it provides rich tooling for distributing complex binary requirements. `uv` is another tool that might fit well in the Briefcase development story. Again, it is unlikely that we'll make any progress on this front before the end of this year.
+
+---
+mastodon_handle: @freakboy3742@cloudisland.nz
+---
+pub_date: 2025-07-02

@@ -41,6 +41,26 @@ jobs:
         lektor plugins reinstall
         sudo apt update -y
         sudo apt install -y --no-install-recommends gettext
+    - name: Configure Weblate
+      env:
+        WEBLATE_API_TOKEN: ${{ secrets.WEBLATE_API_TOKEN }}
+      run: |
+        cat <<EOF > ~/.weblate
+        [weblate]
+        url = https://hosted.weblate.org/api/
+        key = $WEBLATE_API_TOKEN
+        translation = beeware/website
+        EOF
+
+    - name: Lock Weblate and Sync
+      run: wlc lock
+    - name: Commit Weblate changes
+      run: wlc commit
+    - name: Push Weblate changes
+      run: wlc push
+    - name: Pull translation updates pushed by Weblate
+      run: git pull origin
+
     - name: Build site
       run: |
         lektor build --no-prune
@@ -63,6 +83,13 @@ jobs:
         git add i18n
         git commit -m "Update translations to $(git rev-parse --short HEAD)."
         git push origin
+
+    - name: Ensure Weblate has current updates
+      if: steps.updated.outputs.updated == 'true'
+      run: wlc pull
+
+    - name: Unlock Weblate
+      run: wlc unlock
 
     - name: Publish site
       env:
