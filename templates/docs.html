@@ -6,8 +6,8 @@
 <div class="banner">
   <div class="container">
             <p>{{ breadcrumbs(this) }}</p>
-            <h1>{{ this.title }}</h1>
-            <p>{{ this.summary }}</p>
+            <h1>Documentation</h1>
+            <p>Welcome to the BeeWare project documentation!</p>
   </div>
 </div>
 {% endblock %}
@@ -29,7 +29,7 @@
         </div>
 {#        {{ this.body }}#}
     <div class="featured-title d-flex justify-content-center">
-        <h2>Featured Project Documentation</h2>
+        <h2>Featured tools</h2>
     </div>
         <div class="row">
             <div class="col">
@@ -56,35 +56,89 @@
             </div>
         </div>
     <div class="apps-and-utilities">
-    <div class="d-flex justify-content-center">
-        <h2>Project Documentation</h2>
-    </div>
-    {% for child in this.children %}
-    {% if child.sort_key %}
-        {% if child.project_page_description %}
-            <div class="col-md-6 docs-{{ child.title }}">
-        <h2><a href="{{ child|url(alt=this.alt) }}">{{ child.title }}</a></h2>
-        <div class="important-description">{{ child.project_page_description }}</div>
-            {% for project in child.children %}
-                {% if project.featured %}
-        <div class="clearfix project">
-            <img src="{{ site.get(project.path, alt='_primary')|url }}{{ project.image }}" height="72px" alt="{{ project.name }}" class="pull-xs-left">
-            <h2><a href="{{ project|url(alt=project.alt) }}">{{ project.name }}</a></h2>
-                  {{ project.short_description|safe }}
-                {% endif %}
-            {% endfor %}
-            <a href="{{ child|url(alt=child.alt) }}">... and others</a>
-            </div>
+        <div class="d-flex justify-content-center applications">
+            <h3>Showcased applications</h3>
         </div>
-        {% endif %}
-    {% endif %}
-    {% endfor %}
+        <div class="d-flex justify-content-center applications-description">
+            Applications maintained by the BeeWare team that are built using BeeWare's tools.
+        </div>
+        <div class="clearfix project">
+            <img src="/static/images/podium.png" height="48px" alt="Podium" class="pull-xs-left">
+            <h5 class="other-tools"><a href="https://github.com/beeware/podium">Podium</a></h5>
+            A markup-based slide presentation tool.
+        </div>
+        <div class="d-flex justify-content-center utilities">
+            <h3>Utilities</h3>
+        </div>
+        <div class="d-flex justify-content-center utilities-description">
+        Pieces used by other BeeWare tools that can be useful on their own.
+        </div>
+        <div class="clearfix project">
+            <img src="/static/images/rubicon.png" height="48px" alt="Rubicon Obj-C" class="pull-xs-left">
+            <h5 class="other-tools"><a href="https://rubicon-objc.beeware.org">Rubicon Objective-C</a></h5>
+            A markup-based slide presentation tool.
+        </div>
+        <div class="clearfix project">
+            <img src="/static/images/python-apple-support.png" height="48px" alt="Python Apple Support" class="pull-xs-left">
+            <h5 class="other-tools"><a href="https://github.com/beeware/Python-Apple-support">Python Apple Support</a></h5>
+            A markup-based slide presentation tool.
+        </div>
+        <div class="clearfix project">
+            <img src="/static/images/chaquopy.png" height="48px" alt="Chaquopy" class="pull-xs-left">
+            <h5 class="other-tools"><a href="https://chaquo.com/chaquopy/">Chaquopy</a></h5>
+            A markup-based slide presentation tool.
+        </div>
+        </div>
+        <div class="d-flex justify-content-center details">
+            <h2>BeeWare project details</h2>
+        </div>
+        <p>
+            BeeWare is more than a suite of tools for building amazing apps. It's also an
+            amazing community! Learn about how we keep our community safe and welcoming,
+            how to contribute to BeeWare, and more about the philosophy behind the project.
+        </p>
+        <div class="code-of-conduct project-details">
+            <h3>BeeWare Community Code of Conduct</h3>
+        </div>
+        <p>
+            Everyone participating in the BeeWare community, in any way, is required to
+            adhere to the guidelines in the
+            <a href="https://beeware.org/community/behavior/code-of-conduct">BeeWare
+            Community Code of Conduct.</a> Please familiarize yourself with it, and follow
+            the guidelines within it. If you have any questions, concerns, or need to
+            report an incident, please email <a href="mailto:conduct@beeware.org">
+            conduct@beeware.org</a>.
+        </p>
+        <div class="contributing project-details">
+            <h3>Contributing to the BeeWare project</h3>
+        </div>
+        <p>
+            There are many ways to contribute to BeeWare. Are you interested in writing
+            Python? You can contribute to the codebase. Are you more into documentation?
+            There's plenty of that as well. Building an app and sharing it with us is
+            equally important.
+        </p>
+        <p>
+            TODO: More, and add links.
+        </p>
+        <div class="philosophy project-details">
+            <h3>BeeWare history and philosophy</h3>
+        </div>
+        <p>
+            TODO: Fill in.
+        </p>
+        <div class="community project-details">
+            <h3>The BeeWare community</h3>
+        </div>
+        <p>
+            Join the BeeWare community! TODO: More.
+        </p>
+        <p>
+            Follow us on Mastodon
+            <a href="https://fosstodon.org/@beeware">@beeware@fosstodon.org</a> for updates
+            and info. For questions, information, sharing your projects, and more, join us
+            on the <a href="https://beeware.org/bee/chat/">BeeWare Discord</a>.
+        </p>
     </div>
-{#    <div class="col-md-4">#}
-{#        <div class="sidebar-module sidebar-module-inset gutter">#}
-{#            {{ this.gutter }}#}
-{#            </div>#}
-{#    </div>#}
 </div>
-
 {% endblock %}
