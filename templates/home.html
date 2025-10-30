@@ -27,7 +27,7 @@
 <script>
 {
   let today = new Date();
-  
+
   $('.upcoming.event').each(function() {
       let date = new Date($(this).data('end-date'))
       if (date < today) {
@@ -53,7 +53,7 @@
 {% set events = (ongoing + not_started)[:3] %}
 
 {% set blog = site.query('/news/buzz', alt=this.alt).first() %}
-{% set project_types = site.query('/project', alt=this.alt) %}
+{% set project_types = site.query('/docs', alt=this.alt) %}
 
 {% block body %}
 <!-- MD and Larger Project List -->
