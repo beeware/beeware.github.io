@@ -1,0 +1,46 @@
+title: October 2025 Status Update
+---
+author: Russell Keith-Magee
+---
+body:
+
+October saw the release of Python 3.14, which brought about a lot of release-related housekeeping. We've also seen some major improvements to BeeWare's documentation, and the addition of some useful new features in Briefcase.
+
+## What we've done
+
+- We completed our transition to using Markdown for all our documentation, including [the tutorial](https://github.com/beeware/beeware-tutorial), [Toga](https://github.com/beeware/toga/pull/3719), [Briefcase](https://github.com/beeware/briefcase/pull/2502), and [Rubicon Objective-C](https://github.com/beeware/rubicon-objc/pull/658)
+- In recognition of her work on the Markdown conversion, we [welcomed Kattni as a new member of the core team!](https://github.com/beeware/beeware.github.io/pull/709) 
+- Our Curtin students wrapped their year-long capstone project. This resulted in three major pieces of work: [a major update to how Briefcase handles the PyScript and HTML/CSS dependencies](https://github.com/beeware/briefcase/pull/2442); the [introduction of a virtual environment management layer to Briefcase](https://github.com/beeware/briefcase/pull/2495); and a [prototype of an approach for automated testing of Toga's web backend](https://github.com/beeware/toga/pull/3728)
+- Python's CI system [now includes a test run on iOS](https://github.com/python/cpython/pull/140190). This then revealed some odd behavior on GitHub Actions that [required some investigation and a workaround](https://github.com/python/cpython/pull/140740).
+- We modified [CPython's Android test runner to accept all of Python's command line options](https://github.com/python/cpython/pull/138805).
+- We corrected the [handling of `ctypes` loading the Python library on Android and Cygwin when ABI flags are present](https://github.com/python/cpython/pull/140178)
+- We contributed a new option to `cibuildwheel` that [allows configuration of the iOS and Android test runner](https://github.com/pypa/cibuildwheel/pull/2636).
+- We modified Briefcase's MSI installer handling to add support for [post-install and pre-uninstall scripts](https://github.com/beeware/briefcase/pull/2496), and to [make the creation of a start menu item optional](https://github.com/beeware/briefcase/pull/2534)
+- We modified how [Briefcase's `dev` command interacts with environment variables](https://github.com/beeware/briefcase/pull/2514).
+- We made a number of linting improvements to Briefcase, [enabling](https://github.com/beeware/briefcase/pull/2515) [more](https://github.com/beeware/briefcase/pull/2516) [Ruff](https://github.com/beeware/briefcase/pull/2520) [rules](https://github.com/beeware/briefcase/pull/2523).
+- We corrected an issue with [desktop icon association in GNOME apps](https://github.com/beeware/briefcase-linux-system-template/pull/41).
+- We modified [how we create the macOS stub app used by Briefcase](https://github.com/beeware/briefcase-macOS-Xcode-template/pull/96). This change was necessary to ensure that Briefcase apps contain support for macOS 26 "Liquid Glass" styles.
+- We corrected an issue on macOS where [ScrollContainer and OptionContainer would not refresh their layout while being dynamically resized](https://github.com/beeware/toga/pull/3793).
+- We made a [small change to the Winforms event loop that should improve performance of network-intensive code](https://github.com/beeware/toga/pull/3823).
+- We landed [some Toga-related upgrades to Podium, BeeWare's slide presentation app](https://github.com/beeware/podium/pull/65).
+- We [completed our transition to the use of PEP 735 dependency groups](https://github.com/beeware/.github/pull/251) across all BeeWare repositories. This means our published wheels will no longer include the list of development requirements; it also means we can [retire some utility workflows](https://github.com/beeware/.github/pull/258) that were previously required.
+- We added [automated draft translation workflows for new tutorial content.](https://github.com/beeware/beeware-tutorial/pull/13)
+- We upgraded all of our CI configurations to [retire the use of the soon-to-be-deprecated macos-13 runner](https://github.com/beeware/.github/pull/247).
+
+## What's next?
+
+In November, our primary focus will be on iOS and Android packaging. Rust packages will be an area of particular focus, but we're hoping to contribute some other packaging updates as well. We're also hoping to see some additional changes in Briefcase, building on the work our Curtin students have done over the year.
+
+## Want to get involved?
+
+Want to get involved? We curate issues that should be approachable for first-time contributors to BeeWare. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
+
+- If you're interested in the tooling for deploying applications to various platforms, take a look at [Briefcase](https://github.com/beeware/briefcase/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22)
+- Or, if you're interested in GUI widgets, take a look at [Toga](https://github.com/beeware/toga/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22)
+
+These lists can also be filtered by platform - so you can find issues that are specific to your preferred operating system. Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a [guide on setting up a Briefcase development environment](https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html); but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the [BeeWare Discord server](https://beeware.org/bee/chat/).
+
+---
+mastodon_handle: @freakboy3742@cloudisland.nz
+---
+pub_date: 2025-11-03
