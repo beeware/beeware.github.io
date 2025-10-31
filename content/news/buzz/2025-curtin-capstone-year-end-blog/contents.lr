@@ -99,11 +99,6 @@ While we have delivered significant changes within the BeeWare ecosystem, contin
 
 The Toga Web Testing prototype provides a strong foundation for a complete testing framework but remains at a proof-of-concept stage. Future work will focus on extending test coverage across more widgets, stabilising the proxy and RPC systems and integration with Briefcase to enable a unified startup process for web tests. More details on the current implementation and next steps can be found in the [Toga Web Testing Handover Report](https://github.com/beeware/toga/issues/3545#issuecomment-3425284525).
 
-- In Briefcase, the following needs to be implemented for the `Dev Commmand`
-    - .pth File Parsing Utility (for making the editable installed packages directly accessible to the server)
-    - Allow the dev environment to support 3rd party package support
-    - Extend the editable install workflow to desktop platforms increasing developement workflow speed
-    - Implement a --live/--reload flag to automatically re-bundle changed .py files and refresh the browser
-    - Issue [#2334](https://github.com/beeware/briefcase/issues/2334)
+The Briefcase Dev Command now has the basic foundations to support a true development workflow for web applications, enabling live-editing and hot-reload without requiring wheel builds. The remaining work focuses on implementing a parser to locate editable source code paths from .pth files, creating symlinks or file copies in the web project’s static directory so PyScript can load modules directly from local source files, generating the necessary HTML and PyScript configuration to run these modules in the browser, and integrating the development server to bring all these components together. Once completed, these enhancements will enable developers to modify Python source files and instantly see their changes reflected in the browser. More details on teh current implementation and next steps can be found in [Briefcase Dev Command Optimisation Handover Report](https://github.com/beeware/briefcase/issues/2334#issuecomment-3443501856).
 
 With the majority of the Insertion System completed and merged, only one small cleanup task remains. Once sometime has passed and the current changes have been released, the `web/src/toga_web/static/toga.css` in Toga will need to be converted to an insert along the lines of `web/src/toga_web/deploy/inserts/briefcase.css~css`. More details can be found in the [issue ticket](https://github.com/beeware/toga/issues/3822).
