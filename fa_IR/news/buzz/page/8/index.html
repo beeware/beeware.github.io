@@ -126,6 +126,127 @@
 
   
   
+  <h2><a href="/fa_IR/news/buzz/2017-google-summer-of-code-final-report-jonas-schell/">2017 Google Summer of Code - Testing Toga/Settings API</a></h2>
+  <p class="meta">
+    Posted by
+    
+      Jonas Schell
+    
+    on 22 August 2017 
+  </p>
+  
+  <p>Google Summer of Code 2017 is coming to an end. After three month of
+working on the BeeWare project, I would like to summarise my work and
+share my experiences.</p>
+<h2>“No Battle Plan Survives First Contact.”</h2>
+<p>This was one of the first things Russell said to me after we decided to
+fundamentally restructure my <a href="https://github.com/beeware/toga/issues/118">proposed GSoC timetable and
+goals</a>. During the community
+bounding period we discovered that Toga was even harder to test as we
+expected. The tight coupling between the platform independent Toga-Core
+part and the platform dependent implementations for (Windows, macOS,
+iOS, Linux, Android, Django, ...) was giving us a hard time to write
+meaningful tests.</p>
+<p>We expect Toga to become a decently sized project, therefore we want it
+to have a solid and well tested base. Given that, we decided that I
+would spend most of GSoC to restructure Toga to make it more testable.
+Besides that, I would also add implementation tests to check if a given
+backend is implemented in the right way. If I would finish before the
+end of the summer I would just start with my original project proposal.</p>
+<h2>The Big Restructure of Toga</h2>
+<p>With the new goals and a fresh branch I started the journey to
+restructure the Toga project to make it more testable.</p>
+<p>After hacking around and testing different things on a <a href="https://github.com/Ocupe/restruc_toga">separate
+branch</a>. I identified that the
+intertwined platform dependencies are the main problem. To separate the
+Toga-Core module form its backend implementations we decided to use the
+factory pattern instead of the inheritance model that we had before. Now
+every backend has its own factory that produces the right widgets for
+the platform it is running on. This way we have a clear separation
+between Toga-Core and the implementation level. Platform dependencies
+are now enclosed in the implementation level.</p>
+<p>After the new structure was clear I ported Toga-Core as well as the
+backends for cocoa, iOS and GTK. I did this in the Toga branch <a href="https://github.com/beeware/toga/pull/185">(The Big
+Restructure of Toga [WIP]
+#185)</a>. In practice this
+meant that I had to manually touch almost every widget of all backends
+to port them to the new factory pattern.</p>
+<h2>Challenges</h2>
+<p>Toga talks to native GUI frameworks, hence I had to get a good
+understanding about the principles and concepts behind each and every of
+these frameworks. At times I felt overwhelmed by the combined complexity
+of all the parts that make up Toga. The following is list:</p>
+<ul>
+<li>Every Toga backend wraps around a existing and unique framework. To
+wrap the framework you have to understand the framework.</li>
+<li>“I love Python, why do I have to understand Objective C”? To
+effectively work on the iOS and macOS backends I had to learn the
+basics of Objective C – if only to read the Apple docs.</li>
+<li>Toga has a lot of moving parts. There are backends, frameworks,
+libraries to talk to backends, libraries to perform the layout of the
+UI and more. I spend a good amount of time to understand all of these
+parts. The following is just a overview of newly acquired knowledge
+during GSoC:<ul>
+<li><a href="https://github.com/beeware/rubicon-objc">Rubicon-ObjC</a> to talk to
+the iOS and macOS backends.</li>
+<li><a href="/project/utilities/colosseum/">Colosseum</a> to understand and fix
+layout problems.</li>
+<li><a href="https://docs.python.org/3.6/library/ast.html">AST</a> module to
+perform the implementation tests.</li>
+<li>The use of Design Patterns</li>
+<li>How to structure large projects.</li>
+<li>Read and understand big and complex code chunks.</li>
+</ul>
+</li>
+</ul>
+<h2>Other work I did</h2>
+<ul>
+<li>PR: Translated part of the beeware.org webpage into german. <a href="https://github.com/beeware/beeware.github.io/pull/173">(PR
+#173)</a></li>
+<li>Helped newcomers on Gitter and GitHub.</li>
+<li>Tested if Toga would profit from static typing
+<a href="https://github.com/Ocupe/toga/tree/static_typing">(toga/static_typing)</a>.</li>
+<li>Created an implementation test suite based on the AST module.</li>
+<li>Added test for Toga-Core.</li>
+<li>Updated and extended documentation on Toga-Core as well as the macOS
+and iOS Backend.</li>
+<li>Created a toga-dummy backend.</li>
+<li>First draft of the Settings API and working backend implementation for
+macOS.</li>
+<li>Many small and big fixes on Toga-Core, cocoa, iOS, and GTK backends.
+All in the main PR <a href="https://github.com/beeware/toga/pull/185">beeware/toga The Big Restructure of Toga
+[WIP]</a></li>
+<li>PR: <a href="https://github.com/beeware/toga/pull/171">beeware/toga fix for getting the length of the filenames
+array</a></li>
+<li>PR: <a href="https://github.com/beeware/toga/pull/193">beeware/toga Fixed #189 cocoa.progressbar with
+rehint</a></li>
+<li>PR: <a href="https://github.com/beeware/briefcase-template/pull/3">beeware/briefcase-template Fix for spaces in app name. Issue
+#2</a></li>
+<li>PR: <a href="https://github.com/beeware/toga/pull/222">beeware/toga Toga Settings API
+[WIP]</a></li>
+</ul>
+<h2>Future Work to be Done</h2>
+<ul>
+<li>All my work sits in the PR <a href="https://github.com/beeware/toga/pull/185">“The Big Restructure of Toga
+[WIP]”</a>. After the missing
+backends, namely Windows and Android, are ported, everything can be
+merged into master. We have to wait for the missing backends, because
+the new is incompatible with the old versions and they can’t coexist.</li>
+<li>The Settings API from my original proposal is not finished because of
+the above mentioned reasons. I have a first working draft and I will
+continue working on it after GSoC in <a href="https://github.com/beeware/toga/pull/222">this
+PR</a>.</li>
+</ul>
+<h2>Shoutout</h2>
+<p>I would like to thank Russell Keith-Magee for being an awesome Mentor
+and for all the time he invested in me during GSoC. I also would like to
+thank the BeeWare community for helping me when ever I had a problem.
+Thank you!</p>
+
+
+
+  
+  
   <h2><a href="/fa_IR/news/buzz/a-new-yak-for-the-herd-beekeeper/">A new yak for the herd: BeeKeeper</a></h2>
   <p class="meta">
     Posted by

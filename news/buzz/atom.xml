@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Buzz</title><link href="http://beeware.org/zh_TW/news/buzz/" rel="alternate"/><link href="http://beeware.org/news/buzz/atom.xml" rel="self"/><id>urn:uuid:0f18b85e-c1d4-3086-935d-f801edebea16</id><updated>2025-10-15T00:00:00Z</updated><author><name/></author><subtitle>BeeWare 官方部落格</subtitle><entry><title>2025Q4 Roadmap</title><link href="http://beeware.org/news/buzz/2025q4-roadmap/" rel="alternate"/><updated>2025-10-15T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:8525238f-e0c2-346b-ae64-829a68bd8927</id><content type="html">&lt;p&gt;In Q3, BeeWare saw the release of Python 3.14 with official Android artefacts, more Python packaging improvements, and significant improvements to our documentation infrastructure. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment to features that will be made available on a specific deadline.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Buzz</title><link href="http://beeware.org/zh_TW/news/buzz/" rel="alternate"/><link href="http://beeware.org/news/buzz/atom.xml" rel="self"/><id>urn:uuid:0f18b85e-c1d4-3086-935d-f801edebea16</id><updated>2025-11-03T00:00:00Z</updated><author><name/></author><subtitle>BeeWare 官方部落格</subtitle><entry><title>October 2025 Status Update</title><link href="http://beeware.org/news/buzz/october-2025-status-update/" rel="alternate"/><updated>2025-11-03T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:79f1140f-3252-33eb-a524-ce3df95baf43</id><content type="html">&lt;p&gt;October saw the release of Python 3.14, which brought about a lot of release-related housekeeping. We've also seen some major improvements to BeeWare's documentation, and the addition of some useful new features in Briefcase.&lt;/p&gt;
+&lt;h2&gt;What we've done&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;We completed our transition to using Markdown for all our documentation, including &lt;a href="https://github.com/beeware/beeware-tutorial"&gt;the tutorial&lt;/a&gt;, &lt;a href="https://github.com/beeware/toga/pull/3719"&gt;Toga&lt;/a&gt;, &lt;a href="https://github.com/beeware/briefcase/pull/2502"&gt;Briefcase&lt;/a&gt;, and &lt;a href="https://github.com/beeware/rubicon-objc/pull/658"&gt;Rubicon Objective-C&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;In recognition of her work on the Markdown conversion, we &lt;a href="https://github.com/beeware/beeware.github.io/pull/709"&gt;welcomed Kattni as a new member of the core team&lt;/a&gt;!&lt;/li&gt;
+&lt;li&gt;Our Curtin students wrapped their year-long capstone project. This resulted in three major pieces of work: &lt;a href="https://github.com/beeware/briefcase/pull/2442"&gt;a major update to how Briefcase handles the PyScript and HTML/CSS dependencies&lt;/a&gt;; the &lt;a href="https://github.com/beeware/briefcase/pull/2495"&gt;introduction of a virtual environment management layer to Briefcase&lt;/a&gt;; and a &lt;a href="https://github.com/beeware/toga/pull/3728"&gt;prototype of an approach for automated testing of Toga's web backend&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Python's CI system &lt;a href="https://github.com/python/cpython/pull/140190"&gt;now includes a test run on iOS&lt;/a&gt;. This then revealed some odd behavior on GitHub Actions that &lt;a href="https://github.com/python/cpython/pull/140740"&gt;required some investigation and a workaround&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We modified &lt;a href="https://github.com/python/cpython/pull/138805"&gt;CPython's Android test runner to accept all of Python's command line options&lt;/a&gt;, and made &lt;a href="https://github.com/pypa/cibuildwheel/pull/2590"&gt;corresponding changes in cibuildwheel&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We corrected the &lt;a href="https://github.com/python/cpython/pull/140178"&gt;handling of &lt;code&gt;ctypes&lt;/code&gt; loading the Python library on Android and Cygwin when ABI flags are present&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We contributed a new option to &lt;code&gt;cibuildwheel&lt;/code&gt; that &lt;a href="https://github.com/pypa/cibuildwheel/pull/2636"&gt;allows configuration of the iOS and Android test runner&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We modified Briefcase's MSI installer handling to add support for &lt;a href="https://github.com/beeware/briefcase/pull/2496"&gt;post-install and pre-uninstall scripts&lt;/a&gt;, and to &lt;a href="https://github.com/beeware/briefcase/pull/2534"&gt;make the creation of a start menu item optional&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We modified how &lt;a href="https://github.com/beeware/briefcase/pull/2514"&gt;Briefcase's &lt;code&gt;dev&lt;/code&gt; command interacts with environment variables&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We made a number of linting improvements to Briefcase, &lt;a href="https://github.com/beeware/briefcase/pull/2515"&gt;enabling&lt;/a&gt; &lt;a href="https://github.com/beeware/briefcase/pull/2516"&gt;more&lt;/a&gt; &lt;a href="https://github.com/beeware/briefcase/pull/2520"&gt;Ruff&lt;/a&gt; &lt;a href="https://github.com/beeware/briefcase/pull/2523"&gt;rules&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We corrected an issue with &lt;a href="https://github.com/beeware/briefcase-linux-system-template/pull/41"&gt;desktop icon association in GNOME apps&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We modified &lt;a href="https://github.com/beeware/briefcase-macOS-Xcode-template/pull/96"&gt;how we create the macOS stub app used by Briefcase&lt;/a&gt;. This change was necessary to ensure that Briefcase apps contain support for macOS 26 "Liquid Glass" styles.&lt;/li&gt;
+&lt;li&gt;We corrected an issue on macOS where &lt;a href="https://github.com/beeware/toga/pull/3793"&gt;ScrollContainer and OptionContainer would not refresh their layout while being dynamically resized&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We made a &lt;a href="https://github.com/beeware/toga/pull/3823"&gt;small change to the Winforms event loop that should improve performance of network-intensive code&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We landed &lt;a href="https://github.com/beeware/podium/pull/65"&gt;some Toga-related upgrades to Podium, BeeWare's slide presentation app&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We &lt;a href="https://github.com/beeware/.github/pull/251"&gt;completed our transition to the use of PEP 735 dependency groups&lt;/a&gt; across all BeeWare repositories. This means our published wheels will no longer include the list of development requirements; it also means we can &lt;a href="https://github.com/beeware/.github/pull/258"&gt;retire some utility workflows&lt;/a&gt; that were previously required.&lt;/li&gt;
+&lt;li&gt;We added &lt;a href="https://github.com/beeware/beeware-tutorial/pull/13"&gt;automated draft translation workflows for new tutorial content.&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We upgraded all of our CI configurations to &lt;a href="https://github.com/beeware/.github/pull/247"&gt;retire the use of the soon-to-be-deprecated macos-13 runner&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;What's next?&lt;/h2&gt;
+&lt;p&gt;In November, our primary focus will be on iOS and Android packaging. Rust packages will be an area of particular focus, but we're hoping to contribute some other packaging updates as well. We're also hoping to see some additional changes in Briefcase, building on the work our Curtin students have done over the year.&lt;/p&gt;
+&lt;h2&gt;Want to get involved?&lt;/h2&gt;
+&lt;p&gt;Want to get involved? We curate issues that should be approachable for first-time contributors to BeeWare. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you're interested in the tooling for deploying applications to various platforms, take a look at &lt;a href="https://github.com/beeware/briefcase/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22"&gt;Briefcase&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Or, if you're interested in GUI widgets, take a look at &lt;a href="https://github.com/beeware/toga/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22"&gt;Toga&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These lists can also be filtered by platform - so you can find issues that are specific to your preferred operating system. Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a &lt;a href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html"&gt;guide on setting up a Briefcase development environment&lt;/a&gt;; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the &lt;a href="https://beeware.org/bee/chat/"&gt;BeeWare Discord server&lt;/a&gt;.&lt;/p&gt;
+</content></entry><entry><title>2025Q4 Roadmap</title><link href="http://beeware.org/news/buzz/2025q4-roadmap/" rel="alternate"/><updated>2025-10-15T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:8525238f-e0c2-346b-ae64-829a68bd8927</id><content type="html">&lt;p&gt;In Q3, BeeWare saw the release of Python 3.14 with official Android artefacts, more Python packaging improvements, and significant improvements to our documentation infrastructure. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment to features that will be made available on a specific deadline.&lt;/p&gt;
 &lt;p&gt;This Q4 roadmap has been published a little later than normal so that we can fit in with quarterly planning cadence at Anaconda (who employ two of the BeeWare core team). Going forward, you can expect that BeeWare's quarterly plans will be published a couple of weeks into the quarter.&lt;/p&gt;
 &lt;h2&gt;Q3 progress&lt;/h2&gt;
 &lt;p&gt;The end of Q3 sees the release of a new Python version - 3.14. The 3.14 release contains official Android binary artefacts, and a number of improvements to the iOS build process that will lead to official iOS binary artefacts, hopefully in the near future. It also contains restored support for Emscripten as a Tier 3 supported platform. Landing these improvements in 3.14, and ensuring that the BeeWare ecosystem is in a position to use those changes, was a subject of considerable effort in Q3. We were also forced to respond to a number of significant changes to the GitHub Actions macOS ecosystem - work that is ongoing as a side effect of macOS 26 changes and the deprecation of Intel as a supported macOS platform.&lt;/p&gt;
@@ -4053,114 +4084,4 @@ on setting up a Briefcase development
 environment&lt;/a&gt;;
 but if you need any additional assistance or guidance, you can ask on
 the ticket, or join us on the &lt;a href="/bee/chat/"&gt;BeeWare Discord server&lt;/a&gt;.&lt;/p&gt;
-</content></entry><entry><title>2022Q4 Roadmap</title><link href="http://beeware.org/news/buzz/2022q4-roadmap/" rel="alternate"/><updated>2022-10-04T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:9b71e18d-eb1a-34aa-8bf9-589dd3532e1a</id><content type="html">&lt;p&gt;With Q3 completed, it's time to provide an update on the long term goals
-and priorities of the BeeWare project. As always, this roadmap should be
-read as a guide to what we aim to focus on over the coming quarter,
-rather than a hard commitment of features that will be made available on
-a specific deadline.&lt;/p&gt;
-&lt;h2&gt;Q3 progress&lt;/h2&gt;
-&lt;p&gt;We were able to hit our biggest Q3 goals:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Linux packaging&lt;/strong&gt; - We've investigated and addressed all the known
-issues with Linux packaging. There's &lt;a href="https://github.com/beeware/briefcase/issues/886"&gt;one pending
-enhancement&lt;/a&gt; that
-would expand the range of third-party binary packages that can be
-included in Briefcase projects.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Windows packaging&lt;/strong&gt; - We've introduced a stub binary for Windows
-apps (as well as a Visual Studio target for Windows projects). This
-allowed us to significantly improve log capture, so when a Windows app
-crashes it's a lot easier to obtain diagnostic information. This
-change also corrected &lt;em&gt;most&lt;/em&gt; of the issues with the way Windows apps
-were using the site module; however, there is still &lt;a href="https://github.com/beeware/briefcase/issues/381"&gt;one issue related
-to the handling of packages that have complex post-installation
-processes&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Binary modules&lt;/strong&gt; - By far the biggest achievement of Q3. With the
-release of Briefcase 0.3.10, we now support binary modules on iOS and
-Android. We have also published 40 of the most popular binary modules,
-compiled for iOS and Android.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;However, we didn't hit all our goals:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Testing&lt;/strong&gt; - Testing support has improved substantially. We have a
-much more thorough CI configuration on Briefcase that verifies that
-templates generate valid projects. We also have &lt;a href="https://github.com/beeware/Python-support-testbed"&gt;a testbed
-project&lt;/a&gt; that we
-can use to check that support packages are behaving correctly.
-However, we are not yet able to run this test project in CI, so we
-don't have automated validation of PRs against the support packages.
-We also made very little progress in GUI testing.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Conda integration&lt;/strong&gt; - We began initial discussions around Conda
-integration, on two fronts: firstly, to investigate the possibility of
-using Conda as a base for package management in apps; and secondly,
-about using conda-forge as a framework for managing community
-contributions. Both of these conversations are ongoing; it will likely
-take some time before these efforts bear fruit.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Q4 priorities&lt;/h2&gt;
-&lt;p&gt;In Q4, we're planning to focus on:&lt;/p&gt;
-&lt;h3&gt;Toga&lt;/h3&gt;
-&lt;p&gt;The primary focus for Q4 will be Toga. There are a number of pieces of
-work involved with this:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Housekeeping&lt;/strong&gt; - Basic repository maintenance tasks, like enabling
-&lt;span class="title-ref"&gt;black&lt;/span&gt;, introducing pre-commit hooks,
-towncrier, and automating release infrastructure.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Example consolidation&lt;/strong&gt; - Toga's examples folder has become a
-sprawling collection of code that is part documentation, part testbed.
-We need to start consolidating these examples into 2 apps - one that
-is a user-facing demonstrator of Toga features, and one that can be
-used as a functional test of Toga features.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Testing&lt;/strong&gt; - Modernising and cleaning up the existing test suite, and
-working out how to automate GUI tests&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Documentation&lt;/strong&gt; - Toga's documentation has lagged behind an
-acceptable standard for a long time,&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Planning&lt;/strong&gt; - Developing a clear plan for what will be in Toga 1.0&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cross-platform hardware&lt;/strong&gt; - While it has always been &lt;em&gt;technically&lt;/em&gt;
-possible to support the APIs needed to access device hardware, there
-hasn't been a cross-platform API for this work. In Q4, we hope to
-demonstrate at least 1 interesting piece of mobile device hardware.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Although we won't get to Toga v1.0 in Q4, we &lt;em&gt;will&lt;/em&gt; land a v0.3 final,
-after several years of maintaining dev pre-releases as the main way to
-use Toga.&lt;/p&gt;
-&lt;h3&gt;Web support&lt;/h3&gt;
-&lt;p&gt;Toga has historically had support for the Web as a platform; however,
-that effort was put on hold because the approach we were taking wasn't
-proving viable. However, with the release of Python 3.11, WASM becomes
-an officially supported CPython platform. We've also seen the release of
-&lt;a href="https://pyscript.net"&gt;PyScript&lt;/a&gt;, demonstrating that client-side Python
-in the browser is an extremely viable proposition. The time has come to
-resurrect BeeWare's support for the web as a deployment platform. This
-will involve getting Toga's web backend into a working state, and adding
-a web deployment backend for Briefcase.&lt;/p&gt;
-&lt;h2&gt;Longer term goals&lt;/h2&gt;
-&lt;p&gt;Looking into next year, the big items on the horizon are:&lt;/p&gt;
-&lt;h3&gt;Upstreaming&lt;/h3&gt;
-&lt;p&gt;With binary modules now being supported on both iOS and Android, and the
-introduction of a &lt;a href="https://peps.python.org/pep-0011/"&gt;Tier 3 support level in
-PEP11&lt;/a&gt;, the prospect of elevating iOS
-and Android to official supported platforms is seeming increasingly
-plausible. Our hope is to go to PyCon US next year in a position to make
-a concrete proposal to the CPython core team.&lt;/p&gt;
-&lt;h3&gt;Toga 1.0&lt;/h3&gt;
-&lt;p&gt;The broad goal for "Toga 1.0" could be considered "Tkinter, but with
-some additional bells to show off". We want to deliver a core widget set
-of the "essentials", plus some nice features to show off, like WebViews
-and camera or GPS integration. We hope to establish the feature list for
-Toga 1.0 in Q4; once that plan is in place, we'll have a better idea of
-when we will be able to deliver on that plan.&lt;/p&gt;
-&lt;h3&gt;A Forge for mobile packages&lt;/h3&gt;
-&lt;p&gt;As of today, all binary modules for mobile platforms are being
-maintained by the BeeWare team. This isn't a viable solution long term;
-we need to move to an environment where the community can manage binary
-packages for mobile platforms.&lt;/p&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;For the last 6 months, the focus of BeeWare has been on Briefcase and
-the support packages - ensuring that we have a feature complete, robust
-set of tools for deploying apps on any platform. In Q4, our focus is
-shifting to the tools we need to build apps &lt;em&gt;on&lt;/em&gt; those platforms, and
-ensuring we have a stable foundation for future development. It's taken
-a long time for BeeWare to get this far - but we're getting very close
-to unlocking the remarkable potential of the Python ecosystem on mobile
-devices.&lt;/p&gt;
 </content></entry></feed>
