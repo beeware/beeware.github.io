@@ -21,29 +21,33 @@
     {{ incomplete(this) }}
 
     {% if this.attic or "attic" in this.maturity %}
-    <p><i>{{ "attic_before"|trans }} <a href="{{ '/docs/attic'|url(alt=this.alt) }}">{{ "attic_link"|trans }}</a>{{ "attic_after"|trans }}</i></p>
+    <p><i>{% trans attic_link='/docs/attic'|url(alt=this.alt) %}
+      This project is classified as <a href="{{ attic_link }}">in the attic</a>. It is no longer actively maintained.
+      {% endtrans %}</i></p>
     <hr>
     {% endif %}
 
     {% if this.project_type == "template" %}
-    <p>{{ "cookie_before"|trans }} <a href="https://github.com/audreyr/cookiecutter">CookieCutter</a> {{ "cookie_after"|trans }}</p>
+    <p>{% trans cookiecutter_link='https://github.com/audreyr/cookiecutter' %}
+      This project is a <a href="{{ cookiecutter_link }}">CookieCutter</a> template for a stub project.
+      {% endtrans %}</p>
     <hr>
     {% endif %}
 
     {% if this.project_type == "support" %}
-    <p>{{ "project_support"|trans }}</p>
+    <p>{{ _("This project is a support library. It is intended to be used in conjunction with a template project for the same platform.") }}</p>
     <hr>
     {% endif %}
 
     <p>{{ this.description }}</p>
 
     {% if this.help_required %}
-    <h3>{{ "project_help"|trans }}</h3>
+    <h3>{{ _("How to Help") }}</h3>
     <p>{{ this.help_required }}</p>
     {% endif %}
 
     {% if this.pun %}
-    <h3>{{ "pun_before"|trans }} "{{ this.name }}"{{ "pun_after"|trans }}</h3>
+    <h3>{% trans name=this.name %} So, why is it called "{{ name }}"? {% endtrans %}</h3>
     <p>{{ this.pun }}</p>
     {% endif %}
   </div>
@@ -52,17 +56,17 @@
     <div class="sidebar-module sidebar-module-inset gutter">
       <img class="img-fluid center-block" {% if this.image %}src="{{ site.get(this.path, alt='_primary')|url }}{{ this.image }}" {% else %} src="/static/images/defaultlogo.png"{% endif %}>
     {% if this.github_repo or this.rtfd_name %}<br />{% endif %}
-    {% if this.github_repo %}<p><a href="https://github.com/{{ this.github_repo }}"><i class="fa fa-github fa-lg" aria-hidden="true"></i> {{ "source_code"|trans }}</a></p>{% endif %}
-    {% if this.rtfd_name %}<p><a href="https://{{ this.rtfd_name }}.readthedocs.io/"><i class="fa fa-book fa-lg" aria-hidden="true"></i> {{ "documentation"|trans }}</a></p>{% endif %}
+    {% if this.github_repo %}<p><a href="https://github.com/{{ this.github_repo }}"><i class="fa fa-github fa-lg" aria-hidden="true"></i> {{ _("Source Code") }}</a></p>{% endif %}
+    {% if this.rtfd_name %}<p><a href="https://{{ this.rtfd_name }}.readthedocs.io/"><i class="fa fa-book fa-lg" aria-hidden="true"></i> {{ _("Documentation") }}</a></p>{% endif %}
       <hr>
       <dl>
-        {{ badge("project_type", this.project_type) }}
-        {{ badge("maturity", this.maturity) }}
-        {{ badge("language", this.languages) }}
-        {{ badge("platform", this.platforms) }}
+        {{ badge(_("Project Type:"), this.project_type) }}
+        {{ badge(_("Maturity:"), this.maturity) }}
+        {{ badge(_("Language:"), this.languages) }}
+        {{ badge(_("Platform:"), this.platforms) }}
       </dl>
       <hr>
-      <a href="https://labhr.github.io/hatrack/#repo=beeware/{{ this._id }}">{{ "contributors"|trans }}</a>
+      <a href="https://labhr.github.io/hatrack/#repo=beeware/{{ this._id }}">{{ _("Contributors") }}</a>
     </div>
   </div>
 </div>

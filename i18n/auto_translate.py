@@ -42,6 +42,9 @@ def translate(text, lang, api_token):
 def process_file(filename, lang, api_token):
     po = polib.pofile(filename)
     for entry in po.untranslated_entries():
+        # Pluralized strings need more handling.
+        if entry.msgid_plural:
+            continue
         if not entry.msgstr:
             print(f"EN >>> {entry.msgid}")
             print('---------------------------------------------')

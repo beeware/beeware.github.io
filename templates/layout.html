@@ -1,9 +1,9 @@
-{%- macro menu_item(identifier) -%}
+{%- macro menu_item(identifier, translated) -%}
   {%- set identifier_url = ('/' + identifier).replace('/donate', '/membership') -%}
   {%- set trans_url = identifier_url|url(alt=this.alt) -%}
   {%- set this_is_child = this.is_child_of(identifier_url) -%}
   <li class="nav-item{% if this_is_child %} active{% endif %}">
-    <a class="nav-link" href="{{ trans_url }}">{{ identifier|trans("menu") }}{%- if this_is_child -%}<span class="sr-only">(current)</span>{%- endif -%}</a>
+    <a class="nav-link" href="{{ trans_url }}">{{ translated }}{%- if this_is_child -%}<span class="sr-only">(current)</span>{%- endif -%}</a>
   </li>
 {%- endmacro -%}
 
@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>{%- block title %}{{- "welcome"|trans -}}{% endblock -%} — BeeWare</title>
+    <title>{%- block title %}{{- _("Welcome") -}}{% endblock -%} — BeeWare</title>
 
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/images/brutus-144.png">
@@ -65,12 +65,12 @@
   </div>
   <div class="collapse navbar-collapse" id="navbarsDefault">
     <ul class="navbar-nav mr-auto">
-      {{ menu_item('about') }}
-      {{ menu_item('docs') }}
-      {{ menu_item('community') }}
-      {{ menu_item('contributing') }}
-      {{ menu_item('news') }}
-      {{ menu_item('donate') }}
+      {{ menu_item('about', _("About")) }}
+      {{ menu_item('docs', _("Documentation")) }}
+      {{ menu_item('community', _("Community")) }}
+      {{ menu_item('contributing', _("Contributing")) }}
+      {{ menu_item('news', _("News")) }}
+      {{ menu_item('donate', _("Donate")) }}
     </ul>
     <ul class="nav navbar-nav navbar-right">
       {%- if this.alt == "en" -%}
@@ -80,7 +80,7 @@
               + this.path.split("@")[0] + "/contents.lr"
             )
         -%}
-        {%- set edit_text = "edit_on_github"|trans -%}
+        {%- set edit_text = _("Edit on GitHub") -%}
         {%- set icon_name = "github" -%}
       {%- else -%}
         {%- set edit_link = (
@@ -88,7 +88,7 @@
               + {"zh_CN": "zh_Hans", "zh_TW": "zh_Hant"}.get(this.alt, this.alt[:2])
             )
         -%}
-        {%- set edit_text = "edit_translation"|trans -%}
+        {%- set edit_text = _("Translate on Weblate") -%}
         {# Font Awesome doesn't have a Weblate icon. #}
         {%- set icon_name = "pencil" -%}
       {%- endif -%}
@@ -110,7 +110,7 @@
           {%- set alt_active = alt == this.alt -%}
           {%- if alt != config.primary_alternative %}
           <a class="dropdown-item{% if alt_active %} active{% endif %}" href="{{ '.'|url(alt=alt) }}">
-          {{- alternative.name.en.lower()|trans -}}
+          {{- alternative.name.en.lower()|languagename -}}
           </a>
           {%- endif -%}
           {%- endfor %}
@@ -137,7 +137,7 @@
           <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
           <a href="https://beeware.org/bee/chat/"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i> Discord</a> |
           <a href="https://fosstodon.org/@beeware"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i> Mastodon</a> |
-          <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ "sitemap"|trans }}</a>
+          <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ _("Sitemap") }}</a>
         </p>
         <p class="d-block d-sm-none footer-social">
           <a href="https://github.com/beeware/"><i class="fa fa-github fa-lg" aria-hidden="true"></i> GitHub</a> |
@@ -145,7 +145,7 @@
           <a rel="me" href="https://fosstodon.org/@beeware"><i class="fa-brands fa-mastodon fa-lg" aria-hidden="true"></i> Mastodon</a>
         </p>
         <p class="d-block d-sm-none footer-sitemap">
-          <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ "sitemap"|trans }}</a>
+          <a href="{{ '/sitemap'|url(alt=this.alt) }}"><i class="fa fa-sitemap fa-lg" aria-hidden="true"></i> {{ _("Sitemap") }}</a>
         </p>
         {% set team = site.query('/about/team', alt=this.alt).all() %}
         {% for member in team %}

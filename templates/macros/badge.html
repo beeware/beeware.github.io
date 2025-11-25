@@ -1,10 +1,11 @@
+{% from 'macros/labels.html' import get_label, get_comma %}
+
 {% macro badge(name, value) %}
 
 {% if value is string  %}
-    <dt>{{ name|trans }}:</dt><dd>{{ value|trans("labels") }}</dd>
+    <dt>{{ name }}</dt><dd>{{ get_label(value) }}</dd>
 {% else %}
-{%- set comma = joiner() %}
-    <dt>{{ name|trans }}:</dt><dd>{% for v in value %}{{ comma() }}{{ v|trans("labels") }}{% endfor %}</dd>
+    <dt>{{ name }}</dt><dd>{% for v in value %}{% if not loop.first %}{{- get_comma() -}}{% endif %}{{- get_label(v) -}}{% endfor %}</dd>
 {% endif %}
 
 {#<!-- <img src="badges/{{type}}/{{name}}"> -->#}

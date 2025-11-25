@@ -1,19 +1,19 @@
     {{ this.gutter_top }}
 
-    <h3>{{ "gold"|trans("labels") }} {{ "member"|trans|capitalize }}</h3>
+    <h3>{{ ngettext("Gold Member", "Gold Members", gold_members|list|count) }}</h3>
     {% for member in gold_members %}
     <p><a href="{{ '/community/members'|url(alt=this.alt) }}"><img class="img-fluid" src="/community/members/anaconda/anaconda-small.png"></a></p>
     {% endfor %}
 
     <hr/>
 
-    <h3><a href="{{ '/news/buzz/'|url(alt=this.alt) }}">{{ "latest_news"|trans }}</a></h3>
+    <h3><a href="{{ '/news/buzz/'|url(alt=this.alt) }}">{{ _("Latest News") }}</a></h3>
     <p><a href="{{ blog|url(alt=this.alt) }}">{{ blog.pub_date.strftime("%d %b")}}: {{ blog.title }}</a></p>
 
     <hr/>
 
     {% if events %}
-      <h3>{{ "meet_team"|trans }}</h3>
+      <h3>{{ _("Meet the Bee Team") }}</h3>
 
           {% for event in events %}
           <div class="upcoming event" data-date="{{ event.date }}" data-end-date="{{ event.end_date or event.date }}">
@@ -30,7 +30,7 @@
 
     <hr/>
     {% endif %}
-    <h2><a href="{{ '/docs'|url(alt=this.alt) }}">{{ "projects"|trans }}</a></h2>
+    <h2><a href="{{ '/docs'|url(alt=this.alt) }}">{{ _("Projects") }}</a></h2>
     {% for project in project_types %}
         {% if not project.project_page_description %}
     <div>

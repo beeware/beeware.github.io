@@ -1,8 +1,7 @@
 {% macro render_blog_post(post, from_index=false) %}
   {% if from_index %}
   <h2><a href="{{ post|url(alt=post.alt) }}">{{ post.title }}</a></h2>
-  <p class="meta">
-    {{ "posted_by"|trans }}
+  {% set author_link %}
     {% if post.mastodon_handle %}
       <a href="https://{{ post.mastodon_handle.split('@')[2] }}/@{{ post.mastodon_handle.split('@')[1] }}">{{ post.author or post.mastodon_handle }}</a>
     {% elif post.twitter_handle %}
@@ -10,7 +9,11 @@
     {% else %}
       {{ post.author }}
     {% endif %}
-    {{ "on"|trans }} {{ post.pub_date.strftime('%-d %B %Y') }} {{ "post_posted_date"|trans }}
+  {% endset %}
+  <p class="meta">
+    {% trans date=post.pub_date.strftime('%-d %B %Y') %}
+    Posted by {{ author_link }} on {{ date }}
+    {% endtrans %}
   </p>
   {% endif %}
   {{ post.body }}
