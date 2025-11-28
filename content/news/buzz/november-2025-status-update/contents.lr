@@ -1,0 +1,46 @@
+title: November 2025 Status Update
+---
+author: Russell Keith-Magee
+---
+body:
+
+November has been a busy month, seeing improvements in documentation, a number of improvements to Briefcase, Linux support in Toga, and the first iOS binary wheels written in Rust!
+
+## What we've done
+
+- We made multiple contributions to Maturin and PyO3, including a [fix for iOS wheel naming strategies](https://github.com/PyO3/maturin/pull/2827), adding [support for iOS cross-platform virtual environments](https://github.com/PyO3/maturin/pull/2828), improving the mechanism by which [the build interpreter is detected when building ABI3 wheels](https://github.com/PyO3/maturin/pull/2829), and ensuring [`libPython` is linked into iOS binary wheels](https://github.com/PyO3/pyo3/pull/5605). As a result, we've been able to publish Rust-based iOS wheels for Cryptography to the [BeeWare package repository](https://anaconda.org/beeware/cryptography). Once the changes to Maturin and PyO3 have been formally released, we'll be able to submit PRs adding iOS builds to Cryptography.
+- We completed a large refactor of BeeWare's documentation. The BeeWare website [now has a clear "Documentation" heading](https://github.com/beeware/beeware.github.io/pull/716), and all of BeeWare's main projects serve their documentation from `beeware.org` subdomains.
+- We expanded the BeeWare tutorial to include a section on [runtime icon handling](https://github.com/beeware/beeware-tutorial/pull/35)
+- We completed an update to Chaquopy, the tooling underpinning Briefcase's Android support, adding support for Python 3.14, as well as a number of other updates to adapt to changes in the Android ecosystem.
+- We added [integration with PDB and VSCode debuggers for Briefcase apps](https://github.com/beeware/briefcase/pull/2173). This allows users to use their IDE to debug Windows, Linux, macOS and iOS apps. Support for Android should be added soon. Support for PyCharm and other debuggers should also be possible given the debugging framework that has been put in place.
+- We added the ability to [customize the install directory](https://github.com/beeware/briefcase/pull/2567), and [configure pre-uninstall options](https://github.com/beeware/briefcase/pull/2582) in Windows MSI installers.
+- We modified Briefcase to make [local source references in a development environment editable installs](https://github.com/beeware/briefcase/pull/2498)
+- We added support for [a cross-platform Bluetooth permission](https://github.com/beeware/briefcase/pull/2522) in Briefcase apps.
+- We [improved Python version detection when building apps on Linux](https://github.com/beeware/briefcase/pull/2546)
+- We added a new [Qt backend](https://github.com/beeware/toga/pull/3769) to Toga! This will allow Linux users with a KDE desktop to have fully native apps, instead of relying on GTK theme emulation. The Qt backend is still in development, but it already has support for a lot of simple widgets, including Button, Label, [Switch](https://github.com/beeware/toga/pull/3917) and [ImageView](https://github.com/beeware/toga/pull/3918).
+- We added [Button](https://github.com/beeware/toga/pull/3881), [TextInput](https://github.com/beeware/toga/pull/3239), [Canvas](https://github.com/beeware/toga/pull/3904) [DateInput testing](https://github.com/beeware/toga/pull/3915), and [Activityindicator](https://github.com/beeware/toga/pull/3896) widgets to Toga's GTK4 implementation, as well as adding support for fonts and icons.
+- We added a [handler for window resize events on Toga Windows](https://github.com/beeware/toga/pull/2364)
+- We added support in Toga's DecimalInput for [locales that use a comma as a decimal separator](https://github.com/beeware/toga/pull/3870).
+- We improved Toga's WebView, ensuring that it [can access `SharedArrayBuffer` APIs on GTK](https://github.com/beeware/toga/pull/3927). We also modified the Positron static plugin to set headers that are necessary for 
+- We made some improvements that [improve the reliability of some Toga tests](https://github.com/beeware/toga/pull/3898)
+- We contributed a new feature to cibuildwheel that allows the [specification of arguments to the test executor](https://github.com/pypa/cibuildwheel/pull/2636). This was primarily needed to provide a workaround for some instability in GitHub Actions, but it has the added benefit of adding configurability to some test execution functionality that was previously hard coded.
+- We corrected an issue with how the [iOS testbed handles command-line arguments with spaces](https://github.com/python/cpython/pull/141443)
+- We made a small modification to the [iOS XCframework build process to add a `lib` folder](https://github.com/python/cpython/pull/141693). This improves compatibility of iOS XCframeworks with traditional Unix-style build systems.
+
+## What's next?
+
+December will be short month due to end-of-year holidays; but we're still hoping to see some developments in Android packaging, an iOS package for Pandas, and some improvements to Briefcase building on the work our Curtin students have done over the course of the year. We expect to release a new version of both Briefcase and Toga in the coming week.
+
+## Want to get involved?
+
+Want to get involved? We curate issues that should be approachable for first-time contributors to BeeWare. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:
+
+- If you're interested in the tooling for deploying applications to various platforms, take a look at [Briefcase](https://github.com/beeware/briefcase/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22)
+- Or, if you're interested in GUI widgets, take a look at [Toga](https://github.com/beeware/toga/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22)
+
+These lists can also be filtered by platform - so you can find issues that are specific to your preferred operating system. Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a [guide on setting up a Briefcase development environment](https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html); but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the [BeeWare Discord server](https://beeware.org/bee/chat/).
+
+---
+mastodon_handle: @freakboy3742@cloudisland.nz
+---
+pub_date: 2025-12-01
