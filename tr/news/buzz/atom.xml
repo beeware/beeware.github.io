@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Vızıltı</title><link href="http://beeware.org/zh_TW/news/buzz/" rel="alternate"/><link href="http://beeware.org/tr/news/buzz/atom.xml" rel="self"/><id>urn:uuid:0f18b85e-c1d4-3086-935d-f801edebea16</id><updated>2025-11-04T00:00:00Z</updated><author><name/></author><subtitle>BeeWare 官方部落格</subtitle><entry><title>2025 Curtin University Capstone Project</title><link href="http://beeware.org/news/buzz/2025-curtin-capstone-year-end-blog/" rel="alternate"/><updated>2025-11-04T00:00:00Z</updated><author><name>Curtin Capstone Team</name></author><id>urn:uuid:e2850371-23f4-3cb7-a36e-c9ecaecfc111</id><content type="html">&lt;p&gt;Since February, a team of final year students from &lt;a href="https://www.curtin.edu.au"&gt;Curtin University&lt;/a&gt; has been collaborating with the BeeWare Project as part of a capstone project for their degrees. This is a summary of the work they have completed.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Vızıltı</title><link href="http://beeware.org/zh_TW/news/buzz/" rel="alternate"/><link href="http://beeware.org/tr/news/buzz/atom.xml" rel="self"/><id>urn:uuid:0f18b85e-c1d4-3086-935d-f801edebea16</id><updated>2025-12-01T00:00:00Z</updated><author><name/></author><subtitle>BeeWare 官方部落格</subtitle><entry><title>November 2025 Status Update</title><link href="http://beeware.org/news/buzz/november-2025-status-update/" rel="alternate"/><updated>2025-12-01T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:b8edd771-41c2-3e94-9571-56b4b6e9ac35</id><content type="html">&lt;p&gt;November has been a busy month, seeing improvements in documentation, a number of improvements to Briefcase, Linux support in Toga, and the first iOS binary wheels written in Rust!&lt;/p&gt;
+&lt;h2&gt;What we've done&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;We made multiple contributions to Maturin and PyO3, including a &lt;a href="https://github.com/PyO3/maturin/pull/2827"&gt;fix for iOS wheel naming strategies&lt;/a&gt;, adding &lt;a href="https://github.com/PyO3/maturin/pull/2828"&gt;support for iOS cross-platform virtual environments&lt;/a&gt;, improving the mechanism by which &lt;a href="https://github.com/PyO3/maturin/pull/2829"&gt;the build interpreter is detected when building ABI3 wheels&lt;/a&gt;, and ensuring &lt;a href="https://github.com/PyO3/pyo3/pull/5605"&gt;&lt;code&gt;libpython&lt;/code&gt; is linked into iOS binary wheels&lt;/a&gt;. As a result, we've been able to publish Rust-based iOS wheels for Cryptography to the &lt;a href="https://anaconda.org/beeware/cryptography"&gt;BeeWare package repository&lt;/a&gt;. Once the changes to Maturin and PyO3 have been formally released, we'll be able to submit PRs adding official iOS builds to Cryptography.&lt;/li&gt;
+&lt;li&gt;We completed a large refactor of BeeWare's documentation. The BeeWare website &lt;a href="https://github.com/beeware/beeware.github.io/pull/716"&gt;now has a clear "Documentation" heading&lt;/a&gt;, and all of BeeWare's main projects serve their documentation from &lt;code&gt;beeware.org&lt;/code&gt; subdomains.&lt;/li&gt;
+&lt;li&gt;We expanded the BeeWare tutorial to include a section on &lt;a href="https://github.com/beeware/beeware-tutorial/pull/35"&gt;runtime icon handling&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We completed an update to Chaquopy, the tooling underpinning Briefcase's Android support, adding support for Python 3.14, as well as a number of other updates to adapt to changes in the Android ecosystem.&lt;/li&gt;
+&lt;li&gt;We released a number of &lt;a href="https://github.com/chaquo/chaquopy/issues/1039#issuecomment-3502430562"&gt;Android wheels for Python 3.10&lt;/a&gt;, for packages which were previously only available for the end-of-life Python 3.8.&lt;/li&gt;
+&lt;li&gt;We added &lt;a href="https://github.com/beeware/briefcase/pull/2173"&gt;integration with PDB and VSCode debuggers for Briefcase apps&lt;/a&gt;. This allows users to use their IDE to debug Windows, Linux, macOS and iOS apps. Support for Android should be added soon. Support for PyCharm and other debuggers should also be possible given the debugging framework that has been put in place.&lt;/li&gt;
+&lt;li&gt;We added the ability to &lt;a href="https://github.com/beeware/briefcase/pull/2567"&gt;customize the install directory&lt;/a&gt;, and &lt;a href="https://github.com/beeware/briefcase/pull/2582"&gt;configure pre-uninstall options&lt;/a&gt; in Windows MSI installers.&lt;/li&gt;
+&lt;li&gt;We modified &lt;code&gt;briefcase dev&lt;/code&gt; to install &lt;a href="https://github.com/beeware/briefcase/pull/2498"&gt;local source paths in editable mode&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We added support for &lt;a href="https://github.com/beeware/briefcase/pull/2522"&gt;a cross-platform Bluetooth permission&lt;/a&gt; in Briefcase apps.&lt;/li&gt;
+&lt;li&gt;We &lt;a href="https://github.com/beeware/briefcase/pull/2546"&gt;improved Python version detection when building apps on Linux&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We added a new &lt;a href="https://github.com/beeware/toga/pull/3769"&gt;Qt backend&lt;/a&gt; to Toga! This will allow Linux users with a KDE desktop to have fully native apps, instead of relying on GTK theme emulation. The Qt backend is still in development, but it already has support for a lot of simple widgets, including Button, Label, &lt;a href="https://github.com/beeware/toga/pull/3917"&gt;Switch&lt;/a&gt; and &lt;a href="https://github.com/beeware/toga/pull/3918"&gt;ImageView&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We added &lt;a href="https://github.com/beeware/toga/pull/3881"&gt;Button&lt;/a&gt;, &lt;a href="https://github.com/beeware/toga/pull/3239"&gt;TextInput&lt;/a&gt;, &lt;a href="https://github.com/beeware/toga/pull/3904"&gt;Canvas&lt;/a&gt; &lt;a href="https://github.com/beeware/toga/pull/3915"&gt;DateInput testing&lt;/a&gt;, and &lt;a href="https://github.com/beeware/toga/pull/3896"&gt;Activityindicator&lt;/a&gt; widgets to Toga's GTK4 implementation, as well as adding support for fonts and icons.&lt;/li&gt;
+&lt;li&gt;We added a &lt;a href="https://github.com/beeware/toga/pull/2364"&gt;handler for window resize events on Toga Windows&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We added support in Toga's DecimalInput for &lt;a href="https://github.com/beeware/toga/pull/3870"&gt;locales that use a comma as a decimal separator&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We improved Toga's WebView, ensuring that it &lt;a href="https://github.com/beeware/toga/pull/3927"&gt;can access &lt;code&gt;SharedArrayBuffer&lt;/code&gt; APIs on GTK&lt;/a&gt;. We also modified the Positron static plugin to set headers that are necessary for using &lt;code&gt;SharedArrayBuffer&lt;/code&gt; in an app.&lt;/li&gt;
+&lt;li&gt;We made some improvements that &lt;a href="https://github.com/beeware/toga/pull/3898"&gt;improve the reliability of some Toga tests&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We contributed a new feature to cibuildwheel that allows the &lt;a href="https://github.com/pypa/cibuildwheel/pull/2636"&gt;specification of arguments to the test executor&lt;/a&gt;. This was primarily needed to provide a workaround for some instability in GitHub Actions, but it has the added benefit of adding configurability to some test execution functionality that was previously hard coded.&lt;/li&gt;
+&lt;li&gt;We corrected an issue with how the &lt;a href="https://github.com/python/cpython/pull/141443"&gt;iOS testbed handles command-line arguments with spaces&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We made a small modification to the &lt;a href="https://github.com/python/cpython/pull/141693"&gt;iOS XCframework build process to add a &lt;code&gt;lib&lt;/code&gt; folder&lt;/a&gt;. This improves compatibility of iOS XCframeworks with traditional Unix-style build systems.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;What's next?&lt;/h2&gt;
+&lt;p&gt;December will be a short month due to end-of-year holidays; but we're still hoping to see some developments in Android packaging, an iOS package for Pandas, and some improvements to Briefcase building on the work our Curtin students have done over the course of the year. We expect to release a new version of both Briefcase and Toga in the coming week.&lt;/p&gt;
+&lt;h2&gt;Want to get involved?&lt;/h2&gt;
+&lt;p&gt;Want to get involved? We curate issues that should be approachable for first-time contributors to BeeWare. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you're interested in the tooling for deploying applications to various platforms, take a look at &lt;a href="https://github.com/beeware/briefcase/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22"&gt;Briefcase&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Or, if you're interested in GUI widgets, take a look at &lt;a href="https://github.com/beeware/toga/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22"&gt;Toga&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These lists can also be filtered by platform - so you can find issues that are specific to your preferred operating system. Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a &lt;a href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html"&gt;guide on setting up a Briefcase development environment&lt;/a&gt;; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the &lt;a href="https://beeware.org/bee/chat/"&gt;BeeWare Discord server&lt;/a&gt;.&lt;/p&gt;
+</content></entry><entry><title>2025 Curtin University Capstone Project</title><link href="http://beeware.org/news/buzz/2025-curtin-capstone-year-end-blog/" rel="alternate"/><updated>2025-11-04T00:00:00Z</updated><author><name>Curtin Capstone Team</name></author><id>urn:uuid:e2850371-23f4-3cb7-a36e-c9ecaecfc111</id><content type="html">&lt;p&gt;Since February, a team of final year students from &lt;a href="https://www.curtin.edu.au"&gt;Curtin University&lt;/a&gt; has been collaborating with the BeeWare Project as part of a capstone project for their degrees. This is a summary of the work they have completed.&lt;/p&gt;
 &lt;h1&gt;Curtin Capstone&lt;/h1&gt;
 &lt;p&gt;Capstone is the final year project undertaken by students across all computing disciplines at Curtin University, including Computer Science, Software Engineering, Cyber Security, and Information Technology. It allows students the opportunity to work in teams on real-world projects in collaboration with industry partners, gaining practical experience and professional exposure before graduating.&lt;/p&gt;
 &lt;p&gt;This year our team has had the exciting opportunity to contribute to BeeWare for our Capstone project.&lt;/p&gt;
@@ -3948,101 +3980,6 @@ project&lt;/a&gt;&lt;/li&gt;
 variable&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/986"&gt;Purge cache folders when installing app code in
 Briefcase&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Pick one of these tickets, drop a comment on the ticket to let others
-know you're looking at it, and try your hand at a PR! We have a &lt;a href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html"&gt;guide
-on setting up a Briefcase development
-environment&lt;/a&gt;;
-but if you need any additional assistance or guidance, you can ask on
-the ticket, or join us on the &lt;a href="/bee/chat/"&gt;BeeWare Discord server&lt;/a&gt;.&lt;/p&gt;
-</content></entry><entry><title>November 2022 Status Update</title><link href="http://beeware.org/news/buzz/november-2022-status-update/" rel="alternate"/><updated>2022-12-01T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:55638425-ec4b-3d08-9602-518cf72c6d5e</id><content type="html">&lt;p&gt;November has brought some very important improvements to BeeWare.
-Although these changes don't have an immediate impact for users, they're
-going to form a vital part of our work going forward.&lt;/p&gt;
-&lt;h2&gt;What we've done&lt;/h2&gt;
-&lt;p&gt;During November:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;We &lt;a href="https://github.com/beeware/briefcase/pull/962"&gt;added a test mode to
-Briefcase&lt;/a&gt;. This is a
-&lt;em&gt;huge&lt;/em&gt; step forward, as it means we are now able to run automated
-tests for iOS and Android, as well as validation tests for packaged
-app behaviors. As a proof of concept, we've already begun porting our
-&lt;a href="https://github.com/beeware/Python-support-testbed/pull/6"&gt;support package validation
-app&lt;/a&gt; - this
-is an app that we've historically needed to run manually.&lt;/li&gt;
-&lt;li&gt;We &lt;a href="https://github.com/beeware/briefcase/pull/954"&gt;added the ability for an AppImage to customise the Dockerfile used
-to build the project&lt;/a&gt;.
-This was required to support the use of Rust-based dependencies (such
-as &lt;a href="https://cryptography.io/"&gt;cryptography&lt;/a&gt;) in AppImages; however,
-the approach we've taken should allow for any other customisation that
-may be required, without the need to maintain a fork of the AppImage
-project template.&lt;/li&gt;
-&lt;li&gt;We've &lt;a href="https://github.com/beeware/briefcase/pull/974"&gt;added the ability for users to add customisations to the
-Android Gradle file for their
-projects&lt;/a&gt;. As with the
-Dockerfile changes, this allows for small customisations without the
-need to use a completely forked template.&lt;/li&gt;
-&lt;li&gt;We &lt;a href="https://github.com/beeware/briefcase/pull/956"&gt;improved the resilience of Briefcase on flaky network
-connections&lt;/a&gt;.
-Previously, an interrupted download of a support package could leave
-Briefcase in a broken state; this should no longer be possible.&lt;/li&gt;
-&lt;li&gt;We've &lt;a href="https://github.com/beeware/briefcase/pull/964"&gt;improved type hinting in the Briefcase
-codebase&lt;/a&gt;, especially
-relating to the ToolCache class.&lt;/li&gt;
-&lt;li&gt;We've &lt;a href="https://github.com/beeware/briefcase/pull/966"&gt;improved the handling of Android apps that fail immediately on
-app startup&lt;/a&gt;.
-Previously, if your app crashed due to something like a Python syntax
-error, it was possible for Briefcase to hang in a way that made it
-look like the issue was due to Briefcase being unable to start the
-app, rather than a user code problem.&lt;/li&gt;
-&lt;li&gt;We've &lt;a href="https://github.com/beeware/briefcase/pull/970"&gt;corrected a problem on Windows that was preventing app output
-from being captured in the Briefcase
-log&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;We completed the process of modernising the layout and tooling of the
-Toga repository, including the &lt;a href="https://github.com/beeware/toga/pull/1639"&gt;introduction of
-Black&lt;/a&gt;,
-&lt;a href="https://github.com/beeware/toga/pull/1638"&gt;Towncrier&lt;/a&gt;,
-&lt;a href="https://github.com/beeware/toga/pull/1675"&gt;setuptools_scm&lt;/a&gt;, and a
-&lt;a href="https://github.com/beeware/toga/pull/1669"&gt;large reorganisation of the code
-structure&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;We've &lt;a href="https://github.com/beeware/toga/pull/1687"&gt;begun building the first automated test of Toga's GUI
-behavior&lt;/a&gt;. This is still in
-the early stages, but it will form the a core part of our testing
-infrastructure in the near future.&lt;/li&gt;
-&lt;li&gt;We've added preliminary support for Python 3.12 to
-&lt;a href="https://github.com/beeware/briefcase/pull/965"&gt;Briefcase&lt;/a&gt;,
-&lt;a href="https://github.com/beeware/toga/pull/1677"&gt;Toga&lt;/a&gt; and &lt;a href="https://github.com/beeware/rubicon-objc/pull/231"&gt;Rubicon
-ObjC&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;We've &lt;a href="https://github.com/beeware/rubicon-objc/pull/230"&gt;updated the codebase of Rubicon-ObjC to use
-Black&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;What's next?&lt;/h2&gt;
-&lt;p&gt;December will be a slow month due to the Christmas and New Year break;
-however, until then, we'll continue to focus will continue to be on
-testing. We'll continue to build out the testing tools that we've worked
-on this month, and start building tests using those tools. We also hope
-to begin work on a firm 1.0 roadmap for Toga.&lt;/p&gt;
-&lt;h2&gt;Want to get involved?&lt;/h2&gt;
-&lt;p&gt;Want to get involved? Here's 8 open issues that would be a great place
-to get started with contributing to a BeeWare project. They're all
-relatively minor changes, but would provide a big improvement to the
-lives of BeeWare users:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/865"&gt;Modify the handling of app signing
-options&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/780"&gt;Filter out a message generated after Xcode
-updates&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/856"&gt;Add the ability to refresh the support package in a
-project&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/853"&gt;Provide protection against creating projects with "semi-reserved"
-names&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/808"&gt;Add the ability to configure the ABIs built by an Android
-project&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/463"&gt;Add support for the ANDROID_HOME environment
-variable&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/907"&gt;Add a command summary to briefcase
---help&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/906"&gt;Add an option to display the platforms supported by a
-command&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Pick one of these tickets, drop a comment on the ticket to let others
 know you're looking at it, and try your hand at a PR! We have a &lt;a href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html"&gt;guide
