@@ -55,14 +55,7 @@ jobs:
     - name: Lock Weblate and Sync
       run: wlc lock
     - name: Commit Weblate changes
-      run: |
-        # 2025-12-01 - wlc commit started returning an error if there are no commits pending
-        # See https://github.com/WeblateOrg/wlc/issues/1054 for details
-        if [[ $(wlc repo | grep "needs_commit: True") ]]; then
-          wlc commit
-        else
-          echo "No commit required"
-        fi
+      run: wlc commit
     - name: Push Weblate changes
       run: wlc push
     - name: Pull translation updates pushed by Weblate
