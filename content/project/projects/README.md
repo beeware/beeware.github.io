@@ -1,4 +1,4 @@
-This directory only exists for historical reasons.
+# This directory only exists for historical reasons.
 
 It was removed in Feb 2025 as part of the content refactor in #578. However, in
 order to provide redirects for historical URLs, we need to keep the content
