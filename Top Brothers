@@ -1,0 +1,391 @@
+# controle-mensalidade-da-striker-top-brothers
+sistema em python para controle de alunos,mensalidades e pagamentos da academia striker top brothers
+# ==========================================
+# CONTROLE DE PAGAMENTO - MENSALIDADES ACADEMIA STRIKER TOP BROTHERS
+# (CSV simples, sem dependências externas)
+# ==========================================
+
+import csv
+from pathlib import Path
+from datetime import datetime, date
+from typing import Optional, List, Dict
+
+# ---- Planos fixos da academia ----
+PLANOS = {
+    "BASICO": 140.00,
+    "INTERMEDIARIO": 160.00,
+    "COMPLETO": 180.00,  # se for 4180, troque para 4180.00
+}
+
+# ---- Configurações / Arquivos ----
+BASE_DIR = Path(__file__).parent
+ARQ_ALUNOS = BASE_DIR / "alunos.csv"
+ARQ_PAGAMENTOS = BASE_DIR / "pagamentos.csv"
+
+DATE_FMT = "%Y-%m-%d"  # padrão interno
+
+
+# ---- Utilidades CSV ----
+def garantir_arquivos():
+    if not ARQ_ALUNOS.exists():
+        with ARQ_ALUNOS.open("w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(
+                f,
+                fieldnames=["aluno_id", "nome", "telefone", "plano", "valor_mensal", "ativo"],
+            )
+            w.writeheader()
+
+    if not ARQ_PAGAMENTOS.exists():
+        with ARQ_PAGAMENTOS.open("w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(
+                f,
+                fieldnames=[
+                    "pagamento_id",
+                    "aluno_id",
+                    "competencia",     # YYYY-MM (mês pago)
+                    "data_pagamento",  # YYYY-MM-DD
+                    "valor_pago",
+                    "forma",           # PIX / DINHEIRO / CARTAO / TRANSFERENCIA / OUTROS
+                    "observacao",
+                ],
+            )
+            w.writeheader()
+
+
+def ler_csv(path: Path) -> List[Dict[str, str]]:
+    if not path.exists():
+        return []
+    with path.open("r", newline="", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
+def append_csv(path: Path, row: Dict[str, str]):
+    with path.open("a", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=row.keys())
+        w.writerow(row)
+
+
+def proximo_id(rows: List[Dict[str, str]], campo_id: str) -> int:
+    maior = 0
+    for r in rows:
+        try:
+            maior = max(maior, int(r[campo_id]))
+        except Exception:
+            pass
+    return maior + 1
+
+
+def dinheiro_para_float(valor_str: str) -> float:
+    """
+    Aceita formatos: "180", "180.00", "180,00", "R$ 180,00"
+    """
+    v = valor_str.strip().upper().replace("R$", "").strip()
+    v = v.replace(".", "").replace(",", ".")  # 1.234,56 -> 1234.56
+    return float(v)
+
+
+# ---- Regras de negócio ----
+def normalizar_competencia(competencia: str) -> str:
+    """
+    Aceita: '2025-12' ou '12/2025' ou '12-2025'
+    Retorna: 'YYYY-MM'
+    """
+    c = competencia.strip()
+    if "-" in c and len(c) == 7 and c[4] == "-":
+        ano = int(c[:4])
+        mes = int(c[5:7])
+        return f"{ano:04d}-{mes:02d}"
+
+    c = c.replace("-", "/")
+    partes = c.split("/")
+    if len(partes) == 2:
+        mes = int(partes[0])
+        ano = int(partes[1])
+        return f"{ano:04d}-{mes:02d}"
+
+    raise ValueError("Competência inválida. Ex.: 2025-12 ou 12/2025")
+
+
+def escolher_plano() -> str:
+    print("\nPlanos disponíveis:")
+    for nome, valor in PLANOS.items():
+        print(f"- {nome} (R$ {valor:.2f})")
+
+    plano = input("Digite o plano (BASICO/INTERMEDIARIO/COMPLETO): ").strip().upper()
+    if plano not in PLANOS:
+        raise ValueError("Plano inválido.")
+    return plano
+
+
+def buscar_aluno_por_id(alunos: List[Dict[str, str]], aluno_id: str) -> Optional[Dict[str, str]]:
+    for a in alunos:
+        if a["aluno_id"] == str(aluno_id):
+            return a
+    return None
+
+
+def listar_alunos(alunos: List[Dict[str, str]], somente_ativos: bool = True):
+    print("\n--- ALUNOS ---")
+    for a in alunos:
+        if somente_ativos and a.get("ativo", "1") != "1":
+            continue
+        print(
+            f'ID {a["aluno_id"]} | {a["nome"]} | Tel: {a["telefone"]} | '
+            f'Plano: {a["plano"]} | R$ {float(a["valor_mensal"]):.2f}'
+        )
+
+
+def cadastrar_aluno():
+    alunos = ler_csv(ARQ_ALUNOS)
+    aluno_id = proximo_id(alunos, "aluno_id")
+
+    nome = input("Nome do aluno: ").strip()
+    telefone = input("Telefone (opcional): ").strip()
+
+    if not nome:
+        print("Nome é obrigatório.")
+        return
+
+    try:
+        plano = escolher_plano()
+    except Exception as e:
+        print(str(e))
+        return
+
+    valor_mensal = PLANOS[plano]
+
+    append_csv(
+        ARQ_ALUNOS,
+        {
+            "aluno_id": str(aluno_id),
+            "nome": nome,
+            "telefone": telefone,
+            "plano": plano,
+            "valor_mensal": f"{valor_mensal:.2f}",
+            "ativo": "1",
+        },
+    )
+
+    print(f"\nAluno cadastrado com sucesso. ID = {aluno_id}")
+
+
+def ja_pago(pagamentos: List[Dict[str, str]], aluno_id: str, competencia: str) -> bool:
+    for p in pagamentos:
+        if p["aluno_id"] == str(aluno_id) and p["competencia"] == competencia:
+            return True
+    return False
+
+
+def registrar_pagamento():
+    alunos = ler_csv(ARQ_ALUNOS)
+    pagamentos = ler_csv(ARQ_PAGAMENTOS)
+
+    listar_alunos(alunos, somente_ativos=True)
+    aluno_id = input("\nDigite o ID do aluno: ").strip()
+
+    aluno = buscar_aluno_por_id(alunos, aluno_id)
+    if not aluno or aluno.get("ativo", "1") != "1":
+        print("Aluno não encontrado ou inativo.")
+        return
+
+    competencia_raw = input("Competência (ex.: 2025-12 ou 12/2025): ").strip()
+    try:
+        competencia = normalizar_competencia(competencia_raw)
+    except Exception as e:
+        print(str(e))
+        return
+
+    if ja_pago(pagamentos, aluno_id, competencia):
+        print("Atenção: já existe pagamento registrado para essa competência.")
+        resp = input("Deseja continuar mesmo assim? (s/n): ").strip().lower()
+        if resp != "s":
+            return
+
+    data_pagamento_raw = input("Data do pagamento (ENTER = hoje): ").strip()
+    if not data_pagamento_raw:
+        data_pagamento = date.today().strftime(DATE_FMT)
+    else:
+        try:
+            dt = datetime.strptime(data_pagamento_raw, DATE_FMT)
+            data_pagamento = dt.strftime(DATE_FMT)
+        except Exception:
+            print("Data inválida. Use YYYY-MM-DD (ex.: 2025-12-14).")
+            return
+
+    # valor padrão vem do cadastro (plano fixo)
+    valor_padrao = float(aluno["valor_mensal"])
+    valor_raw = input(f"Valor pago (ENTER = R$ {valor_padrao:.2f}): ").strip()
+
+    if not valor_raw:
+        valor_pago = valor_padrao
+    else:
+        try:
+            valor_pago = dinheiro_para_float(valor_raw)
+            if valor_pago <= 0:
+                raise ValueError
+        except Exception:
+            print("Valor pago inválido.")
+            return
+
+    forma = input("Forma (PIX/DINHEIRO/CARTAO/TRANSFERENCIA/OUTROS): ").strip().upper() or "PIX"
+    observacao = input("Observação (opcional): ").strip()
+
+    pagamento_id = proximo_id(pagamentos, "pagamento_id")
+
+    append_csv(
+        ARQ_PAGAMENTOS,
+        {
+            "pagamento_id": str(pagamento_id),
+            "aluno_id": str(aluno_id),
+            "competencia": competencia,
+            "data_pagamento": data_pagamento,
+            "valor_pago": f"{valor_pago:.2f}",
+            "forma": forma,
+            "observacao": observacao,
+        },
+    )
+
+    print("\nPagamento registrado com sucesso.")
+    print(gerar_recibo_texto(aluno, competencia, data_pagamento, valor_pago, forma, observacao))
+
+
+def gerar_recibo_texto(aluno: Dict[str, str], competencia: str, data_pagamento: str, valor: float, forma: str, obs: str) -> str:
+    linha_obs = f"Obs.: {obs}" if obs else ""
+    return (
+        "\n========== RECIBO ==========\n"
+        f"Aluno: {aluno['nome']} (ID {aluno['aluno_id']})\n"
+        f"Plano: {aluno['plano']}\n"
+        f"Competência: {competencia}\n"
+        f"Data do pagamento: {data_pagamento}\n"
+        f"Valor pago: R$ {valor:.2f}\n"
+        f"Forma: {forma}\n"
+        f"{linha_obs}\n"
+        "===========================\n"
+    )
+
+
+def listar_pagamentos_por_mes():
+    pagamentos = ler_csv(ARQ_PAGAMENTOS)
+    alunos = ler_csv(ARQ_ALUNOS)
+
+    competencia_raw = input("Competência para listar (ex.: 2025-12 ou 12/2025): ").strip()
+    try:
+        competencia = normalizar_competencia(competencia_raw)
+    except Exception as e:
+        print(str(e))
+        return
+
+    print(f"\n--- PAGAMENTOS DA COMPETÊNCIA {competencia} ---")
+    total = 0.0
+    count = 0
+
+    for p in pagamentos:
+        if p["competencia"] == competencia:
+            aluno = buscar_aluno_por_id(alunos, p["aluno_id"])
+            nome = aluno["nome"] if aluno else f"Aluno ID {p['aluno_id']}"
+            valor = float(p["valor_pago"])
+            total += valor
+            count += 1
+            print(f"{p['data_pagamento']} | {nome} | R$ {valor:.2f} | {p['forma']}")
+
+    print(f"\nTotal recebido: R$ {total:.2f} | Pagamentos: {count}")
+
+
+def inadimplentes_por_mes():
+    alunos = ler_csv(ARQ_ALUNOS)
+    pagamentos = ler_csv(ARQ_PAGAMENTOS)
+
+    competencia_raw = input("Competência (ex.: 2025-12 ou 12/2025): ").strip()
+    try:
+        competencia = normalizar_competencia(competencia_raw)
+    except Exception as e:
+        print(str(e))
+        return
+
+    pagos = set()
+    for p in pagamentos:
+        if p["competencia"] == competencia:
+            pagos.add(p["aluno_id"])
+
+    print(f"\n--- INADIMPLENTES {competencia} ---")
+    qtd = 0
+    for a in alunos:
+        if a.get("ativo", "1") != "1":
+            continue
+        if a["aluno_id"] not in pagos:
+            qtd += 1
+            print(
+                f'ID {a["aluno_id"]} | {a["nome"]} | Tel: {a["telefone"]} | '
+                f'Plano: {a["plano"]} | Mensal: R$ {float(a["valor_mensal"]):.2f}'
+            )
+
+    print(f"\nTotal de inadimplentes: {qtd}")
+
+
+def desativar_aluno():
+    alunos = ler_csv(ARQ_ALUNOS)
+    listar_alunos(alunos, somente_ativos=False)
+
+    aluno_id = input("\nID do aluno para desativar: ").strip()
+    alterou = False
+    for a in alunos:
+        if a["aluno_id"] == aluno_id:
+            a["ativo"] = "0"
+            alterou = True
+            break
+
+    if not alterou:
+        print("Aluno não encontrado.")
+        return
+
+    with ARQ_ALUNOS.open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=["aluno_id", "nome", "telefone", "plano", "valor_mensal", "ativo"])
+        w.writeheader()
+        for a in alunos:
+            w.writerow(a)
+
+    print("Aluno desativado com sucesso.")
+
+
+# ---- Menu ----
+def menu():
+    garantir_arquivos()
+
+    while True:
+        print(
+            "\n=====================================\n"
+            "CONTROLE DE MENSALIDADES - ACADEMIA STRIKER TOP BROTHERS\n"
+            "=====================================\n"
+            "1) Cadastrar aluno\n"
+            "2) Registrar pagamento\n"
+            "3) Listar pagamentos por competência\n"
+            "4) Listar inadimplentes por competência\n"
+            "5) Listar alunos\n"
+            "6) Desativar aluno\n"
+            "0) Sair\n"
+        )
+
+        op = input("Escolha uma opção: ").strip()
+
+        if op == "1":
+            cadastrar_aluno()
+        elif op == "2":
+            registrar_pagamento()
+        elif op == "3":
+            listar_pagamentos_por_mes()
+        elif op == "4":
+            inadimplentes_por_mes()
+        elif op == "5":
+            alunos = ler_csv(ARQ_ALUNOS)
+            listar_alunos(alunos, somente_ativos=False)
+        elif op == "6":
+            desativar_aluno()
+        elif op == "0":
+            print("Saindo...")
+            break
+        else:
+            print("Opção inválida.")
+
+
+if __name__ == "__main__":
+    menu()
