@@ -126,6 +126,74 @@
 
   
   
+  <h2><a href="/de_DE/news/buzz/2025-curtin-capstone-semester-end-blog/">2025 Curtin University Capstone Project</a></h2>
+  <p class="meta">
+    Posted by
+    
+      Curtin Capstone Team
+    
+    on 13 June 2025 
+  </p>
+  
+  <p>Over the past semester, a team of final year students from <a href="https://www.curtin.edu.au">Curtin University</a> has been collaborating with the BeeWare Project as part of a capstone project for their degrees. Here's a summary of what they've done so far this semester, and what they have planned for the rest of the year.</p>
+<h2>Curtin Capstone</h2>
+<p>Capstone is the final year project undertaken by students across all computing disciplines at Curtin University, including Computer Science, Software Engineering, Cyber Security, and Information Technology. It allows students the opportunity to work in teams on real-world projects in collaboration with industry partners, gaining practical experience and professional exposure before graduating.</p>
+<p>This year our team has had the exciting opportunity to contribute to BeeWare for our Capstone project.</p>
+<p>Meet the Team:</p>
+<ul>
+<li>Kavidu Abeykoon Mudiyanselagedara (<a href="https://github.com/kavi2du">kavi2du</a>); Information Technology</li>
+<li>Callum Horton (<a href="https://github.com/Stringer90">Stringer90</a>); Software Engineering</li>
+<li>Caydn Lee (<a href="https://github.com/caydnn">caydnn</a>); Software Engineering</li>
+<li>Jaeden Mah (<a href="https://github.com/JMah007">JMah007</a>); Computer Science</li>
+<li>Mitchell Pontague (<a href="https://github.com/mEp3ii2">mEp3ii2</a>); Software Engineering</li>
+<li>Veronica Taniputra (<a href="https://github.com/vt37">vt37</a>); Cyber Security </li>
+</ul>
+<h2>What We’ve Worked On</h2>
+<p>This year, our primary focus has been on improving Toga’s Web backend and enhancing Briefcase’s support for that backend.</p>
+<p>Throughout the first semester, our team has been focused on contributing to issues on Briefcase and Toga while working on our research to prepare for what is to come in the following semester. We’ve also worked on implementing several of the Toga Web widgets to enhance functionality on the web backend before working on the web test suite for next semester.</p>
+<p>We were first tasked with contributing to a first timer issue before moving on to other more advanced issues.</p>
+<h3>Briefcase Contributions</h3>
+<ul>
+<li>PR <a href="https://github.com/beeware/briefcase/pull/2198">#2198</a>: Add boolean question (feature)</li>
+<li>PR <a href="https://github.com/beeware/briefcase/pull/2203">#2103</a>: Add XML content escaping filter to cookiecutter.py (feature)</li>
+<li>PR <a href="https://github.com/beeware/briefcase/pull/2199">#2199</a>: Add catch exception when deleting JDK (bugfix)</li>
+<li>PR <a href="https://github.com/beeware/briefcase/pull/2229">#2229</a>: Accept other changelog name and extension (feature)</li>
+<li>PR <a href="https://github.com/beeware/briefcase/pull/2201">#2201</a>: Add <code>--app</code> option to briefcase build/package (feature)</li>
+<li>PR <a href="https://github.com/beeware/briefcase/pull/2214">#2214</a>: Add <code>--app</code> option to briefcase create/update (feature)</li>
+<li>PR <a href="https://github.com/beeware/briefcase/pull/2236">#2236</a>: Normalise contribution docs with Toga (documentation)</li>
+<li>PR <a href="https://github.com/beeware/briefcase-windows-VisualStudio-template/pull/54">#54</a>: Use XML content escaping filter to Visual Studio template. (bugfix) (work in progress)</li>
+</ul>
+<h3>Toga Contributions</h3>
+<ul>
+<li>PR <a href="https://github.com/beeware/toga/pull/3259">#3259</a>: Add web screenshots (documentation)</li>
+<li>PR <a href="https://github.com/beeware/toga/pull/3466">#3466</a>: Fix button click handling in Toga Web backend to correctly trigger event (bugfix)</li>
+<li>PR <a href="https://github.com/beeware/toga/pull/3338">#3338</a>: DateInput (web widget)</li>
+<li>PR <a href="https://github.com/beeware/toga/pull/3405">#3405</a>: TimeInput (web widget)</li>
+<li>PR <a href="https://github.com/beeware/toga/pull/3362">#3362</a>: ScrollContainer (web widget)</li>
+<li>PR <a href="https://github.com/beeware/toga/pull/3425">#3425</a>: Table (web widget) (work in progress)</li>
+<li>PR <a href="https://github.com/beeware/toga/pull/3402">#3402</a>: Selection (web widget)</li>
+<li>PR <a href="https://github.com/beeware/toga/pull/3527">#3527</a>: Slider (web widget)</li>
+</ul>
+<h2>What We're Working Towards</h2>
+<p>Now that we’re more familiar with the BeeWare ecosystem, through both our initial PRs and widget implementations, and having concluded our Semester 1 research phase, we’re shifting our focus to larger, more structural improvements for the second half of the project.</p>
+<p>Our primary goals moving forward include:</p>
+<h3>Toga Web Testing</h3>
+<p>Toga does not currently support testing for the web platform as the test suite and testbed app run multithreaded in the same process. The web platform is incompatible with this as WebAssembly does not support multithreading. To address this, we are working on developing a general approach that allows the test suite and testbed app to run in separate processes. This will include using proxy objects in place of Toga objects in the test suite that will wrap the respective object in the testbed app, forwarding commands to it in order to change its state and retrieve data.</p>
+<p>Additionally, to verify the rendered state of the testbed app, we plan to use Playwright to inspect the browser's DOM and compare it against what the test suite expects. This setup should allow the web platform to be effectively tested while still using the existing test suite.</p>
+<p>More technical details and discussion can be found in our <a href="https://github.com/beeware/toga/discussions/3440">Discussion Post</a> on Toga and the associated <a href="https://github.com/beeware/toga/issues/3545">Issue Ticket</a>.</p>
+<h3>PyScript Briefcase and Toga Dependencies</h3>
+<p>During Mitchell’s development of the DateInput Web Widget, we discovered some issues resulting from how PyScript APIs were being used. This issue was resolved separately but sparked broader discussions about the ownership of PyScript, Shoelace, and Bootstrap within the wider BeeWare architecture. Currently, the Briefcase web template includes these directly in <code>index.html</code>, but they should ideally be managed as dependencies of Toga.</p>
+<p>We’re proposing to shift ownership of these dependencies to Toga and other toolkits, enabling them to define their own configurations and inserts while keeping Briefcase focused purely on packaging. This would allow for clearer version control, better modularity, and easier maintenance across the ecosystem. This approach builds on prior work (<a href="https://github.com/beeware/briefcase/pull/1285">briefcase#1285</a>, <a href="https://github.com/beeware/toga/pull/1945">toga#1945</a> and <a href="https://github.com/beeware/briefcase-web-static-template/pull/9">briefcase-web-static-template#9</a>) and introduces a mechanism for toolkit-managed inserts and configuration. We plan on reviving parts of these to allow for Toga to specify PyScript versioning.</p>
+<p>More technical details and discussion can be found in our <a href="https://github.com/beeware/briefcase/discussions/2283">Discussion Post</a> on Briefcase and the associated <a href="https://github.com/beeware/briefcase/issues/2337">Issue Ticket</a>.</p>
+<h3>Briefcase Web Development Optimisations</h3>
+<p>While contributing to Toga's web widgets, we noticed that testing even small changes requires rebuilding all project wheels (with <code>briefcase run web -r -u</code>), which can take a significant amount of time. This makes local development slow and interrupts the feedback loop needed for efficient frontend iteration.</p>
+<p>To improve this we're going to be working on extending the <code>dev</code> command to be platform aware and make it so <code>dev web</code> utilises editbale installs to serve your project to the brower making it so with simple refresh of the browser you can quickly see your changes instead of waiting for a full wheel rebuild.</p>
+<p>More technical details and discussion can be found in our <a href="https://github.com/beeware/briefcase/discussions/2282">Discussion Post</a> on Briefcase and the associated <a href="https://github.com/beeware/briefcase/issues/2334">Issue Ticket</a>.</p>
+
+
+
+  
+  
   <h2><a href="/de_DE/news/buzz/may-2025-status-update/">May 2025 Status Update</a></h2>
   <p class="meta">
     Posted by
@@ -1109,110 +1177,6 @@ emulators</a></li>
 widget</a></li>
 <li><a href="https://github.com/beeware/toga/issues/2974">Investigate the source of a Table column resize issue on
 Windows</a></li>
-</ol>
-<p>Pick one of these tickets, drop a comment on the ticket to let others
-know you're looking at it, and try your hand at a PR! We have a <a href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html">guide
-on setting up a Briefcase development
-environment</a>;
-but if you need any additional assistance or guidance, you can ask on
-the ticket, or join us on the <a href="https://beeware.org/bee/chat/">BeeWare Discord
-server</a>.</p>
-
-
-
-  
-  
-  <h2><a href="/de_DE/news/buzz/october-2024-status-update/">October 2024 Status Update</a></h2>
-  <p class="meta">
-    Posted by
-    
-      <a href="https://cloudisland.nz/@freakboy3742">Russell Keith-Magee</a>
-    
-    on 1 November 2024 
-  </p>
-  
-  <p>In October, BeeWare saw some important releases, plus more good progress
-on binary packaging for iOS.</p>
-<h2>What we've done</h2>
-<ul>
-<li>Most importantly, we released <a href="https://pypi.org/project/briefcase/0.3.20/">Briefcase
-0.3.20</a> and <a href="https://pypi.org/project/toga/0.4.8/">Toga
-0.4.8</a>, including support for
-Python 3.13 - which includes the official support in Python for iOS
-and Android! This is a major milestone for BeeWare as a project,
-representing a significant portion of the work done over the last 12
-months.</li>
-<li>We've prepared an <a href="https://github.com/freakboy3742/cibuildwheel/tree/ios-support">initial patch to cibuildwheel that is able to build
-and test simple iOS
-wheels</a>.
-This patch isn't ready to submit upstream, but it is able to build
-simple iOS wheels.</li>
-<li>We've submitted a patch to Pillow to <a href="https://github.com/python-pillow/Pillow/pull/8497">isolate its build system from
-Homebrew when building on
-macOS</a>. This is
-essential for iOS support, as it's easy for Homebrew macOS ARM64
-binaries to leak into iOS builds; but it also has benefits for macOS
-builds.</li>
-<li>We've made <a href="https://github.com/multi-build/multibuild">a number of improvements to
-multibuild</a>, the tooling
-that Pillow uses to compile non-Python binary dependencies.</li>
-<li>We've <a href="https://github.com/python/cpython/pull/126169">modified the CPython iOS testbed
-project</a> so that it can
-be used as a testbed for <em>any</em> iOS Python project.</li>
-<li>We've <a href="https://github.com/beeware/briefcase/pull/2033">improved error reporting when Briefcase can't clone a
-template</a>.</li>
-<li>We've switched to using <code>httpx</code> instead of <code>requests</code> for <a href="https://github.com/beeware/briefcase/pull/2041">Briefcase's
-internal download
-handling</a>. This
-provides slightly better error handling, better options for improving
-HTTP/2 usage, and we're now consistently using <code>httpx</code> in Briefcase
-and in our example code.</li>
-<li>We've modified Toga to <a href="https://github.com/beeware/toga/pull/2686">lazily load
-components</a>, rather than
-importing everything into the <code>toga</code> namespace at startup. This should
-improve application startup times, especially on platforms like mobile
-and web where this startup time is noticeable.</li>
-<li>We resolved an issue causing <a href="https://github.com/beeware/toga/pull/2893">intermittent test failures when testing
-Toga on Wayland</a>.</li>
-</ul>
-<h2>What's next?</h2>
-<p>We will be continuing to work on binary packaging in November. We're
-using Pillow as a demonstrator for this work - it's a package that has a
-significant binary component, is widely used (including on mobile), but
-has a non-trivial build process (largely due to the non-Python binary
-dependencies). The hope is that by the time we're able to compile Pillow
-for iOS, we will have resolved many of the issues facing other binary
-packages. Our goal remains to have at least <em>some</em> third-party projects
-officially supporting iOS and Android by the end of the year, but this
-may be impeded by the sequence of dependencies that need to land and be
-published before upstream projects can accept iOS and Android patches.</p>
-<p>We'll also be speaking at <a href="https://2024.pycon.org.au">PyCon AU</a> at the
-end of the month, including attending both days of the sprints. If
-you're able to make it to Narrm/Melbourne, we hope we'll see you there!</p>
-<h2>Want to get involved?</h2>
-<p>Want to get involved? Here are some open issues that would be a great
-place to get started with contributing to a BeeWare project. They're all
-relatively minor changes, but would provide a big improvement to the
-lives of BeeWare users:</p>
-<ol>
-<li><a href="https://github.com/beeware/toga/issues/2251">Update the Toga testbed test suite to use Pixel 7 Pro device
-sizes</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/780">Filter out a message generated after Xcode
-updates</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/808">Add the ability to configure the ABIs built by an Android
-project</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1099">Rationalise the application of adhoc signing on
-macOS</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1270">Add support for custom PyPI
-repositories</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1393">Document how to debug an application in popular
-IDEs</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/737">Add an option to select the Android base image when creating new
-emulators</a></li>
-<li><a href="https://github.com/beeware/toga/issues/2305">Add an API to entirely replace the style of a
-widget</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1876">Correct the handling of quotation marks in Android
-apps</a></li>
 </ol>
 <p>Pick one of these tickets, drop a comment on the ticket to let others
 know you're looking at it, and try your hand at a PR! We have a <a href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html">guide
