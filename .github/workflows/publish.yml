@@ -48,8 +48,10 @@ jobs:
         cat <<EOF > ~/.weblate
         [weblate]
         url = https://hosted.weblate.org/api/
-        key = $WEBLATE_API_TOKEN
         translation = beeware/website
+
+        [keys]
+        https://hosted.weblate.org/api/ = $WEBLATE_API_TOKEN
         EOF
 
     - name: Lock Weblate and Sync
