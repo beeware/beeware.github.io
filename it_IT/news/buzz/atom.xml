@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Buzz</title><link href="http://beeware.org/zh_TW/news/buzz/" rel="alternate"/><link href="http://beeware.org/it_IT/news/buzz/atom.xml" rel="self"/><id>urn:uuid:0f18b85e-c1d4-3086-935d-f801edebea16</id><updated>2026-01-06T00:00:00Z</updated><author><name/></author><subtitle>BeeWare 官方部落格</subtitle><entry><title>December 2025 Status Update</title><link href="http://beeware.org/news/buzz/december-2025-status-update/" rel="alternate"/><updated>2026-01-06T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:1082cd58-7090-319e-ab2d-393f667fd220</id><content type="html">&lt;p&gt;Even with the impediment of end-of-year holidays restricting the availability of the core team, BeeWare has still seen some significant progress during December.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Buzz</title><link href="http://beeware.org/zh_TW/news/buzz/" rel="alternate"/><link href="http://beeware.org/it_IT/news/buzz/atom.xml" rel="self"/><id>urn:uuid:0f18b85e-c1d4-3086-935d-f801edebea16</id><updated>2026-01-16T00:00:00Z</updated><author><name/></author><subtitle>BeeWare 官方部落格</subtitle><entry><title>2026Q1 Roadmap</title><link href="http://beeware.org/news/buzz/2026q1-roadmap/" rel="alternate"/><updated>2026-01-16T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:35c05c9a-2133-364f-a3d7-3cc005c941f3</id><content type="html">&lt;p&gt;In Q4, BeeWare saw wide-ranging improvements across almost all the tools we maintain, as well as the conclusion of some long-running efforts in wheel packaging. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment to features that will be made available on a specific deadline.&lt;/p&gt;
+&lt;h2&gt;Q4 progress&lt;/h2&gt;
+&lt;p&gt;We have now concluded our work on iOS packaging. We contributed support for iOS to Maturin and PyO3, and have been able to successfully publish wheels for Cryptography to BeeWare's iOS wheel repository. We need to wait for a formal release of PyO3 and cffi before we can contribute patches to Cryptography, but we know the work that needs to be done.&lt;/p&gt;
+&lt;p&gt;We have added iOS to CPython's CI processes; however we haven't been able to add iOS to CPython's release artefacts. This is due to some ongoing discussions about the need to centralize the processes of producing binary dependencies, and providing SBOMs for that work. We hope to revisit this work before the 3.15 release. Work was also slowed by a large number of issues with GitHub's macOS runners. During Q4, we saw a disturbingly large number of regressions and performance issues caused by changes made by GitHub; responding to those issues consumed a lot of our time. These issues are not yet fully resolved; but we have workarounds in place that will work until later this year. We hope that GitHub will have resolved the underlying problems before those workarounds stop working.&lt;/p&gt;
+&lt;p&gt;Work on Android wheels has not proceeded as quickly as we had hoped due to the need to address some compatibility issues with the most recent Android SDK release; but we have made some progress. We hope to wrap up Android wheels work in this coming quarter.&lt;/p&gt;
+&lt;p&gt;Toga saw the addition of a completely new Qt backend - and a large proportion of the widgets on that backend have been implemented. We also published a new &lt;code&gt;system-pyside6&lt;/code&gt; package that allows the use of system-provided Qt bindings in an isolated Python virtual environment - this ensures that packaged Qt apps don't need to include a complete copy of Qt in order to run. We also added support for a number of GTK4 widgets, and added initial support for Adwaita (a common Gnome desktop theme) in Toga's GTK4 backend. We've also seen a large number of fixes to Toga required by the roll out of Apple's "Liquid Glass" appearance changes in macOS 26 and iOS 26. We are continuing to find and response to these edge cases as we find them.&lt;/p&gt;
+&lt;p&gt;Briefcase saw a number of signficant improvements. We were able to leverage the work done by our Curtin University capstone students to signficiantly improve the experience of development mode for Briefcase projects. We added support for customizing the install directory, and configuring uninstall options to Windows installers. We also added a framework for integrated debugging support for packaged apps, including plugins for PDB and Visual Studio Code.&lt;/p&gt;
+&lt;p&gt;Lastly, we completed our documentation switch to Markdown, launching a new documentation landing page on the BeeWare website, converting Briefcase and Rubicon's documentation to Markdown format, adding improved machine translation workflows, and rolling out a major refresh of our contribution guides.&lt;/p&gt;
+&lt;h2&gt;Q1 priorities&lt;/h2&gt;
+&lt;p&gt;In Q1, we have three main priorities.&lt;/p&gt;
+&lt;p&gt;Firstly, we hope to wrap up work on binary packaging of wheels on Android. We hope that we'll be able to wrap up work on Android wheel packaging this quarter.&lt;/p&gt;
+&lt;p&gt;Secondly, we've had some interest from the PyScript team on using Toga's Positron layer as a mechanism for deploying PyScript apps. As a result, we'll be spending some time to improve the integration of Positron with PyScript.&lt;/p&gt;
+&lt;p&gt;Our last goal is to return our focus to Toga's native GUI capabilities, especially for mobile platforms. Over the course of this quarter, we're hoping to see progress on Table and Tree widgets (which have long been gaps on iOS and Android), as well as the start of work on notifications and high-level navigation in iOS applications. These are all completely new capability additions for Toga, so the design process will likely take some time.&lt;/p&gt;
+&lt;h2&gt;Longer term goals&lt;/h2&gt;
+&lt;p&gt;We've spent the last 2 years establishing a firm technical foundation. We've formalized iOS and Android support in CPython itself, and we've ensured that Python binary packages can be fully supported on mobile platforms. We can now turn our attention to the things we want to build on this foundation.&lt;/p&gt;
+&lt;p&gt;Our focus for the rest of this year will be to improve Toga so that it can be used for "real world" applications. We're hoping to fill out the Toga API gaps that have historically existed, and have prevented people from building useful applications. This means more widgets, more mobile-specific capabilities - and more time spent documenting and promoting what can be done with Toga.&lt;/p&gt;
+&lt;p&gt;Part of the motivation for spending time on promotion is to encourage the development of a vibrant and growing community around Toga, and BeeWare as a whole. We want to spread the excitement that we feel about BeeWare to others, welcoming new people into our community, while ensuring that when they arrive, we have a buzzing hive of BeeWare contributors ready to provide support for newcomers, share expertise with those building complex projects, fix bugs, and add yet more features as time progresses. To that end, we hope to spend more time engaging with folks in the Python ecosystem to show how they can begin their BeeWare journey.&lt;/p&gt;
+</content></entry><entry><title>December 2025 Status Update</title><link href="http://beeware.org/news/buzz/december-2025-status-update/" rel="alternate"/><updated>2026-01-06T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:1082cd58-7090-319e-ab2d-393f667fd220</id><content type="html">&lt;p&gt;Even with the impediment of end-of-year holidays restricting the availability of the core team, BeeWare has still seen some significant progress during December.&lt;/p&gt;
 &lt;h2&gt;What we've done&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;We adopted an &lt;a href="https://github.com/beeware/.github/pull/254"&gt;updated Code of Conduct&lt;/a&gt;, incorporating changes from &lt;a href="https://www.contributor-covenant.org/version/3/0/code_of_conduct/"&gt;Contributor Covenant 3.0&lt;/a&gt;.&lt;/li&gt;
@@ -3880,79 +3897,4 @@ on setting up a Briefcase development
 environment&lt;/a&gt;;
 but if you need any additional assistance or guidance, you can ask on
 the ticket, or join us on the &lt;a href="/bee/chat/"&gt;BeeWare Discord server&lt;/a&gt;.&lt;/p&gt;
-</content></entry><entry><title>2023Q1 Roadmap</title><link href="http://beeware.org/news/buzz/2023q1-roadmap/" rel="alternate"/><updated>2023-01-11T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:4108ae51-a5a7-3c55-976f-b9c970b4fe79</id><content type="html">&lt;p&gt;Welcome to a new year! 2022 saw some amazing progress for BeeWare; and
-we've got some big plans for 2023. As always, this roadmap should be
-read as a guide to what we aim to focus on over the coming quarter,
-rather than a hard commitment of features that will be made available on
-a specific deadline.&lt;/p&gt;
-&lt;h2&gt;Q4 progress&lt;/h2&gt;
-&lt;p&gt;Progress in Q4 was not as significant as we originally planned. A
-combination of conference travel and holiday leave meant the quarter was
-shorter than most; but even then, our goals for the quarter were
-extremely optimistic.&lt;/p&gt;
-&lt;p&gt;We were able to hit our goal for &lt;strong&gt;Web deployment&lt;/strong&gt;. We've restored the
-Toga web backend to a working state, and we've added a Web deployment
-backend to Briefcase. There's still a lot of work required before Web
-deployment is a viable as a production solution, but the initial pieces
-are now in place.&lt;/p&gt;
-&lt;p&gt;We were also able to hit our goals on &lt;strong&gt;housekeeping&lt;/strong&gt;. We've made a lot
-of improvements to the base infrastructure of repositories, enabling
-Black, pre-commit, and towncrier in Toga, and improving coverage
-reporting (including getting to 100% branch coverage in Briefcase's test
-suite).&lt;/p&gt;
-&lt;p&gt;We've made significant progress on improving the &lt;strong&gt;testing&lt;/strong&gt; story for
-BeeWare apps. We've added the ability for Briefcase projects to run
-normal Python test suites inside a packaged app, and we've demonstrated
-that we can use this capability to run CI for iOS and Android apps (as
-well as desktop platforms). This feature will be included in the next
-Briefcase release.&lt;/p&gt;
-&lt;p&gt;Using this new testing capability, we've started building a GUI test
-suite for Toga. This is a critical part of ensuring the quality of Toga
-going forward; but getting this testing framework in place has revealed
-lots of complications and bugs. We're making progress, but there's still
-a lot of work to be done.&lt;/p&gt;
-&lt;p&gt;Our plans to release Toga v0.3 final have also been delayed. The process
-of adding SCM-based versioning to the repository (part of the
-housekeeping task) revealed a bug that prevented code running on
-Android; fixing that bug became a blocker on the release of Toga v0.3.
-We've now resolved that problem, so we should be able to release Toga
-v0.3 final as soon as the fix has been released into the BeeWare's
-Android tooling.&lt;/p&gt;
-&lt;p&gt;Unfortunately, that leaves a lot on the Q4 TODO list. We haven't made
-any changes to the example apps; Toga documentation is mostly unchanged;
-we haven't been able to do any substantial Toga planning; and we haven't
-been able to add any native cross-platform hardware support.&lt;/p&gt;
-&lt;h2&gt;Q1 priorities&lt;/h2&gt;
-&lt;p&gt;It's probably unsurprising that Q1 2023 will be picking up on items we
-didn't get around to in Q4 2022.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Testing&lt;/strong&gt; - Completing the Toga GUI testing suite will be our
-primary focus for the quarter.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Planning&lt;/strong&gt; - Once we've got the test harness in place, we'll be in a
-much better position to evaluate what work remains to get to v1.0.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Documentation&lt;/strong&gt; - The process of systematically building a test
-suite also gives us an opportunity to update the API documentation for
-each widget as we go. There's still lots of documentation required on
-top of the API guide, but complete API documentation will be a big
-start.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Cross-platform hardware&lt;/strong&gt; - Cross-platform support for device
-hardware (especially mobile) is one of the banner features that makes
-mobile device support worthwhile. Providing proof that this hardware
-support is easy to use will be a key demonstrator for BeeWare as a
-platform.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Longer term goals&lt;/h2&gt;
-&lt;p&gt;Our longer term goals are largely &lt;a href="/news/buzz/2022q4-roadmap"&gt;unchanged from Q4
-2022&lt;/a&gt;. Upstreaming, Toga 1.0, and a forge for mobile
-packages are all important goals for the BeeWare ecosystem. However, we
-don't expect to make any significant progress on these goals until we
-have solidified Toga's testing story.&lt;/p&gt;
-&lt;h2&gt;Summary&lt;/h2&gt;
-&lt;p&gt;The seeming lack of progress made in Q4 was definitely disappointing;
-but the work hasn't been wasted. Progress has been slow specifically
-because the problems we're trying to solve are hard, and reveal every
-gnarled edge case that platforms have to offer. We &lt;em&gt;are&lt;/em&gt; making
-progress, though; and once we've got the Toga testing framework
-stabilized, we'll be in a much stronger position to make predictions for
-future work on Toga.&lt;/p&gt;
 </content></entry></feed>
