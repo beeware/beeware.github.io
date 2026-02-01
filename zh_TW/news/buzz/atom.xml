@@ -1,5 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Buzz</title><link href="http://beeware.org/zh_CN/news/buzz/" rel="alternate"/><link href="http://beeware.org/zh_TW/news/buzz/atom.xml" rel="self"/><id>urn:uuid:0f18b85e-c1d4-3086-935d-f801edebea16</id><updated>2026-01-16T00:00:00Z</updated><author><name/></author><subtitle>BeeWare 官方博客</subtitle><entry><title>2026Q1 Roadmap</title><link href="http://beeware.org/zh_TW/news/buzz/2026q1-roadmap/" rel="alternate"/><updated>2026-01-16T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:35c05c9a-2133-364f-a3d7-3cc005c941f3</id><content type="html">&lt;p&gt;In Q4, BeeWare saw wide-ranging improvements across almost all the tools we maintain, as well as the conclusion of some long-running efforts in wheel packaging. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment to features that will be made available on a specific deadline.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Buzz</title><link href="http://beeware.org/zh_CN/news/buzz/" rel="alternate"/><link href="http://beeware.org/zh_TW/news/buzz/atom.xml" rel="self"/><id>urn:uuid:0f18b85e-c1d4-3086-935d-f801edebea16</id><updated>2026-02-02T00:00:00Z</updated><author><name/></author><subtitle>BeeWare 官方博客</subtitle><entry><title>January 2026 Status Update</title><link href="http://beeware.org/zh_TW/news/buzz/january-2026-status-update/" rel="alternate"/><updated>2026-02-02T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:00b6b3b9-fa96-3cb1-a0b5-99b7f4b00373</id><content type="html">&lt;p&gt;We've started 2026 with a buzz --- a flurry of BeeWare activity on Toga's Canvas and Table widgets, Qt backend, as well as making some major progress on Android binary packaging.&lt;/p&gt;
+&lt;h2&gt;What we've done&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;We have almost completed all the widgets in Toga's Qt backend, adding &lt;a href="https://github.com/beeware/toga/pull/3970"&gt;&lt;code&gt;OptionContainer&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://github.com/beeware/toga/pull/3971"&gt;&lt;code&gt;ScrollContainer&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://github.com/beeware/toga/pull/4021"&gt;&lt;code&gt;DetailedList&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://github.com/beeware/toga/pull/4080"&gt;&lt;code&gt;Selection&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://github.com/beeware/toga/pull/4081"&gt;&lt;code&gt;Table&lt;/code&gt;&lt;/a&gt;, &lt;a href="https://github.com/beeware/toga/pull/4134"&gt;&lt;code&gt;SplitContainer&lt;/code&gt;&lt;/a&gt; and &lt;a href="https://github.com/beeware/toga/pull/4137"&gt;&lt;code&gt;MapView&lt;/code&gt;&lt;/a&gt; widgets, as well as support for &lt;a href="https://github.com/beeware/toga/pull/4076"&gt;all dialog types&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We made some API changes and corrected some bugs to &lt;a href="https://github.com/beeware/toga/pull/4057"&gt;make the &lt;code&gt;Canvas&lt;/code&gt; API more closely aligned with the HTML5 Canvas specification&lt;/a&gt;. This is part of a larger set of changes cleaning up the implementation of &lt;code&gt;Canvas&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;We added the ability to &lt;a href="https://github.com/beeware/toga/pull/4047"&gt;add a bitmap image on a &lt;code&gt;Canvas&lt;/code&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We made a &lt;a href="https://github.com/beeware/toga/pull/4042"&gt;large internal refactor of the &lt;code&gt;Table&lt;/code&gt; and &lt;code&gt;Tree&lt;/code&gt; widgets&lt;/a&gt;. This is the first step in improving the API for defining &lt;code&gt;Table&lt;/code&gt; and &lt;code&gt;Tree&lt;/code&gt; widgets to exposed some long-needed capabilities like sorting and specifying column widths.&lt;/li&gt;
+&lt;li&gt;We &lt;a href="https://github.com/beeware/toga/pull/4138"&gt;hardened the definition for providing icons in &lt;code&gt;Table&lt;/code&gt; and &lt;code&gt;Tree&lt;/code&gt; column data&lt;/a&gt;. The documented API has been specific for some time, but hasn't been implemented consistently on all platforms.&lt;/li&gt;
+&lt;li&gt;We modified the way Source objects are used to &lt;a href="https://github.com/beeware/toga/pull/4032"&gt;ensure that widgets no longer listen to stale sources when data changes&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We &lt;a href="https://github.com/beeware/toga/pull/4063"&gt;formalized the protocol definitions for data source listeners&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;We corrected some issues with the &lt;a href="https://github.com/beeware/toga/pull/4010"&gt;display of &lt;code&gt;OptionContainer&lt;/code&gt;s on Cocoa and GTK when content is changed on a non-visible tab&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We corrected a number of &lt;a href="https://github.com/beeware/toga/pull/4043"&gt;layout issues on iOS and iPad apps&lt;/a&gt;, including introducing the ability for iPad apps to operate in non-full screen mode.&lt;/li&gt;
+&lt;li&gt;We corrected some issues with &lt;a href="https://github.com/beeware/toga/pull/4034"&gt;scroll handling in &lt;code&gt;ScrollContainer&lt;/code&gt; on macOS&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We corrected some issues with &lt;a href="https://github.com/beeware/toga/pull/4099"&gt;widget colors in dark mode on macOS&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We corrected some &lt;a href="https://github.com/beeware/toga/pull/4016"&gt;memory leak issues with Android widgets&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We added the ability to &lt;a href="https://github.com/beeware/toga/pull/4026"&gt;use the Python standard library &lt;code&gt;webbrowser&lt;/code&gt; module in Toga Android apps&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We corrected the use of &lt;a href="https://github.com/beeware/toga/pull/3751"&gt;theme colors in &lt;code&gt;DetailedList&lt;/code&gt; on Android&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We added the ability to be &lt;a href="https://github.com/beeware/toga/pull/4036"&gt;notified when a website completes loading on Android&lt;/a&gt;. This API feature was previously possible on every platform &lt;em&gt;except&lt;/em&gt; Android.&lt;/li&gt;
+&lt;li&gt;We corrected the handling of &lt;a href="https://github.com/beeware/toga/pull/4051"&gt;icon sizes on buttons on Windows&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;We simplified the &lt;a href="https://github.com/beeware/toga/pull/4022"&gt;categories used in Toga's API reference docs&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We clarified the documentation around &lt;a href="https://github.com/beeware/toga/pull/4065"&gt;using Toga with a Python version other than the system default&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We added documentation of Toga's &lt;a href="https://github.com/beeware/toga/pull/4079"&gt;platform and backend selection APIs&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We ensured that content added to an &lt;code&gt;OptionContainer&lt;/code&gt; or &lt;code&gt;SplitContainer&lt;/code&gt; can &lt;a href="https://github.com/beeware/toga/pull/4113"&gt;accurately track the Window and App they are associated with&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We completed work on patches to NumPy, Pandas, SciPy, scikit-learn and xgboost allowing these projects to be built for Android. This also involved updates to tools including cibuildwheel, auditwheel, Meson, and Python's own Android testbed. We hope to upstream these patches to the corresponding projects in the near future.&lt;/li&gt;
+&lt;li&gt;We resolved an issue with &lt;a href="https://github.com/python/cpython/pull/144315"&gt;Android buildbot testing in CPython&lt;/a&gt;. Both Android Buildbots stopped working in mid December for two different reasons; the cause of the problems is not entirely understood, but we were able to find workarounds and restore Buildbot testing.&lt;/li&gt;
+&lt;li&gt;We are nearing completion on a &lt;a href="https://github.com/beeware/website/issues/4"&gt;replacement for BeeWare's website&lt;/a&gt;. The new website will use the same MkDocs infrastructure that is used for our tutorial and project documentation. This will add dark mode, search capabilities, improved event and resources pages, and some other content simplifications to our website. It will also make our job easier as maintainers, as website builds are much faster, and adding new content to the site is easier.&lt;/li&gt;
+&lt;li&gt;We released &lt;a href="https://github.com/beeware/Python-Apple-support/releases"&gt;updated Apple support packages&lt;/a&gt; for all supported Python versions. These updated versions are the first to adopt the XCframework layout that has been accepted upstream by CPython, including scripts for managing the process of processing binary libraries on iOS.&lt;/li&gt;
+&lt;li&gt;We added the ability to &lt;a href="https://github.com/beeware/briefcase/pull/2639"&gt;reset all runtime permissions when running an app on Android&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We added &lt;a href="https://github.com/beeware/briefcase/pull/2636"&gt;the ability to merge folders named in &lt;code&gt;sources&lt;/code&gt; and &lt;code&gt;test_sources&lt;/code&gt; in a Briefcase configuration&lt;/a&gt;. This allows projects to overlay platform-specific content over a base project layout.&lt;/li&gt;
+&lt;li&gt;We added the ability for Windows MSI installers to &lt;a href="https://github.com/beeware/briefcase/pull/2638"&gt;reference the location of the original MSI in post-install scripts&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We &lt;a href="https://github.com/beeware/briefcase/pull/2627"&gt;improved our documentation of the use of signing identities&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We added the ability to &lt;a href="https://github.com/beeware/briefcase/pull/2651"&gt;open a single Briefcase app in a project that contains multiple app definitions&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We modified our System PySide library to &lt;a href="https://github.com/beeware/system-pyside6/pull/12"&gt;support some common KDE extensions&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We corrected an issue with Toga Chart that &lt;a href="https://github.com/beeware/toga-chart/pull/310"&gt;prevented the example app from running on Android&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We corrected an issue with the &lt;a href="https://github.com/dmgbuild/dmgbuild/pull/275"&gt;handling of background images in DMGs on macOS Tahoe&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;We corrected some issues with parsing the &lt;a href="https://github.com/dmgbuild/dmgbuild/pull/279"&gt;&lt;code&gt;size&lt;/code&gt;&lt;/a&gt; and &lt;a href="https://github.com/dmgbuild/dmgbuild/pull/276"&gt;&lt;code&gt;text-size&lt;/code&gt; properties&lt;/a&gt; and &lt;a href="https://github.com/dmgbuild/dmgbuild/pull/277"&gt;color hex regexes&lt;/a&gt; when creating DMGs.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Much of this work is due to the contributions of members of the BeeWare community. Thanks to Alec Delaney (&lt;a href="https://github.com/tekktrik"&gt;@tekktrik&lt;/a&gt;), Barak (&lt;a href="https://github.com/BarakXYZ"&gt;@BarakXYZ&lt;/a&gt;), Corran Webster (&lt;a href="https://github.com/corranwebster"&gt;@corranwebster&lt;/a&gt;), Harsh Kumar (&lt;a href="https://github.com/thisisharsh7"&gt;@thisisharsh7&lt;/a&gt;), John (&lt;a href="https://github.com/johnzhou721"&gt;@johnzhou721&lt;/a&gt;), &lt;a href="https://github.com/kshivani06"&gt;@kshivani06&lt;/a&gt;, Mike Maietta (&lt;a href="https://github.com/mmaietta"&gt;@mmaietta&lt;/a&gt;), &lt;a href="https://github.com/MTwem"&gt;@MTwem&lt;/a&gt;, &lt;a href="https://github.com/Nabhye"&gt;@Nabhye&lt;/a&gt;, &lt;a href="https://github.com/rasmusJenle"&gt;@rasmusJenle&lt;/a&gt;, &lt;a href="https://github.com/timrid"&gt;@timrid&lt;/a&gt;, Tom Arn (&lt;a href="https://github.com/t-arn"&gt;@t-arn&lt;/a&gt;), and &lt;a href="https://github.com/YapWC"&gt;@YapWC&lt;/a&gt; for their code and documentation contributions this month.&lt;/p&gt;
+&lt;h2&gt;What's next?&lt;/h2&gt;
+&lt;p&gt;In the coming month, we're going to start work on improving Positron to better support PyScript apps. We're also going to perform some API design work around capabilities that are currently missing from Toga. This will include a design for Table and Tree widgets for mobile platforms, as well as tackling some high-level app navigation issues. Some of these discussions have already started this month; they will continue until we have finalized designs that can be implemented.&lt;/p&gt;
+&lt;h2&gt;Want to get involved?&lt;/h2&gt;
+&lt;p&gt;Want to get involved? We curate issues that should be approachable for first-time contributors to BeeWare. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;If you're interested in the tooling for deploying applications to various platforms, take a look at &lt;a href="https://github.com/beeware/briefcase/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22"&gt;Briefcase&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Or, if you're interested in GUI widgets, take a look at &lt;a href="https://github.com/beeware/toga/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22"&gt;Toga&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These lists can also be filtered by platform - so you can find issues that are specific to your preferred operating system. Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a &lt;a href="https://briefcase.beeware.org/en/latest/how-to/contribute/how/dev-environment/"&gt;guide on setting up a Briefcase development environment&lt;/a&gt;; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the &lt;a href="https://beeware.org/bee/chat/"&gt;BeeWare Discord server&lt;/a&gt;.&lt;/p&gt;
+</content></entry><entry><title>2026Q1 Roadmap</title><link href="http://beeware.org/zh_TW/news/buzz/2026q1-roadmap/" rel="alternate"/><updated>2026-01-16T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:35c05c9a-2133-364f-a3d7-3cc005c941f3</id><content type="html">&lt;p&gt;In Q4, BeeWare saw wide-ranging improvements across almost all the tools we maintain, as well as the conclusion of some long-running efforts in wheel packaging. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment to features that will be made available on a specific deadline.&lt;/p&gt;
 &lt;h2&gt;Q4 progress&lt;/h2&gt;
 &lt;p&gt;We have now concluded our work on iOS packaging. We contributed support for iOS to Maturin and PyO3, and have been able to successfully publish wheels for Cryptography to BeeWare's iOS wheel repository. We need to wait for a formal release of PyO3 and cffi before we can contribute patches to Cryptography, but we know the work that needs to be done.&lt;/p&gt;
 &lt;p&gt;We have added iOS to CPython's CI processes; however we haven't been able to add iOS to CPython's release artefacts. This is due to some ongoing discussions about the need to centralize the processes of producing binary dependencies, and providing SBOMs for that work. We hope to revisit this work before the 3.15 release. Work was also slowed by a large number of issues with GitHub's macOS runners. During Q4, we saw a disturbingly large number of regressions and performance issues caused by changes made by GitHub; responding to those issues consumed a lot of our time. These issues are not yet fully resolved; but we have workarounds in place that will work until later this year. We hope that GitHub will have resolved the underlying problems before those workarounds stop working.&lt;/p&gt;
@@ -3790,106 +3837,6 @@ wizard&lt;/a&gt;&lt;/li&gt;
 macOS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/1090"&gt;Correct the capture of log messages on the web
 backend&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Pick one of these tickets, drop a comment on the ticket to let others
-know you're looking at it, and try your hand at a PR! We have a &lt;a href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html"&gt;guide
-on setting up a Briefcase development
-environment&lt;/a&gt;;
-but if you need any additional assistance or guidance, you can ask on
-the ticket, or join us on the &lt;a href="/bee/chat/"&gt;BeeWare Discord server&lt;/a&gt;.&lt;/p&gt;
-</content></entry><entry><title>January 2023 Status Update</title><link href="http://beeware.org/zh_TW/news/buzz/january-2023-status-update/" rel="alternate"/><updated>2023-02-01T00:00:00Z</updated><author><name>Russell Keith-Magee</name></author><id>urn:uuid:ecabb394-0c83-37d0-bf60-d898e05e12b1</id><content type="html">&lt;p&gt;BeeWare has had an exciting start to the new year, with a couple of
-significant releases&lt;/p&gt;
-&lt;h2&gt;What we've done&lt;/h2&gt;
-&lt;p&gt;We had two big releases in January.&lt;/p&gt;
-&lt;p&gt;Firstly, we released Briefcase 0.3.12. This is the first Briefcase
-release in 3 months, so it includes a lot of improvements, but the most
-notable improvements are the new "Testing mode", a major improvement to
-the Android build process, and a huge number of bug fixes and
-improvements - especially on Windows.&lt;/p&gt;
-&lt;p&gt;Secondly - and more importantly - we released Toga 0.3.0! No more dev
-releases or &lt;code&gt;--pre&lt;/code&gt; flags for &lt;code&gt;pip&lt;/code&gt; - the stable release of Toga on PyPI
-is now closely tracking actual development. It's been over 5 years since
-we last released an official stable Toga version, even though we've been
-recommending the dev releases for most of that time. However, as a
-result of a number of changes that landed this month, we're finally
-committing to the 0.3.0 branch properly.&lt;/p&gt;
-&lt;p&gt;These releases incorporate changes going back months (and years); but we
-made some very specific progress during January:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Chaquopy &lt;a href="https://chaquo.com/chaquopy/chaquopy-version-14-0-2/"&gt;had a new
-release.&lt;/a&gt;,
-significantly improving build times on Android, improving the
-rendering of &lt;code&gt;stdout&lt;/code&gt; content in the Android logs, adding some
-features that make it easier to expose the original project source
-code in the running app bundle, and enabling PEP517 builds of project
-dependencies.&lt;/li&gt;
-&lt;li&gt;Briefcase is now able to &lt;a href="https://github.com/beeware/briefcase/pull/1058"&gt;reference local source packages when
-building Linux AppImage
-binaries&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Some errors caused by the way the Windows Store version of Python
-handles local application data &lt;a href="https://github.com/beeware/briefcase/pull/1054"&gt;have been
-corrected&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Briefcase's help text now &lt;a href="https://github.com/beeware/briefcase/pull/1005"&gt;shows the list of platforms and output
-formats&lt;/a&gt;, rather than
-requiring an additional help call to retrieve that information.&lt;/li&gt;
-&lt;li&gt;Some issues with thread and asyncio safety in Rubicon ObjC were
-&lt;a href="https://github.com/beeware/rubicon-objc/pull/246"&gt;identified and
-resolved&lt;/a&gt;, along
-with an issue associated with the way some Objective C classes (such
-as NSWindow) are &lt;a href="https://github.com/beeware/rubicon-objc/pull/258"&gt;renamed at
-runtime&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Initial GUI testing backends for
-&lt;a href="https://github.com/beeware/toga/pull/1707"&gt;macOS&lt;/a&gt;,
-&lt;a href="https://github.com/beeware/toga/pull/1749"&gt;iOS&lt;/a&gt; and
-&lt;a href="https://github.com/beeware/toga/pull/1755"&gt;GTK&lt;/a&gt; were added.&lt;/li&gt;
-&lt;li&gt;A long standing issue with the &lt;a href="https://github.com/beeware/toga/issues/1439"&gt;replacement of root window
-content&lt;/a&gt; on GTK and iOS
-has been resolved.&lt;/li&gt;
-&lt;li&gt;Coverage testing was &lt;a href="https://github.com/beeware/toga/pull/1747"&gt;added to the Toga Android GUI test
-backend&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;An API was added to &lt;a href="https://github.com/beeware/toga/pull/1728"&gt;allow scrolling MultilineTextInput
-widgets&lt;/a&gt; to the top and
-bottom of the widget content.&lt;/li&gt;
-&lt;li&gt;The work &lt;a href="https://github.com/beeware/toga/pull/1675"&gt;moving Toga to use
-Setuptools-SCM&lt;/a&gt; was
-completed. Development versions of Toga will now report a specific
-version control commit; release versions have their version determined
-by the git tag used to produce the release.&lt;/li&gt;
-&lt;li&gt;We completed a major review of the way we're using GitHub issue
-labels, and modified those labels to be consistent across all
-repositories.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;What's next?&lt;/h2&gt;
-&lt;p&gt;Much of the last 3 months have been spent getting a GUI testing
-framework in place for Toga. That work is now in place, so now we'll be
-working full time on writing GUI tests for Toga, with the aim of getting
-Toga to 100% coverage. Along the way, we'll discover all the edge cases,
-bugs, and partially missing implementations that are lurking in the
-individual Toga widgets.&lt;/p&gt;
-&lt;h2&gt;Want to get involved?&lt;/h2&gt;
-&lt;p&gt;Want to get involved? Here are some open issues that would be a great
-place to get started with contributing to a BeeWare project. They're all
-relatively minor changes, but would provide a big improvement to the
-lives of BeeWare users:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/865"&gt;Modify the handling of app signing
-options&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/780"&gt;Filter out a message generated after Xcode
-updates&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/856"&gt;Add the ability to refresh the support package in a
-project&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/853"&gt;Provide protection against creating projects with "semi-reserved"
-names&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/808"&gt;Add the ability to configure the ABIs built by an Android
-project&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/463"&gt;Add support for the ANDROID_HOME environment
-variable&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/986"&gt;Purge cache folders when installing app code in
-Briefcase&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/1053"&gt;Add a template branch option when creating a new
-project&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://github.com/beeware/briefcase/issues/1011"&gt;Improve validation of project names in the Briefcase
-wizard&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Pick one of these tickets, drop a comment on the ticket to let others
 know you're looking at it, and try your hand at a PR! We have a &lt;a href="https://briefcase.readthedocs.io/en/latest/how-to/contribute-code.html"&gt;guide
