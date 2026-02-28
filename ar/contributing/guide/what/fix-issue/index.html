@@ -1,0 +1,6748 @@
+<!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+<!doctype html>
+<html lang="ar" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://beeware.org/contributing/guide/what/fix-issue/">
+      
+      
+        <link rel="prev" href="../../">
+      
+      
+        <link rel="next" href="../implement-feature/">
+      
+      
+        
+          <link rel="alternate" href="/en/" hreflang="en">
+        
+          <link rel="alternate" href="/ar/" hreflang="ar">
+        
+          <link rel="alternate" href="/cs/" hreflang="cs">
+        
+          <link rel="alternate" href="/da/" hreflang="da">
+        
+          <link rel="alternate" href="/de/" hreflang="de">
+        
+          <link rel="alternate" href="/es/" hreflang="es">
+        
+          <link rel="alternate" href="/fa/" hreflang="fa">
+        
+          <link rel="alternate" href="/fr/" hreflang="fr">
+        
+          <link rel="alternate" href="/it/" hreflang="it">
+        
+          <link rel="alternate" href="/ko/" hreflang="ko">
+        
+          <link rel="alternate" href="/pl/" hreflang="pl">
+        
+          <link rel="alternate" href="/pt/" hreflang="pt">
+        
+          <link rel="alternate" href="/tr/" hreflang="tr">
+        
+          <link rel="alternate" href="/zh_CN/" hreflang="zh-Hant">
+        
+          <link rel="alternate" href="/zh_TW/" hreflang="zh-TW">
+        
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="ملقم بالخلاصات" href="../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="ملقم بالخلاصات المحدثة" href="../../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../../assets/images/brutus-256.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>إصلاح مشكلة - BeeWare</title>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../assets/stylesheets/beeware_theme.css">
+
+    
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    <script src="https://kit.fontawesome.com/9a40a729b9.js" crossorigin="anonymous"></script>
+
+    
+      <link rel="stylesheet" href="../../../../stylesheets/beeware.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="rtl" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          انتقل إلى المحتوى
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine classes -->
+
+
+  
+
+
+<!-- Header -->
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav
+class="md-header__inner md-grid"
+aria-label="عنوان العارضة"
+>
+
+    <!-- Link to home -->
+    <a
+      href="../../../.."
+      title="BeeWare"
+      class="md-header__button md-logo"
+      aria-label="BeeWare"
+      data-md-component="logo"
+    >
+      <!-- include "partials/logo.html" Modified content is included here. -->
+          <img src="../../../../assets/images/brutus-256.png" alt="Logo" />
+
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+      <a href="../../../.."
+         title="BeeWare">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BeeWare
+          </span>
+        </div>
+        </a>
+      </div>
+    </div>
+
+    <nav
+      class="md-tabs"
+      aria-label="نوافذ"
+      data-md-component="tabs"
+    >
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+    
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../about/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  حول
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../docs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  التوثيق
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../community/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  المجتمع
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  المساهمة
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../news/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  أخبار
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../membership/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  الراعي
+
+        </a>
+      </li>
+    
+  
+
+      
+    
+    </ul>
+  </div>
+</nav>
+    </ul>
+  </div>
+</nav>
+
+    <!-- Color palette toggle -->
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+
+    <!-- User preference: color palette -->
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+
+    <!-- Site language selector -->
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="إختر اللغة">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../../../contributing/guide/what/fix-issue/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ar/contributing/guide/what/fix-issue/" hreflang="ar" class="md-select__link">
+              العَرَبِيَّة
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../cs/contributing/guide/what/fix-issue/" hreflang="cs" class="md-select__link">
+              Čeština
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../da/contributing/guide/what/fix-issue/" hreflang="da" class="md-select__link">
+              Dansk
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../de/contributing/guide/what/fix-issue/" hreflang="de" class="md-select__link">
+              Deutsch
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../es/contributing/guide/what/fix-issue/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../fa/contributing/guide/what/fix-issue/" hreflang="fa" class="md-select__link">
+              فارسی
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../fr/contributing/guide/what/fix-issue/" hreflang="fr" class="md-select__link">
+              Français
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../it/contributing/guide/what/fix-issue/" hreflang="it" class="md-select__link">
+              Italiano
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ko/contributing/guide/what/fix-issue/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../pl/contributing/guide/what/fix-issue/" hreflang="pl" class="md-select__link">
+              Polski
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../pt/contributing/guide/what/fix-issue/" hreflang="pt" class="md-select__link">
+              Português
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../tr/contributing/guide/what/fix-issue/" hreflang="tr" class="md-select__link">
+              Türkçe
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../zh_CN/contributing/guide/what/fix-issue/" hreflang="zh-Hant" class="md-select__link">
+              中文(简体)
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../zh_TW/contributing/guide/what/fix-issue/" hreflang="zh-TW" class="md-select__link">
+              中文(繁體)
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+
+    <!-- Button to open search modal -->
+    
+      
+
+      <!-- Check if search is actually enabled - see https://t.ly/DT_0V -->
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+
+        <!-- Search interface -->
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="بحث" placeholder="بحث" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="إبحث">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="شارك" aria-label="شارك" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="مسح كلي" aria-label="مسح كلي" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            بدء البحث
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Determine classes -->
+
+
+<!-- Navigation -->
+<nav
+  class="md-nav md-nav--primary"
+  aria-label="تصفح"
+  data-md-level="0"
+>
+
+  <!-- Site title -->
+  <label class="md-nav__title small" for="__drawer">
+    <a
+    href="../../../.."
+    title="BeeWare"
+    class="md-nav__button md-logo"
+    aria-label="BeeWare"
+    data-md-component="logo"
+    >
+        <div class="sidebar-title-block">
+            <div class="sidebar-logo">
+            
+  <img src="../../../../assets/images/brutus-256.png" alt="logo">
+
+            </div>
+            <div class="sidebar-title-block-name">
+                <div class="site-name">
+                  BeeWare
+                </div>
+                
+            </div>
+        </div>
+    </a>
+      
+  </label>
+
+  <!-- Repository information -->
+  
+
+  <!-- Navigation list -->
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_1"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../../about/"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    حول
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+              
+              <label
+                class="md-nav__link "
+                for="__nav_1"
+                id="__nav_1_label"
+                tabindex=""
+              >
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_1_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    حول
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/overview/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    ما هو BeeWare؟
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/team/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    فريق النحل
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/history/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    التاريخ والفلسفة
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/contact/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    اتصل بنا
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/branding/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    إرشادات العلامة التجارية
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_2"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../../docs/"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    التوثيق
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_2_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    التوثيق
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_3"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../../community/"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    المجتمع
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+              
+              <label
+                class="md-nav__link "
+                for="__nav_3"
+                id="__nav_3_label"
+                tabindex=""
+              >
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_3_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    المجتمع
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../community/code-of-conduct/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    مدونة قواعد السلوك لمجتمع BeeWare
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../community/governance/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    الحوكمة
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+    
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle "
+          type="checkbox"
+          id="__nav_4"
+          checked
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    المساهمة
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+              
+              <label
+                class="md-nav__link "
+                for="__nav_4"
+                id="__nav_4_label"
+                tabindex=""
+              >
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_4_label"
+          aria-expanded="true"
+        >
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    المساهمة
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../first-time-contributors/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    المساهمون لأول مرة
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+    
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle "
+          type="checkbox"
+          id="__nav_4_3"
+          checked
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    دليل المساهمة
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+              
+              <label
+                class="md-nav__link "
+                for="__nav_4_3"
+                id="__nav_4_3_label"
+                tabindex=""
+              >
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="2"
+          aria-labelledby="__nav_4_3_label"
+          aria-expanded="true"
+        >
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    دليل المساهمة
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+    
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+
+      <!-- State toggle -->
+      <input
+        class="md-nav__toggle md-toggle"
+        type="checkbox"
+        id="__toc"
+      />
+
+      <!-- Hack: see partials/toc.html for more information -->
+      
+      
+        
+      
+
+      <!-- Navigation link to table of contents -->
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    إصلاح مشكلة
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a
+        href="./"
+        class="md-nav__link md-nav__link--active"
+      >
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    إصلاح مشكلة
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+
+      <!-- Table of contents -->
+      
+        <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine title -->
+
+
+  
+
+
+<!-- Table of contents -->
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+
+  <!--
+    Check whether the content starts with a level 1 headline. If it does, the
+    top-level anchor must be skipped, since it would be redundant to the link
+    to the current page that is located just above the anchor. Therefore we
+    directly continue with the children of the anchor.
+  -->
+  
+  
+    
+  
+
+  <!-- Table of contents title and list -->
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        المساهمة في إصلاح مشكلة
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="المساهمة في إصلاح مشكلة">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dev-environment-prereqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        المتطلبات الأساسية
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dev-environment-set-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        قم بإعداد بيئة التطوير الخاصة بك
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="قم بإعداد بيئة التطوير الخاصة بك">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beeware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نسخ مستودع BeeWare
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        إنشاء بيئة افتراضية
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beeware_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تثبيت BeeWare
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمكين الالتزام المسبق
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        أخطاء في الكود
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        أخطاء في الوثائق
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تحديث المشكلة
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-driven-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test-driven development
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-your-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run your code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-test-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running tests and coverage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-test-variations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running test variations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running test variations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-tests-for-multiple-versions-of-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run tests for multiple versions of Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-only-the-test-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run only the test suite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-subset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run a subset of tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-py-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run the test suite for a specific Python version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-test-suite-without-coverage-fast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run the test suite without coverage (fast)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code coverage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code coverage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-coverage-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding coverage results
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coverage-report-for-host-platform-and-python-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coverage report for host platform and Python version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coverage-report-for-host-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coverage report for host platform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coverage-reporting-in-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coverage reporting in HTML
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#its-not-just-about-writing-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        It's not just about writing tests!
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        بناء محلي
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="بناء محلي">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        إنشاء بنية محلية
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        إنشاء نسخة مترجمة محلية
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        توثيق linting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تحديث الوثائق الموجودة
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        إضافة وثائق جديدة
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        كتابة الوثائق الخاصة بك
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        العمل مع pre-commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        انقل التغييرات إلى GitHub وأنشئ طلب السحب الخاص بك
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        سحب محتوى الطلب
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+<div id="ethical-ad-placement"></div>
+</nav>
+      
+    </li>
+
+  <!-- Navigation item -->
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../implement-feature/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    تنفيذ ميزة جديدة
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../write-docs/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    كتابة الوثائق
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../triage/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    فرز المشكلة
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../review-pr/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    مراجعة طلب سحب
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../propose-feature/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    اقترح ميزة جديدة
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../translate/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    ترجمة المحتوى
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../use-tools/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    استخدم الأدوات
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/dev-environment/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    إعداد بيئة التطوير
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/reproduce-issue/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    إعادة إنتاج مشكلة
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/branches/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    العمل من فرع
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/scope-creep/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    تجنب توسع نطاق العمل
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/write-code/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    كتابة الكود وتشغيله واختباره
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/build-docs/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    وثائق البناء
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/write-docs/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    كتابة الوثائق
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/change-note/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    إضافة ملاحظة تغيير
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/submit-pr/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    تقديم طلب سحب
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/review-pr/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    تقديم مراجعة
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/new-issue/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    إرسال مشكلة جديدة
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/propose-feature/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    اقتراح ميزة جديدة
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/translate/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    ترجمة المحتوى
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../next/pr-review/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    عملية مراجعة طلب السحب
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../next/release/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    عملية الإفراج
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../style/code-style-guide/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    دليل أسلوب الكود
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../style/docs-style-guide/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    دليل أسلوب التوثيق
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../sprint-guide/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    دليل السباق
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../challenge-coins/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    عملات التحدي
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_5"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../../news/"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    أخبار
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+              
+              <label
+                class="md-nav__link "
+                for="__nav_5"
+                id="__nav_5_label"
+                tabindex=""
+              >
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_5_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    أخبار
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_5_2"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <label
+            class="md-nav__link"
+            for="__nav_5_2"
+            id="__nav_5_2_label"
+            tabindex="0"
+          >
+            
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    أرشيف
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+
+        <!-- Toggle to expand nested items with link to index page -->
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="2"
+          aria-labelledby="__nav_5_2_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    أرشيف
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2026/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2026
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2025/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2025
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2024/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2024
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2023/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2023
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2022/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2022
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2021/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2021
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2020/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2020
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2019/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2019
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2018/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2018
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2017/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2017
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2016/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2016
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2015/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2015
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2014/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2014
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2013/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2013
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_5_3"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <label
+            class="md-nav__link"
+            for="__nav_5_3"
+            id="__nav_5_3_label"
+            tabindex="0"
+          >
+            
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    فئات
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+
+        <!-- Toggle to expand nested items with link to index page -->
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="2"
+          aria-labelledby="__nav_5_3_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    فئات
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/buzz/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Buzz
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/events/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Events
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/resources/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Resources
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_6"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../../membership/"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    الراعي
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_6_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    الراعي
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine title -->
+
+
+  
+
+
+<!-- Table of contents -->
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+
+  <!--
+    Check whether the content starts with a level 1 headline. If it does, the
+    top-level anchor must be skipped, since it would be redundant to the link
+    to the current page that is located just above the anchor. Therefore we
+    directly continue with the children of the anchor.
+  -->
+  
+  
+    
+  
+
+  <!-- Table of contents title and list -->
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        المساهمة في إصلاح مشكلة
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="المساهمة في إصلاح مشكلة">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dev-environment-prereqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        المتطلبات الأساسية
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dev-environment-set-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        قم بإعداد بيئة التطوير الخاصة بك
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="قم بإعداد بيئة التطوير الخاصة بك">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beeware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        نسخ مستودع BeeWare
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        إنشاء بيئة افتراضية
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beeware_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تثبيت BeeWare
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تمكين الالتزام المسبق
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        أخطاء في الكود
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        أخطاء في الوثائق
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تحديث المشكلة
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-driven-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test-driven development
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-your-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run your code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-test-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running tests and coverage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-test-variations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running test variations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running test variations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-tests-for-multiple-versions-of-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run tests for multiple versions of Python
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-only-the-test-suite" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run only the test suite
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-subset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run a subset of tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-py-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run the test suite for a specific Python version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-test-suite-without-coverage-fast" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run the test suite without coverage (fast)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-coverage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code coverage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code coverage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-coverage-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding coverage results
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coverage-report-for-host-platform-and-python-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coverage report for host platform and Python version
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coverage-report-for-host-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coverage report for host platform
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#coverage-reporting-in-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coverage reporting in HTML
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#its-not-just-about-writing-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        It's not just about writing tests!
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        بناء محلي
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="بناء محلي">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        إنشاء بنية محلية
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        إنشاء نسخة مترجمة محلية
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        توثيق linting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تحديث الوثائق الموجودة
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        إضافة وثائق جديدة
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        كتابة الوثائق الخاصة بك
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        العمل مع pre-commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        انقل التغييرات إلى GitHub وأنشئ طلب السحب الخاص بك
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        سحب محتوى الطلب
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+<div id="ethical-ad-placement"></div>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Determine whether to show navigation path -->
+
+  
+
+
+<!-- Determine whether we have enough pages for rendering -->
+
+
+
+<!-- Navigation path (breadcrumbs) -->
+
+  <nav class="md-path" aria-label="تصفح" >
+    <ol class="md-path__list">
+
+      
+
+      <!-- Render ancestors in reverse -->
+      
+        
+          
+
+  <!-- Render navigation item -->
+  
+
+  
+    <!-- Navigation item with nested items -->
+    
+
+    
+        <!-- Nested navigation item -->
+        
+          <li class="md-path__item">
+            <a href="../../../" class="md-path__link">
+              
+  <span class="md-ellipsis">
+    المساهمة
+  </span>
+
+            </a>
+          </li>
+        
+    
+
+  
+
+        
+      
+        
+          
+
+  <!-- Render navigation item -->
+  
+
+  
+    <!-- Navigation item with nested items -->
+    
+
+    
+        <!-- Nested navigation item -->
+        
+          <li class="md-path__item">
+            <a href="../../" class="md-path__link">
+              
+  <span class="md-ellipsis">
+    دليل المساهمة
+  </span>
+
+            </a>
+          </li>
+        
+    
+
+  
+
+        
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="_1">إصلاح مشكلة<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>BeeWare يتتبع قائمة <a href="https://github.com/search?q=org%3Abeeware%20is%3Aopen%20is%3Aissue%20label%3Abug&amp;type=issues">المشكلات المعروفة</a>. أي من هذه المشكلات هي
+مرشحة للعمل عليها.</p>
+<p>يمكن تصفية هذه القائمة بعدة طرق. على سبيل المثال، يمكنك التصفية حسب النظام
+الأساسي، بحيث يمكنك التركيز على المشكلات التي تؤثر على الأنظمة الأساسية التي
+يمكنك اختبارها؛ أو يمكنك التصفية حسب نوع المشكلة، مثل <a href="https://github.com/search?q=org%3Abeeware+is%3Aopen+is%3Aissue+label%3Abug+label%3Adocumentation&amp;type=issues">أخطاء التوثيق</a>. هناك أيضًا تصفية لـ <a href="https://github.com/search?q=org%3Abeeware+is%3Aopen+is%3Aissue+label%3Abug+label%3A%22good+first+issue%22&amp;type=issues">المشكلات الجيدة الأولى</a> -
+وهي المشكلات التي تم تحديدها على أنها مشكلات ذات أسباب معروفة، ونعتقد أن إصلاحها
+<em>ينبغي</em> أن يكون سهلاً نسبيًا (على الرغم من أننا قد نكون مخطئين في تحليلنا).</p>
+<p>إذا كان عمر المشكلة أكثر من 6 أشهر، فمن المحتمل جدًا أن تكون قد تم حلها، لذا فإن
+الخطوة الأولى هي التحقق من إمكانية إعادة إنتاج المشكلة. استخدم المعلومات الواردة
+في تقرير الخطأ لمحاولة إعادة إنتاج المشكلة. إذا لم تتمكن من إعادة إنتاج المشكلة،
+فقم بالإبلاغ عما وجدته كتعليق على المشكلة، واختر مشكلة أخرى.</p>
+<p>إذا تمكنت من إعادة إنتاج المشكلة - فحاول إصلاحها! اكتشف مجموعة الأكواد التي تنفذ
+الميزة، وحاول معرفة ما الذي لا يعمل بشكل صحيح.</p>
+<p>حتى إذا لم تتمكن من حل المشكلة، فإن الإبلاغ عن أي شيء تكتشفه أثناء العملية
+كتعليق على المشكلة أمر يستحق العناء. إذا تمكنت من العثور على مصدر المشكلة، ولكن
+لم تتمكن من إيجاد حل لها، فغالبًا ما تكون هذه المعرفة كافية لشخص أكثر دراية
+بالمنصة لحل المشكلة. إذا لم توفر المشكلة بالفعل حالة إعادة إنتاج جيدة (تطبيق
+عينة صغير لا يفعل شيئًا سوى إعادة إنتاج المشكلة)، فإن توفير واحدة يمكن أن يكون
+مفيدًا للغاية.</p>
+<h2 id="_2">المساهمة في إصلاح مشكلة<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<details class="abstract">
+<summary>إعداد بيئة التطوير</summary>
+<p>للمساهمة في BeeWare، يتعين عليك إعداد بيئة تطوير.</p>
+<h3 id="dev-environment-prereqs">المتطلبات الأساسية<a class="headerlink" href="#dev-environment-prereqs" title="Permanent link">&para;</a></h3>
+<p>ستحتاج إلى تثبيت المتطلبات الأساسية التالية.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>BeeWare يتطلب Python 3.10+. ستحتاج أيضًا إلى طريقة
+لإدارة البيئات الافتراضية (مثل <code>venv</code>).</p>
+<p>يمكنك التحقق من إصدار Python الذي قمت بتثبيته عن طريق تشغيل:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python3<span class="w"> </span>--version
+</code></pre></div>
+<p>إذا كان لديك أكثر من إصدار واحد من Python مثبتًا، فقد تحتاج إلى استبدال
+<code>python3</code> برقم إصدار محدد (على سبيل المثال، <code>python3.13</code>)</p>
+<p>نوصي بتجنب الإصدارات الحديثة من Python (أي الإصدارات التي تحتوي على رقم إصدار
+فرعي ".0" أو ".1"، مثل 3.14.0). وذلك لأن الأدوات اللازمة لدعم Python على macOS
+غالبًا ما تكون متأخرة ولا تتوفر للإصدارات المستقرة الحديثة من Python.</p>
+</div>
+<div class="tabbed-block">
+<p>BeeWare يتطلب Python 3.10+. ستحتاج أيضًا إلى طريقة
+لإدارة البيئات الافتراضية (مثل <code>venv</code>).</p>
+<p>يمكنك التحقق من إصدار Python الذي قمت بتثبيته عن طريق تشغيل:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python3<span class="w"> </span>--version
+</code></pre></div>
+<p>إذا كان لديك أكثر من إصدار واحد من Python مثبتًا، فقد تحتاج إلى استبدال
+<code>python3</code> برقم إصدار محدد (على سبيل المثال، <code>python3.13</code>)</p>
+<p>نوصي بتجنب الإصدارات الحديثة من Python (أي الإصدارات التي تحتوي على رقم إصدار
+فرعي ".0" أو ".1"، مثل 3.14.0). وذلك لأن الأدوات اللازمة لدعم Python على Linux
+غالبًا ما تكون متأخرة ولا تتوفر للإصدارات المستقرة الحديثة من Python.</p>
+</div>
+<div class="tabbed-block">
+<p>BeeWare يتطلب Python 3.10+. ستحتاج أيضًا إلى طريقة
+لإدارة البيئات الافتراضية (مثل <code>venv</code>).</p>
+<p>يمكنك التحقق من إصدار Python الذي قمت بتثبيته عن طريق تشغيل:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">C:\...&gt;</span>py -3 --version
+</code></pre></div>
+<p>إذا كان لديك أكثر من إصدار واحد من Python مثبتًا، فقد تحتاج إلى استبدال <code>-3</code>
+برقم إصدار محدد (على سبيل المثال، <code>-python3.13</code>)</p>
+<p>نوصي بتجنب الإصدارات الحديثة من Python (أي الإصدارات التي تحتوي على رقم إصدار
+فرعي ".0" أو ".1"، مثل 3.14.0). وذلك لأن الأدوات اللازمة لدعم Python على Windows
+غالبًا ما تكون متأخرة ولا تتوفر للإصدارات المستقرة الحديثة من Python.</p>
+</div>
+</div>
+</div>
+<h3 id="dev-environment-set-up">قم بإعداد بيئة التطوير الخاصة بك<a class="headerlink" href="#dev-environment-set-up" title="Permanent link">&para;</a></h3>
+<p>الطريقة الموصى بها لإعداد بيئة التطوير لـ BeeWare هي استخدام <a href="https://docs.python.org/3/library/venv.html">بيئة
+افتراضية</a>, ثم تثبيت إصدار التطوير
+لـ BeeWare وتبعياته.</p>
+<h4 id="beeware">نسخ مستودع BeeWare<a class="headerlink" href="#beeware" title="Permanent link">&para;</a></h4>
+<p>بعد ذلك، انتقل إلى <a href="https://github.com/beeware/beeware">صفحة BeeWare على
+GitHub</a>، وإذا لم تكن قد قمت بذلك
+بالفعل، فقم <a href="https://github.com/beeware/beeware/fork">بفصل المستودع</a>
+إلى حسابك الخاص. بعد ذلك، انقر على زر "&lt;&gt; Code" في النسخة المنقسمة. إذا كان
+تطبيق GitHub desktop مثبتًا على جهاز الكمبيوتر الخاص بك، فيمكنك تحديد "Open with
+GitHub Desktop"؛ وإلا، فانسخ عنوان URL HTTPS المقدم، واستخدمه لنسخ المستودع إلى
+جهاز الكمبيوتر الخاص بك باستخدام سطر الأوامر:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>قم بتقسيم مستودع BeeWare، ثم:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;your<span class="w"> </span>username&gt;/beeware.git
+</code></pre></div>
+<p>(استبدل اسم المستخدم الخاص بك على GitHub)</p>
+</div>
+<div class="tabbed-block">
+<p>قم بتقسيم مستودع BeeWare، ثم:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;your<span class="w"> </span>username&gt;/beeware.git
+</code></pre></div>
+<p>(استبدل اسم المستخدم الخاص بك على GitHub)</p>
+</div>
+<div class="tabbed-block">
+<p>قم بتقسيم مستودع BeeWare، ثم:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">C:\...&gt;</span>git clone https://github.com/<span class="p">&lt;</span>your username<span class="p">&gt;</span>/beeware.git
+</code></pre></div>
+<p>(استبدل اسم المستخدم الخاص بك على GitHub)</p>
+</div>
+</div>
+</div>
+<h4 id="_3">إنشاء بيئة افتراضية<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>لإعداد بيئة افتراضية وترقية <code>pip</code>، قم بتشغيل:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>beeware
+<span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pip
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>beeware
+<span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pip
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">C:\...&gt;</span><span class="k">cd</span> beeware
+<span class="gp">C:\...&gt;</span>py -3 -m venv .venv
+<span class="gp">C:\...&gt;</span>.venv\Scripts\activate
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="go">$ python -m pip install -U pip</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>يجب أن يكون أمام موجهك الآن بادئة <code>(.venv)</code>.</p>
+<h4 id="beeware_1">تثبيت BeeWare<a class="headerlink" href="#beeware_1" title="Permanent link">&para;</a></h4>
+<p>الآن بعد أن أصبح لديك شفرة المصدر، يمكنك إجراء <a href="https://setuptools.pypa.io/en/latest/userguide/development_mode.html">تثبيت قابل
+للتحرير</a>
+لـ BeeWare في بيئة التطوير الخاصة بك. قم بتشغيل الأمر التالي:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>--group<span class="w"> </span>dev
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>--group<span class="w"> </span>dev
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>python -m pip install -U -e . --group dev
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="_4">تمكين الالتزام المسبق<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>BeeWare يستخدم أداة تسمى <a href="https://pre-commit.com">pre-commit</a> لتحديد
+المشكلات البسيطة وتوحيد تنسيق الكود. ويقوم بذلك عن طريق تثبيت git hook الذي يقوم
+تلقائيًا بتشغيل سلسلة من أدوات فحص الكود قبل إنهاء أي git commit. لتمكين
+pre-commit، قم بتشغيل:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pre-commit<span class="w"> </span>install
+<span class="go">pre-commit installed at .git/hooks/pre-commit</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pre-commit<span class="w"> </span>install
+<span class="go">pre-commit installed at .git/hooks/pre-commit</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>pre-commit install
+<span class="go">pre-commit installed at .git/hooks/pre-commit</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>الآن أنت جاهز لبدء الاختراق على BeeWare!</p>
+</details>
+<details class="abstract">
+<summary>العمل من فرع</summary>
+<p>قبل البدء في العمل على التغيير، تأكد من إنشاء فرع. بشكل افتراضي، عند استنساخ
+مستودعك الفرعي، سيتم تسجيل خروجك من الفرع الرئيسي. هذا نسخة مباشرة من الفرع
+الرئيسي لـ BeeWare.</p>
+<p>على الرغم من أنه <em>يمكنك</em> إرسال طلب سحب من فرعك <code>الرئيسي</code>، إلا أنه من الأفضل
+<em>عدم</em> القيام بذلك. إذا أرسلت طلب سحب <em>شبه</em> صحيح، فقد يتمكن عضو الفريق الأساسي
+الذي يراجع طلب السحب الخاص بك من إجراء التغييرات اللازمة، بدلاً من تقديم ملاحظات
+تطلب إجراء تغيير بسيط. ومع ذلك، إذا أرسلت طلب السحب من فرعك <code>الرئيسي</code>، فلن يتمكن
+المراجعون من إجراء تعديلات.</p>
+<p>العمل على الفرع الرئيسي يجعل الأمر صعبًا عليك أيضًا بعد إكمال طلب السحب الأول.
+إذا كنت ترغب في العمل على طلب سحب ثانٍ، فستحتاج إلى نسخة "نظيفة" من الفرع
+الرئيسي للمشروع الأصلي لتستند إليها في مساهمتك الثانية؛ إذا كنت قد قدمت مساهمتك
+الأولى من الفرع الرئيسي، فلن تكون تلك النسخة النظيفة متاحة لك بعد الآن.</p>
+<p>بدلاً من ذلك، يجب إجراء التغييرات على <em>فرع الميزة</em>. يتميز فرع الميزة باسم بسيط
+لتعريف التغيير الذي قمت بإجرائه. على سبيل المثال، إذا كنت تقوم بإصلاح خطأ يسبب
+مشكلات في البناء على Windows 11، فيمكنك إنشاء فرع ميزة <code>fix-win11-build</code>. إذا
+كان الخطأ يتعلق بمشكلة محددة تم الإبلاغ عنها، فمن الشائع أيضًا الإشارة إلى رقم
+المشكلة في اسم الفرع (على سبيل المثال، <code>fix-1234</code>).</p>
+<p>لإنشاء فرع ميزة <code>fix-win11-build</code>، قم بتشغيل:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>fix-win11-build
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>fix-win11-build
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git switch -c fix-win11-build
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<details class="abstract">
+<summary>إعادة إنتاج المشكلة</summary>
+<p>لا يمكنك حل مشكلة ما إذا لم تكن لديك هذه المشكلة في المقام الأول. لذلك، فإن
+إعادة إنتاج المشكلة هو شرط أساسي لحلها. في البرمجيات، يشار إلى المشاكل عادةً
+باسم <a href="https://en.wikipedia.org/wiki/Software_bug">"أخطاء"</a>، وغالبًا ما تسمى
+المشاكل "تقارير الأخطاء".</p>
+<p>أحدهم قدم تقريرًا عن خطأ. عليك التحقق من أن الخطوات التي وصفها المبلغ تؤدي إلى
+حدوث الخطأ المبلغ عنه. هل يمكنك إعادة إنتاج النتيجة نفسها من خلال القيام بما هو
+موصوف في التقرير بالضبط؟ إذا لم تتمكن من ذلك، عليك معرفة السبب.</p>
+<h3 id="_5">أخطاء في الكود<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>في الحالة المثالية، سيكون لديك نفس الإعدادات التي لدى الشخص الذي أبلغ عن الخطأ،
+وستتبع الخطوات، وستتمكن من إعادة إنتاج الخطأ كما هو موصوف. لكن في كثير من
+الحالات، لن يكون الأمر بهذه البساطة. تتضمن العديد من تقارير الأخطاء تفسيرات
+غامضة ومجموعة غامضة من الشروط. تكمن المشكلة في أن العديد من الأخطاء تختلف بناءً
+على مجموعة الشروط ذات الصلة، بما في ذلك كيفية التفاعل معها، والشروط المسبقة
+المختلفة، ونظام التشغيل، وإصدار نظام التشغيل، وبنية وحدة المعالجة المركزية، أو
+ما إذا كان جهاز المستخدم قديمًا وبطيئًا أم جديدًا وسريعًا. كلما زادت المعلومات
+المتوفرة لدينا حول الموقف المحيط بالخطأ، كان ذلك أفضل. حاول إعادة إنتاج مجموعة
+الشروط التي قدمها المبلغ. إذا لم تتمكن من القيام بذلك، فقد تحتاج في الخطوة
+التالية إلى طلب مزيد من المعلومات من الشخص الذي أبلغ عن الخطأ.</p>
+<p>أفضل طريقة لإعادة إنتاج خطأ ما هي باستخدام أصغر مثال ممكن لا يزال يظهر المشكلة.
+في معظم الأحيان، لا يقدم المبلغون مثالاً عملياً أدنى؛ وإذا قدموا <em>أي</em> مثال على
+الإطلاق، فسيتم نسخه مباشرة من تطبيقهم "الواقعي". سيكون هدفك هو تقليل التقرير إلى
+أبسط شكل ممكن يظهر المشكلة. أفضل حالة لإعادة إنتاج الخطأ هي أصغر برنامج ممكن.
+هذا التخفيض مفيد في حد ذاته لأنه يحدد ماهية المشكلة الفعلية. يمكن لأي شخص أن
+يأخذ المثال البسيط ويقوم بتشغيله، وسيلاحظ الخطأ الموصوف.</p>
+<h3 id="_6">أخطاء في الوثائق<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>يمكن أن تظهر الأخطاء في الوثائق بطرق مختلفة. هناك مشاكل في التنسيق تؤدي إلى
+مشاكل في العرض. في بعض الأحيان، قد لا يكون الأمر خطأً برميًا؛ فقد يكون الشخص قد
+أخطأ في قراءة الوثائق أو ارتكب خطأً حقيقيًا. هذا لا يعني بالضرورة أنه لا توجد
+مشكلة في الوثائق. قد يكون المحتوى غير واضح أو غير دقيق، مما يترك مجالًا للالتباس
+أو سوء التفسير. من الممكن أن يكون هناك مفهوم يجب مناقشته ولم تتم مناقشته، لأنه
+غير موثق تمامًا.</p>
+<p>عندما يتم الإبلاغ عن خطأ في الوثائق، يجب عليك التحقق من أن المشكلة المبلغ عنها
+لا تزال موجودة بالفعل. في حالة مشاكل العرض، ستحتاج إلى إنشاء الوثائق لترى ما إذا
+كان بإمكانك إعادة إنتاج المشكلة. مشاكل المحتوى هي مسألة قراءة للتحقق من عدم قيام
+أي شخص بتقديم تحديث.</p>
+<h3 id="_7">تحديث المشكلة<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>الخطوة الأخيرة في عملية الفرز هي توثيق النتائج التي توصلت إليها عن طريق ترك
+تعليق على المشكلة.</p>
+<p>إذا تمكنت من إعادة إنتاج المشكلة تمامًا كما هو موصوف، فهذا كل ما عليك قوله. اترك
+تعليقًا تفيد فيه أنك تأكدت من أنك تواجه نفس المشكلة، بالطريقة نفسها التي وصفها
+المبلغ الأصلي.</p>
+<p>إذا كان بإمكانك تقديم أي سياق إضافي، فقم بتضمين تفاصيل هذا السياق. قد يشمل ذلك
+القدرة على إعادة إنتاج المشكلة على نظام تشغيل مختلف، أو باستخدام إصدار مختلف من
+بعض البرامج المعنية، أو أي شيء آخر يختلف عن التقرير الأصلي.</p>
+<p>إذا كان التقرير الأصلي يفتقد إلى التفاصيل التي تحتاجها لإعادة إنتاج التقرير، فقم
+بتضمين <em>تلك</em> التفاصيل. قد يشمل ذلك توفير تفاصيل نظام التشغيل أو الإصدار التي لم
+يذكرها التقرير الأصلي، أو سجلات أو تتبعات مكدس أكثر اكتمالاً، أو تعليمات أوضح
+حول التسلسل الدقيق للعمليات اللازمة لإعادة إنتاج المشكلة. إذا كنت قد طورت طريقة
+أبسط لإعادة إنتاج المشكلة (أو لم يقدم المبلغ الأصلي حالة إعادة إنتاج)، فيمكنك
+تضمين تفاصيل منهجية إعادة الإنتاج تلك.</p>
+<p>إذا <em>لم تتمكن</em> من إعادة إنتاج المشكلة، فقم أيضًا بترك تعليق يوضح بالتفصيل ما قمت
+بتجربته. إن معرفة أين <em>لا</em> توجد المشكلة لا يقل أهمية عن معرفة أين <em>توجد</em>
+المشكلة، لأن ذلك يساعد في تضييق نطاق الأسباب المحتملة. إذا كانت لديك أي نظريات
+حول <em>سبب</em> عدم قدرتك على إعادة إنتاج المشكلة - على سبيل المثال، إذا كنت تعتقد
+أنها خطأ في الاستخدام، أو أن المشكلة قد تم حلها من خلال تحديث نظام التشغيل
+الأخير - فقم بتضمين هذا التخمين كجزء من تعليقك.</p>
+<p>أخيرًا، يمكنك تقديم أي توصيات قد تكون لديك إلى الفريق الأساسي. إذا كنت تعتقد أن
+التقرير الأصلي يحتوي على خطأ، فاقترح إغلاق المشكلة؛ وإذا كانت لديك نظرية حول سبب
+المشكلة، فيمكنك اقتراحها أيضًا. ستساعد تعليقاتك الفريق الأساسي على تحديد كيفية
+المضي قدمًا في المشكلة إلى الخطوة التالية.</p>
+</details>
+<p><strong>إذا كان حل المشكلة يتطلب تغييرات في الكود:</strong></p>
+<details class="abstract">
+<summary>كتابة الكود وتشغيله واختباره</summary>
+<p>Fixing a bug or implementing a feature will require you to write some new code.</p>
+<p>We have a <a href="../../style/code-style-guide/">code style guide</a> that outlines our guidelines for writing code for BeeWare.</p>
+<h3 id="test-driven-development">Test-driven development<a class="headerlink" href="#test-driven-development" title="Permanent link">&para;</a></h3>
+<p>A good way to ensure your code is going to do what you expect it to, is to first write a test case to test for it. This test case should fail initially, as the code it is testing for is not yet present. You can then write the code changes needed to make the test pass, and know that what you've written is solving the problem you are expecting it to.</p>
+<h3 id="run-your-code">Run your code<a class="headerlink" href="#run-your-code" title="Permanent link">&para;</a></h3>
+<p>Once your code is written, you need to ensure it runs. You'll need to manually run your code to verify it is doing what you expect. If you haven't already, you'll want to write a test case for your changes; as mentioned above, this test should fail if your code is commented out or not present.</p>
+<p>You'll add your test case to the test suite, so it can be run alongside the other tests. The next step is to run the test suite.</p>
+<h3 id="run-test-suite">Running tests and coverage<a class="headerlink" href="#run-test-suite" title="Permanent link">&para;</a></h3>
+<p>BeeWare uses <a href="https://tox.wiki/en/latest/"><code>tox</code></a> to manage the testing process and <a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> for its own test suite.</p>
+<p>The default <code>tox</code> command includes running:</p>
+<ul>
+<li>pre-commit hooks</li>
+<li><code>towncrier</code> release note check</li>
+<li>
+<p>documentation linting</p>
+</li>
+<li>
+<p>test suite for available Python versions</p>
+</li>
+<li>
+<p>code coverage reporting</p>
+</li>
+</ul>
+<p>This is essentially what is run by CI when you submit a pull request.</p>
+<p>To run the full test suite, run:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">macOS</label><label for="__tabbed_7_2">Linux</label><label for="__tabbed_7_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>tox
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>The full test suite can take a while to run. You can speed it up considerably by running <code>tox</code> in parallel, by running <code>tox p</code> (or <code>tox run-parallel</code>). When you run the test suite in parallel, you'll get less feedback on the progress of the test suite as it runs, but you'll still get a summary of any problems found at the end of the test run. You should get some output indicating that tests have been run. You may see <code>SKIPPED</code> tests, but shouldn't ever get any <code>FAIL</code> or <code>ERROR</code> test results. We run our full test suite before merging every patch. If that process discovers any problems, we don't merge the patch. If you do find a test error or failure, either there's something odd in your test environment, or you've found an edge case that we haven't seen before - either way, let us know!</p>
+<p>In addition to the tests passing, this should report <a class="autorefs autorefs-internal" title="Code coverage" href="#code-coverage">100% test coverage</a>.</p>
+<h3 id="running-test-variations">Running test variations<a class="headerlink" href="#running-test-variations" title="Permanent link">&para;</a></h3>
+<h4 id="run-tests-for-multiple-versions-of-python">Run tests for multiple versions of Python<a class="headerlink" href="#run-tests-for-multiple-versions-of-python" title="Permanent link">&para;</a></h4>
+<p>By default, many of the <code>tox</code> commands will attempt to run the test suite multiple times, once for each Python version supported by BeeWare. To do this, though, each of the Python versions must be installed on your machine and available to <code>tox</code>'s Python <a href="https://virtualenv.pypa.io/en/latest/explanation.html#python-discovery">discovery</a> process. In general, if a version of Python is available via <code>PATH</code>, then <code>tox</code> should be able to find and use it.</p>
+<h4 id="run-only-the-test-suite">Run only the test suite<a class="headerlink" href="#run-only-the-test-suite" title="Permanent link">&para;</a></h4>
+<p>If you're rapidly iterating on a new feature, you don't need to run the full test suite; you can run <em>only</em> the unit tests. To do this, run:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">macOS</label><label for="__tabbed_8_2">Linux</label><label for="__tabbed_8_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>py
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>py
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>tox -e py
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="test-subset">Run a subset of tests<a class="headerlink" href="#test-subset" title="Permanent link">&para;</a></h4>
+<p>By default, <code>tox</code> will run all tests in the unit test suite. When you're developing your new test, it may be helpful to run <em>just</em> that one test. To do this, you can pass in <a href="https://docs.pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run">any <code>pytest</code> specifier</a> as an argument to <code>tox</code>. These test paths are relative to the <code>briefcase</code> directory. For example, to run only the tests in a single file, run:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">macOS</label><label for="__tabbed_9_2">Linux</label><label for="__tabbed_9_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>py<span class="w"> </span>--<span class="w"> </span>tests/path_to_test_file/test_some_test.py
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>py<span class="w"> </span>--<span class="w"> </span>tests/path_to_test_file/test_some_test.py
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>tox -e py -- tests/path_to_test_file/test_some_test.py
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>You'll still get a coverage report when running a part of the test suite - but the coverage results will only report the lines of code that were executed by the specific tests you ran.</p>
+<h4 id="test-py-version">Run the test suite for a specific Python version<a class="headerlink" href="#test-py-version" title="Permanent link">&para;</a></h4>
+<p>By default <code>tox -e py</code> will run using whatever interpreter resolves as <code>python</code> on your machine. If you have multiple Python versions installed, and want to test a specific Python version from the versions you have installed, you can specify a specific Python version to use. For example, to run the test suite on Python 3.10, run:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">macOS</label><label for="__tabbed_10_2">Linux</label><label for="__tabbed_10_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>py310
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>py310
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>tox -e py310
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>A <a class="autorefs autorefs-internal" title="Run a subset of tests" href="#test-subset">subset of tests</a> can be run by adding <code>--</code> and a test specification to the command line.</p>
+<h4 id="run-the-test-suite-without-coverage-fast">Run the test suite without coverage (fast)<a class="headerlink" href="#run-the-test-suite-without-coverage-fast" title="Permanent link">&para;</a></h4>
+<p>By default, <code>tox</code> will run the pytest suite in single threaded mode. You can speed up the execution of the test suite by running the test suite in parallel. This mode does not produce coverage files due to complexities in capturing coverage within spawned processes. To run a single python version in "fast" mode, run:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">macOS</label><label for="__tabbed_11_2">Linux</label><label for="__tabbed_11_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>py-fast
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>py-fast
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>tox -e py-fast
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>A <a class="autorefs autorefs-internal" title="Run a subset of tests" href="#test-subset">subset of tests</a> can be run by adding <code>--</code> and a test specification to the command line; a <a class="autorefs autorefs-internal" title="Run the test suite for a specific Python version" href="#test-py-version">specific Python version</a> can be used by adding the version to the test target (e.g., <code>py310-fast</code> to run fast on Python 3.10).</p>
+<h3 id="code-coverage">Code coverage<a class="headerlink" href="#code-coverage" title="Permanent link">&para;</a></h3>
+<p>BeeWare maintains 100% branch coverage in its codebase. When you add or modify code in the project, you must add test code to ensure coverage of any changes you make.</p>
+<p>However, BeeWare targets multiple platforms, as well as multiple versions of Python, so full coverage cannot be verified on a single platform and Python version. To accommodate this, several conditional coverage rules are defined in the <code>tool.coverage.coverage_conditional_plugin.rules</code> section of <code>pyproject.toml</code> (e.g., <code>no-cover-if-is-windows</code> can be used to flag a block of code that won't be executed when running the test suite on Windows). These rules are used to identify sections of code that are only covered on particular platforms or Python versions.</p>
+<p>Of note, coverage reporting across Python versions can be a bit quirky. For instance, if coverage files are produced using one version of Python but coverage reporting is done on another, the report may include false positives for missed branches. Because of this, coverage reporting should always use the oldest version Python used to produce the coverage files.</p>
+<h4 id="understanding-coverage-results">Understanding coverage results<a class="headerlink" href="#understanding-coverage-results" title="Permanent link">&para;</a></h4>
+<p>At the end of the coverage test output there should be a report of the coverage data that was gathered:</p>
+<div class="highlight"><pre><span></span><code><span class="go">Name    Stmts   Miss Branch BrPart   Cover   Missing</span>
+<span class="go">----------------------------------------------------</span>
+<span class="go">المجموع 7540 0 1040 0 100.0%</span>
+</code></pre></div>
+<p>This tells us that the test suite has executed every possible branching path in the code. This isn't a 100% guarantee that there are no bugs, but it does mean that we're exercising every line of code in the codebase.</p>
+<p>If you make changes to the codebase, it's possible you'll introduce a gap in this coverage. When this happens, the coverage report will tell you which lines aren't being executed. For example, lets say we made a change to <code>some/interesting_file.py</code>, adding some new logic. The coverage report might look something like:</p>
+<div class="highlight"><pre><span></span><code>الاسم Stmts الآنسة برانش BrPart غلاف مفقود
+--------------------------------------------------------------------------------
+src/some/interesting_file.py 111 1 26 0 98.1% 170، 302-307، 320-&gt;335
+--------------------------------------------------------------------------------
+المجموع 7540 1 1726 0 99.9%
+</code></pre></div>
+<p>This tells us that line 170, lines 302-307, and a branch jumping from line 320 to line 335, are not being executed by the test suite. You'll need to add new tests (or modify an existing test) to restore this coverage.</p>
+<h4 id="coverage-report-for-host-platform-and-python-version">Coverage report for host platform and Python version<a class="headerlink" href="#coverage-report-for-host-platform-and-python-version" title="Permanent link">&para;</a></h4>
+<p>You can generate a coverage report for your platform and version of Python. For example, to run the test suite and generate a coverage report on Python 3.10, run:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">macOS</label><label for="__tabbed_12_2">Linux</label><label for="__tabbed_12_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>(.venv) $ tox -m test310
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>(.venv) $ tox -m test310
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>(.venv) C:\...&gt;tox -m test310
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="coverage-report-for-host-platform">Coverage report for host platform<a class="headerlink" href="#coverage-report-for-host-platform" title="Permanent link">&para;</a></h4>
+<p>If all supported versions of Python are available to <code>tox</code>, then coverage for the host platform can be reported by running:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">macOS</label><label for="__tabbed_13_2">Linux</label><label for="__tabbed_13_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>(.venv) $ tox p -m test-platform
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>(.venv) $ tox p -m test-platform
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>(.venv) C:\...&gt;tox p -m test-platform
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="coverage-reporting-in-html">Coverage reporting in HTML<a class="headerlink" href="#coverage-reporting-in-html" title="Permanent link">&para;</a></h4>
+<p>A HTML coverage report can be generated by appending <code>-html</code> to any of the coverage <code>tox</code> environment names, for instance:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">macOS</label><label for="__tabbed_14_2">Linux</label><label for="__tabbed_14_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>(.venv) $ tox -e coverage-platform-html
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>(.venv) $ tox -e coverage-platform-html
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>(.venv) C:\...&gt;tox -e coverage-platform-html
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="its-not-just-about-writing-tests">It's not just about writing tests!<a class="headerlink" href="#its-not-just-about-writing-tests" title="Permanent link">&para;</a></h3>
+<p>Although we ensure that we test all of our code, the task isn't <em>just</em> about maintaining that level of testing. Part of the task is to audit the code as you go. You could write a comprehensive set of tests for a concrete life jacket&hellip; but a concrete life jacket would still be useless for the purpose it was intended!</p>
+<p>As you develop tests, you should be checking that the core module is internally <strong>consistent</strong> as well. If you notice any method names that aren't internally consistent (e.g., something called <code>on_select</code> in one module, but called <code>on_selected</code> in another), or where the data isn't being handled consistently, flag it and bring it to our attention by raising a ticket. Or, if you're confident that you know what needs to be done, create a pull request that fixes the problem you've found.</p>
+<div class="highlight"><pre><span></span><code>///
+
+**إذا كان حل المشكلة يتطلب إجراء تغييرات على الوثائق:**
+
+/// details-abstract | بناء الوثائق
+
+قبل إجراء أي تغييرات على وثائق BeeWare, من المفيد التأكد من أنه يمكنك
+إنشاء الوثائق الموجودة.
+
+
+
+**يجب** أن يكون مترجم Python 3.13 مثبتًا ومتاحًا في مسارك
+(أي أن `python3.13` يجب أن يبدأ مترجم Python 3.13).
+
+BeeWare يستخدم `tox` لإنشاء الوثائق. يجب تشغيل أوامر `tox` التالية من
+نفس موقع ملف `tox.ini`، الموجود في الدليل الجذر للمشروع.
+
+### معاينة التوثيق المباشر
+
+لدعم التحرير السريع للوثائق، يحتوي BeeWare على وضع &quot;المعاينة
+المباشرة&quot;.
+
+/// warning | سيتم إنشاء المعاينة المباشرة مع ظهور تحذيرات!
+
+خدمة البث المباشر متاحة لتكرار تحديثات الوثائق الخاصة بك. أثناء قيامك بتحديث
+الأشياء، قد تحدث مشكلة في الترميز. المشكلات التي تعتبر &quot;تحذيرًا&quot; ستؤدي إلى فشل
+البنية القياسية، ولكن خدمة البث المباشر معدة للإشارة إلى التحذيرات في إخراج وحدة
+التحكم، مع الاستمرار في البنية. هذا يسمح لك بالتكرار دون الحاجة إلى إعادة تشغيل
+المعاينة المباشرة.
+
+يختلف &quot;التحذير&quot; عن &quot;الخطأ&quot;. إذا أدخلت مشكلة تعتبر &quot;خطأ&quot;، فسوف يفشل الخادم
+المباشر، وسيتطلب إعادة التشغيل. ولن يعمل مرة أخرى حتى يتم حل مشكلة &quot;التحذير&quot;.
+
+///
+
+لبدء تشغيل الخادم المباشر:
+
+
+
+/// tab | macOS
+
+
+
+```console
+(venv) $ tox -e docs-live
+</code></pre></div>
+</details>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:2"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">Linux</label><label for="__tabbed_15_2">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-live
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">C:\...&gt;</span>tox -e docs-live
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>سيؤدي ذلك إلى إنشاء الوثائق، وتشغيل خادم ويب لخدمة الوثائق، ومراقبة نظام الملفات
+بحثًا عن أي تغييرات في مصدر الوثائق.</p>
+<p>بمجرد بدء تشغيل الخادم، سترى شيئًا مثل ما يلي في إخراج وحدة التحكم:</p>
+<div class="highlight"><pre><span></span><code><span class="go">INFO    -  [11:18:51] Serving on http://127.0.0.1:8000/</span>
+</code></pre></div>
+<p>افتح متصفحًا وانتقل إلى عنوان URL المقدم. الآن يمكنك البدء في تكرار الوثائق. إذا
+تم اكتشاف تغيير، فسيتم إعادة إنشاء الوثائق، وسيتم تحديث أي متصفح يعرض الصفحة
+المعدلة تلقائيًا.</p>
+<div class="admonition note">
+<p class="admonition-title"><code>docs-live</code> هي خطوة أولية</p>
+<p>يُقصد بتشغيل <code>docs-live</code> للعمل مع الخادم المباشر إجراء التكرار الأولي. يجب عليك
+<em>دائمًا</em> تشغيل بنية محلية قبل إرسال طلب سحب.</p>
+</div>
+<h3 id="_8">بناء محلي<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>بمجرد الانتهاء من التكرار، ستحتاج إلى إجراء بناء محلي للوثائق. تم تصميم عملية
+البناء هذه بحيث تفشل في حالة وجود أي مشاكل في الترميز. يتيح لك ذلك اكتشاف أي شيء
+قد فاتك على الخادم المباشر.</p>
+<h4 id="_9">إنشاء بنية محلية<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<p>لإنشاء بنية محلية:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="16:3"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><input id="__tabbed_16_2" name="__tabbed_16" type="radio" /><input id="__tabbed_16_3" name="__tabbed_16" type="radio" /><div class="tabbed-labels"><label for="__tabbed_16_1">macOS</label><label for="__tabbed_16_2">Linux</label><label for="__tabbed_16_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">C:\...&gt;</span>tox -e docs
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>سيكون ناتج هذا البناء في دليل <code>_build</code> في جذر المشروع.</p>
+<h4 id="_10">إنشاء نسخة مترجمة محلية<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>تمت ترجمة وثائق BeeWare إلى عدة لغات. قد تؤدي تحديثات الوثائق باللغة
+الإنجليزية إلى حدوث مشكلات في الإصدارات باللغات الأخرى. من المهم التحقق من أن
+جميع الإصدارات تعمل بشكل صحيح قبل إرسال طلب سحب.</p>
+<p>لإنشاء نسخة من جميع الترجمات المتاحة:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="17:3"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio" /><input id="__tabbed_17_2" name="__tabbed_17" type="radio" /><input id="__tabbed_17_3" name="__tabbed_17" type="radio" /><div class="tabbed-labels"><label for="__tabbed_17_1">macOS</label><label for="__tabbed_17_2">Linux</label><label for="__tabbed_17_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-all
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-all
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">C:\...&gt;</span>tox -e docs-all
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>سيكون ناتج كل بناء لغة في الدليل المرتبط <code>_build/html/&lt;languagecode&gt;</code>، حيث
+<code>&lt;languagecode&gt;</code> هو رمز اللغة المكون من حرفين أو خمسة أحرف المرتبط باللغة
+المحددة (على سبيل المثال <code>fr</code> للفرنسية، <code>it</code> للإيطالية، إلخ).</p>
+<p>إذا وجدت مشكلة في بنية واحدة، يمكنك تشغيل تلك البنية بشكل منفصل عن طريق تشغيل
+<code>tox -e docs-&lt;languagecode&gt;</code>. على سبيل المثال، لتكوين الوثائق باللغة الفرنسية
+فقط، قم بتشغيل:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="18:3"><input checked="checked" id="__tabbed_18_1" name="__tabbed_18" type="radio" /><input id="__tabbed_18_2" name="__tabbed_18" type="radio" /><input id="__tabbed_18_3" name="__tabbed_18" type="radio" /><div class="tabbed-labels"><label for="__tabbed_18_1">macOS</label><label for="__tabbed_18_2">Linux</label><label for="__tabbed_18_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-fr
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-fr
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">C:\...&gt;</span>tox -e docs-fr
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>سيكون ناتج البناء أحادي اللغة في دليل <code>_build</code>.</p>
+<h3 id="linting">توثيق linting<a class="headerlink" href="#linting" title="Permanent link">&para;</a></h3>
+<p>ستحدد عملية البناء مشاكل Markdown، ولكن BeeWare تقوم ببعض الفحوصات
+الإضافية للنمط والتنسيق، والمعروفة باسم "linting". لتشغيل فحوصات lint:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="19:3"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio" /><input id="__tabbed_19_2" name="__tabbed_19" type="radio" /><input id="__tabbed_19_3" name="__tabbed_19" type="radio" /><div class="tabbed-labels"><label for="__tabbed_19_1">macOS</label><label for="__tabbed_19_2">Linux</label><label for="__tabbed_19_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-lint
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-lint
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">C:\...&gt;</span>tox -e docs-lint
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>سيؤكد ذلك أن الوثائق لا تحتوي على:</p>
+<ul>
+<li>روابط معطلة</li>
+<li>الكلمات المكتوبة بشكل خاطئ</li>
+</ul>
+<p>إذا تم تحديد تهجئة صحيحة لكلمة ما على أنها خاطئة، فقم بإضافة الكلمة إلى القائمة
+الموجودة في <code>docs/spelling_wordlist</code>. سيؤدي ذلك إلى إضافة الكلمة إلى قاموس
+المدقق الإملائي. عند الإضافة إلى هذه القائمة، تذكر ما يلي:</p>
+<ul>
+<li>نفضل استخدام قواعد الإملاء الأمريكية، مع بعض الحرية في استخدام المصطلحات
+  العامية الخاصة بالبرمجة (مثل "apps") وتحويل الأسماء إلى أفعال (مثل
+  "scrollable").</li>
+<li>يجب أن تستخدم أي إشارة إلى اسم منتج الأحرف الكبيرة المفضلة للمنتج. (على سبيل
+  المثال، "macOS" و"GTK" و"pytest" و"Pygame" و"PyScript").</li>
+<li>إذا كان المصطلح يستخدم "ككود"، فيجب اقتباسه حرفياً (<code>مثل هذا</code>) بدلاً من إضافته
+  إلى القاموس.</li>
+</ul>
+<p>///</p>
+<details class="abstract">
+<summary>كتابة الوثائق</summary>
+<p>هذه هي الخطوات التي يجب اتباعها لكتابة مساهمتك في الوثائق لـ BeeWare.</p>
+<h3 id="_11">تحديث الوثائق الموجودة<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>إذا كنت تقوم بتحرير المستندات الموجودة، فستحتاج إلى تحديد موقع الملف في الدليل
+<code>/docs/en</code>. تتبع بنية الملف بنية الصفحة، لذا يمكنك تحديد موقع الملف باستخدام
+عنوان URL الخاص بالوثائق.</p>
+<h3 id="_12">إضافة وثائق جديدة<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>إذا كنت تضيف مستندًا جديدًا، فهناك بعض الخطوات الإضافية التي يجب اتباعها.</p>
+<p>ستحتاج إلى إنشاء المستند في الموقع المناسب داخل دليل <code>docs/en</code>. لغرض المناقشة،
+سنفترض أنك تضيف مستندًا جديدًا باسم الملف <code>new_doc.md</code>.</p>
+<p>بعد ذلك، ستحتاج إلى تحديث ملف <code>docs/en/SUMMARY.md</code> لتضمين ملفك الجديد. يتم تنظيم
+ملف <code>SUMMARY.md</code> بحيث يعكس بشكل أساسي بنية دليل <code>docs/en</code>، ولكن الأهم من ذلك أنه
+يحدد بشكل مباشر بنية الشريط الجانبي الأيسر. إذا حددت المقطع الذي تريد تضمين
+<code>new_doc.md</code> فيه، فلن تحتاج إلى تغيير أي شيء في <code>SUMMARY.md</code> إذا رأيت مسارًا
+بديلًا مدرجًا. على سبيل المثال:</p>
+<div class="highlight"><pre><span></span><code><span class="k">-</span><span class="w"> </span>./path/to/directory/*
+</code></pre></div>
+<p>إذا كان القسم الذي تنوي تضمين <code>new_doc.md</code> فيه عبارة عن قائمة من روابط Markdown
+الفردية، فستحتاج إلى إضافة رابط صريح إلى رابطك. على سبيل المثال:</p>
+<div class="highlight"><pre><span></span><code><span class="k">-</span><span class="w"> </span>[<span class="nt">My new document</span>](<span class="na">new_doc.md</span>)
+</code></pre></div>
+<h3 id="_13">كتابة الوثائق الخاصة بك<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>يمكنك الآن فتح الملف المطلوب في محررك وبدء الكتابة.</p>
+<p>لدينا <a href="../../style/docs-style-guide/">دليل أسلوب التوثيق</a> الذي يحدد إرشاداتنا
+لكتابة وثائق BeeWare.</p>
+</details>
+<p><strong>عندما تكون مستعدًا لتقديم مساهمتك:</strong></p>
+<details class="abstract">
+<summary>إضافة ملاحظة تغيير</summary>
+<p>تستخدم العديد من أدوات BeeWare
+<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> للمساعدة في إنشاء ملاحظات
+الإصدار لكل إصدار. عند إرسال طلب سحب إلى إحدى الأدوات المطبقة، يجب أن يتضمن
+<em>ملاحظة تغيير</em> - ستصبح ملاحظة التغيير هذه مدخلاً في ملاحظات الإصدار تصف التغيير
+الذي تم إجراؤه.</p>
+<p>يجب أن يتضمن كل طلب سحب ملفًا واحدًا على الأقل في دليل <code>changes/</code> يوفر وصفًا
+موجزًا للتغيير الذي تم تنفيذه بواسطة طلب السحب. يجب أن تكون ملاحظة التغيير
+بتنسيق Markdown، في ملف يحمل اسم التنسيق <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. إذا كان
+التغيير الذي تقترحه سيصلح خطأً أو ينفذ ميزة لها رقم مشكلة موجود، فسيكون المعرف
+هو رقم تلك التذكرة. إذا لم يكن للتغيير مشكلة مقابلة، فيمكن استخدام رقم PR كرقم
+تعريف. لن تعرف رقم PR هذا حتى تقوم بدفع طلب السحب، لذا ستفشل أول عملية CI في فحص
+<code>towncrier</code>؛ أضف ملاحظة التغيير وقم بدفع تحديث PR وستنجح عملية CI.</p>
+<p>هناك خمسة أنواع من الأجزاء:</p>
+<ul>
+<li><code>الميزة</code>: يضيف PR سلوكًا أو إمكانية جديدة لم تكن ممكنة من قبل (على سبيل
+  المثال، إضافة دعم لتنسيق تغليف جديد، أو ميزة جديدة في تنسيق تغليف موجود
+  بالفعل)؛</li>
+<li><code>bugfix</code>: يعمل PR على إصلاح خطأ في التنفيذ الحالي؛</li>
+<li><code>doc</code>: تمثل العلاقات العامة تحسناً كبيراً في التوثيق؛</li>
+<li><code>إزالة</code>؛ يمثل PR تغييرًا غير متوافق مع الإصدارات السابقة في BeeWare
+  API؛ أو</li>
+<li><code>misc</code>؛ تغيير بسيط أو إداري (مثل تصحيح خطأ مطبعي أو توضيح لغوي بسيط أو تحديث
+  إصدار تابع) لا يحتاج إلى الإعلان عنه في ملاحظات الإصدار.</li>
+</ul>
+<p>يجب أن يكون هذا الوصف في ملاحظة التغيير ملخصًا "تسويقيًا" عالي المستوى للتغيير
+من منظور المستخدم، وليس وصفًا تقنيًا عميقًا أو تفاصيل التنفيذ. وهو يختلف عن
+رسالة الالتزام - حيث تصف رسالة الالتزام ما تم القيام به حتى يتمكن المطورون في
+المستقبل من متابعة أسباب التغيير؛ أما ملاحظة التغيير فهي وصف لصالح المستخدمين،
+الذين قد لا يكون لديهم معرفة بالجوانب الداخلية.</p>
+<p>على سبيل المثال، إذا قمت بإصلاح خطأ متعلق بتسمية المشروع، فقد يكون نص رسالة
+الالتزام كما يلي:</p>
+<blockquote>
+<p>تطبيق فحص تعبير عادي أقوى لمنع أسماء المشاريع التي تبدأ بأرقام.</p>
+</blockquote>
+<p>ستكون ملاحظة التغيير المقابلة كما يلي:</p>
+<blockquote>
+<p>لم يعد من الممكن أن تبدأ أسماء المشاريع بأرقام.</p>
+</blockquote>
+<p>بعض طلبات السحب (PR) ستقدم ميزات متعددة وتصلح أخطاء متعددة، أو تقدم تغييرات
+متعددة غير متوافقة مع الإصدارات السابقة. في هذه الحالة، قد يحتوي PR على عدة
+ملفات ملاحظات تغيير. إذا كنت بحاجة إلى ربط نوعين من الأجزاء بنفس المعرف، يمكنك
+إضافة لاحقة رقمية. على سبيل المثال، إذا أضاف PR 789 ميزة موصوفة في التذكرة 123،
+وأغلق خطأ موصوف في التذكرة 234، وأجرى أيضًا تغييرين غير متوافقين مع الإصدارات
+السابقة، فقد يكون لديك 4 ملفات ملاحظات تغيير:</p>
+<ul>
+<li><code>123.feature.md</code></li>
+<li>234.تصحيح الأخطاء.md</li>
+<li><code>789.removal.1.md</code></li>
+<li><code>789.removal.2.md</code></li>
+</ul>
+<p>لمزيد من المعلومات حول <code>towncrier</code> وأنواع الأجزاء، انظر <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">أجزاء
+الأخبار</a>.
+يمكنك أيضًا الاطلاع على أمثلة موجودة لأجزاء الأخبار في دليل <code>changes</code> في مستودع
+BeeWare. إذا كان هذا المجلد فارغًا، فمن المحتمل أن BeeWare
+قد نشرت مؤخرًا إصدارًا جديدًا؛ يتم حذف ملفات ملاحظات التغيير ودمجها لتحديث
+<a href="https://github.com/beeware/beeware/releases">ملاحظات الإصدار</a> مع كل
+إصدار. يمكنك الاطلاع على هذا الملف لمعرفة نمط التعليق المطلوب؛ يمكنك الاطلاع على
+<a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">طلبات السحب المدمجة مؤخرًا</a> لمعرفة كيفية تنسيق ملاحظات التغيير الخاصة بك.</p>
+</details>
+<details class="abstract">
+<summary>إرسال طلب سحب</summary>
+<p>الآن بعد أن قمت بتسجيل جميع التغييرات، أصبحت جاهزًا لتقديم طلب سحب. لضمان سير
+عملية المراجعة بسلاسة، هناك عدد من الخطوات التي يجب عليك اتخاذها.</p>
+<h3 id="pre-commit">العمل مع pre-commit<a class="headerlink" href="#pre-commit" title="Permanent link">&para;</a></h3>
+<p>عندما تقوم بإجراء أي تغيير، سيتم تشغيل pre-commit تلقائيًا. إذا تم العثور على أي
+مشكلات في الالتزام، فسيؤدي ذلك إلى فشل الالتزام. حيثما أمكن، سيقوم pre-commit
+بإجراء التغييرات اللازمة لتصحيح المشكلات التي تم العثور عليها. في المثال التالي،
+تم العثور على مشكلة في تنسيق الكود بواسطة فحص <code>ruff</code>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="20:3"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio" /><input id="__tabbed_20_2" name="__tabbed_20" type="radio" /><input id="__tabbed_20_3" name="__tabbed_20" type="radio" /><div class="tabbed-labels"><label for="__tabbed_20_1">macOS</label><label for="__tabbed_20_2">Linux</label><label for="__tabbed_20_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>some/interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Failed</span>
+<span class="go">- hook id: ruff-format</span>
+<span class="go">- files were modified by this hook</span>
+
+<span class="go">1 file reformatted, 488 files left unchanged</span>
+
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>some/interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Failed</span>
+<span class="go">- hook id: ruff-format</span>
+<span class="go">- files were modified by this hook</span>
+
+<span class="go">1 file reformatted, 488 files left unchanged</span>
+
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git add some/interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git commit -m <span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Failed</span>
+<span class="go">- hook id: ruff-format</span>
+<span class="go">- files were modified by this hook</span>
+
+<span class="go">1 file reformatted, 488 files left unchanged</span>
+
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>في هذه الحالة، قام <code>ruff</code> بإصلاح المشكلة تلقائيًا؛ لذا يمكنك إعادة إضافة أي
+ملفات تم تعديلها نتيجة لفحوصات ما قبل الالتزام، وإعادة الالتزام بالتغيير. ومع
+ذلك، ستتطلب بعض الفحوصات إجراء تعديلات يدوية. بمجرد إجراء هذه التغييرات، أعد
+إضافة أي ملفات تم تعديلها، وأعد الالتزام.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="21:3"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio" /><input id="__tabbed_21_2" name="__tabbed_21" type="radio" /><input id="__tabbed_21_3" name="__tabbed_21" type="radio" /><div class="tabbed-labels"><label for="__tabbed_21_1">macOS</label><label for="__tabbed_21_2">Linux</label><label for="__tabbed_21_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>some/interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Passed</span>
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+<span class="go">[bugfix e3e0f73] Minor change</span>
+<span class="go">1 file changed, 4 insertions(+), 2 deletions(-)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>some/interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Passed</span>
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+<span class="go">[bugfix e3e0f73] Minor change</span>
+<span class="go">1 file changed, 4 insertions(+), 2 deletions(-)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git add some\interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git commit -m <span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Passed</span>
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+<span class="go">[bugfix e3e0f73] Minor change</span>
+<span class="go">1 file changed, 4 insertions(+), 2 deletions(-)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>بمجرد اكتمال كل شيء، ستظهر رسالة تشير إلى أن عملية الالتزام قد اكتملت، وسيظهر
+سجل git الخاص بك عملية الالتزام كأحدث إضافة. أنت الآن جاهز للدفع إلى GitHub.</p>
+<h3 id="github">انقل التغييرات إلى GitHub وأنشئ طلب السحب الخاص بك<a class="headerlink" href="#github" title="Permanent link">&para;</a></h3>
+<p>عندما تقوم بالدفع إلى GitHub لأول مرة، سيتم تزويدك بعنوان URL ينقلك مباشرة إلى
+صفحة GitHub لإنشاء طلب سحب جديد. اتبع عنوان URL وقم بإنشاء طلب السحب الخاص بك.</p>
+<p>فيما يلي مثال على ما يمكن توقعه عند الضغط على "push"، مع تمييز عنوان URL.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="22:3"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio" /><input id="__tabbed_22_2" name="__tabbed_22" type="radio" /><input id="__tabbed_22_3" name="__tabbed_22" type="radio" /><div class="tabbed-labels"><label for="__tabbed_22_1">macOS</label><label for="__tabbed_22_2">Linux</label><label for="__tabbed_22_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>push
+<span class="go">Enumerating objects: 15, done.</span>
+<span class="go">Counting objects: 100% (15/15), done.</span>
+<span class="go">Delta compression using up to 24 threads</span>
+<span class="go">Compressing objects: 100% (6/6), done.</span>
+<span class="go">Writing objects: 100% (8/8), 689 bytes | 689.00 KiB/s, done.</span>
+<span class="go">Total 8 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)</span>
+<span class="go">remote: Resolving deltas: 100% (4/4), completed with 4 local objects.</span>
+<span class="go">remote:</span>
+<span class="go">remote: Create a pull request for &#39;fix-win11-build&#39; on GitHub by visiting:</span>
+<span class="hll"><span class="go">remote:      https://github.com/&lt;your GitHub username&gt;/BeeWare/pull/new/fix-win11-build</span>
+</span><span class="go">remote:</span>
+<span class="go">To https://github.com/&lt;your GitHub username&gt;/BeeWare.git</span>
+<span class="go"> * [new branch]      fix-win11-build -&gt; fix-win11-build</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>push
+<span class="go">Enumerating objects: 15, done.</span>
+<span class="go">Counting objects: 100% (15/15), done.</span>
+<span class="go">Delta compression using up to 24 threads</span>
+<span class="go">Compressing objects: 100% (6/6), done.</span>
+<span class="go">Writing objects: 100% (8/8), 689 bytes | 689.00 KiB/s, done.</span>
+<span class="go">Total 8 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)</span>
+<span class="go">remote: Resolving deltas: 100% (4/4), completed with 4 local objects.</span>
+<span class="go">remote:</span>
+<span class="go">remote: Create a pull request for &#39;fix-win11-build&#39; on GitHub by visiting:</span>
+<span class="hll"><span class="go">remote:      https://github.com/&lt;your GitHub username&gt;/BeeWare/pull/new/fix-win11-build</span>
+</span><span class="go">remote:</span>
+<span class="go">To https://github.com/&lt;your GitHub username&gt;/BeeWare.git</span>
+<span class="go"> * [new branch]      fix-win11-build -&gt; fix-win11-build</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git push
+<span class="go">Enumerating objects: 15, done.</span>
+<span class="go">Counting objects: 100% (15/15), done.</span>
+<span class="go">Delta compression using up to 24 threads</span>
+<span class="go">Compressing objects: 100% (6/6), done.</span>
+<span class="go">Writing objects: 100% (8/8), 689 bytes | 689.00 KiB/s, done.</span>
+<span class="go">Total 8 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)</span>
+<span class="go">remote: Resolving deltas: 100% (4/4), completed with 4 local objects.</span>
+<span class="go">remote:</span>
+<span class="go">remote: Create a pull request for &#39;fix-win11-build&#39; on GitHub by visiting:</span>
+<span class="hll"><span class="gp">remote:      https://github.com/&lt;your GitHub username&gt;</span>/BeeWare/pull/new/fix-win11-build
+</span><span class="go">remote:</span>
+<span class="gp">To https://github.com/&lt;your GitHub username&gt;</span>/BeeWare.git
+<span class="gp"> * [new branch]      fix-win11-build -&gt;</span> fix-win11-build
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>إذا كنت قد قمت مسبقًا بدفع الفرع الحالي إلى GitHub، فلن تتلقى عنوان URL مرة
+أخرى. ومع ذلك، هناك طرق أخرى للوصول إلى عنوان URL لإنشاء PR:</p>
+<ul>
+<li>انتقل إلى المستودع الأصلي، وانقر على "طلبات السحب" ثم "طلب سحب جديد"، واختر من
+  أين تريد إرسال طلب السحب.</li>
+<li>إذا قمت بالدفع مؤخرًا، فانتقل إلى المستودع الأصلي، وحدد الشعار الموجود أعلى
+  قائمة الملفات الذي يشير إلى أن المستودع "تلقى دفعات مؤخرًا"، ثم انقر على الزر
+  "مقارنة وطلب سحب".</li>
+<li>استخدم أمر GitHub CLI <code>gh pr create</code>، واملأ المطالبات.</li>
+<li>استخدم أمر GitHub CLI <code>gh pr create --web</code> لفتح متصفح الويب على صفحة إنشاء PR.</li>
+</ul>
+<p>أي من هذه الخيارات سيمكنك من إنشاء طلب سحب جديد.</p>
+<div class="admonition info">
+<p class="admonition-title">واجهة CLI GitHub: <code>gh</code></p>
+<p>يوفر GitHub <a href="https://cli.github.com/">GitHub CLI</a>، الذي يتيح لك الوصول إلى
+العديد من ميزات GitHub من جهازك الطرفي، من خلال الأمر <code>gh</code>. تغطي <a href="https://cli.github.com/manual/">وثائق GitHub
+CLI</a> جميع الميزات.</p>
+</div>
+<h3 id="_14">سحب محتوى الطلب<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>يجب أن يكون عنوان طلب السحب (pull request) غنيًا بالمعلومات وواضحًا وموجزًا.
+حاول أن تجعله قصيرًا إن أمكن، ولكن العناوين الأطول مقبولة إذا لزم الأمر. يجب أن
+يعطي عنوان PR الجيد لشخص لا يملك أي سياق فكرة معقولة عن الخطأ أو الميزة التي تم
+تنفيذها بواسطة PR الخاص بك.</p>
+<p>يجب أن يعكس وصف PR بوضوح التغييرات التي طرأت على PR. يجب أن يتمكن أي شخص لا يعرف
+أي شيء عن السياق من قراءة الوصف الخاص بك، والحصول على فهم كامل نسبيًا لأسباب
+إجراء التغيير. تجنب النكات، والتعابير الاصطلاحية، واللغة العامية، والتنسيق غير
+الضروري، مثل استخدام الأحرف الكبيرة أو علامات الترقيم المفرطة؛ فالمقصود هو تقديم
+شرح مباشر لما يحدث في PR الخاص بك، وتجنب هذه الأشياء يجعل الوصف أكثر سهولة
+للآخرين.</p>
+<p>إذا كانت هناك أي حالات إعادة إنتاج، أو أي نظام اختبار استخدمته ولم يتم تضمينه
+بالفعل في التغييرات الموجودة في PR، فيجب شرحها وإدراجها في PR. يجب أن يتضمن
+الشرح كيفية تشغيلها، وما يجب فعله لإعادة إنتاج النتيجة المرجوة.</p>
+<p>إذا كان طلب السحب الخاص بك سيحل المشكلة رقم 1234، فيجب عليك تضمين النص "Fixes</p>
+<h1 id="1234">1234" في وصف طلب السحب الخاص بك. سيؤدي ذلك إلى إغلاق المشكلة تلقائيًا عند دمج<a class="headerlink" href="#1234" title="Permanent link">&para;</a></h1>
+<p>طلب السحب. يمكنك الإشارة إلى مناقشات أو مشكلات أو طلبات سحب أخرى باستخدام نفس
+صيغة "#1234". يمكنك الإشارة إلى مشكلة في مستودع مختلف عن طريق إضافة علامة - قبل
+الرقم، على سبيل المثال، "python/cpython#1234" تشير إلى المشكلة 1234 في مستودع
+CPython.</p>
+<h3 id="_15">التكامل المستمر<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p><em>التكامل المستمر</em>، أو <em>CI</em>، هو عملية إجراء فحوصات آلية على طلب السحب الخاص بك.
+يمكن أن يشمل ذلك فحوصات بسيطة مثل التأكد من صحة تنسيق الكود؛ ولكنه يشمل أيضًا
+تشغيل مجموعة الاختبارات وإنشاء الوثائق.</p>
+<p>هناك العديد من التغييرات التي يمكن أن تؤدي إلى فشل CI. بشكل عام، لن نراجع أي طلب
+سحب (PR) لا يجتاز CI. إذا قمت بإنشاء طلب سحب وفشل CI، فلن نبدأ المراجعة حتى
+يجتاز. إذا أدت تغييراتك إلى فشل، فمن مسؤوليتك البحث عن السبب وحل المشكلة.</p>
+<p>عند فشل CI، ستظهر روابط الفشل في أسفل صفحة PR، تحت عنوان "بعض الفحوصات لم تنجح".
+سترى قائمة بالفحوصات الفاشلة، والتي ستظهر في أعلى قائمة جميع الفحوصات إذا كانت
+هناك فحوصات ناجحة أيضًا. إذا نقرت على رابط الفشل، فسيأخذك إلى السجل. غالبًا ما
+يوفر السجل جميع المعلومات التي تحتاجها لمعرفة سبب الفشل. اقرأ السجل وحاول معرفة
+سبب حدوث الفشل، ثم قم بما هو ضروري لحله.</p>
+<p>في بعض الأحيان، قد تفشل عملية فحص CI لأسباب لا علاقة لها بالتغييرات التي
+أجريتها. قد يكون ذلك بسبب مشكلة في الجهاز الذي يقوم بتشغيل فحص CI؛ أو لأن فحص CI
+غير مستقر. إذا لاحظت فشلًا، وكنت متأكدًا تمامًا أنه لا علاقة له بالتغييرات التي
+أجريتها، أضف تعليقًا إلى PR الخاص بك بهذا الشأن، وسنقوم بفحصه.</p>
+<p>لبدء تشغيل CI جديد، تحتاج إلى دفع التغييرات الجديدة إلى فرعك.</p>
+<p>إذا وجدت نفسك في موقف تحتاج فيه إلى المساعدة لتمرير CI، فاترك تعليقًا على PR
+لإعلامنا بذلك وسنبذل قصارى جهدنا لمساعدتك.</p>
+<div class="admonition note">
+<p class="admonition-title">فحوصات <code>pre-commit</code> و<code>towncrier</code></p>
+<p>إذا فشلت فحوصات <code>pre-commit</code> أو <code>towncrier</code>، فسيتم حظر تشغيل معظم فحوصات CI
+المتبقية. ستحتاج إلى حل المشكلات ذات الصلة قبل تشغيل مجموعة الفحوصات الكاملة.</p>
+</div>
+<p>لدينا موارد CI محدودة. من المهم أن تفهم أن CI سيبدأ في كل مرة تقوم فيها بالدفع
+إلى الفرع. إذا كنت تنوي إجراء عدد من التغييرات، فمن الأفضل إجراء هذه التغييرات
+محليًا، ودفعها جميعًا دفعة واحدة. سيتم تشغيل CI فقط على أحدث التزام في الدفعة،
+مما يقلل من الحمل على نظام CI لدينا.</p>
+<p>لا تكتمل عملية تقديم طلبك للحصول على الإقامة الدائمة إلا بعد اجتيازه لفحص CI، أو
+يمكنك تقديم تفسير لسبب عدم اجتيازه.</p>
+</details>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © Russell Keith-Magee
+    </div>
+  
+  
+</div>
+      
+        <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!--
+  Split a string with a separator - while Jinja allows to call ".split" on a
+  string, it doesn't natively bring a "split" filter implementation. We can't
+  simply add further filters, since MkDocs doesn't allow it, so we're stuck
+  with the function call. This however doesn't work with minijinja, which does
+  not allow to call functions on template variables, but has a "split" filter.
+  Thus, we just branch and extract the part that interests us here.
+-->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Social links -->
+<div class="md-social">
+  
+
+    <!-- Automatically set rel=me for Mastodon -->
+    
+    
+
+    <!-- Compute title and render link -->
+    
+    
+    <a
+      href="https://github.com/beeware"
+      target="_blank" rel="noopener"
+      title="BeeWare on GitHub"
+      class="md-social__link"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+
+    <!-- Automatically set rel=me for Mastodon -->
+    
+    
+      
+    
+
+    <!-- Compute title and render link -->
+    
+    
+    <a
+      href="https://fosstodon.org/@beeware"
+      target="_blank" rel="noopener me"
+      title="BeeWare on Mastodon"
+      class="md-social__link"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54-.6-4.6-.9-9.3-.9-13.9 85.6 20.9 158.7 9.1 178.7 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6V190.1c0-49.7-64-51.6-64 6.9v62.5H201V197c0-58.5-64-56.6-64-6.9v114.2H90.3c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175"/></svg>
+    </a>
+  
+
+    <!-- Automatically set rel=me for Mastodon -->
+    
+    
+
+    <!-- Compute title and render link -->
+    
+    
+    <a
+      href="https://beeware.org/bee/chat/"
+      target="_blank" rel="noopener"
+      title="BeeWare on Discord"
+      class="md-social__link"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"/></svg>
+    </a>
+  
+
+    <!-- Automatically set rel=me for Mastodon -->
+    
+    
+
+    <!-- Compute title and render link -->
+    
+    
+    <a
+      href="https://beeware.org/news/buzz/atom.xml"
+      target="_blank" rel="noopener"
+      title="BeeWare blog RSS feed"
+      class="md-social__link"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 104c0-13.3 10.7-24 24-24 137 0 248 111 248 248 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-110.5-89.5-200-200-200-13.3 0-24-10.7-24-24m0 96c0-13.3 10.7-24 24-24 83.9 0 152 68.1 152 152 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-57.4-46.6-104-104-104-13.3 0-24-10.7-24-24m0 120a32 32 0 1 1 64 0 32 32 0 1 1-64 0"/></svg>
+    </a>
+  
+        <div class="footer-link">
+            <a href="https://beeware.org/bee/coc">Code of Conduct</a>
+        </div>
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.tabs.link", "toc.follow", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.path", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u062a\u0645 \u0627\u0644\u0646\u0633\u062e \u0627\u0644\u0649 \u0627\u0644\u062d\u0627\u0641\u0638\u0629", "clipboard.copy": "\u0646\u0633\u062e \u0625\u0644\u0649 \u0627\u0644\u062d\u0627\u0641\u0638\u0629", "search.result.more.one": "\u0623\u0643\u062b\u0631 \u0645\u0646 1 \u0641\u064a \u0647\u0630\u0647 \u0627\u0644\u0635\u0641\u062d\u0629", "search.result.more.other": "\u0623\u0643\u062b\u0631 \u0645\u0646 # \u0641\u064a \u0647\u0630\u0647 \u0627\u0644\u0635\u0641\u062d\u0629", "search.result.none": "\u0644\u0627 \u062a\u0648\u062c\u062f \u0646\u062a\u0627\u0626\u062c", "search.result.one": "\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0628\u062d\u062b \u0645\u0633\u062a\u0646\u062f \u0648\u0627\u062d\u062f", "search.result.other": "\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0628\u062d\u062b # \u0645\u0633\u062a\u0646\u062f\u0627\u062a", "search.result.placeholder": "\u0627\u0643\u062a\u0628 \u0644\u0628\u062f\u0621 \u0627\u0644\u0628\u062d\u062b", "search.result.term.missing": "\u0645\u0641\u0642\u0648\u062f", "select.version": "\u0625\u062e\u062a\u0631 \u0627\u0644\u0625\u0635\u062f\u0627\u0631"}, "version": null}</script>
+    
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+    <script src="../../../../assets/javascripts/copy_button.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,616 @@
+/* Cleans up vertical spacing on breadcrumbs. */
+.md-path {
+    margin-top: 0.2rem;
+    padding-top: 0;
+    font-size: 1rem;
+}
+
+/* Lines up > in breadcrumbs with text */
+.md-path__item:not(:first-child)::before {
+    margin-top: 0.2rem;
+}
+
+@media screen and (min-width: 76.25em) {
+  .md-path {
+        flex: 54%;
+        margin: 0;
+  }
+}
+
+/* Colors breadcrumb links */
+.md-path__link {
+    color: light-dark(#084AFF, #526CFE);
+}
+
+/* Forces all titles to line up, including pages without breadcrumbs. */
+md-path__list > .md-path__item > .md-path__link {
+    margin-top: -0.4rem;
+}
+
+.md-path__list {
+    margin-top: 1.8rem;
+}
+
+.md-path__item {
+    margin-top: -1.2rem;
+}
+
+/* Fixes search input location in header */
+.md-search {
+    margin-right: 0.3rem;
+}
+
+/* Removes custom changes to theme that reclaims the space from the Material theme in the API docs */
+.md-main__inner {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.md-header {
+    margin-bottom: 0;
+}
+
+.md-sidebar {
+    padding-top: 0.8rem;
+}
+
+.md-sidebar--primary:is([hidden]) ~ .md-content {
+    margin-left: 6.75rem;
+    margin-right: 6.75rem;
+}
+
+.md-content__inner {
+    padding-top: 8px;
+    margin: 0;
+}
+
+.md-content__inner::before {
+    height: 0;
+}
+
+.md-footer {
+    margin-top: 2rem;
+}
+
+@media screen and (min-width: 60em) {
+    .md-sidebar__scrollwrap {
+        margin-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+/* Website index */
+.md-content:has(.md-content__inner .index-page) {
+    margin-left: 3.3rem;
+    margin-right: 3.3rem;
+}
+
+.index-intro-full {
+    background-color: light-dark(#E9ECEF, #282D32);
+    margin-top: -2rem;
+    padding: 2rem 0 1rem 0;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.index-intro-content h2 {
+    font-family: Cutive, serif;
+}
+
+.index-intro-content h1 a.headerlink,
+.index-main-content h2 a.headerlink,
+.index-main-content h4 a.headerlink {
+    display: none;
+}
+
+.index-page-content {
+    padding: 0 2rem 0 0;
+    max-width: 47rem;
+}
+
+.index-sidebar {
+    background-color: light-dark(#E9ECEF, #282D32);
+}
+
+h3.index-sidebar-gold-member {
+    margin-top: 0;
+}
+
+.index-docs-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.index-docs-links p,
+.index-docs p {
+    margin: 0;
+}
+
+.index-docs-links img {
+    max-width: 60px;
+    margin-right: 0.5rem;
+}
+
+a.intro-tutorial,
+a.intro-contribute,
+a.intro-donate {
+    padding: .5rem 1rem;
+    margin: 0 0.5rem 0 0;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+    display: inline-block;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    color: #FFFFFF;
+    background-color: #007BFF;
+}
+
+.index-intro-clearfix {
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+a.intro-donate {
+    background-color: #28A745;
+}
+
+a.intro-tutorial:hover,
+a.intro-contribute:hover,
+a.index-main-contribute:hover {
+    color: #FFFFFF;
+    background-color: #0069D9;
+    border-color: #0062CC;
+}
+
+a.intro-donate:hover,
+a.index-main-keep:hover {
+    color: #FFFFFF;
+    background-color: #218838;
+    border-color: #1e7e34;;
+}
+
+@media screen and (min-width: 760px)
+and (max-width: 1220px) {
+    .index-intro-content h1 {
+        font-size: 6rem;
+        margin-bottom: 0;
+    }
+
+    .index-intro-content h2 {
+        margin-top: 1rem;
+        font-size: 1.8rem;
+    }
+
+    a.index-main-contribute,
+    a.index-main-keep {
+        display: inline-block;
+        width: 15rem;
+    }
+
+    a.intro-tutorial,
+    a.intro-contribute,
+    a.intro-donate {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 1220px) {
+    .index-intro-content h1 {
+        font-size: 8rem;
+        margin-bottom: 0;
+    }
+
+    .index-intro-content h2 {
+        margin-top: 1rem;
+        font-size: 2.2rem;
+    }
+}
+
+@media screen and (max-width: 1030px){
+    .index-intro-beeware-logo {
+        width: 250px;
+    }
+}
+
+@media screen and (min-width: 690px) {
+    .index-intro-block {
+        display: flex;
+        justify-content: center;
+    }
+
+    .index-intro-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .index-intro-content {
+        display: flex;
+        flex-basis: min-content;
+        flex-direction: column;
+        max-width: 90%;
+    }
+
+    .index-sidebar {
+        display: flex;
+        flex-direction: column;
+        min-width: 21rem;
+        padding: 1rem;
+        height: fit-content;
+        border-radius: 15px;
+        margin: 1.5rem 0 0 0.4rem;
+    }
+
+    .index-main-content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .index-intro-beeware-logo {
+        float: left;
+        padding-left: 4rem;
+    }
+
+    a.index-main-contribute,
+    a.index-main-keep {
+        display: inline-block;
+        width: 25rem;
+    }
+}
+
+@media screen and (max-width: 1174px) {
+    .index-main-content {
+        display: unset;
+        flex-direction: unset;
+    }
+
+    .index-sidebar {
+        max-width: 25rem;
+    }
+}
+
+@media screen and (max-width: 926px) {
+    .index-intro-buttons {
+        display: flex;
+        flex-direction: column;
+        justify-content: right;
+    }
+
+    .index-intro-beeware-logo {
+        width: 200px;
+    }
+}
+
+.index-right-logo {
+    float: right;
+    margin-left: 0.5rem;
+}
+
+.index-left-logo {
+    float: left;
+    margin-right: 0.5rem;
+}
+
+.index-main-button {
+    display: flex;
+    justify-content: center;
+}
+
+a.index-main-contribute,
+a.index-main-keep {
+    padding: .5rem 1rem;
+    margin: 0 0.5rem 0 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+    border: 1px solid transparent;
+    color: #FFFFFF;
+    background-color: #007BFF;
+}
+
+a.index-main-keep {
+    background-color: #28A745;
+}
+
+/* On this page ToC sidebar */
+.md-sidebar--secondary {
+    min-width: 15rem;
+}
+
+h2#sidebar {
+    margin-top: 0rem;
+}
+
+[data-md-toggle="drawer"]:checked ~ .md-container .md-sidebar--primary {
+    padding: 8rem;
+}
+
+.md-nav--primary .md-nav__item {
+    font-size: 1rem;
+}
+
+@supports selector(::-webkit-scrollbar) {
+    [dir=ltr] .md-sidebar__inner {
+        padding-right: unset;
+    }
+}
+
+/* Team page */
+.team-member {
+    height: 30rem;
+}
+
+.team-image-details {
+    float: right;
+    padding-top: 2.5rem;
+    max-width: 38%;
+    font-size: 0.85rem;
+    line-height: 0.5rem;
+}
+
+.team-image-details img {
+    width: 230px;
+}
+
+.team-bio {
+    float: left;
+    max-width: 60%;
+}
+
+.team-join,
+.team-emeritus {
+    display: none;
+}
+
+/* Documentation page CSS */
+/* Workaround for not having H1 on page */
+h1.documentation {
+    display: none;
+}
+
+.tutorial {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: light-dark(#E9ECEF, #282D32);;
+    border-radius: 5px;
+    padding-bottom: 1rem;
+}
+
+.tutorial-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2.featured-tools,
+h2.other-tools {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.tutorial-logo {
+    margin-right: 3rem;
+}
+
+@media screen and (max-width: 43.125rem) {
+    .docs-tutorial {
+        width: 11rem;
+        margin: 0 0.5rem;
+    }
+}
+
+@media screen and (min-width: 43.125rem) {
+    .docs-tutorial {
+        width: 20rem;
+    }
+}
+
+a.docs-tutorial {
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+    display: inline-block;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    color: white;
+    background-color: #007BFF;
+}
+
+a.docs-tutorial:hover {
+    color: white;
+    background-color: #0069D9;
+    border-color: #0062CC;
+}
+
+.featured {
+    display: flex;
+    flex-direction: row;
+}
+
+.toga,
+.briefcase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+}
+
+.briefcase {
+    margin-left: 5rem;
+}
+
+.featured img {
+    width: 150px;
+    display: inline-block;
+}
+
+h2.featured-name {
+    margin-top: 0;
+}
+
+.other-tools-package {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.other-tools-info {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1em;
+}
+
+.other-tools-package img {
+    display: inline-block;
+    width: 40px;
+}
+
+h4.podium-name,
+h4.rubicon-name,
+h4.python-apple-name,
+h4.chaquopy-name {
+    margin-bottom: 0;
+}
+
+div[class*="-info"] p {
+    margin-top: 0;
+    max-width: 42rem;
+;
+}
+
+.docs-spacing {
+    height: 1em;
+}
+
+h2.beeware-project {
+    margin-bottom: 0.64rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+h2.beeware-project ~ p {
+    max-width: 45rem;
+}
+
+/* Blog */
+h1 .news {
+    margin-top: 1.8rem;
+}
+
+.md-sidebar--primary,
+.md-sidebar--post {
+    width: 13rem;
+}
+
+.md-post__content h2:first-of-type {
+    display: none;
+}
+
+.md-typeset .md-author {
+    font-size: 0.8rem;
+}
+
+.author-name {
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+}
+
+.md-sidebar--primary:is([hidden]) ~ .md-content.md-content--post {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+@media screen and (min-width: 76.25em) {
+    /* Disable sidebar other than blog navigation */
+    .small .sidebar-title-block {
+        display: none;
+    }
+
+    .md-nav--primary > .md-nav__list > .md-nav__item.md-nav__item--nested {
+        display: none;
+    }
+
+    .md-nav--primary > .md-nav__list > .md-nav__item.md-nav__item--active,
+    .md-nav--primary > .md-nav__list > .md-nav__item.md-nav__item--active > .md-nav .md-nav__list .md-nav__item {
+        display: block;
+        width: 11.25rem;
+    }
+
+    .md-post__meta > li {
+        display: unset;
+    }
+
+    [dir="ltr"] .md-sidebar--secondary:not([hidden]) ~ .md-content > .md-content__inner {
+        margin-right: 0.5rem;
+    }
+
+    [dir="ltr"] .md-content--post > .md-content__inner {
+        margin-left: 0.5rem;
+    }
+
+    [dir="ltr"] .md-sidebar--primary:not([hidden]) ~ .md-content > .md-content__inner {
+        margin-left: 0.5rem;
+    }
+
+    .md-typeset iframe {
+        width: 560px;
+        height: 315px;
+    }
+}
+
+/* Maintains width of blog content when display reaches this size */
+@media screen and (max-width: 1220px) {
+    .md-post__content p,
+    .md-post .post-title,
+    .md-content__inner:has(.md-post) {
+        max-width: 45rem;
+    }
+}
+
+/* Membership */
+/* Members list */
+.anaconda_dark_mode {
+    display: none;
+}
+
+[data-md-color-scheme="slate"] {
+  .anaconda_dark_mode {
+    display: block;
+  }
+
+  .anaconda_light_mode {
+    display: none;
+  }
+}
+
+.pro-members {
+    display: flex;
+}
+
+.pro-member-avatar {
+    margin-right: 1.5rem;
+}
+
+.pro-member-name {
+    margin-top: auto;
+    margin-bottom: auto;
+}

@@ -1,0 +1,641 @@
+/* Fonts */
+@font-face {
+  font-family: "Cutive";
+  src: url("../fonts/Cutive.woff2");
+}
+
+:root {
+    color-scheme: light dark;
+}
+
+[data-md-color-primary=indigo] {
+    --md-primary-fg-color: #343A40;
+    --md-primary-fg-color--light: #343A40;
+    --md-primary-fg-color--dark:  #343A40;
+}
+
+/* Disables dynamic font sizing, in favor of being able to more reliably keep */
+/* content at a 40rem width. */
+html {
+    font-size: unset;
+}
+
+/* The theme setting the font size on the body is an accessibility issue. */
+body {
+    font-size: 1rem;
+}
+
+/* Setting overall font size to 1rem. */
+.md-typeset {
+    font-size: 1rem;
+}
+
+/* Remove header markers to avoid spacing issues with longer headers. Use the ToC instead. */
+.md-typeset .headerlink {
+    display: none;
+}
+
+/* Disable header shadow */
+.md-header--shadow {
+    box-shadow: unset;
+}
+
+.md-header__topic, nav.md-tabs {
+    font-family: Cutive, serif;
+}
+
+nav.md-tabs, .md-header {
+    background-color: var(--md-primary-fg-color);
+}
+
+.md-header__title {
+    font-size: 1.24rem;
+    line-height: 3.3rem;
+    height: 3.3rem;
+}
+
+.md-tabs__link {
+    font-size: 0.97rem;
+    margin-top: 0.7rem;
+}
+
+.md-header__button.md-logo img {
+    height: 2rem;
+}
+
+.md-header {
+    position: unset;
+    display: flex;
+}
+
+.md-header__inner {
+    margin-left: 0;
+}
+
+.md-header__option > input {
+    bottom: unset;
+}
+
+[dir="ltr"] .md-header__title {
+    margin-left: 0;
+}
+
+.md-header__topic {
+    position: unset;
+    transition: unset;
+}
+
+.md-icon svg {
+    height: 1.65rem;
+    width: 1.65rem;
+}
+
+/* Search */
+.md-search {
+    margin-left: 1rem;
+}
+
+input.md-search__input,
+.md-search__suggest,
+.md-search-result__meta {
+    font-family: 'Cutive', serif;
+}
+
+input.md-search__input,
+.md-search__suggest {
+    font-size: 1.21rem;
+}
+
+.md-search-result__meta {
+    padding: 1rem 0.8rem 0.4rem 0.8rem;
+    line-height: 2rem;
+    font-size: 0.88rem;
+}
+
+.md-search__form {
+    height: 2.5rem;
+}
+
+@media screen and (min-width: 60em) {
+  .md-search__inner {
+      width: unset;
+  }
+}
+
+/* Link colors */
+/* Remove link color from section headers that are not links */
+.md-nav__link[for]:focus,
+.md-nav__link[for]:hover {
+    color: unset;
+}
+
+/* Only color section header links as links */
+.md-typeset a,
+a.md-nav__link,
+a.md-nav__link[for]:focus,
+a.md-nav__link[for]:hover {
+    color: light-dark(#084AFF, #526CFE);
+}
+
+.md-nav__item a.md-nav__link--active {
+    color: light-dark(#30314B, #96ACEE)
+}
+
+/* Header fonts */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+    font-family: 'Cutive', serif;
+    color: var(--md-typeset-color);
+    clear: both;
+}
+
+/* Update font sizes to match sizes before dynamic sizing was disabled. */
+/* Headers */
+.md-typeset h1 {
+    font-size: 3rem;
+    margin-bottom: 0.64rem;
+}
+
+.md-typeset h2 {
+    font-size: 2rem;
+    margin-bottom: 0.64rem;
+    margin-top: 2rem;
+}
+
+.md-typeset h3 {
+    font-size: 1.6rem;
+    margin: 2rem 0 0 0;
+}
+
+.md-typeset h4 {
+    font-size: 1.2rem;
+}
+
+.md-typeset h5,
+.md-typeset h6 {
+    font-size: 0.96rem;
+}
+
+/* Admonitions */
+.md-typeset .admonition,
+.md-typeset details {
+   font-size: 1rem;
+}
+
+/* Tabs */
+.md-typeset .tabbed-labels > label {
+    font-size: 1rem;
+}
+
+/* Link colors */
+
+.md-nav__link[for]:focus,
+.md-nav__link[for]:hover {
+    color: unset;
+}
+
+.md-typeset a,
+a.md-nav__link,
+a.md-nav__link[for]:focus,
+a.md-nav__link[for]:hover {
+    color: light-dark(#084AFF, #526CFE);
+}
+
+.md-nav__item a.md-nav__link--active {
+    color: light-dark(#30314B, #96ACEE)
+}
+
+.md-main__inner {
+    margin-top: unset;
+}
+
+/* Sidebar title and GitHub links font and color */
+.md-nav__title {
+    font-family: 'Cutive', serif;
+}
+
+.md-nav__title {
+    color: unset;
+}
+
+.md-select:focus-within .md-select__inner,
+.md-select:hover .md-select__inner {
+    max-height: none;
+}
+
+.md-select__list {
+    font-size: 1rem;
+    font-family: 'Cutive', serif;
+}
+
+.md-select__item {
+    line-height: 2.5rem;
+}
+
+.md-select__inner {
+    background-color: light-dark(#E9ECEF, #282D32);
+}
+
+/* Version number */
+.version-number {
+    overflow-wrap: anywhere;
+    font-size: 12px;
+    font-size: 12px;
+    font-weight: normal;
+    margin-top: 0.2rem;
+}
+
+/* GitHub sidebar links */
+.github-links {
+    font-weight: normal;
+}
+
+.github-link-block a {
+    color: light-dark(#084AFF, #526CFE);
+}
+
+.github-link-block a:first-child .github-links {
+    margin-top: 0.8rem;
+    margin-bottom: 0.2rem;
+}
+
+.github-link-block a:last-child .github-links {
+    margin-bottom: 0.6rem;
+}
+
+.small .github-link-block a:first-child .github-links {
+    margin-top: 0.4rem;
+}
+
+.small .github-link-block a:last-child .github-links {
+    margin-bottom: 0.4rem;
+}
+
+/* Shows the logo in the sidebar */
+.md-nav__title .md-nav__button {
+    display: unset;
+}
+
+/* Style the sidebar title block on primary pages and in sidebar drawer */
+.small .sidebar-title-block {
+    display: flex;
+    flex-flow: nowrap row;
+    align-items: center;
+}
+
+.small .sidebar-title-block-name {
+    align-items: start;
+}
+
+.sidebar-logo {
+    margin-bottom: 0.8em;
+    margin-top: 0.8em;
+    margin-right: 0.2rem;
+}
+
+/* Embiggen homepage logo */
+.md-nav__title .md-nav__button.md-logo img {
+    height: unset;
+}
+
+/* Embiggen sidebar drawer logo and match sidebar */
+/*.md-nav__title.small .md-nav__button.md-logo img {*/
+/*    height: unset;*/
+/*    max-width: unset;*/
+/*    width: 74px;*/
+/*}*/
+
+/* The menu button for the sidebar drawer to display the sidebar on smaller displays */
+.mobile-drawer-button-site-name {
+    font-family: Cutive, "serif";
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.mobile-drawer-button-version-number {
+    font-size: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 4px;
+    padding-left: 4px;
+}
+
+.mobile-sidebar-drawer-menu-bar {
+    color: light-dark(#000000, #FFFFFF);
+    background-color: light-dark(#F8F9FB, #4E4F52);
+}
+
+/* Adjustments for larger displays */
+@media screen and (min-width: 1220px) {
+    /* Hide menu bar when not needed */
+    .mobile-sidebar-drawer-menu-bar {
+        display: none;
+    }
+
+    .sidebar-title-block-name {
+        display: flex;
+        flex-flow: nowrap column;
+        align-items: center;
+    }
+
+    .small .site-name {
+        text-align: start;
+    }
+
+    /* Site name */
+    .site-name {
+        font-size: 20px;
+        text-align: center;
+    }
+}
+
+/* Site name font size on mid-sized displays */
+@media screen and (max-width: 1599.99px)
+and (min-width: 1220px) {
+    .site-name {
+        font-size: 19px;
+    }
+
+    .sidebar-logo {
+        width: 50px;
+    }
+}
+
+@media screen and (max-width: 1999.99px)
+and (min-width: 1600px) {
+    .site-name {
+        font-size: 21px;
+    }
+
+    .sidebar-logo {
+        width: 74px;
+    }
+}
+
+@media screen and (min-width: 2000px) {
+    .site-name {
+        font-size: 22px;
+    }
+}
+
+/* Adjustments for smaller displays */
+@media screen and (max-width: 1219.99px) {
+    .md-nav--primary .md-nav__title[for="__drawer"] {
+        height: initial;
+        white-space: unset;
+        line-height: 1.3;
+        color: light-dark(#000000, #FFFFFF);
+        background-color: light-dark(#F8F9FB, #4E4F52);
+    }
+
+    .md-nav--primary .md-nav__title {
+        padding-top: 16px;
+    }
+
+    .md-nav--primary .md-nav__title .md-logo {
+        position: unset;
+        padding: 0;
+    }
+
+    /* Position of left sidebar */
+    .md-sidebar.md-sidebar--secondary {
+        top: 66px !important;
+    }
+
+    /* Sidebar drawer header styling */
+    .sidebar-logo {
+        margin-right: 0.2rem;
+    }
+
+    .sidebar-title-block {
+        display: flex;
+        flex-flow: nowrap row;
+        align-items: center;
+    }
+
+    .site-name {
+        font-size: 50px;
+    }
+
+    .md-nav__title .md-nav__button.md-logo img {
+        height: unset;
+        max-width: unset;
+        width: 74px;
+    }
+}
+
+/* Sidebar drawer */
+@media screen and (max-width: 76.2344em) {
+    [dir="ltr"] .md-sidebar--primary {
+        width: 12.1rem;
+    }
+
+    .md-nav__title .md-nav__button.md-logo img {
+        width: 50px;
+    }
+
+    .site-name {
+        font-size: 1rem;
+    }
+
+    .version-number {
+        font-size: 0.65rem;
+    }
+
+    .md-nav__link {
+        font-size: 1rem;
+    }
+}
+
+/* Removes padding and margins to regain screen-space on pages with short content.
+   There is JS setting `top: 68px` on the sidebars that is eating up a huge amount
+   of space. Overriding `top` causes a significant gap at the bottom between the end
+   of the sidebar and the footer. Therefore the following margin changes are needed.
+*/
+.md-main__inner {
+    margin-top: 0;
+    padding-top: 12px;
+}
+
+.md-header {
+    margin-bottom: 49px;
+}
+
+.md-sidebar {
+    padding-top: 12px;
+    width: 16rem;
+}
+
+.md-grid {
+    max-width: 79.4rem;
+}
+
+.md-content__inner {
+    padding-top: 8px;
+    margin-top: -54px;
+}
+
+.md-content__inner::before {
+    height: 0;
+}
+
+.md-nav {
+    font-size: 1rem;
+}
+
+.md-footer {
+    position: relative;
+    margin-top: 69px;
+}
+
+@media screen and (min-width: 60em) {
+    .md-sidebar__scrollwrap {
+        margin-top: -54px;
+        padding-bottom: 4rem;  /* Scrollbar bugfix; enables scrolling to the bottom */
+    }
+}
+
+/* Fix "Made with" hover link color in light mode */
+html .md-footer-meta.md-typeset a:hover {
+    color: light-dark(#084AFF, #526CFE)
+}
+
+/* Read the Docs elements font size fix */
+readthedocs-flyout,
+readthedocs-notification,
+readthedocs-search,
+readthedocs-hotkeys,
+readthedocs-filetreediff,
+readthedocs-docdiff {
+    font-size: small;
+}
+
+/* 404 page text */
+#not-found-text {
+    float: right;
+}
+
+/* Tabbed content outlines */
+.md-typeset .tabbed-labels > label:first-of-type {
+    margin-left: 1rem;
+}
+
+.md-typeset .tabbed-labels {
+    box-shadow: unset;
+}
+
+.tabbed-content .tabbed-block {
+    border: 2px solid #777777;
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+/* Forces only highlighting the important bits of codeblocks */
+.highlight .gp, .highlight .go, .highlight .w {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Codeblock copy button styling */
+.copy-button, .copy-button-copied {
+    position: absolute;
+    display: flex;
+    float: right;
+    right: 0;
+    top: 0;
+    font-family: var(--md-text-font-family), serif;
+    /* The following two styles are included to deal with code block content
+       that exceeds the width of the main content block. Without this styling
+       the code shows behind the button, making it difficult to see. */
+    background-color: var(--md-code-bg-color);
+    padding: 14px 14px 5px 5px;
+}
+
+svg.copy-icon {
+    height: 1em;
+}
+
+.copy-button svg.copy-icon {
+    fill: #777777;
+}
+
+.copy-button-copied svg.copy-icon {
+    fill: #009900;
+    padding-left: 8px;
+}
+
+/* Search */
+input.md-search__input, .md-search__suggest, .md-search-result__meta {
+    font-family: 'Cutive', serif;
+}
+
+.md-search__suggest {
+    padding-top: 1px;
+}
+
+.md-search-result .md-typeset h1 {
+    font-size: 1.6rem;
+}
+
+.md-search-result .md-typeset h2,
+.md-search-result .md-typeset {
+    font-size: 1rem;
+}
+
+/* Footer and footer navigation color */
+.md-footer, .md-footer-meta {
+    background-color: light-dark(#f5f5f5, #343A40);
+}
+
+footer.md-footer *, html .md-footer-meta.md-typeset a  {
+    color: light-dark(#343A40, #E2E4E9);
+}
+
+/* Footer navigation */
+.md-footer__inner {
+    padding: 0;
+}
+
+.md-footer__inner .md-footer__title .md-ellipsis {
+    overflow: unset;
+}
+
+.md-footer__link {
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+}
+
+.md-footer__title {
+    font-size: 0.9rem;
+}
+
+.md-footer__direction {
+    font-size: 0.9rem;
+}
+
+.md-footer__button {
+    margin: 0 0 0.2rem 0;
+}
+
+.md-copyright {
+    font-size: 1rem;
+}
+
+.md-social__link svg {
+    max-height: 1.2rem;
+}
+
+.footer-link {
+    margin: 0.1rem 0 0 0.3rem;
+}
+
+/* Indent contents of classes/methods/etc. */
+.doc-contents,
+.doc-signature {
+    margin-left: 2em;
+}
