@@ -1,4 +1,6 @@
-<a href="https://beeware.org"><img src="http://beeware.org/static/images/brutus-270.png" width="72px" alt="Brutus the Bee"></a>
+<a href="https://beeware.org"><img src="https://beeware.org/about/images/brutus-128.png" width="72px" alt="Brutus the Bee"></a>
+
+**THIS BRANCH HAS BEEN ARCHIVED: In Feburary 2026, we moved our website from Lektor to MkDocs. The canonical branch of this repository is now the `main` branch. The last commit on this branch removed the Github Actions configurations that implemented translation and publication controls**
 
 # beeware.github.io
 
