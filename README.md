@@ -2,7 +2,7 @@
 
 This is the homepage for the [BeeWare project](http://beeware.org).
 
-It is a [MkDocs](https://mkdocs.org)-based site.
+It is a [MkDocs](https://mkdocs.org)-based site. The site is hosted on GitHub Pages, with PR builds being provided by ReadTheDocs.
 
 ## Getting started
 
