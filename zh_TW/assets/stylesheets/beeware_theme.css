@@ -5,7 +5,17 @@
 }
 
 :root {
-    color-scheme: light dark;
+  --brand-font: "Cutive", serif;
+  color-scheme: light dark;
+}
+
+/* East Asian Languages can't use Cutive; fall back to sans-serif */
+:lang(ja),
+:lang(ko),
+:lang(zh),
+:lang(zh_CN),
+:lang(zh_TW) {
+  --brand-font: "Cutive", sans-serif;
 }
 
 [data-md-color-primary=indigo] {
@@ -41,7 +51,7 @@ body {
 }
 
 .md-header__topic, nav.md-tabs {
-    font-family: Cutive, serif;
+    font-family: var(--brand-font);
 }
 
 nav.md-tabs, .md-header {
@@ -98,7 +108,7 @@ nav.md-tabs, .md-header {
 input.md-search__input,
 .md-search__suggest,
 .md-search-result__meta {
-    font-family: 'Cutive', serif;
+    font-family: var(--brand-font);
 }
 
 input.md-search__input,
@@ -141,6 +151,14 @@ a.md-nav__link[for]:hover {
     color: light-dark(#30314B, #96ACEE)
 }
 
+/* Bump the font weight slightly for h1 and h2.  This will make fonts in some scripts,
+   e.g. Chinese have more consistent weights with Cutive, which is thicker than most
+   typical 300-weight fonts.  Cutive itself does not get emboldened by using 400.  */
+.md-typeset h1,
+.md-typeset h2 {
+    font-weight: 400;
+}
+
 /* Header fonts */
 .md-typeset h1,
 .md-typeset h2,
@@ -148,7 +166,7 @@ a.md-nav__link[for]:hover {
 .md-typeset h4,
 .md-typeset h5,
 .md-typeset h6 {
-    font-family: 'Cutive', serif;
+    font-family: var(--brand-font);
     color: var(--md-typeset-color);
     clear: both;
 }
@@ -215,7 +233,7 @@ a.md-nav__link[for]:hover {
 
 /* Sidebar title and GitHub links font and color */
 .md-nav__title {
-    font-family: 'Cutive', serif;
+    font-family: var(--brand-font);
 }
 
 .md-nav__title {
@@ -229,7 +247,7 @@ a.md-nav__link[for]:hover {
 
 .md-select__list {
     font-size: 1rem;
-    font-family: 'Cutive', serif;
+    font-family: var(--brand-font);
 }
 
 .md-select__item {
@@ -311,7 +329,7 @@ a.md-nav__link[for]:hover {
 
 /* The menu button for the sidebar drawer to display the sidebar on smaller displays */
 .mobile-drawer-button-site-name {
-    font-family: Cutive, "serif";
+    font-family: var(--brand-font);
     font-size: 16px;
     display: inline-block;
     vertical-align: middle;
@@ -571,7 +589,7 @@ svg.copy-icon {
 
 /* Search */
 input.md-search__input, .md-search__suggest, .md-search-result__meta {
-    font-family: 'Cutive', serif;
+    font-family: var(--brand-font);
 }
 
 .md-search__suggest {

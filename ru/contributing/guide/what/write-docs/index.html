@@ -1,0 +1,6531 @@
+<!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://beeware.org/contributing/guide/what/write-docs/">
+      
+      
+        <link rel="prev" href="../implement-feature/">
+      
+      
+        <link rel="next" href="../triage/">
+      
+      
+        
+          <link rel="alternate" href="/en/" hreflang="en">
+        
+          <link rel="alternate" href="/ar/" hreflang="ar">
+        
+          <link rel="alternate" href="/cs/" hreflang="cs">
+        
+          <link rel="alternate" href="/da/" hreflang="da">
+        
+          <link rel="alternate" href="/de/" hreflang="de">
+        
+          <link rel="alternate" href="/es/" hreflang="es">
+        
+          <link rel="alternate" href="/fa/" hreflang="fa">
+        
+          <link rel="alternate" href="/fr/" hreflang="fr">
+        
+          <link rel="alternate" href="/it/" hreflang="it">
+        
+          <link rel="alternate" href="/ja/" hreflang="ja">
+        
+          <link rel="alternate" href="/ko/" hreflang="ko">
+        
+          <link rel="alternate" href="/pl/" hreflang="pl">
+        
+          <link rel="alternate" href="/pt/" hreflang="pt">
+        
+          <link rel="alternate" href="/ru/" hreflang="ru">
+        
+          <link rel="alternate" href="/tr/" hreflang="tr">
+        
+          <link rel="alternate" href="/zh_CN/" hreflang="zh-Hant">
+        
+          <link rel="alternate" href="/zh_TW/" hreflang="zh-TW">
+        
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS канал" href="../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="RSS канал с новым контентом" href="../../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../../assets/images/brutus-256.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.3">
+    
+    
+      
+        <title>Написать документацию - BeeWare</title>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../assets/stylesheets/beeware_theme.css">
+
+    
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    <script src="https://kit.fontawesome.com/9a40a729b9.js" crossorigin="anonymous"></script>
+
+    
+      <link rel="stylesheet" href="../../../../stylesheets/beeware.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine classes -->
+
+
+  
+
+
+<!-- Header -->
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav
+class="md-header__inner md-grid"
+aria-label="Верхний колонтитул"
+>
+
+    <!-- Link to home -->
+    <a
+      href="../../../.."
+      title="BeeWare"
+      class="md-header__button md-logo"
+      aria-label="BeeWare"
+      data-md-component="logo"
+    >
+      <!-- include "partials/logo.html" Modified content is included here. -->
+          <img src="../../../../assets/images/brutus-256.png" alt="Logo" />
+
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+      <a href="../../../.."
+         title="BeeWare">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BeeWare
+          </span>
+        </div>
+        </a>
+      </div>
+    </div>
+
+    <nav
+      class="md-tabs"
+      aria-label="Вкладки"
+      data-md-component="tabs"
+    >
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+    
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../about/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  О нас
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../docs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Документация
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../community/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Сообщество
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Вклад
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../news/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Новости
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../membership/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Спонсор
+
+        </a>
+      </li>
+    
+  
+
+      
+    
+    </ul>
+  </div>
+</nav>
+    </ul>
+  </div>
+</nav>
+
+    <!-- Color palette toggle -->
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+
+    <!-- User preference: color palette -->
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+
+    <!-- Site language selector -->
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Выберите язык">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../../../contributing/guide/what/write-docs/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ar/contributing/guide/what/write-docs/" hreflang="ar" class="md-select__link">
+              العَرَبِيَّة
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../cs/contributing/guide/what/write-docs/" hreflang="cs" class="md-select__link">
+              Čeština
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../da/contributing/guide/what/write-docs/" hreflang="da" class="md-select__link">
+              Dansk
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../de/contributing/guide/what/write-docs/" hreflang="de" class="md-select__link">
+              Deutsch
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../es/contributing/guide/what/write-docs/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../fa/contributing/guide/what/write-docs/" hreflang="fa" class="md-select__link">
+              فارسی
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../fr/contributing/guide/what/write-docs/" hreflang="fr" class="md-select__link">
+              Français
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../it/contributing/guide/what/write-docs/" hreflang="it" class="md-select__link">
+              Italiano
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ja/contributing/guide/what/write-docs/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ko/contributing/guide/what/write-docs/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../pl/contributing/guide/what/write-docs/" hreflang="pl" class="md-select__link">
+              Polski
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../pt/contributing/guide/what/write-docs/" hreflang="pt" class="md-select__link">
+              Português
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ru/contributing/guide/what/write-docs/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../tr/contributing/guide/what/write-docs/" hreflang="tr" class="md-select__link">
+              Türkçe
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../zh_CN/contributing/guide/what/write-docs/" hreflang="zh-Hant" class="md-select__link">
+              中文(简体)
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../zh_TW/contributing/guide/what/write-docs/" hreflang="zh-TW" class="md-select__link">
+              中文(繁體)
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+
+    <!-- Button to open search modal -->
+    
+      
+
+      <!-- Check if search is actually enabled - see https://t.ly/DT_0V -->
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+
+        <!-- Search interface -->
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Поделиться" aria-label="Поделиться" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Determine classes -->
+
+
+<!-- Navigation -->
+<nav
+  class="md-nav md-nav--primary"
+  aria-label="Навигация"
+  data-md-level="0"
+>
+
+  <!-- Site title -->
+  <label class="md-nav__title small" for="__drawer">
+    <a
+    href="../../../.."
+    title="BeeWare"
+    class="md-nav__button md-logo"
+    aria-label="BeeWare"
+    data-md-component="logo"
+    >
+        <div class="sidebar-title-block">
+            <div class="sidebar-logo">
+            
+  <img src="../../../../assets/images/brutus-256.png" alt="logo">
+
+            </div>
+            <div class="sidebar-title-block-name">
+                <div class="site-name">
+                  BeeWare
+                </div>
+                
+            </div>
+        </div>
+    </a>
+      
+  </label>
+
+  <!-- Repository information -->
+  
+
+  <!-- Navigation list -->
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_1"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../../about/"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    О нас
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+              
+              <label
+                class="md-nav__link "
+                for="__nav_1"
+                id="__nav_1_label"
+                tabindex=""
+              >
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_1_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    О нас
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/overview/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Что такое BeeWare?
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/team/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Команда «Пчела»
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/history/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    История и философия
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/contact/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Контакты
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/branding/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Рекомендации по брендингу
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_2"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../../docs/"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Документация
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_2_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    Документация
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_3"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../../community/"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Сообщество
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+              
+              <label
+                class="md-nav__link "
+                for="__nav_3"
+                id="__nav_3_label"
+                tabindex=""
+              >
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_3_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    Сообщество
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../community/code-of-conduct/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Кодекс поведения сообщества BeeWare
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../community/governance/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Управление
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+    
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle "
+          type="checkbox"
+          id="__nav_4"
+          checked
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Вклад
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+              
+              <label
+                class="md-nav__link "
+                for="__nav_4"
+                id="__nav_4_label"
+                tabindex=""
+              >
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_4_label"
+          aria-expanded="true"
+        >
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    Вклад
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../first-time-contributors/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Новые авторы
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+    
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle "
+          type="checkbox"
+          id="__nav_4_3"
+          checked
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Руководство по внесению взносов
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+              
+              <label
+                class="md-nav__link "
+                for="__nav_4_3"
+                id="__nav_4_3_label"
+                tabindex=""
+              >
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="2"
+          aria-labelledby="__nav_4_3_label"
+          aria-expanded="true"
+        >
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    Руководство по внесению взносов
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../fix-issue/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Исправить проблему
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../implement-feature/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Внедрить новую функцию
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+    
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+
+      <!-- State toggle -->
+      <input
+        class="md-nav__toggle md-toggle"
+        type="checkbox"
+        id="__toc"
+      />
+
+      <!-- Hack: see partials/toc.html for more information -->
+      
+      
+        
+      
+
+      <!-- Navigation link to table of contents -->
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Написать документацию
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a
+        href="./"
+        class="md-nav__link md-nav__link--active"
+      >
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Написать документацию
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+
+      <!-- Table of contents -->
+      
+        <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine title -->
+
+
+  
+
+
+<!-- Table of contents -->
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+
+  <!--
+    Check whether the content starts with a level 1 headline. If it does, the
+    top-level anchor must be skipped, since it would be redundant to the link
+    to the current page that is located just above the anchor. Therefore we
+    directly continue with the children of the anchor.
+  -->
+  
+  
+    
+  
+
+  <!-- Table of contents title and list -->
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docs-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Формы документации
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Формы документации">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Учебное пособие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Руководство по эксплуатации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тематический справочник
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ссылка
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Стиль документации
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Документация для авторов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Документация для авторов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проведите исследование
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обсудить идею
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Преобразовать в официальный запрос на добавление функции
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dev-environment-prereqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Предпосылки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dev-environment-set-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Настройте свою среду разработки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Настройте свою среду разработки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beeware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Склонируйте репозиторий BeeWare
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Создать виртуальную среду
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beeware_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Установить BeeWare
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Включить предварительную фиксацию
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Предварительный просмотр документации в режиме реального времени
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Локальная сборка
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Локальная сборка">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Создание локальной сборки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Создание локальной переведенной сборки
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверка документации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обновление существующей документации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Добавление новой документации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Написание документации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Работа с pre-commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Отправьте свои изменения в GitHub и создайте запрос на извлечение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Содержание запроса на извлечение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+<div id="ethical-ad-placement"></div>
+</nav>
+      
+    </li>
+
+  <!-- Navigation item -->
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../triage/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Сортировка проблем
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../review-pr/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Просмотреть запрос на вытягивание
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../propose-feature/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Предложить новую функцию
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../translate/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Перевести контент
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../use-tools/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Используйте инструменты
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/dev-environment/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Настройка среды разработки
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/reproduce-issue/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Воспроизведение проблемы
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/branches/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Работа из филиала
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/scope-creep/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Избегание расширения объема работ
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/write-code/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Написание, запуск и тестирование кода
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/build-docs/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Строительная документация
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/write-docs/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Написание документации
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/change-note/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Добавление примечания об изменении
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/submit-pr/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Отправка запроса на извлечение
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/review-pr/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Предоставление отзыва
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/new-issue/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Отправка новой проблемы
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/propose-feature/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Предложение новой функции
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/translate/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Перевод контента
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../next/pr-review/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Процесс рассмотрения запросов на изменение кода
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../next/release/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Процесс выпуска
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../style/code-style-guide/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Руководство по стилю кода
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../style/docs-style-guide/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Руководство по стилю документации
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../sprint-guide/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Руководство по спринту
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../challenge-coins/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Монеты-вызов
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_5"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../../news/"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Новости
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+              
+              <label
+                class="md-nav__link "
+                for="__nav_5"
+                id="__nav_5_label"
+                tabindex=""
+              >
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_5_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    Новости
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_5_2"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <label
+            class="md-nav__link"
+            for="__nav_5_2"
+            id="__nav_5_2_label"
+            tabindex="0"
+          >
+            
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Архив
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+
+        <!-- Toggle to expand nested items with link to index page -->
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="2"
+          aria-labelledby="__nav_5_2_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    Архив
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2026/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2026
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2025/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2025
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2024/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2024
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2023/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2023
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2022/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2022
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2021/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2021
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2020/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2020
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2019/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2019
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2018/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2018
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2017/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2017
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2016/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2016
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2015/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2015
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2014/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2014
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2013/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2013
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_5_3"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <label
+            class="md-nav__link"
+            for="__nav_5_3"
+            id="__nav_5_3_label"
+            tabindex="0"
+          >
+            
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Категории
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+
+        <!-- Toggle to expand nested items with link to index page -->
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="2"
+          aria-labelledby="__nav_5_3_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    Категории
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/buzz/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Buzz
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/events/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Events
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/resources/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Resources
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_6"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../../membership/"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Спонсор
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_6_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    Спонсор
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine title -->
+
+
+  
+
+
+<!-- Table of contents -->
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+
+  <!--
+    Check whether the content starts with a level 1 headline. If it does, the
+    top-level anchor must be skipped, since it would be redundant to the link
+    to the current page that is located just above the anchor. Therefore we
+    directly continue with the children of the anchor.
+  -->
+  
+  
+    
+  
+
+  <!-- Table of contents title and list -->
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docs-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Формы документации
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Формы документации">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Учебное пособие
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Руководство по эксплуатации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Тематический справочник
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ссылка
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Стиль документации
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Документация для авторов
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Документация для авторов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проведите исследование
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обсудить идею
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Преобразовать в официальный запрос на добавление функции
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dev-environment-prereqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Предпосылки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dev-environment-set-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Настройте свою среду разработки
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Настройте свою среду разработки">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beeware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Склонируйте репозиторий BeeWare
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Создать виртуальную среду
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beeware_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Установить BeeWare
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Включить предварительную фиксацию
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Предварительный просмотр документации в режиме реального времени
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Локальная сборка
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Локальная сборка">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Создание локальной сборки
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Создание локальной переведенной сборки
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Проверка документации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Обновление существующей документации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Добавление новой документации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Написание документации
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Работа с pre-commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Отправьте свои изменения в GitHub и создайте запрос на извлечение
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Содержание запроса на извлечение
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+<div id="ethical-ad-placement"></div>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Determine whether to show navigation path -->
+
+  
+
+
+<!-- Determine whether we have enough pages for rendering -->
+
+
+
+<!-- Navigation path (breadcrumbs) -->
+
+  <nav class="md-path" aria-label="Навигация" >
+    <ol class="md-path__list">
+
+      
+
+      <!-- Render ancestors in reverse -->
+      
+        
+          
+
+  <!-- Render navigation item -->
+  
+
+  
+    <!-- Navigation item with nested items -->
+    
+
+    
+        <!-- Nested navigation item -->
+        
+          <li class="md-path__item">
+            <a href="../../../" class="md-path__link">
+              
+  <span class="md-ellipsis">
+    Вклад
+  </span>
+
+            </a>
+          </li>
+        
+    
+
+  
+
+        
+      
+        
+          
+
+  <!-- Render navigation item -->
+  
+
+  
+    <!-- Navigation item with nested items -->
+    
+
+    
+        <!-- Nested navigation item -->
+        
+          <li class="md-path__item">
+            <a href="../../" class="md-path__link">
+              
+  <span class="md-ellipsis">
+    Руководство по внесению взносов
+  </span>
+
+            </a>
+          </li>
+        
+    
+
+  
+
+        
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="_1">Добавление документации<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>У вас может быть лучшее программное обеспечение в мире, но если никто не знает,
+как им пользоваться, какой в этом смысл? Документацию всегда можно улучшить, и
+нам нужна ваша помощь!</p>
+<h2 id="docs-form">Формы документации<a class="headerlink" href="#docs-form" title="Permanent link">&para;</a></h2>
+<p>Документация BeeWare написана с использованием <a href="https://www.markdownguide.org/basic-syntax/">MkDocs и
+Markdown</a>. Мы стремимся следовать
+структуре <a href="https://diataxis.fr">Diataxis</a> при составлении документации.</p>
+<p>Структура Diataxis описывает четыре «формы» документации:</p>
+<ul>
+<li><strong>Учебное пособие</strong> — это руководство по обучению, ориентированное на
+  конкретный конечный результат проекта.</li>
+<li><strong>Практическое руководство</strong> — инструкции, которые помогают читателю достичь
+  определенной цели или результата.</li>
+<li><strong>Тематическое руководство</strong> — обсуждение одной идеи, объясненной таким
+  образом, чтобы были понятны лежащие в ее основе концепции.</li>
+<li><strong>Справочная информация</strong> — технические описания конкретных API или других
+  интерфейсов.</li>
+</ul>
+<p>Прежде чем приступить к созданию документации, важно определить, какая форма
+наиболее подходит. Многие предложения по документации изначально описываются как
+запрос на «учебник по X», но в большинстве случаев на самом деле требуется
+руководство по эксплуатации, тематический справочник или улучшенная справочная
+информация.</p>
+<p>В качестве примера рассмотрим задачу написания документации о выпечке печенья.</p>
+<h3 id="_2">Учебное пособие<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>Учебник — это введение, в частности, ориентированное на начинающих, цель
+которого должна заключаться в том, чтобы привести читателя от нуля до готового
+продукта. Для этого требуются очень конкретные инструкции и подробные
+объяснения, которые помещают шаги учебника в контекст. Вы не должны делать
+никаких предположений об опыте читателя в использовании объясняемого
+инструмента, хотя разумно предположить, что он обладает некоторыми базовыми
+знаниями Python.</p>
+<p>Учебное пособие должно содержать регулярные контрольные точки, на которых
+читатель может убедиться, что ему удалось выполнить описанные действия. На
+каждой контрольной точке должны быть четко сформулированы критерии успеха.
+Должны быть четко обозначены известные случаи неудач, включая объяснения любых
+вероятных ошибок или проблем, с которыми может столкнуться читатель. Следует
+указывать на вещи, которые изменяются в результате действий, предпринятых
+читателем, даже если они кажутся очевидными. Рекомендуется повторение, особенно
+если вы пытаетесь установить лучшую практику или общие процессы. Следует
+избегать объяснений внутренних механизмов, а также альтернативных путей, ведущих
+к тому же результату.</p>
+<p>Учебник по выпечке печенья — это больше, чем просто рецепт. Инструкции в
+учебнике должны быть доступны для тех, кто никогда раньше не пек (например, для
+детей), и должны учитывать вещи, которые опытный пекарь считает само собой
+разумеющимися, такие как взбивание сахара и масла, процесс предварительного
+нагрева духовки или время, в течение которого печенье должно остывать перед
+употреблением. Цель учебника — не приготовить печенье, а донести основы выпечки.
+Полученное печенье — это вкусное лакомство, которое и побуждает человека пройти
+учебник.</p>
+<h3 id="_3">Руководство по эксплуатации<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>Руководство по применению должно быть сосредоточено на конкретных реальных
+случаях использования и практических результатах, а не на теоретических
+объяснениях. В отличие от учебника, вы можете предполагать, что читатель в
+некоторой степени знаком с существующими инструментами. Читатель должен быть в
+состоянии следовать руководству от начала до конца и достичь цели, но для этого
+ему могут понадобиться некоторые существующие знания. Руководство должно
+включать набор конкретных инструкций или логических шагов, которые необходимо
+выполнить для достижения цели руководства.</p>
+<p>Рецепт в кулинарной книге — хороший пример практического руководства. Существует
+множество рецептов печенья с шоколадной крошкой, и все они имеют общие черты, но
+любой конкретный рецепт должен быть понятным от начала до конца и давать
+стабильный результат. Хороший рецепт печенья с шоколадной крошкой не будет
+отвлекаться на сравнение достоинств различных видов сахара или муки и не будет
+давать подробных инструкций по основным техникам или процессам; он будет
+включать только ингредиенты и инструкции по выпечке партии печенья, предполагая,
+что читатель имеет базовые знания в области выпечки.</p>
+<h3 id="_4">Тематический справочник<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Тематическое руководство описывает одну тему или идею. Оно может включать
+примеры кода или инструкции, но в большей степени сосредоточено на
+предоставлении общего представления о концепции в целом. Оно может включать
+мнения и альтернативные точки зрения, но основное внимание должно уделяться
+конкретной теме руководства.</p>
+<p>Тематическое руководство по выпечке печенья может раскрыть историю печенья как
+выпечного продукта, исследовать, как промышленные процессы приводят к появлению
+различных видов печенья по сравнению с домашним печеньем, или предложить способы
+включения печенья в сбалансированную диету. Само по себе это не будет очень
+полезным документом, если вы хотите испечь печенье, но оно может предоставить
+информацию, которая позволит человеку, знакомому с выпечкой, успешно
+адаптировать существующий рецепт печенья.</p>
+<h3 id="_5">Ссылка<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>Справочная документация носит информационный характер и описывает особенности
+работы библиотеки инструментов. Часто ее можно сгенерировать из самого кода, но
+для хорошей документации API могут потребоваться дополнительные пояснения и
+контекст. Хотя иногда она может включать примеры использования, следует избегать
+подробных объяснений.</p>
+<p>Справочник по выпечке может описывать виды сахара, которые можно использовать, и
+подробно рассказывать об их свойствах при использовании в выпечке. В нем будут
+приведены фактические сведения о сахаре, но более широкое обсуждение выбора
+между видами сахара должно быть предметом практического руководства или
+тематического справочника. Информация о пищевой ценности, указанная на
+большинстве упакованных продуктов, считается справочной документацией.</p>
+<h2 id="_6">Стиль документации<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>Документация BeeWare следует рекомендациям, изложенным в <a href="../../style/docs-style-guide/">руководстве
+по стилю документации</a>. Это руководство включает в
+себя основные правила стиля и форматирования, а также процесс проверки
+орфографии. Оно также охватывает различные детали синтаксиса Markdown, такие как
+синтаксис ссылок, советы по работе с блоками кода и обработке изображений.</p>
+<h2 id="_7">Документация для авторов<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<details class="abstract">
+<summary>Предложение новой документации</summary>
+<p>Итак, у вас есть идея по улучшению BeeWare — как вы можете подать эту
+идею на рассмотрение?</p>
+<h3 id="_8">Проведите исследование<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>Первый шаг — это поиск в системе отслеживания проблем BeeWare
+существующих <a href="https://github.com/search?q=org%3Abeeware+is%3Aopen+is%3Aissue+label%3Aenhancement&amp;type=issues">проблем с функциональностью (проблемы с тегом «enhancement»)</a>, <a href="https://github.com/search?q=org%3Abeeware+is%3Aopen+is%3Aissue+label%3Adocumentation&amp;type=issues">проблем с
+документацией (проблемы с тегом «documentation»)</a> или <a href="https://github.com/beeware/beeware/discussions">теמות
+для обсуждения</a>,
+чтобы проверить, не было ли эта идея предложена ранее. Если да, и у вас есть
+новый контекст или идеи, добавьте их в существующую ветку. Если вам нужна помощь
+в поиске, вы можете обратиться в канал #dev на <a href="https://beeware.org/bee/chat/">BeeWare
+Discord</a>. Мы можем указать вам существующие
+ветки, предоставить контекст, о котором вы, возможно, не знаете, или связать
+вашу идею с другой идеей, которая на первый взгляд может показаться не
+связанной.</p>
+<h3 id="_9">Обсудить идею<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>Если вы не нашли никаких существующих ссылок на вашу идею, создайте <a href="https://github.com/beeware/beeware/discussions">тему для
+обсуждения</a>. Опишите
+в общих чертах цель и варианты использования вашей идеи. Включите все свои
+соображения о том, как будет выглядеть эта функция в случае ее реализации,
+например, общую форму API, визуальный вид возможности или документ, который
+будет добавлен. Если это применимо, вы также должны включить любые исследования,
+которые вы провели о том, как ваша идея будет реализована на разных платформах.</p>
+<p>Как только тема обсуждения будет открыта, команда BeeWare и остальные члены
+сообщества ответят на нее. Основная команда постарается дать хотя бы первое
+впечатление о вашей идее в течение двух рабочих дней. Если идея особенно
+сложная, более подробный анализ может занять до недели. Такие события, как
+праздники и конференции, могут немного удлинить эти сроки.</p>
+<p>Это ваша возможность принять участие в обсуждении вашей идеи. Мы можем попросить
+вас предоставить более подробную информацию или контекст. Другие члены
+сообщества также могут принять участие в обсуждении, высказывая свои точки
+зрения, предложения или встречные предложения. Результаты этого обсуждения
+определят дальнейшие шаги.</p>
+<p>Важно понимать, что не все идеи будут приняты. Этот процесс начинается с
+предложения, чтобы вы не вложили все свои усилия, а потом не обнаружили, что
+ваши изменения не будут приняты по какой-то причине.</p>
+<p>Это не значит, что идея была плохой! Возможно, есть технические причины, по
+которым ее нельзя реализовать. Например, мы можем отклонить идею, если:</p>
+<ul>
+<li>Было бы сложно или невозможно обеспечить надежную реализацию на всех
+  поддерживаемых платформах; или</li>
+<li>Его будет сложно обслуживать, либо для обслуживания потребуется доступ к
+  технологиям или программному обеспечению, которые не являются широко
+  доступными; либо</li>
+<li>Он обслуживает нишевую аудиторию, но налагает значительные накладные расходы
+  на других пользователей.</li>
+</ul>
+<p>Если мы решим, что ваша идея не подходит, это не обязательно означает, что вы
+должны от нее отказаться. Хотя мы можем отклонить <em>конкретную</em> идею, мы можем
+быть гораздо более склонны добавить интерфейс плагина или другой пункт
+расширения, который позволит вам поддерживать ту же функцию в качестве внешней
+библиотеки. Таким образом, вы сможете иметь эту функцию, но без конкретных
+проблем с обслуживанием или ограничений, которые могут стать препятствием для
+самого проекта.</p>
+<h3 id="_10">Преобразовать в официальный запрос на добавление функции<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>Как только в ходе обсуждения будет достигнут консенсус по поводу формы функции,
+вы можете создать новую <a href="https://github.com/beeware/beeware/issues/new/choose">заявку на функцию</a> в системе отслеживания заявок BeeWare, в которой будет кратко изложено содержание обсуждения и приведена ссылка на
+него для контекста.</p>
+<p>Вам не нужно самостоятельно реализовывать предложенную вами функцию; вы можете
+открыть заявку с подробным описанием вашего предложения. Однако простое
+размещение заявки не означает, что она будет реализована. Вам нужно будет
+подождать, пока ее потенциально подхватит кто-то другой, заинтересованный в той
+же функции, будь то другой член сообщества или основная команда; однако нет
+гарантии, что это произойдет. Если вы хотите гарантированную реализацию, вам
+нужно будет реализовать ее самостоятельно или заплатить кому-то другому, чтобы
+он реализовал ее для вас.</p>
+</details>
+<details class="abstract">
+<summary>Настройте среду разработки</summary>
+<p>Для участия в BeeWare необходимо настроить среду разработки.</p>
+<h3 id="dev-environment-prereqs">Предпосылки<a class="headerlink" href="#dev-environment-prereqs" title="Permanent link">&para;</a></h3>
+<p>Вам необходимо установить следующие предварительные компоненты.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>BeeWare требует Python 3.10+. Вам также
+понадобится метод для управления виртуальными средами (например, <code>venv</code>).</p>
+<p>Вы можете проверить версию Python, которую вы установили, запустив:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python3<span class="w"> </span>--version
+</code></pre></div>
+<p>Если у вас установлено более одной версии Python, вам может потребоваться
+заменить <code>python3</code> конкретным номером версии (например, <code>python3.13</code>)</p>
+<p>Мы рекомендуем избегать недавно выпущенных версий Python (т. е. версий с
+микроверсией «.0» или «.1», например 3.14.0). Это связано с тем, что
+инструменты, необходимые для поддержки Python в macOS, часто отстают и обычно
+недоступны для недавно выпущенных стабильных версий Python.</p>
+</div>
+<div class="tabbed-block">
+<p>BeeWare требует Python 3.10+. Вам также
+понадобится метод для управления виртуальными средами (например, <code>venv</code>).</p>
+<p>Вы можете проверить версию Python, которую вы установили, запустив:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>python3<span class="w"> </span>--version
+</code></pre></div>
+<p>Если у вас установлено более одной версии Python, вам может потребоваться
+заменить <code>python3</code> конкретным номером версии (например, <code>python3.13</code>)</p>
+<p>Мы рекомендуем избегать недавно выпущенных версий Python (т. е. версий с
+микроверсией «.0» или «.1», например 3.14.0). Это связано с тем, что
+инструменты, необходимые для поддержки Python в Linux, часто отстают и обычно
+недоступны для недавно выпущенных стабильных версий Python.</p>
+</div>
+<div class="tabbed-block">
+<p>BeeWare требует Python 3.10+. Вам также
+понадобится метод для управления виртуальными средами (например, <code>venv</code>).</p>
+<p>Вы можете проверить версию Python, которую вы установили, запустив:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">C:\...&gt;</span>py -3 --version
+</code></pre></div>
+<p>Если у вас установлено несколько версий Python, возможно, вам потребуется
+заменить <code>-3</code> конкретным номером версии (например, <code>-python3.13</code>)</p>
+<p>Мы рекомендуем избегать недавно выпущенных версий Python (т. е. версий с
+микроверсией «.0» или «.1», например 3.14.0). Это связано с тем, что
+инструменты, необходимые для поддержки Python в Windows, часто отстают и обычно
+недоступны для недавно выпущенных стабильных версий Python.</p>
+</div>
+</div>
+</div>
+<h3 id="dev-environment-set-up">Настройте свою среду разработки<a class="headerlink" href="#dev-environment-set-up" title="Permanent link">&para;</a></h3>
+<p>Рекомендуемый способ настройки среды разработки для BeeWare —
+использовать <a href="https://docs.python.org/3/library/venv.html">виртуальную среду</a>, а
+затем установить версию BeeWare для разработчиков и ее зависимости.</p>
+<h4 id="beeware">Склонируйте репозиторий BeeWare<a class="headerlink" href="#beeware" title="Permanent link">&para;</a></h4>
+<p>Затем перейдите на страницу <a href="https://github.com/beeware/beeware">BeeWare на
+GitHub</a>, и, если вы еще этого не
+сделали, <a href="https://github.com/beeware/beeware/fork">создайте форк репозитория</a> в своей учетной записи. Затем нажмите кнопку «&lt;&gt; Code» на вашем форке.
+Если на вашем компьютере установлено приложение GitHub Desktop, вы можете
+выбрать «Open with GitHub Desktop»; в противном случае скопируйте
+предоставленный URL-адрес HTTPS и используйте его для клонирования репозитория
+на свой компьютер с помощью командной строки:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Сделайте форк репозитория BeeWare, а затем:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;your<span class="w"> </span>username&gt;/beeware.git
+</code></pre></div>
+<p>(замените на свое имя пользователя GitHub)</p>
+</div>
+<div class="tabbed-block">
+<p>Сделайте форк репозитория BeeWare, а затем:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/&lt;your<span class="w"> </span>username&gt;/beeware.git
+</code></pre></div>
+<p>(замените на свое имя пользователя GitHub)</p>
+</div>
+<div class="tabbed-block">
+<p>Сделайте форк репозитория BeeWare, а затем:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">C:\...&gt;</span>git clone https://github.com/<span class="p">&lt;</span>your username<span class="p">&gt;</span>/beeware.git
+</code></pre></div>
+<p>(замените на свое имя пользователя GitHub)</p>
+</div>
+</div>
+</div>
+<h4 id="_11">Создать виртуальную среду<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p>Чтобы настроить виртуальную среду и обновить <code>pip</code>, выполните:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>beeware
+<span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pip
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>beeware
+<span class="gp">$ </span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>pip
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">C:\...&gt;</span><span class="k">cd</span> beeware
+<span class="gp">C:\...&gt;</span>py -3 -m venv .venv
+<span class="gp">C:\...&gt;</span>.venv\Scripts\activate
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="go">$ python -m pip install -U pip</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Теперь перед вашим запросом должен стоять префикс <code>(.venv)</code>.</p>
+<h4 id="beeware_1">Установить BeeWare<a class="headerlink" href="#beeware_1" title="Permanent link">&para;</a></h4>
+<p>Теперь, когда у вас есть исходный код, вы можете выполнить <a href="https://setuptools.pypa.io/en/latest/userguide/development_mode.html">редактируемую
+установку</a>
+BeeWare в вашей среде разработки. Выполните следующую команду:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>--group<span class="w"> </span>dev
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>--group<span class="w"> </span>dev
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>python -m pip install -U -e . --group dev
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="_12">Включить предварительную фиксацию<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p>BeeWare использует инструмент под названием
+<a href="https://pre-commit.com">pre-commit</a>, чтобы выявлять простые проблемы и
+стандартизировать форматирование кода. Для этого он устанавливает git-хук,
+который автоматически запускает серию линтеров кода перед финализацией любого
+git-коммита. Чтобы включить pre-commit, выполните:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pre-commit<span class="w"> </span>install
+<span class="go">pre-commit installed at .git/hooks/pre-commit</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pre-commit<span class="w"> </span>install
+<span class="go">pre-commit installed at .git/hooks/pre-commit</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>pre-commit install
+<span class="go">pre-commit installed at .git/hooks/pre-commit</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Теперь вы готовы приступить к взлому BeeWare!</p>
+</details>
+<details class="abstract">
+<summary>Работа из филиала</summary>
+<p>Прежде чем приступить к работе над изменениями, убедитесь, что вы создали ветвь.
+По умолчанию, когда вы клонируете форк репозитория, вы будете проверены на ветви
+<code>main</code>. Это прямая копия ветви BeeWare <code>main</code>.</p>
+<p>Хотя вы <em>можете</em> отправить запрос на извлечение из вашей ветки <code>main</code>,
+предпочтительнее этого <em>не</em> делать. Если вы отправите запрос на извлечение,
+который <em>почти</em> правильный, член основной команды, который проверяет ваш запрос,
+сможет внести необходимые изменения, а не давать отзыв с просьбой внести
+незначительные изменения. Однако, если вы отправите запрос на извлечение из
+вашей ветки <code>main</code>, рецензенты не смогут внести изменения.</p>
+<p>Работа над основной веткой также затрудняет <em>вам</em> работу после завершения
+первого запроса на вытягивание. Если вы хотите работать над вторым запросом на
+вытягивание, вам понадобится «чистая» копия основной ветки проекта, на которой
+будет основан ваш второй вклад; если вы сделали свой первый вклад из ветки
+<code>main</code>, у вас больше не будет этой чистой версии.</p>
+<p>Вместо этого вам следует вносить изменения в <em>ветку функций</em>. Ветка функций
+имеет простое название, позволяющее идентифицировать внесенные вами изменения.
+Например, если вы исправляете ошибку, вызывающую проблемы со сборкой в Windows
+11, вы можете создать ветвь функций <code>fix-win11-build</code>. Если ваша ошибка связана
+с конкретной проблемой, о которой было сообщено, то в названии ветви обычно
+указывается номер этой проблемы (например, <code>fix-1234</code>).</p>
+<p>Чтобы создать ветвь функции <code>fix-win11-build</code>, выполните:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>fix-win11-build
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>fix-win11-build
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git switch -c fix-win11-build
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<details class="abstract">
+<summary>Избегайте расширения объема работ</summary>
+<p>«Расширение объема работ» происходит, когда список решенных проблем или
+реализованных функций в рамках одного вклада значительно превышает то, что было
+запланировано в начале работы. Вы начинаете с простой проблемы, обнаруживаете
+тесно связанную с ней проблему и решаете включить и ее исправление, затем
+третью&hellip; и, не успев опомниться, получаете запрос на слияние, который закрывает
+5 проблем и добавляет 3 новые функции, включая десятки файлов.</p>
+<p>Расширение объема работ случается с каждым. Это понятие хорошо знакомо опытным
+разработчикам; все мы сталкивались с этим много раз и испытывали все связанные с
+этим проблемы.</p>
+<p>Есть очень практические причины, чтобы избегать расширения объема работ. Чем
+больше вклад, тем сложнее с ним работать. Становится труднее выявить крайние
+случаи или потенциальные проблемы, а это означает, что общее качество вклада
+может снизиться. Рецензирование также становится более сложной задачей, когда
+рецензенту приходится иметь дело с несколькими, потенциально не связанными между
+собой контекстами. Больший вклад означает больше комментариев рецензентов, и как
+участнику проекта может быть сложно следить за несколькими ветками
+рецензирования. Даже ваш опыт работы с GitHub ухудшится — интерфейс GitHub будет
+работать медленнее по мере увеличения размера PR, что означает, что навигация по
+файлам через интерфейс GitHub и попытки оставить комментарии рецензентов станут
+все более сложными.</p>
+<p>Всякий раз, когда вы находите повод добавить в свой вклад что-либо, что явно не
+входит в первоначальное предложение или отчет об ошибке, вам следует подумать,
+не ведет ли это к расширению сферы применения. Есть ли две отдельные функции,
+которые можно реализовать по отдельности? Можно ли реализовать функцию с
+известным ограничением или ошибкой, а затем исправить эту ошибку в последующем
+пулл-реквесте? Является ли одна часть исправления ошибки независимой от другой?
+Если часть изменения можно опустить, не изменяя исходный вклад, то, вероятно,
+так и следует поступить.</p>
+<p>Разработка программного обеспечения — это всегда процесс постепенного
+совершенствования. Каждый отдельный вклад должен улучшать кодовую базу в
+результате слияния, но вполне допустимо оставлять ошибки или части функций для
+будущего усовершенствования. Это может означать разбиение запроса на извлечение
+на несколько частей, которые можно просматривать независимо друг от друга, или
+регистрацию проблемы, чтобы кто-то другой мог ее исследовать и решить.</p>
+<p>Ограничение объема каждого вклада помогает всем участникам, включая вас. Ваши
+рецензенты и даже вы сами будете благодарны за это.</p>
+</details>
+<details class="abstract">
+<summary>Строительная документация</summary>
+<p>Прежде чем вносить какие-либо изменения в документацию BeeWare,
+рекомендуется убедиться, что вы можете скомпилировать существующую документацию.</p>
+<p>Вы <strong>должны</strong> иметь установленный интерпретатор Python 3.13
+и доступный в вашем пути (т. е. <code>python3.13</code> должен
+запускать интерпретатор Python 3.13).</p>
+<p>BeeWare использует <code>tox</code> для создания документации. Следующие команды
+<code>tox</code> должны выполняться из того же места, что и файл <code>tox.ini</code>, который
+находится в корневом каталоге проекта.</p>
+<h3 id="_13">Предварительный просмотр документации в режиме реального времени<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>Для ускорения редактирования документации BeeWare имеет режим
+«предварительного просмотра».</p>
+<div class="admonition warning">
+<p class="admonition-title">Предварительный просмотр будет создаваться с предупреждениями!</p>
+<p>Live Serve доступен для итерации обновлений вашей документации. Во время
+обновления вы можете столкнуться с проблемой разметки. Проблемы, обозначенные
+как <code>WARNING</code>, приведут к сбою стандартной сборки, однако Live Serve настроен
+так, что он отображает предупреждения в консольном выводе, продолжая сборку. Это
+позволяет вам выполнять итерацию без необходимости перезапуска Live Preview.</p>
+<p><code>WARNING</code> отличается от <code>ERROR</code>. Если вы введете проблему, которая считается
+<code>ERROR</code>, работа в режиме реального времени будет прервана, и потребуется
+перезапуск. Работа не возобновится до тех пор, пока проблема <code>WARNING</code> не будет
+решена.</p>
+</div>
+<p>Чтобы запустить рабочий сервер:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">macOS</label><label for="__tabbed_7_2">Linux</label><label for="__tabbed_7_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-live
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-live
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">C:\...&gt;</span>tox -e docs-live
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Это создаст документацию, запустит веб-сервер для обслуживания документации и
+будет отслеживать файловую систему на предмет любых изменений в исходном коде
+документации.</p>
+<p>После запуска сервера в консоли появится примерно следующее сообщение:</p>
+<div class="highlight"><pre><span></span><code><span class="go">INFO    -  [11:18:51] Serving on http://127.0.0.1:8000/</span>
+</code></pre></div>
+<p>Откройте браузер и перейдите по указанному URL-адресу. Теперь вы можете
+приступить к итерации документации. При обнаружении изменений документация будет
+перестроена, а любой браузер, просматривающий измененную страницу, будет
+автоматически обновлен.</p>
+<div class="admonition note">
+<p class="admonition-title"><code>docs-live</code> — это первый шаг</p>
+<p>Запуск <code>docs-live</code> для работы с живым сервером предназначен для первоначальной
+итерации. Вы должны <em>всегда</em> запускать локальную сборку перед отправкой запроса
+на вытягивание.</p>
+</div>
+<h3 id="_14">Локальная сборка<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>После завершения итерации вам необходимо будет выполнить локальную сборку
+документации. Этот процесс сборки запрограммирован на сбой в случае обнаружения
+каких-либо проблем с разметкой. Это позволяет вам обнаружить все, что вы могли
+пропустить на рабочем сервере.</p>
+<h4 id="_15">Создание локальной сборки<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<p>Чтобы сгенерировать локальную сборку:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">macOS</label><label for="__tabbed_8_2">Linux</label><label for="__tabbed_8_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">C:\...&gt;</span>tox -e docs
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Результат этой сборки будет находиться в каталоге <code>_build</code> в корневом каталоге
+проекта.</p>
+<h4 id="_16">Создание локальной переведенной сборки<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<p>Документация BeeWare переведена на несколько языков. Обновления
+английской документации могут привести к проблемам в сборках на других языках.
+Перед отправкой запроса на извлечение важно проверить, что все сборки работают.</p>
+<p>Чтобы сгенерировать сборку всех доступных переводов:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">macOS</label><label for="__tabbed_9_2">Linux</label><label for="__tabbed_9_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-all
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-all
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">C:\...&gt;</span>tox -e docs-all
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Результаты компиляции каждого языка будут находиться в соответствующем каталоге
+<code>_build/html/&lt;languagecode&gt;</code>, где <code>&lt;languagecode&gt;</code> — это двух- или пятизначный
+код языка, связанный с конкретным языком (например, <code>fr</code> для французского, <code>it</code>
+для итальянского и т. д.).</p>
+<p>Если вы обнаружили проблему с одной сборкой, вы можете запустить эту сборку
+отдельно, выполнив <code>tox -e docs-&lt;languagecode&gt;</code>. Например, чтобы скомпилировать
+только французскую документацию, выполните:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">macOS</label><label for="__tabbed_10_2">Linux</label><label for="__tabbed_10_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-fr
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-fr
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">C:\...&gt;</span>tox -e docs-fr
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Результат одноязычной сборки будет находиться в каталоге <code>_build</code>.</p>
+<h3 id="_17">Проверка документации<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>Процесс сборки выявит проблемы Markdown, но BeeWare выполняет
+некоторые дополнительные проверки стиля и форматирования, известные как
+«линтинг». Чтобы запустить проверки линтинга:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">macOS</label><label for="__tabbed_11_2">Linux</label><label for="__tabbed_11_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-lint
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-lint
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">C:\...&gt;</span>tox -e docs-lint
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Это подтвердит, что документация не содержит:</p>
+<ul>
+<li>неработающие гиперссылки</li>
+<li>ошибочно написанные слова</li>
+</ul>
+<p>Если правильное написание слова распознается как ошибочное, добавьте это слово в
+список в <code>docs/spelling_wordlist</code>. Это добавит слово в словарь программы
+проверки орфографии. При добавлении в этот список помните:</p>
+<ul>
+<li>Мы предпочитаем американское правописание, с некоторыми отступлениями для
+  программистского сленга (например, «apps») и использования существительных в
+  качестве глаголов (например, «scrollable»).</li>
+<li>При упоминании названия продукта следует использовать предпочтительный вариант
+  написания с заглавной буквы (например, «macOS», «GTK», «pytest», «Pygame»,
+  «PyScript»).</li>
+<li>Если термин используется «в качестве кода», то его следует указывать в
+  кавычках (<code>like this</code>) вместо добавления в словарь.</li>
+</ul>
+</details>
+<details class="abstract">
+<summary>Написание документации</summary>
+<p>Вот шаги, которые нужно выполнить, чтобы написать свой вклад в документацию BeeWare.</p>
+<h3 id="_18">Обновление существующей документации<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p>Если вы редактируете существующие документы, вам необходимо найти файл в
+каталоге <code>/docs/en</code>. Структура файлов соответствует структуре страниц, поэтому
+вы можете найти файл, используя URL-адрес документации.</p>
+<h3 id="_19">Добавление новой документации<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p>Если вы добавляете новый документ, необходимо выполнить еще несколько шагов.</p>
+<p>Вам нужно будет создать документ в соответствующем месте в каталоге <code>docs/en</code>.
+Для удобства обсуждения предположим, что вы добавляете новый документ с именем
+файла <code>new_doc.md</code>.</p>
+<p>Затем вам нужно будет обновить файл <code>docs/en/SUMMARY.md</code>, чтобы включить в него
+новый файл. <code>SUMMARY.md</code> организован таким образом, чтобы в основном отражать
+структуру каталога <code>docs/en</code>, но, что более важно, он напрямую определяет
+структуру левой боковой панели. Если вы найдете раздел, в который хотите
+включить <code>new_doc.md</code>, вам не нужно ничего менять в <code>SUMMARY.md</code>, если вы видите
+перечень путей с подстановочными знаками. Например:</p>
+<div class="highlight"><pre><span></span><code><span class="k">-</span><span class="w"> </span>./path/to/directory/*
+</code></pre></div>
+<p>Если раздел, в который вы собираетесь включить <code>new_doc.md</code>, представляет собой
+список отдельных ссылок Markdown, вам необходимо добавить явную ссылку на свою.
+Например:</p>
+<div class="highlight"><pre><span></span><code><span class="k">-</span><span class="w"> </span>[<span class="nt">My new document</span>](<span class="na">new_doc.md</span>)
+</code></pre></div>
+<h3 id="_20">Написание документации<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p>Теперь вы можете открыть нужный файл в редакторе и приступить к написанию.</p>
+<p>У нас есть <a href="../../style/docs-style-guide/">руководство по стилю документации</a>, в
+котором изложены наши рекомендации по написанию документации для BeeWare.</p>
+</details>
+<details class="abstract">
+<summary>Добавить примечание об изменении</summary>
+<p>Многие инструменты BeeWare используют
+<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> для помощи в создании
+примечаний к каждому выпуску. Когда вы отправляете запрос на извлечение в один
+из соответствующих инструментов, он должен включать <em>примечание об изменении</em> —
+это примечание станет записью в примечаниях к выпуску, описывающей внесенное
+изменение.</p>
+<p>Каждый пул-реквест должен содержать как минимум один файл в каталоге <code>changes/</code>,
+в котором дается краткое описание изменений, внесенных пул-реквестом. Заметка об
+изменениях должна быть в формате Markdown, в файле с именем формата
+<code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Если предлагаемое вами изменение исправляет ошибку
+или реализует функцию, для которой уже существует номер проблемы, то
+идентификатором будет номер этого тикета. Если изменение не имеет
+соответствующей проблемы, в качестве идентификатора можно использовать номер PR.
+Вы не узнаете этот номер PR, пока не отправите запрос на извлечение, поэтому
+первая проверка CI не пройдет проверку <code>towncrier</code>; добавьте примечание об
+изменении и отправьте обновление PR, после чего CI должна пройти.</p>
+<p>Существует пять типов фрагментов:</p>
+<ul>
+<li><code>feature</code>: PR добавляет новое поведение или возможность, которые ранее были
+  недоступны (например, добавление поддержки нового формата упаковки или новой
+  функции в существующем формате упаковки);</li>
+<li><code>bugfix</code>: PR исправляет ошибку в существующей реализации;</li>
+<li><code>doc</code>: PR значительно улучшает документацию;</li>
+<li><code>removal</code>; The PR represents a backwards incompatible change in the BeeWare API; or</li>
+<li><code>misc</code>; Незначительное или административное изменение (например, исправление
+  опечатки, незначительное уточнение формулировки или обновление версии
+  зависимости), которое не требует объявления в примечаниях к выпуску.</li>
+</ul>
+<p>Это описание в примечании об изменении должно быть высокоуровневым
+«маркетинговым» резюме изменения с точки зрения пользователя, а не глубоким
+техническим описанием или деталями реализации. Оно отличается от сообщения о
+фиксации — сообщение о фиксации описывает, что было сделано, чтобы будущие
+разработчики могли понять причины изменения; примечание об изменении — это
+описание для пользователей, которые могут не иметь знаний о внутреннем
+устройстве.</p>
+<p>Например, если вы исправили ошибку, связанную с именованием проекта, сообщение о
+фиксации может выглядеть так:</p>
+<blockquote>
+<p>Применять более строгую проверку регулярных выражений, чтобы запретить имена
+проектов, начинающиеся с цифр.</p>
+</blockquote>
+<p>Соответствующее примечание об изменении будет выглядеть примерно так:</p>
+<blockquote>
+<p>Названия проектов больше не могут начинаться с цифры.</p>
+</blockquote>
+<p>Некоторые PR могут вводить несколько функций и исправлять несколько ошибок, либо
+вводить несколько изменений, несовместимых с предыдущими версиями. В этом случае
+PR может иметь несколько файлов с примечаниями об изменениях. Если вам нужно
+связать два типа фрагментов с одним и тем же ID, вы можете добавить числовой
+суффикс. Например, если PR 789 добавил функцию, описанную в тикете 123, закрыл
+ошибку, описанную в тикете 234, а также внес два изменения, несовместимых с
+предыдущими версиями, у вас может быть 4 файла с примечаниями об изменениях:</p>
+<ul>
+<li><code>123.feature.md</code></li>
+<li><code>234.bugfix.md</code></li>
+<li><code>789.removal.1.md</code></li>
+<li><code>789.removal.2.md</code></li>
+</ul>
+<p>Для получения дополнительной информации о <code>towncrier</code> и типах фрагментов см.
+<a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Фрагменты
+новостей</a>.
+Вы также можете посмотреть существующие примеры фрагментов новостей в каталоге
+<code>changes</code> репозитория BeeWare. Если эта папка пуста, вероятно, BeeWare недавно опубликовал новую версию; файлы с изменениями удаляются и
+объединяются для обновления <a href="https://github.com/beeware/beeware/releases">примечаний к выпуску</a> с каждым выпуском. Вы можете посмотреть этот файл,
+чтобы увидеть требуемый стиль комментариев; вы можете посмотреть <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">недавно
+объединенные PR</a>, чтобы увидеть, как форматировать свои заметки
+об изменениях.</p>
+</details>
+<details class="abstract">
+<summary>Отправить запрос на извлечение</summary>
+<p>Теперь, когда вы зафиксировали все изменения, вы готовы отправить запрос на
+вытягивание. Чтобы процесс проверки прошел гладко, необходимо выполнить ряд
+действий.</p>
+<h3 id="pre-commit">Работа с pre-commit<a class="headerlink" href="#pre-commit" title="Permanent link">&para;</a></h3>
+<p>При фиксации любых изменений pre-commit запускается автоматически. Если при
+фиксации обнаружены какие-либо проблемы, это приведет к сбою фиксации. По
+возможности pre-commit внесет необходимые изменения для исправления обнаруженных
+проблем. В следующем примере при проверке <code>ruff</code> была обнаружена проблема с
+форматированием кода:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">macOS</label><label for="__tabbed_12_2">Linux</label><label for="__tabbed_12_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>some/interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Failed</span>
+<span class="go">- hook id: ruff-format</span>
+<span class="go">- files were modified by this hook</span>
+
+<span class="go">1 file reformatted, 488 files left unchanged</span>
+
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>some/interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Failed</span>
+<span class="go">- hook id: ruff-format</span>
+<span class="go">- files were modified by this hook</span>
+
+<span class="go">1 file reformatted, 488 files left unchanged</span>
+
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git add some/interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git commit -m <span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Failed</span>
+<span class="go">- hook id: ruff-format</span>
+<span class="go">- files were modified by this hook</span>
+
+<span class="go">1 file reformatted, 488 files left unchanged</span>
+
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>В данном случае <code>ruff</code> автоматически устранил проблему; поэтому вы можете
+повторно добавить все файлы, которые были изменены в результате проверок перед
+фиксацией, и повторно зафиксировать изменение. Однако некоторые проверки
+потребуют от вас внесения изменений вручную. После внесения этих изменений
+повторно добавьте все измененные файлы и повторно зафиксируйте.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">macOS</label><label for="__tabbed_13_2">Linux</label><label for="__tabbed_13_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>some/interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Passed</span>
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+<span class="go">[bugfix e3e0f73] Minor change</span>
+<span class="go">1 file changed, 4 insertions(+), 2 deletions(-)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>some/interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Passed</span>
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+<span class="go">[bugfix e3e0f73] Minor change</span>
+<span class="go">1 file changed, 4 insertions(+), 2 deletions(-)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git add some\interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git commit -m <span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Passed</span>
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+<span class="go">[bugfix e3e0f73] Minor change</span>
+<span class="go">1 file changed, 4 insertions(+), 2 deletions(-)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Как только все пройдет, вы увидите сообщение о том, что коммит завершен, а в
+вашем журнале git log ваш коммит будет отображаться как самое последнее
+добавление. Теперь вы готовы к отправке в GitHub.</p>
+<h3 id="github">Отправьте свои изменения в GitHub и создайте запрос на извлечение<a class="headerlink" href="#github" title="Permanent link">&para;</a></h3>
+<p>При первом отправлении в GitHub вам будет предоставлен URL-адрес, по которому вы
+попадете прямо на страницу GitHub для создания нового запроса на извлечение.
+Перейдите по URL-адресу и создайте запрос на извлечение.</p>
+<p>Ниже приведен пример того, что можно ожидать на <code>push</code>, с выделенным
+URL-адресом.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">macOS</label><label for="__tabbed_14_2">Linux</label><label for="__tabbed_14_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>push
+<span class="go">Enumerating objects: 15, done.</span>
+<span class="go">Counting objects: 100% (15/15), done.</span>
+<span class="go">Delta compression using up to 24 threads</span>
+<span class="go">Compressing objects: 100% (6/6), done.</span>
+<span class="go">Writing objects: 100% (8/8), 689 bytes | 689.00 KiB/s, done.</span>
+<span class="go">Total 8 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)</span>
+<span class="go">remote: Resolving deltas: 100% (4/4), completed with 4 local objects.</span>
+<span class="go">remote:</span>
+<span class="go">remote: Create a pull request for &#39;fix-win11-build&#39; on GitHub by visiting:</span>
+<span class="hll"><span class="go">remote:      https://github.com/&lt;your GitHub username&gt;/BeeWare/pull/new/fix-win11-build</span>
+</span><span class="go">remote:</span>
+<span class="go">To https://github.com/&lt;your GitHub username&gt;/BeeWare.git</span>
+<span class="go"> * [new branch]      fix-win11-build -&gt; fix-win11-build</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>push
+<span class="go">Enumerating objects: 15, done.</span>
+<span class="go">Counting objects: 100% (15/15), done.</span>
+<span class="go">Delta compression using up to 24 threads</span>
+<span class="go">Compressing objects: 100% (6/6), done.</span>
+<span class="go">Writing objects: 100% (8/8), 689 bytes | 689.00 KiB/s, done.</span>
+<span class="go">Total 8 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)</span>
+<span class="go">remote: Resolving deltas: 100% (4/4), completed with 4 local objects.</span>
+<span class="go">remote:</span>
+<span class="go">remote: Create a pull request for &#39;fix-win11-build&#39; on GitHub by visiting:</span>
+<span class="hll"><span class="go">remote:      https://github.com/&lt;your GitHub username&gt;/BeeWare/pull/new/fix-win11-build</span>
+</span><span class="go">remote:</span>
+<span class="go">To https://github.com/&lt;your GitHub username&gt;/BeeWare.git</span>
+<span class="go"> * [new branch]      fix-win11-build -&gt; fix-win11-build</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git push
+<span class="go">Enumerating objects: 15, done.</span>
+<span class="go">Counting objects: 100% (15/15), done.</span>
+<span class="go">Delta compression using up to 24 threads</span>
+<span class="go">Compressing objects: 100% (6/6), done.</span>
+<span class="go">Writing objects: 100% (8/8), 689 bytes | 689.00 KiB/s, done.</span>
+<span class="go">Total 8 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)</span>
+<span class="go">remote: Resolving deltas: 100% (4/4), completed with 4 local objects.</span>
+<span class="go">remote:</span>
+<span class="go">remote: Create a pull request for &#39;fix-win11-build&#39; on GitHub by visiting:</span>
+<span class="hll"><span class="gp">remote:      https://github.com/&lt;your GitHub username&gt;</span>/BeeWare/pull/new/fix-win11-build
+</span><span class="go">remote:</span>
+<span class="gp">To https://github.com/&lt;your GitHub username&gt;</span>/BeeWare.git
+<span class="gp"> * [new branch]      fix-win11-build -&gt;</span> fix-win11-build
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Если вы ранее отправляли текущую ветвь в GitHub, вы не получите URL-адрес
+повторно. Однако есть и другие способы получить URL-адрес для создания PR:</p>
+<ul>
+<li>Перейдите в репозиторий, нажмите «Pull Requests» (Запросы на извлечение),
+  затем «New pull request» (Новый запрос на извлечение) и выберите, из какого
+  репозитория вы хотите отправить запрос на извлечение.</li>
+<li>Если вы недавно выполняли push, перейдите в репозиторий upstream, найдите
+  баннер над списком файлов, который указывает, что в репозитории «были недавние
+  push», и нажмите кнопку «Сравнить и запросить pull».</li>
+<li>Используйте команду GitHub CLI <code>gh pr create</code> и заполните поля в соответствии
+  с подсказками.</li>
+<li>Используйте команду GitHub CLI <code>gh pr create --web</code>, чтобы открыть веб-браузер
+  на странице создания PR.</li>
+</ul>
+<p>Любой из этих вариантов позволит вам создать новый пулл-реквест.</p>
+<div class="admonition info">
+<p class="admonition-title">CLI GitHub: <code>gh</code></p>
+<p>GitHub предоставляет <a href="https://cli.github.com/">GitHub CLI</a>, который дает вам
+доступ ко многим функциям GitHub из вашего терминала с помощью команды <code>gh</code>. В
+<a href="https://cli.github.com/manual/">документации GitHub CLI</a> описаны все функции.</p>
+</div>
+<h3 id="_21">Содержание запроса на извлечение<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p>Заголовок запроса на извлечение должен быть информативным, четким и лаконичным.
+По возможности старайтесь, чтобы он был коротким, но при необходимости
+допускаются и более длинные заголовки. Хороший заголовок PR должен дать
+человеку, не знакомому с контекстом, достаточно четкое представление о том,
+какая ошибка или функция реализована в вашем PR.</p>
+<p>Описание PR должно четко отражать изменения в PR. Человек, не знакомый с
+контекстом, должен иметь возможность прочитать ваше описание и получить
+относительно полное представление о том, почему вносится данное изменение.
+Избегайте шуток, идиом, разговорных выражений и ненужного форматирования, такого
+как использование заглавных букв или чрезмерное использование знаков препинания;
+это должно быть прямое объяснение того, что происходит в вашем PR, и избегание
+этих вещей делает описание более доступным для других.</p>
+<p>Если есть какие-либо случаи воспроизведения или какие-либо тестовые схемы,
+которые вы использовали, но которые еще не включены в изменения, представленные
+в PR, их следует объяснить и включить в PR. Объяснение должно включать в себя
+информацию о том, как их запускать и что делать, чтобы воспроизвести желаемый
+результат.</p>
+<p>Если ваш пул-реквест решит проблему № 1234, вам следует включить текст `Fixes</p>
+<h1 id="1234-">1234` в описание пул-реквеста. Это приведет к автоматическому закрытию проблемы<a class="headerlink" href="#1234-" title="Permanent link">&para;</a></h1>
+<p>при слиянии пул-реквеста. Вы можете ссылаться на другие обсуждения, проблемы или
+пул-реквесты, используя тот же синтаксис <code>#1234</code>. Вы можете ссылаться на
+проблему в другом репозитории, добавив перед номером префикс - например,
+<code>python/cpython#1234</code> будет ссылаться на проблему 1234 в репозитории CPython.</p>
+<h3 id="_22">Непрерывная интеграция<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p><em>Непрерывная интеграция</em>, или <em>CI</em>, — это процесс автоматической проверки вашего
+запроса на извлечение. Это может включать простые проверки, такие как проверка
+правильности форматирования кода, но также и запуск набора тестов и создание
+документации.</p>
+<p>Существует множество изменений, которые могут привести к сбоям CI. В целом, мы
+не будем рассматривать PR, который не проходит CI. Если вы создаете пул-реквест
+и CI не проходит, мы не начнем его рассмотрение, пока он не пройдет. Если ваши
+изменения приводят к сбою, вы несете ответственность за выяснение причины и
+устранение проблемы.</p>
+<p>Когда CI завершается с ошибкой, ссылки на ошибки отображаются внизу страницы PR
+под заголовком «Некоторые проверки завершились с ошибкой». Вы увидите список
+неудачных проверок, который будет отображаться в верхней части списка всех
+проверок, если есть также успешные проверки. Если вы нажмете на ссылку с
+ошибкой, вы перейдете к журналу. Журнал часто содержит всю информацию,
+необходимую для выяснения причины сбоя. Прочитайте журнал и попытайтесь
+выяснить, почему происходит сбой, а затем сделайте все необходимое для его
+устранения.</p>
+<p>Иногда проверка CI завершается сбоем по причинам, не связанным с вашими
+изменениями. Это может быть связано с проблемой на компьютере, на котором
+выполняется проверка CI, или с нестабильностью проверки CI. Если вы заметили
+сбой и уверены, что он не связан с вашими изменениями, добавьте соответствующий
+комментарий к вашему PR, и мы рассмотрим эту проблему.</p>
+<p>Чтобы запустить новый цикл CI, вам необходимо отправить новые изменения в свою
+ветвь.</p>
+<p>Если вы оказались в ситуации, когда вам нужна помощь в прохождении CI, оставьте
+комментарий в PR, сообщив нам об этом, и мы сделаем все возможное, чтобы помочь.</p>
+<div class="admonition note">
+<p class="admonition-title">Проверки <code>pre-commit</code> и <code>towncrier</code></p>
+<p>Если проверка <code>pre-commit</code> или <code>towncrier</code> завершится с ошибкой, это заблокирует
+выполнение большинства остальных проверок CI. Вам необходимо будет устранить
+соответствующие проблемы, прежде чем будет запущен полный набор проверок.</p>
+</div>
+<p>У нас ограниченные ресурсы CI. Важно понимать, что каждый раз, когда вы
+отправляете изменения в ветку, запускается CI. Если вы собираетесь внести
+несколько изменений, лучше сделать их локально, а затем отправить все сразу. CI
+будет запускаться только для самой последней фиксации в пакете, что минимизирует
+нагрузку на нашу систему CI.</p>
+<p>Процесс подачи вашего PR не завершен, пока он не пройдет CI, или вы не
+предоставите объяснение, почему это не так.</p>
+</details>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © Russell Keith-Magee
+    </div>
+  
+  
+</div>
+      
+        <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!--
+  Split a string with a separator - while Jinja allows to call ".split" on a
+  string, it doesn't natively bring a "split" filter implementation. We can't
+  simply add further filters, since MkDocs doesn't allow it, so we're stuck
+  with the function call. This however doesn't work with minijinja, which does
+  not allow to call functions on template variables, but has a "split" filter.
+  Thus, we just branch and extract the part that interests us here.
+-->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Social links -->
+<div class="md-social">
+  
+
+    <!-- Automatically set rel=me for Mastodon -->
+    
+    
+
+    <!-- Compute title and render link -->
+    
+    
+    <a
+      href="https://github.com/beeware"
+      target="_blank" rel="noopener"
+      title="BeeWare on GitHub"
+      class="md-social__link"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+
+    <!-- Automatically set rel=me for Mastodon -->
+    
+    
+      
+    
+
+    <!-- Compute title and render link -->
+    
+    
+    <a
+      href="https://fosstodon.org/@beeware"
+      target="_blank" rel="noopener me"
+      title="BeeWare on Mastodon"
+      class="md-social__link"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54-.6-4.6-.9-9.3-.9-13.9 85.6 20.9 158.7 9.1 178.7 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6V190.1c0-49.7-64-51.6-64 6.9v62.5H201V197c0-58.5-64-56.6-64-6.9v114.2H90.3c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175"/></svg>
+    </a>
+  
+
+    <!-- Automatically set rel=me for Mastodon -->
+    
+    
+
+    <!-- Compute title and render link -->
+    
+    
+    <a
+      href="https://beeware.org/bee/chat/"
+      target="_blank" rel="noopener"
+      title="BeeWare on Discord"
+      class="md-social__link"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"/></svg>
+    </a>
+  
+
+    <!-- Automatically set rel=me for Mastodon -->
+    
+    
+
+    <!-- Compute title and render link -->
+    
+    
+    <a
+      href="https://beeware.org/news/buzz/atom.xml"
+      target="_blank" rel="noopener"
+      title="BeeWare blog RSS feed"
+      class="md-social__link"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 104c0-13.3 10.7-24 24-24 137 0 248 111 248 248 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-110.5-89.5-200-200-200-13.3 0-24-10.7-24-24m0 96c0-13.3 10.7-24 24-24 83.9 0 152 68.1 152 152 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-57.4-46.6-104-104-104-13.3 0-24-10.7-24-24m0 120a32 32 0 1 1 64 0 32 32 0 1 1-64 0"/></svg>
+    </a>
+  
+        <div class="footer-link">
+            <a href="https://beeware.org/bee/coc">Code of Conduct</a>
+        </div>
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.tabs.link", "toc.follow", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.path", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+    <script src="../../../../assets/javascripts/copy_button.js"></script>
+
+  </body>
+</html>
