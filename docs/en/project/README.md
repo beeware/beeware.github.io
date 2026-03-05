@@ -1,1 +1,3 @@
+# Legacy project content
+
 This folder contains image that have been used historically by projects, and as such, are hard-coded into PyPI release pages. They're also used by GitHub project pages until we can update to use new locations.
