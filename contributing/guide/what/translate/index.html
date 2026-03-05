@@ -190,7 +190,7 @@ aria-label="Header"
 
     <!-- Link to home -->
     <a
-      href="../../../.."
+      href="https://beeware.org/"
       title="BeeWare"
       class="md-header__button md-logo"
       aria-label="BeeWare"
@@ -210,7 +210,7 @@ aria-label="Header"
     <!-- Header title -->
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
-      <a href="../../../.."
+      <a href="https://beeware.org/"
          title="BeeWare">
         <div class="md-header__topic">
           <span class="md-ellipsis">
@@ -2290,6 +2290,17 @@ aria-label="Header"
     <span class="md-ellipsis">
       
         Update config.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run tox translate
       
     </span>
   </a>
@@ -4831,6 +4842,17 @@ aria-label="Header"
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#run-tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run tox translate
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5055,7 +5077,15 @@ aria-label="Header"
 <span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 
 <span class="nt">extra</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">language_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de/</span>
 <span class="w">  </span><span class="nt">translation_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">machine</span>
+<span class="w">  </span><span class="nt">header</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">About</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Über</span>
+<span class="w">    </span><span class="nt">Documentation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dokumentation</span>
+<span class="w">    </span><span class="nt">Community</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gemeinschaft</span>
+<span class="w">    </span><span class="nt">Contributing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mitwirken</span>
+<span class="w">    </span><span class="nt">News</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neuigkeiten</span>
+<span class="w">    </span><span class="nt">Sponsor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Förderer</span>
 </code></pre></div>
 <p>Here's what is going on in this file:</p>
 <ul>
@@ -5064,7 +5094,9 @@ aria-label="Header"
 <li>The <code>site_url</code> value is the project site URL, followed by the language code.</li>
 <li>The <code>docs_dir</code> should be the language code.</li>
 <li>The <code>theme: language:</code> value should be the language code, as <a href="https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/">specified by the MkDocs Material theme</a>. For most languages, this will be the same as the <code>docs_dir</code> language code; but for some (in particular languages with locale variants like <code>zh_CN</code>), there are differences.</li>
+<li>The <code>extra: language_url:</code> should be the language code, followed by a single slash, e.g. <code>de/</code> for German.</li>
 <li>The <code>extra: translation_type:</code> should be <code>machine</code> until the translation reaches 100% for the first time, at which point it should be <code>human</code>. It will revert to <code>machine</code> from <code>human</code> if it regresses to below 90%.</li>
+<li>The content under <code>extra: header</code> is the translations for titles that appear in the header bar. This definition is <em>not</em> required on the main BeeWare website; it is only required on <em>other</em> sites (such as the tutorial, or project documentation).</li>
 </ul>
 <h4 id="update-toxini">Update <code>tox.ini</code><a class="headerlink" href="#update-toxini" title="Permanent link">&para;</a></h4>
 <p>You'll need to make several changes to the <code>tox.ini</code> file.</p>
@@ -5072,10 +5104,10 @@ aria-label="Header"
 <ul>
 <li>The new language code environment flag to the header line which begins <code>[testenv:docs</code>, with the language code preceded by a <code>-</code>, with no spaces included, e.g. <code>-de</code>.</li>
 <li>The new language code exclusion to the first command, which begins with <code>!lint</code>, preceded by <code>-!</code>, with no spaces included, e.g. <code>-!de</code>.</li>
-<li>The new language code to the end of the line beginning with <code>translate : build_po_translations</code>.</li>
-<li>The new language code to the end of the line beginning with <code>translate : update_machine_translations</code></li>
-<li>A new command, beginning with, for example, <code>de : build_md_translations</code> for German, after the other existing language-specific commands that matches the content those commands with the new language code.</li>
-<li>The new language code to the end of the line beginning with <code>all,serve :</code>.</li>
+<li>The new language code to the line beginning with <code>translate : build_po_translations</code>.</li>
+<li>The new language code to the line beginning with <code>translate : update_machine_translations</code></li>
+<li>A new command, beginning with, for example, <code>de : build_md_translations</code> for German, alphabetically within the existing language-specific commands that matches the content of those commands, with the new language code.</li>
+<li>The new language code to the line beginning with <code>all:</code>.</li>
 </ul>
 <h4 id="update-configyml">Update <code>config.yml</code><a class="headerlink" href="#update-configyml" title="Permanent link">&para;</a></h4>
 <p>Add the language to <code>config.yml</code> so it will show up in the language selector in the header. Find the section beginning with <code>extra:</code>, and then locate the subsection beginning with <code>alternate:</code>. For German, you would add the following:</p>
@@ -5084,7 +5116,8 @@ aria-label="Header"
 <span class="w">      </span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 </code></pre></div>
 <p>The language name should be translated into the language. The link must include the <code>/</code>s.</p>
-<p>The new language is now ready to begin translation.</p>
+<h4 id="run-tox-translate">Run <code>tox translate</code><a class="headerlink" href="#run-tox-translate" title="Permanent link">&para;</a></h4>
+<p>You can now run <code>tox -e docs-translate</code>. This will generate an empty translation file; if you have a DeepL account, you can use that account to populate initial machine translations. If you don't have a DeepL account, that's fine - we'll run initial translations ourselves before accepting the pull request.</p>
 <h3 id="translation-guidelines">Translation guidelines<a class="headerlink" href="#translation-guidelines" title="Permanent link">&para;</a></h3>
 <p>Once you've been added to the team, it's time to log into <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> and begin working through translating strings.</p>
 <h4 id="tone-versus-word-for-word-translation">Tone versus word-for-word translation<a class="headerlink" href="#tone-versus-word-for-word-translation" title="Permanent link">&para;</a></h4>

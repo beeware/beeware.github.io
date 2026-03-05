@@ -190,7 +190,7 @@ aria-label="页眉"
 
     <!-- Link to home -->
     <a
-      href="../../../.."
+      href="https://beeware.org/"
       title="BeeWare"
       class="md-header__button md-logo"
       aria-label="BeeWare"
@@ -210,7 +210,7 @@ aria-label="页眉"
     <!-- Header title -->
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
-      <a href="../../../.."
+      <a href="https://beeware.org/"
          title="BeeWare">
         <div class="md-header__topic">
           <span class="md-ellipsis">
@@ -2290,6 +2290,17 @@ aria-label="页眉"
     <span class="md-ellipsis">
       
         更新 config.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行 tox translate
       
     </span>
   </a>
@@ -4831,6 +4842,17 @@ aria-label="页眉"
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行 tox translate
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5057,7 +5079,15 @@ aria-label="页眉"
 <span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 
 <span class="nt">extra</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">language_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de/</span>
 <span class="w">  </span><span class="nt">translation_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">machine</span>
+<span class="w">  </span><span class="nt">header</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">About</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Über</span>
+<span class="w">    </span><span class="nt">Documentation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dokumentation</span>
+<span class="w">    </span><span class="nt">Community</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gemeinschaft</span>
+<span class="w">    </span><span class="nt">Contributing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mitwirken</span>
+<span class="w">    </span><span class="nt">News</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neuigkeiten</span>
+<span class="w">    </span><span class="nt">Sponsor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Förderer</span>
 </code></pre></div>
 <p>下面是这个文件的内容：</p>
 <ul>
@@ -5067,8 +5097,10 @@ aria-label="页眉"
 <li>docs_dir "应为语言代码。</li>
 <li>theme:language:<code>值应该是[MkDocs Material
   theme指定的](https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/)语言代码。对于大多数语言来说，这与</code>docs_dir<code>语言代码相同；但对于某些语言（尤其是像</code>zh_CN` 这样有本地化变体的语言）来说，则存在差异。</li>
+<li><code>extra: language_url:</code> 应为语言代码，后跟单斜杠，例如 <code>de/</code> 表示德语。</li>
 <li>在翻译首次达到 100% 之前，"extra: translation_type: "应为 "machine"，此时应为 "human"。如果低于
   90%，它将从 "人 "返回到 "机器"。</li>
+<li><code>extra: header</code> 下的内容是标题栏中显示的标题的翻译。此定义在 BeeWare 官网上<em>不需要</em>；仅在<em>其他</em>网站（如教程或项目文档）上需要。</li>
 </ul>
 <h4 id="toxini">更新 `tox.ini<a class="headerlink" href="#toxini" title="Permanent link">&para;</a></h4>
 <p>您需要对 <code>tox.ini</code> 文件进行几处修改。</p>
@@ -5076,11 +5108,11 @@ aria-label="页眉"
 <ul>
 <li>新语言代码环境标志到以 <code>[testenv:docs</code>]开头的页眉行，语言代码前加 <code>-</code>，不含空格，例如 <code>-de</code>。</li>
 <li>新语言代码不包括第一条命令，该命令以 <code>!lint</code> 开头，前面加上 <code>-!</code>，不含空格，例如 <code>-!de</code>。</li>
-<li>将新语言代码添加到以 <code>translate : build_po_translations</code> 开头的行尾。</li>
-<li>在以 <code>translate : update_machine_translations</code> 开头的一行末尾添加新的语言代码</li>
-<li>在其他现有的特定语言命令之后，添加一条新命令，例如，德语命令以 <code>de : build_md_translations</code>
-  开头，将这些命令的内容与新的语言代码相匹配。</li>
-<li>将新语言代码添加到以 "all,serve :`"开头的行尾。</li>
+<li>新语言代码对应以<code>translate : build_po_translations</code>开头的行。</li>
+<li>从 <code>translate : update_machine_translations</code> 开头的行开始的新语言代码</li>
+<li>新增命令，例如以 <code>de : build_md_translations</code>
+  开头（代表德语），在现有语言专属命令中按字母顺序排列，其内容需与现有命令匹配，并使用新的语言代码。</li>
+<li>新语言代码对应以<code>all:</code>开头的行。</li>
 </ul>
 <h4 id="configyml">更新 <code>config.yml</code><a class="headerlink" href="#configyml" title="Permanent link">&para;</a></h4>
 <p>将语言添加到 <code>config.yml</code> 中，使其显示在页眉的语言选择器中。找到以 <code>extra:</code> 开头的部分，然后找到以 <code>alternate:</code>
@@ -5090,14 +5122,16 @@ aria-label="页眉"
 <span class="w">      </span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 </code></pre></div>
 <p>语言名称应翻译成该语言。链接必须包括 <code>/</code>。</p>
-<p>新语言现在可以开始翻译了。</p>
+<h4 id="tox-translate">运行 <code>tox translate</code><a class="headerlink" href="#tox-translate" title="Permanent link">&para;</a></h4>
+<p>现在您可以运行<code>tox -e
+docs-translate</code>命令。这将生成一个空的翻译文件；如果您拥有DeepL账户，可使用该账户填充初始机器翻译内容。若您没有DeepL账户也无妨——在接受拉取请求前，我们会自行执行初始翻译。</p>
 <h3 id="_5">翻译指南<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>加入团队后，您就可以登录 <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> 并开始翻译字符串。</p>
 <h4 id="_6">语气翻译与逐字翻译<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <p>保持英文文本的语气比一字不差地翻译更重要。我们在内容上尽量友好，有点口语化；在翻译中尽量保持这种精神。</p>
 <p>如果英文文本中包含一个很强的英语习惯用语，如果您的语言中也有类似的习惯用语，请不要觉得必须保留该习惯用语。如果英文文本中的术语或短语是一个特别成语或俚语，不要害怕告诉我们应该考虑进行修改。即使对英语使用者来说，成语和俚语也会造成困难。有时，我们需要对英文文本进行修改，以便让译者和读者都能更直观地理解。</p>
 <h4 id="_7">我应该翻译吗？<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
-<p>以下项目不应翻译或更新：</p>
+<p>以下项目<em>不应</em>进行翻译或更新：</p>
 <ul>
 <li><strong>命令</strong>。例如，在 "You should run `briefcase create`." 中，只需翻译 "You should run"。</li>
 <li><strong>命名空间</strong>，例如类名、方法名或属性名。</li>
@@ -5132,7 +5166,7 @@ Content.
 </li>
 <li><strong>包含外部内容的语法</strong>。这是指与 <code>-8&lt;-</code> 在同一行的任何内容，或在两个独立行的 <code>-8&lt;-</code> 之间的任何内容。</li>
 </ul>
-<p>下列项目_应该_翻译：</p>
+<p>以下项目<em>应</em>进行翻译：</p>
 <ul>
 <li><strong>链接文本</strong>。在链接语法中，文本位于URL之前，并用括号括起来，如<code>[链接文本](URL)</code>。标准的Markdown链接在Weblate中应显示为<code>[链接文本]{1}</code>，其中<code>1</code>是链接在字符串中的位置，与其他可能的链接相对应。</li>
 <li>

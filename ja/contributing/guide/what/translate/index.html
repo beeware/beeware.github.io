@@ -190,7 +190,7 @@ aria-label="ヘッダー"
 
     <!-- Link to home -->
     <a
-      href="../../../.."
+      href="https://beeware.org/"
       title="BeeWare"
       class="md-header__button md-logo"
       aria-label="BeeWare"
@@ -210,7 +210,7 @@ aria-label="ヘッダー"
     <!-- Header title -->
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
-      <a href="../../../.."
+      <a href="https://beeware.org/"
          title="BeeWare">
         <div class="md-header__topic">
           <span class="md-ellipsis">
@@ -2290,6 +2290,17 @@ aria-label="ヘッダー"
     <span class="md-ellipsis">
       
         更新 config.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実行 tox translate
       
     </span>
   </a>
@@ -4831,6 +4842,17 @@ aria-label="ヘッダー"
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        実行 tox translate
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5055,7 +5077,15 @@ aria-label="ヘッダー"
 <span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 
 <span class="nt">extra</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">language_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de/</span>
 <span class="w">  </span><span class="nt">translation_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">machine</span>
+<span class="w">  </span><span class="nt">header</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">About</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Über</span>
+<span class="w">    </span><span class="nt">Documentation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dokumentation</span>
+<span class="w">    </span><span class="nt">Community</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gemeinschaft</span>
+<span class="w">    </span><span class="nt">Contributing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mitwirken</span>
+<span class="w">    </span><span class="nt">News</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neuigkeiten</span>
+<span class="w">    </span><span class="nt">Sponsor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Förderer</span>
 </code></pre></div>
 <p>このファイルでは以下の処理が行われています：</p>
 <ul>
@@ -5067,8 +5097,11 @@ aria-label="ヘッダー"
   テーマで指定されているとおり）。ほとんどの言語では、これは
   (https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/)
   の言語コードと同じですが、一部（特に <code>docs_dir</code> のようなロケールバリエーションを持つ言語）では差異があります。</li>
+<li><code>extra: language_url:</code> は言語コードであり、単一のスラッシュが続く。例：<code>de/</code> はドイツ語を表す。</li>
 <li><code>extra: translation_type:</code> は、翻訳率が初めて 100% に達するまでは <code>machine</code> のままであるべきであり、その時点で
   <code>human</code> となるべきである。翻訳率が 90% 未満に後退した場合、<code>machine</code> から <code>human</code> に戻す。</li>
+<li><code>extra:
+  header</code>内の内容は、ヘッダーバーに表示されるタイトルの翻訳です。この定義は、BeeWareのメインウェブサイトでは<em>不要</em>です。<em>他の</em>サイト（チュートリアルやプロジェクトドキュメントなど）でのみ必要です。</li>
 </ul>
 <h4 id="toxini">更新 <code>tox.ini</code><a class="headerlink" href="#toxini" title="Permanent link">&para;</a></h4>
 <p><code>tox.ini</code>ファイルにいくつかの変更を加える必要があります。</p>
@@ -5076,11 +5109,11 @@ aria-label="ヘッダー"
 <ul>
 <li>新しい言語コード環境フラグは、<code>[testenv:docs</code>で始まるヘッダー行に追加され、言語コードの前に<code>-</code>が置かれ、スペースを含まない。例：<code>-de</code>。</li>
 <li>最初のコマンドに対する新しい言語コード除外は、<code>!lint</code>で始まり、その前に<code>-!</code>が置かれ、スペースを含まない形式です。例：<code>-!de</code>。</li>
-<li>新しい言語コードを、<code>translate : build_po_translations</code>で始まる行の末尾に追加してください。</li>
-<li><code>translate : update_machine_translations</code>で始まる行の末尾に追加する新しい言語コード</li>
-<li>既存の言語固有コマンドの後に、例えばドイツ語の場合は<code>de :
-  build_md_translations</code>で始まる新しいコマンドを追加し、それらのコマンドの内容を新しい言語コードと一致させる。</li>
-<li>新しい言語コードを、<code>all,serve :</code>で始まる行の末尾に追加してください。</li>
+<li><code>translate : build_po_translations</code>で始まる行への新しい言語コード</li>
+<li><code>translate : update_machine_translations</code>で始まる行への新しい言語コード</li>
+<li>新しいコマンドは、例えばドイツ語の場合は<code>de :
+  build_md_translations</code>で始まり、既存の言語固有コマンド内でアルファベット順に配置され、それらのコマンドの内容と一致し、新しい言語コードを持つ。</li>
+<li><code>all:</code>で始まる行への新しい言語コード</li>
 </ul>
 <h4 id="configyml">更新 <code>config.yml</code><a class="headerlink" href="#configyml" title="Permanent link">&para;</a></h4>
 <p>言語を<code>config.yml</code>に追加すると、ヘッダーの言語セレクターに表示されます。<code>extra:</code>で始まるセクションを見つけ、次に<code>alternate:</code>で始まるサブセクションを探します。ドイツ語の場合は、以下を追加します：</p>
@@ -5089,7 +5122,9 @@ aria-label="ヘッダー"
 <span class="w">      </span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 </code></pre></div>
 <p>言語名は対象言語に翻訳する必要があります。リンクには<code>/</code>を含める必要があります。</p>
-<p>新しい言語の翻訳を開始する準備が整いました。</p>
+<h4 id="tox-translate">実行 <code>tox translate</code><a class="headerlink" href="#tox-translate" title="Permanent link">&para;</a></h4>
+<p>現在、<code>tox -e
+docs-translate</code>を実行できます。これにより空の翻訳ファイルが生成されます。DeepLアカウントをお持ちの場合は、そのアカウントを使用して初期機械翻訳を生成できます。DeepLアカウントをお持ちでない場合も問題ありません。プルリクエストを受け入れる前に、当社で初期翻訳を実行します。</p>
 <h3 id="_5">翻訳ガイドライン<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>チームに追加されたら、<a href="https://hosted.weblate.org/projects/beeware/">Weblate</a>
 にログインし、文字列の翻訳作業を開始してください。</p>
@@ -5098,7 +5133,7 @@ aria-label="ヘッダー"
 <p>英語の原文に強い英語の慣用句が含まれている場合、自国語で同等の効果を持つ類似表現があれば、その慣用句を無理に維持する必要はありません。英語の原文にある用語やフレーズが特に慣用的な表現やスラングである場合、変更を検討すべきだと遠慮なく伝えてください。英語話者にとっても、慣用句やスラングは理解が難しい場合があります。
 翻訳者と読者双方にとって理解しやすくするため、英語原文を変更する必要が生じる場合もあります。</p>
 <h4 id="_7">翻訳すべきでしょうか？<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
-<p>以下の項目は翻訳または更新しないでください：</p>
+<p>以下の項目は翻訳または更新<em>しないでください</em>：</p>
 <ul>
 <li><strong>コマンド</strong>。例えば、「You should run `briefcase create`。」では、「You should
   run」のみを翻訳してください。</li>

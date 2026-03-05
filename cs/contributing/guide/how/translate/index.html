@@ -190,7 +190,7 @@ aria-label="Záhlaví"
 
     <!-- Link to home -->
     <a
-      href="../../../.."
+      href="https://beeware.org/"
       title="BeeWare"
       class="md-header__button md-logo"
       aria-label="BeeWare"
@@ -210,7 +210,7 @@ aria-label="Záhlaví"
     <!-- Header title -->
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
-      <a href="../../../.."
+      <a href="https://beeware.org/"
          title="BeeWare">
         <div class="md-header__topic">
           <span class="md-ellipsis">
@@ -2928,6 +2928,17 @@ aria-label="Záhlaví"
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#spustit-tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spustit tox translate
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4802,6 +4813,17 @@ aria-label="Záhlaví"
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#spustit-tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spustit tox translate
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5024,7 +5046,15 @@ následujícím obsahem:</p>
 <span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 
 <span class="nt">extra</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">language_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de/</span>
 <span class="w">  </span><span class="nt">translation_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">machine</span>
+<span class="w">  </span><span class="nt">header</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">About</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Über</span>
+<span class="w">    </span><span class="nt">Documentation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dokumentation</span>
+<span class="w">    </span><span class="nt">Community</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gemeinschaft</span>
+<span class="w">    </span><span class="nt">Contributing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mitwirken</span>
+<span class="w">    </span><span class="nt">News</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neuigkeiten</span>
+<span class="w">    </span><span class="nt">Sponsor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Förderer</span>
 </code></pre></div>
 <p>Toto se děje v tomto souboru:</p>
 <ul>
@@ -5038,9 +5068,15 @@ následujícím obsahem:</p>
   Material</a>.
   Pro většinu jazyků bude stejná jako kód jazyka <code>docs_dir</code>, ale u některých
   (zejména u jazyků s variantami locale, jako je <code>zh_CN</code>) existují rozdíly.</li>
+<li><code>extra: language_url:</code> by měl být kód jazyka, za nímž následuje jediná
+  lomítka, např. <code>de/</code> pro němčinu.</li>
 <li><code>extra: translation_type:</code> by mělo být <code>machine</code> až do okamžiku, kdy překlad
   poprvé dosáhne 100 %, v tom okamžiku by mělo být <code>human</code>. Pokud se překlad
   vrátí pod 90 %, vrátí se z <code>machine</code> zpět na <code>human</code>.</li>
+<li>Obsah pod <code>extra: header</code> jsou překlady názvů, které se zobrazují v záhlaví.
+  Tato definice <em>není</em> vyžadována na hlavní webové stránce BeeWare; je
+  vyžadována pouze na <em>jiných</em> stránkách (například v tutoriálu nebo v
+  dokumentaci k projektu).</li>
 </ul>
 <h4 id="aktualizovat-toxini">Aktualizovat <code>tox.ini</code><a class="headerlink" href="#aktualizovat-toxini" title="Permanent link">&para;</a></h4>
 <p>Budete muset provést několik změn v souboru <code>tox.ini</code>.</p>
@@ -5050,14 +5086,13 @@ následujícím obsahem:</p>
   jazykovým kódem předcházejícím <code>-</code>, bez mezer, např. <code>-de</code>.</li>
 <li>Nové vyloučení jazykového kódu z prvního příkazu, který začíná znaky <code>!lint</code>,
   před nimiž jsou znaky <code>-!</code>, bez mezer, např. <code>-!de</code>.</li>
-<li>Nový jazykový kód na konci řádku začínajícího znaky <code>translate :
-  build_po_translations</code>.</li>
-<li>Nový jazykový kód na konci řádku začínajícího znaky <code>translate :
+<li>Nový jazykový kód pro řádek začínající <code>translate : build_po_translations</code>.</li>
+<li>Nový jazykový kód pro řádek začínající znaky <code>translate :
   update_machine_translations</code></li>
-<li>Nový příkaz, začínající například <code>de : build_md_translations</code> pro němčinu, za
-  ostatními existujícími jazykově specifickými příkazy, které odpovídají obsahu
-  těchto příkazů s novým kódem jazyka.</li>
-<li>Nový jazykový kód na konci řádku začínajícího znaky <code>all,serve :</code>.</li>
+<li>Nový příkaz, začínající například <code>de : build_md_translations</code> pro němčinu,
+  abecedně v rámci stávajících příkazů specifických pro daný jazyk, který
+  odpovídá obsahu těchto příkazů, s novým kódem jazyka.</li>
+<li>Nový jazykový kód pro řádek začínající <code>all:</code>.</li>
 </ul>
 <h4 id="aktualizace-configyml">Aktualizace <code>config.yml</code><a class="headerlink" href="#aktualizace-configyml" title="Permanent link">&para;</a></h4>
 <p>Přidejte jazyk do <code>config.yml</code>, aby se zobrazil v nabídce pro výběr jazyka v
@@ -5069,7 +5104,11 @@ začínající <code>alternate:</code>. Pro němčinu byste přidali následují
 </code></pre></div>
 <p>Název jazyka by měl být přeložen do daného jazyka. Odkaz musí obsahovat znaky
 <code>/</code>.</p>
-<p>Nový jazyk je nyní připraven k překladu.</p>
+<h4 id="spustit-tox-translate">Spustit <code>tox translate</code><a class="headerlink" href="#spustit-tox-translate" title="Permanent link">&para;</a></h4>
+<p>Nyní můžete spustit <code>tox -e docs-translate</code>. Tím se vygeneruje prázdný
+překladový soubor. Pokud máte účet DeepL, můžete jej použít k vyplnění
+počátečních strojových překladů. Pokud účet DeepL nemáte, nevadí – počáteční
+překlady provedeme sami, než přijmeme žádost o stažení.</p>
 <h3 id="pokyny-pro-preklad">Pokyny pro překlad<a class="headerlink" href="#pokyny-pro-preklad" title="Permanent link">&para;</a></h3>
 <p>Jakmile budete přidáni do týmu, je čas se přihlásit do
 <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> a začít pracovat na
@@ -5086,7 +5125,7 @@ změnu. I pro mluvčí angličtiny mohou idiomy a slang představovat obtíž. N
 třeba anglický text změnit, aby byl srozumitelnější jak pro překladatele, tak
 pro čtenáře.</p>
 <h4 id="mam-to-prelozit">Mám to přeložit?<a class="headerlink" href="#mam-to-prelozit" title="Permanent link">&para;</a></h4>
-<p>Následující položky by neměly být překládány ani aktualizovány:</p>
+<p>Následující položky by <em>neměly</em> být překládány ani aktualizovány:</p>
 <ul>
 <li><strong>Příkazy</strong>. Například ve větě „Měli byste spustit `briefcase create`.“ by
   se mělo přeložit pouze „Měli byste spustit“.</li>
@@ -5137,7 +5176,7 @@ Content.
 <li><strong>Syntaxe pro zahrnutí externího obsahu</strong>. Jedná se o cokoli na stejném řádku
   jako <code>-8&lt;-</code> nebo na řádcích mezi dvěma <code>-8&lt;-</code> na samostatných řádcích.</li>
 </ul>
-<p>Následující položky by měly být přeloženy:</p>
+<p>Následující položky <em>by</em> měly být přeloženy:</p>
 <ul>
 <li><strong>Text odkazu</strong>. V syntaxi odkazu se text uvádí před URL adresou a je uzavřen
   v závorkách, jako v <code>[Link text](URL)</code>. Standardní odkazy Markdown by se měly

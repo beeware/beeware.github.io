@@ -190,7 +190,7 @@ aria-label="Верхний колонтитул"
 
     <!-- Link to home -->
     <a
-      href="../../../.."
+      href="https://beeware.org/"
       title="BeeWare"
       class="md-header__button md-logo"
       aria-label="BeeWare"
@@ -210,7 +210,7 @@ aria-label="Верхний колонтитул"
     <!-- Header title -->
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
-      <a href="../../../.."
+      <a href="https://beeware.org/"
          title="BeeWare">
         <div class="md-header__topic">
           <span class="md-ellipsis">
@@ -2928,6 +2928,17 @@ aria-label="Верхний колонтитул"
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Запустить tox translate
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4802,6 +4813,17 @@ aria-label="Верхний колонтитул"
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Запустить tox translate
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5024,7 +5046,15 @@ aria-label="Верхний колонтитул"
 <span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 
 <span class="nt">extra</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">language_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de/</span>
 <span class="w">  </span><span class="nt">translation_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">machine</span>
+<span class="w">  </span><span class="nt">header</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">About</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Über</span>
+<span class="w">    </span><span class="nt">Documentation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dokumentation</span>
+<span class="w">    </span><span class="nt">Community</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gemeinschaft</span>
+<span class="w">    </span><span class="nt">Contributing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mitwirken</span>
+<span class="w">    </span><span class="nt">News</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neuigkeiten</span>
+<span class="w">    </span><span class="nt">Sponsor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Förderer</span>
 </code></pre></div>
 <p>Вот что происходит в этом файле:</p>
 <ul>
@@ -5039,9 +5069,15 @@ aria-label="Верхний колонтитул"
   Для большинства языков это будет то же самое, что и код языка <code>docs_dir</code>, но
   для некоторых (в частности, для языков с локальными вариантами, такими как
   <code>zh_CN</code>), есть различия.</li>
+<li><code>extra: language_url:</code> должен быть кодом языка, за которым следует один косой
+  слеш, например, <code>de/</code> для немецкого языка.</li>
 <li><code>extra: translation_type:</code> должно быть <code>machine</code> до тех пор, пока перевод не
   достигнет 100% в первый раз, после чего оно должно стать <code>human</code>. Оно вернется
   к <code>machine</code> из <code>human</code>, если регрессирует ниже 90%.</li>
+<li>Содержимое под <code>extra: header</code> представляет собой переводы названий, которые
+  появляются в верхней панели. Это определение <em>не</em> требуется на главном
+  веб-сайте BeeWare; оно требуется только на <em>других</em> сайтах (таких как учебник
+  или документация по проекту).</li>
 </ul>
 <h4 id="toxini">Обновление <code>tox.ini</code><a class="headerlink" href="#toxini" title="Permanent link">&para;</a></h4>
 <p>Вам нужно будет внести несколько изменений в файл <code>tox.ini</code>.</p>
@@ -5052,14 +5088,14 @@ aria-label="Верхний колонтитул"
   например <code>-de</code>.</li>
 <li>Новое исключение языкового кода для первой команды, которая начинается с
   <code>!lint</code>, предшествующей <code>-!</code>, без пробелов, например <code>-!de</code>.</li>
-<li>Новый языковой код в конце строки, начинающейся с <code>translate :
+<li>Новый языковой код в строке, начинающейся с <code>translate :
   build_po_translations</code>.</li>
-<li>Новый языковой код в конце строки, начинающейся с <code>translate :
+<li>Новый языковой код для строки, начинающейся с <code>translate :
   update_machine_translations</code></li>
 <li>Новая команда, начинающаяся, например, с <code>de : build_md_translations</code> для
-  немецкого языка, после других существующих языковых команд, которые
-  соответствуют содержанию этих команд с новым кодом языка.</li>
-<li>Новый языковой код в конце строки, начинающейся с <code>all,serve :</code>.</li>
+  немецкого языка, в алфавитном порядке в пределах существующих языковых команд,
+  которые соответствуют содержанию этих команд, с новым кодом языка.</li>
+<li>Новый языковой код в строке, начинающейся с <code>all:</code>.</li>
 </ul>
 <h4 id="configyml">Обновление <code>config.yml</code><a class="headerlink" href="#configyml" title="Permanent link">&para;</a></h4>
 <p>Добавьте язык в <code>config.yml</code>, чтобы он отображался в выпадающем списке языков в
@@ -5071,7 +5107,12 @@ aria-label="Верхний колонтитул"
 </code></pre></div>
 <p>Название языка должно быть переведено на этот язык. Ссылка должна содержать
 символы <code>/</code>.</p>
-<p>Новый язык теперь готов к переводу.</p>
+<h4 id="tox-translate">Запустить <code>tox translate</code><a class="headerlink" href="#tox-translate" title="Permanent link">&para;</a></h4>
+<p>Теперь вы можете запустить <code>tox -e docs-translate</code>. Это сгенерирует пустой файл
+перевода; если у вас есть учетная запись DeepL, вы можете использовать ее для
+заполнения первоначальных машинных переводов. Если у вас нет учетной записи
+DeepL, не беспокойтесь — мы сами выполним первоначальные переводы, прежде чем
+принять запрос на вытягивание.</p>
 <h3 id="_4">Руководство по переводу<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>После того, как вы были добавлены в команду, пора войти в
 <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> и приступить к переводу
@@ -5089,7 +5130,7 @@ aria-label="Верхний колонтитул"
 английский текст, чтобы он был более понятным как для переводчиков, так и для
 читателей.</p>
 <h4 id="_6">Мне перевести это?<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
-<p>Следующие элементы не должны переводиться или обновляться:</p>
+<p>Следующие элементы <em>не</em> должны переводиться или обновляться:</p>
 <ul>
 <li><strong>Команды</strong>. Например, в предложении «Вы должны запустить `briefcase
   create`.» следует переводить только «Вы должны запустить».</li>

@@ -190,7 +190,7 @@ aria-label="Sidehoved"
 
     <!-- Link to home -->
     <a
-      href="../../../.."
+      href="https://beeware.org/"
       title="BeeWare"
       class="md-header__button md-logo"
       aria-label="BeeWare"
@@ -210,7 +210,7 @@ aria-label="Sidehoved"
     <!-- Header title -->
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
-      <a href="../../../.."
+      <a href="https://beeware.org/"
          title="BeeWare">
         <div class="md-header__topic">
           <span class="md-ellipsis">
@@ -2290,6 +2290,17 @@ aria-label="Sidehoved"
     <span class="md-ellipsis">
       
         Opdater config.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kr-tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kør tox translate
       
     </span>
   </a>
@@ -4831,6 +4842,17 @@ aria-label="Sidehoved"
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#kr-tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kør tox translate
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5076,7 +5098,15 @@ indhold:</p>
 <span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 
 <span class="nt">extra</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">language_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de/</span>
 <span class="w">  </span><span class="nt">translation_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">machine</span>
+<span class="w">  </span><span class="nt">header</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">About</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Über</span>
+<span class="w">    </span><span class="nt">Documentation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dokumentation</span>
+<span class="w">    </span><span class="nt">Community</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gemeinschaft</span>
+<span class="w">    </span><span class="nt">Contributing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mitwirken</span>
+<span class="w">    </span><span class="nt">News</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neuigkeiten</span>
+<span class="w">    </span><span class="nt">Sponsor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Förderer</span>
 </code></pre></div>
 <p>Her er, hvad der foregår i denne fil:</p>
 <ul>
@@ -5089,9 +5119,15 @@ indhold:</p>
   For de fleste sprog vil dette være det samme som sprogkoden <code>docs_dir</code>, men
   for nogle sprog (især sprog med lokale varianter som <code>zh_CN</code>) er der
   forskelle.</li>
+<li><code>extra: language_url:</code> skal være sprogkoden efterfulgt af en enkelt skråstreg,
+  f.eks. <code>de/</code> for tysk.</li>
 <li><code>extra: translation_type:</code> skal være <code>machine</code> indtil oversættelsen når 100 %
   for første gang, hvorefter den skal være <code>human</code>. Den vil vende tilbage til
   <code>machine</code> fra <code>human</code>, hvis den falder til under 90 %.</li>
+<li>Indholdet under <code>extra: header</code> er oversættelserne af titler, der vises i
+  overskriftsbjælken. Denne definition er <em>ikke</em> påkrævet på BeeWares
+  hovedwebsted; den er kun påkrævet på <em>andre</em> websteder (f.eks. vejledningen
+  eller projektdokumentationen).</li>
 </ul>
 <h4 id="opdater-toxini">Opdater <code>tox.ini</code><a class="headerlink" href="#opdater-toxini" title="Permanent link">&para;</a></h4>
 <p>Du skal foretage flere ændringer i <code>tox.ini</code> filen.</p>
@@ -5101,14 +5137,14 @@ indhold:</p>
   hvor sprogkoden er forud for en <code>-</code>, uden mellemrum, f.eks. <code>-de</code>.</li>
 <li>Den nye sprogkodeeksklusion til den første kommando, der begynder med <code>!lint</code>,
   forud for <code>-!</code>, uden mellemrum, f.eks. <code>-!de</code>.</li>
-<li>Den nye sprogkode til slutningen af linjen, der begynder med <code>translate :
+<li>Den nye sprogkode til linjen, der begynder med <code>translate :
   build_po_translations</code>.</li>
-<li>Den nye sprogkode til slutningen af linjen, der begynder med <code>translate :
+<li>Den nye sprogkode til linjen, der begynder med <code>translate :
   update_machine_translations</code></li>
 <li>En ny kommando, der begynder med f.eks. <code>de : build_md_translations</code> for tysk,
-  efter de andre eksisterende sprogspecifikke kommandoer, der matcher indholdet
-  af disse kommandoer med den nye sprogkode.</li>
-<li>Den nye sprogkode til slutningen af linjen, der begynder med <code>all,serve :</code>.</li>
+  alfabetisk inden for de eksisterende sprogspecifikke kommandoer, der matcher
+  indholdet af disse kommandoer, med den nye sprogkode.</li>
+<li>Den nye sprogkode til linjen, der begynder med <code>all:</code>.</li>
 </ul>
 <h4 id="opdater-configyml">Opdater <code>config.yml</code><a class="headerlink" href="#opdater-configyml" title="Permanent link">&para;</a></h4>
 <p>Føj sproget til <code>config.yml</code>, så det vises i sprogvælgeren i overskriften. Find
@@ -5119,7 +5155,12 @@ begynder med <code>alternate:</code>. For tysk skal du tilføje følgende:</p>
 <span class="w">      </span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 </code></pre></div>
 <p>Sprognavnet skal oversættes til sproget. Linket skal indeholde <code>/</code>s.</p>
-<p>Det nye sprog er nu klar til oversættelse.</p>
+<h4 id="kr-tox-translate">Kør <code>tox translate</code><a class="headerlink" href="#kr-tox-translate" title="Permanent link">&para;</a></h4>
+<p>Du kan nu køre <code>tox -e docs-translate</code>. Dette vil generere en tom
+oversættelsesfil. Hvis du har en DeepL-konto, kan du bruge den til at udfylde de
+første maskinoversættelser. Hvis du ikke har en DeepL-konto, er det ikke noget
+problem – vi kører selv de første oversættelser, før vi accepterer
+pull-anmodningen.</p>
 <h3 id="retningslinjer-for-oversttelse">Retningslinjer for oversættelse<a class="headerlink" href="#retningslinjer-for-oversttelse" title="Permanent link">&para;</a></h3>
 <p>Når du er blevet tilføjet til teamet, er det tid til at logge ind på
 <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> og begynde at oversætte

@@ -190,7 +190,7 @@ aria-label="عنوان العارضة"
 
     <!-- Link to home -->
     <a
-      href="../../../.."
+      href="https://beeware.org/"
       title="BeeWare"
       class="md-header__button md-logo"
       aria-label="BeeWare"
@@ -210,7 +210,7 @@ aria-label="عنوان العارضة"
     <!-- Header title -->
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
-      <a href="../../../.."
+      <a href="https://beeware.org/"
          title="BeeWare">
         <div class="md-header__topic">
           <span class="md-ellipsis">
@@ -2290,6 +2290,17 @@ aria-label="عنوان العارضة"
     <span class="md-ellipsis">
       
         تحديث config.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تشغيل tox translate
       
     </span>
   </a>
@@ -4831,6 +4842,17 @@ aria-label="عنوان العارضة"
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        تشغيل tox translate
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5071,7 +5093,15 @@ aria-label="عنوان العارضة"
 <span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 
 <span class="nt">extra</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">language_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de/</span>
 <span class="w">  </span><span class="nt">translation_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">machine</span>
+<span class="w">  </span><span class="nt">header</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">About</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Über</span>
+<span class="w">    </span><span class="nt">Documentation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dokumentation</span>
+<span class="w">    </span><span class="nt">Community</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gemeinschaft</span>
+<span class="w">    </span><span class="nt">Contributing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mitwirken</span>
+<span class="w">    </span><span class="nt">News</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neuigkeiten</span>
+<span class="w">    </span><span class="nt">Sponsor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Förderer</span>
 </code></pre></div>
 <p>إليك ما يحدث في هذا الملف:</p>
 <ul>
@@ -5083,9 +5113,14 @@ aria-label="عنوان العارضة"
   Material</a>.
   بالنسبة لمعظم اللغات، سيكون هذا هو نفس رمز اللغة <code>docs_dir</code>؛ ولكن بالنسبة لبعض
   اللغات (خاصة اللغات التي لها متغيرات محلية مثل <code>zh_CN</code>)، هناك اختلافات.</li>
+<li>يجب أن يكون <code>extra: language_url:</code> رمز اللغة، متبوعًا بشرطة مائلة واحدة، على
+  سبيل المثال <code>de/</code> للألمانية.</li>
 <li>يجب أن يكون <code>extra: translation_type:</code> هو <code>machine</code> حتى تصل الترجمة إلى 100٪
   لأول مرة، وعندها يجب أن يكون <code>human</code>. سيعود إلى <code>machine</code> من <code>human</code> إذا تراجع
   إلى أقل من 90٪.</li>
+<li>المحتوى الموجود تحت <code>extra: header</code> هو ترجمات العناوين التي تظهر في شريط
+  العناوين. هذا التعريف <em>غير</em> مطلوب على الموقع الرئيسي لـ BeeWare؛ إنه مطلوب فقط
+  على <em>المواقع الأخرى</em> (مثل البرنامج التعليمي أو وثائق المشروع).</li>
 </ul>
 <h4 id="toxini">تحديث <code>tox.ini</code><a class="headerlink" href="#toxini" title="Permanent link">&para;</a></h4>
 <p>ستحتاج إلى إجراء عدة تغييرات على ملف <code>tox.ini</code>.</p>
@@ -5095,14 +5130,12 @@ aria-label="عنوان العارضة"
   اللغة مسبوقًا بـ <code>-</code>، بدون مسافات، على سبيل المثال <code>-de</code>.</li>
 <li>استبعاد رمز اللغة الجديد من الأمر الأول، الذي يبدأ بـ <code>!lint</code>، يسبقه <code>-!</code>،
   بدون مسافات، على سبيل المثال <code>-!de</code>.</li>
-<li>رمز اللغة الجديد في نهاية السطر الذي يبدأ بـ <code>translate :
-  build_po_translations</code>.</li>
-<li>رمز اللغة الجديد في نهاية السطر الذي يبدأ بـ <code>translate :
-  update_machine_translations</code></li>
-<li>أمر جديد، يبدأ على سبيل المثال بـ <code>de : build_md_translations</code> للألمانية، بعد
-  الأوامر الأخرى المحددة للغة التي تتطابق مع محتوى تلك الأوامر مع رمز اللغة
-  الجديد.</li>
-<li>رمز اللغة الجديد في نهاية السطر الذي يبدأ بـ "all,serve :".</li>
+<li>رمز اللغة الجديد للسطر الذي يبدأ بـ <code>translate : build_po_translations</code>.</li>
+<li>رمز اللغة الجديد للسطر الذي يبدأ بـ <code>translate : update_machine_translations</code></li>
+<li>أمر جديد، يبدأ على سبيل المثال بـ <code>de : build_md_translations</code> للألمانية،
+  أبجديًا ضمن الأوامر الحالية الخاصة باللغة والتي تتطابق مع محتوى تلك الأوامر،
+  مع رمز اللغة الجديد.</li>
+<li>رمز اللغة الجديد للسطر الذي يبدأ بـ <code>all:</code>.</li>
 </ul>
 <h4 id="configyml">تحديث <code>config.yml</code><a class="headerlink" href="#configyml" title="Permanent link">&para;</a></h4>
 <p>أضف اللغة إلى <code>config.yml</code> حتى تظهر في محدد اللغة في العنوان. ابحث عن القسم الذي
@@ -5113,7 +5146,11 @@ aria-label="عنوان العارضة"
 <span class="w">      </span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 </code></pre></div>
 <p>يجب ترجمة اسم اللغة إلى اللغة. يجب أن يتضمن الرابط علامات <code>/</code>.</p>
-<p>اللغة الجديدة جاهزة الآن لبدء الترجمة.</p>
+<h4 id="tox-translate">تشغيل <code>tox translate</code><a class="headerlink" href="#tox-translate" title="Permanent link">&para;</a></h4>
+<p>يمكنك الآن تشغيل <code>tox -e docs-translate</code>. سيؤدي ذلك إلى إنشاء ملف ترجمة فارغ؛
+إذا كان لديك حساب DeepL، فيمكنك استخدام هذا الحساب لملء الترجمات الآلية الأولية.
+إذا لم يكن لديك حساب DeepL، فلا بأس - سنقوم بتشغيل الترجمات الأولية بأنفسنا قبل
+قبول طلب السحب.</p>
 <h3 id="_5">إرشادات الترجمة<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>بمجرد انضمامك إلى الفريق، حان الوقت لتسجيل الدخول إلى
 <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> والبدء في ترجمة السلاسل.</p>
@@ -5128,7 +5165,7 @@ aria-label="عنوان العارضة"
 الأحيان، نحتاج إلى تغيير النص الإنجليزي لجعله أكثر وضوحًا للمترجمين والقراء على
 حد سواء.</p>
 <h4 id="_7">هل يجب أن أترجمها؟<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
-<p>يجب عدم ترجمة أو تحديث العناصر التالية:</p>
+<p>يجب <em>عدم</em> ترجمة أو تحديث العناصر التالية:</p>
 <ul>
 <li><strong>الأوامر</strong>. على سبيل المثال، في "يجب عليك تشغيل `briefcase create`."، يجب
   ترجمة "يجب عليك تشغيل" فقط.</li>

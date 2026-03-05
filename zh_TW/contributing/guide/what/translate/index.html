@@ -190,7 +190,7 @@ aria-label="頁首"
 
     <!-- Link to home -->
     <a
-      href="../../../.."
+      href="https://beeware.org/"
       title="BeeWare"
       class="md-header__button md-logo"
       aria-label="BeeWare"
@@ -210,7 +210,7 @@ aria-label="頁首"
     <!-- Header title -->
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
-      <a href="../../../.."
+      <a href="https://beeware.org/"
          title="BeeWare">
         <div class="md-header__topic">
           <span class="md-ellipsis">
@@ -2290,6 +2290,17 @@ aria-label="頁首"
     <span class="md-ellipsis">
       
         更新 config.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        執行 tox translate
       
     </span>
   </a>
@@ -4831,6 +4842,17 @@ aria-label="頁首"
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        執行 tox translate
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5059,7 +5081,15 @@ aria-label="頁首"
 <span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 
 <span class="nt">extra</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">language_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de/</span>
 <span class="w">  </span><span class="nt">translation_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">machine</span>
+<span class="w">  </span><span class="nt">header</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">About</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Über</span>
+<span class="w">    </span><span class="nt">Documentation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dokumentation</span>
+<span class="w">    </span><span class="nt">Community</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gemeinschaft</span>
+<span class="w">    </span><span class="nt">Contributing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mitwirken</span>
+<span class="w">    </span><span class="nt">News</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neuigkeiten</span>
+<span class="w">    </span><span class="nt">Sponsor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Förderer</span>
 </code></pre></div>
 <p>以下是此檔案的內容：</p>
 <ul>
@@ -5071,8 +5101,11 @@ aria-label="頁首"
   theme</a>
   所指定的語言代碼。對大多數語言而言，這與 <code>docs_dir</code> 語言代碼相同；但對某些語言 (尤其是像 <code>zh_CN</code> 這種有區域性變異的語言)
   而言，則會有差異。</li>
+<li><code>extra: language_url:</code> 應為語言代碼，後接單斜線，例如 <code>de/</code> 代表德語。</li>
 <li><code>extra: translation_type:</code> 應該是 <code>machine</code>，直到翻譯首次達到 100%，此時它應該是 <code>human</code>。如果它倒退到低於
   90%，就會從 <code>human</code> 回復到 <code>machine</code>。</li>
+<li><code>extra: header</code> 下的內容是標題列中出現的標題翻譯。此定義在 BeeWare
+  主要網站上<em>非</em>必要；僅在<em>其他</em>網站（例如教學文件或專案文件）上需要此定義。</li>
 </ul>
 <h4 id="toxini">更新 `tox.ini<a class="headerlink" href="#toxini" title="Permanent link">&para;</a></h4>
 <p>您需要對 <code>tox.ini</code> 檔案進行幾項變更。</p>
@@ -5080,11 +5113,11 @@ aria-label="頁首"
 <ul>
 <li>新的語言代碼環境標誌到以 <code>[testenv:docs</code> 開頭的標頭行，語言代碼前面加上 <code>-</code>，不含空格，例如 <code>-de</code>。</li>
 <li>新的語言代碼排除到第一個指令，以 <code>!lint</code> 開頭，前面加上 <code>-!</code>，不含空格，例如 <code>-!de</code>。</li>
-<li>新的語言代碼到以 <code>translate : build_po_translations</code> 開頭的行尾。</li>
-<li>新的語言代碼到以 <code>translate : update_machine_translations</code> 開頭的行尾</li>
-<li>在其他現有的特定語言指令之後，新增一個新指令，例如以 <code>de : build_md_translations</code>
-  開頭的德文指令，將這些指令的內容與新的語言代碼相匹配。</li>
-<li>新的語言代碼到以 <code>all,serve :</code> 開頭的行尾。</li>
+<li>新的語言代碼對應至以 <code>translate : build_po_translations</code> 開頭的行。</li>
+<li>新的語言代碼對應至以 <code>translate : update_machine_translations</code> 開頭的行</li>
+<li>新增指令，例如以 <code>de : build_md_translations</code>
+  為德語指令開頭，在現有語言專屬指令中按字母順序排列，其內容需與這些指令相符，並採用新的語言代碼。</li>
+<li>新的語言代碼對應至以 <code>all:</code> 開頭的行。</li>
 </ul>
 <h4 id="configyml">更新 <code>config.yml</code><a class="headerlink" href="#configyml" title="Permanent link">&para;</a></h4>
 <p>將語言加入 <code>config.yml</code>
@@ -5094,7 +5127,11 @@ aria-label="頁首"
 <span class="w">      </span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 </code></pre></div>
 <p>語言名稱應翻譯為該語言。連結必須包含 <code>/</code>。</p>
-<p>新的語言現在可以開始翻譯了。</p>
+<h4 id="tox-translate">執行 <code>tox translate</code><a class="headerlink" href="#tox-translate" title="Permanent link">&para;</a></h4>
+<p>You can now run <code>tox -e docs-translate</code>. This will generate an empty translation
+file; if you have a DeepL account, you can use that account to populate initial
+machine translations. If you don't have a DeepL account, that's fine - we'll run
+initial translations ourselves before accepting the pull request.</p>
 <h3 id="_5">翻譯指引<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>當您加入團隊後，就可以登入 <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a>
 並開始進行翻譯字串的工作。</p>
@@ -5102,7 +5139,7 @@ aria-label="頁首"
 <p>保持英文文本的語調比追求一字不差的翻譯更重要。我們嘗試在內容上表現得友善且有點口語化；在您的翻譯中嘗試維持這種精神。</p>
 <p>如果英文文本中包含強烈的英文慣用語，如果您的語言中有類似的慣用語也同樣適用，請不要覺得必須保留該慣用語。如果英文文本中的詞彙或詞組是特別的成語或俚語，請不要害怕告訴我們應該考慮做出修改。即使對於英語使用者而言，成語和俚語也會造成困難。有時我們需要修改英文原文，讓翻譯者和讀者都能更直覺地理解。</p>
 <h4 id="_7">我應該翻譯嗎？<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
-<p>下列項目不應 _ 翻譯或更新：</p>
+<p>下列項目<em>不應</em>進行翻譯或更新：</p>
 <ul>
 <li><strong>命令</strong>。例如，在 "You should run <code>briefcase create\</code>.「 中，應只翻譯 」You should run"。</li>
 <li><strong>名稱空間</strong>，例如類別、方法或屬性名稱。</li>
@@ -5139,7 +5176,7 @@ Content.
 </li>
 <li><strong>包含外部內容的語法</strong>。這是與 <code>-8&lt;-</code> 在同一行的任何內容，或是在兩行分開的 <code>-8&lt;-</code> 之間的內容。</li>
 </ul>
-<p>下列項目 _ 應該翻譯：</p>
+<p>下列項目<em>應</em>予翻譯：</p>
 <ul>
 <li>** 連結文字**。在連結語法中，文字在URL之前，並用括弧括起，如<code>[連結文字](URL)</code>。標準的 Markdown 連結應該在 Weblate
   中顯示為 <code>[連結文字]{1}</code>，其中 <code>1</code> 是連結在字串中的位置，並參照其他可能的連結。</li>

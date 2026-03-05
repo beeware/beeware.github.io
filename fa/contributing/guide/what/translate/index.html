@@ -190,7 +190,7 @@ aria-label="سرتیتر"
 
     <!-- Link to home -->
     <a
-      href="../../../.."
+      href="https://beeware.org/"
       title="BeeWare"
       class="md-header__button md-logo"
       aria-label="BeeWare"
@@ -210,7 +210,7 @@ aria-label="سرتیتر"
     <!-- Header title -->
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
-      <a href="../../../.."
+      <a href="https://beeware.org/"
          title="BeeWare">
         <div class="md-header__topic">
           <span class="md-ellipsis">
@@ -2290,6 +2290,17 @@ aria-label="سرتیتر"
     <span class="md-ellipsis">
       
         به‌روزرسانی config.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        اجرا کنید tox translate
       
     </span>
   </a>
@@ -4831,6 +4842,17 @@ aria-label="سرتیتر"
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        اجرا کنید tox translate
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5075,7 +5097,15 @@ aria-label="سرتیتر"
 <span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 
 <span class="nt">extra</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">language_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de/</span>
 <span class="w">  </span><span class="nt">translation_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">machine</span>
+<span class="w">  </span><span class="nt">header</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">About</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Über</span>
+<span class="w">    </span><span class="nt">Documentation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dokumentation</span>
+<span class="w">    </span><span class="nt">Community</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gemeinschaft</span>
+<span class="w">    </span><span class="nt">Contributing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mitwirken</span>
+<span class="w">    </span><span class="nt">News</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neuigkeiten</span>
+<span class="w">    </span><span class="nt">Sponsor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Förderer</span>
 </code></pre></div>
 <p>در این فایل اتفاق می‌افتد:</p>
 <ul>
@@ -5088,9 +5118,14 @@ aria-label="سرتیتر"
   است</a>.
   برای اکثر زبان‌ها، این کد با کد زبان <code>docs_dir</code> یکسان خواهد بود؛ اما برای برخی
   (به‌ویژه زبان‌هایی با گونه‌های منطقه‌ای مانند <code>zh_CN</code>)، تفاوت‌هایی وجود دارد.</li>
+<li><code>extra: language_url:</code> باید کد زبان باشد، و پس از آن یک اسلش قرار گیرد، مثلاً
+  برای آلمانی <code>de/</code></li>
 <li><code>extra: translation_type:</code> باید تا زمانی که ترجمه برای اولین بار به ۱۰۰٪ برسد،
   به صورت <code>machine</code> باشد، در این نقطه باید به <code>human</code> تبدیل شود. اگر کیفیت ترجمه
   به زیر ۹۰٪ بازگردد، از <code>machine</code> به <code>human</code> بازمی‌گردد.</li>
+<li>محتوای داخل <code>extra: header</code> ترجمه‌های عناوینی است که در نوار سربرگ ظاهر
+  می‌شوند. این تعریف در وب‌سایت اصلی BeeWare لازم نیست؛ تنها در سایت‌های دیگر
+  (مانند آموزش یا مستندات پروژه) ضروری است.</li>
 </ul>
 <h4 id="toxini">به‌روزرسانی <code>tox.ini</code><a class="headerlink" href="#toxini" title="Permanent link">&para;</a></h4>
 <p>شما باید چندین تغییر در فایل <code>tox.ini</code> ایجاد کنید.</p>
@@ -5100,14 +5135,13 @@ aria-label="سرتیتر"
   زبان که با <code>-</code> پیش‌فرض شده و بدون هیچ فاصله‌ای، مثلاً <code>-de</code>.</li>
 <li>استثنای جدید کد زبان برای دستور اول، که با <code>!lint</code> آغاز می‌شود و قبل از آن
   <code>-!</code> قرار دارد و هیچ فاصله‌ای در آن نیست، مثلاً <code>-!de</code></li>
-<li>کد زبان جدید تا انتهای خطی که با <code>translate : build_po_translations</code> شروع
-  می‌شود.</li>
-<li>کد زبان جدید تا انتهای خط که با <code>translate : update_machine_translations</code> شروع
+<li>کد زبان جدید برای خطی که با <code>translate : build_po_translations</code> شروع می‌شود.</li>
+<li>کد زبان جدید برای خطی که با <code>translate : update_machine_translations</code> شروع
   می‌شود</li>
-<li>یک دستور جدید که برای مثال با <code>de : build_md_translations</code> برای زبان آلمانی
-  آغاز می‌شود، پس از سایر دستورات اختصاصی زبان موجود که محتوای آن دستورات را با
-  کد زبان جدید مطابقت می‌دهد.</li>
-<li>کد زبان جدید تا انتهای خطی که با <code>all,serve :</code> شروع می‌شود.</li>
+<li>یک فرمان جدید که برای مثال با <code>de : build_md_translations</code> برای زبان آلمانی
+  آغاز می‌شود، به‌صورت الفبایی در میان فرمان‌های موجود مخصوص هر زبان قرار
+  می‌گیرد و با کد زبان جدید مطابقت دارد.</li>
+<li>کد زبان جدید برای خطی که با <code>all:</code> شروع می‌شود.</li>
 </ul>
 <h4 id="configyml">به‌روزرسانی <code>config.yml</code><a class="headerlink" href="#configyml" title="Permanent link">&para;</a></h4>
 <p>زبان را به <code>config.yml</code> اضافه کنید تا در انتخابگر زبان در هدر نمایش داده شود.
@@ -5118,7 +5152,11 @@ aria-label="سرتیتر"
 <span class="w">      </span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 </code></pre></div>
 <p>نام زبان باید به آن زبان ترجمه شود. لینک باید شامل <code>/</code> باشد.</p>
-<p>زبان جدید اکنون آمادهٔ شروع ترجمه است.</p>
+<h4 id="tox-translate">اجرا کنید <code>tox translate</code><a class="headerlink" href="#tox-translate" title="Permanent link">&para;</a></h4>
+<p>اکنون می‌توانید <code>tox -e docs-translate</code> را اجرا کنید. این کار یک فایل ترجمهٔ
+خالی ایجاد می‌کند؛ اگر حساب DeepL دارید، می‌توانید از آن حساب برای پر کردن
+ترجمه‌های اولیهٔ ماشینی استفاده کنید. اگر حساب DeepL ندارید، مشکلی نیست – ما قبل
+از پذیرش درخواست کش، خودمان ترجمه‌های اولیه را انجام خواهیم داد.</p>
 <h3 id="_5">راهنمای ترجمه<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>پس از اینکه به تیم اضافه شدید، وقت آن است که وارد
 <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> شوید و کار ترجمه رشته‌ها
@@ -5183,7 +5221,7 @@ Content.
 <li><strong>نحوه درج محتوای خارجی</strong>. این هر چیزی است که در یک خط با <code>-8&lt;-</code> قرار دارد، یا
   در خطوط بین دو <code>-8&lt;-</code> در خطوط جداگانه.</li>
 </ul>
-<p>موارد زیر باید ترجمه شوند:</p>
+<p>موارد زیر <em>باید</em> ترجمه شوند:</p>
 <ul>
 <li>متن لینک. در نحو لینک، متن قبل از URL قرار می‌گیرد و در کروشه‌ها محصور می‌شود،
   مانند <code>[Link text](URL)</code>. لینک‌های استاندارد مارک‌داون باید در Weblate به صورت

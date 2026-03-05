@@ -190,7 +190,7 @@ aria-label="Başlık"
 
     <!-- Link to home -->
     <a
-      href="../../../.."
+      href="https://beeware.org/"
       title="BeeWare"
       class="md-header__button md-logo"
       aria-label="BeeWare"
@@ -210,7 +210,7 @@ aria-label="Başlık"
     <!-- Header title -->
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
-      <a href="../../../.."
+      <a href="https://beeware.org/"
          title="BeeWare">
         <div class="md-header__topic">
           <span class="md-ellipsis">
@@ -2290,6 +2290,17 @@ aria-label="Başlık"
     <span class="md-ellipsis">
       
         Güncelle config.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calstr-tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Çalıştır tox translate
       
     </span>
   </a>
@@ -4831,6 +4842,17 @@ aria-label="Başlık"
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#calstr-tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Çalıştır tox translate
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5077,7 +5099,15 @@ içine aşağıdaki içeriği ekleyin:</p>
 <span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 
 <span class="nt">extra</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">language_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de/</span>
 <span class="w">  </span><span class="nt">translation_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">machine</span>
+<span class="w">  </span><span class="nt">header</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">About</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Über</span>
+<span class="w">    </span><span class="nt">Documentation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dokumentation</span>
+<span class="w">    </span><span class="nt">Community</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gemeinschaft</span>
+<span class="w">    </span><span class="nt">Contributing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mitwirken</span>
+<span class="w">    </span><span class="nt">News</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neuigkeiten</span>
+<span class="w">    </span><span class="nt">Sponsor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Förderer</span>
 </code></pre></div>
 <p>Bu dosyada neler olduğunu aşağıda görebilirsiniz:</p>
 <ul>
@@ -5090,9 +5120,15 @@ içine aşağıdaki içeriği ekleyin:</p>
   dil kodu olmalıdır. Çoğu dil için bu, <code>docs_dir</code> dil koduyla aynı olacaktır;
   ancak bazı dillerde (özellikle <code>zh_CN</code> gibi yerel varyantları olan dillerde)
   farklılıklar vardır.</li>
+<li><code>extra: language_url:</code> dil kodu olmalı ve ardından tek bir eğik çizgi
+  gelmelidir, örneğin Almanca için <code>de/</code>.</li>
 <li>Çeviri ilk kez %100'e ulaşana kadar <code>extra: translation_type:</code> olmalıdır, bu
   noktada <code>machine</code> olmalıdır. %90'ın altına düşerse <code>human</code>'den <code>machine</code>'ye
   geri dönecektir.</li>
+<li><code>extra: header</code> altındaki içerik, başlık çubuğunda görünen başlıkların
+  çevirileridir. Bu tanım, BeeWare ana web sitesinde <em>gerekli değildir</em>;
+  yalnızca <em>diğer</em> sitelerde (örneğin, öğretici veya proje belgeleri)
+  gereklidir.</li>
 </ul>
 <h4 id="guncelle-toxini">Güncelle <code>tox.ini</code><a class="headerlink" href="#guncelle-toxini" title="Permanent link">&para;</a></h4>
 <p><code>tox.ini</code> dosyasında birkaç değişiklik yapmanız gerekecektir.</p>
@@ -5102,13 +5138,12 @@ içine aşağıdaki içeriği ekleyin:</p>
   kodunun önüne <code>-</code> eklenir ve boşluk içermez, örneğin <code>-de</code>.</li>
 <li>İlk komuta eklenen yeni dil kodu hariç tutma, <code>!lint</code> ile başlar, önünde <code>-!</code>
   bulunur ve boşluk içermez, örneğin <code>-!de</code>.</li>
-<li><code>translate : build_po_translations</code> ile başlayan satırın sonuna yeni dil kodu.</li>
-<li><code>translate : update_machine_translations</code> ile başlayan satırın sonuna yeni dil
-  kodu</li>
-<li>Örneğin Almanca için <code>de : build_md_translations</code> ile başlayan yeni bir komut,
-  mevcut diğer dile özgü komutların ardından, bu komutların içeriğini yeni dil
-  koduyla eşleştirir.</li>
-<li><code>all,serve :</code> ile başlayan satırın sonuna yeni dil kodu.</li>
+<li><code>translate : build_po_translations</code> ile başlayan satıra yeni dil kodu.</li>
+<li><code>translate : update_machine_translations</code> ile başlayan satıra yeni dil kodu</li>
+<li>Örneğin Almanca için <code>de : build_md_translations</code> ile başlayan, mevcut dile
+  özgü komutlar içinde alfabetik sırayla, bu komutların içeriğiyle eşleşen ve
+  yeni dil kodunu içeren yeni bir komut.</li>
+<li><code>all:</code> ile başlayan satıra yeni dil kodu.</li>
 </ul>
 <h4 id="guncelle-configyml">Güncelle <code>config.yml</code><a class="headerlink" href="#guncelle-configyml" title="Permanent link">&para;</a></h4>
 <p>Dili <code>config.yml</code> içine ekleyin, böylece başlıktaki dil seçicide görünecektir.
@@ -5119,7 +5154,11 @@ bölümü bulun. Almanca için aşağıdakileri ekleyin:</p>
 <span class="w">      </span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 </code></pre></div>
 <p>Dil adı, ilgili dile çevrilmelidir. Bağlantı, <code>/</code>s içermelidir.</p>
-<p>Yeni dil artık çeviriye hazır.</p>
+<h4 id="calstr-tox-translate">Çalıştır <code>tox translate</code><a class="headerlink" href="#calstr-tox-translate" title="Permanent link">&para;</a></h4>
+<p>Artık <code>tox -e docs-translate</code> komutunu çalıştırabilirsiniz. Bu, boş bir çeviri
+dosyası oluşturacaktır; DeepL hesabınız varsa, bu hesabı kullanarak ilk makine
+çevirilerini doldurabilirsiniz. DeepL hesabınız yoksa sorun değil - pull
+isteğini kabul etmeden önce ilk çevirileri biz yapacağız.</p>
 <h3 id="ceviri-kurallar">Çeviri kuralları<a class="headerlink" href="#ceviri-kurallar" title="Permanent link">&para;</a></h3>
 <p>Ekibe eklendikten sonra, <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a>
 adresine giriş yapın ve dizeleri çevirmeye başlayın.</p>
@@ -5135,7 +5174,7 @@ bir terimse, değişiklik yapmayı düşünmemiz gerektiğini bize söylemekten
 Bazen, çevirmenler ve okuyucular için daha anlaşılır hale getirmek için
 İngilizce metni değiştirmemiz gerekir.</p>
 <h4 id="cevirmeli-miyim">Çevirmeli miyim?<a class="headerlink" href="#cevirmeli-miyim" title="Permanent link">&para;</a></h4>
-<p>Aşağıdaki öğeler çevrilmemeli veya güncellenmemelidir:</p>
+<p>Aşağıdaki öğeler <em>çevrilmemeli</em> veya güncellenmemelidir:</p>
 <ul>
 <li><strong>Komutlar</strong>. Örneğin, "You should run `briefcase create`.", sadece "You
   should run" kısmı çevrilmelidir.</li>
@@ -5186,7 +5225,7 @@ Content.
 <li><strong>Harici içeriği dahil etmek için kullanılan sözdizimi</strong>. Bu, <code>-8&lt;-</code> ile aynı
   satırda veya ayrı satırlarda iki <code>-8&lt;-</code> arasında bulunan her şeydir.</li>
 </ul>
-<p>Aşağıdaki öğeler çevrilmelidir:</p>
+<p>Aşağıdaki öğeler <em>çevrilmelidir</em>:</p>
 <ul>
 <li><strong>Bağlantı metni</strong>. Bağlantı sözdiziminde, metin URL'den önce gelir ve <code>[Link
   text](URL)</code> gibi köşeli parantezler içine alınır. Standart Markdown

@@ -190,7 +190,7 @@ aria-label="Cabeçalho"
 
     <!-- Link to home -->
     <a
-      href="../../../.."
+      href="https://beeware.org/"
       title="BeeWare"
       class="md-header__button md-logo"
       aria-label="BeeWare"
@@ -210,7 +210,7 @@ aria-label="Cabeçalho"
     <!-- Header title -->
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
-      <a href="../../../.."
+      <a href="https://beeware.org/"
          title="BeeWare">
         <div class="md-header__topic">
           <span class="md-ellipsis">
@@ -2928,6 +2928,17 @@ aria-label="Cabeçalho"
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#executar-tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Executar tox translate
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4802,6 +4813,17 @@ aria-label="Cabeçalho"
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#executar-tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Executar tox translate
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5024,7 +5046,15 @@ o seguinte conteúdo:</p>
 <span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 
 <span class="nt">extra</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">language_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de/</span>
 <span class="w">  </span><span class="nt">translation_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">machine</span>
+<span class="w">  </span><span class="nt">header</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">About</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Über</span>
+<span class="w">    </span><span class="nt">Documentation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dokumentation</span>
+<span class="w">    </span><span class="nt">Community</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gemeinschaft</span>
+<span class="w">    </span><span class="nt">Contributing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mitwirken</span>
+<span class="w">    </span><span class="nt">News</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neuigkeiten</span>
+<span class="w">    </span><span class="nt">Sponsor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Förderer</span>
 </code></pre></div>
 <p>Veja o que está acontecendo nesse arquivo:</p>
 <ul>
@@ -5038,9 +5068,15 @@ o seguinte conteúdo:</p>
   Para a maioria dos idiomas, esse será o mesmo código de idioma do <code>docs_dir</code>,
   mas para alguns (em particular idiomas com variantes de localidade como
   <code>zh_CN</code>), há diferenças.</li>
+<li>O <code>extra: language_url:</code> deve ser o código do idioma, seguido por uma única
+  barra, por exemplo, <code>de/</code> para alemão.</li>
 <li>O <code>extra: translation_type:</code> deve ser <code>machine</code> até que a tradução atinja 100%
   pela primeira vez, momento em que deve ser <code>human</code>. Ele será revertido para
   <code>machine</code> a partir de <code>human</code> se cair para menos de 90%.</li>
+<li>O conteúdo entre <code>extra: header</code> é a tradução dos títulos que aparecem na
+  barra de cabeçalho. Esta definição <em>não</em> é necessária no site principal do
+  BeeWare; ela só é necessária em <em>outros</em> sites (como o tutorial ou a
+  documentação do projeto).</li>
 </ul>
 <h4 id="atualizar-o-toxini">Atualizar o <code>tox.ini</code><a class="headerlink" href="#atualizar-o-toxini" title="Permanent link">&para;</a></h4>
 <p>Você precisará fazer várias alterações no arquivo <code>tox.ini</code>.</p>
@@ -5051,14 +5087,15 @@ o seguinte conteúdo:</p>
   espaços incluídos, por exemplo, <code>-de</code>.</li>
 <li>A exclusão do novo código de idioma para o primeiro comando, que começa com
   <code>!lint</code>, precedido por <code>-!</code>, sem espaços, por exemplo, <code>-!de</code>.</li>
-<li>O código do novo idioma ao final da linha que começa com <code>translate :
+<li>O novo código de idioma para a linha que começa com <code>translate :
   build_po_translations</code>.</li>
-<li>O código do novo idioma ao final da linha que começa com <code>translate :
+<li>O novo código de idioma para a linha que começa com <code>translate :
   update_machine_translations</code></li>
-<li>Um novo comando, começando, por exemplo, com <code>de : build_md_translations</code> para
-  alemão, após os outros comandos específicos de idioma existentes que
-  correspondem ao conteúdo desses comandos com o novo código de idioma.</li>
-<li>O novo código de idioma ao final da linha que começa com <code>all,serve :</code>.</li>
+<li>Um novo comando, começando com, por exemplo, <code>de : build_md_translations</code> para
+  alemão, em ordem alfabética dentro dos comandos específicos do idioma
+  existente que correspondem ao conteúdo desses comandos, com o novo código de
+  idioma.</li>
+<li>O novo código de idioma para a linha que começa com <code>all:</code>.</li>
 </ul>
 <h4 id="atualizar-configyml">Atualizar <code>config.yml</code><a class="headerlink" href="#atualizar-configyml" title="Permanent link">&para;</a></h4>
 <p>Adicione o idioma a <code>config.yml</code> para que ele apareça no seletor de idioma no
@@ -5070,7 +5107,12 @@ seguinte:</p>
 <span class="w">      </span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 </code></pre></div>
 <p>O nome do idioma deve ser traduzido para o idioma. O link deve incluir os <code>/</code>s.</p>
-<p>O novo idioma agora está pronto para começar a ser traduzido.</p>
+<h4 id="executar-tox-translate">Executar <code>tox translate</code><a class="headerlink" href="#executar-tox-translate" title="Permanent link">&para;</a></h4>
+<p>Agora você pode executar <code>tox -e docs-translate</code>. Isso irá gerar um arquivo de
+tradução vazio; se você tiver uma conta DeepL, poderá usá-la para preencher as
+traduções automáticas iniciais. Se você não tiver uma conta DeepL, não se
+preocupe — nós mesmos faremos as traduções iniciais antes de aceitar a
+solicitação de pull.</p>
 <h3 id="diretrizes-de-traducao">Diretrizes de tradução<a class="headerlink" href="#diretrizes-de-traducao" title="Permanent link">&para;</a></h3>
 <p>Depois de ter sido adicionado à equipe, é hora de fazer login no
 <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> e começar a trabalhar na
@@ -5087,7 +5129,7 @@ considerar fazer uma alteração. Mesmo para falantes de inglês, expressões
 idiomáticas e gírias podem causar dificuldades. Às vezes, precisamos alterar o
 texto em inglês para torná-lo mais direto para tradutores e leitores.</p>
 <h4 id="devo-traduzi-lo">Devo traduzi-lo?<a class="headerlink" href="#devo-traduzi-lo" title="Permanent link">&para;</a></h4>
-<p>Os itens a seguir não devem ser traduzidos ou atualizados:</p>
+<p>Os seguintes itens <em>não</em> devem ser traduzidos ou atualizados:</p>
 <ul>
 <li><strong>Comandos</strong>. Por exemplo, em "You should run `briefcase create`.", apenas
   "You should run" deve ser traduzido.</li>
@@ -5139,7 +5181,7 @@ Content.
 <li><strong>A sintaxe para incluir conteúdo externo</strong>. Trata-se de qualquer coisa na
   mesma linha que <code>-8&lt;-</code>, ou nas linhas entre dois <code>-8&lt;-</code> em linhas separadas.</li>
 </ul>
-<p>Os itens a seguir <em>devem</em> ser traduzidos:</p>
+<p>Os seguintes itens <em>devem</em> ser traduzidos:</p>
 <ul>
 <li><strong>Texto do link</strong>. Na sintaxe de link, o texto vem antes da URL e é colocado
   entre colchetes, como em <code>[Link text](URL)</code>. Os links Markdown padrão devem

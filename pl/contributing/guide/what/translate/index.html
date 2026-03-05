@@ -190,7 +190,7 @@ aria-label="Nagłówek"
 
     <!-- Link to home -->
     <a
-      href="../../../.."
+      href="https://beeware.org/"
       title="BeeWare"
       class="md-header__button md-logo"
       aria-label="BeeWare"
@@ -210,7 +210,7 @@ aria-label="Nagłówek"
     <!-- Header title -->
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
-      <a href="../../../.."
+      <a href="https://beeware.org/"
          title="BeeWare">
         <div class="md-header__topic">
           <span class="md-ellipsis">
@@ -2290,6 +2290,17 @@ aria-label="Nagłówek"
     <span class="md-ellipsis">
       
         Aktualizacja config.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uruchom-tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uruchom tox translate
       
     </span>
   </a>
@@ -4831,6 +4842,17 @@ aria-label="Nagłówek"
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#uruchom-tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uruchom tox translate
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5074,7 +5096,15 @@ zawierający następującą treść:</p>
 <span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 
 <span class="nt">extra</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">language_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de/</span>
 <span class="w">  </span><span class="nt">translation_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">machine</span>
+<span class="w">  </span><span class="nt">header</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">About</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Über</span>
+<span class="w">    </span><span class="nt">Documentation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dokumentation</span>
+<span class="w">    </span><span class="nt">Community</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gemeinschaft</span>
+<span class="w">    </span><span class="nt">Contributing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mitwirken</span>
+<span class="w">    </span><span class="nt">News</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neuigkeiten</span>
+<span class="w">    </span><span class="nt">Sponsor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Förderer</span>
 </code></pre></div>
 <p>Oto, co dzieje się w tym pliku:</p>
 <ul>
@@ -5089,9 +5119,15 @@ zawierający następującą treść:</p>
   W przypadku większości języków będzie to ten sam kod języka co <code>docs_dir</code>, ale
   w przypadku niektórych (w szczególności języków z wariantami lokalnymi, takimi
   jak <code>zh_CN</code>) występują różnice.</li>
+<li><code>extra: language_url:</code> powinno być kodem języka, po którym następuje
+  pojedynczy ukośnik, np. <code>de/</code> dla języka niemieckiego.</li>
 <li><code>extra: translation_type:</code> powinno pozostać <code>machine</code> do momentu, gdy
   tłumaczenie osiągnie po raz pierwszy 100%, a wtedy powinno stać się <code>human</code>.
   Powróci do <code>machine</code> z <code>human</code>, jeśli spadnie poniżej 90%.</li>
+<li>Treść pod <code>extra: header</code> to tłumaczenia tytułów pojawiających się w pasku
+  nagłówkowym. Definicja ta nie jest wymagana na głównej stronie BeeWare; jest
+  wymagana tylko na innych stronach (takich jak samouczek lub dokumentacja
+  projektu).</li>
 </ul>
 <h4 id="aktualizacja-toxini">Aktualizacja <code>tox.ini</code><a class="headerlink" href="#aktualizacja-toxini" title="Permanent link">&para;</a></h4>
 <p>Musisz wprowadzić kilka zmian w pliku <code>tox.ini</code>.</p>
@@ -5102,14 +5138,15 @@ zawierający następującą treść:</p>
   <code>-de</code>.</li>
 <li>Nowe wykluczenie kodu języka dla pierwszego polecenia, które zaczyna się od
   <code>!lint</code>, poprzedzone <code>-!</code>, bez spacji, np. <code>-!de</code>.</li>
-<li>Nowy kod języka na końcu linii zaczynającej się od <code>translate :
+<li>Nowy kod języka do linii zaczynającej się od <code>translate :
   build_po_translations</code>.</li>
-<li>Nowy kod języka na końcu linii zaczynającej się od <code>translate :
+<li>Nowy kod języka dla linii zaczynającej się od <code>translate :
   update_machine_translations</code></li>
 <li>Nowe polecenie, zaczynające się na przykład od <code>de : build_md_translations</code>
-  dla języka niemieckiego, po innych istniejących poleceniach specyficznych dla
-  danego języka, które dopasowują treść tych poleceń do nowego kodu języka.</li>
-<li>Nowy kod języka na końcu linii zaczynającej się od <code>all,serve :</code>.</li>
+  dla języka niemieckiego, alfabetycznie w ramach istniejących poleceń
+  specyficznych dla danego języka, które pasują do treści tych poleceń, z nowym
+  kodem języka.</li>
+<li>Nowy kod języka do linii zaczynającej się od <code>all:</code>.</li>
 </ul>
 <h4 id="aktualizacja-configyml">Aktualizacja <code>config.yml</code><a class="headerlink" href="#aktualizacja-configyml" title="Permanent link">&para;</a></h4>
 <p>Dodaj język do <code>config.yml</code>, aby pojawił się on w selektorze języka w nagłówku.
@@ -5122,7 +5159,12 @@ następujący wpis:</p>
 </code></pre></div>
 <p>Nazwa języka powinna być przetłumaczona na dany język. Link musi zawierać
 symbole <code>/</code>.</p>
-<p>Nowy język jest już gotowy do rozpoczęcia tłumaczenia.</p>
+<h4 id="uruchom-tox-translate">Uruchom <code>tox translate</code><a class="headerlink" href="#uruchom-tox-translate" title="Permanent link">&para;</a></h4>
+<p>Teraz możesz uruchomić <code>tox -e docs-translate</code>. Spowoduje to wygenerowanie
+pustego pliku tłumaczenia; jeśli posiadasz konto DeepL, możesz użyć go do
+wypełnienia wstępnych tłumaczeń maszynowych. Jeśli nie posiadasz konta DeepL,
+nie ma problemu — sami wykonamy wstępne tłumaczenia przed zaakceptowaniem pull
+requestu.</p>
 <h3 id="wytyczne-dotyczace-tumaczenia">Wytyczne dotyczące tłumaczenia<a class="headerlink" href="#wytyczne-dotyczace-tumaczenia" title="Permanent link">&para;</a></h3>
 <p>Po dodaniu do zespołu należy zalogować się do
 <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> i rozpocząć pracę nad
@@ -5192,7 +5234,7 @@ Content.
   znajduje się w tym samym wierszu co <code>-8&lt;-</code>, lub w wierszach pomiędzy dwoma
   <code>-8&lt;-</code> w oddzielnych wierszach.</li>
 </ul>
-<p>Następujące elementy powinny zostać przetłumaczone:</p>
+<p>Następujące elementy <em>powinny</em> zostać przetłumaczone:</p>
 <ul>
 <li><strong>Tekst linku</strong>. W składni linku tekst znajduje się przed adresem URL i jest
   ujęty w nawiasy, tak jak w <code>[Link text](URL)</code>. Standardowe linki Markdown

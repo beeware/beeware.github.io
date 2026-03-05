@@ -190,7 +190,7 @@ aria-label="Intestazione"
 
     <!-- Link to home -->
     <a
-      href="../../../.."
+      href="https://beeware.org/"
       title="BeeWare"
       class="md-header__button md-logo"
       aria-label="BeeWare"
@@ -210,7 +210,7 @@ aria-label="Intestazione"
     <!-- Header title -->
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
-      <a href="../../../.."
+      <a href="https://beeware.org/"
          title="BeeWare">
         <div class="md-header__topic">
           <span class="md-ellipsis">
@@ -2928,6 +2928,17 @@ aria-label="Intestazione"
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#esegui-tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esegui tox translate
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4802,6 +4813,17 @@ aria-label="Intestazione"
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#esegui-tox-translate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Esegui tox translate
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -5025,7 +5047,15 @@ tedesco, a <code>de</code> o ad altri contenuti per la lingua a cui ci si rivolg
 <span class="w">  </span><span class="nt">language</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 
 <span class="nt">extra</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">language_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de/</span>
 <span class="w">  </span><span class="nt">translation_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">machine</span>
+<span class="w">  </span><span class="nt">header</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">About</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Über</span>
+<span class="w">    </span><span class="nt">Documentation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dokumentation</span>
+<span class="w">    </span><span class="nt">Community</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Gemeinschaft</span>
+<span class="w">    </span><span class="nt">Contributing</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mitwirken</span>
+<span class="w">    </span><span class="nt">News</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Neuigkeiten</span>
+<span class="w">    </span><span class="nt">Sponsor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Förderer</span>
 </code></pre></div>
 <p>Ecco cosa succede in questo file:</p>
 <ul>
@@ -5040,9 +5070,15 @@ tedesco, a <code>de</code> o ad altri contenuti per la lingua a cui ci si rivolg
   Per la maggior parte delle lingue, questo sarà uguale al codice della lingua
   <code>docs_dir</code>; ma per alcune (in particolare le lingue con varianti di locale
   come <code>zh_CN</code>), ci sono differenze.</li>
+<li>Il <code>extra: language_url:</code> dovrebbe essere il codice della lingua, seguito da
+  una singola barra, ad esempio <code>de/</code> per il tedesco.</li>
 <li>L'opzione <code>extra: translation_type:</code> dovrebbe essere <code>machine</code> fino a quando
   la traduzione non raggiunge il 100% per la prima volta, a quel punto dovrebbe
   essere <code>human</code>. Si tornerà a <code>machine</code> da <code>human</code> se si scende sotto il 90%.</li>
+<li>Il contenuto tra <code>extra: header</code> è la traduzione dei titoli che compaiono
+  nella barra di intestazione. Questa definizione <em>non</em> è richiesta sul sito web
+  principale di BeeWare; è richiesta solo su <em>altri</em> siti (come il tutorial o la
+  documentazione del progetto).</li>
 </ul>
 <h4 id="aggiornare-toxini">Aggiornare `tox.ini<a class="headerlink" href="#aggiornare-toxini" title="Permanent link">&para;</a></h4>
 <p>È necessario apportare diverse modifiche al file <code>tox.ini</code>.</p>
@@ -5053,15 +5089,15 @@ tedesco, a <code>de</code> o ad altri contenuti per la lingua a cui ci si rivolg
   <code>-</code>, senza spazi inclusi, ad esempio <code>-de</code>.</li>
 <li>Il nuovo codice linguistico esclude il primo comando, che inizia con <code>!lint</code>,
   preceduto da <code>-!</code>, senza spazi, ad esempio <code>-!de</code>.</li>
-<li>Il codice della nuova lingua alla fine della riga che inizia con <code>translate :
+<li>Il nuovo codice lingua alla riga che inizia con <code>translate :
   build_po_translations</code>.</li>
-<li>Il codice della nuova lingua alla fine della riga che inizia con <code>translate :
-  update_machine_translations</code>.</li>
-<li>Un nuovo comando, che inizia, ad esempio, con <code>de : build_md_translations</code> per
-  il tedesco, dopo gli altri comandi specifici per la lingua esistenti, che
-  abbina il contenuto di tali comandi con il nuovo codice della lingua.</li>
-<li>Il nuovo codice della lingua alla fine della riga che inizia con <code>all,serve
-  :</code>.</li>
+<li>Il nuovo codice linguistico alla riga che inizia con <code>translate :
+  update_machine_translations</code></li>
+<li>Un nuovo comando, che inizia ad esempio con <code>de : build_md_translations</code> per
+  il tedesco, in ordine alfabetico all'interno dei comandi specifici della
+  lingua esistente che corrispondono al contenuto di tali comandi, con il nuovo
+  codice lingua.</li>
+<li>Il nuovo codice lingua alla riga che inizia con <code>all:</code>.</li>
 </ul>
 <h4 id="aggiornare-configyml">Aggiornare `config.yml<a class="headerlink" href="#aggiornare-configyml" title="Permanent link">&para;</a></h4>
 <p>Aggiungere la lingua a <code>config.yml</code>, in modo che appaia nel selettore della
@@ -5074,7 +5110,11 @@ dovrebbe aggiungere quanto segue:</p>
 </code></pre></div>
 <p>Il nome della lingua deve essere tradotto nella lingua. Il link deve includere
 le <code>/</code>.</p>
-<p>La nuova lingua è ora pronta per iniziare la traduzione.</p>
+<h4 id="esegui-tox-translate">Esegui <code>tox translate</code><a class="headerlink" href="#esegui-tox-translate" title="Permanent link">&para;</a></h4>
+<p>Ora puoi eseguire <code>tox -e docs-translate</code>. Questo genererà un file di traduzione
+vuoto; se hai un account DeepL, puoi utilizzarlo per popolare le traduzioni
+automatiche iniziali. Se non hai un account DeepL, non preoccuparti: eseguiremo
+noi stessi le traduzioni iniziali prima di accettare la richiesta pull.</p>
 <h3 id="linee-guida-per-la-traduzione">Linee guida per la traduzione<a class="headerlink" href="#linee-guida-per-la-traduzione" title="Permanent link">&para;</a></h3>
 <p>Una volta aggiunti al team, è il momento di accedere a
 <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> e iniziare a tradurre le
@@ -5092,7 +5132,7 @@ espressioni idiomatiche e gergali possono creare difficoltà. A volte è
 necessario modificare il testo inglese per renderlo più semplice sia per i
 traduttori che per i lettori.</p>
 <h4 id="devo-tradurlo">Devo tradurlo?<a class="headerlink" href="#devo-tradurlo" title="Permanent link">&para;</a></h4>
-<p>I seguenti elementi non devono essere tradotti o aggiornati:</p>
+<p>I seguenti elementi <em>non</em> devono essere tradotti o aggiornati:</p>
 <ul>
 <li><strong>Comandi</strong>. Ad esempio, in "You should run `briefcase create`", solo "You
   should run" deve essere tradotto.</li>
@@ -5145,7 +5185,7 @@ Content.
 <li><strong>La sintassi per includere contenuti esterni</strong>. Si tratta di qualsiasi cosa
   sulla stessa riga di <code>-8&lt;-</code>, o sulle righe tra due <code>-8&lt;-</code> su righe separate.</li>
 </ul>
-<p>Le seguenti voci dovrebbero essere tradotte:</p>
+<p>I seguenti elementi <em>dovrebbero</em> essere tradotti:</p>
 <ul>
 <li><strong>Testo del collegamento</strong>. Nella sintassi dei link, il testo viene prima
   dell'URL ed è racchiuso tra parentesi, come in <code>[Link text](URL)</code>. I link
