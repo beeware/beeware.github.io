@@ -55,8 +55,13 @@ md-path__list > .md-path__item > .md-path__link {
 }
 
 .md-sidebar--primary:is([hidden]) ~ .md-content {
-    margin-left: 6.75rem;
-    margin-right: 6.75rem;
+    margin-left: 6.7%;
+    margin-right: 6.7%;
+}
+
+/* This forces all main content EXCEPT the index page to be 45rem wide */
+.md-sidebar--primary:is([hidden]) ~ .md-content:not(:has(.md-content__inner .index-page)) {
+    max-width: 45rem;
 }
 
 .md-content__inner {
@@ -348,13 +353,11 @@ h2#sidebar {
 
 /* Team page */
 .team-member {
-    height: 30rem;
+    margin-top: 1rem;
+    clear: both;
 }
 
 .team-image-details {
-    float: right;
-    padding-top: 2.5rem;
-    max-width: 38%;
     font-size: 0.85rem;
     line-height: 0.5rem;
 }
@@ -363,9 +366,16 @@ h2#sidebar {
     width: 230px;
 }
 
-.team-bio {
-    float: left;
-    max-width: 60%;
+@media screen and (min-width: 60rem) {
+    .team-image-details {
+        float: right;
+        max-width: 38%;
+    }
+
+    .team-bio {
+        float: left;
+        max-width: 60%;
+    }
 }
 
 .team-join,
