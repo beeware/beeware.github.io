@@ -194,18 +194,10 @@ def define_env(env):
         return "".join(content)
 
     @env.macro
-    def generate_team_page(team, page):
+    def generate_team_members(team, page, current):
         """Generate the team page from the .authors.yml file metadata."""
-        team_page_header = dedent("""\
-            So who are the people behind BeeWare? Well, there's a huge group of contributors, but the project is managed by the Bee Team.
-
-            ## Current team members
-
-            """)
-        emeritus_team_header = "## Emeritus team members\n"
-
         team_member_content = []
-        emeritus_team_member_content = []
+
         for github_id, member_details in team["authors"].items():
             try:
                 if member_details["join_date"]:
@@ -248,23 +240,18 @@ def define_env(env):
 
                     team_member = member_title + member_bio + member_image_details
 
-                    if "emeritus_date" in member_details:
-                        emeritus_team_member_content.append(
+                    if not current and "emeritus_date" in member_details:
+                        team_member_content.append(
                             (member_details["emeritus_date"], team_member)
                         )
-                    else:
+                    elif current and "emeritus_date" not in member_details:
                         team_member_content.append(
                             (member_details["join_date"], team_member)
                         )
             except KeyError:
                 pass
 
-        return (
-            team_page_header
-            + "".join(tmc[1] for tmc in sorted(team_member_content))
-            + emeritus_team_header
-            + "".join(etmc[1] for etmc in sorted(emeritus_team_member_content))
-        )
+        return "".join(tmc[1] for tmc in sorted(team_member_content))
 
     def get_metadata(contents):
         return next(yaml.load_all(contents, Loader=yaml.SafeLoader))
