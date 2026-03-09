@@ -203,14 +203,9 @@ def define_env(env):
                 if member_details["join_date"]:
                     member_title = dedent(f"""\
                         <div class="team-member" markdown="1">
-                        <div class="team-bio" markdown="1">
 
                         ### {member_details["name"]} {{ #{github_id} }}
                     """)
-
-                    member_bio = (
-                        Path(page.file.src_dir) / f"about/team/{github_id}.md"
-                    ).read_text()
 
                     try:
                         mastodon = member_details["mastodon"].split("@")
@@ -222,7 +217,6 @@ def define_env(env):
 
                     member_image_details = dedent(
                         f"""\
-                        </div>
                         <div class="team-image-details" markdown="1">
 
                         ![{member_details["name"]}](/{member_details["avatar"]})
@@ -234,11 +228,16 @@ def define_env(env):
                         <div class="team-email" markdown="1">{fa("envelope", "lg", "solid")} <{member_details["email"]}></div>
                         </div>
                         </div>
-                        </div>
+
+                        <div class="team-bio" markdown="1">
                         """
                     )
 
-                    team_member = member_title + member_bio + member_image_details
+                    member_bio = (
+                        Path(page.file.src_dir) / f"about/team/{github_id}.md"
+                    ).read_text()
+
+                    team_member = member_title + member_image_details + member_bio + "</div></div>"
 
                     if not current and "emeritus_date" in member_details:
                         team_member_content.append(
