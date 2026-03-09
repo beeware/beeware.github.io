@@ -228,7 +228,7 @@ def define_env(env):
                         <div class="team-email" markdown="1">{fa("envelope", "lg", "solid")} <{member_details["email"]}></div>
                         </div>
                         </div>
-                        
+
                         <div class="team-bio" markdown="1">
                         """
                     )
