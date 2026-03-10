@@ -122,13 +122,12 @@ BeeWare is supported by users like you! Every little bit helps: [click here to c
 
 ### Upcoming events
 
-{% if upcoming_events(files) == None %}
-
-Nothing at the moment...
-
+{% set events = upcoming_events(files) %}
+{% if events %}
+{{ events }}
 {% else %}
 
-{{ upcoming_events(files) }}
+Nothing at the moment...
 
 {% endif %}
 
