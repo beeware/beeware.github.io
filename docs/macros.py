@@ -289,7 +289,7 @@ def define_env(env):
 
         if events:
             return "\n".join(item[1] for item in sorted(events)[:5])
-        return "Nothing at the moment..."
+        return None
 
     @env.macro
     def latest_news(files):
