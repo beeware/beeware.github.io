@@ -59,8 +59,12 @@ md-path__list > .md-path__item > .md-path__link {
     margin-right: 6.7%;
 }
 
-/* This forces all main content EXCEPT the index page to be 45rem wide */
-.md-sidebar--primary:is([hidden]) ~ .md-content:not(:has(.md-content__inner .index-page)) {
+/* This forces all main content EXCEPT the index and blog pages to be 45rem wide */
+/* The blog page includes the blog left sidebar in the width, and needs to be ignored */
+/* Docs page has its own width limits, and is ignored here. */
+.md-sidebar--primary:is([hidden]) ~ .md-content:not(:has(.index-page, .md-sidebar--post)) .md-content__inner:not(:has(.docs-page)),
+.md-post__content,
+.md-content--post > .md-content__inner {
     max-width: 45rem;
 }
 
@@ -339,6 +343,11 @@ a.index-main-keep {
     min-width: 15rem;
 }
 
+/* The right sidebar when not on blog pages */
+.md-sidebar--secondary:has(+ :not(.md-content--post)) {
+    margin-right: 5.5%;
+}
+
 h2#sidebar {
     margin-top: 0rem;
 }
@@ -537,6 +546,11 @@ h1 .news {
     width: 13rem;
 }
 
+.md-content--post > .md-content__inner,
+.md-content__inner:has(.md-post) {
+    margin-top: 1.8rem;
+}
+
 .md-post__content h2:first-of-type {
     display: none;
 }
@@ -553,6 +567,7 @@ h1 .news {
 .md-sidebar--primary:is([hidden]) ~ .md-content.md-content--post {
     margin-left: 0;
     margin-right: 0;
+    max-width: fit-content;
 }
 
 @media screen and (min-width: 76.25em) {
