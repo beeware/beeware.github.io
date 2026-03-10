@@ -268,7 +268,7 @@ def define_env(env):
             ):
                 metadata = get_metadata(file_data.content_string)
 
-                if metadata["event"]["date"] < datetime.date.today():
+                if metadata["event"]["date"] > datetime.date.today():
                     if metadata["event"]["date"] == metadata["event"]["end_date"]:
                         event_date = metadata["event"]["date"].strftime("%B %d, %Y")
                     else:
@@ -282,14 +282,14 @@ def define_env(env):
                             metadata["event"]["date"],
                             (
                                 f"- [{metadata['event']['name']}"
-                                f": {event_date}]({file_data.src_path})",
+                                f": {event_date}]({file_data.src_path})"
                             ),
                         )
                     )
 
         if events:
             return "\n".join(item[1] for item in sorted(events)[:5])
-        return "Nothing at the moment..."
+        return None
 
     @env.macro
     def latest_news(files):
