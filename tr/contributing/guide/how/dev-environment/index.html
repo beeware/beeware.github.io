@@ -2355,6 +2355,17 @@ aria-label="Başlık"
 </li>
         
           <li class="md-nav__item">
+  <a href="#yukar-aks-deposu-ayarlayn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yukarı akış deposu ayarlayın
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sanal-ortam-olusturun" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4742,6 +4753,17 @@ aria-label="Başlık"
 </li>
         
           <li class="md-nav__item">
+  <a href="#yukar-aks-deposu-ayarlayn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yukarı akış deposu ayarlayın
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sanal-ortam-olusturun" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4986,9 +5008,39 @@ komut satırını kullanarak depoyu bilgisayarınıza kopyalayın:</p>
 </div>
 </div>
 </div>
+<h4 id="yukar-aks-deposu-ayarlayn">Yukarı akış deposu ayarlayın<a class="headerlink" href="#yukar-aks-deposu-ayarlayn" title="Permanent link">&para;</a></h4>
+<p>Çatalınızı klonladıktan sonra, BeeWare deposunu <code>upstream</code> uzak olarak ekleyin.
+Bu, yerel klonunuza orijinal depoya bir referans sağlar ve zaman içinde
+güncellemeleri senkronize etmeyi kolaylaştırır.</p>
+<p>Ayrıca, Toga ve Briefcase gibi araçların doğru sürüm numaralarını çözebilmesi
+için <code>upstream</code> etiketlerine de ihtiyacınız olacak:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">C:\...&gt;</span>git remote add upstream https://github.com/beeware/beeware.git
+<span class="gp">C:\...&gt;</span>git fetch --tags upstream
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Çatalınızın da bu etiketleri içermesini istiyorsanız, bunları ekleyebilirsiniz:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>--tags
+</code></pre></div>
+<p>Bu, daha sonra yeni bir klon oluşturursanız ve etiketlerin çatallarınızdan
+kullanılabilir olmasını istiyorsanız yararlı olabilir.</p>
 <h4 id="sanal-ortam-olusturun">Sanal ortam oluşturun<a class="headerlink" href="#sanal-ortam-olusturun" title="Permanent link">&para;</a></h4>
 <p>Sanal ortamı kurmak ve <code>pip</code>'yi yükseltmek için şunu çalıştırın:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>beeware
@@ -5019,7 +5071,7 @@ komut satırını kullanarak depoyu bilgisayarınıza kopyalayın:</p>
 (https://setuptools.pypa.io/en/latest/userguide/development_mode.html)'yi
 geliştirme ortamınıza [düzenlenebilir kurulum]BeeWare yapabilirsiniz.
 Aşağıdaki komutu çalıştırın:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>--group<span class="w"> </span>dev
@@ -5041,7 +5093,7 @@ standartlaştırmak için <a href="https://pre-commit.com">pre-commit</a> adlı 
 kullanır. Bunu, herhangi bir git commit işlemini tamamlamadan önce bir dizi kod
 linter'ı otomatik olarak çalıştıran bir git hook yükleyerek yapar. Pre-commit'i
 etkinleştirmek için şunu çalıştırın:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pre-commit<span class="w"> </span>install

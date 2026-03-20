@@ -2358,7 +2358,7 @@ aria-label="頁首"
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        建立虛擬環境
+        設定上游儲存庫
       
     </span>
   </a>
@@ -2369,7 +2369,7 @@ aria-label="頁首"
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        安裝 {{ 正式名稱 }}
+        建立虛擬環境
       
     </span>
   </a>
@@ -2378,6 +2378,17 @@ aria-label="頁首"
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安裝 {{ 正式名稱 }}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         啟用預先提交
@@ -4745,7 +4756,7 @@ aria-label="頁首"
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        建立虛擬環境
+        設定上游儲存庫
       
     </span>
   </a>
@@ -4756,7 +4767,7 @@ aria-label="頁首"
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        安裝 {{ 正式名稱 }}
+        建立虛擬環境
       
     </span>
   </a>
@@ -4765,6 +4776,17 @@ aria-label="頁首"
         
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安裝 {{ 正式名稱 }}
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
         啟用預先提交
@@ -4970,9 +4992,35 @@ GitHub 桌面打開」；否則，複製所提供的 HTTPS URL，然後用它來
 </div>
 </div>
 </div>
-<h4 id="_2">建立虛擬環境<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<p>若要設定虛擬環境並升級 <code>pip</code>，請執行：</p>
+<h4 id="_2">設定上游儲存庫<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>複製您的分支後，將 BeeWare 儲存庫新增為 <code>upstream</code> 遠端。此操作使您的本地複製本能參照原始儲存庫，便於後續同步更新。</p>
+<p>您還需要從 <code>upstream</code> 取得標籤，以便 Toga 和 Briefcase 等工具能解析精確的版本號碼：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">C:\...&gt;</span>git remote add upstream https://github.com/beeware/beeware.git
+<span class="gp">C:\...&gt;</span>git fetch --tags upstream
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>若您希望您的分支也包含這些標籤，可以將它們推送：</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>--tags
+</code></pre></div>
+<p>若您日後創建新的克隆版本，並希望從您的分支中使用標籤，此操作將有所助益。</p>
+<h4 id="_3">建立虛擬環境<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>若要設定虛擬環境並升級 <code>pip</code>，請執行：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>beeware
@@ -4998,11 +5046,11 @@ GitHub 桌面打開」；否則，複製所提供的 HTTPS URL，然後用它來
 </div>
 </div>
 <p>現在，您的提示前應該有<code>(.venv)</code>前綴。</p>
-<h4 id="_3">安裝 {{ 正式名稱 }}<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<h4 id="_4">安裝 {{ 正式名稱 }}<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <p>現在您有了原始碼，就可以將 BeeWare 的 <a href="https://setuptools.pypa.io/en/latest/userguide/development_mode.html">editable
 install</a>
 安裝到您的開發環境中。執行以下指令：</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>--group<span class="w"> </span>dev
@@ -5018,11 +5066,11 @@ install</a>
 </div>
 </div>
 </div>
-<h4 id="_4">啟用預先提交<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<h4 id="_5">啟用預先提交<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
 <p>BeeWare 使用一個叫做 <a href="https://pre-commit.com">pre-commit</a>
 的工具來識別簡單的問題，並標準化程式碼格式。它透過安裝一個 git 鉤子，在任何 git commit 定稿之前，自動執行一系列的程式碼處理器。要啟用
 pre-commit，請執行</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pre-commit<span class="w"> </span>install

@@ -3011,7 +3011,7 @@ aria-label="页眉"
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#code-style" class="md-nav__link">
     <span class="md-ellipsis">
       
         代码风格
@@ -3019,10 +3019,38 @@ aria-label="页眉"
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="代码风格">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-long-function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拆分冗长的函数调用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split-long-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拆分长字符串
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         应避免的事项
@@ -4658,7 +4686,7 @@ aria-label="页眉"
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#code-style" class="md-nav__link">
     <span class="md-ellipsis">
       
         代码风格
@@ -4666,10 +4694,38 @@ aria-label="页眉"
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="代码风格">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-long-function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拆分冗长的函数调用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split-long-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拆分长字符串
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         应避免的事项
@@ -4805,7 +4861,7 @@ aria-label="页眉"
 
 <h1 id="_1">代码风格指南<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>本指南包含为 BeeWare 编写代码的信息和指南。</p>
-<h3 id="_2">代码风格<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="code-style">代码风格<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h3>
 <p>BeeWare 在代码库中遵循 <a href="https://peps.python.org/pep-0008/">PEP 8</a> 规范，但行长度从 79 扩展至 88
 个字符。 我们尽可能使用<a href="https://docs.astral.sh/ruff/">Ruff</a>工具强制执行PEP
 8规范。提交代码时，pre-commit会自动运行包括Ruff在内的检查程序。该工具会自动格式化代码以确保符合我们的格式与风格标准。您可配置某些IDE在保存时自动运行Ruff，这将有效提升开发效率。</p>
@@ -4813,8 +4869,42 @@ aria-label="页眉"
 节：愚蠢的一致性是小脑袋的妖怪</a>。在某些情况下，与
 PEP 8 保持一致是没有意义的，重要的是要明白，在适用的情况下，编写不符合所列规则的代码是可以接受的，有时甚至是首选。在大多数情况下，了解 * 何时 *
 与这些规则不一致与保持一致性同样重要。</p>
+<p>这一点在命名约定中有所体现。BeeWare 库经常需要与其他语言进行桥接。在构建其他语言的封装器时，最好（在某些情况下甚至是必须）遵循目标语言的命名约定，而不是
+Python 的约定。例如，在调用或引用 Java 代码时，函数应遵循 Java 推荐的 <code>mixedCase</code> 格式，而不是 PEP 8 推荐的
+<code>snake_case</code> 格式。</p>
 <p>在 API 命名、变量等方面，我们采用美国拼写法。</p>
-<h3 id="_3">应避免的事项<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>此外，PEP 8 中还针对 BeeWare 增加了一些内容：</p>
+<h4 id="split-long-function-calls">拆分冗长的函数调用<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
+<p>当包含多个参数的函数调用无法在一行内写完时，应将每个参数单独放在一行，并在最后一个参数后加逗号。Ruff 允许（并会建议）将多个参数放在同一行（换行）的格式：</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>不应使用这种写法。相反，应在最后一个参数后添加一个尾逗号，将参数分列在每行：</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="n">arg1</span><span class="p">,</span>
+    <span class="n">arg2</span><span class="p">,</span>
+    <span class="n">arg3</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="split-long-strings">拆分长字符串<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
+<p>当字符串参数必须拆分为多行以满足行长限制时，请将拼接后的字符串字面量用圆括号括起来，以便明确该字符串是一个单一参数。也就是说，我们建议采用以下写法：</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="p">(</span>
+        <span class="s2">&quot;this is a very long string &quot;</span>
+        <span class="s2">&quot;that is wrapped over two lines&quot;</span>
+    <span class="p">),</span>
+    <span class="n">second_argument</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>译为：</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="s2">&quot;this is a very long string &quot;</span>
+    <span class="s2">&quot;that is wrapped over two lines&quot;</span><span class="p">,</span>
+    <span class="n">second_argument</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<h3 id="_2">应避免的事项<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>我们尽量避免使用 <code>utils</code> 模块，但也知道有时它们是不可避免的。首选的替代方法是在源代码的其他地方为该功能找到合适的位置，而不是使用 <code>utils</code>
 模块。</p>
 <p>通常情况下，我们尽量避免或延迟执行任何耗时的初始化代码，以实现更快的应用启动速度。例如，toga-core包中的模块采用"延迟加载"机制——它们仅在被请求时才被导入，而非预先全部加载。这种方式既能加速启动过程，又能确保资源仅消耗在应用实际使用的功能上。</p>

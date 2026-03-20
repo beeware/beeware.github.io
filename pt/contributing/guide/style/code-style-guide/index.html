@@ -3011,13 +3011,41 @@ aria-label="Cabeçalho"
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#estilo-de-codigo" class="md-nav__link">
+  <a href="#code-style" class="md-nav__link">
     <span class="md-ellipsis">
       
         Estilo de código
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Estilo de código">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-long-function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Divisão de chamadas de função longas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split-long-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dividir strings longas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4658,13 +4686,41 @@ aria-label="Cabeçalho"
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#estilo-de-codigo" class="md-nav__link">
+  <a href="#code-style" class="md-nav__link">
     <span class="md-ellipsis">
       
         Estilo de código
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Estilo de código">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-long-function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Divisão de chamadas de função longas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split-long-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dividir strings longas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4805,7 +4861,7 @@ aria-label="Cabeçalho"
 
 <h1 id="guia-de-estilo-de-codigo">Guia de estilo de código<a class="headerlink" href="#guia-de-estilo-de-codigo" title="Permanent link">&para;</a></h1>
 <p>Este guia inclui informações e diretrizes para escrever código para BeeWare.</p>
-<h3 id="estilo-de-codigo">Estilo de código<a class="headerlink" href="#estilo-de-codigo" title="Permanent link">&para;</a></h3>
+<h3 id="code-style">Estilo de código<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h3>
 <p>O BeeWare segue a <a href="https://peps.python.org/pep-0008/">PEP 8</a> em nossa base de
 código, exceto pelo comprimento da linha, que foi expandido de 79 para 88
 caracteres. Usamos o <a href="https://docs.astral.sh/ruff/">Ruff</a> para aplicar as
@@ -4822,7 +4878,52 @@ importante entender que, quando aplicável, é aceitável, e às vezes preferív
 escrever código que não esteja alinhado com as regras listadas. Saber <em>quando
 ser inconsistente</em> com essas regras é tão importante quanto manter a
 consistência na maioria das situações.</p>
+<p>Uma manifestação disso pode ser observada nas convenções de nomenclatura. As
+bibliotecas BeeWare frequentemente precisam fazer a ponte com outras linguagens.
+Ao criar wrappers para outras linguagens, é recomendável (e, em alguns casos,
+obrigatório) seguir as convenções de nomenclatura da linguagem de destino, em
+vez das do Python. Por exemplo, ao chamar ou referenciar código Java, as funções
+devem seguir a preferência do Java por <code>mixedCase</code>, em vez da preferência da PEP
+8 por <code>snake_case</code>.</p>
 <p>Seguimos a ortografia dos EUA para nomear APIs, variáveis, etc.</p>
+<p>Há também algumas adições específicas do BeeWare à PEP 8:</p>
+<h4 id="split-long-function-calls">Divisão de chamadas de função longas<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
+<p>Quando uma chamada de função com mais de um argumento não couber em uma única
+linha, coloque cada argumento em uma linha separada, com uma vírgula no final do
+último argumento. O Ruff permite (e sugere) um formato com vários argumentos em
+uma única linha quebrada:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Este estilo não deve ser usado. Em vez disso, distribua os argumentos em uma
+linha por cada um, adicionando uma vírgula no final do último argumento:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="n">arg1</span><span class="p">,</span>
+    <span class="n">arg2</span><span class="p">,</span>
+    <span class="n">arg3</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="split-long-strings">Dividir strings longas<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
+<p>Quando um argumento de string precisar ser dividido em várias linhas para
+atender aos requisitos de comprimento de linha, coloque os literais de string
+concatenados entre parênteses para que fique claro que a string é um único
+argumento. Ou seja, preferimos:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="p">(</span>
+        <span class="s2">&quot;this is a very long string &quot;</span>
+        <span class="s2">&quot;that is wrapped over two lines&quot;</span>
+    <span class="p">),</span>
+    <span class="n">second_argument</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>sobre:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="s2">&quot;this is a very long string &quot;</span>
+    <span class="s2">&quot;that is wrapped over two lines&quot;</span><span class="p">,</span>
+    <span class="n">second_argument</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
 <h3 id="coisas-a-serem-evitadas">Coisas a serem evitadas<a class="headerlink" href="#coisas-a-serem-evitadas" title="Permanent link">&para;</a></h3>
 <p>Tentamos evitar os módulos "utils" o máximo possível, com o entendimento de que,
 às vezes, eles são inevitáveis. A alternativa preferida é encontrar um lugar

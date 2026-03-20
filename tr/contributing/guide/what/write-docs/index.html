@@ -2196,6 +2196,17 @@ aria-label="Başlık"
 </li>
         
           <li class="md-nav__item">
+  <a href="#yukar-aks-deposu-ayarlayn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yukarı akış deposu ayarlayın
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sanal-ortam-olusturun" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5119,6 +5130,17 @@ aria-label="Başlık"
 </li>
         
           <li class="md-nav__item">
+  <a href="#yukar-aks-deposu-ayarlayn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yukarı akış deposu ayarlayın
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#sanal-ortam-olusturun" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -5668,9 +5690,39 @@ komut satırını kullanarak depoyu bilgisayarınıza kopyalayın:</p>
 </div>
 </div>
 </div>
+<h4 id="yukar-aks-deposu-ayarlayn">Yukarı akış deposu ayarlayın<a class="headerlink" href="#yukar-aks-deposu-ayarlayn" title="Permanent link">&para;</a></h4>
+<p>Çatalınızı klonladıktan sonra, BeeWare deposunu <code>upstream</code> uzak olarak ekleyin.
+Bu, yerel klonunuza orijinal depoya bir referans sağlar ve zaman içinde
+güncellemeleri senkronize etmeyi kolaylaştırır.</p>
+<p>Ayrıca, Toga ve Briefcase gibi araçların doğru sürüm numaralarını çözebilmesi
+için <code>upstream</code> etiketlerine de ihtiyacınız olacak:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">C:\...&gt;</span>git remote add upstream https://github.com/beeware/beeware.git
+<span class="gp">C:\...&gt;</span>git fetch --tags upstream
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Çatalınızın da bu etiketleri içermesini istiyorsanız, bunları ekleyebilirsiniz:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>--tags
+</code></pre></div>
+<p>Bu, daha sonra yeni bir klon oluşturursanız ve etiketlerin çatallarınızdan
+kullanılabilir olmasını istiyorsanız yararlı olabilir.</p>
 <h4 id="sanal-ortam-olusturun">Sanal ortam oluşturun<a class="headerlink" href="#sanal-ortam-olusturun" title="Permanent link">&para;</a></h4>
 <p>Sanal ortamı kurmak ve <code>pip</code>'yi yükseltmek için şunu çalıştırın:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>beeware
@@ -5701,7 +5753,7 @@ komut satırını kullanarak depoyu bilgisayarınıza kopyalayın:</p>
 (https://setuptools.pypa.io/en/latest/userguide/development_mode.html)'yi
 geliştirme ortamınıza [düzenlenebilir kurulum]BeeWare yapabilirsiniz.
 Aşağıdaki komutu çalıştırın:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>--group<span class="w"> </span>dev
@@ -5723,7 +5775,7 @@ standartlaştırmak için <a href="https://pre-commit.com">pre-commit</a> adlı 
 kullanır. Bunu, herhangi bir git commit işlemini tamamlamadan önce bir dizi kod
 linter'ı otomatik olarak çalıştıran bir git hook yükleyerek yapar. Pre-commit'i
 etkinleştirmek için şunu çalıştırın:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pre-commit<span class="w"> </span>install
@@ -5766,7 +5818,7 @@ Windows 11'de derleme sorunlarına neden olan bir hatayı düzeltiyorsanız,
 bir sorunla ilgiliyse, dal adında bu sorun numarasını belirtmek de yaygın bir
 uygulamadır (ör. <code>fix-1234</code>).</p>
 <p><code>fix-win11-build</code> özellik dalı oluşturmak için şunu çalıştırın:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">macOS</label><label for="__tabbed_7_2">Linux</label><label for="__tabbed_7_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>fix-win11-build
@@ -5846,7 +5898,7 @@ gerek kalmadan yineleme yapmanızı sağlar.</p>
 sorunu çözülene kadar yeniden başlatılmaz.</p>
 </div>
 <p>Canlı sunucuyu başlatmak için:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">macOS</label><label for="__tabbed_7_2">Linux</label><label for="__tabbed_7_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">macOS</label><label for="__tabbed_8_2">Linux</label><label for="__tabbed_8_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-live
@@ -5885,7 +5937,7 @@ olacak şekilde tasarlanmıştır. Bu, canlı sunucuda gözden kaçırmış olab
 her şeyi yakalamanızı sağlar.</p>
 <h4 id="yerel-bir-derleme-olusturma">Yerel bir derleme oluşturma<a class="headerlink" href="#yerel-bir-derleme-olusturma" title="Permanent link">&para;</a></h4>
 <p>Yerel bir derleme oluşturmak için:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">macOS</label><label for="__tabbed_8_2">Linux</label><label for="__tabbed_8_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">macOS</label><label for="__tabbed_9_2">Linux</label><label for="__tabbed_9_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs
@@ -5907,7 +5959,7 @@ her şeyi yakalamanızı sağlar.</p>
 güncellemeler, diğer dil sürümlerinde sorunlara yol açabilir. Pull isteği
 göndermeden önce tüm sürümlerin çalıştığını doğrulamak önemlidir.</p>
 <p>Mevcut tüm çevirilerin bir derlemesini oluşturmak için:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">macOS</label><label for="__tabbed_9_2">Linux</label><label for="__tabbed_9_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">macOS</label><label for="__tabbed_10_2">Linux</label><label for="__tabbed_10_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-all
@@ -5929,7 +5981,7 @@ karakterli dil kodudur (örneğin, Fransızca için <code>fr</code>, İtalyanca 
 <p>Tek bir derlemede bir sorun bulursanız, <code>tox -e docs-&lt;languagecode&gt;</code> komutunu
 çalıştırarak o derlemeyi ayrı olarak çalıştırabilirsiniz. Örneğin, yalnızca
 Fransızca belgeleri derlemek için şunu çalıştırın:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">macOS</label><label for="__tabbed_10_2">Linux</label><label for="__tabbed_10_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">macOS</label><label for="__tabbed_11_2">Linux</label><label for="__tabbed_11_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-fr
@@ -5950,7 +6002,7 @@ Fransızca belgeleri derlemek için şunu çalıştırın:</p>
 <p>Derleme işlemi Markdown sorunlarını tespit eder, ancak BeeWare stil ve
 biçimlendirme için "linting" olarak bilinen bazı ek kontroller gerçekleştirir.
 Lint kontrollerini çalıştırmak için:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">macOS</label><label for="__tabbed_11_2">Linux</label><label for="__tabbed_11_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">macOS</label><label for="__tabbed_12_2">Linux</label><label for="__tabbed_12_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-lint
@@ -6089,7 +6141,7 @@ ile ilgili herhangi bir sorun bulunursa, bu durum commit'inizin başarısız
 olmasına neden olur. Mümkün olduğunda, pre-commit bulduğu sorunları düzeltmek
 için gerekli değişiklikleri yapar. Aşağıdaki örnekte, <code>ruff</code> kontrolü tarafından
 bir kod biçimlendirme sorunu bulunmuştur:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">macOS</label><label for="__tabbed_12_2">Linux</label><label for="__tabbed_12_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">macOS</label><label for="__tabbed_13_2">Linux</label><label for="__tabbed_13_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>some/interesting_file.py
@@ -6155,7 +6207,7 @@ kontrollerinin sonucunda değiştirilen tüm dosyaları yeniden ekleyebilir ve
 değişikliği yeniden onaylayabilirsiniz. Ancak, bazı kontroller manuel
 değişiklikler yapmanızı gerektirecektir. Bu değişiklikleri yaptıktan sonra,
 değiştirilen tüm dosyaları yeniden ekleyin ve yeniden onaylayın.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">macOS</label><label for="__tabbed_13_2">Linux</label><label for="__tabbed_13_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">macOS</label><label for="__tabbed_14_2">Linux</label><label for="__tabbed_14_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>some/interesting_file.py
@@ -6216,7 +6268,7 @@ doğrudan GitHub sayfasına yönlendiren bir URL verilecektir. URL'yi takip edin
 çekme isteğinizi oluşturun.</p>
 <p>Aşağıda, URL'nin vurgulandığı <code>push</code>, üzerinde neler bekleyebileceğinize dair
 bir örnek gösterilmektedir.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">macOS</label><label for="__tabbed_14_2">Linux</label><label for="__tabbed_14_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:3"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><input id="__tabbed_15_3" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">macOS</label><label for="__tabbed_15_2">Linux</label><label for="__tabbed_15_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>push

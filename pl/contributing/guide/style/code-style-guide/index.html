@@ -3011,13 +3011,41 @@ aria-label="Nagłówek"
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#styl-kodu" class="md-nav__link">
+  <a href="#code-style" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Styl kodu
+        Styl kodowania
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Styl kodowania">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-long-function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rozdzielanie długich wywołań funkcji
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split-long-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dzielenie długich ciągów znaków
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4658,13 +4686,41 @@ aria-label="Nagłówek"
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#styl-kodu" class="md-nav__link">
+  <a href="#code-style" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Styl kodu
+        Styl kodowania
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Styl kodowania">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-long-function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rozdzielanie długich wywołań funkcji
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split-long-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dzielenie długich ciągów znaków
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4805,7 +4861,7 @@ aria-label="Nagłówek"
 
 <h1 id="przewodnik-po-stylu-kodowania">Przewodnik po stylu kodowania<a class="headerlink" href="#przewodnik-po-stylu-kodowania" title="Permanent link">&para;</a></h1>
 <p>Niniejszy przewodnik zawiera informacje i wytyczne dotyczące pisania kodu dla BeeWare.</p>
-<h3 id="styl-kodu">Styl kodu<a class="headerlink" href="#styl-kodu" title="Permanent link">&para;</a></h3>
+<h3 id="code-style">Styl kodowania<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h3>
 <p>BeeWare stosuje <a href="https://peps.python.org/pep-0008/">PEP 8</a> w naszym kodzie
 źródłowym, z wyjątkiem długości linii, która została zwiększona z 79 do 88
 znaków. W miarę możliwości stosujemy <a href="https://docs.astral.sh/ruff/">Ruff</a> w celu
@@ -4822,7 +4878,53 @@ jest, aby zrozumieć, że w stosownych przypadkach dopuszczalne, a czasem nawet
 preferowane jest pisanie kodu, który nie jest zgodny z wymienionymi zasadami.
 Wiedza o tym, <em>kiedy należy odstąpić</em> od tych zasad, jest równie ważna jak
 zachowanie spójności w większości sytuacji.</p>
+<p>Jednym z przejawów tego zjawiska są konwencje nazewnictwa. Biblioteki BeeWare
+często muszą zapewniać integrację z innymi językami. Podczas tworzenia nakładek
+na inne języki wskazane jest (a w niektórych przypadkach wręcz konieczne)
+stosowanie konwencji nazewniczych języka docelowego, a nie języka Python. Na
+przykład podczas wywoływania lub odwoływania się do kodu Java funkcje powinny
+być zapisywane zgodnie z preferencjami języka Java, czyli <code>mixedCase</code>, a nie
+zgodnie z zaleceniami PEP 8, które przewidują <code>snake_case</code>.</p>
 <p>W nazewnictwie API, zmiennych itp. stosujemy pisownię amerykańską.</p>
+<p>W PEP 8 wprowadzono również pewne uzupełnienia dotyczące konkretnie BeeWare:</p>
+<h4 id="split-long-function-calls">Rozdzielanie długich wywołań funkcji<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
+<p>Jeśli wywołanie funkcji z więcej niż jednym argumentem nie mieści się w jednym
+wierszu, każdy argument należy umieścić w osobnym wierszu, a po ostatnim
+argumencie dodać przecinek. Ruff zezwala (i sugeruje) formatowanie wielu
+argumentów w jednym wierszu z przełamaniem:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Nie należy stosować tego stylu. Zamiast tego należy rozdzielić argumenty tak,
+aby w każdym wierszu znajdował się tylko jeden, dodając przecinek na końcu
+ostatniego argumentu:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="n">arg1</span><span class="p">,</span>
+    <span class="n">arg2</span><span class="p">,</span>
+    <span class="n">arg3</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="split-long-strings">Dzielenie długich ciągów znaków<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
+<p>Jeśli argument typu ciąg znaków musi zostać podzielony na kilka wierszy, aby
+spełnić wymagania dotyczące długości wiersza, należy ująć połączone literały
+ciągu znaków w nawiasy, aby było jasne, że ciąg ten stanowi jeden argument.
+Innymi słowy, zalecamy następujące rozwiązanie:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="p">(</span>
+        <span class="s2">&quot;this is a very long string &quot;</span>
+        <span class="s2">&quot;that is wrapped over two lines&quot;</span>
+    <span class="p">),</span>
+    <span class="n">second_argument</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>ponad:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="s2">&quot;this is a very long string &quot;</span>
+    <span class="s2">&quot;that is wrapped over two lines&quot;</span><span class="p">,</span>
+    <span class="n">second_argument</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
 <h3 id="rzeczy-ktorych-nalezy-unikac">Rzeczy, których należy unikać<a class="headerlink" href="#rzeczy-ktorych-nalezy-unikac" title="Permanent link">&para;</a></h3>
 <p>Staramy się unikać modułów <code>utils</code> w miarę możliwości, rozumiejąc jednak, że
 czasami są one nieuniknione. Preferowaną alternatywą jest znalezienie miejsca

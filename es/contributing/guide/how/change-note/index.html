@@ -4667,54 +4667,55 @@ aria-label="Cabecera"
 
 <h1 id="anadir-informacion-sobre-cambios-para-las-notas-de-la-version">Añadir información sobre cambios para las notas de la versión<a class="headerlink" href="#anadir-informacion-sobre-cambios-para-las-notas-de-la-version" title="Permanent link">&para;</a></h1>
 <p>Muchas herramientas de BeeWare utilizan
-<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> para ayudar a construir las
-notas de cada versión. Cuando envíe un pull request a una de las herramientas
-aplicables, deberá incluir una <em>nota de cambio</em> - esta nota de cambio se
-convertirá en la entrada de las notas de la versión que describe el cambio que
-se ha realizado.</p>
-<p>Cada pull request debe incluir al menos un archivo en el directorio <code>changes/</code>
-que proporcione una breve descripción del cambio implementado por la pull
-request. La nota de cambio debe estar en formato Markdown, en un archivo cuyo
-nombre tenga el formato <code>&lt;id&gt;.&lt;tipo de fragmento&gt;.md</code>. Si el cambio que propone
-corregirá un error o implementará una característica para la que existe un
-número de incidencia, el ID será el número de ese ticket. Si el cambio no tiene
-la incidencia correspondiente, se puede utilizar el número de PR como ID. No
-sabrá este número de PR hasta que envíe la solicitud de extracción, por lo que
-la primera pasada de CI fallará en la comprobación del <code>towncrier</code>; añada la
-nota de cambio y envíe una actualización del PR y CI debería entonces pasar.</p>
-<p>Existen cinco tipos de fragmentos:</p>
+<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> para asistir en la construir
+las notas de cada versión. Cuando envíe un pull request a una de las
+herramientas aplicables, necesitará incluir una <em>nota de cambio</em> — esta nota de
+cambio se convertirá en el apunte de las notas de la versión que describe el
+cambio que se ha realizado.</p>
+<p>Cada solicitud de extracción debe incluir al menos un archivo en el directorio
+<code>changes/</code> que proporcione una breve descripción del cambio implementado por la
+pull request. La nota de cambio debe estar en formato Markdown, en un archivo
+cuyo nombre tenga el formato <code>&lt;id&gt;.&lt;tipo de fragmento&gt;.md</code>. Si el cambio que
+propone corregirá un error o implementará una característica para la que existe
+un número de incidencia, el ID será el número de ese ticket. Si el cambio no
+tiene la incidencia correspondiente, se puede utilizar el número de PR como ID.
+No sabrá este número de PR hasta que envíe la solicitud de extracción, por lo
+que la primera pasada de CI fallará en la comprobación del <code>towncrier</code>; añada la
+nota de cambio y envíe una actualización del RP e IC debería entonces pasar.</p>
+<p>Hay cinco tipos de fragmentos:</p>
 <ul>
-<li>Característica El PR añade un nuevo comportamiento o capacidad que antes no
-  era posible (por ejemplo, añadir soporte para un nuevo formato de empaquetado,
-  o una nueva característica en un formato de empaquetado existente);</li>
-<li>Corrección de errores: El PR corrige un error en la implementación existente;</li>
-<li><code>doc</code>: El PR es una mejora significativa de la documentación;</li>
-<li><code>removal</code>; El PR representa un cambio incompatible hacia atrás en la BeeWare API; o</li>
-<li><code>misc</code>; Un cambio menor o administrativo (por ejemplo, la corrección de un
-  error tipográfico, una aclaración lingüística menor o la actualización de una
-  versión de dependencia) que no necesita anunciarse en las notas de la versión.</li>
+<li><code>característica</code>: El RP añade un comportamiento nuevo o capacidad que antes no
+  era posible (p.ej., añadir mantenimiento para una formato nueva de
+  empaquetado, o una característica nueva en un formato de empaquetado
+  existente);</li>
+<li><code>bugfix</code>:El RP corrige un fallo en la implementación existente;</li>
+<li><code>doc</code>: El RP es una mejora significativa para la documentación;</li>
+<li><code>removal</code>; El RP representa un cambio hacia atrás incompatible en el API BeeWare; o</li>
+<li><code>misc</code>; Un cambio menor o administrativo (p.ej., corregir una tipografía, una
+  aclaración lingüística menor, o actualizar una versión de dependencia) que no
+  necesite anunciarse en las notas de la versión.</li>
 </ul>
-<p>Esta descripción en la nota de cambio debe ser un resumen de "marketing" de alto
-nivel del cambio desde la perspectiva del usuario, no una descripción técnica
-profunda o detalles de implementación. Es distinto de un mensaje de
-confirmación: un mensaje de confirmación describe lo que se ha hecho para que
-los futuros desarrolladores puedan seguir el razonamiento de un cambio; la nota
-de cambio es una descripción en beneficio de los usuarios, que pueden no tener
-conocimientos internos.</p>
-<p>Por ejemplo, si se corrige un error relacionado con el nombre del proyecto, el
+<p>Esta descripción en la nota de cambio sería un sumario “mercantil” de alto nivel
+del cambio desde la perspectiva del usuario, no una descripción técnica profunda
+o detalles de implementación. Es distinto de un mensaje de confirmación: un
+mensaje de confirmación describe lo que se ha hecho para que los futuros
+desarrolladores puedan seguir el razonamiento de un cambio; la nota de cambio es
+una descripción en beneficio de los usuarios, que pueden no tener conocimientos
+internos.</p>
+<p>Por ejemplo, si se corrige un fallo relacionado con el nombre del proyecto, el
 mensaje de confirmación puede ser el siguiente:</p>
 <blockquote>
 <p>Aplique una comprobación de expresión regular más fuerte para no permitir
 nombres de proyecto que empiecen por dígitos.</p>
 </blockquote>
-<p>La nota de cambio correspondiente diría algo así</p>
+<p>La nota de cambio correspondiente leería algo así como:</p>
 <blockquote>
-<p>Los nombres de los proyectos ya no pueden empezar por un número.</p>
+<p>Los nombres del proyecto ya no pueden más comenzar con un número.</p>
 </blockquote>
-<p>Algunos PR introducirán múltiples características y corregirán múltiples
+<p>Algunos de los RP introducirán múltiples características y corregirán múltiples
 errores, o introducirán múltiples cambios incompatibles con versiones
 anteriores. En ese caso, el RP puede tener varios archivos de notas de cambio.
-Si necesita asociar dos tipos de fragmentos con el mismo ID, puede añadir un
+Si necesita asociar dos tipos de fragmentos con el mismo ID, puede adjuntar un
 sufijo numérico. Por ejemplo, si el RP 789 añadió una característica descrita
 por el ticket 123, cerró un fallo descrito por el ticket 234, y también hizo dos
 cambios incompatibles hacia atrás, podría tener 4 archivos de notas de cambio:</p>
@@ -4730,12 +4731,12 @@ noticias</a>.
 También puedes ver ejemplos existentes de fragmentos de noticias en el
 directorio <code>changes</code> del repositorio BeeWare. Si esta carpeta está
 vacía, es probable que se deba a que {{ nombre_del_proyecto }} ha publicado
-recientemente una nueva versión; los archivos de notas de cambio se eliminan y
+recientemente una versión nueva; los archivos de notas de cambio se eliminan y
 se combinan para actualizar las <a href="https://github.com/beeware/{ nombre_del_proyecto }}/releases">notas de la
 versión</a> con cada
 versión. Puedes mirar ese archivo para ver el estilo de comentario que se
-requiere; puedes mirar <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">recently merged PRs</a> para ver cómo formatear tus notas
-de cambio.</p>
+requiere; puedes mirar <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">los RP fundidos
+recientemente</a> para ver cómo formatear tus notas de cambio.</p>
 
 
 

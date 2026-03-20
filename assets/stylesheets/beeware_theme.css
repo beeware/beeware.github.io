@@ -54,8 +54,13 @@ body {
     font-family: var(--brand-font);
 }
 
-nav.md-tabs, .md-header {
+.md-header {
     background-color: var(--md-primary-fg-color);
+}
+
+/* Resolves header tabs color issue with search overlay */
+.md-tabs {
+    background-color: unset;
 }
 
 .md-header__title {
@@ -103,6 +108,7 @@ nav.md-tabs, .md-header {
 /* Search */
 .md-search {
     margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 input.md-search__input,
@@ -126,11 +132,49 @@ input.md-search__input,
     height: 2.5rem;
 }
 
-@media screen and (min-width: 60em) {
-  .md-search__inner {
-      width: unset;
-  }
+input.md-search__input, .md-search__suggest, .md-search-result__meta {
+    font-family: var(--brand-font);
 }
+
+.md-search__suggest {
+    padding-top: 1px;
+}
+
+.md-search-result .md-typeset h1 {
+    font-size: 1.6rem;
+}
+
+.md-search-result .md-typeset h2,
+.md-search-result .md-typeset {
+    font-size: 1rem;
+}
+
+/* The widths in the rest of this section are to correct rendering of the search input */
+@media screen and (min-width: 60em) {
+    .md-search {
+      max-width: 30rem;
+      width: 100%;
+    }
+}
+
+@media screen and (min-width: 60em) and (max-width: 76.2344em) {
+    .md-search__scrollwrap,
+    [data-md-toggle="search"]:checked ~ .md-header .md-search__inner {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 76.25em) {
+    .md-search__scrollwrap,
+    [data-md-toggle="search"]:checked ~ .md-header .md-search__inner {
+        width: 100%;
+    }
+}
+
+.md-search__inner {
+    width: 100%;
+}
+
 
 /* Link colors */
 /* Remove link color from section headers that are not links */
@@ -554,7 +598,7 @@ readthedocs-docdiff {
 }
 
 /* Forces only highlighting the important bits of codeblocks */
-.highlight .gp, .highlight .go, .highlight .w {
+.highlight .gp, .highlight .go {
     user-select: none;
     -webkit-user-select: none;
 }
@@ -585,24 +629,6 @@ svg.copy-icon {
 .copy-button-copied svg.copy-icon {
     fill: #009900;
     padding-left: 8px;
-}
-
-/* Search */
-input.md-search__input, .md-search__suggest, .md-search-result__meta {
-    font-family: var(--brand-font);
-}
-
-.md-search__suggest {
-    padding-top: 1px;
-}
-
-.md-search-result .md-typeset h1 {
-    font-size: 1.6rem;
-}
-
-.md-search-result .md-typeset h2,
-.md-search-result .md-typeset {
-    font-size: 1rem;
 }
 
 /* Footer and footer navigation color */

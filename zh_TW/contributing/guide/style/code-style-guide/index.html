@@ -3011,18 +3011,46 @@ aria-label="頁首"
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#code-style" class="md-nav__link">
     <span class="md-ellipsis">
       
-        代碼風格
+        程式碼風格
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="程式碼風格">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-long-function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拆分冗長的函式呼叫
       
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#split-long-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分割長字串
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         應避免的事項
@@ -4658,18 +4686,46 @@ aria-label="頁首"
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#code-style" class="md-nav__link">
     <span class="md-ellipsis">
       
-        代碼風格
+        程式碼風格
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="程式碼風格">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-long-function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拆分冗長的函式呼叫
       
     </span>
   </a>
   
 </li>
+        
+          <li class="md-nav__item">
+  <a href="#split-long-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分割長字串
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         應避免的事項
@@ -4805,7 +4861,7 @@ aria-label="頁首"
 
 <h1 id="_1">程式碼樣式指南<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>本指南包含為 BeeWare 寫程式碼的資訊和指引。</p>
-<h3 id="_2">代碼風格<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="code-style">程式碼風格<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h3>
 <p>BeeWare 在程式碼庫中遵循 <a href="https://peps.python.org/pep-0008/">PEP 8</a> 規範，唯獨行長限制從 79 字元放寬至
 88 字元。 我們盡可能使用<a href="https://docs.astral.sh/ruff/">Ruff</a>來強制執行PEP
 8規範。當您提交程式碼時，預提交檢查會執行包括Ruff在內的驗證。在可行情況下，系統將自動格式化您的程式碼以符合我們的格式與風格標準。您可設定某些整合開發環境在儲存時自動執行Ruff，這有助於簡化流程。</p>
@@ -4813,8 +4869,43 @@ aria-label="頁首"
 節：愚蠢的一致性是小腦袋的妖精</a>。在某些情況下，與
 PEP 8 保持一致是沒有意義的，重要的是要了解，在適用的情況下，寫出不符合所列規則的程式碼是可以接受的，有時甚至是首選。在大多數情況下，知道 * 何時 *
 與這些規則不一致 * 與保持一致性同樣重要。</p>
+<p>這一點在命名規範上可見一斑。BeeWare
+函式庫經常需要與其他語言進行橋接。在建構其他語言的封裝函式庫時，最好（在某些情況下甚至必須）遵循目標語言的命名規範，而非 Python
+的規範。例如，在呼叫或引用 Java 程式碼時，函式應遵循 Java 偏好的 <code>mixedCase</code> 格式，而非 PEP 8 偏好的 <code>snake_case</code>
+格式。</p>
 <p>在 API 命名、變數等方面，我們遵循美國的拼寫方式。</p>
-<h3 id="_3">應避免的事項<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>此外，PEP 8 還針對 BeeWare 進行了若干補充：</p>
+<h4 id="split-long-function-calls">拆分冗長的函式呼叫<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
+<p>當包含多個參數的函式呼叫無法置於單一行時，請將每個參數置於獨立的一行，並在最後一個參數後加上逗號。Ruff 允許（並會建議）將多個參數置於同一行並進行換行：</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>請勿使用此寫法。相反地，應在最後一個參數後加上尾逗號，將參數分開列於各行：</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="n">arg1</span><span class="p">,</span>
+    <span class="n">arg2</span><span class="p">,</span>
+    <span class="n">arg3</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="split-long-strings">分割長字串<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
+<p>當字串參數必須跨行分割以符合行長限制時，請將串接的字串文字用括號包起來，以便明確表示該字串是一個單一參數。也就是說，我們建議使用：</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="p">(</span>
+        <span class="s2">&quot;this is a very long string &quot;</span>
+        <span class="s2">&quot;that is wrapped over two lines&quot;</span>
+    <span class="p">),</span>
+    <span class="n">second_argument</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>翻譯：</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="s2">&quot;this is a very long string &quot;</span>
+    <span class="s2">&quot;that is wrapped over two lines&quot;</span><span class="p">,</span>
+    <span class="n">second_argument</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<h3 id="_2">應避免的事項<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>我們儘量避免使用 <code>utils</code> 模組，但也了解到有時這些模組是無法避免的。比較可取的替代方法是在原始碼的其他地方為功能找地方，而不是使用 <code>utils</code>
 模組。</p>
 <p>一般而言，我們會盡量避免或延遲執行任何耗費資源的初始化程式碼，以實現更快的應用程式啟動速度。例如，toga-core

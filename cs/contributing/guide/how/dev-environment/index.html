@@ -2355,6 +2355,17 @@ aria-label="Záhlaví"
 </li>
         
           <li class="md-nav__item">
+  <a href="#nastavit-upstream-repozitar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nastavit upstream repozitář
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#vytvorte-virtualni-prostredi" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4742,6 +4753,17 @@ aria-label="Záhlaví"
 </li>
         
           <li class="md-nav__item">
+  <a href="#nastavit-upstream-repozitar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nastavit upstream repozitář
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#vytvorte-virtualni-prostredi" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4984,9 +5006,39 @@ repozitáře do svého počítače pomocí příkazového řádku:</p>
 </div>
 </div>
 </div>
+<h4 id="nastavit-upstream-repozitar">Nastavit upstream repozitář<a class="headerlink" href="#nastavit-upstream-repozitar" title="Permanent link">&para;</a></h4>
+<p>Po naklonování vaší větve přidejte repozitář BeeWare jako vzdálený repozitář
+<code>upstream</code>. Tím získá váš lokální klon odkaz na původní repozitář, což usnadní
+synchronizaci aktualizací v průběhu času.</p>
+<p>Budete také potřebovat tagy z <code>upstream</code>, aby nástroje jako Toga a Briefcase
+mohly určit přesná čísla verzí:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">C:\...&gt;</span>git remote add upstream https://github.com/beeware/beeware.git
+<span class="gp">C:\...&gt;</span>git fetch --tags upstream
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Pokud chcete, aby vaše vidlice také obsahovala tyto tagy, můžete je odeslat:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>--tags
+</code></pre></div>
+<p>To může být užitečné, pokud později vytvoříte nový klon a chcete, aby byly tagy
+dostupné z vašeho forku.</p>
 <h4 id="vytvorte-virtualni-prostredi">Vytvořte virtuální prostředí<a class="headerlink" href="#vytvorte-virtualni-prostredi" title="Permanent link">&para;</a></h4>
 <p>Chcete-li nastavit virtuální prostředí a upgradovat <code>pip</code>, spusťte:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>beeware
@@ -5016,7 +5068,7 @@ repozitáře do svého počítače pomocí příkazového řádku:</p>
 <p>Nyní, když máte zdrojový kód, můžete provést <a href="https://setuptools.pypa.io/en/latest/userguide/development_mode.html">editovatelnou
 instalaci</a>
 BeeWare do svého vývojového prostředí. Spusťte následující příkaz:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>--group<span class="w"> </span>dev
@@ -5037,7 +5089,7 @@ BeeWare do svého vývojového prostředí. Spusťte následující příkaz:</p
 který identifikuje jednoduché problémy a standardizuje formátování kódu. Toho
 dosahuje instalací git hooku, který automaticky spustí sérii linterů kódu před
 finalizací jakéhokoli git commitu. Chcete-li povolit pre-commit, spusťte:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pre-commit<span class="w"> </span>install

@@ -2358,6 +2358,17 @@ aria-label="상단/헤더"
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        업스트림 저장소 설정
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         가상 환경 생성
       
     </span>
@@ -2377,7 +2388,7 @@ aria-label="상단/헤더"
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         프리커밋 활성화
@@ -4745,6 +4756,17 @@ aria-label="상단/헤더"
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        업스트림 저장소 설정
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         가상 환경 생성
       
     </span>
@@ -4764,7 +4786,7 @@ aria-label="상단/헤더"
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         프리커밋 활성화
@@ -4975,9 +4997,36 @@ Windows에서 Python을 지원하기 위해 필요한 도구가 최근 출시된
 </div>
 </div>
 </div>
-<h4 id="_2">가상 환경 생성<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<p>가상 환경을 설정하고 <code>pip</code>를 업그레이드하려면 다음을 실행하십시오:</p>
+<h4 id="_2">업스트림 저장소 설정<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>포크를 복제한 후 BeeWare 저장소를 <code>upstream</code> 원격 저장소로 추가하세요. 이렇게 하면 로컬 복제본이 원본 저장소를 참조하게 되어
+시간이 지남에 따라 업데이트를 동기화하기가 더 쉬워집니다.</p>
+<p>또한 Toga나 Briefcase 같은 도구가 정확한 버전 번호를 확인할 수 있도록 <code>upstream</code>에서 태그가 필요합니다:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">C:\...&gt;</span>git remote add upstream https://github.com/beeware/beeware.git
+<span class="gp">C:\...&gt;</span>git fetch --tags upstream
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>포크에 해당 태그도 포함시키고 싶다면, 해당 태그를 푸시할 수 있습니다:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>--tags
+</code></pre></div>
+<p>나중에 새로 복제본을 생성할 때 포크에서 태그를 사용할 수 있도록 하려면 이 방법이 유용할 수 있습니다.</p>
+<h4 id="_3">가상 환경 생성<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>가상 환경을 설정하고 <code>pip</code>를 업그레이드하려면 다음을 실행하십시오:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>beeware
@@ -5007,7 +5056,7 @@ Windows에서 Python을 지원하기 위해 필요한 도구가 최근 출시된
 <p>이제 소스 코드를 확보했으므로, 개발 환경에
 (https://setuptools.pypa.io/en/latest/userguide/development_mode.html)을
 [editable install]BeeWare할 수 있습니다. 다음 명령어를 실행하세요:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>--group<span class="w"> </span>dev
@@ -5023,11 +5072,11 @@ Windows에서 Python을 지원하기 위해 필요한 도구가 최근 출시된
 </div>
 </div>
 </div>
-<h4 id="_3">프리커밋 활성화<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<h4 id="_4">프리커밋 활성화<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <p>BeeWare는 <a href="https://pre-commit.com">pre-commit</a>이라는 도구를 사용하여 간단한 문제를 식별하고
 코드 서식을 표준화합니다. 이는 git 커밋을 최종 확정하기 전에 일련의 코드 린터를 자동으로 실행하는 git 훅을 설치함으로써 이루어집니다.
 pre-commit을 활성화하려면 다음 명령을 실행하세요:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pre-commit<span class="w"> </span>install

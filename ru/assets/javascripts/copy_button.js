@@ -24,9 +24,9 @@ function filterText(target, exclusions) {
     clone.querySelectorAll(exclusions).forEach(node => node.remove());
     // The space between the venv name and the prompt is not tagged, so it is included
     // in the copied content. The newlines present in code output in codeblocks also
-    // isn't tagged, and therefore is also included in the copied content. Managing
+    // aren't tagged, and therefore are also included in the copied content. Managing
     // both of these issues is the purpose of the following.
-    return clone.innerText.replace(/^ /gm, "").trim();
+    return clone.innerText.trim();
 }
 
 function handleCopyClick(event) {

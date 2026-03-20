@@ -2355,6 +2355,17 @@ aria-label="Nagłówek"
 </li>
         
           <li class="md-nav__item">
+  <a href="#ustaw-repozytorium-upstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ustaw repozytorium upstream
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#stworz-srodowisko-wirtualne" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4742,6 +4753,17 @@ aria-label="Nagłówek"
 </li>
         
           <li class="md-nav__item">
+  <a href="#ustaw-repozytorium-upstream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ustaw repozytorium upstream
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#stworz-srodowisko-wirtualne" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4985,9 +5007,39 @@ swój komputer za pomocą wiersza poleceń:</p>
 </div>
 </div>
 </div>
+<h4 id="ustaw-repozytorium-upstream">Ustaw repozytorium upstream<a class="headerlink" href="#ustaw-repozytorium-upstream" title="Permanent link">&para;</a></h4>
+<p>Po sklonowaniu swojego forka dodaj repozytorium BeeWare jako zdalne <code>upstream</code> .
+Dzięki temu lokalna kopia będzie miała odniesienie do oryginalnego repozytorium,
+co ułatwi synchronizację aktualizacji w miarę upływu czasu.</p>
+<p>Będziesz również potrzebować tagów z <code>upstream</code>, aby narzędzia takie jak Toga i
+Briefcase mogły rozpoznać dokładne numery wersji:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">C:\...&gt;</span>git remote add upstream https://github.com/beeware/beeware.git
+<span class="gp">C:\...&gt;</span>git fetch --tags upstream
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Jeśli chcesz, aby Twój fork również zawierał te tagi, możesz je przesłać:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>--tags
+</code></pre></div>
+<p>Może to być przydatne, jeśli później utworzysz nową kopię i chcesz, aby tagi
+były dostępne z Twojego forka.</p>
 <h4 id="stworz-srodowisko-wirtualne">Stwórz środowisko wirtualne<a class="headerlink" href="#stworz-srodowisko-wirtualne" title="Permanent link">&para;</a></h4>
 <p>Aby skonfigurować środowisko wirtualne i zaktualizować <code>pip</code>, uruchom:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>beeware
@@ -5018,7 +5070,7 @@ swój komputer za pomocą wiersza poleceń:</p>
 instalację</a>
 BeeWare w swoim środowisku programistycznym. Uruchom następujące
 polecenie:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>--group<span class="w"> </span>dev
@@ -5040,7 +5092,7 @@ polecenie:</p>
 problemów i standaryzacji formatowania kodu. Odbywa się to poprzez
 zainstalowanie haka git, który automatycznie uruchamia serię linterów kodu przed
 sfinalizowaniem każdego zatwierdzenia git. Aby włączyć pre-commit, uruchom:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pre-commit<span class="w"> </span>install

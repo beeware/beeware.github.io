@@ -2358,6 +2358,17 @@ aria-label="Верхний колонтитул"
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        Установить исходный репозиторий
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         Создать виртуальную среду
       
     </span>
@@ -2377,7 +2388,7 @@ aria-label="Верхний колонтитул"
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         Включить предварительную фиксацию
@@ -4745,6 +4756,17 @@ aria-label="Верхний колонтитул"
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       
+        Установить исходный репозиторий
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         Создать виртуальную среду
       
     </span>
@@ -4764,7 +4786,7 @@ aria-label="Верхний колонтитул"
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       
         Включить предварительную фиксацию
@@ -4984,9 +5006,40 @@ GitHub</a>, и, если вы еще этого не
 </div>
 </div>
 </div>
-<h4 id="_2">Создать виртуальную среду<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
-<p>Чтобы настроить виртуальную среду и обновить <code>pip</code>, выполните:</p>
+<h4 id="_2">Установить исходный репозиторий<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<p>После клонирования форка добавьте репозиторий BeeWare в качестве удаленного
+репозитория <code>upstream</code>. Это даст вашему локальному клону ссылку на исходный
+репозиторий, что упростит синхронизацию обновлений со временем.</p>
+<p>Вам также понадобятся теги из <code>upstream</code>, чтобы такие инструменты, как Toga и
+Briefcase, могли определять точные номера версий:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">C:\...&gt;</span>git remote add upstream https://github.com/beeware/beeware.git
+<span class="gp">C:\...&gt;</span>git fetch --tags upstream
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Если вы хотите, чтобы ваша ветка также включала эти теги, вы можете их
+отправить:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>--tags
+</code></pre></div>
+<p>Это может быть полезно, если вы позже создадите новый клон и захотите, чтобы
+теги были доступны из вашего форка.</p>
+<h4 id="_3">Создать виртуальную среду<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>Чтобы настроить виртуальную среду и обновить <code>pip</code>, выполните:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>beeware
@@ -5016,7 +5069,7 @@ GitHub</a>, и, если вы еще этого не
 <p>Теперь, когда у вас есть исходный код, вы можете выполнить <a href="https://setuptools.pypa.io/en/latest/userguide/development_mode.html">редактируемую
 установку</a>
 BeeWare в вашей среде разработки. Выполните следующую команду:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>--group<span class="w"> </span>dev
@@ -5032,13 +5085,13 @@ BeeWare в вашей среде разработки. Выполните сле
 </div>
 </div>
 </div>
-<h4 id="_3">Включить предварительную фиксацию<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<h4 id="_4">Включить предварительную фиксацию<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <p>BeeWare использует инструмент под названием
 <a href="https://pre-commit.com">pre-commit</a>, чтобы выявлять простые проблемы и
 стандартизировать форматирование кода. Для этого он устанавливает git-хук,
 который автоматически запускает серию линтеров кода перед финализацией любого
 git-коммита. Чтобы включить pre-commit, выполните:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pre-commit<span class="w"> </span>install

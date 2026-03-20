@@ -2355,6 +2355,17 @@ aria-label="Sidehoved"
 </li>
         
           <li class="md-nav__item">
+  <a href="#indstil-et-upstream-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indstil et upstream-repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#opret-et-virtuelt-milj" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4742,6 +4753,17 @@ aria-label="Sidehoved"
 </li>
         
           <li class="md-nav__item">
+  <a href="#indstil-et-upstream-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indstil et upstream-repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#opret-et-virtuelt-milj" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4987,9 +5009,39 @@ computer ved hjælp af kommandolinjen:</p>
 </div>
 </div>
 </div>
+<h4 id="indstil-et-upstream-repository">Indstil et upstream-repository<a class="headerlink" href="#indstil-et-upstream-repository" title="Permanent link">&para;</a></h4>
+<p>Når du har klonet din fork, skal du tilføje BeeWare-repositoriet som en
+<code>upstream</code> remote. Dette giver din lokale klon en reference til det originale
+repository, hvilket gør det nemmere at synkronisere opdateringer over tid.</p>
+<p>Du skal også bruge tags fra <code>upstream</code>, så værktøjer som Toga og Briefcase kan
+finde de nøjagtige versionsnumre:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">C:\...&gt;</span>git remote add upstream https://github.com/beeware/beeware.git
+<span class="gp">C:\...&gt;</span>git fetch --tags upstream
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Hvis du ønsker, at din fork også skal indeholde disse tags, kan du pushe dem:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>--tags
+</code></pre></div>
+<p>Dette kan være nyttigt, hvis du senere opretter en ny klon og ønsker, at tags
+skal være tilgængelige fra din fork.</p>
 <h4 id="opret-et-virtuelt-milj">Opret et virtuelt miljø<a class="headerlink" href="#opret-et-virtuelt-milj" title="Permanent link">&para;</a></h4>
 <p>For at oprette et virtuelt miljø og opgradere <code>pip</code>, skal du køre:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>beeware
@@ -5019,7 +5071,7 @@ computer ved hjælp af kommandolinjen:</p>
 <p>Nu hvor du har kildekoden, kan du foretage en <a href="https://setuptools.pypa.io/en/latest/userguide/development_mode.html">redigerbar
 installation</a>
 af BeeWare i dit udviklingsmiljø. Kør følgende kommando:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>--group<span class="w"> </span>dev
@@ -5040,7 +5092,7 @@ af BeeWare i dit udviklingsmiljø. Kør følgende kommando:</p>
 til at identificere enkle problemer og standardisere kodeformatering. Det gør
 det ved at installere en git-hook, der automatisk kører en række kode-linters,
 inden en git-commit færdiggøres. For at aktivere pre-commit skal du køre:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pre-commit<span class="w"> </span>install

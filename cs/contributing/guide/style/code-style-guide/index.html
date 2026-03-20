@@ -3011,13 +3011,41 @@ aria-label="Záhlaví"
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#styl-kodu" class="md-nav__link">
+  <a href="#code-style" class="md-nav__link">
     <span class="md-ellipsis">
       
         Styl kódu
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Styl kódu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-long-function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rozdělení dlouhých volání funkcí
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split-long-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rozdělení dlouhých řetězců
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4658,13 +4686,41 @@ aria-label="Záhlaví"
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#styl-kodu" class="md-nav__link">
+  <a href="#code-style" class="md-nav__link">
     <span class="md-ellipsis">
       
         Styl kódu
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Styl kódu">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-long-function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rozdělení dlouhých volání funkcí
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split-long-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rozdělení dlouhých řetězců
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4805,7 +4861,7 @@ aria-label="Záhlaví"
 
 <h1 id="pravidla-pro-styl-kodu">Pravidla pro styl kódu<a class="headerlink" href="#pravidla-pro-styl-kodu" title="Permanent link">&para;</a></h1>
 <p>Tato příručka obsahuje informace a pokyny pro psaní kódu pro BeeWare.</p>
-<h3 id="styl-kodu">Styl kódu<a class="headerlink" href="#styl-kodu" title="Permanent link">&para;</a></h3>
+<h3 id="code-style">Styl kódu<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h3>
 <p>BeeWare se řídí <a href="https://peps.python.org/pep-0008/">PEP 8</a> v našem kódovém
 základu, s výjimkou délky řádku, která byla rozšířena z 79 na 88 znaků. K
 prosazování konvencí PEP 8 používáme <a href="https://docs.astral.sh/ruff/">Ruff</a>, kde
@@ -4820,7 +4876,50 @@ Existují situace, kdy dodržování PEP 8 nedává smysl, a je důležité poch
 v takových případech je přijatelné, a někdy dokonce žádoucí, psát kód, který
 není v souladu s uvedenými pravidly. Vědět, <em>kdy být nekonzistentní</em> s těmito
 pravidly, je stejně důležité jako udržovat konzistenci ve většině situací.</p>
+<p>Jedním z projevů tohoto přístupu jsou konvence pojmenování. Knihovny BeeWare
+často potřebují propojit s jinými jazyky. Při vytváření obalových funkcí pro
+jiné jazyky je žádoucí (a v některých případech i nezbytné) řídit se konvencemi
+pojmenování cílového jazyka, nikoli jazyka Python. Například při volání nebo
+odkazování na kód v Javě by funkce měly používat v Javě preferované značky
+<code>mixedCase</code>, nikoli značky <code>snake_case</code>, které doporučuje PEP 8.</p>
 <p>Při pojmenovávání API, proměnných atd. se řídíme americkým pravopisem.</p>
+<p>K PEP 8 existují také některé doplňky specifické pro BeeWare:</p>
+<h4 id="split-long-function-calls">Rozdělení dlouhých volání funkcí<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
+<p>Pokud se volání funkce s více než jedním argumentem nevejde na jeden řádek,
+umístěte každý argument na samostatný řádek a za poslední argument vložte čárku.
+Ruff povoluje (a dokonce doporučuje) formátování více argumentů na jednom řádku
+s přenosem:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Tento styl by se neměl používat. Místo toho rozložte argumenty tak, aby byl
+každý na samostatném řádku, a to přidáním čárky na konec posledního argumentu:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="n">arg1</span><span class="p">,</span>
+    <span class="n">arg2</span><span class="p">,</span>
+    <span class="n">arg3</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="split-long-strings">Rozdělení dlouhých řetězců<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
+<p>Pokud je třeba řetězcový argument rozdělit na více řádků, aby splňoval požadavky
+na délku řádku, uzavřete zřetězené řetězcové literály do závorek, aby bylo
+zřejmé, že se jedná o jediný argument. Upřednostňujeme tedy:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="p">(</span>
+        <span class="s2">&quot;this is a very long string &quot;</span>
+        <span class="s2">&quot;that is wrapped over two lines&quot;</span>
+    <span class="p">),</span>
+    <span class="n">second_argument</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>přes:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="s2">&quot;this is a very long string &quot;</span>
+    <span class="s2">&quot;that is wrapped over two lines&quot;</span><span class="p">,</span>
+    <span class="n">second_argument</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
 <h3 id="veci-kterym-je-treba-se-vyhnout">Věci, kterým je třeba se vyhnout<a class="headerlink" href="#veci-kterym-je-treba-se-vyhnout" title="Permanent link">&para;</a></h3>
 <p>Snažíme se co nejvíce vyhýbat modulům <code>utils</code>, ale chápeme, že někdy jsou
 nevyhnutelné. Preferovanou alternativou je najít danou funkci jinde ve zdrojovém

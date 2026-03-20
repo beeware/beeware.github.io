@@ -2355,6 +2355,17 @@ aria-label="Kopfzeile"
 </li>
         
           <li class="md-nav__item">
+  <a href="#ein-upstream-repository-festlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ein Upstream-Repository festlegen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#erstellen-einer-virtuellen-umgebung" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4742,6 +4753,17 @@ aria-label="Kopfzeile"
 </li>
         
           <li class="md-nav__item">
+  <a href="#ein-upstream-repository-festlegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ein Upstream-Repository festlegen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#erstellen-einer-virtuellen-umgebung" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4993,10 +5015,42 @@ Repository über die Befehlszeile auf Ihren Computer zu klonen:</p>
 </div>
 </div>
 </div>
+<h4 id="ein-upstream-repository-festlegen">Ein Upstream-Repository festlegen<a class="headerlink" href="#ein-upstream-repository-festlegen" title="Permanent link">&para;</a></h4>
+<p>Nachdem Sie Ihren Fork geklont haben, fügen Sie das BeeWare-Repository als
+<code>upstream</code> Remote hinzu. Dadurch erhält Ihr lokaler Klon einen Verweis auf das
+ursprüngliche Repository, was die Synchronisierung von Updates im Laufe der Zeit
+erleichtert.</p>
+<p>Sie benötigen außerdem Tags aus <code>upstream</code>, damit Tools wie Toga und Briefcase
+genaue Versionsnummern ermitteln können:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/beeware/beeware.git
+<span class="gp">$ </span>git<span class="w"> </span>fetch<span class="w"> </span>--tags<span class="w"> </span>upstream
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp">C:\...&gt;</span>git remote add upstream https://github.com/beeware/beeware.git
+<span class="gp">C:\...&gt;</span>git fetch --tags upstream
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Wenn Sie möchten, dass Ihre Fork diese Tags ebenfalls enthält, können Sie sie
+pushen:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>--tags
+</code></pre></div>
+<p>Dies kann nützlich sein, wenn Sie später einen neuen Klon erstellen und möchten,
+dass Tags aus Ihrem Fork verfügbar sind.</p>
 <h4 id="erstellen-einer-virtuellen-umgebung">Erstellen einer virtuellen Umgebung<a class="headerlink" href="#erstellen-einer-virtuellen-umgebung" title="Permanent link">&para;</a></h4>
 <p>Um eine virtuelle Umgebung einzurichten und <code>pip</code> zu aktualisieren, führen Sie
 aus:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>beeware
@@ -5027,7 +5081,7 @@ aus:</p>
 Installation</a>
 von BeeWare in Ihrer Entwicklungsumgebung durchführen. Führen Sie den
 folgenden Befehl aus:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>--group<span class="w"> </span>dev
@@ -5049,7 +5103,7 @@ folgenden Befehl aus:</p>
 die Codeformatierung zu standardisieren. Zu diesem Zweck wird ein Git-Hook
 installiert, der automatisch eine Reihe von Code-Linters ausführt, bevor ein
 Git-Commit abgeschlossen wird. Um pre-commit zu aktivieren, führen Sie aus:</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pre-commit<span class="w"> </span>install

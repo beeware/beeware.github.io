@@ -3011,13 +3011,41 @@ aria-label="Başlık"
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#kod-stili" class="md-nav__link">
+  <a href="#code-style" class="md-nav__link">
     <span class="md-ellipsis">
       
         Kod stili
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Kod stili">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-long-function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uzun işlev çağrılarını bölme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split-long-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uzun dizeleri bölme
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4658,13 +4686,41 @@ aria-label="Başlık"
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#kod-stili" class="md-nav__link">
+  <a href="#code-style" class="md-nav__link">
     <span class="md-ellipsis">
       
         Kod stili
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Kod stili">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#split-long-function-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uzun işlev çağrılarını bölme
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#split-long-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Uzun dizeleri bölme
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4806,7 +4862,7 @@ aria-label="Başlık"
 <h1 id="kod-stil-klavuzu">Kod stil kılavuzu<a class="headerlink" href="#kod-stil-klavuzu" title="Permanent link">&para;</a></h1>
 <p>Bu kılavuz, BeeWare için kod yazmaya ilişkin bilgiler ve yönergeler
 içerir.</p>
-<h3 id="kod-stili">Kod stili<a class="headerlink" href="#kod-stili" title="Permanent link">&para;</a></h3>
+<h3 id="code-style">Kod stili<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h3>
 <p>BeeWare, kod tabanımızda <a href="https://peps.python.org/pep-0008/">PEP 8</a> kurallarını
 takip eder, ancak satır uzunluğu 79 karakterden 88 karaktere çıkarılmıştır.
 Mümkün olduğunda PEP 8 kurallarını uygulamak için
@@ -4822,7 +4878,51 @@ ve uygun olduğunda, listelenen kurallara uymayan kod yazmanın kabul edilebilir
 ve bazen tercih edilebilir olduğunu anlamak önemlidir. Bu kurallara <em>ne zaman
 tutarsız olunması gerektiğini</em> bilmek, çoğu durumda tutarlılığı korumak kadar
 önemlidir.</p>
+<p>Bunun bir örneği, adlandırma kurallarında görülebilir. BeeWare kütüphaneleri
+sıklıkla diğer dillerle entegrasyon kurmak zorundadır. Diğer dillere yönelik
+sarmalayıcılar oluşturulurken, Python yerine hedef dilin adlandırma kurallarına
+uymak tercih edilir (ve bazı durumlarda zorunludur). Örneğin, Java kodunu
+çağırırken veya referans verirken, işlevler PEP 8'in <code>mixedCase</code> tercihini
+değil, Java'nın <code>snake_case</code> tercihini benimsemelidir.</p>
 <p>API adlandırma, değişkenler vb. için ABD yazım kurallarını takip ediyoruz.</p>
+<p>PEP 8'e BeeWare'e özgü bazı eklemeler de yapılmıştır:</p>
+<h4 id="split-long-function-calls">Uzun işlev çağrılarını bölme<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
+<p>Birden fazla argüman içeren bir işlev çağrısı tek bir satıra sığmadığında, her
+argümanı ayrı bir satıra yerleştirin ve son argümanın sonuna virgül ekleyin.
+Ruff, birden fazla argümanın tek bir satıra sığdırılmasına izin verir (ve bunu
+önerir):</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Bu biçim kullanılmamalıdır. Bunun yerine, son argümana sondan virgül ekleyerek
+argümanları her satıra bir tane olacak şekilde dağıtın:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="n">arg1</span><span class="p">,</span>
+    <span class="n">arg2</span><span class="p">,</span>
+    <span class="n">arg3</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<h4 id="split-long-strings">Uzun dizeleri bölme<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
+<p>Bir dize argümanının satır uzunluğu kısıtlamalarına uymak için satırlara
+bölünmesi gerektiğinde, birleştirilmiş dize sabitlerini parantez içine alın;
+böylece dizenin tek bir argüman olduğu açıkça anlaşılır. Yani, şu şekilde
+yazmayı tercih ederiz:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="p">(</span>
+        <span class="s2">&quot;this is a very long string &quot;</span>
+        <span class="s2">&quot;that is wrapped over two lines&quot;</span>
+    <span class="p">),</span>
+    <span class="n">second_argument</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>yukarıda:</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
+    <span class="s2">&quot;this is a very long string &quot;</span>
+    <span class="s2">&quot;that is wrapped over two lines&quot;</span><span class="p">,</span>
+    <span class="n">second_argument</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
 <h3 id="kacnlmas-gerekenler">Kaçınılması gerekenler<a class="headerlink" href="#kacnlmas-gerekenler" title="Permanent link">&para;</a></h3>
 <p>Bazen kaçınılmaz olduklarını bilerek, <code>utils</code> modüllerini mümkün olduğunca
 kullanmamaya çalışıyoruz. Tercih edilen alternatif, <code>utils</code> modülünü kullanmak
