@@ -100,7 +100,8 @@ body {
     transition: unset;
 }
 
-.md-icon svg {
+.md-header__button.md-icon svg,
+form.md-search__form label.md-search__icon.md-icon svg {
     height: 1.65rem;
     width: 1.65rem;
 }
@@ -136,10 +137,6 @@ input.md-search__input, .md-search__suggest, .md-search-result__meta {
     font-family: var(--brand-font);
 }
 
-.md-search__suggest {
-    padding-top: 1px;
-}
-
 .md-search-result .md-typeset h1 {
     font-size: 1.6rem;
 }
@@ -147,6 +144,40 @@ input.md-search__input, .md-search__suggest, .md-search-result__meta {
 .md-search-result .md-typeset h2,
 .md-search-result .md-typeset {
     font-size: 1rem;
+}
+
+
+[dir="ltr"] .md-search__options > button.md-search__icon.md-icon {
+    margin-left: 1rem;
+}
+
+@media screen and (min-width: 60rem) {
+    .md-search__options a.md-search__icon.md-icon svg {
+        margin-top: -0.4rem;
+        height: 1.65rem;
+        width: 1.65rem;
+    }
+
+    .md-search__options button.md-search__icon.md-icon svg {
+        height: 1.65rem;
+        width: 1.65rem;
+    }
+}
+
+@media screen and (max-width: 59.9844em) {
+    .md-search__input {
+        height: 100%
+    }
+
+    .md-search__options .md-search__icon.md-icon svg {
+        height: 1.65rem;
+        width: 1.65rem;
+        margin-top: -0.35rem;
+    }
+
+    .md-search__icon[for="__search"] {
+        top: 0.4rem;
+    }
 }
 
 /* The widths in the rest of this section are to correct rendering of the search input */
@@ -364,41 +395,8 @@ a.md-nav__link[for]:hover {
     height: unset;
 }
 
-/* Embiggen sidebar drawer logo and match sidebar */
-/*.md-nav__title.small .md-nav__button.md-logo img {*/
-/*    height: unset;*/
-/*    max-width: unset;*/
-/*    width: 74px;*/
-/*}*/
-
-/* The menu button for the sidebar drawer to display the sidebar on smaller displays */
-.mobile-drawer-button-site-name {
-    font-family: var(--brand-font);
-    font-size: 16px;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.mobile-drawer-button-version-number {
-    font-size: 12px;
-    display: inline-block;
-    vertical-align: middle;
-    padding-top: 4px;
-    padding-left: 4px;
-}
-
-.mobile-sidebar-drawer-menu-bar {
-    color: light-dark(#000000, #FFFFFF);
-    background-color: light-dark(#F8F9FB, #4E4F52);
-}
-
 /* Adjustments for larger displays */
 @media screen and (min-width: 1220px) {
-    /* Hide menu bar when not needed */
-    .mobile-sidebar-drawer-menu-bar {
-        display: none;
-    }
-
     .sidebar-title-block-name {
         display: flex;
         flex-flow: nowrap column;
@@ -411,37 +409,8 @@ a.md-nav__link[for]:hover {
 
     /* Site name */
     .site-name {
-        font-size: 20px;
+        font-size: 1.25rem;
         text-align: center;
-    }
-}
-
-/* Site name font size on mid-sized displays */
-@media screen and (max-width: 1599.99px)
-and (min-width: 1220px) {
-    .site-name {
-        font-size: 19px;
-    }
-
-    .sidebar-logo {
-        width: 50px;
-    }
-}
-
-@media screen and (max-width: 1999.99px)
-and (min-width: 1600px) {
-    .site-name {
-        font-size: 21px;
-    }
-
-    .sidebar-logo {
-        width: 74px;
-    }
-}
-
-@media screen and (min-width: 2000px) {
-    .site-name {
-        font-size: 22px;
     }
 }
 
@@ -478,10 +447,6 @@ and (min-width: 1600px) {
         display: flex;
         flex-flow: nowrap row;
         align-items: center;
-    }
-
-    .site-name {
-        font-size: 50px;
     }
 
     .md-nav__title .md-nav__button.md-logo img {
