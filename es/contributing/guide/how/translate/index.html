@@ -5064,40 +5064,40 @@ alemán, <code>de</code> u otro contenido para el idioma al que se dirija.</p>
 <li>El valor <code>site_url</code> es la URL del sitio del proyecto, seguida del código de
   idioma.</li>
 <li>El <code>docs_dir</code> sería el código del idioma.</li>
-<li>El valor <code>theme: language:</code> debe ser el código del idioma, como <a href="https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/">especificado
-  por el tema MkDocs
+<li>El valor <code>theme: language:</code> sería el código del idioma, como <a href="https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/">especificado por
+  el tema MkDocs
   Material</a>.
   Para la mayoría de los idiomas, este será el mismo que el código de idioma
   <code>docs_dir</code>; pero para algunos (en particular idiomas con variantes locales
   como <code>zh_CN</code>), hay diferencias.</li>
-<li>El <code>extra: language_url:</code> debe ser el código del idioma, seguido de una sola
-  barra, por ejemplo, <code>de/</code> para alemán.</li>
-<li>El <code>extra: translation_type:</code> debe ser <code>machine</code> hasta que la traducción
-  alcance el 100% por primera vez, momento en el que debe ser <code>human</code>. Se
-  revertirá a <code>machine</code> desde <code>human</code> si retrocede por debajo del 90%.</li>
+<li>El <code>extra: language_url:</code> sería el código del idioma, seguido de una sola
+  barra torcida, p.e., <code>de/</code> para alemán.</li>
+<li>El <code>extra: translation_type:</code> sería <code>machine</code> hasta que la traducción alcance
+  el 100% por primera vez, momento en el cual sería <code>human</code>. Se revertirá a
+  <code>machine</code> desde <code>human</code> si retrocede por debajo del 90%.</li>
 <li>El contenido entre <code>extra: header</code> son las traducciones de los títulos que
   aparecen en la barra de encabezado. Esta definición <em>no</em> es necesaria en el
-  sitio web principal de BeeWare; solo es necesaria en <em>otros</em> sitios (como el
-  tutorial o la documentación del proyecto).</li>
+  sitio web principal de BeeWare; solo se requiere en <em>otros</em> sitios (como el
+  tutorial, o la documentación del proyecto).</li>
 </ul>
 <h4 id="actualizar-toxini">Actualizar <code>tox.ini</code><a class="headerlink" href="#actualizar-toxini" title="Permanent link">&para;</a></h4>
 <p>Tendrás que hacer varios cambios en el archivo <code>tox.ini</code>.</p>
 <p>Añadirías lo siguiente:</p>
 <ul>
-<li>La nueva bandera de entorno de código de idioma a la línea de cabecera que
-  comienza <code>[testenv:docs</code>, con el código de idioma precedido por un <code>-</code>, sin
-  espacios incluidos, por ejemplo, <code>-de</code>.</li>
+<li>El indicador nuevo del código de idioma del entorno a la línea de cabecera que
+  comienza por <code>[testenv:docs</code>, con el código de idioma precedido por un <code>-</code>,
+  sin espacios incluidos, p.e., <code>-de</code>.</li>
 <li>El nuevo código de idioma de exclusión al primer comando, que comienza con
   <code>!lint</code>, precedido por <code>-!</code>, sin espacios incluidos, por ejemplo, <code>-!de</code>.</li>
-<li>El nuevo código de idioma para la línea que comienza con <code>translate :
+<li>El código de idioma nuevo para la línea que comienza con <code>translate :
   build_po_translations</code>.</li>
-<li>El nuevo código de idioma para la línea que comienza con <code>translate :
+<li>El código de idioma nuevo para la línea que comienza por <code>translate :
   update_machine_translations</code></li>
-<li>Un nuevo comando, que comienza, por ejemplo, con <code>de : build_md_translations</code>
+<li>Un comando nuevo, que comienza, por ejemplo, con <code>de : build_md_translations</code>
   para alemán, en orden alfabético dentro de los comandos específicos del idioma
-  existentes que coinciden con el contenido de esos comandos, con el nuevo
-  código de idioma.</li>
-<li>El nuevo código de idioma para la línea que comienza con <code>all:</code>.</li>
+  existentes que coinciden con el contenido de esos comandos, con el código
+  nuevo de idioma.</li>
+<li>El código nuevo de idioma para la línea que comienza con <code>all:</code>.</li>
 </ul>
 <h4 id="actualizar-configyml">Actualizar <code>config.yml</code><a class="headerlink" href="#actualizar-configyml" title="Permanent link">&para;</a></h4>
 <p>Añade el idioma a <code>config.yml</code> para que aparezca en el selector de idioma de la
@@ -5122,7 +5122,7 @@ la traducción de cadenas.</p>
 <p>Es más importante mantener el tono del texto inglés que esforzarse por traducir
 palabra por palabra. Tratamos de ser amables y un poco coloquiales en nuestros
 contenidos; intenta mantener ese espíritu en tus traducciones.</p>
-<p>Si el texto en inglés contiene un fuerte modismo inglés, no se sienta obligado a
+<p>Si el texto en inglés contiene un modismo inglés fuerte, no se sienta obligado a
 mantener el modismo, si hay un análogo en su idioma que funcionaría igualmente
 bien. Si el término o frase del texto en inglés es especialmente idiomático o de
 argot, no tema decirnos que deberíamos considerar la posibilidad de cambiarlo.
@@ -5130,25 +5130,25 @@ Incluso para los angloparlantes, los modismos y el argot pueden plantear
 dificultades. A veces tenemos que cambiar el texto inglés para que resulte más
 sencillo tanto para los traductores como para los lectores.</p>
 <h4 id="debo-traducirlo">¿Debo traducirlo?<a class="headerlink" href="#debo-traducirlo" title="Permanent link">&para;</a></h4>
-<p>Los siguientes elementos <em>no</em> deben traducirse ni actualizarse:</p>
+<p>Los siguientes elementos <em>no</em> serían traducidos ni actualizados:</p>
 <ul>
 <li><strong>Comandos</strong>. Por ejemplo, en "You should run `briefcase create`.", sólo
-  "You should run" debe ser traducido.</li>
-<li><strong>Espacios de nombres</strong>, como nombres de clases, métodos o atributos.</li>
-<li><strong>URLs de enlaces</strong>. Los enlaces Markdown estándar deben aparecer en Weblate
-  como <code>[Link text]{1}</code>, donde <code>1</code> es la posición del enlace en la cadena con
-  referencia a otros posibles enlaces. Si la URL completa se incluye en la
-  cadena, como <code>[Link text](https://example.com)</code>, la URL debe omitirse para la
-  traducción.</li>
+  "You should run" sería traducido.</li>
+<li><strong>Espacios de nombres</strong>, como nombres de clase, método o atributo.</li>
+<li><strong>Las URL de enlaces</strong>. Los enlaces Markdown estándar deben aparecer en
+  Weblate como <code>[Link text]{1}</code>, donde <code>1</code> es la posición del enlace en la
+  cadena con referencia a otros posibles enlaces. Si se incluye en la cadena la
+  URL completa, como <code>[Link text](https://example.com)</code>, la URL debería omitirse
+  para la traducción.</li>
 <li>
-<p><strong>Enlaces de referencia que contengan nombres de clases, métodos o
-  atributos</strong>. Deben dejarse como están, incluidos los puntos suspensivos. Todas
-  las partes del enlace de ejemplo que se muestra aquí no se traducirían.</p>
+<p><strong>Enlaces de referencia que contengan nombres de clase, método o atributo</strong>.
+  Deben dejarse como están, incluidos los puntos suspensivos. Todas las partes
+  del enlace de ejemplo que se muestra aquí no sería traducido.</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`Class.attribute`</span>][Class.attribute]
 </code></pre></div>
 </li>
 <li>
-<p><strong>El contenido del enlace de un enlace de referencia</strong>. Por ejemplo,
+<p><strong>El contenido del enlace de un enlace de Referencia</strong>. Por ejemplo,
   <code>link-content</code> se omitiría en lo siguiente:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">link-content</span>]
 </code></pre></div>
@@ -5157,15 +5157,15 @@ sencillo tanto para los traductores como para los lectores.</p>
 <p><strong>Directivas Jinja</strong>. Se trata de cualquier contenido envuelto dentro de dos
   pares de llaves coincidentes, o un par de llaves coincidentes con signos de
   porcentaje en cada extremo. Nota: Incluir un ejemplo de la sintaxis aquí hace
-  que el plugin Macros intente renderizarla; vea la <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">documentación de
+  que el plugin Macros intente representarla; consulte la <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">documentación de
   Macros</a> para
   ejemplos.</p>
 </li>
-<li><strong>Anclas personalizadas</strong>. Se encuentran después de las cabeceras o encima de
-  algún contenido, y se formatean como <code>{ #anchor }</code>.</li>
+<li><strong>Anclas personalizadas</strong>. Se encuentran tras cabeceras o encima de algún
+  contenido, y se dan formato como <code>{ #anchor }</code>.</li>
 <li>
-<p><strong>Sintaxis de la admonición</strong>. En el siguiente ejemplo, la palabra
-  "admonición" no debe traducirse. Esto es válido para todos los estilos de
+<p><strong>Sintaxis de admonición</strong>. En el ejemplo de a continuación, la palabra
+  «admonición» no debe traducirse. Esto es válido para todos los estilos de
   amonestación, incluyendo notas, advertencias, etc. Consulte la siguiente
   sección para obtener información sobre la traducción del resto del contenido.</p>
 <div class="highlight"><pre><span></span><code>/// admonition | Page Title
@@ -5176,38 +5176,38 @@ Content.
 </code></pre></div>
 </li>
 <li>
-<p><strong>Tildes</strong>. Se utilizan para dar formato tanto al código en línea como a los
-  bloques de código.</p>
+<p><strong>Tildes</strong>. Están pensadas para permanecer como tildes graves; se utilizan
+  para dar formato tanto al código en línea como a los bloques de código.</p>
 </li>
 <li><strong>La sintaxis para incluir contenido externo</strong>. Esto es cualquier cosa en la
   misma línea que <code>-8&lt;-</code>, o en las líneas entre dos <code>-8&lt;-</code> en líneas separadas.</li>
 </ul>
-<p>Los siguientes elementos <em>deben</em> traducirse:</p>
+<p>Los siguientes elementos <em>serían</em> traducidos:</p>
 <ul>
 <li><strong>Texto del enlace</strong>. En la sintaxis de los enlaces, el texto va antes de la
-  URL y va entre corchetes, como en <code>[Texto del enlace](URL)</code>. Los enlaces
-  Markdown estándar deben aparecer en Weblate como <code>[Texto del enlace]{1}</code>,
-  donde <code>1</code> es la posición del enlace en la cadena con referencia a otros
-  posibles enlaces.</li>
+  URL, y están encerrados entre corchetes, como en <code>[Texto del enlace](URL)</code>.
+  Los enlaces Markdown estándar aparecerían en Weblate como <code>[Texto del
+  enlace]{1}</code>, donde <code>1</code> es la posición del enlace en la cadena con referencia a
+  otros posibles enlaces.</li>
 <li>
-<p><strong>Texto del enlace de referencia</strong>. Por ejemplo, <code>Link text</code> se traduciría de
-  la siguiente manera:</p>
+<p><strong>Texto del enlace de referencia</strong>. Por ejemplo, <code>Link text</code> sería traducida
+  de la siguiente manera:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">link-content</span>]
 </code></pre></div>
 </li>
 <li>
-<p><strong>Títulos y contenido de la admonición</strong>. En el ejemplo anterior, "Título de
-  la página" y "Contenido" deben traducirse.</p>
+<p><strong>Títulos y contenido de la admonición</strong>. En el ejemplo anterior de
+  admonición, "Título de la página" y "Contenido" serían traducidas.</p>
 </li>
 </ul>
 <h3 id="weblate">Weblate<a class="headerlink" href="#weblate" title="Permanent link">&para;</a></h3>
 <p>Utilizamos <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> para la
-traducción de nuestros contenidos. Cuando añadimos una nueva traducción,
+traducción de nuestros contenidos. Cuando añadimos una traducción nueva,
 utilizamos <a href="https://www.deepl.com/en/translator">DeepL</a> para que la traducción
 automática produzca una primera pasada de las traducciones. Esto significa que,
-normalmente, el contenido que vas a traducir ya está traducido automáticamente.
-La expectativa es que tú, como traductor, revises, edites y mejores la
-traducción automática existente.</p>
+normalmente, el contenido que estás traduciendo ya está traducido
+automáticamente. La expectativa es que tú, como traductor, revises, edites y
+mejores la traducción automática existente.</p>
 <p>Weblate procesa todo cadena por cadena. Agrupa los cambios y, cada dos horas,
 envía una confirmación masiva con todas las cadenas que han cambiado en ese
 intervalo. Por lo tanto, los cambios pueden tardar un par de horas en aparecer

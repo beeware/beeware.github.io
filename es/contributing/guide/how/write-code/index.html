@@ -5117,7 +5117,7 @@ aria-label="Cabecera"
 <p>Fixing a bug or implementing a feature will require you to write some new code.</p>
 <p>Para empezar a trabajar en el código, asegúrate de tener un <a href="../dev-environment/">entorno de
 desarrollo</a> configurado, y de estar <a href="../branches/">trabajando en una
-rama</a>.</p>
+rama</a></p>
 <p>We have a <a href="../../style/code-style-guide/">code style guide</a> that outlines our guidelines for writing code for BeeWare.</p>
 <h3 id="test-driven-development">Test-driven development<a class="headerlink" href="#test-driven-development" title="Permanent link">&para;</a></h3>
 <p>A good way to ensure your code is going to do what you expect it to, is to first write a test case to test for it. This test case should fail initially, as the code it is testing for is not yet present. You can then write the code changes needed to make the test pass, and know that what you've written is solving the problem you are expecting it to.</p>
@@ -5246,15 +5246,15 @@ rama</a>.</p>
 <p>At the end of the coverage test output there should be a report of the coverage data that was gathered:</p>
 <div class="highlight"><pre><span></span><code><span class="go">Name    Stmts   Miss Branch BrPart   Cover   Missing</span>
 <span class="go">----------------------------------------------------</span>
-<span class="go">TOTAL 7540 0 1040 0 100,0% 0</span>
+<span class="go">TOTAL 7540 0 1040 0 100&#39;0% 0</span>
 </code></pre></div>
 <p>This tells us that the test suite has executed every possible branching path in the code. This isn't a 100% guarantee that there are no bugs, but it does mean that we're exercising every line of code in the codebase.</p>
 <p>If you make changes to the codebase, it's possible you'll introduce a gap in this coverage. When this happens, the coverage report will tell you which lines aren't being executed. For example, lets say we made a change to <code>some/interesting_file.py</code>, adding some new logic. The coverage report might look something like:</p>
 <div class="highlight"><pre><span></span><code>Name Stmts Miss Branch BrPart Cover Missing
 --------------------------------------------------------------------------------
-src/some/archivo_interesante.py 111 1 26 0 98,1% 170, 302-307, 320-&gt;335
+src/algún/archivo_interesante.py 111 1 26 0 98&#39;1% 170, 302-307, 320-&gt;335
 --------------------------------------------------------------------------------
-TOTAL 7540 1 1726 0 99,9
+TOTAL 7540 1 1726 0 99&#39;9%
 </code></pre></div>
 <p>This tells us that line 170, lines 302-307, and a branch jumping from line 320 to line 335, are not being executed by the test suite. You'll need to add new tests (or modify an existing test) to restore this coverage.</p>
 <h4 id="coverage-report-for-host-platform-and-python-version">Coverage report for host platform and Python version<a class="headerlink" href="#coverage-report-for-host-platform-and-python-version" title="Permanent link">&para;</a></h4>
