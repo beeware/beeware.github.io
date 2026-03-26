@@ -3026,7 +3026,7 @@ aria-label="Cabecera"
   <a href="#split-long-function-calls" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dividir llamadas a funciones largas
+        Desglosas invocaciones a funciones largas
       
     </span>
   </a>
@@ -3037,7 +3037,7 @@ aria-label="Cabecera"
   <a href="#split-long-strings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dividir cadenas largas
+        Desglosa cadenas largas
       
     </span>
   </a>
@@ -4701,7 +4701,7 @@ aria-label="Cabecera"
   <a href="#split-long-function-calls" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dividir llamadas a funciones largas
+        Desglosas invocaciones a funciones largas
       
     </span>
   </a>
@@ -4712,7 +4712,7 @@ aria-label="Cabecera"
   <a href="#split-long-strings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Dividir cadenas largas
+        Desglosa cadenas largas
       
     </span>
   </a>
@@ -4865,7 +4865,7 @@ aria-label="Cabecera"
 <p>BeeWare sigue <a href="https://peps.python.org/pep-0008/">PEP 8</a> en nuestro código base,
 excepto que la longitud de línea se ha ampliado de 79 a 88 caracteres.
 Utilizamos <a href="https://docs.astral.sh/ruff/">Ruff</a> para aplicar las convenciones
-PEP 8 siempre que sea posible. Cuando confirmes tu código, pre-commit ejecutará
+PEP 8 siempre que sea posible. Cuando confirmes tu código, pre‐commit ejecutará
 comprobaciones, incluyendo Ruff. Siempre que sea posible, esto formateará
 automáticamente tu código para garantizar que cumple con nuestros estándares de
 formato y estilo. Puedes configurar algunos IDE para que ejecuten
@@ -4888,16 +4888,16 @@ de la recomendada por PEP 8 de <code>snake_case</code>.</p>
 <p>Seguimos la ortografía estadounidense para la denominación de API, variables,
 etc.</p>
 <p>Además, hay algunas adiciones específicas de BeeWare a la PEP 8:</p>
-<h4 id="split-long-function-calls">Dividir llamadas a funciones largas<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
-<p>Cuando una llamada de función con más de un argumento no cabe en una sola línea,
-coloca cada argumento en una línea separada y añade una coma al final del último
-argumento. Ruff permite (y sugerirá) un formato en el que varios argumentos se
-escriben en una sola línea con saltos de línea:</p>
+<h4 id="split-long-function-calls">Desglosas invocaciones a funciones largas<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
+<p>Cuando una función invoca con más de un argumento que no cabe en una sola línea,
+coloca cada argumento en una propia línea separada y añade una coma al final del
+último argumento. Ruff permite (y sugerirá) un formato de múltiples argumentos
+sobre una línea envuelta:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>No se debe utilizar este estilo. En su lugar, distribuye los argumentos de uno
+<p>Este estilo no sería utilizado. En su lugar, distribuye los argumentos de uno
 por línea añadiendo una coma al final del último argumento:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
@@ -4905,11 +4905,11 @@ por línea añadiendo una coma al final del último argumento:</p>
     <span class="n">arg3</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
-<h4 id="split-long-strings">Dividir cadenas largas<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
-<p>Cuando sea necesario dividir un argumento de cadena en varias líneas para
-cumplir con los requisitos de longitud de línea, envuelve los literales de
-cadena concatenados entre paréntesis para que quede claro que la cadena es un
-único argumento. Es decir, preferimos:</p>
+<h4 id="split-long-strings">Desglosa cadenas largas<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
+<p>Cuando debe desglosar un argumento de cadena en varias líneas para cumplir con
+los requisitos de longitud de línea, cubre los literales de cadena concatenados
+entre paréntesis para que quede claro que la cadena es un único argumento. Es
+decir, preferimos:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
         <span class="s2">&quot;this is a very long string &quot;</span>
@@ -4926,9 +4926,10 @@ cadena concatenados entre paréntesis para que quede claro que la cadena es un
 <span class="p">)</span>
 </code></pre></div>
 <h3 id="lo-que-hay-que-evitar">Lo que hay que evitar<a class="headerlink" href="#lo-que-hay-que-evitar" title="Permanent link">&para;</a></h3>
-<p>Intentamos evitar los módulos <code>utils</code> en la medida de lo posible, aunque a veces
-son inevitables. La alternativa preferible es encontrar un lugar para la función
-en el código fuente, en lugar de utilizar un módulo <code>utils</code>.</p>
+<p>Intentamos evitar los módulos <code>utils</code> tanto como sea posible, con comprender que
+algunas veces son inevitables. La alternativa preferible es encontrar un lugar
+para la característica en donde sea en el código fuente, en lugar de utilizar un
+módulo <code>utils</code>.</p>
 <p>Como regla general, intentamos evitar o aplazar cualquier código de
 inicialización costoso, con el fin de lograr un inicio más rápido de la
 aplicación. Por ejemplo, los módulos del paquete toga-core se cargan de forma
