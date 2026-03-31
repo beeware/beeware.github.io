@@ -16,13 +16,13 @@ March has seen some big improvements in Briefcase, as well as some major discuss
 - We released [Briefcase 0.4.0](https://pypi.org/project/briefcase/0.4.0/)! This release makes a major change to how development mode operates for apps, isolating the dependencies of the app being developed from the environment that is running Briefcase.
 - We upgraded Briefcase to use [PEP639 license format](https://github.com/beeware/briefcase/pull/2732).
 - We added support for [dynamic PEP 621 project metadata](https://github.com/beeware/briefcase/pull/2772). This allows apps to have their version number configured by version control tags.
-- We addressed [CVE-2026-33430](https://github.com/beeware/briefcase/security/advisories/GHSA-r3r2-35v9-v238), a security issue which allowed for potential privilege escallation in Windows MSI installers.
+- We addressed [CVE-2026-33430](https://github.com/beeware/briefcase/security/advisories/GHSA-r3r2-35v9-v238), a security issue which allowed for potential privilege escalation in Windows MSI installers.
 - We added the ability to [configure the Android ABIs](https://github.com/beeware/briefcase/pull/2723) that are targeted as part of a Briefcase build.
 - We made [a retry mechanism to make project cleanup mechanisms more robust on Windows](https://github.com/beeware/briefcase/pull/2725).
 - We started experimenting with the use of `ty` to enforce type compliance in the Briefcase codebase.
 - We added validation of [MIME type definitions on document types](https://github.com/beeware/briefcase/pull/2738).
 - We modified MSI installers to [allow install scripts to the inherit elevated privileges of the installing user](https://github.com/beeware/briefcase/pull/2755).
-- In order to address some emerging issues and questions about the use of AI tools in contributions to BeeWare, we [dicussed the possible adoption of an AI contribution policy](https://github.com/beeware/beeware/discussions/621), and then [published a draft policy](https://github.com/beeware/.github/pull/328) and [drafted a set of agent guides for Briefcase](https://github.com/beeware/briefcase/pull/2733).
+- In order to address some emerging issues and questions about the use of AI tools in contributions to BeeWare, we [discussed the possible adoption of an AI contribution policy](https://github.com/beeware/beeware/discussions/621), and then [published a draft policy](https://github.com/beeware/.github/pull/328) and [drafted a set of agent guides for Briefcase](https://github.com/beeware/briefcase/pull/2733).
 - We published a design plan for the next collection of Toga widgets, governing ["Big Picture" app navigation](https://github.com/beeware/toga/discussions/4271).
 - We added a [FastAPI bootstrap for Toga's Positron plugin](https://github.com/beeware/toga/pull/4156).
 - We experimented with a [PyScript bootstrap for Positron](https://github.com/beeware/toga/pull/4296). This work is still dependent on some experimental tools, but we hope we'll be able to release this in the near future.
@@ -30,7 +30,7 @@ March has seen some big improvements in Briefcase, as well as some major discuss
 - We modified the API for `Table` and `Tree` to [allow explicit definition of columns](https://github.com/beeware/toga/pull/4199). This provides a much more flexible mechanism for configuring the display of `Table` and `Tree` widgets.
 - We added a mechanism for [lazy loading and dynamic registration of widgets](https://github.com/beeware/toga/pull/4205). In addition to reducing app startup time, this allows third party libraries to provide widget implementations that Toga doesn't provide, and to register entirely new widget types.
 - We added a [Switch widget for Toga's Textual backend](https://github.com/beeware/toga/pull/4228).
-- We added a [Tree widget to the Winforms backend](https://github.com/beeware/toga/pull/4235). This has one of the more notable missing widgets from Toga's API.
+- We added a [Tree widget to the WinForms backend](https://github.com/beeware/toga/pull/4235). This has one of the more notable missing widgets from Toga's API.
 - We modified how notifications from data sources are handled so that [a `ListSource` can be a listener on other sources](https://github.com/beeware/toga/pull/4237).
 - We corrected a bug in Toga's handling of presentation mode that would [prevent more than one window from being put into presentation mode.](https://github.com/beeware/toga/pull/4259)
 - We [migrated Rubicon ObjC's test suite to pytest](https://github.com/beeware/rubicon-objc/pull/722), and performed a [large refactor of the tests](https://github.com/beeware/rubicon-objc/pull/730) to break up some large test files.
@@ -38,13 +38,13 @@ March has seen some big improvements in Briefcase, as well as some major discuss
 - We made a some improvements to the CPython [iOS build script](https://github.com/python/cpython/pull/146447) and [Android build script](https://github.com/python/cpython/pull/146451) for consistency with other platform tools.
 - After the launch of the updated BeeWare website at the end of last month, we've addressed a number of small cosmetic, linking and translation issues that were reported, including [improvements to the layout of upcoming events](https://github.com/beeware/beeware.github.io/pull/761), [improvements in mobile rendering](https://github.com/beeware/beeware.github.io/pull/760), and [ensuring as much content as possible can be translated](https://github.com/beeware/beeware.github.io/pull/759).
 - We added sections to the contribution guide on [retrieving repository tags](https://github.com/beeware/beeware-docs-tools/pull/190), and [using the `gh` tool to open issues](https://github.com/beeware/beeware-docs-tools/pull/196)
-- We [resolved an issue with the preservation of spaces in codeblocks](https://github.com/beeware/beeware-docs-tools/pull/192) when copying sample code content.
+- We [resolved an issue with the preservation of spaces in code blocks](https://github.com/beeware/beeware-docs-tools/pull/192) when copying sample code content.
 - We optimized the build of the tutorial to [build all languages in a single pass](https://github.com/beeware/beeware-tutorial/pull/58).
 - We [replaced the use of a JSON API with an internal link under our control](https://github.com/beeware/beeware-tutorial/pull/65).
 
 ## What's next?
 
-We'll be publishing our Q2 roadmap in a couple of weeks. In addition to some progress in Toga that is aligned with the design plans we laid out this quarter, we're hoping that Q2 will see some experimentation with how Briefcase can be used to improve the app sandboxing process. The hope is by making some relatively small changes to how Briefcase starts mobile applications, we will be able to enable some interesting use cases for deploying applications to mobile platforms.
+We'll be publishing our Q2 roadmap in a couple of weeks. In addition to some progress in Toga that is aligned with the design plans we laid out this quarter, we're hoping that Q2 will see some experimentation with how Briefcase can be used to improve the process of developing and deploying apps. The hope is by making some relatively small changes to how Briefcase starts mobile applications, we will be able to speed up the app development process, and enable some interesting use cases for deploying applications to mobile platforms.
 
 We'll also be preparing for our attendance at [PyCon US](https://us.pycon.org/2026/schedule/presentation/36/). We're presenting a talk on [mechanisms for distributing Python code](https://us.pycon.org/2026/schedule/presentation/36/), and we'll be there for [both days of the sprints](https://us.pycon.org/2026/events/dev-sprints/), as well as participating in a number of other events and generally lurking around the hallways.
 
