@@ -48,7 +48,7 @@ Much of this work is due to the contributions of members of the BeeWare communit
 
 We'll be publishing our Q2 roadmap in a couple of weeks. In addition to some progress in Toga that is aligned with the design plans we laid out this quarter, we're hoping that Q2 will see some experimentation with how Briefcase can be used to improve the process of developing and deploying apps. The hope is by making some relatively small changes to how Briefcase starts mobile applications, we will be able to speed up the app development process, and enable some interesting use cases for deploying applications to mobile platforms.
 
-We'll also be preparing for our attendance at [PyCon US](https://us.pycon.org/2026/schedule/presentation/36/). We're presenting a talk on [mechanisms for distributing Python code](https://us.pycon.org/2026/schedule/presentation/36/), and we'll be there for [both days of the sprints](https://us.pycon.org/2026/events/dev-sprints/), as well as participating in a number of other events and generally lurking around the hallways.
+We'll also be preparing for our attendance at [PyCon US](https://us.pycon.org/2026/schedule/presentation/36/). We're presenting talks on [mechanisms for distributing Python code](https://us.pycon.org/2026/schedule/presentation/36/) and [switching your project documentation from Sphinx to Markdown](https://us.pycon.org/2026/schedule/presentation/6/). We'll be there for [both days of the sprints](https://us.pycon.org/2026/events/dev-sprints/), as well as participating in a number of other events and generally lurking around the hallways.
 
 ## Want to get involved?
 
