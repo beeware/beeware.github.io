@@ -43,16 +43,16 @@ As with any project with more than one person with commit rights, there are a nu
 - Assume any expression of anger or frustration comes from a genuine place of wanting to use a BeeWare tool/library
 - Encourage other members of the community to reflect these ideals in their own communications, both inside and outside the BeeWare community
 - No Apiarist should commit their own code
-  - Exception: "Something is very broken and needs to be fixed now"
-  - Exception: BDFN (this may change in the future)
+    - Exception: "Something is very broken and needs to be fixed now"
+    - Exception: BDFN (this may change in the future)
 - All code submitted for review by a core team member should be reviewed by another team member
-  - Exception: BDFN (this may change in the future)
+    - Exception: BDFN (this may change in the future)
 - All code should pass Continuous Integration tests before being merged
-  - Exception: code that is known to be broken and needs to be committed for other reasons
-  - Exception: code in a repo with insufficient CI tests
-  - Exception: Working and committed is better than perfect and not
+    - Exception: code that is known to be broken and needs to be committed for other reasons
+    - Exception: code in a repo with insufficient CI tests
+    - Exception: Working and committed is better than perfect and not
 - Acceptance processes should be automated wherever possible
-  - This means tests, linting, spell checking, coverage, and more
+    - This means tests, linting, spell checking, coverage, and more
 
 ## Becoming an Apiarist
 

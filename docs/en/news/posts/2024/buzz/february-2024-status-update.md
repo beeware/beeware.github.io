@@ -15,12 +15,12 @@ February may be the shortest month, but that doesn't mean we've got any less pro
 
 - [PEP 738](https://peps.python.org/pep-0738/), adding official Android support to CPython, has been formally submitted to the Python Steering Council for approval.
 - We've started landing patches in CPython to add formal support for [iOS](https://github.com/python/cpython/issues/114099) and [Android](https://github.com/python/cpython/issues/71052). There are more patches in review, and more to come, but so far we've landed patches that:
-  - [Fix the compilation of the `grp` module on Android](https://github.com/python/cpython/pull/114876)
-  - [Disable tests that can't run on mobile platforms](https://github.com/python/cpython/pull/114889)
-  - [Refactor the CPython build system to allow for some of the oddities of iOS as a platform](https://github.com/python/cpython/pull/115120)
-  - [Add build targets for compiling iOS-compatible frameworks](https://github.com/python/cpython/pull/115390)
-  - [Correct the linking of extension modules on Android](https://github.com/python/cpython/pull/115780)
-  - [Enable the concurrent.futures tests on platforms that don't support multiprocessing](https://github.com/python/cpython/pull/115917)
+    - [Fix the compilation of the `grp` module on Android](https://github.com/python/cpython/pull/114876)
+    - [Disable tests that can't run on mobile platforms](https://github.com/python/cpython/pull/114889)
+    - [Refactor the CPython build system to allow for some of the oddities of iOS as a platform](https://github.com/python/cpython/pull/115120)
+    - [Add build targets for compiling iOS-compatible frameworks](https://github.com/python/cpython/pull/115390)
+    - [Correct the linking of extension modules on Android](https://github.com/python/cpython/pull/115780)
+    - [Enable the concurrent.futures tests on platforms that don't support multiprocessing](https://github.com/python/cpython/pull/115917)
 - We added macOS ARM64 machines to our CI capabilities for [Toga](https://github.com/beeware/toga/pull/2404) and [Briefcase](https://github.com/beeware/briefcase/pull/1652). We've officially supported ARM64 on macOS for some time, but we've been unable to test this support as part of our CI and release procedure - we've had to do ad-hoc testing on the machines we're using to develop on a day to day basis. As a result of improvements to GitHub's CI infrastructure, we're now able to perform automated testing. As part of these changes, we've also added testing for Python 3.13 (which will be released around October of this year).
 - We [added an API for detecting the displays attached to a computer, and specifying the location of windows relative to those displays](https://github.com/beeware/toga/pull/1930).
 - We [added a pluggable API for image formats](https://github.com/beeware/toga/pull/2387). With this API, any third party library that has an internal format for images can implement support so that Toga can convert to and from images in that format.
