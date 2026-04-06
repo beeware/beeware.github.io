@@ -116,7 +116,7 @@ A meta-package for building a version of Python that can be embedded into a macO
 
 <div class="chaquopy-info" markdown="1">
 
-A meta-package for building a version of Python that can be embedded into a macOS, iOS, tvOS or watchOS project.
+Everything you need to include Python components in an Android app.
 
 </div>
 </div>
