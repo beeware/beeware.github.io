@@ -5232,10 +5232,10 @@ referans verilen bilginin türüne göre bunu yapabileceğiniz çeşitli yöntem
 alınmaktadır.</p>
 <p>MkDocs, standart Markdown biçimli bağlantıları görüntüler. Standart Markdown
 biçimli web hiper bağlantıları aşağıdaki gibidir:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">https://example.com/</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">Bağlantı metni</span>](<span class="na">https://example.com/</span>)
 </code></pre></div>
 <p>Bu biçimi yerel bir dosyaya bağlantı vermek için de kullanabilirsiniz:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">path/to/file.md</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">Bağlantı metni</span>](<span class="na">dosya.md&#39;nin yolu</span>)
 </code></pre></div>
 <p>Dosyaların belirli bölümlerine veya API belgelerine referans vermek için MkDocs
 referans bağlantı formatını kullanmanız gerekir.</p>
@@ -5251,7 +5251,7 @@ oluşturulmasını destekler. Bu, diğer şeylerin yanı sıra, özel Markdown
 başlıklarına ve metin bağlantılarına bağlantı vermeyi de içerir.</p>
 <p>MkDocs referans bağlantıları, aşağıdaki şekilde biçimlendirilmiş tüm
 bağlantılardır:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">link-target</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">Bağlantı metni</span>][<span class="nl">bağlantı hedefi</span>]
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Özel başlık ve içerik bağlantıları gereklidir</p>
@@ -5263,30 +5263,30 @@ bozulabilir.</p>
 <p>Bir başlık bağlantısına bağlanmanız gerekiyorsa, amaçlanan içerik için özel bir
 bağlantı oluşturmanız gerekir. Özel bir bağlantı ayarlamak için genel sözdizimi
 aşağıdaki gibidir:</p>
-<div class="highlight"><pre><span></span><code><span class="gh"># Header text { #anchor-name }</span>
+<div class="highlight"><pre><span></span><code><span class="gh"># Başlık metni { #anchor-name }</span>
 </code></pre></div>
 <p>Örneğin, bu bölümün bağlantısını <code>custom-anchors</code> olarak özelleştirmek için
 aşağıdaki biçimlendirme kullanılır:</p>
-<div class="highlight"><pre><span></span><code><span class="gu">## Custom Markdown anchors { #custom-anchors }</span>
+<div class="highlight"><pre><span></span><code><span class="gu">## Özel Markdown bağlantı noktaları { #custom-anchors }</span>
 </code></pre></div>
 <p>Metin ve kod blokları dahil genel içerik üzerinde de bağlantı
 oluşturabilirsiniz. Bağlantı vermek istediğiniz içeriğin üzerine, üstünde ve
 altında satır sonu bulunan aşağıdaki biçimlendirme eklenmelidir:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Yukarıdaki içerik.
 
 [](){ <span class="ni">#anchor</span>-name }
 
-Content below, that is now attached to the anchor above.
+Aşağıdaki içerik; artık yukarıdaki bağlantı noktasına eklenmiştir.
 </code></pre></div>
 <p>Özel bağlantı noktaları oluşturulduktan sonra, aynı belge içinden veya belgenin
 diğer bölümlerinden bu bağlantı noktalarına bağlantı verebilirsiniz.</p>
 <p>Standart Markdown, aynı dosya içindeki bir bağlantıya bağlanmak için kullanılır
 ve şu şekilde biçimlendirilir:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">#anchor-name</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">Bağlantı metni</span>](<span class="na">#anchor-name</span>)
 </code></pre></div>
 <p>Ayrı bir belgedeki bir bağlantıya bağlanmak için MkDocs referans bağlantı stili
 kullanılır. Bu stil aşağıdaki şekilde biçimlendirilir:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">anchor-name</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">Bağlantı metni</span>][<span class="nl">bağlantı adı</span>]
 </code></pre></div>
 <h3 id="api-referans-baglantlar">API referans bağlantıları<a class="headerlink" href="#api-referans-baglantlar" title="Permanent link">&para;</a></h3>
 <p>MkDocs referans bağlantısı, belgelenmiş sınıflar, sınıf yöntemleri veya
@@ -5322,12 +5322,12 @@ vermenin uygun yolu gösterilmektedir:</p>
 </code></pre></div>
 <p>Aşağıda sadece sınıf ve yöntem adı gösterilmektedir. Bu, adın arkasına parantez
 eklemeyi de gerektirir:</p>
-<div class="highlight"><pre><span></span><code>[<span class="sb">`Classname.methodname()`</span>][module.Classname.methodname]
+<div class="highlight"><pre><span></span><code>[<span class="sb">`Classname.methodname()`</span>][modül.SınıfAdı.YöntemAdı]
 </code></pre></div>
 <p>Uygulanabilir ad alanı ile aynı yöntemi kullanarak, rastgele metin görüntülerken
 bir sınıfa, yönteme veya özniteliğe bağlantı verebilirsiniz. Bunu bir sınıfla
 yapmak için aşağıdaki biçim kullanılır:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">link text</span>][<span class="nl">module.ClassName</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">bağlantı metni</span>][<span class="nl">module.ClassName</span>]
 </code></pre></div>
 <p>Python çekirdek belgelerine ve Pillow belgelerine doğrudan bağlantı vermek de
 mümkündür. Örneğin, <code>int</code> belgelerine bağlantı vermek için:</p>
@@ -5375,29 +5375,29 @@ gerekli satır sonlarını eklemek önemlidir.</p>
 <h3 id="uyarlar-ve-notlar">Uyarılar ve notlar<a class="headerlink" href="#uyarlar-ve-notlar" title="Permanent link">&para;</a></h3>
 <p>Uyarılarda, uyarı başlangıcı ve bitişinden önce ve sonra yeni satır eklenmesi
 dahil olmak üzere, aşağıdaki şekilde biçimlendirme yapılmalıdır:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Yukarıdaki içerik.
 
-/// admonition | Title
+/// uyarı | Başlık
 
-Admonition text.
+Uyarı metni.
 
-A second paragraph.
+İkinci paragraf.
 
 ///
 
-Content below.
+Aşağıdaki içerik.
 </code></pre></div>
 <p>Bu, desteklenen tüm uyarı türleri için aynı şekilde çalışır. Örneğin, not
 uyarıları da aynı biçimlendirme ve satır sonlarını gerektirir:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Yukarıdaki içerik.
 
-/// note | Note title
+/// not | Not başlığı
 
-Note text here.
+Not metni buraya.
 
 ///
 
-Content below.
+Aşağıdaki içerik.
 </code></pre></div>
 <p>Tüm <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">desteklenen uyarı
 türleri</a>
@@ -5405,58 +5405,58 @@ uyarı olarak kullanılabilir.</p>
 <h3 id="sekmeli-icerik">Sekmeli içerik<a class="headerlink" href="#sekmeli-icerik" title="Permanent link">&para;</a></h3>
 <p>Sekmeli içerik, içerik bloğunun başlangıcından önce ve sonundan sonra yeni bir
 satır eklenerek aşağıdaki şekilde biçimlendirilir:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Yukarıdaki içerik.
 
-/// tab | Tab one title
+/// tab | Birinci sekme başlığı
 
-Tab one text
-
-///
-
-/// tab | Tab two title
-
-Tab two text.
+Birinci sekme metni
 
 ///
 
-/// tab | Tab three title
+/// tab | İkinci sekme başlığı
 
-Tab three text.
+İkinci sekme metni.
 
 ///
 
-Content below.
+/// tab | Üçüncü sekme başlığı
+
+Üçüncü sekme metni.
+
+///
+
+Aşağıdaki içerik.
 </code></pre></div>
 <p>İç içe geçmiş bir uyarı içeren sekme, içerik bloğunun öncesinde ve sonrasında
 yeni satır dahil olmak üzere aşağıdaki şekilde biçimlendirilir:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Yukarıdaki içerik.
 
 /// tab | Windows
 
-Tab text.
+Sekme metni.
 
-/// admonition | Admonition
+/// uyarı | Uyarı
 
-Admonition text.
-
-///
+Uyarı metni.
 
 ///
 
-Content below.
+///
+
+Aşağıdaki içerik.
 </code></pre></div>
 <h3 id="cokmus-icerik">Çökmüş içerik<a class="headerlink" href="#cokmus-icerik" title="Permanent link">&para;</a></h3>
 <p>Çökmüş içerik, satır sonları dahil olmak üzere aşağıdaki şekilde
 biçimlendirilir:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Yukarıdaki içerik.
 
-/// details-note | Collapsed content title
+/// details-note | Daraltılmış içerik başlığı
 
-Collapsed content.
+Daraltılmış içerik.
 
 ///
 
-Content below.
+Aşağıdaki içerik.
 </code></pre></div>
 <p>Tüm <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">desteklenen uyarı
 türleri</a>
@@ -5470,20 +5470,20 @@ yönerge özelliklerini kullanan her şey yeni satırlarla sarılmalıdır. Örn
 BeeWare öğreticisi ana sayfada hangi uyarıyı göstereceğini belirlemek için
 değişkenlere dayalı Jinja koşulları içerir. Bunlar aşağıdaki gibi
 biçimlendirilmiştir:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Yukarıdaki içerik.
 
 
 
-Content below.
+Aşağıdaki içerik.
 </code></pre></div>
 <p>Sembolleri veya metni değiştirmek için bir sözdizimi de vardır. Bu sözdizimi,
 bir çift eşleşen çift kıvrımlı parantez içine alınmış bir değişkendir ve kendi
 satırında ise, öncesinde ve sonrasında yeni satır içermelidir.</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Yukarıdaki içerik.
 
 {{ variable }}
 
-Content below.
+Aşağıdaki içerik.
 </code></pre></div>
 <h3 id="goruntu-bicimlendirme">Görüntü biçimlendirme<a class="headerlink" href="#goruntu-bicimlendirme" title="Permanent link">&para;</a></h3>
 <p>Görüntülerin genişliği ayarlanabilir ve sol, sağ ve ortaya hizalanabilir (ortaya
@@ -5491,39 +5491,39 @@ hizalama konusunda bir uyarı vardır). Görüntüler, erişilebilirlik amacıyl
 zaman anlamlı alternatif metinler içermelidir.</p>
 <p>Bir görüntünün genişliğini <nospell>300px</nospell> olarak ayarlamak için
 aşağıdaki gibi biçimlendirilir:</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ width=&quot;300px&quot; }
+<div class="highlight"><pre><span></span><code>![<span class="nt">Resim alternatif metni</span>](<span class="na">../resim.png&#39;nin yolu</span>){ width=&quot;300px&quot; }
 </code></pre></div>
 <p>Bir görüntüyü sola (veya sağa) hizalamak için aşağıdaki biçimlendirme
 kullanılır:</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ align=left }
+<div class="highlight"><pre><span></span><code>![<span class="nt">Resim alternatif metni</span>](<span class="na">../resmin-yolu.png</span>){ align=left }
 </code></pre></div>
 <p>Bir resme başlık eklemek için, başlığın öncesinde ve sonrasında yeni satır
 eklenmesi gerekir ve şu şekilde biçimlendirilir:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Yukarıdaki içerik.
 
-![<span class="nt">Image alt text</span>](<span class="na">/path/to/image.png</span>)
+![<span class="nt">Resim alternatif metni</span>](<span class="na">/resmin-yolu.png</span>)
 
-/// caption
+/// resim açıklaması
 
-Caption content.
+Resim açıklaması içeriği.
 
 ///
 
-Content below.
+Aşağıdaki içerik.
 </code></pre></div>
 <p>Görüntü merkezini hizalamak <code>align</code> özniteliği ile mümkün değildir. Çözüm,
 görüntünün ardından boş bir başlık eklemektir, böylece görüntü ortalanacaktır.
 Her bölümün arasına ve öncesine ve sonrasına satır sonu eklemeniz gerekir.
 Biçimlendirme şu şekildedir:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Yukarıdaki içerik.
 
-![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>)
+![<span class="nt">Resim alternatif metni</span>](<span class="na">../resim.png&#39;nin yolu</span>)
 
-/// caption
+/// açıklama
 
 ///
 
-Content below.
+Aşağıdaki içerik.
 </code></pre></div>
 <h2 id="ozel-markdown-bicimlendirmesine-sahip-eklentiler">Özel Markdown biçimlendirmesine sahip eklentiler<a class="headerlink" href="#ozel-markdown-bicimlendirmesine-sahip-eklentiler" title="Permanent link">&para;</a></h2>
 <p>Aşağıdaki bölümlerde, belirli Markdown biçimlendirme gerektiren eklentilerin

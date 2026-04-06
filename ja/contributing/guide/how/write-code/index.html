@@ -2633,10 +2633,10 @@ aria-label="ヘッダー"
 </li>
         
           <li class="md-nav__item">
-  <a href="#coverage-report-for-host-platform-and-python-version" class="md-nav__link">
+  <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Coverage report for host platform and Python version
+        ホストプラットフォームおよびPythonバージョンごとのカバレッジレポート
       
     </span>
   </a>
@@ -4941,10 +4941,10 @@ aria-label="ヘッダー"
 </li>
         
           <li class="md-nav__item">
-  <a href="#coverage-report-for-host-platform-and-python-version" class="md-nav__link">
+  <a href="#python" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Coverage report for host platform and Python version
+        ホストプラットフォームおよびPythonバージョンごとのカバレッジレポート
       
     </span>
   </a>
@@ -5246,17 +5246,17 @@ aria-label="ヘッダー"
 <span class="go">----------------------------------------------------</span>
 <span class="go">合計 7540 0 1040 0 100.0%</span>
 </code></pre></div>
-This tells us that the test suite has executed every possible branching path in the code. This isn't a 100% guarantee that there are no bugs, but it does mean that we're exercising every line of code in the codebase.</p>
-<p>If you make changes to the codebase, it's possible you'll introduce a gap in this coverage. When this happens, the coverage report will tell you which lines aren't being executed. For example, lets say we made a change to <code>some/interesting_file.py</code>, adding some new logic. The coverage report might look something like:
+これは、テストスイートがコード内のあらゆる分岐パスを実行したことを示しています。これはバグが一切ないことを100%保証するものではありませんが、コードベースのすべての行が実行されていることを意味します。</p>
+<p>コードベースに変更を加えると、このカバレッジに穴が生じる可能性があります。その場合、カバレッジレポートによって、どの行が実行されていないかがわかります。例えば、<code>some/interesting_file.py</code>に変更を加えて新しいロジックを追加したとします。その場合のカバレッジレポートは、次のようなものになるでしょう：
 <div class="highlight"><pre><span></span><code>名称 ステートメント ミス ブランチ ブランチ部分 カバー 欠落
 --------------------------------------------------------------------------------
 src/some/interesting_file.py 111 1 26 0 98.1% 170, 302-307, 320-&gt;335
 --------------------------------------------------------------------------------
 合計 7540 1 1726 0 99.9%
 </code></pre></div>
-This tells us that line 170, lines 302-307, and a branch jumping from line 320 to line 335, are not being executed by the test suite. You'll need to add new tests (or modify an existing test) to restore this coverage.</p>
-<h4 id="coverage-report-for-host-platform-and-python-version">Coverage report for host platform and Python version<a class="headerlink" href="#coverage-report-for-host-platform-and-python-version" title="Permanent link">&para;</a></h4>
-<p>You can generate a coverage report for your platform and version of Python. For example, to run the test suite and generate a coverage report on Python 3.10, run:</p>
+これは、170行目、302行目から307行目、および320行目から335行目への分岐が、テストスイートによって実行されていないことを示しています。このカバレッジを回復するには、新しいテストを追加するか、既存のテストを修正する必要があります。</p>
+<h4 id="python">ホストプラットフォームおよびPythonバージョンごとのカバレッジレポート<a class="headerlink" href="#python" title="Permanent link">&para;</a></h4>
+<p>お使いのプラットフォームおよびPythonバージョンに対応したカバレッジレポートを生成できます。たとえば、テストスイートを実行し、Python 3.10 に関するカバレッジレポートを生成するには、以下を実行します：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

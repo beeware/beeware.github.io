@@ -5233,10 +5233,10 @@ sekcji omówiono różne sposoby, w jakie można to zrobić, z których każdy o
 się na rodzaju informacji, do których się odwołuje.</p>
 <p>MkDocs renderuje standardowe linki sformatowane w Markdown. Standardowe
 hiperłącza internetowe sformatowane w Markdown wyglądają następująco:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">https://example.com/</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">Tekst linku</span>](<span class="na">https://example.com/</span>)
 </code></pre></div>
 <p>Możesz również użyć tego formatu, aby utworzyć link do pliku lokalnego:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">path/to/file.md</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">Tekst linku</span>](<span class="na">ścieżka/do/pliku.md</span>)
 </code></pre></div>
 <p>Odwołania do konkretnych sekcji plików lub dokumentacji API wymagają użycia
 formatu linków referencyjnych MkDocs.</p>
@@ -5252,7 +5252,7 @@ tworzenie linków do różnych innych elementów dokumentacji przy użyciu
 zmodyfikowanego linku Markdown. Obejmuje to między innymi linkowanie do
 niestandardowych nagłówków Markdown i kotwic tekstowych.</p>
 <p>Linki referencyjne MkDocs to wszelkie linki sformatowane w następujący sposób:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">link-target</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">Tekst linku</span>][<span class="nl">adres docelowy</span>]
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Wymagane są niestandardowe nagłówki i kotwice treści.</p>
@@ -5264,30 +5264,30 @@ podczas tłumaczenia treści nagłówka.</p>
 <p>Jeśli chcesz utworzyć link do kotwicy nagłówkowej, musisz wygenerować
 niestandardową kotwicę dla wybranej treści. Ogólna składnia ustawiania
 niestandardowej kotwicy jest następująca:</p>
-<div class="highlight"><pre><span></span><code><span class="gh"># Header text { #anchor-name }</span>
+<div class="highlight"><pre><span></span><code><span class="gh"># Tekst nagłówka { #anchor-name }</span>
 </code></pre></div>
 <p>Na przykład dostosowanie kotwicy dla tej sekcji do <code>custom-anchors</code> można
 wykonać za pomocą następującego formatowania:</p>
-<div class="highlight"><pre><span></span><code><span class="gu">## Custom Markdown anchors { #custom-anchors }</span>
+<div class="highlight"><pre><span></span><code><span class="gu">## Niestandardowe kotwice w formacie Markdown { #custom-anchors }</span>
 </code></pre></div>
 <p>Możesz również utworzyć kotwicę w treści ogólnej, w tym w tekście i blokach
 kodu. Poniższe formatowanie, z nowymi wierszami powyżej i poniżej, powinno
 zostać umieszczone powyżej treści, do której chcesz utworzyć link:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Treść powyżej.
 
-[](){ <span class="ni">#anchor</span>-name }
+[](){ <span class="ni">#nazwa_punktu_odnośnika</span> }
 
-Content below, that is now attached to the anchor above.
+Treść poniżej, która jest teraz powiązana z punktem odnośnika powyżej.
 </code></pre></div>
 <p>Po utworzeniu niestandardowych kotwic można utworzyć do nich linki w tym samym
 dokumencie lub w innych częściach dokumentacji.</p>
 <p>Standardowy znacznik Markdown służy do tworzenia linków do kotwicy <em>w tym samym
 pliku</em>, która ma następujący format:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">#anchor-name</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">Tekst linku</span>](<span class="na">#nazwa_ankra</span>)
 </code></pre></div>
 <p>Łącze do kotwicy w oddzielnym dokumencie wykorzystuje styl odnośnika MkDocs,
 który ma następujący format:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">anchor-name</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">Tekst linku</span>][<span class="nl">nazwa-linku</span>]
 </code></pre></div>
 <h3 id="linki-do-dokumentacji-api">Linki do dokumentacji API<a class="headerlink" href="#linki-do-dokumentacji-api" title="Permanent link">&para;</a></h3>
 <p>Linkowanie referencyjne MkDocs obsługuje również odsyłanie do dokumentacji API,
@@ -5313,21 +5313,21 @@ przedstawiono przestrzeń nazw:</p>
 </code></pre></div>
 <p>Podobnie jak w przypadku klas, wyświetlanie samej nazwy atrybutu jest
 sformatowane w następujący sposób:</p>
-<div class="highlight"><pre><span></span><code>[<span class="sb">`attributename`</span>][module.ClassName.attributename]
+<div class="highlight"><pre><span></span><code>[<span class="sb">`attributename`</span>][nazwa_modułu.nazwa_atrybutu]
 </code></pre></div>
 <p>Metody powinny być wyświetlane z <code>()</code> po przestrzeni nazw, dlatego należy je
 traktować inaczej niż atrybuty. Poniżej przedstawiono prawidłowy sposób
 tworzenia odnośnika do metody:</p>
-<div class="highlight"><pre><span></span><code>[<span class="sb">`module.ClassName.methodname()`</span>][module.ClassName.methodname]
+<div class="highlight"><pre><span></span><code>[<span class="sb">`module.ClassName.methodname()`</span>][nazwa_modułu.nazwa_metody]
 </code></pre></div>
 <p>Poniżej wyświetlane są tylko nazwy klas i metod. Wymaga to również dodania
 nawiasów po nazwie:</p>
-<div class="highlight"><pre><span></span><code>[<span class="sb">`Classname.methodname()`</span>][module.Classname.methodname]
+<div class="highlight"><pre><span></span><code>[<span class="sb">`Classname.methodname()`</span>][nazwa_modułu.nazwa_metody]
 </code></pre></div>
 <p>Można utworzyć odnośnik do klasy, metody lub atrybutu, wyświetlając dowolny
 tekst, przy użyciu tej samej metody z odpowiednią przestrzenią nazw. W przypadku
 klasy formatowanie wygląda następująco:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">link text</span>][<span class="nl">module.ClassName</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">tekst linku</span>][<span class="nl">module.ClassName</span>]
 </code></pre></div>
 <p>Możliwe jest również bezpośrednie połączenie z dokumentacją rdzenia języka
 Python, a także dokumentacją biblioteki Pillow. Na przykład, aby połączyć się z
@@ -5363,7 +5363,7 @@ przycisku kopiowania.</p>
 spację po języku, a następnie <code>{hl_lines="2"}</code>. Twój blok kodu będzie więc
 zaczynał się od <code>```python {hl_lines="2"}</code>. Wynik będzie następujący:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">toga</span>
-<span class="hll"><span class="kn">from</span><span class="w"> </span><span class="nn">toga.style.pack</span><span class="w"> </span><span class="kn">import</span> <span class="n">COLUMN</span><span class="p">,</span> <span class="n">ROW</span>
+<span class="hll"><span class="n">z</span> <span class="n">toga</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">pack</span> <span class="kn">import</span><span class="w"> </span><span class="nn">COLUMN</span><span class="o">,</span><span class="w"> </span><span class="nn">ROW</span>
 </span></code></pre></div>
 <p>Możesz zaznaczyć wiele różnych linii. Na przykład <code>python {hl_lines="3 5 9"}</code>
 zaznaczy linie 3, 5 i 9. Możesz również zaznaczyć zakres linii. Na przykład
@@ -5376,30 +5376,30 @@ uwag, zakładek, dyrektyw Jinja, podpisów pod obrazkami, wyrównania itp.</p>
 <h3 id="upomnienia-i-uwagi">Upomnienia i uwagi<a class="headerlink" href="#upomnienia-i-uwagi" title="Permanent link">&para;</a></h3>
 <p>Ostrzeżenia muszą być sformatowane w następujący sposób, z uwzględnieniem znaku
 nowej linii przed i po rozpoczęciu oraz zakończeniu ostrzeżenia:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Treść powyżej.
 
-/// admonition | Title
+/// ostrzeżenie | Tytuł
 
-Admonition text.
+Tekst ostrzeżenia.
 
-A second paragraph.
+Drugi akapit.
 
 ///
 
-Content below.
+Treść poniżej.
 </code></pre></div>
 <p>Działa to w ten sam sposób w przypadku każdego obsługiwanego typu ostrzeżenia.
 Na przykład ostrzeżenia dotyczące notatek wymagają takiego samego formatowania i
 znaków nowej linii:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Treść powyżej.
 
-/// note | Note title
+/// notatka | Tytuł notatki
 
-Note text here.
+Tekst notatki.
 
 ///
 
-Content below.
+Treść poniżej.
 </code></pre></div>
 <p>Wszystkie <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">obsługiwane typy
 upomnień</a>
@@ -5407,58 +5407,58 @@ są dostępne do wykorzystania jako upomnienia.</p>
 <h3 id="tresc-w-zakadkach">Treść w zakładkach<a class="headerlink" href="#tresc-w-zakadkach" title="Permanent link">&para;</a></h3>
 <p>Treść z zakładkami jest sformatowana w następujący sposób, z uwzględnieniem
 znaku nowej linii przed początkiem i po zakończeniu bloku treści:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Treść powyżej.
 
-/// tab | Tab one title
+/// tab | Tytuł zakładki pierwszej
 
-Tab one text
-
-///
-
-/// tab | Tab two title
-
-Tab two text.
+Tekst zakładki pierwszej
 
 ///
 
-/// tab | Tab three title
+/// tab | Tytuł zakładki drugiej
 
-Tab three text.
+Tekst zakładki drugiej.
 
 ///
 
-Content below.
+/// tab | Tytuł zakładki trzeciej
+
+Tekst zakładki trzeciej.
+
+///
+
+Treść poniżej.
 </code></pre></div>
 <p>Zakładka z zagnieżdżonym ostrzeżeniem byłaby sformatowana w następujący sposób,
 z wierszem nowym przed i po bloku treści:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Treść powyżej.
 
 /// tab | Windows
 
-Tab text.
+Tekst zakładki.
 
-/// admonition | Admonition
+/// ostrzeżenie | Ostrzeżenie
 
-Admonition text.
-
-///
+Tekst ostrzeżenia.
 
 ///
 
-Content below.
+///
+
+Treść poniżej.
 </code></pre></div>
 <h3 id="zwin-tresc">Zwiń treść<a class="headerlink" href="#zwin-tresc" title="Permanent link">&para;</a></h3>
 <p>Zwiń treść jest sformatowana w następujący sposób, z uwzględnieniem znaków nowej
 linii:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Treść powyżej.
 
-/// details-note | Collapsed content title
+/// details-note | Tytuł zwiniętej treści
 
-Collapsed content.
+Zwinięta treść.
 
 ///
 
-Content below.
+Treść poniżej.
 </code></pre></div>
 <p>Wszystkie <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">obsługiwane typy
 ostrzeżeń</a>
@@ -5472,20 +5472,20 @@ tekście. Wszystko, co wykorzystuje funkcje dyrektyw Jinja, musi być otoczone
 znakami nowej linii. Na przykład samouczek BeeWare zawiera warunki Jinja oparte
 na zmiennych, które określają, jakie ostrzeżenie ma być wyświetlane na stronie
 głównej. Są one sformatowane w następujący sposób:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Treść powyżej.
 
 
 
-Content below.
+Treść poniżej.
 </code></pre></div>
 <p>Istnieje również składnia służąca do zastępowania symboli lub tekstu. Składnia
 ta jest zmienną ujętą w parę pasujących podwójnych nawiasów klamrowych i, jeśli
 znajduje się w osobnym wierszu, musi zawierać znak nowej linii przed i po niej.</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Treść powyżej.
 
 {{ variable }}
 
-Content below.
+Treść poniżej.
 </code></pre></div>
 <h3 id="formatowanie-obrazow">Formatowanie obrazów<a class="headerlink" href="#formatowanie-obrazow" title="Permanent link">&para;</a></h3>
 <p>Obrazy mogą mieć ustawioną szerokość i mogą być wyrównane do lewej, prawej lub
@@ -5493,38 +5493,38 @@ do środka (z zastrzeżeniem dotyczącym „wyśrodkowania”). Obrazy powinny z
 zawierać znaczący tekst alternatywny dla celów dostępności.</p>
 <p>Ustawienie szerokości <nospell>300px</nospell> dla obrazu będzie wyglądało
 następująco:</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ width=&quot;300px&quot; }
+<div class="highlight"><pre><span></span><code>![<span class="nt">Tekst alternatywny obrazu</span>](<span class="na">../ścieżka/do/obrazu.png</span>){ width=&quot;300px&quot; }
 </code></pre></div>
 <p>Wyrównanie obrazu do lewej (lub prawej) strony będzie miało następujący format:</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ align=left }
+<div class="highlight"><pre><span></span><code>![<span class="nt">Tekst alternatywny obrazu</span>](<span class="na">../ścieżka/do/obrazu.png</span>){ align=left }
 </code></pre></div>
 <p>Dodanie podpisu do obrazu wymaga znaku nowej linii przed i po nim i jest
 sformatowane w następujący sposób:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Treść powyżej.
 
-![<span class="nt">Image alt text</span>](<span class="na">/path/to/image.png</span>)
+![<span class="nt">Tekst alternatywny obrazu</span>](<span class="na">/ścieżka/do/obrazu.png</span>)
 
-/// caption
+/// podpis
 
-Caption content.
+Treść podpisu.
 
 ///
 
-Content below.
+Treść poniżej.
 </code></pre></div>
 <p>Wyrównanie środka obrazu nie jest możliwe za pomocą atrybutu <code>align</code>.
 Rozwiązaniem jest dodanie pustego podpisu pod obrazem, co spowoduje jego
 wyśrodkowanie. Należy dodać znaki nowej linii między każdą sekcją oraz przed i
 po niej. Formatowanie wygląda następująco:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Treść powyżej.
 
-![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>)
+![<span class="nt">Tekst alternatywny obrazu</span>](<span class="na">../ścieżka/do/obrazu.png</span>)
 
-/// caption
+/// podpis
 
 ///
 
-Content below.
+Treść poniżej.
 </code></pre></div>
 <h2 id="wtyczki-z-okreslonym-formatowaniem-markdown">Wtyczki z określonym formatowaniem Markdown<a class="headerlink" href="#wtyczki-z-okreslonym-formatowaniem-markdown" title="Permanent link">&para;</a></h2>
 <p>Poniższe sekcje opisują, jak korzystać z wtyczek wymagających określonego

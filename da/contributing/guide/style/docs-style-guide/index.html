@@ -5232,10 +5232,10 @@ afsnit beskriver de forskellige måder, du kan gøre det på, som hver især er
 baseret på den type information, der henvises til.</p>
 <p>MkDocs gengiver standard Markdown-formaterede links. Standard
 Markdown-formaterede webhyperlinks er som følger:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">https://example.com/</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">Linktekst</span>](<span class="na">https://example.com/</span>)
 </code></pre></div>
 <p>Du kan også bruge dette format til at linke til en lokal fil:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">path/to/file.md</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">Linktekst</span>](<span class="na">sti/til/fil.md</span>)
 </code></pre></div>
 <p>Henvisning til specifikke afsnit i filer eller API-dokumentation kræver brug af
 MkDocs-referencelinkformatet.</p>
@@ -5251,7 +5251,7 @@ mulighed for at linke til forskellige andre elementer i dokumentationen ved
 hjælp af et modificeret Markdown-link. Dette omfatter blandt andet linking til
 brugerdefinerede Markdown-overskrifter og tekstankre.</p>
 <p>MkDocs-referencelinks er alle links, der er formateret som følger:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">link-target</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">Linktekst</span>][<span class="nl">link-destination</span>]
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Brugerdefinerede overskrifter og indholdsankre er påkrævet</p>
@@ -5263,30 +5263,30 @@ overskriftsindholdet oversættes.</p>
 <p>Hvis du har brug for at linke til et header-anker, skal du generere et
 brugerdefineret anker til det pågældende indhold. Den generelle syntaks for at
 indstille et brugerdefineret anker er som følger:</p>
-<div class="highlight"><pre><span></span><code><span class="gh"># Header text { #anchor-name }</span>
+<div class="highlight"><pre><span></span><code><span class="gh"># Overskrift { #anchor-name }</span>
 </code></pre></div>
 <p>For eksempel kan ankeret for dette afsnit tilpasses til <code>custom-anchors</code> ved
 hjælp af følgende formatering:</p>
-<div class="highlight"><pre><span></span><code><span class="gu">## Custom Markdown anchors { #custom-anchors }</span>
+<div class="highlight"><pre><span></span><code><span class="gu">## Brugerdefinerede Markdown-ankre { #custom-anchors }</span>
 </code></pre></div>
 <p>Du kan også oprette et anker på generelt indhold, herunder tekst og kodeblokke.
 Følgende formatering, med nye linjer ovenfor og nedenfor, skal inkluderes
 ovenfor det indhold, du ønsker at linke til:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
 [](){ <span class="ni">#anchor</span>-name }
 
-Content below, that is now attached to the anchor above.
+Indhold nedenfor, som nu er knyttet til ankeret ovenfor.
 </code></pre></div>
 <p>Når de brugerdefinerede ankre er oprettet, kan du linke til dem fra det samme
 dokument eller fra andre dele af dokumentationen.</p>
 <p>Standard Markdown bruges til at linke til et anker <em>i samme fil</em>, som formateres
 som følger:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">#anchor-name</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">Linktekst</span>](<span class="na">#anchor-name</span>)
 </code></pre></div>
 <p>Link til et anker i et separat dokument bruger MkDocs-referencelinkstilen, som
 er formateret som følger:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">anchor-name</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">Linktekst</span>][<span class="nl">ankernavn</span>]
 </code></pre></div>
 <h3 id="api-referencelinks">API-referencelinks<a class="headerlink" href="#api-referencelinks" title="Permanent link">&para;</a></h3>
 <p>MkDocs-referencelinkning understøtter også krydshenvisninger til
@@ -5310,7 +5310,7 @@ viser navneområdet:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`module.ClassName.attributename`</span>][]
 </code></pre></div>
 <p>Som med klasser formateres visning af kun attributnavnet som følger:</p>
-<div class="highlight"><pre><span></span><code>[<span class="sb">`attributename`</span>][module.ClassName.attributename]
+<div class="highlight"><pre><span></span><code>[<span class="sb">`attributename`</span>][module.ClassName.attributnavn]
 </code></pre></div>
 <p>Metoder skal vises med <code>()</code> efter navneområdet og skal derfor håndteres
 anderledes end attributter. Følgende er den korrekte måde at linke til en metode
@@ -5324,7 +5324,7 @@ efter navnet medtages:</p>
 <p>Du kan linke til en klasse, metode eller attribut, mens du viser vilkårlig
 tekst, ved at bruge den samme metode med det relevante navnerum. Dette gøres med
 en klasse som følger:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">link text</span>][<span class="nl">module.ClassName</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">linktekst</span>][<span class="nl">module.ClassName</span>]
 </code></pre></div>
 <p>Det er også muligt at linke direkte til Python-kernedokumentationen samt
 Pillow-dokumentationen. For eksempel for at linke til dokumentationen for <code>int</code>:</p>
@@ -5358,7 +5358,7 @@ effektivt.</p>
 du tilføje et mellemrum efter sproget, efterfulgt af <code>{hl_lines="2"}</code>. Så din
 kodeblok vil begynde med <code>```python {hl_lines="2"}</code>. Resultatet er:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">toga</span>
-<span class="hll"><span class="kn">from</span><span class="w"> </span><span class="nn">toga.style.pack</span><span class="w"> </span><span class="kn">import</span> <span class="n">COLUMN</span><span class="p">,</span> <span class="n">ROW</span>
+<span class="hll"><span class="n">fra</span> <span class="n">toga</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">pack</span> <span class="kn">import</span><span class="w"> </span><span class="nn">COLUMN</span><span class="o">,</span><span class="w"> </span><span class="nn">ROW</span>
 </span></code></pre></div>
 <p>Du kan fremhæve flere forskellige linjer. For eksempel vil <code>python {hl_lines="3
 5 9"}</code> fremhæve linjerne 3, 5 og 9. Du kan også fremhæve et interval af linjer.
@@ -5371,29 +5371,29 @@ faner, Jinja-direktiver, billedtekster og justering osv.</p>
 <h3 id="advarsler-og-bemrkninger">Advarsler og bemærkninger<a class="headerlink" href="#advarsler-og-bemrkninger" title="Permanent link">&para;</a></h3>
 <p>Advarsler skal formateres som følger, herunder sikre en ny linje før og efter
 advarslens start og slutning:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
-/// admonition | Title
+/// advarsel | Titel
 
-Admonition text.
+Tekst til advarslen.
 
-A second paragraph.
+Et andet afsnit.
 
 ///
 
-Content below.
+Indhold nedenfor.
 </code></pre></div>
 <p>Dette fungerer på samme måde med alle understøttede advarselstyper. For eksempel
 kræver noteadvarsler den samme formatering og nye linjer:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
-/// note | Note title
+/// note | Notatets titel
 
-Note text here.
+Notatteksten her.
 
 ///
 
-Content below.
+Indhold nedenfor.
 </code></pre></div>
 <p>Alle <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">understøttede
 advarselstyper</a>
@@ -5401,57 +5401,57 @@ kan bruges som advarsler.</p>
 <h3 id="indhold-med-faner">Indhold med faner<a class="headerlink" href="#indhold-med-faner" title="Permanent link">&para;</a></h3>
 <p>Indhold med faner formateres som følger, inklusive en ny linje før starten og
 efter slutningen af indholdsblokken:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
-/// tab | Tab one title
+/// tab | Titel på fane 1
 
-Tab one text
-
-///
-
-/// tab | Tab two title
-
-Tab two text.
+Tekst på fane 1
 
 ///
 
-/// tab | Tab three title
+/// tab | Titel på fane 2
 
-Tab three text.
+Tekst på fane 2.
 
 ///
 
-Content below.
+/// tab | Titel på fane 3
+
+Tekst på fane 3.
+
+///
+
+Indhold nedenfor.
 </code></pre></div>
 <p>En fane med en indlejret advarsel vil blive formateret som følger, inklusive en
 ny linje før og efter indholdsblokken:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
 /// tab | Windows
 
-Tab text.
+Tekst på fane.
 
-/// admonition | Admonition
+/// advarsel | Advarsel
 
-Admonition text.
-
-///
+Tekst i advarsel.
 
 ///
 
-Content below.
+///
+
+Indhold nedenfor.
 </code></pre></div>
 <h3 id="sammenklappet-indhold">Sammenklappet indhold<a class="headerlink" href="#sammenklappet-indhold" title="Permanent link">&para;</a></h3>
 <p>Sammenklappet indhold formateres som følger, inklusive nye linjer:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
-/// details-note | Collapsed content title
+/// details-note | Titel på sammenklappet indhold
 
-Collapsed content.
+Sammenklappet indhold.
 
 ///
 
-Content below.
+Indhold nedenfor.
 </code></pre></div>
 <p>Alle <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">understøttede
 advarselstyper</a>
@@ -5465,20 +5465,20 @@ teksten. Alt, der bruger Jinja-direktivfunktionerne, skal indsættes i nye
 linjer. For eksempel indeholder BeeWare-vejledningen Jinja-betingelser baseret
 på variabler for at bestemme, hvilken advarsel der skal vises på hovedsiden.
 Disse er formateret som følger:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
 
 
-Content below.
+Indhold nedenfor.
 </code></pre></div>
 <p>Der findes også en syntaks til erstatning af symboler eller tekst. Denne syntaks
 er en variabel indrammet af et par matchende dobbelte krøllede parenteser, og
 hvis den står på sin egen linje, skal den indeholde en ny linje før og efter.</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
 {{ variable }}
 
-Content below.
+Indhold nedenfor.
 </code></pre></div>
 <h3 id="billedformatering">Billedformatering<a class="headerlink" href="#billedformatering" title="Permanent link">&para;</a></h3>
 <p>Billeder kan have en fast bredde og kan justeres til venstre, højre og midten
@@ -5486,38 +5486,38 @@ Content below.
 alternativ tekst af hensyn til tilgængeligheden.</p>
 <p>Indstilling af bredden på <nospell>300px</nospell> på et billede vil blive
 formateret som følger:</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ width=&quot;300px&quot; }
+<div class="highlight"><pre><span></span><code>![<span class="nt">Billedtekst</span>](<span class="na">../sti/til/billede.png</span>){ width=&quot;300px&quot; }
 </code></pre></div>
 <p>Justering af et billede til venstre (eller højre) formateres som følger:</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ align=left }
+<div class="highlight"><pre><span></span><code>![<span class="nt">Billedtekst</span>](<span class="na">../sti/til/billede.png</span>){ align=left }
 </code></pre></div>
 <p>Hvis du vil tilføje en billedtekst til et billede, skal du indsætte en ny linje
 før og efter billedet og formatere det som følger:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
-![<span class="nt">Image alt text</span>](<span class="na">/path/to/image.png</span>)
+![<span class="nt">Billedtekst</span>](<span class="na">/sti/til/billede.png</span>)
 
-/// caption
+/// billedtekst
 
-Caption content.
+Indhold i billedteksten.
 
 ///
 
-Content below.
+Indhold nedenfor.
 </code></pre></div>
 <p>Det er ikke muligt at centrere et billede med attributten <code>align</code>. Løsningen er
 at følge billedet med en tom billedtekst, så bliver det centreret. Du skal
 indsætte nye linjer mellem hver sektion og før og efter. Det formateres som
 følger:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
-![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>)
+![<span class="nt">Alternativ tekst til billedet</span>](<span class="na">../sti/til/billedet.png</span>)
 
-/// caption
+/// billedtekst
 
 ///
 
-Content below.
+Indhold nedenfor.
 </code></pre></div>
 <h2 id="plugins-med-specifik-markdown-formatering">Plugins med specifik Markdown-formatering<a class="headerlink" href="#plugins-med-specifik-markdown-formatering" title="Permanent link">&para;</a></h2>
 <p>De følgende afsnit beskriver, hvordan man bruger plugins, der kræver specifik

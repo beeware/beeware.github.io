@@ -5220,41 +5220,41 @@ aria-label="ヘッダー"
 <h2 id="_3">相互参照情報<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>ドキュメント内のコンテンツは可能な限り相互参照すべきです。このセクションでは、参照する情報の種類に基づいて実施できる様々な方法を説明します。</p>
 <p>MkDocsは標準的なMarkdown形式のリンクをレンダリングします。標準的なMarkdown形式のウェブハイパーリンクは以下の通りです：</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">https://example.com/</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">リンクテキスト</span>](<span class="na">https://example.com/</span>)
 </code></pre></div>
 <p>この形式を使用してローカルファイルへのリンクを作成することもできます:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">path/to/file.md</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">リンクテキスト</span>](<span class="na">path/to/file.md</span>)
 </code></pre></div>
 <p>ファイルの特定セクションやAPIドキュメントを参照するには、MkDocsの参照リンク形式を使用する必要があります。</p>
 <h3 id="markdown">カスタムMarkdownアンカーとコンテンツ相互参照<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h3>
 <p>Markdownは、ヘッダーの内容に基づいて、すべてのヘッダー（1行で1つから6つの<code>#</code>記号で始まるもの）に対してアンカーを生成します。例えば、このセクション用に生成されたアンカーは<code>custom-markdown-anchors-and-content-cross---referencing</code>です。ただし、当社の翻訳の仕組み上、セクションヘッダーを参照する場合には、常にカスタムアンカーが必要です。</p>
 <p>MkDocsは、修正されたMarkdownリンクを使用してドキュメント内の様々な要素へリンクできる参照リンク構文のレンダリングをサポートしています。これには、カスタムMarkdownヘッダーやテキストアンカーなどへのリンクが含まれます。</p>
 <p>MkDocs リファレンスリンクは、以下の形式で記述されたリンクです：</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">link-target</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">リンクテキスト</span>][<span class="nl">リンク先</span>]
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">カスタムヘッダーとコンテンツアンカーが必要です</p>
 <p>BeeWareドキュメントにおいて、テキストコンテンツ内でMkDocs参照リンクを介して参照されるヘッダーまたはコンテンツセクションには、必ずカスタムアンカーを添付する必要があります。そうしないと、ヘッダーコンテンツが翻訳された際にリンクが壊れる可能性があります。</p>
 </div>
 <p>ヘッダーアンカーへのリンクを設定するには、対象コンテンツ用にカスタムアンカーを生成する必要があります。カスタムアンカーの設定における一般的な構文は以下の通りです：</p>
-<div class="highlight"><pre><span></span><code><span class="gh"># Header text { #anchor-name }</span>
+<div class="highlight"><pre><span></span><code><span class="gh"># ヘッダーテキスト { #anchor-name }</span>
 </code></pre></div>
 <p>例えば、このセクションのアンカーを<code>custom-anchors</code>にカスタマイズするには、以下の書式設定を行います：</p>
-<div class="highlight"><pre><span></span><code><span class="gu">## Custom Markdown anchors { #custom-anchors }</span>
+<div class="highlight"><pre><span></span><code><span class="gu">## カスタムMarkdownアンカー { #custom-anchors }</span>
 </code></pre></div>
 <p>テキストやコードブロックを含む一般的なコンテンツにもアンカーを作成できます。リンク先となるコンテンツの上部に、改行を上下に含めた以下のフォーマットを記述してください：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上記の内容。
 
 [](){ <span class="ni">#anchor</span>-name }
 
-Content below, that is now attached to the anchor above.
+以下の内容は、上記のアンカーにリンクされています。
 </code></pre></div>
 <p>カスタムアンカーを作成したら、同じ文書内やドキュメントの他の部分からそれらにリンクできます。</p>
 <p>標準マークダウンでは、アンカーへのリンクは_同じファイル内_に設定され、以下の形式で記述されます：</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">#anchor-name</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">リンクテキスト</span>](<span class="na">#anchor-name</span>)
 </code></pre></div>
 <p>別ドキュメント内のアンカーへのリンクには、MkDocsの参照リンクスタイルが使用されます。その書式は以下の通りです：</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">anchor-name</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">リンクテキスト</span>][<span class="nl">アンカー名</span>]
 </code></pre></div>
 <h3 id="api">APIリファレンスリンク<a class="headerlink" href="#api" title="Permanent link">&para;</a></h3>
 <p>MkDocsのリファレンスリンク機能は、APIドキュメントの相互参照もサポートしています。これには、ドキュメント化されたクラス、クラスメソッドまたは属性、および特定の外部ドキュメント参照が含まれます。</p>
@@ -5279,7 +5279,7 @@ Content below, that is now attached to the anchor above.
 <div class="highlight"><pre><span></span><code>[<span class="sb">`Classname.methodname()`</span>][module.Classname.methodname]
 </code></pre></div>
 <p>クラス、メソッド、または属性にリンクしながら任意のテキストを表示するには、該当する名前空間と共に同じメソッドを使用します。クラスに対してこれを行う場合の書式は次の通りです：</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">link text</span>][<span class="nl">module.ClassName</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">リンクテキスト</span>][<span class="nl">module.ClassName</span>]
 </code></pre></div>
 <p>PythonのコアドキュメントやPillowのドキュメントにも直接リンクできます。例えば、<code>int</code>のドキュメントにリンクするには：</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`int`</span>][]
@@ -5311,130 +5311,130 @@ Content below, that is now attached to the anchor above.
 <p>翻訳ファイルの生成方法上、警告文、注釈、タブ、Jinjaディレクティブ、画像キャプションや配置などにおいて、Markdown構文で必要な改行を含めることが重要です。</p>
 <h3 id="_9">戒めと注記<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>警告は以下のように書式設定する必要があります。警告の開始と終了の前後に改行を入れることを含みます：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上記の内容。
 
-/// admonition | Title
+/// 注意書き | タイトル
 
-Admonition text.
+注意書きの本文。
 
-A second paragraph.
+2つ目の段落。
 
 ///
 
-Content below.
+以下の内容。
 </code></pre></div>
 <p>これはサポートされている警告タイプすべてで同様に機能します。例えば、注記警告も同様の書式と改行を必要とします：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上記の内容。
 
-/// note | Note title
+/// メモ | メモのタイトル
 
-Note text here.
+ここにメモの本文を入力してください。
 
 ///
 
-Content below.
+以下の内容。
 </code></pre></div>
 <p>すべての<a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">サポートされている警告タイプ</a>は、警告として使用できます。</p>
 <h3 id="_10">タブ付きコンテンツ<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>タブ付きコンテンツは以下のようにフォーマットされます。コンテンツブロックの開始前と終了後に改行を含みます：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上記の内容。
 
-/// tab | Tab one title
+/// tab | タブ1のタイトル
 
-Tab one text
-
-///
-
-/// tab | Tab two title
-
-Tab two text.
+タブ1のテキスト
 
 ///
 
-/// tab | Tab three title
+/// tab | タブ2のタイトル
 
-Tab three text.
+タブ2のテキスト。
 
 ///
 
-Content below.
+/// tab | タブ3のタイトル
+
+タブ3のテキスト。
+
+///
+
+以下の内容。
 </code></pre></div>
 <p>ネストされた警告を含むタブは、以下の形式で書式設定されます。コンテンツブロックの前後には改行が含まれます：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上のコンテンツ。
 
 /// tab | Windows
 
-Tab text.
+タブのテキスト。
 
-/// admonition | Admonition
+/// admonition | 注意書き
 
-Admonition text.
-
-///
+注意書きのテキスト。
 
 ///
 
-Content below.
+///
+
+下のコンテンツ。
 </code></pre></div>
 <h3 id="_11">折りたたまれたコンテンツ<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>折りたたまれたコンテンツは、改行を含めて以下の形式で表示されます：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上記の内容。
 
-/// details-note | Collapsed content title
+/// details-note | 折りたたまれたコンテンツのタイトル
 
-Collapsed content.
+折りたたまれたコンテンツ。
 
 ///
 
-Content below.
+以下の内容。
 </code></pre></div>
 <p>すべての<a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">サポートされている警告タイプ</a>は折りたたみコンテンツで使用可能ですが、それらを<code>details-admonitiontype</code>として宣言する必要があります。したがって、「注意」タイプの折りたたみブロックは<code>details-note</code>（上記参照）、「警告」タイプの折りたたみブロックは<code>details-warning</code>となり、以下同様です。</p>
 <h3 id="jinja">Jinja ディレクティブ<a class="headerlink" href="#jinja" title="Permanent link">&para;</a></h3>
 <p>ドキュメントには、テキスト内でJinjaディレクティブを使用する機能がいくつか存在します。Jinjaディレクティブ機能を使用する部分はすべて改行で囲む必要があります。例えば、BeeWareチュートリアルには、メインページに表示する警告を決定するための変数に基づくJinja条件分岐が含まれています。これらは以下のようにフォーマットされています：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上記の内容。
 
 
 
-Content below.
+以下の内容。
 </code></pre></div>
 <p>記号やテキストを置換するための構文も存在する。この構文は変数を対応する二重中括弧で囲んだものであり、単独の行にある場合は前後に改行を含めなければならない。</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上のコンテンツ。
 
 {{ variable }}
 
-Content below.
+下のコンテンツ。
 </code></pre></div>
 <h3 id="_12">画像の書式設定<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>画像には幅を設定でき、左揃え、右揃え、中央揃えが可能です（「中央揃え」には注意点があります）。アクセシビリティのため、画像には常に意味のある代替テキストを含める必要があります。</p>
 <p>画像の幅を<nospell>300px</nospell>に設定する場合、以下の形式で記述します：</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ width=&quot;300px&quot; }
+<div class="highlight"><pre><span></span><code>![<span class="nt">画像の代替テキスト</span>](<span class="na">../path/to/image.png</span>){ width=&quot;300px&quot; }
 </code></pre></div>
 <p>画像を左（または右）揃えにする場合、以下の形式で記述します：</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ align=left }
+<div class="highlight"><pre><span></span><code>![<span class="nt">画像の代替テキスト</span>](<span class="na">../path/to/image.png</span>){ align=left }
 </code></pre></div>
 <p>画像にキャプションを追加するには、キャプションの前後に改行が必要であり、以下の形式で記述します：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上のコンテンツ。
 
-![<span class="nt">Image alt text</span>](<span class="na">/path/to/image.png</span>)
+![<span class="nt">画像の代替テキスト</span>](<span class="na">/path/to/image.png</span>)
 
-/// caption
+/// キャプション
 
-Caption content.
+キャプションの内容。
 
 ///
 
-Content below.
+下のコンテンツ。
 </code></pre></div>
 <p>画像の中心を揃えることは<code>align</code>属性では不可能です。回避策として、画像の後に空のキャプションを配置すると中央揃えになります。各セクション間、および前後には改行を含める必要があります。以下の形式で記述します：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上のコンテンツ。
 
-![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>)
+![<span class="nt">画像の代替テキスト</span>](<span class="na">../path/to/image.png</span>)
 
-/// caption
+/// キャプション
 
 ///
 
-Content below.
+下のコンテンツ。
 </code></pre></div>
 <h2 id="markdown_1">特定のMarkdown書式設定を備えたプラグイン<a class="headerlink" href="#markdown_1" title="Permanent link">&para;</a></h2>
 <p>以下のセクションでは、特定のMarkdown書式設定を必要とするプラグインの活用方法について説明します。</p>

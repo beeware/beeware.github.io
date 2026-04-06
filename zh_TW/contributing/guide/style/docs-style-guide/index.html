@@ -5219,10 +5219,10 @@ aria-label="頁首"
 <h2 id="_3">交叉參考資訊<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>您應該盡可能交叉引用文件中的內容。本節將介紹您可以使用的各種方法，每種方法都基於被引用資訊的類型。</p>
 <p>MkDocs 會渲染標準 Markdown 格式的連結。標準 Markdown 格式的網頁超連結如下：</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">https://example.com/</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">連結文字</span>](<span class="na">https://example.com/</span>)
 </code></pre></div>
 <p>您也可以使用此格式連結到本機檔案：</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">path/to/file.md</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">連結文字</span>](<span class="na">path/to/file.md</span>)
 </code></pre></div>
 <p>參考檔案的特定區段或 API 文件需要使用 MkDocs 參考連結格式。</p>
 <h3 id="markdown">自訂 Markdown 錨點與內容交叉引用<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h3>
@@ -5231,31 +5231,31 @@ aria-label="頁首"
 <p>MkDocs 支援渲染參考連結語法，可讓您使用修改過的 Markdown 連結來連結到文件中的各種其他元素。這包括連結到自訂 Markdown
 標題和文字錨點等。</p>
 <p>MkDocs 參考連結是格式如下的任何連結：</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">link-target</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">連結文字</span>][<span class="nl">連結目標</span>]
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">需要自訂標題和內容錨點</p>
 <p>在BeeWare文檔中，通過MkDocs參考鏈接在文本內容中引用的任何標題或內容部分_must_都必須附加自定義錨點。否則，在翻譯標題內容時，有可能會破壞連結。</p>
 </div>
 <p>如果您需要連結到標題錨點，您需要為目標內容產生自訂錨點。設定自訂錨點的一般語法如下：</p>
-<div class="highlight"><pre><span></span><code><span class="gh"># Header text { #anchor-name }</span>
+<div class="highlight"><pre><span></span><code><span class="gh"># 標題文字 { #anchor-name }</span>
 </code></pre></div>
 <p>舉例來說，自訂此區段的錨點為 <code>custom-anchors</code> 就可以使用下列格式：</p>
-<div class="highlight"><pre><span></span><code><span class="gu">## Custom Markdown anchors { #custom-anchors }</span>
+<div class="highlight"><pre><span></span><code><span class="gu">## 自訂 Markdown 錨點 { #custom-anchors }</span>
 </code></pre></div>
 <p>您也可以在一般內容上建立錨點，包括文字和程式塊。在您想要連結的內容上方，應包含以下格式，並在上方和下方加上換行線：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上方內容。
 
-[](){ <span class="ni">#anchor</span>-name }
+[](){ <span class="ni">#錨點名稱</span> }
 
-Content below, that is now attached to the anchor above.
+下方內容，現已連結至上方的錨點。
 </code></pre></div>
 <p>建立自訂錨點後，您可以在同一個文件或文件的其他部分連結到這些錨點。</p>
 <p>標準 Markdown 用來連結到_在同一個檔案_中的錨點，其格式如下：</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">#anchor-name</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">連結文字</span>](<span class="na">#anchor-name</span>)
 </code></pre></div>
 <p>連結至獨立文件中的錨點使用 MkDocs 參考連結樣式，其格式如下：</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">anchor-name</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">連結文字</span>][<span class="nl">錨點名稱</span>]
 </code></pre></div>
 <h3 id="api">API 參考連結<a class="headerlink" href="#api" title="Permanent link">&para;</a></h3>
 <p>MkDocs 參考連結也支援交叉參考 API 文件，包括已記錄的類、類方法或屬性，以及特定的外部文件參考。</p>
@@ -5279,7 +5279,7 @@ Content below, that is now attached to the anchor above.
 <div class="highlight"><pre><span></span><code>[<span class="sb">`Classname.methodname()`</span>][module.Classname.methodname]
 </code></pre></div>
 <p>您可以在顯示任意文字的同時連結到類別、方法或屬性，使用相同的方法與適用的命名空間。對一個類這樣做的格式如下：</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">link text</span>][<span class="nl">module.ClassName</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">連結文字</span>][<span class="nl">module.ClassName</span>]
 </code></pre></div>
 <p>也可以直接鏈接到 Python 核心文檔以及 Pillow 文檔。例如，連結到 <code>int</code> 的說明文件：</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`int`</span>][]
@@ -5312,84 +5312,84 @@ Python，您可以用 <code>``python</code> 開始程式碼區塊。</p>
 <p>由於翻譯檔案的產生方式，在 Markdown 語法中加入必要的換行線對於訓誡、註解、標籤、Jinja 指令、圖片標題和對齊方式等是很重要的。</p>
 <h3 id="_8">訓誡和注意事項<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>訓誡的格式必須如下，包括確保在訓誡開始和結束之前和之後有一個換行符：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上方內容。
 
-/// admonition | Title
+/// 警示 | 標題
 
-Admonition text.
+警示文字。
 
-A second paragraph.
+第二段落。
 
 ///
 
-Content below.
+下方內容。
 </code></pre></div>
 <p>此機制對任何支援的警告類型皆適用。例如，註釋警告需遵循相同格式與換行規則：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上方內容。
 
-/// note | Note title
+/// 註記 | 註記標題
 
-Note text here.
+註記內容在此。
 
 ///
 
-Content below.
+下方內容。
 </code></pre></div>
 <p>所有
 <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">支援的告誡類型</a>
 皆可作為告誡使用。</p>
 <h3 id="_9">標籤式內容<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>標籤內容的格式如下，包括在內容區塊的開始和結束之前包含一個換行符：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上方內容。
 
-/// tab | Tab one title
+/// tab | 標籤頁一標題
 
-Tab one text
-
-///
-
-/// tab | Tab two title
-
-Tab two text.
+標籤頁一內容
 
 ///
 
-/// tab | Tab three title
+/// tab | 標籤頁二標題
 
-Tab three text.
+標籤頁二內容。
 
 ///
 
-Content below.
+/// tab | 標籤頁三標題
+
+標籤頁三內容。
+
+///
+
+下方內容。
 </code></pre></div>
 <p>具有巢狀訓誡的制表符格式如下，包括內容區塊前後的換行符：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上方內容。
 
 /// tab | Windows
 
-Tab text.
+標籤文字。
 
-/// admonition | Admonition
+/// 提示 | 提示
 
-Admonition text.
-
-///
+提示文字。
 
 ///
 
-Content below.
+///
+
+下方內容。
 </code></pre></div>
 <h3 id="_10">折疊內容<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>折疊內容的格式如下，包含換行符：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上方內容。
 
-/// details-note | Collapsed content title
+/// details-note | 收起內容標題
 
-Collapsed content.
+收起內容。
 
 ///
 
-Content below.
+下方內容。
 </code></pre></div>
 <p>所有
 <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">支援的警示類型</a>
@@ -5398,50 +5398,50 @@ Content below.
 <h3 id="_11">金賈指 令<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>文件中有一些功能在文字中使用了 Jinja 指令。任何使用 Jinja 指令功能的內容都需要用換行包裝。例如，BeeWare 教學包含基於變數的 Jinja
 條件，以決定在主頁上顯示什麼訓誡。其格式如下：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上方內容。
 
 
 
-Content below.
+下方內容。
 </code></pre></div>
 <p>也有替代符號或文字的語法。這種語法是以一對匹配的雙大括弧包覆變數，如果是在自己的行上，則必須在變數前後包含一個換行符。</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上方內容。
 
 {{ variable }}
 
-Content below.
+下方內容。
 </code></pre></div>
 <h3 id="_12">圖片格式化<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>圖片可以設定寬度，並且可以向左、向右或居中對齊（「居中」需注意）。圖片應該包含有意義的 alt 文字，以利於存取。</p>
 <p>在影像上設定寬度 <nospell>300px</nospell> 的格式如下：</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ width=&quot;300px&quot; }
+<div class="highlight"><pre><span></span><code>![<span class="nt">圖片替代文字</span>](<span class="na">../圖片路徑.png</span>){ width=&quot;300px&quot; }
 </code></pre></div>
 <p>向左（或向右）對齊影像的格式如下：</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ align=left }
+<div class="highlight"><pre><span></span><code>![<span class="nt">圖片替代文字</span>](<span class="na">../圖片路徑.png</span>){ align=left }
 </code></pre></div>
 <p>在影像上加入標題需要在前後加上換行，格式如下：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上方內容。
 
-![<span class="nt">Image alt text</span>](<span class="na">/path/to/image.png</span>)
+![<span class="nt">圖片替代文字</span>](<span class="na">/圖片路徑.png</span>)
 
-/// caption
+/// 圖說
 
-Caption content.
+圖說內容。
 
 ///
 
-Content below.
+下方內容。
 </code></pre></div>
 <p>使用 <code>align</code> 屬性無法將圖片居中對齊。解決方法是在圖片後面加上空標題，這樣圖片就會居中對齊。您必須在每節之間以及前後加入換行符。其格式如下：</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>上方內容。
 
-![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>)
+![<span class="nt">圖片替代文字</span>](<span class="na">../圖片路徑.png</span>)
 
-/// caption
+/// 圖說
 
 ///
 
-Content below.
+下方內容。
 </code></pre></div>
 <h2 id="markdown_2">具有特定 Markdown 格式的外掛程式<a class="headerlink" href="#markdown_2" title="Permanent link">&para;</a></h2>
 <p>以下各節將介紹如何利用需要特定 Markdown 格式的外掛程式。</p>

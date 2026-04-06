@@ -5224,10 +5224,10 @@ aria-label="상단/헤더"
 <h2 id="_3">교차 참조 정보<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>문서에서 가능한 경우 항상 내용을 상호 참조해야 합니다. 이 섹션에서는 참조하는 정보의 유형에 따라 적용할 수 있는 다양한 방법을 다룹니다.</p>
 <p>MkDocs는 표준 마크다운 형식의 링크를 렌더링합니다. 표준 마크다운 형식의 웹 하이퍼링크는 다음과 같습니다:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">https://example.com/</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">링크 텍스트</span>](<span class="na">https://example.com/</span>)
 </code></pre></div>
 <p>이 형식을 사용하여 로컬 파일에 링크할 수도 있습니다:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">path/to/file.md</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">링크 텍스트</span>](<span class="na">path/to/file.md</span>)
 </code></pre></div>
 <p>파일의 특정 섹션이나 API 문서를 참조하려면 MkDocs 참조 링크 형식을 사용해야 합니다.</p>
 <h3 id="_4">사용자 정의 마크다운 앵커 및 콘텐츠 상호 참조<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
@@ -5238,7 +5238,7 @@ aria-label="상단/헤더"
 <p>MkDocs는 수정된 마크다운 링크를 사용하여 문서 내 다양한 다른 요소로 연결할 수 있는 참조 링크 구문 렌더링을 지원합니다. 여기에는 사용자
 정의 마크다운 헤더 및 텍스트 앵커로의 링크 등이 포함됩니다.</p>
 <p>MkDocs 참조 링크는 다음과 같이 형식화된 모든 링크입니다:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">link-target</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">링크 텍스트</span>][<span class="nl">링크 대상</span>]
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">사용자 정의 헤더 및 콘텐츠 앵커가 필요합니다</p>
@@ -5247,25 +5247,25 @@ aria-label="상단/헤더"
 </div>
 <p>헤더 앵커로 연결해야 하는 경우, 해당 콘텐츠에 대한 사용자 지정 앵커를 생성해야 합니다. 사용자 지정 앵커를 설정하는 일반적인 구문은 다음과
 같습니다:</p>
-<div class="highlight"><pre><span></span><code><span class="gh"># Header text { #anchor-name }</span>
+<div class="highlight"><pre><span></span><code><span class="gh"># 헤더 텍스트 { #anchor-name }</span>
 </code></pre></div>
 <p>예를 들어, 이 섹션의 앵커를 <code>custom-anchors</code>로 맞춤 설정하려면 다음과 같은 서식으로 처리합니다:</p>
-<div class="highlight"><pre><span></span><code><span class="gu">## Custom Markdown anchors { #custom-anchors }</span>
+<div class="highlight"><pre><span></span><code><span class="gu">## 사용자 정의 마크다운 앵커 { #custom-anchors }</span>
 </code></pre></div>
 <p>일반 콘텐츠(텍스트 및 코드 블록 포함)에도 앵커를 생성할 수 있습니다. 링크를 설정하려는 콘텐츠 상단에 다음 서식을 포함해야 합니다. 서식에는
 상하에 줄바꿈이 포함되어야 합니다:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>위의 콘텐츠.
 
 [](){ <span class="ni">#anchor</span>-name }
 
-Content below, that is now attached to the anchor above.
+아래의 콘텐츠로, 이제 위의 앵커에 연결되어 있습니다.
 </code></pre></div>
 <p>사용자 정의 앵커가 생성되면 동일한 문서 내에서 또는 문서의 다른 부분에서 해당 앵커로 연결할 수 있습니다.</p>
 <p>표준 마크다운은 동일한 파일 내의 앵커로 연결하는 데 사용되며, 다음과 같이 형식화됩니다:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">#anchor-name</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">링크 텍스트</span>](<span class="na">#anchor-name</span>)
 </code></pre></div>
 <p>다른 문서의 앵커에 링크하는 것은 MkDocs 참조 링크 스타일을 사용하며, 다음과 같이 형식화됩니다:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">anchor-name</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">링크 텍스트</span>][<span class="nl">앵커 이름</span>]
 </code></pre></div>
 <h3 id="api">API 참조 링크<a class="headerlink" href="#api" title="Permanent link">&para;</a></h3>
 <p>MkDocs 참조 링크 기능은 문서화된 클래스, 클래스 메서드 또는 속성을 포함한 API 문서와 특정 외부 문서 참조 간의 상호 참조도
@@ -5293,7 +5293,7 @@ Content below, that is now attached to the anchor above.
 </code></pre></div>
 <p>적용 가능한 네임스페이스와 동일한 메서드를 사용하여 임의의 텍스트를 표시하면서 클래스, 메서드 또는 속성에 링크할 수 있습니다. 클래스에 대해
 이 작업을 수행하는 형식은 다음과 같습니다:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">link text</span>][<span class="nl">module.ClassName</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">링크 텍스트</span>][<span class="nl">module.ClassName</span>]
 </code></pre></div>
 <p>파이썬 핵심 문서 및 Pillow 문서로도 직접 링크할 수 있습니다. 예를 들어, <code>int</code> 문서로 링크하려면:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`int`</span>][]
@@ -5330,84 +5330,84 @@ Content below, that is now attached to the anchor above.
 포함해야 합니다.</p>
 <h3 id="_10">경고와 주의사항<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>경고문은 다음과 같이 서식을 지정해야 하며, 경고문 시작과 끝 부분 앞뒤에 반드시 줄바꿈을 포함해야 합니다:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>위의 내용.
 
-/// admonition | Title
+/// 주의사항 | 제목
 
-Admonition text.
+주의사항 본문.
 
-A second paragraph.
+두 번째 단락.
 
 ///
 
-Content below.
+아래의 내용.
 </code></pre></div>
 <p>이것은 지원되는 모든 경고 유형에 동일하게 적용됩니다. 예를 들어, 노트 경고도 동일한 서식과 줄바꿈을 요구합니다:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>위의 내용.
 
-/// note | Note title
+/// 메모 | 메모 제목
 
-Note text here.
+메모 내용을 여기에 입력하세요.
 
 ///
 
-Content below.
+아래의 내용.
 </code></pre></div>
 <p>모든 <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">지원되는 경고
 유형</a>은
 경고로 사용할 수 있습니다.</p>
 <h3 id="_11">탭으로 구분된 콘텐츠<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>탭으로 구분된 콘텐츠는 다음과 같이 서식이 지정되며, 콘텐츠 블록 시작 전과 종료 후에는 줄바꿈이 포함됩니다:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>위의 내용.
 
-/// tab | Tab one title
+/// tab | 탭 1 제목
 
-Tab one text
-
-///
-
-/// tab | Tab two title
-
-Tab two text.
+탭 1 본문
 
 ///
 
-/// tab | Tab three title
+/// tab | 탭 2 제목
 
-Tab three text.
+탭 2 본문.
 
 ///
 
-Content below.
+/// tab | 탭 3 제목
+
+탭 3 본문.
+
+///
+
+아래의 내용.
 </code></pre></div>
 <p>중첩된 경고가 포함된 탭은 다음과 같이 서식이 지정되며, 콘텐츠 블록 앞뒤에 줄바꿈이 포함됩니다:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>위의 내용.
 
 /// tab | Windows
 
-Tab text.
+탭 텍스트.
 
-/// admonition | Admonition
+/// 주의사항 | 주의사항
 
-Admonition text.
-
-///
+주의사항 텍스트.
 
 ///
 
-Content below.
+///
+
+아래의 내용.
 </code></pre></div>
 <h3 id="_12">접힌 콘텐츠<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>접힌 콘텐츠는 다음과 같이 서식화되며, 줄바꿈을 포함합니다:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>위의 내용.
 
-/// details-note | Collapsed content title
+/// details-note | 접힌 콘텐츠 제목
 
-Collapsed content.
+접힌 콘텐츠.
 
 ///
 
-Content below.
+아래의 내용.
 </code></pre></div>
 <p>모든 <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">지원되는 경고
 유형</a>은
@@ -5417,53 +5417,53 @@ Content below.
 <p>문서에는 텍스트 내에서 Jinja 지시어를 사용하는 몇 가지 기능이 있습니다. Jinja 지시어 기능을 사용하는 모든 내용은 줄바꿈으로 감싸야
 합니다. 예를 들어, BeeWare 튜토리얼에는 메인 페이지에 표시할 경고를 결정하기 위해 변수를 기반으로 한 Jinja 조건문이 포함되어
 있습니다. 해당 내용은 다음과 같이 형식화됩니다:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>위의 내용.
 
 
 
-Content below.
+아래의 내용.
 </code></pre></div>
 <p>기호나 텍스트를 대체하는 구문도 존재합니다. 이 구문은 쌍으로 된 중괄호로 감싸진 변수이며, 단독 행에 있을 경우 앞뒤로 줄바꿈을 포함해야
 합니다.</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>위의 내용.
 
 {{ variable }}
 
-Content below.
+아래의 내용.
 </code></pre></div>
 <h3 id="_14">이미지 서식 지정<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <p>이미지는 너비를 설정할 수 있으며, 왼쪽, 오른쪽, 중앙 정렬이 가능합니다(단, "중앙" 정렬에는 주의사항이 있습니다). 접근성 목적으로
 이미지는 항상 의미 있는 대체 텍스트를 포함해야 합니다.</p>
 <p>이미지의 너비를 <nospell>300px</nospell>로 설정하는 형식은 다음과 같습니다:</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ width=&quot;300px&quot; }
+<div class="highlight"><pre><span></span><code>![<span class="nt">이미지 대체 텍스트</span>](<span class="na">../이미지 경로.png</span>){ width=&quot;300px&quot; }
 </code></pre></div>
 <p>이미지를 왼쪽(또는 오른쪽)에 정렬하는 형식은 다음과 같습니다:</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ align=left }
+<div class="highlight"><pre><span></span><code>![<span class="nt">이미지 대체 텍스트</span>](<span class="na">../이미지 경로.png</span>){ align=left }
 </code></pre></div>
 <p>이미지에 캡션을 추가하려면 앞뒤에 줄바꿈이 필요하며, 다음과 같이 서식이 지정됩니다:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>위의 내용.
 
-![<span class="nt">Image alt text</span>](<span class="na">/path/to/image.png</span>)
+![<span class="nt">이미지 대체 텍스트</span>](<span class="na">/이미지 경로.png</span>)
 
-/// caption
+/// 설명
 
-Caption content.
+설명 내용.
 
 ///
 
-Content below.
+아래의 내용.
 </code></pre></div>
 <p><code>align</code> 속성으로는 이미지 중심 정렬이 불가능합니다. 해결 방법은 이미지 뒤에 빈 캡션을 추가하면 중앙 정렬됩니다. 각 섹션 사이와 앞뒤에
 반드시 줄바꿈을 포함해야 합니다. 형식은 다음과 같습니다:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>위의 내용.
 
-![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>)
+![<span class="nt">이미지 대체 텍스트</span>](<span class="na">../이미지 경로.png</span>)
 
-/// caption
+/// 설명
 
 ///
 
-Content below.
+아래의 내용.
 </code></pre></div>
 <h2 id="_15">특정 마크다운 서식을 지원하는 플러그인<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
 <p>다음 섹션에서는 특정 마크다운 서식이 필요한 플러그인을 활용하는 방법을 다룹니다.</p>

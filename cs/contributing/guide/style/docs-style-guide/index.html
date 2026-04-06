@@ -5232,10 +5232,10 @@ popisuje různé způsoby, jak toho dosáhnout, přičemž každý z nich závis
 informací, na které odkazujete.</p>
 <p>MkDocs vykresluje standardní odkazy ve formátu Markdown. Standardní webové
 hypertextové odkazy ve formátu Markdown mají následující podobu:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">https://example.com/</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">Text odkazu</span>](<span class="na">https://example.com/</span>)
 </code></pre></div>
 <p>Tento formát můžete také použít pro odkaz na místní soubor:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">path/to/file.md</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">Text odkazu</span>](<span class="na">cesta/k/souboru.md</span>)
 </code></pre></div>
 <p>Odkazování na konkrétní části souborů nebo dokumentace API vyžaduje použití
 formátu odkazů MkDocs.</p>
@@ -5250,7 +5250,7 @@ odkazuje, vlastní kotvu.</p>
 prvky v dokumentaci pomocí upraveného odkazu Markdown. To zahrnuje mimo jiné
 propojení s vlastními záhlavími Markdown a textovými kotvami.</p>
 <p>Odkazy MkDocs jsou jakékoli odkazy ve formátu:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">link-target</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">Text odkazu</span>][<span class="nl">Cíl odkazu</span>]
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Je nutné zadat vlastní záhlaví a obsahové kotvy.</p>
@@ -5262,30 +5262,30 @@ odkazů.</p>
 <p>Pokud potřebujete odkazovat na kotvu v záhlaví, budete muset pro daný obsah
 vytvořit vlastní kotvu. Obecná syntaxe pro nastavení vlastní kotvy je
 následující:</p>
-<div class="highlight"><pre><span></span><code><span class="gh"># Header text { #anchor-name }</span>
+<div class="highlight"><pre><span></span><code><span class="gh"># Text záhlaví { #anchor-name }</span>
 </code></pre></div>
 <p>Například přizpůsobení kotvy pro tuto sekci na <code>custom-anchors</code> by se provedlo
 pomocí následujícího formátování:</p>
-<div class="highlight"><pre><span></span><code><span class="gu">## Custom Markdown anchors { #custom-anchors }</span>
+<div class="highlight"><pre><span></span><code><span class="gu">## Vlastní kotvy v Markdownu { #custom-anchors }</span>
 </code></pre></div>
 <p>Můžete také vytvořit odkaz na obecný obsah, včetně textu a bloků kódu.
 Následující formátování s novými řádky nad a pod by mělo být zahrnuto nad
 obsahem, na který chcete odkazovat:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Obsah nahoře.
 
 [](){ <span class="ni">#anchor</span>-name }
 
-Content below, that is now attached to the anchor above.
+Obsah dole, který je nyní připojen k výše uvedené kotvě.
 </code></pre></div>
 <p>Jakmile jsou vlastní kotvy vytvořeny, můžete na ně odkazovat ze stejného
 dokumentu nebo z jiných částí dokumentace.</p>
 <p>Standardní Markdown se používá k odkazování na kotvu <em>ve stejném souboru</em>, která
 je formátována následovně:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">#anchor-name</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">Text odkazu</span>](<span class="na">#anchor-name</span>)
 </code></pre></div>
 <p>Odkaz na kotvu v samostatném dokumentu používá styl odkazu MkDocs, který je
 formátován následovně:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">anchor-name</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">Text odkazu</span>][<span class="nl">název odkazu</span>]
 </code></pre></div>
 <h3 id="odkazy-na-referencni-api">Odkazy na referenční API<a class="headerlink" href="#odkazy-na-referencni-api" title="Permanent link">&para;</a></h3>
 <p>Odkazy MkDocs také podporují křížové odkazy na dokumentaci API, včetně
@@ -5309,21 +5309,21 @@ zobrazuje jmenný prostor:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`module.ClassName.attributename`</span>][]
 </code></pre></div>
 <p>Stejně jako u tříd je zobrazení pouze názvu atributu formátováno následovně:</p>
-<div class="highlight"><pre><span></span><code>[<span class="sb">`attributename`</span>][module.ClassName.attributename]
+<div class="highlight"><pre><span></span><code>[<span class="sb">`attributename`</span>][název_modulu.název_atributu]
 </code></pre></div>
 <p>Metody by měly být zobrazeny s <code>()</code> za jmenným prostorem, a proto musí být
 zpracovány jinak než atributy. Následující postup je správným způsobem pro
 odkazování na metodu:</p>
-<div class="highlight"><pre><span></span><code>[<span class="sb">`module.ClassName.methodname()`</span>][module.ClassName.methodname]
+<div class="highlight"><pre><span></span><code>[<span class="sb">`module.ClassName.methodname()`</span>][název_modulu.název_metody]
 </code></pre></div>
 <p>Následující příklad zobrazuje pouze název třídy a metody. To také vyžaduje
 zahrnutí závorek za názvem:</p>
-<div class="highlight"><pre><span></span><code>[<span class="sb">`Classname.methodname()`</span>][module.Classname.methodname]
+<div class="highlight"><pre><span></span><code>[<span class="sb">`Classname.methodname()`</span>][název_modulu.název_metody]
 </code></pre></div>
 <p>Můžete odkazovat na třídu, metodu nebo atribut a zároveň zobrazovat libovolný
 text pomocí stejné metody s příslušným jmenným prostorem. U třídy se to
 formátuje následovně:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">link text</span>][<span class="nl">module.ClassName</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">text odkazu</span>][<span class="nl">module.ClassName</span>]
 </code></pre></div>
 <p>Je také možné odkazovat přímo na dokumentaci jádra Pythonu, stejně jako na
 dokumentaci Pillow. Například pro odkaz na dokumentaci pro <code>int</code>:</p>
@@ -5370,29 +5370,29 @@ direktivy Jinja, popisky obrázků a zarovnání atd.</p>
 <h3 id="napomenuti-a-poznamky">Napomenutí a poznámky<a class="headerlink" href="#napomenuti-a-poznamky" title="Permanent link">&para;</a></h3>
 <p>Upozornění musí být formátována následovně, včetně zajištění nového řádku před a
 za začátkem a koncem upozornění:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Obsah nahoře.
 
-/// admonition | Title
+/// upozornění | Název
 
-Admonition text.
+Text upozornění.
 
-A second paragraph.
+Druhý odstavec.
 
 ///
 
-Content below.
+Obsah dole.
 </code></pre></div>
 <p>To funguje stejným způsobem u všech podporovaných typů upozornění. Například
 poznámky k upozorněním vyžadují stejné formátování a nové řádky:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Obsah nahoře.
 
-/// note | Note title
+/// poznámka | Název poznámky
 
-Note text here.
+Zde zadejte text poznámky.
 
 ///
 
-Content below.
+Obsah dole.
 </code></pre></div>
 <p>Všechny <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">podporované typy
 napomenutí</a>
@@ -5400,57 +5400,57 @@ jsou k dispozici pro použití jako napomenutí.</p>
 <h3 id="obsah-v-zalozkach">Obsah v záložkách<a class="headerlink" href="#obsah-v-zalozkach" title="Permanent link">&para;</a></h3>
 <p>Obsah s tabulátory je formátován následovně, včetně nového řádku před začátkem a
 po konci bloku obsahu:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Obsah nahoře.
 
-/// tab | Tab one title
+/// tab | Název první záložky
 
-Tab one text
-
-///
-
-/// tab | Tab two title
-
-Tab two text.
+Text první záložky
 
 ///
 
-/// tab | Tab three title
+/// tab | Název druhé záložky
 
-Tab three text.
+Text druhé záložky.
 
 ///
 
-Content below.
+/// tab | Název třetí záložky
+
+Text třetí záložky.
+
+///
+
+Obsah dole.
 </code></pre></div>
 <p>Záložka s vnořeným upozorněním by byla formátována následovně, včetně nového
 řádku před a za blokem obsahu:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Obsah nahoře.
 
 /// tab | Windows
 
-Tab text.
+Text záložky.
 
-/// admonition | Admonition
+/// upozornění | Upozornění
 
-Admonition text.
-
-///
+Text upozornění.
 
 ///
 
-Content below.
+///
+
+Obsah dole.
 </code></pre></div>
 <h3 id="sbaleny-obsah">Sbalený obsah<a class="headerlink" href="#sbaleny-obsah" title="Permanent link">&para;</a></h3>
 <p>Sbalený obsah je formátován následovně, včetně nových řádků:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Obsah nahoře.
 
-/// details-note | Collapsed content title
+/// details-note | Název sbaleného obsahu
 
-Collapsed content.
+Sbalený obsah.
 
 ///
 
-Content below.
+Obsah dole.
 </code></pre></div>
 <p>Všechny <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">podporované typy
 upozornění</a>
@@ -5464,20 +5464,20 @@ používá prvky direktivy Jinja, musí být zabaleno do nových řádků. Např
 tutoriál BeeWare obsahuje podmíněné výrazy Jinja založené na proměnných, které
 určují, jaké upozornění se má zobrazit na hlavní stránce. Ty jsou formátovány
 následovně:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Obsah nahoře.
 
 
 
-Content below.
+Obsah dole.
 </code></pre></div>
 <p>Existuje také syntaxe pro nahrazování symbolů nebo textu. Tato syntaxe je
 proměnná uzavřená v páru shodných dvojitých složených závorek a pokud je na
 samostatném řádku, musí před a za ní být nový řádek.</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Obsah nahoře.
 
 {{ variable }}
 
-Content below.
+Obsah dole.
 </code></pre></div>
 <h3 id="formatovani-obrazku">Formátování obrázků<a class="headerlink" href="#formatovani-obrazku" title="Permanent link">&para;</a></h3>
 <p>U obrázků lze nastavit šířku a zarovnat je vlevo, vpravo nebo na střed (s
@@ -5485,37 +5485,37 @@ výhradou u „středu“). Obrázky by měly vždy obsahovat smysluplný altern
 text pro účely přístupnosti.</p>
 <p>Nastavení šířky <nospell>300px</nospell> u obrázku by bylo formátováno
 následovně:</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ width=&quot;300px&quot; }
+<div class="highlight"><pre><span></span><code>![<span class="nt">Alternativní text obrázku</span>](<span class="na">../cesta/k/obrázku.png</span>){ width=&quot;300px&quot; }
 </code></pre></div>
 <p>Zarovnání obrázku vlevo (nebo vpravo) by bylo formátováno následovně:</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ align=left }
+<div class="highlight"><pre><span></span><code>![<span class="nt">Alternativní text obrázku</span>](<span class="na">../cesta/k/obrázku.png</span>){ align=left }
 </code></pre></div>
 <p>Přidání popisku k obrázku vyžaduje nový řádek před a za popiskem a je
 formátováno následovně:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Obsah nahoře.
 
-![<span class="nt">Image alt text</span>](<span class="na">/path/to/image.png</span>)
+![<span class="nt">Alternativní text obrázku</span>](<span class="na">/cesta/k/obrázku.png</span>)
 
-/// caption
+/// popisek
 
-Caption content.
+Obsah popisku.
 
 ///
 
-Content below.
+Obsah dole.
 </code></pre></div>
 <p>Zarovnání středu obrázku pomocí atributu <code>align</code> není možné. Řešením je vložit
 za obrázek prázdný titulek, který bude zarovnán na střed. Mezi jednotlivými
 částmi a před a za nimi musíte vložit nové řádky. Formátování je následující:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Obsah nahoře.
 
-![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>)
+![<span class="nt">Alternativní text obrázku</span>](<span class="na">../cesta/k/obrázku.png</span>)
 
-/// caption
+/// popisek
 
 ///
 
-Content below.
+Obsah dole.
 </code></pre></div>
 <h2 id="pluginy-se-specifickym-formatovanim-markdown">Pluginy se specifickým formátováním Markdown<a class="headerlink" href="#pluginy-se-specifickym-formatovanim-markdown" title="Permanent link">&para;</a></h2>
 <p>Následující části popisují, jak používat pluginy, které vyžadují specifické

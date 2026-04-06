@@ -5235,10 +5235,10 @@ possível. Esta seção aborda as várias maneiras de fazer isso, cada uma delas
 baseada no tipo de informação que está sendo referenciada.</p>
 <p>O MkDocs renderiza links padrão formatados em Markdown. Os hiperlinks da Web com
 formatação Markdown padrão são os seguintes:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">https://example.com/</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">Texto do link</span>](<span class="na">https://example.com/</span>)
 </code></pre></div>
 <p>Você também pode usar esse formato para vincular a um arquivo local:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">path/to/file.md</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">Texto do link</span>](<span class="na">caminho/para/arquivo.md</span>)
 </code></pre></div>
 <p>Para fazer referência a seções específicas de arquivos ou à documentação da API,
 é necessário usar o formato de link de referência do MkDocs.</p>
@@ -5255,7 +5255,7 @@ Markdown modificado. Isso inclui links para, entre outras coisas, cabeçalhos
 Markdown personalizados e âncoras de texto.</p>
 <p>Os links de referência do MkDocs são quaisquer links formatados da seguinte
 forma:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">link-target</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">Texto do link</span>][<span class="nl">destino do link</span>]
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">São necessárias âncoras personalizadas de cabeçalho e conteúdo</p>
@@ -5267,30 +5267,30 @@ quebrar os links quando o conteúdo do cabeçalho for traduzido.</p>
 <p>Se precisar criar um link para uma âncora de cabeçalho, você precisará gerar uma
 âncora personalizada para o conteúdo pretendido. A sintaxe geral para definir
 uma âncora personalizada é a seguinte:</p>
-<div class="highlight"><pre><span></span><code><span class="gh"># Header text { #anchor-name }</span>
+<div class="highlight"><pre><span></span><code><span class="gh"># Texto do cabeçalho { #anchor-name }</span>
 </code></pre></div>
 <p>Por exemplo, a personalização da âncora dessa seção para <code>custom-anchors</code> seria
 feita com a seguinte formatação:</p>
-<div class="highlight"><pre><span></span><code><span class="gu">## Custom Markdown anchors { #custom-anchors }</span>
+<div class="highlight"><pre><span></span><code><span class="gu">## Âncoras personalizadas do Markdown { #custom-anchors }</span>
 </code></pre></div>
 <p>Você também pode criar uma âncora em conteúdo geral, incluindo texto e blocos de
 código. A formatação a seguir, com novas linhas acima e abaixo, deve ser
 incluída acima do conteúdo para o qual você deseja criar um link:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Conteúdo acima.
 
-[](){ <span class="ni">#anchor</span>-name }
+[](){ <span class="ni">#nome</span>-da-âncora }
 
-Content below, that is now attached to the anchor above.
+Conteúdo abaixo, que agora está vinculado à âncora acima.
 </code></pre></div>
 <p>Depois que as âncoras personalizadas forem criadas, você poderá criar links para
 elas no mesmo documento ou em outras partes da documentação.</p>
 <p>O Markdown padrão é usado para vincular a uma âncora <em>no mesmo arquivo</em>, que é
 formatada da seguinte forma:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>](<span class="na">#anchor-name</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">Texto do link</span>](<span class="na">#anchor-name</span>)
 </code></pre></div>
 <p>O link para uma âncora em um documento separado usa o estilo de link de
 referência do MkDocs, que é formatado da seguinte forma:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">anchor-name</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">Texto do link</span>][<span class="nl">nome-da-âncora</span>]
 </code></pre></div>
 <h3 id="links-de-referencia-da-api">Links de referência da API<a class="headerlink" href="#links-de-referencia-da-api" title="Permanent link">&para;</a></h3>
 <p>A vinculação de referência do MkDocs também oferece suporte à referência cruzada
@@ -5325,12 +5325,12 @@ criar um link para um método:</p>
 </code></pre></div>
 <p>O seguinte exibe apenas o nome da classe e do método. Isso também requer a
 inclusão dos parênteses após o nome:</p>
-<div class="highlight"><pre><span></span><code>[<span class="sb">`Classname.methodname()`</span>][module.Classname.methodname]
+<div class="highlight"><pre><span></span><code>[<span class="sb">`Classname.methodname()`</span>][nome_da_classe_do_módulo.nome_do_método]
 </code></pre></div>
 <p>Você pode criar um link para uma classe, um método ou um atributo enquanto exibe
 um texto arbitrário, usando o mesmo método com o namespace aplicável. Fazer isso
 com uma classe é formatado da seguinte forma:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">link text</span>][<span class="nl">module.ClassName</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">texto do link</span>][<span class="nl">module.ClassName</span>]
 </code></pre></div>
 <p>Também é possível vincular-se diretamente à documentação principal do Python,
 bem como à documentação do Pillow. Por exemplo, para criar um link para a
@@ -5367,8 +5367,8 @@ forma eficaz.</p>
 linha 2, você adicionaria um espaço após a linguagem, seguido de
 <code>{hl_lines="2"}</code>. Portanto, seu bloco de código começaria com <code>```python
 {hl_lines="2"}</code>. O resultado é:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">toga</span>
-<span class="hll"><span class="kn">from</span><span class="w"> </span><span class="nn">toga.style.pack</span><span class="w"> </span><span class="kn">import</span> <span class="n">COLUMN</span><span class="p">,</span> <span class="n">ROW</span>
+<div class="highlight"><pre><span></span><code><span class="n">importar</span> <span class="n">toga</span>
+<span class="hll"><span class="n">de</span> <span class="n">toga</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">pack</span> <span class="n">importar</span> <span class="n">COLUMN</span><span class="p">,</span> <span class="n">ROW</span>
 </span></code></pre></div>
 <p>Você pode destacar várias linhas diferentes. Por exemplo, <code>python {hl_lines="3 5
 9"}</code> destacaria as linhas 3, 5 e 9. Você também pode destacar um intervalo de
@@ -5382,29 +5382,29 @@ diretivas Jinja, legendas e alinhamento de imagens, etc.</p>
 <h3 id="admoestacoes-e-notas">Admoestações e notas<a class="headerlink" href="#admoestacoes-e-notas" title="Permanent link">&para;</a></h3>
 <p>As admoestações devem ser formatadas da seguinte forma, incluindo a garantia de
 uma nova linha antes e depois do início e do fim da admoestação:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Conteúdo acima.
 
-/// admonition | Title
+/// aviso | Título
 
-Admonition text.
+Texto do aviso.
 
-A second paragraph.
+Um segundo parágrafo.
 
 ///
 
-Content below.
+Conteúdo abaixo.
 </code></pre></div>
 <p>Isso funciona da mesma maneira com qualquer tipo de advertência suportado. Por
 exemplo, as advertências de nota exigem a mesma formatação e novas linhas:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Conteúdo acima.
 
-/// note | Note title
+/// nota | Título da nota
 
-Note text here.
+Texto da nota aqui.
 
 ///
 
-Content below.
+Conteúdo abaixo.
 </code></pre></div>
 <p>Todos os <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">tipos de advertências
 suportados</a>
@@ -5412,57 +5412,57 @@ estão disponíveis para uso como advertências.</p>
 <h3 id="conteudo-com-guias">Conteúdo com guias<a class="headerlink" href="#conteudo-com-guias" title="Permanent link">&para;</a></h3>
 <p>O conteúdo com guias é formatado da seguinte forma, incluindo uma nova linha
 antes do início e depois do fim do bloco de conteúdo:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Conteúdo acima.
 
-/// tab | Tab one title
+/// tab | Título da guia um
 
-Tab one text
-
-///
-
-/// tab | Tab two title
-
-Tab two text.
+Texto da guia um
 
 ///
 
-/// tab | Tab three title
+/// tab | Título da guia dois
 
-Tab three text.
+Texto da guia dois.
 
 ///
 
-Content below.
+/// tab | Título da guia três
+
+Texto da guia três.
+
+///
+
+Conteúdo abaixo.
 </code></pre></div>
 <p>Uma tabulação com uma advertência aninhada seria formatada da seguinte forma,
 incluindo uma nova linha antes e depois do bloco de conteúdo:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Conteúdo acima.
 
 /// tab | Windows
 
-Tab text.
+Texto da guia.
 
-/// admonition | Admonition
+/// aviso | Aviso
 
-Admonition text.
-
-///
+Texto do aviso.
 
 ///
 
-Content below.
+///
+
+Conteúdo abaixo.
 </code></pre></div>
 <h3 id="conteudo-recolhido">Conteúdo recolhido<a class="headerlink" href="#conteudo-recolhido" title="Permanent link">&para;</a></h3>
 <p>O conteúdo recolhido é formatado da seguinte forma, incluindo novas linhas:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Conteúdo acima.
 
-/// details-note | Collapsed content title
+/// details-note | Título do conteúdo recolhido
 
-Collapsed content.
+Conteúdo recolhido.
 
 ///
 
-Content below.
+Conteúdo abaixo.
 </code></pre></div>
 <p>Todos os <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">tipos de advertência
 suportados</a>
@@ -5476,20 +5476,20 @@ Qualquer coisa que use os recursos da diretiva Jinja precisa ser envolvida em
 novas linhas. Por exemplo, o tutorial do BeeWare contém condicionais Jinja
 baseadas em variáveis para determinar qual advertência mostrar na página
 principal. Elas são formatadas da seguinte forma:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Conteúdo acima.
 
 
 
-Content below.
+Conteúdo abaixo.
 </code></pre></div>
 <p>Há também uma sintaxe para substituir símbolos ou texto. Essa sintaxe é uma
 variável envolvida em um par de chaves duplas correspondentes e, se estiver em
 sua própria linha, deve incluir uma nova linha antes e depois.</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Conteúdo acima.
 
 {{ variable }}
 
-Content below.
+Conteúdo abaixo.
 </code></pre></div>
 <h3 id="formatacao-de-imagens">Formatação de imagens<a class="headerlink" href="#formatacao-de-imagens" title="Permanent link">&para;</a></h3>
 <p>As imagens podem ter a largura definida e podem ser alinhadas à esquerda, à
@@ -5497,39 +5497,39 @@ direita e ao centro (com uma ressalva quanto ao "centro"). As imagens devem
 sempre incluir um texto alternativo significativo para fins de acessibilidade.</p>
 <p>A definição da largura de <nospell>300px</nospell> em uma imagem seria formatada
 da seguinte forma:</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ width=&quot;300px&quot; }
+<div class="highlight"><pre><span></span><code>![<span class="nt">Texto alternativo da imagem</span>](<span class="na">../caminho/para/imagem.png</span>){ width=&quot;300px&quot; }
 </code></pre></div>
 <p>O alinhamento de uma imagem à esquerda (ou à direita) seria formatado da
 seguinte forma:</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ align=left }
+<div class="highlight"><pre><span></span><code>![<span class="nt">Texto alternativo da imagem</span>](<span class="na">../caminho/para/imagem.png</span>){ align=left }
 </code></pre></div>
 <p>A adição de uma legenda a uma imagem requer uma nova linha antes e depois, e é
 formatada da seguinte forma:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Conteúdo acima.
 
-![<span class="nt">Image alt text</span>](<span class="na">/path/to/image.png</span>)
+![<span class="nt">Texto alternativo da imagem</span>](<span class="na">/caminho/para/imagem.png</span>)
 
-/// caption
+/// legenda
 
-Caption content.
+Conteúdo da legenda.
 
 ///
 
-Content below.
+Conteúdo abaixo.
 </code></pre></div>
 <p>O alinhamento central de uma imagem não é possível com o atributo <code>align</code>. A
 solução alternativa é seguir a imagem com uma legenda vazia, e ela será
 centralizada. Você deve incluir novas linhas entre cada seção, antes e depois.
 Ele é formatado da seguinte forma:</p>
-<div class="highlight"><pre><span></span><code>Content above.
+<div class="highlight"><pre><span></span><code>Conteúdo acima.
 
-![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>)
+![<span class="nt">Texto alternativo da imagem</span>](<span class="na">../caminho/para/imagem.png</span>)
 
-/// caption
+/// legenda
 
 ///
 
-Content below.
+Conteúdo abaixo.
 </code></pre></div>
 <h2 id="plug-ins-com-formatacao-markdown-especifica">Plug-ins com formatação Markdown específica<a class="headerlink" href="#plug-ins-com-formatacao-markdown-especifica" title="Permanent link">&para;</a></h2>
 <p>As seções a seguir abordam como utilizar plug-ins que exigem formatação Markdown
