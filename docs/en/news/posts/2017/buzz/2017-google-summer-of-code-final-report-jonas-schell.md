@@ -32,12 +32,12 @@ Toga talks to native GUI frameworks, hence I had to get a good understanding abo
 - Every Toga backend wraps around a existing and unique framework. To wrap the framework you have to understand the framework.
 - “I love Python, why do I have to understand Objective C”? To effectively work on the iOS and macOS backends I had to learn the basics of Objective C – if only to read the Apple docs.
 - Toga has a lot of moving parts. There are backends, frameworks, libraries to talk to backends, libraries to perform the layout of the UI and more. I spend a good amount of time to understand all of these parts. The following is just a overview of newly acquired knowledge during GSoC:
-  - [Rubicon-ObjC](https://github.com/beeware/rubicon-objc) to talk to the iOS and macOS backends.
-  - [Colosseum](https://github.com/beeware/colosseum) to understand and fix layout problems.
-  - [<nospell>AST</nospell>](https://docs.python.org/3.6/library/ast.html) module to perform the implementation tests.
-  - The use of Design Patterns
-  - How to structure large projects.
-  - Read and understand big and complex code chunks.
+    - [Rubicon-ObjC](https://github.com/beeware/rubicon-objc) to talk to the iOS and macOS backends.
+    - [Colosseum](https://github.com/beeware/colosseum) to understand and fix layout problems.
+    - [<nospell>AST</nospell>](https://docs.python.org/3.6/library/ast.html) module to perform the implementation tests.
+    - The use of Design Patterns
+    - How to structure large projects.
+    - Read and understand big and complex code chunks.
 
 ## Other work I did
 

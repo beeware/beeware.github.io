@@ -14,18 +14,18 @@ This month, we have less to report by raw feature count - but the changes we *ha
 ## What we've done
 
 - Our primary focus this month has been making the changes to CPython needed to add support for [iOS](https://github.com/python/cpython/issues/114099) and [Android](https://github.com/python/cpython/issues/116622). We've made major progress towards this goal: all the patches required for iOS have been merged; a large number of patches have been submitted for Android, with only a small number still required. This month, we have:
-  - [Added test exclusions to support running the test suite on Android](https://github.com/python/cpython/pull/115918)
-  - [Fixed some issues with the process of building an Android `libPython`](https://github.com/python/cpython/pull/115955)
-  - [Modified `sys.platform` identification for Android so it returns "android" not <nospell>"linux"</nospell>](https://github.com/python/cpython/pull/116215)
-  - [Added an API to get device and OS information on Android](https://github.com/python/cpython/pull/116674)
-  - [Modified `ctypes` so it can load libraries on Android](https://github.com/python/cpython/pull/116379)
-  - [Modified a signals test to make it more reliable on more platforms](https://github.com/python/cpython/pull/116423)
-  - [Added a build script and instructions for Android builds](https://github.com/python/cpython/pull/116426)
-  - [Added a custom module loader so that iOS apps can load binary modules from Frameworks](https://github.com/python/cpython/pull/116454)
-  - [Modified `test_doctest` to support platforms that don't support subprocesses](https://github.com/python/cpython/pull/116758)
-  - [Modified the standard library to support iOS](https://github.com/python/cpython/pull/117052)
-  - [Added documentation for the iOS platform](https://github.com/python/cpython/pull/117057)
-  - [Corrected some additional test failures introduced on Android](https://github.com/python/cpython/pull/117299)
+    - [Added test exclusions to support running the test suite on Android](https://github.com/python/cpython/pull/115918)
+    - [Fixed some issues with the process of building an Android `libPython`](https://github.com/python/cpython/pull/115955)
+    - [Modified `sys.platform` identification for Android so it returns "android" not <nospell>"linux"</nospell>](https://github.com/python/cpython/pull/116215)
+    - [Added an API to get device and OS information on Android](https://github.com/python/cpython/pull/116674)
+    - [Modified `ctypes` so it can load libraries on Android](https://github.com/python/cpython/pull/116379)
+    - [Modified a signals test to make it more reliable on more platforms](https://github.com/python/cpython/pull/116423)
+    - [Added a build script and instructions for Android builds](https://github.com/python/cpython/pull/116426)
+    - [Added a custom module loader so that iOS apps can load binary modules from Frameworks](https://github.com/python/cpython/pull/116454)
+    - [Modified `test_doctest` to support platforms that don't support subprocesses](https://github.com/python/cpython/pull/116758)
+    - [Modified the standard library to support iOS](https://github.com/python/cpython/pull/117052)
+    - [Added documentation for the iOS platform](https://github.com/python/cpython/pull/117057)
+    - [Corrected some additional test failures introduced on Android](https://github.com/python/cpython/pull/117299)
 - [PEP 738](https://peps.python.org/pep-0738/), adding official Android support to CPython, has been formally approved by the Python Steering Council.
 - We [updated the CPython Developer Guide to describe the iOS development process](https://github.com/python/devguide/pull/1296).
 - We [improved Briefcase's handling of `stdout` for some tools](https://github.com/beeware/briefcase/pull/1687). We're hoping this will fix - or at least make it easier to diagnose - a mode of failure we've had reported for the Android emulator on Windows.
