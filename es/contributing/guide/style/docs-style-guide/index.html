@@ -5235,7 +5235,7 @@ esta sección se cubren distintas maneras de poder hacerse, cada cual está basa
 sobre el tipo de información que está siendo referenciada.</p>
 <p>MkDocs muestra enlaces con formato Markdown estándar. Los hipervínculos web con
 formato Markdown estándar son los siguientes:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Texto del enlace</span>](<span class="na">https://example.com/</span>)
+<div class="highlight"><pre><span></span><code>[<span class="nt">Texto del enlace</span>](<span class="na">https://ejemplo.com/</span>)
 </code></pre></div>
 <p>También puede utilizar este formato para enlazar a un archivo local:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Texto del enlace</span>](<span class="na">ruta/al/archivo.md</span>)
@@ -5255,7 +5255,7 @@ enlace Markdown modificado. Esto incluye enlazar a, entre otras cosas,
 encabezados Markdown personalizados y anclajes de texto.</p>
 <p>Los enlaces de referencia de MkDocs son cualquiera de los enlaces con el
 siguiente formato:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Texto del enlace</span>][<span class="nl">Destino del enlace</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">link-target</span>]
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Se requieren anclajes de cabecera y contenido personalizados</p>
@@ -5281,7 +5281,7 @@ incluidas encima del contenido al cual desea enlazar:</p>
 
 [](){ <span class="ni">#nombre</span>-del-ancla }
 
-Contenido inferior, que ahora está vinculado al ancla anterior.
+Contenido inferior, que ahora está vinculado al ancla superior.
 </code></pre></div>
 <p>Una vez creados los anclajes usuales, puede enlazar con ellos desde el mismo
 documento, o en otras partes de la documentación.</p>
@@ -5291,7 +5291,7 @@ cual está formateado como el siguiente:</p>
 </code></pre></div>
 <p>Para enlazar con un ancla de un documento independiente se utiliza el estilo de
 enlace de referencia de MkDocs, el cual está formateado como el siguiente:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">Texto del enlace</span>][<span class="nl">nombre del enlace</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">Link text</span>][<span class="nl">anchor-name</span>]
 </code></pre></div>
 <h3 id="enlaces-de-referencia-del-api">Enlaces de referencia del API<a class="headerlink" href="#enlaces-de-referencia-del-api" title="Permanent link">&para;</a></h3>
 <p>El enlace de referencia de MkDocs también admite referencias cruzadas a la
@@ -5318,21 +5318,21 @@ incluido. A continuación se exhibe el espacio de nombres:</p>
 </code></pre></div>
 <p>Como con las clases, solo exhibiendo el nombre del atributo está formateado como
 sigue:</p>
-<div class="highlight"><pre><span></span><code>[<span class="sb">`attributename`</span>][nombre_del_módulo.nombre_del_atributo]
+<div class="highlight"><pre><span></span><code>[<span class="sb">`attributename`</span>][module.ClassName.attributename]
 </code></pre></div>
 <p>Los métodos deben exhibirse con <code>()</code> después del espacio de nombres y, por lo
 tanto, deben tratarse de forma diferente a los atributos. La siguiente es la
 manera adecuada de enlazar a un método:</p>
-<div class="highlight"><pre><span></span><code>[<span class="sb">`module.ClassName.methodname()`</span>][nombreDelMódulo.nombreDelMétodo]
+<div class="highlight"><pre><span></span><code>[<span class="sb">`module.ClassName.methodname()`</span>][module.ClassName.methodname]
 </code></pre></div>
 <p>Lo siguiente solo exhibe la clase y el nombre del método. Esto también requiere
 incluir los paréntesis tras el nombre:</p>
-<div class="highlight"><pre><span></span><code>[<span class="sb">`Classname.methodname()`</span>][nombre_del_módulo.nombre_del_método]
+<div class="highlight"><pre><span></span><code>[<span class="sb">`Classname.methodname()`</span>][module.Classname.methodname]
 </code></pre></div>
 <p>Puede enlazar a una clase, método, o atributo mientras exhiba un texto
 arbitrario, utilizando el mismo método con el espacio de nombres aplicable.
 Hacer esto con una clase tiene el siguiente formato:</p>
-<div class="highlight"><pre><span></span><code>[<span class="nt">texto del enlace</span>][<span class="nl">module.ClassName</span>]
+<div class="highlight"><pre><span></span><code>[<span class="nt">link text</span>][<span class="nl">module.ClassName</span>]
 </code></pre></div>
 <p>También es posible enlazar directamente a la documentación importante de Python,
 así como a la documentación de Pillow. Por ejemplo, para enlazar con la
@@ -5368,8 +5368,8 @@ utilizar el botón de copia de manera efectiva.</p>
 <p>Puede resaltar líneas específicas de código. Por ejemplo, para resaltar la línea
 2, añadiría un espacio después del lenguaje, seguido de <code>{hl_lines="2"}</code>. Así,
 su bloque de código comenzaría con <code>``python {hl_lines="2"}</code>. El resultado es:</p>
-<div class="highlight"><pre><span></span><code><span class="n">importar</span> <span class="n">toga</span>
-<span class="hll"><span class="n">de</span> <span class="n">toga</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">pack</span> <span class="n">importar</span> <span class="n">COLUMN</span><span class="p">,</span> <span class="n">ROW</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">toga</span>
+<span class="hll"><span class="kn">from</span><span class="w"> </span><span class="nn">toga.style.pack</span><span class="w"> </span><span class="kn">import</span> <span class="n">COLUMNA</span><span class="p">,</span> <span class="n">FILA</span>
 </span></code></pre></div>
 <p>Puede resaltar varias líneas diferentes. Por ejemplo, <code>python {hl_lines="3 5
 9"}</code> resaltaría las líneas 3, 5 y 9. También puedes resaltar un rango de líneas.
@@ -5415,19 +5415,19 @@ están disponibles para su uso como amonestación.</p>
 línea nueva antes del inicio y después del final del bloque de contenido:</p>
 <div class="highlight"><pre><span></span><code>Contenido superior.
 
-/// tab | Título de la pestaña uno
+/// pestaña | Título de la pestaña uno
 
 Texto de la pestaña uno
 
 ///
 
-/// tab | Título de la pestaña dos
+/// pestaña | Título de la pestaña dos
 
 Texto de la pestaña dos.
 
 ///
 
-/// tab | Título de la pestaña tres
+/// pestaña | Título de la pestaña tres
 
 Texto de la pestaña tres.
 
@@ -5439,7 +5439,7 @@ Contenido inferior.
 incluyendo una línea nueva antes y después del bloque de contenido:</p>
 <div class="highlight"><pre><span></span><code>Contenido superior.
 
-/// tab | Windows
+/// pestaña | Windows
 
 Texto de la pestaña.
 
@@ -5460,7 +5460,7 @@ nuevas:</p>
 
 /// details-note | Título del contenido oculto
 
-Contenido oculto.
+Contenido colapsado.
 
 ///
 
@@ -5501,10 +5501,10 @@ deben incluir siempre un texto alternativo significativo a efectos de
 accesibilidad.</p>
 <p>Establecer la anchura de <nospell>300px</nospell> en una imagen tendría el
 siguiente formato:</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Texto alternativo de la imagen</span>](<span class="na">../ruta/a/imagen.png</span>){ width=&quot;300px&quot; }
+<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ width=&quot;300px&quot; }
 </code></pre></div>
 <p>Alinear una imagen a la izquierda (o a la derecha) tendría el siguiente formato:</p>
-<div class="highlight"><pre><span></span><code>![<span class="nt">Texto alternativo de la imagen</span>](<span class="na">../ruta/a/imagen.png</span>){ align=left }
+<div class="highlight"><pre><span></span><code>![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>){ align=left }
 </code></pre></div>
 <p>Para añadir un pie de foto a una imagen es necesario poner una línea nueva antes
 y después, y el formato es el siguiente:</p>
@@ -5526,7 +5526,7 @@ quedará centrada. Debe incluir líneas nuevas entre cada sección, y antes y
 después. El formato es el siguiente:</p>
 <div class="highlight"><pre><span></span><code>Contenido superior.
 
-![<span class="nt">Texto alternativo de la imagen</span>](<span class="na">../ruta/a/imagen.png</span>)
+![<span class="nt">Image alt text</span>](<span class="na">../path/to/image.png</span>)
 
 /// pie de foto
 
