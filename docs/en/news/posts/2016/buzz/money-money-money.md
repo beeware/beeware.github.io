@@ -85,7 +85,7 @@ When this is done in front of a live audience, at each question, there are fewer
 
 So what's going on here? Well, it reflects 2 different ways of looking at a piece of software - Projects and Products. And it's a matter of personal perspective - my project can be your product, and vice versa.
 
-When I view some code as a project, it's a body of code where I'm contributing to a larger goal. I'm willing to spend resources focussing on other people's needs in the hope that their needs will help make the project as a whole better. I'm willing to do this because I get some personal gain, like an enhanced public profile; or if the tool is really close to my work coalface; or where I know I can make a substantive contribution.
+When I view some code as a project, it's a body of code where I'm contributing to a larger goal. I'm willing to spend resources focusing on other people's needs in the hope that their needs will help make the project as a whole better. I'm willing to do this because I get some personal gain, like an enhanced public profile; or if the tool is really close to my work coalface; or where I know I can make a substantive contribution.
 
 But the further I get away from my coalface, and the harder it is to make a contribution, the less inclined I am to even *want* to contribute to the project. Most of the time, it's a product that I'm using, warts and all. If a product has bugs, I'll work around them, or find an alternative, rather than navigating the contribution process and contributing a patch back upstream.
 
@@ -93,7 +93,7 @@ In the case of a product, the freedoms afforded by Free software are a bit like 
 
 This dichotomy between the theory and practice is also the reason why comments like "Patches Welcome" get made in Free software mailing lists. On the one hand, it's completely correct. Anyone *can* contribute, and on most projects *patches* are welcome. But most people don't look at a new open source project as an opportunity to engage and contribute. Most people just want to use the damn software.
 
-And you can argue it's because people are focussing on the wrong interpretation of "free", and haven't "captured the spirit of free software". Which is 100% true, but utterly counterproductive as a position. Anyone who has done any UX work knows that if users are consistently making a mistake, blaming the user gets you nowhere. You were in charge of what the user experienced, and they made the "error" because of a fundamental cognitive disconnect.
+And you can argue it's because people are focusing on the wrong interpretation of "free", and haven't "captured the spirit of free software". Which is 100% true, but utterly counterproductive as a position. Anyone who has done any UX work knows that if users are consistently making a mistake, blaming the user gets you nowhere. You were in charge of what the user experienced, and they made the "error" because of a fundamental cognitive disconnect.
 
 And even if everyone *did* get the right message - let's be realistic - it wouldn't work anyway. The mythical man month showed us that you don't deliver a project faster or better by throwing more people at it. 9 women can't make a baby in 1 month - a project doesn't just need resources - it needs the *right* resources, in the right quantities. And ultimately, that means projects finding a way to get the resources they need to be self-sustaining.
 

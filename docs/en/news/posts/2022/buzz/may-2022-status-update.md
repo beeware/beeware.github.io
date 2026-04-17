@@ -29,7 +29,7 @@ Many of these changes either began as, or are entirely the work of community mem
 
 ## What's next?
 
-In June, we'll be focussing on:
+In June, we'll be focusing on:
 
 - Publishing our roadmap for Q3 and beyond! Now that we have reliable development resources, we're in a position to make public commitments on the future direction of the project.
 - Completing the hiring process for another engineer to work on BeeWare full time. This hiring process is underway, but it's not too late to apply if you're interested. Full details of the position can be found on Greenhouse.
