@@ -35,7 +35,7 @@ September will involve a lot of travel - we'll be attending [PyCon AU](https://2
 
 When we're not traveling, we're going to continue working on getting iOS binary artefacts into Python's CI and release processes, and on improving the tools for packaging binary wheels for mobile platforms.
 
-Lastly, we're planning to look at adding post-install scripts to Briefcase installers. We'll be focussing on Windows installers initially; but the intention is that any changes we implement could also be implemented on macOS or Linux.
+Lastly, we're planning to look at adding post-install scripts to Briefcase installers. We'll be focusing on Windows installers initially; but the intention is that any changes we implement could also be implemented on macOS or Linux.
 
 ## Want to get involved?
 

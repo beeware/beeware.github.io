@@ -19,7 +19,7 @@ We've also made significant progress on binary packaging. We've backported all t
 
 ## Q4 priorities
 
-In Q4, we'll be focussing on the tools and documentation needed to for third-party Python packages to add Android and iOS support to their official CI and release processes. In addition to contributing to tools like `pip` and `cibuildwheel`, we'll develop the tools and documentation needed so that it is easy to add CI configurations for mobile platforms. The hope is that by the end of the year, there will be at least one third-party package that produces Android and iOS wheels without any direct involvement of the BeeWare team.
+In Q4, we'll be focusing on the tools and documentation needed to for third-party Python packages to add Android and iOS support to their official CI and release processes. In addition to contributing to tools like `pip` and `cibuildwheel`, we'll develop the tools and documentation needed so that it is easy to add CI configurations for mobile platforms. The hope is that by the end of the year, there will be at least one third-party package that produces Android and iOS wheels without any direct involvement of the BeeWare team.
 
 ## Longer term goals
 

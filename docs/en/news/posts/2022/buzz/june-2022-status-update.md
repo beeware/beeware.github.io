@@ -28,7 +28,7 @@ During June:
 
 ## What's next?
 
-In July, we'll be focussing on:
+In July, we'll be focusing on:
 
 - Completing the work on Linux and Windows application packaging.
 - Presenting a webinar about native application development. If you'd like to attend, [registration for this webinar is open](https://event.on24.com/wcc/r/3766379/B50F020E006CF935D87609BF3E247ED7?partnerref=anaconda.com)

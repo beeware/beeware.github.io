@@ -32,7 +32,7 @@ Many of these PRs either began as, or are entirely the work of community members
 
 ## What's next?
 
-In May, we'll be focussing on:
+In May, we'll be focusing on:
 
 - Updating the support packages for macOS and iOS apps. Apple's transition to M1 hardware means there are new simulator architectures that require support; this, in turn, requires that we adopt Xcode's new XCFramework for the packaging libraries, which requires some fairly major changes to the way the support packages are built.
 - Updating the support packages on Android to support Python 3.10.

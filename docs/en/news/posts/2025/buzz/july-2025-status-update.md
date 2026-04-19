@@ -37,7 +37,7 @@ With `cibuildwheel` now supporting both iOS and Android, our work on binary pack
 
 We're also going to continue the process of integrating the production of iOS and Android binary artefacts into Python's CI and release processes. We've already begun this process for Android; iOS requires a little more preparatory work, which will be a major area of focus in August.
 
-Lastly, we're planning to look at adding post-install scripts to Briefcase installers. We'll be focussing on Windows installers initially; but the intention is that any changes we implement could also be implemented on macOS or Linux.
+Lastly, we're planning to look at adding post-install scripts to Briefcase installers. We'll be focusing on Windows installers initially; but the intention is that any changes we implement could also be implemented on macOS or Linux.
 
 ## Want to get involved?
 
