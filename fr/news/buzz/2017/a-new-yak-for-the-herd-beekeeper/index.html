@@ -4686,10 +4686,9 @@ that your code <em>always</em> passes your test suite - you can't accidentally s
 a change that breaks a test, because you'll get a big red warning notification.</p>
 <p>CI is such an important service that many companies exist solely to provide
 CI-as-a-service. The BeeWare project has, for various projects, used
-<nospell><a href="https://travis-ci.org">TravisCI</a> and
-<a href="https://circleci.com">CircleCI</a></nospell>. Both these tools provide free tiers
-for open source projects, and have generously sponsored BeeWare with capacity
-upgrades at various times.</p>
+<a href="https://travis-ci.org">TravisCI</a> and <a href="https://circleci.com">CircleCI</a>. Both
+these tools provide free tiers for open source projects, and have generously
+sponsored BeeWare with capacity upgrades at various times.</p>
 <p>However, the BeeWare has had an interesting relationship with commercial CI
 services. This is for two reasons.</p>
 <p>Firstly, our test suites - especially for <a href="https://github.com/beeware/voc">VOC</a>
@@ -4711,11 +4710,10 @@ large sprint, and we have a flood of contributions over a short period of time.
 At PyCon US, we have had groups of 40 people submitting patches - and they all
 need their submissions tested by CI. And time is a factor - the sprints only
 last a couple of days, so a fast turnaround on testing is essential.</p>
-<p>If we were to subscribe to the top tier subscription levels of <nospell>CircleCi
-and TravisCI</nospell>, we still wouldn't have enough resources to support a
-sprint - but we'd be <em>massively</em> overresourced for the rest of the year. We'd
-also have to pay $750 or more a month for this service, which is a budget we
-can't afford.</p>
+<p>If we were to subscribe to the top tier subscription levels of CircleCi and
+TravisCI, we still wouldn't have enough resources to support a sprint - but we'd
+be <em>massively</em> overresourced for the rest of the year. We'd also have to pay
+$750 or more a month for this service, which is a budget we can't afford.</p>
 <p>So - we had a problem. To run our test suite effectively, we needed massively
 parallelized resources to run a test suite quickly; and at certain times of the
 year, we need extremely large numbers of these resources.</p>
@@ -4742,16 +4740,16 @@ But over the last year, a few thoughts started to congeal in my head.</p>
   for that usage.</li>
 <li>Docker provides the tools for configuring, launching, and running code in an
   isolated fashion</li>
-<li>Amazon also provides an API (<nospell>ECS</nospell>) to control the execution
-  of Docker containers.</li>
+<li>Amazon also provides an API (ECS) to control the execution of Docker
+  containers.</li>
 </ul>
-<p>There's nothing specific about AWS EC2 or <nospell>ECS</nospell> either - you
-could just as easily use Linode and Kubernetes, or Docker Swarm, or Microsoft
-Azure&hellip; you just need to have the ability to easily spool up machines and run a
-Docker container. After all: a test suite is just a Docker container that runs a
-script that starts your test suite. A linting check is a Docker container that
-runs a script that lints your code. A contributor agreement check is a Docker
-container that checks the metadata associated with a pull request.</p>
+<p>There's nothing specific about AWS EC2 or ECS either - you could just as easily
+use Linode and Kubernetes, or Docker Swarm, or Microsoft Azure&hellip; you just need
+to have the ability to easily spool up machines and run a Docker container.
+After all: a test suite is just a Docker container that runs a script that
+starts your test suite. A linting check is a Docker container that runs a script
+that lints your code. A contributor agreement check is a Docker container that
+checks the metadata associated with a pull request.</p>
 <p>All you need then is a website that can receive GitHub event notifications, and
 start Docker containers in response.</p>
 <p>At the start of July, I found myself between jobs, and uttered the fateful
@@ -4773,11 +4771,11 @@ shut down again? How many machines should be sitting in the pool permanently?
 And what is the upper limit on machines that will be started?</p>
 <p>A companion tool to BeeKeeper is <a href="https://github.com/beeware/beekeeper">Waggle</a>.
 Waggle is a tool that prepares a local definition of a task so it can be used by
-BeeKeeper - it compiles the Docker image, and uploads it into
-<nospell>ECS</nospell> so that it can be referenced by tasks. (It's called
-"Waggle" because when worker bees discover a good source of nectar, they return
-to the hive and do a <a href="https://en.wikipedia.org/wiki/Waggle_dance">waggle dance</a>
-that tells other bees how to find that source).</p>
+BeeKeeper - it compiles the Docker image, and uploads it into ECS so that it can
+be referenced by tasks. (It's called "Waggle" because when worker bees discover
+a good source of nectar, they return to the hive and do a <a href="https://en.wikipedia.org/wiki/Waggle_dance">waggle
+dance</a> that tells other bees how to
+find that source).</p>
 <p>We've also provided a repository called <a href="https://github.com/beeware/comb">Comb</a>
 (named after honey comb, the place bees store all the nectar they find) that
 defines the task configurations that a BeeKeeper instance can use. We've
