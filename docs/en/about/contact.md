@@ -12,6 +12,8 @@ You can engage with the BeeWare community in several different ways.
 
 We use [Discord](https://beeware.org/bee/chat) for real-time communication. You can introduce yourself in the #introductions channel. The #help-with-beeware channel is available for questions and issues regarding using BeeWare. The #dev channel is available for discussion about BeeWare contributing and development. You can tell us about your BeeWare project in the #showcase channel; works-in-progress and completed projects are all welcome!
 
+As a guideline, note that while smaller contextual diversions are allowed in discussions, try to them relevant to BeeWare and its ecosystem; in addition, while Discord excels at communicating transient information, formal reports of issues and other information may be useful long-term or have wide-ranging consequences should happen through [our GitHub issues and discussions](#github).  If a discussion in Discord leads to these types of information, a summary should be posted to GitHub.
+
 ### Mastodon { #mastodon }
 
 Follow [@beeware@fosstodon.org](https://fosstodon.org/@beeware) on Mastodon for day-to-day updates on the BeeWare project.
