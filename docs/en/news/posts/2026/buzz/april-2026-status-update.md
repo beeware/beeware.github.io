@@ -1,6 +1,6 @@
 ---
 title: April 2026 Status Update
-date: 2026-04-30
+date: 2026-05-01
 authors:
 - freakboy3742
 categories:
@@ -13,7 +13,7 @@ April saw some extremely important improvements to BeeWare's Windows support, an
 
 ## What we've done
 
-- We formally adopted [an AI and Autonomous code contribution policy.](https://github.com/beeware/.github/pull/328). This policy is neutral on whether AI tools can be used for contribution, but clearly places the responsibility on a human contributor to take full responsibility for the output of any tool they use, and to declare if AI tooling *has* been used.
+- We formally adopted [an AI and Autonomous code contribution policy](https://github.com/beeware/.github/pull/328). This policy is neutral on whether AI tools can be used for contribution, but clearly places the responsibility on a human contributor to take full responsibility for the output of any tool they use, and to declare if AI tooling *has* been used.
 - As part of adopting a format AI usage policy, we've added an `AGENTS.md` file, and a [Spec Kit constitution](https://github.github.com/spec-kit/) to [Briefcase](https://github.com/beeware/briefcase/pull/2733), [Toga](https://github.com/beeware/toga/pull/4344), and [Rubicon ObjC](https://github.com/beeware/rubicon-objc/pull/751). We expect we'll be tweaking and tuning those configurations over time as we discover what does (and doesn't) work. If you've got experience in developing these foundational AI configuration files, we'd appreciate any suggestions or feedback you may have.
 - You can now build [native ARM64 Windows binaries and installers with Briefcase](https://github.com/beeware/briefcase/pull/2797).
 - We added support for [detecting if .NET is installed as part of a Windows MSI installer](https://github.com/beeware/briefcase-windows-VisualStudio-template/pull/90).
