@@ -34,7 +34,7 @@ April saw some extremely important improvements to BeeWare's Windows support, an
 - We [normalized the feature set of the CPython Android build script with other platform build scripts](https://github.com/python/cpython/pull/146451).
 - We completed the migration of [CPython Android build tooling to the Platforms folder](https://github.com/python/cpython/pull/148282).
 - We [increased the RAM available to the Python Android testbed](https://github.com/python/cpython/pull/148054) to accommodate more demanding test suites.
-- We submitted [updates to cibuildwheel](https://github.com/pypa/cibuildwheel/pull/2695) to support Android packages that use Fortran, NumPy's C API, and external libraries bundled with auditwheel.
+- We submitted [updates to `cibuildwheel`](https://github.com/pypa/cibuildwheel/pull/2695) to support Android packages that use Fortran, NumPy's C API, and external libraries bundled with auditwheel.
 
 Much of this work is due to the contributions of members of the BeeWare community. Thanks to <nospell>Abdo ([@abdnh](https://github.com/abdnh)), Keyang Zheng ([@albuszheng](https://github.com/albuszheng)), Filip Łajszczak ([@filiplajszczak](https://github.com/filiplajszczak)), John ([@johnzhou721](https://github.com/johnzhou721)), Luis Palacios ([@moondial-pal](https://github.com/moondial-pal)), Matt Van Horn ([@mvanhorn](https://github.com/mvanhorn)), [@Oliver-Leigh](https://github.com/Oliver-Leigh), [@otekraden](https://github.com/otekraden), Robert Kirkman ([@robertkirkman](https://github.com/robertkirkman)), Matt Cooper ([@vtbassmatt](https://github.com/vtbassmatt))</nospell> for their code and documentation contributions this month.
 
