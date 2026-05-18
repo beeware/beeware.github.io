@@ -16,11 +16,12 @@ We're not just about software, though. We also aim to be a project with a social
 ## What can I do with BeeWare?
 
 You can do the following with BeeWare:
+
 - On macOS, you can produce console or GUI applications, packaged as .app bundles, DMG bundles, or PKG installers, fully signed and notarized for independent or macOS App Store distribution.
 - On Windows, you can produce console or GUI applications, packaged as MSI installers or ZIP archives, compatible with standard signing certificates for independent distribution.
 - On Linux, you can produce console or GUI applications, packaged as AppImage bundles or system-native packages (deb/rpm), ready for decentralized independent distribution.
 - On iOS, you can produce mobile GUI applications, packaged as Xcode projects and IPA bundles, fully signed and provisioned for ad-hoc testing or App Store distribution .
-- On Android, you can produce mobile GUI applications, packaged as APK binaries or Android App Bundles (AAB), fully signed and aligned for  sideloading or distribution via the Google Play Store.
+- On Android, you can produce mobile GUI applications, packaged as APK binaries or Android App Bundles (AAB), fully signed and aligned for sideloading or distribution via the Google Play Store.
 - On web browsers, you can produce web-based applications, packaged as static web build outputs (HTML/JavaScript) that leverage WebAssembly runtimes, optimized for encrypted HTTPS web servers.
 
 ## Meet Brutus
