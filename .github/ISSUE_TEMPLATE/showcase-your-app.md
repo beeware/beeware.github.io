@@ -14,7 +14,13 @@ assignees: ''
 <!-- The link you would like to share for your app. This can be a link to the source code, an app store, or other. -->
 
 ## App platform(s)
-<!-- The platform(s) supported by your app, e.g. macOS, Linux, Android, etc. Include multiple, if applicable. -->
+- [ ] macOS
+- [ ] Windows
+- [ ] Linux
+- [ ] Android
+- [ ] iOS
+- [ ] Web
+- [ ] Console
 
 ## App logo (optional)
 <!-- A logo or image to represent your app. Should be a PNG, smaller than 100px square. -->
