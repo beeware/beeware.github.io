@@ -19,10 +19,10 @@ You can do the following with BeeWare:
 
 - On macOS, you can produce console or GUI applications, packaged as .app bundles, DMG bundles, or PKG installers, fully signed and notarized for independent or macOS App Store distribution.
 - On Windows, you can produce console or GUI applications, packaged as MSI installers or ZIP archives, compatible with standard signing certificates for independent distribution.
-- On Linux, you can produce console or GUI applications, packaged as AppImage bundles or system-native packages (deb/rpm), ready for decentralized independent distribution.
-- On iOS, you can produce mobile GUI applications, packaged as Xcode projects and IPA bundles, fully signed and provisioned for ad-hoc testing or App Store distribution .
-- On Android, you can produce mobile GUI applications, packaged as APK binaries or Android App Bundles (AAB), fully signed and aligned for sideloading or distribution via the Google Play Store.
-- On web browsers, you can produce web-based applications, packaged as static web build outputs (HTML/JavaScript) that leverage WebAssembly runtimes, optimized for encrypted HTTPS web servers.
+- On Linux, you can produce console or GUI applications, packaged as system-native packages (deb/rpm), Flatpaks, or AppImages.
+- On iOS, you can produce native applications, packaged as Xcode projects that can be built and distributed in the iOS App Store.
+- On Android, you can produce applications, packaged as APK binaries or Android App Bundles (AAB), suitable for distribution via the Google Play Store or for side loading.
+- On web browsers, you can produce single-page applications, packaged as a zip file suitable for serving on any static file web server.
 
 ## Meet Brutus
 
