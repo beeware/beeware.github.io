@@ -1,6 +1,8 @@
 # Success stories { #success-stories }
 
-Want to see examples of the BeeWare tools in use? Here are some.
+These are examples of applications built using the BeeWare suite of tools.
+
+Have you designed your own app? Would you like to see it below? Submit your app through the [Showcase your app](https://github.com/beeware/beeware.github.io/issues) issue template.
 
 <div class="success-story" markdown="1">
 
