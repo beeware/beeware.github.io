@@ -19,7 +19,7 @@ assignees: ''
 ## App description
 <!-- Include two to three sentences explaining the purpose or function of your app -->
 
-## App submission checklist:
+## App submission checklist
 <!--- Go over all the following points, and put an `x` in all the boxes. -->
 - [ ] I will abide by the BeeWare Code of Conduct
 - [ ] I have read and have followed the **CONTRIBUTING.md** file
