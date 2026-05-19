@@ -4922,6 +4922,18 @@ Python 的约定。例如，在调用或引用 Java 代码时，函数应遵循 
 <code>snake_case</code> 格式。</p>
 <p>在 API 命名、变量等方面，我们采用美国拼写法。</p>
 <p>此外，PEP 8 中还针对 BeeWare 增加了一些内容：</p>
+<p>虽然遵循 <a href="https://peps.python.org/pep-0484/">PEP 484</a> 的类型注解是可选的，但我们仍强烈建议使用，尤其是在任何公开的
+API 接口中。</p>
+<p>下面是一个带有正确类型提示和 Sphinx 文档字符串的标准函数定义示例：</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="sd">&quot;&quot;&quot;带类型和文档字符串的示例函数。</span>
+
+<span class="sd">:param param1: 第一个参数。</span>
+<span class="sd">:param param2: 第二个参数。</span>
+
+<span class="sd">:returns: 返回值。成功时为 True，否则为 False。</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
 <h4 id="split-long-function-calls">拆分冗长的函数调用<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>当包含多个参数的函数调用无法在一行内写完时，应将每个参数单独放在一行，并在最后一个参数后加逗号。Ruff 允许（并会建议）将多个参数放在同一行（换行）的格式：</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
@@ -4956,6 +4968,12 @@ Python 的约定。例如，在调用或引用 Java 代码时，函数应遵循 
 <p>我们尽量避免使用 <code>utils</code> 模块，但也知道有时它们是不可避免的。首选的替代方法是在源代码的其他地方为该功能找到合适的位置，而不是使用 <code>utils</code>
 模块。</p>
 <p>通常情况下，我们尽量避免或延迟执行任何耗时的初始化代码，以实现更快的应用启动速度。例如，toga-core包中的模块采用"延迟加载"机制——它们仅在被请求时才被导入，而非预先全部加载。这种方式既能加速启动过程，又能确保资源仅消耗在应用实际使用的功能上。</p>
+<p>在编写注释时，请避免使用第一人称复数代词，例如“我们”（例如，应写“遍历”而非“我们遍历”）。</p>
+<p>在测试文档字符串中，请说明每个测试所验证的预期行为。请勿包含诸如“测试是否”或“确保”之类的引言。</p>
+<p>对于那些涉及冷门问题的工单，如果工单中包含无法在文档字符串或注释中轻松描述的额外细节，请保留工单参考信息。请在句尾添加工单编号，例如：</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;测试文档字符串的样式如下 (#123456)。&quot;&quot;&quot;</span>
+</code></pre></div>
 
 
 

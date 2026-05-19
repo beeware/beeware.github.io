@@ -4915,6 +4915,17 @@ aria-label="Header"
 <p>One manifestation of this can be seen in naming conventions. BeeWare libraries frequently need to bridge to other languages. When building wrappers to other languages, it is desirable (and in some cases, required) to follow the naming conventions of the target language, rather than Python. For example, when calling or referencing Java code, functions should follow Java's preference of <code>mixedCase</code>, rather than the PEP 8 preference for <code>snake_case</code>.</p>
 <p>We follow US spelling for API naming, variables, etc.</p>
 <p>There are also some BeeWare-specific additions to PEP 8:</p>
+<p>While type annotation adhering to <a href="https://peps.python.org/pep-0484/">PEP 484</a> is optional, it remains strongly encouraged, particularly across any public API surfaces.</p>
+<p>An example of a standard function definition with proper type hints and a Sphinx docstring is shown below:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="sd">&quot;&quot;&quot;Example function with types and a docstring.</span>
+
+<span class="sd">:param param1: The first parameter.</span>
+<span class="sd">:param param2: The second parameter.</span>
+
+<span class="sd">:returns: The return value. True for success, False otherwise.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
 <h4 id="split-long-function-calls">Splitting long function calls<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>When a function call with more than one argument cannot fit on a single line, place each argument on its own line with a trailing comma on the last argument. Ruff permits (and will suggest) a format of multiple arguments on one wrapped line:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
@@ -4948,6 +4959,12 @@ aria-label="Header"
 <h3 id="things-to-avoid">Things to avoid<a class="headerlink" href="#things-to-avoid" title="Permanent link">&para;</a></h3>
 <p>We try to avoid <code>utils</code> modules as much as possible, with the understanding that sometimes they are unavoidable. The preferred alternative is to find somewhere for the feature elsewhere in the source code, instead of using a <code>utils</code> module.</p>
 <p>As a general rule, we try to avoid or defer any expensive initialization code, in order to achieve faster app startup. For instance, modules in the toga-core package are "lazy loaded" — they're only imported once requested, rather than all up front. This speeds up startup, and only spends time on what the app is actually using.</p>
+<p>When writing comments, avoid the use of first-person plural pronouns such as "we" (for example, write "Loop over" instead of "We loop over").</p>
+<p>In test docstrings, state the expected behavior that each test demonstrates. Don't include preambles such as "Tests that" or "Ensures that".</p>
+<p>Reserve ticket references for obscure issues where the ticket has additional details that can't be easily described in docstrings or comments. Include the ticket number at the end of a sentence like this:</p>
+<div class="highlight"><pre><span></span><code>      <span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
+<span class="w">          </span><span class="sd">&quot;&quot;&quot;A test docstring looks like this (#123456).&quot;&quot;&quot;</span>
+</code></pre></div>
 
 
 

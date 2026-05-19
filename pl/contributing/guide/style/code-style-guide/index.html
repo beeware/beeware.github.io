@@ -4935,6 +4935,20 @@ być zapisywane zgodnie z preferencjami języka Java, czyli <code>mixedCase</cod
 zgodnie z zaleceniami PEP 8, które przewidują <code>snake_case</code>.</p>
 <p>W nazewnictwie API, zmiennych itp. stosujemy pisownię amerykańską.</p>
 <p>W PEP 8 wprowadzono również pewne uzupełnienia dotyczące konkretnie BeeWare:</p>
+<p>Chociaż stosowanie adnotacji typów zgodnych z <a href="https://peps.python.org/pep-0484/">PEP
+484</a> jest opcjonalne, nadal zdecydowanie się
+je zaleca, zwłaszcza w przypadku wszystkich publicznych interfejsów API.</p>
+<p>Poniżej przedstawiono przykład standardowej definicji funkcji zawierającej
+odpowiednie wskazówki dotyczące typów oraz ciąg dokumentacyjny Sphinx:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">nazwa_funkcji</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="sd">&quot;&quot;&quot;Przykładowa funkcja z typami i opisem.</span>
+
+<span class="sd">:param param1: Pierwszy parametr.</span>
+<span class="sd">:param param2: Drugi parametr.</span>
+
+<span class="sd">:returns: Wartość zwracana. True w przypadku powodzenia, w przeciwnym razie False.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
 <h4 id="split-long-function-calls">Rozdzielanie długich wywołań funkcji<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Jeśli wywołanie funkcji z więcej niż jednym argumentem nie mieści się w jednym
 wierszu, każdy argument należy umieścić w osobnym wierszu, a po ostatnim
@@ -4983,6 +4997,18 @@ inicjalizacyjne, aby przyspieszyć uruchamianie aplikacji. Na przykład moduły 
 pakiecie toga-core są „ładowane leniwie” — są importowane dopiero po zgłoszeniu
 żądania, a nie z góry. Przyspiesza to uruchamianie i pozwala poświęcić czas
 tylko na to, czego faktycznie używa aplikacja.</p>
+<p>Pisząc komentarze, unikaj używania zaimków w pierwszej osobie liczby mnogiej,
+takich jak „my” (na przykład pisz „Przeprowadź pętlę” zamiast „Przeprowadzamy
+pętlę”).</p>
+<p>W opisach testów należy określić oczekiwane zachowanie, które każdy test ma
+wykazać. Nie należy dodawać wstępów typu „Sprawdza, czy” lub „Gwarantuje, że”.</p>
+<p>Zastrzegaj odniesienia do zgłoszeń dotyczących mało znanych problemów, w
+przypadku których zgłoszenie zawiera dodatkowe szczegóły, których nie da się
+łatwo opisać w opisach funkcji lub komentarzach. Umieść numer zgłoszenia na
+końcu zdania w następujący sposób:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;Tak wygląda docstring testowy (#123456).&quot;&quot;&quot;</span>
+</code></pre></div>
 
 
 

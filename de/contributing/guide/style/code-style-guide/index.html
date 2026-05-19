@@ -4938,6 +4938,20 @@ nicht der in PEP 8 empfohlenen Schreibweise <code>snake_case</code>.</p>
 <p>Wir halten uns bei der Benennung von APIs, Variablen usw. an die
 US-Rechtschreibung.</p>
 <p>Es gibt außerdem einige BeeWare-spezifische Ergänzungen zu PEP 8:</p>
+<p>Auch wenn die Typangabe gemäß <a href="https://peps.python.org/pep-0484/">PEP 484</a>
+optional ist, wird sie nach wie vor dringend empfohlen, insbesondere bei
+öffentlichen API-Schnittstellen.</p>
+<p>Nachfolgend finden Sie ein Beispiel für eine Standardfunktionsdefinition mit
+korrekten Typangaben und einem Sphinx-Docstring:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="sd">&quot;&quot;&quot;Beispielfunktion mit Typen und einer Docstring.</span>
+
+<span class="sd">:param param1: Der erste Parameter.</span>
+<span class="sd">:param param2: Der zweite Parameter.</span>
+
+<span class="sd">:returns: Der Rückgabewert. True bei Erfolg, andernfalls False.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
 <h4 id="split-long-function-calls">Aufteilung langer Funktionsaufrufe<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Wenn ein Funktionsaufruf mit mehr als einem Argument nicht in eine einzige Zeile
 passt, setzen Sie jedes Argument in eine eigene Zeile und fügen Sie am Ende des
@@ -4986,6 +5000,19 @@ aufzuschieben, um einen schnelleren Start der App zu erreichen. Beispielsweise
 werden Module im toga-core-Paket „lazy loaded“ – sie werden erst bei Bedarf
 importiert und nicht alle im Voraus. Dies beschleunigt den Start und es wird nur
 Zeit für das aufgewendet, was die App tatsächlich nutzt.</p>
+<p>Vermeiden Sie beim Verfassen von Kommentaren die Verwendung von Pronomen der
+ersten Person Plural wie „wir“ (schreiben Sie beispielsweise „Loop over“ statt
+„We loop over“).</p>
+<p>Geben Sie in den Test-Docstrings das erwartete Verhalten an, das der jeweilige
+Test demonstriert. Verzichten Sie auf Einleitungen wie „Tests, dass“ oder
+„Stellt sicher, dass“.</p>
+<p>Verwenden Sie Ticket-Referenzen für schwer fassbare Probleme, bei denen das
+Ticket zusätzliche Details enthält, die sich nicht ohne Weiteres in Docstrings
+oder Kommentaren beschreiben lassen. Fügen Sie die Ticketnummer am Ende eines
+Satzes wie folgt ein:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;Ein Test-Docstring sieht so aus (#123456).&quot;&quot;&quot;</span>
+</code></pre></div>
 
 
 

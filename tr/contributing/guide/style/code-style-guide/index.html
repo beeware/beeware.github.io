@@ -4934,6 +4934,20 @@ uymak tercih edilir (ve bazı durumlarda zorunludur). Örneğin, Java kodunu
 değil, Java'nın <code>snake_case</code> tercihini benimsemelidir.</p>
 <p>API adlandırma, değişkenler vb. için ABD yazım kurallarını takip ediyoruz.</p>
 <p>PEP 8'e BeeWare'e özgü bazı eklemeler de yapılmıştır:</p>
+<p><a href="https://peps.python.org/pep-0484/">PEP 484</a> standardına uygun tip açıklamaları
+isteğe bağlı olmakla birlikte, özellikle herkese açık API arayüzlerinde
+kullanılması şiddetle tavsiye edilmektedir.</p>
+<p>Aşağıda, uygun tür ipuçları ve bir Sphinx docstring içeren standart bir işlev
+tanımına örnek verilmiştir:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="sd">&quot;&quot;&quot;Türleri ve bir docstring içeren örnek işlev.</span>
+
+<span class="sd">:param param1: İlk parametre.</span>
+<span class="sd">:param param2: İkinci parametre.</span>
+
+<span class="sd">:returns: Dönüş değeri. Başarılı olursa True, aksi takdirde False.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
 <h4 id="split-long-function-calls">Uzun işlev çağrılarını bölme<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Birden fazla argüman içeren bir işlev çağrısı tek bir satıra sığmadığında, her
 argümanı ayrı bir satıra yerleştirin ve son argümanın sonuna virgül ekleyin.
@@ -4979,6 +4993,16 @@ kodlarını önlemeye veya ertelemeye çalışırız. Örneğin, toga-core paket
 modüller "tembel yükleme" ile çalışır; yani, önceden değil, yalnızca talep
 edildiğinde içe aktarılır. Bu, başlatma sürecini hızlandırır ve yalnızca
 uygulamanın gerçekten kullandığı şeyler için zaman harcanmasını sağlar.</p>
+<p>Yorum yazarken, "biz" gibi birinci çoğul şahıs zamirlerini kullanmaktan kaçının
+(örneğin, "Biz döngü yapıyoruz" yerine "Döngü yap" yazın).</p>
+<p>Test açıklamalarında, her bir testin sergilediği beklenen davranışı belirtin.
+"Şunu test eder" veya "Şunu sağlar" gibi giriş cümlelerini eklemeyin.</p>
+<p>Belgelerde veya yorumlarda kolayca açıklanamayan ek ayrıntılar içeren, daha az
+bilinen sorunlar için bilet referanslarını saklayın. Bilet numarasını şu şekilde
+cümlenin sonuna ekleyin:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;Bir test docstring&#39;i şöyle görünür (#123456).&quot;&quot;&quot;</span>
+</code></pre></div>
 
 
 

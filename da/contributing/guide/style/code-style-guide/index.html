@@ -4935,6 +4935,20 @@ eksempel kalder eller henviser til Java-kode, bør funktioner følge Javas
 præference for <code>mixedCase</code>, frem for PEP 8’s præference for <code>snake_case</code>.</p>
 <p>Vi følger amerikansk stavning for API-navngivning, variabler osv.</p>
 <p>Der er også nogle BeeWare-specifikke tilføjelser til PEP 8:</p>
+<p>Selvom typeannotering i overensstemmelse med <a href="https://peps.python.org/pep-0484/">PEP
+484</a> er valgfri, anbefales det på det
+kraftigste, især i forbindelse med offentlige API-grænseflader.</p>
+<p>Nedenfor ses et eksempel på en standardfunktionsdefinition med korrekte
+typeangivelser og en Sphinx-docstring:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="sd">&quot;&quot;&quot;Eksempelfunktion med typer og en docstring.</span>
+
+<span class="sd">:param param1: Den første parameter.</span>
+<span class="sd">:param param2: Den anden parameter.</span>
+
+<span class="sd">:returns: Returværdien. True ved succes, ellers False.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
 <h4 id="split-long-function-calls">Opdeling af lange funktionskald<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Når et funktionskald med mere end ét argument ikke kan være på én linje, skal
 hvert argument placeres på sin egen linje med et komma efter det sidste
@@ -4981,6 +4995,17 @@ opnå hurtigere opstart af appen. For eksempel er moduler i toga-core-pakken
 "lazy loaded" — de importeres kun, når der anmodes om det, i stedet for på
 forhånd. Dette fremskynder opstarten og bruger kun tid på det, appen faktisk
 bruger.</p>
+<p>Når du skriver kommentarer, skal du undgå at bruge pronomen i første person
+flertal, såsom »vi« (skriv f.eks. »Loop over« i stedet for »Vi loop over«).</p>
+<p>I test-docstrings skal du angive den forventede adfærd, som den enkelte test
+demonstrerer. Undlad at bruge indledende sætninger som »Tester, at« eller
+»Sikrer, at«.</p>
+<p>Gem henvisninger til tickets vedrørende uklarheder, hvor ticketet indeholder
+yderligere oplysninger, der ikke let kan beskrives i docstrings eller
+kommentarer. Angiv ticketnummeret i slutningen af en sætning på følgende måde:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;En test-docstring ser sådan ud (#123456).&quot;&quot;&quot;</span>
+</code></pre></div>
 
 
 

@@ -4935,6 +4935,20 @@ devem seguir a preferência do Java por <code>mixedCase</code>, em vez da prefer
 8 por <code>snake_case</code>.</p>
 <p>Seguimos a ortografia dos EUA para nomear APIs, variáveis, etc.</p>
 <p>Há também algumas adições específicas do BeeWare à PEP 8:</p>
+<p>Embora a anotação de tipos em conformidade com a <a href="https://peps.python.org/pep-0484/">PEP
+484</a> seja opcional, ela continua sendo
+fortemente recomendada, especialmente em todas as interfaces de API públicas.</p>
+<p>Segue abaixo um exemplo de definição de função padrão com indicações de tipo
+adequadas e uma string de documentação do Sphinx:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">nome_da_função</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="sd">&quot;&quot;&quot;Exemplo de função com tipos e uma string de documentação.</span>
+
+<span class="sd">:param param1: O primeiro parâmetro.</span>
+<span class="sd">:param param2: O segundo parâmetro.</span>
+
+<span class="sd">:returns: O valor de retorno. True em caso de sucesso, False caso contrário.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
 <h4 id="split-long-function-calls">Divisão de chamadas de função longas<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Quando uma chamada de função com mais de um argumento não couber em uma única
 linha, coloque cada argumento em uma linha separada, com uma vírgula no final do
@@ -4981,6 +4995,18 @@ caro, a fim de obter uma inicialização mais rápida do aplicativo. Por exemplo
 os módulos no pacote toga-core são “carregados de forma preguiçosa” — eles só
 são importados quando solicitados, em vez de todos de uma vez. Isso acelera a
 inicialização e gasta tempo apenas com o que o aplicativo está realmente usando.</p>
+<p>Ao escrever comentários, evite o uso de pronomes na primeira pessoa do plural,
+como “nós” (por exemplo, escreva “Faça um loop” em vez de “Nós fazemos um
+loop”).</p>
+<p>Nas descrições dos testes, indique o comportamento esperado que cada teste
+demonstra. Não inclua introduções como “Testa se” ou “Verifica se”.</p>
+<p>Reserve as referências a tickets para questões pouco conhecidas, nas quais o
+ticket contenha detalhes adicionais que não possam ser facilmente descritos em
+docstrings ou comentários. Inclua o número do ticket no final de uma frase,
+desta forma:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;Uma string de documentação de teste tem este formato (#123456).&quot;&quot;&quot;</span>
+</code></pre></div>
 
 
 

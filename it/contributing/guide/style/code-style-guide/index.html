@@ -4937,6 +4937,20 @@ Java, le funzioni dovrebbero seguire la convenzione di Java che prevede l'uso di
 <code>mixedCase</code>, anziché quella della PEP 8 che prevede <code>snake_case</code>.</p>
 <p>Seguiamo l'ortografia statunitense per i nomi delle API, le variabili, ecc.</p>
 <p>Ci sono anche alcune aggiunte specifiche per BeeWare alla PEP 8:</p>
+<p>Sebbene l'annotazione dei tipi conforme alla <a href="https://peps.python.org/pep-0484/">PEP
+484</a> sia facoltativa, se ne raccomanda
+vivamente l'uso, in particolare nelle interfacce API pubbliche.</p>
+<p>Di seguito è riportato un esempio di definizione di una funzione standard con
+indicazioni di tipo corrette e una stringa di documentazione Sphinx:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">nome_funzione</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="sd">&quot;&quot;&quot;Funzione di esempio con tipi e stringa di documentazione.</span>
+
+<span class="sd">:param param1: Il primo parametro.</span>
+<span class="sd">:param param2: Il secondo parametro.</span>
+
+<span class="sd">:returns: Il valore restituito. True in caso di esito positivo, False in caso contrario.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
 <h4 id="split-long-function-calls">Suddivisione delle chiamate di funzione lunghe<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Quando una chiamata di funzione con più di un argomento non può essere contenuta
 in una singola riga, inserisci ogni argomento su una riga separata, aggiungendo
@@ -4986,6 +5000,19 @@ esempio, i moduli nel pacchetto toga-core vengono caricati in modo "lazy"
 (ritardato): vengono importati solo quando richiesti, anziché tutti in anticipo.
 Ciò accelera l'avvio e richiede tempo solo per ciò che l'app sta effettivamente
 utilizzando.</p>
+<p>Quando scrivi i commenti, evita di usare pronomi in prima persona plurale come
+"noi" (ad esempio, scrivi "Esegui un ciclo su" invece di "Noi eseguiamo un ciclo
+su").</p>
+<p>Nelle stringhe di documentazione dei test, descrivi il comportamento previsto
+che ciascun test deve verificare. Non includere introduzioni del tipo "Verifica
+che" o "Assicura che".</p>
+<p>Conserva i riferimenti ai ticket per questioni poco chiare in cui il ticket
+contiene dettagli aggiuntivi che non possono essere facilmente descritti nelle
+stringhe di documentazione o nei commenti. Includi il numero del ticket alla
+fine di una frase in questo modo:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;Una stringa di documentazione di prova ha questo aspetto (#123456).&quot;&quot;&quot;</span>
+</code></pre></div>
 
 
 

@@ -4922,6 +4922,18 @@ aria-label="ヘッダー"
 8で推奨されている<code>mixedCase</code>ではなく、Javaで推奨されている<code>snake_case</code>に従うべきです。</p>
 <p>APIの命名規則、変数名などについては米国式スペルを採用します。</p>
 <p>また、PEP 8にはBeeWare固有の追加事項もいくつかあります：</p>
+<p><a href="https://peps.python.org/pep-0484/">PEP 484</a>
+に準拠した型注釈は任意ですが、特に公開APIのインターフェースにおいては、引き続き強く推奨されます。</p>
+<p>適切な型ヒントとSphinxドキュメント文字列を含む標準関数の定義例を以下に示します：</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="sd">&quot;&quot;&quot;型とdocstringを指定した関数の例。</span>
+
+<span class="sd">:param param1: 最初の引数。</span>
+<span class="sd">:param param2: 2番目の引数。</span>
+
+<span class="sd">:returns: 戻り値。成功した場合はTrue、それ以外はFalse。</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
 <h4 id="split-long-function-calls">長い関数呼び出しの分割<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>引数が複数ある関数呼び出しが1行に収まらない場合は、各引数をそれぞれ別の行に配置し、最後の引数の後にコンマを付けます。Ruffでは、改行を挟んで1行に複数の引数を並べる形式も許可されており（また、その形式を推奨します）：</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
@@ -4955,6 +4967,13 @@ aria-label="ヘッダー"
 <h3 id="_2">避けるべきこと<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>可能な限り<code>utils</code>モジュールは避けるように努めていますが、場合によっては避けられないこともあると認識しています。望ましい代替策は、<code>utils</code>モジュールを使用する代わりに、ソースコード内の別の場所でその機能を実現できる箇所を見つけることです。</p>
 <p>一般的なルールとして、アプリの起動を高速化するため、高コストな初期化コードは回避または遅延させるよう努めています。例えば、toga-coreパッケージのモジュールは「遅延読み込み」されており、最初から全て読み込まれるのではなく、要求された時点で初めてインポートされます。これにより起動が高速化され、アプリが実際に使用している部分のみに時間を費やすことができます。</p>
+<p>コメントを書く際は、「we」などの一人称複数代名詞の使用を避けてください（例えば、「We loop over」ではなく「Loop
+over」と記述してください）。</p>
+<p>テストのdocstringでは、各テストが実証する期待される動作を記述してください。「～をテストする」や「～であることを確認する」といった前置きは含めないでください。</p>
+<p>ドキュメントの記述やコメントでは簡単に説明しきれない詳細情報が記載されている、あまり知られていない問題については、チケットの参照情報を記載してください。次のように、文の最後にチケット番号を記載してください：</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;テスト用のdocstringは次のようなものです (#123456)。&quot;&quot;&quot;</span>
+</code></pre></div>
 
 
 

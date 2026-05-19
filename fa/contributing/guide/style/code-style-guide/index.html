@@ -4934,6 +4934,20 @@ Ruff را اجرا کنند، که می‌تواند در این فرایند ک
 را دنبال کنند، نه ترجیح PEP 8 برای استفاده از <code>snake_case</code>.</p>
 <p>ما برای نام‌گذاری API، متغیرها و غیره از املای آمریکایی پیروی می‌کنیم.</p>
 <p>همچنین چند افزودهٔ خاص BeeWare به PEP 8 وجود دارد:</p>
+<p>اگرچه پینوشت نوع مطابق با <a href="https://peps.python.org/pep-0484/">PEP 484</a> اختیاری
+است، اما همچنان قویاً توصیه می‌شود، به‌ویژه در تمامی سطوح رابط برنامه‌نویسی
+کاربردی عمومی.</p>
+<p>یک مثال از تعریف یک تابع استاندارد با سرنخ‌های نوع مناسب و یک رشتهٔ مستندسازی
+Sphinx در زیر نشان داده شده است:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="sd">&quot;&quot;&quot;مثال یک تابع با انواع داده و یک docstring.</span>
+
+<span class="sd">:param param1: پارامتر اول.</span>
+<span class="sd">:param param2: پارامتر دوم.</span>
+
+<span class="sd">:returns: مقدار بازگشتی. در صورت موفقیت True، در غیر این صورت False.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
 <h4 id="split-long-function-calls">تفکیک فراخوانی‌های طولانی تابع<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>وقتی فراخوانی یک تابع با بیش از یک آرگومان در یک خط جا نمی‌شود، هر آرگومان را در
 یک خط جداگانه قرار دهید و برای آخرین آرگومان یک ویرگول انتهایی بگذارید. Ruff
@@ -4978,6 +4992,16 @@ Ruff را اجرا کنند، که می‌تواند در این فرایند ک
 toga-core به‌صورت تنبلانه بارگذاری می‌شوند — آن‌ها تنها زمانی وارد می‌شوند که
 درخواست شوند، نه همه در ابتدا. این کار راه‌اندازی را تسریع می‌کند و تنها زمانی
 صرف آنچه برنامه واقعاً استفاده می‌کند، می‌شود.</p>
+<p>هنگام نوشتن نظرات، از استفاده از ضمایر جمع اول شخص مانند «ما» خودداری کنید (برای
+مثال، به جای «We loop over» بنویسید «Loop over»).</p>
+<p>در مستندات تست، رفتار مورد انتظار را که هر تست نشان می‌دهد بیان کنید. از مقدماتی
+مانند «تست می‌کند» یا «تضمین می‌کند» استفاده نکنید.</p>
+<p>ارجاعات تیکت رزرو را برای مسائل مبهم که تیکت دارای جزئیات اضافی است و نمی‌توان
+آن‌ها را به‌سادگی در مستندات یا توضیحات توصیف کرد، درج کنید. شماره تیکت را در
+انتهای جمله‌ای مانند این قرار دهید:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;یک docstring تست به این شکل است (#123456).&quot;&quot;&quot;</span>
+</code></pre></div>
 
 
 

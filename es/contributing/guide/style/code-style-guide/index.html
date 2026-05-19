@@ -4936,6 +4936,21 @@ de la recomendada por PEP 8 de <code>snake_case</code>.</p>
 <p>Seguimos la ortografía estadounidense para la denominación de API, variables,
 etc.</p>
 <p>Además, hay algunas adiciones específicas de BeeWare a la PEP 8:</p>
+<p>Aunque la anotación de tipos conforme a <a href="https://peps.python.org/pep-0484/">PEP
+484</a> es opcional, se recomienda
+encarecidamente su uso, sobre todo en las interfaces de programación de
+aplicaciones (API) públicas.</p>
+<p>A continuación se muestra un ejemplo de definición de función estándar con las
+indicaciones de tipo adecuadas y una cadena de documentación de Sphinx:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">nombre_función</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="sd">&quot;&quot;&quot;Función de ejemplo con tipos y una cadena de documentación.</span>
+
+<span class="sd">:param param1: El primer parámetro.</span>
+<span class="sd">:param param2: El segundo parámetro.</span>
+
+<span class="sd">:returns: El valor de retorno. True si se ejecuta correctamente, False en caso contrario.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
 <h4 id="split-long-function-calls">Desglosas invocaciones a funciones largas<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Cuando una función invoca con más de un argumento que no cabe en una sola línea,
 coloca cada argumento en una propia línea separada y añade una coma al final del
@@ -4984,6 +4999,19 @@ aplicación. Por ejemplo, los módulos del paquete toga-core se cargan de forma
 diferida, es decir, solo se importan cuando se solicitan, en lugar de hacerlo
 por adelantado. Esto acelera el inicio y solo se dedica tiempo a lo que la
 aplicación está utilizando realmente.</p>
+<p>Al escribir comentarios, evita el uso de pronombres en primera persona del
+plural, como «nosotros» (por ejemplo, escribe «Recorrer» en lugar de
+«Recorremos»).</p>
+<p>En las cadenas de documentación de las pruebas, describe el comportamiento
+esperado que demuestra cada prueba. No incluyas introducciones del tipo
+«Comprueba que» o «Asegura que».</p>
+<p>Reserva las referencias a tickets para problemas poco comunes en los que el
+ticket contenga detalles adicionales que no se puedan describir fácilmente en
+las cadenas de documentación o en los comentarios. Incluye el número de ticket
+al final de una frase de esta manera:</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
+<span class="w"> </span><span class="sd">&quot;&quot;&quot;Una cadena de documentación de prueba tiene este aspecto (#123456).&quot;&quot;&quot;</span>
+</code></pre></div>
 
 
 
