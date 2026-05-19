@@ -13,6 +13,10 @@ A first-timer's [introduction](overview.md) to the BeeWare project.
 
 The [history and philosophy](history.md) of the BeeWare project.
 
+## [Success stories](success.md)
+
+A [showcase of applications](success.md) built using the BeeWare tool suite.
+
 ## [The Bee Team](team.md)
 
 The [core team](team.md) behind BeeWare development.
