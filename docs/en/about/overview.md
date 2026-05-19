@@ -13,6 +13,17 @@ The aim is that this set of tools will be easy enough to use for complete newcom
 
 We're not just about software, though. We also aim to be a project with a social conscience. We aim to develop and maintain a diverse and inclusive community, and we have a Code of Conduct that is rigorously enforced. We also aspire to develop a healthy and sustainable community - one that is aware of mental health issues of its participants, and provides the resources for people to start engaging, and continue to engage with the community.
 
+## What can I do with BeeWare?
+
+You can do the following with BeeWare:
+
+- On macOS, you can produce console or GUI applications, packaged as .app bundles, DMG bundles, or PKG installers, fully signed and notarized for independent or macOS App Store distribution.
+- On Windows, you can produce console or GUI applications, packaged as MSI installers or ZIP archives, compatible with standard signing certificates for independent distribution.
+- On Linux, you can produce console or GUI applications, packaged as system-native packages (deb/rpm), Flatpaks, or AppImages.
+- On iOS, you can produce native applications, packaged as Xcode projects that can be built and distributed in the iOS App Store.
+- On Android, you can produce applications, packaged as APK binaries or Android App Bundles (AAB), suitable for distribution via the Google Play Store or for side loading.
+- On web browsers, you can produce single-page applications, packaged as a zip file suitable for serving on any static file web server.
+
 ## Meet Brutus
 
 ![Brutus the Bee](../images/brutus.png)
