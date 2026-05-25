@@ -2328,10 +2328,10 @@ aria-label="Sidehoved"
 </li>
         
           <li class="md-nav__item">
-  <a href="#indhold-af-pull-anmodning" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Indhold af pull-anmodning
+        Indholdet af pull-anmodningen
       
     </span>
   </a>
@@ -5214,10 +5214,10 @@ aria-label="Sidehoved"
 </li>
         
           <li class="md-nav__item">
-  <a href="#indhold-af-pull-anmodning" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Indhold af pull-anmodning
+        Indholdet af pull-anmodningen
       
     </span>
   </a>
@@ -6073,22 +6073,34 @@ PR:</p>
 <li>Hvis du for nylig har pushet, skal du navigere til upstream-repositoriet,
   finde banneren over listen over filer, der angiver, at repoet har "haft nylige
   pushes", og klikke på knappen "Sammenlign og pull request".</li>
-<li>Brug GitHub CLI <code>gh pr create</code> kommandoen, og udfyld de anmodede oplysninger.</li>
 <li>Brug GitHub CLI <code>gh pr create --web</code> kommandoen til at åbne en webbrowser til
   siden for oprettelse af PR.</li>
 </ul>
-<p>Alle disse muligheder giver dig mulighed for at oprette din nye pull-anmodning.</p>
 <div class="admonition info">
 <p class="admonition-title">GitHub CLI: <code>gh</code></p>
 <p>GitHub tilbyder <a href="https://cli.github.com/">GitHub CLI</a>, som giver dig adgang til
 mange af GitHubs funktioner fra din terminal via kommandoen <code>gh</code>. <a href="https://cli.github.com/manual/">GitHub
 CLI-dokumentationen</a> dækker alle funktionerne.</p>
 </div>
-<h3 id="indhold-af-pull-anmodning">Indhold af pull-anmodning<a class="headerlink" href="#indhold-af-pull-anmodning" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title"><code>gh pr create</code></p>
+<p>Brug <em>ikke</em> kommandoen <code>gh pr create</code> alene til at oprette din pull-anmodning.
+BeeWare-projekter bruger en skabelon til pull-anmodninger, og vi kræver, at alle
+bidrag følger denne skabelon. Kommandoen <code>gh pr create</code> omgår brugen af denne
+skabelon.</p>
+</div>
+<h3 id="pr-content">Indholdet af pull-anmodningen<a class="headerlink" href="#pr-content" title="Permanent link">&para;</a></h3>
 <p>En pull request-titel skal være informativ, klar og kortfattet. Forsøg at holde
 den kort, hvis det er muligt, men længere titler er acceptable, hvis det er
 nødvendigt. En god PR-titel skal give en person uden nogen kontekst en rimelig
 god idé om, hvilken fejl eller funktion der er implementeret i din PR.</p>
+<p>Din pull-anmodning <strong>skal</strong> følge BeeWares <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">skabelon til
+pull-anmodninger</a>.
+Hvis du har oprettet din pull-anmodning via GitHubs webgrænseflade, vil denne
+skabelon blive vist som udgangspunkt for beskrivelsen af din pull-anmodning.
+Hvis du ved en fejl opretter en pull-anmodning uden at bruge denne skabelon, kan
+du redigere pull-anmodningen for at tilføje skabelonens indhold – men
+skabelonens indhold <em>skal</em> angives og udfyldes korrekt.</p>
 <p>PR-beskrivelsen skal tydeligt afspejle ændringerne i PR. En person uden nogen
 kontekst skal kunne læse din beskrivelse og få en relativt fuldstændig
 forståelse af, hvorfor ændringen foretages. Undgå vittigheder, idiomer,
@@ -6107,6 +6119,26 @@ diskussioner, problemer eller pull-anmodninger ved hjælp af den samme <code>#12
 syntaks. Du kan henvise til et problem i et andet repository ved at sætte et -
 foran nummeret – for eksempel vil <code>python/cpython#1234</code> henvise til problem 1234
 i CPython-repositoryet.</p>
+<p>AI-værktøjer har en særlig tendens til at skrive omstændelige og lidet nyttige
+pull request-beskeder. Hvis du bruger et AI-værktøj til at generere din PR, er
+<em>du</em> ansvarlig for at sikre, at beskrivelsen af pull requesten er kortfattet og
+kun indeholder oplysninger, der er nyttige for gennemgangsprocessen. Du behøver
+for eksempel ikke at medtage detaljer om en "testplan", der beskriver, hvordan
+testsuiten skal køres, eller en "begrundelse" for, hvorfor en fejl skal rettes.
+Overdrevent omstændelige pull request-tekster kan resultere i, at din pull
+request lukkes uden at blive gennemgået, da de ikke tager hensyn til
+kerneteamets begrænsede ressourcer.</p>
+<div class="admonition warning">
+<p class="admonition-title">BeeWare-skabelonen til pull-anmodninger</p>
+<p>BeeWare-skabelonen til pull-anmodninger <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">pull request
+template</a>
+er <strong>ikke</strong> valgfri. Vi kræver, at <strong>alle</strong> pull requests følger denne skabelon.
+Din pull request vil ikke blive gennemgået, hvis den mangler afsnittet "PR
+Checklist", eller hvis dine svar på afkrydsningsspørgsmålene er ufuldstændige
+eller inkonsekvente. Hvis du har brugt et AI-værktøj til at generere din pull
+request, skal du <em>nødvendigvis</em> markere det relevante felt og angive detaljer i
+linjen "Assisted-by:".</p>
+</div>
 <h3 id="kontinuerlig-integration">Kontinuerlig integration<a class="headerlink" href="#kontinuerlig-integration" title="Permanent link">&para;</a></h3>
 <p><em>Kontinuerlig integration</em>, eller <em>CI</em>, er processen med at køre automatiserede
 kontroller på din pull-anmodning. Dette kan omfatte enkle kontroller, såsom at

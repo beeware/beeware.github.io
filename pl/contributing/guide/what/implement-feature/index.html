@@ -2354,10 +2354,10 @@ aria-label="Nagłówek"
 </li>
         
           <li class="md-nav__item">
-  <a href="#tresc-zadania-pull" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Treść żądania pull
+        Treść zgłoszenia pull request
       
     </span>
   </a>
@@ -5369,10 +5369,10 @@ aria-label="Nagłówek"
 </li>
         
           <li class="md-nav__item">
-  <a href="#tresc-zadania-pull" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Treść żądania pull
+        Treść zgłoszenia pull request
       
     </span>
   </a>
@@ -6391,11 +6391,9 @@ do tworzenia PR:</p>
 <li>Jeśli ostatnio przesłałeś dane, przejdź do repozytorium upstream, znajdź baner
   nad listą plików, który wskazuje, że repozytorium „miało ostatnio przesłane
   dane”, i kliknij przycisk „Porównaj i pobierz żądanie”.</li>
-<li>Użyj polecenia GitHub CLI <code>gh pr create</code> i wypełnij monity.</li>
 <li>Użyj polecenia GitHub CLI <code>gh pr create --web</code>, aby otworzyć przeglądarkę
   internetową na stronie tworzenia PR.</li>
 </ul>
-<p>Każda z tych opcji umożliwi Ci utworzenie nowego pull requestu.</p>
 <div class="admonition info">
 <p class="admonition-title">Interfejs CLI GitHub: <code>gh</code></p>
 <p>GitHub udostępnia <a href="https://cli.github.com/">GitHub CLI</a>, które umożliwia dostęp
@@ -6403,11 +6401,25 @@ do wielu funkcji GitHub z poziomu terminala za pomocą polecenia <code>gh</code>
 Dokumentacja <a href="https://cli.github.com/manual/">GitHub CLI</a> zawiera opis
 wszystkich funkcji.</p>
 </div>
-<h3 id="tresc-zadania-pull">Treść żądania pull<a class="headerlink" href="#tresc-zadania-pull" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title"><code>gh pr create</code></p>
+<p><em>Nie</em> używaj samego polecenia <code>gh pr create</code> do tworzenia pull requestów.
+Projekty BeeWare korzystają z szablonu pull requestów i wymagamy, aby wszystkie
+zgłoszenia były zgodne z tym szablonem. Polecenie <code>gh pr create</code> pozwala ominąć
+ten szablon.</p>
+</div>
+<h3 id="pr-content">Treść zgłoszenia pull request<a class="headerlink" href="#pr-content" title="Permanent link">&para;</a></h3>
 <p>Tytuł pull requestu musi być informacyjny, jasny i zwięzły. Staraj się, aby był
 jak najkrótszy, ale w razie potrzeby dopuszczalne są też dłuższe tytuły. Dobry
 tytuł PR powinien dać osobie nieznającej kontekstu dość solidne pojęcie o tym,
 jaki błąd lub funkcja została zaimplementowana w Twoim PR.</p>
+<p>Twoje zgłoszenie pull request <strong>musi</strong> być zgodne z <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">szablonem zgłoszenia pull
+request</a>
+BeeWare. Jeśli utworzyłeś zgłoszenie pull request za pomocą interfejsu
+internetowego GitHub, szablon ten zostanie wyświetlony jako punkt wyjścia dla
+opisu Twojego zgłoszenia. Jeśli nieumyślnie utworzyłeś zgłoszenie pull request
+bez skorzystania z tego szablonu, możesz je edytować i dodać treść szablonu –
+jednak treść szablonu <em>musi</em> zostać podana i odpowiednio wypełniona.</p>
 <p>Opis PR musi jasno odzwierciedlać zmiany wprowadzone w PR. Osoba nieznająca
 kontekstu powinna być w stanie przeczytać opis i uzyskać stosunkowo pełne
 zrozumienie powodów wprowadzenia zmian. Należy unikać żartów, idiomów,
@@ -6427,6 +6439,26 @@ innych dyskusji, problemów lub żądań pull request, używając tej samej skł
 <code>#1234</code>. Możesz odwołać się do problemu w innym repozytorium, poprzedzając numer
 znakiem - na przykład <code>python/cpython#1234</code> odnosi się do problemu 1234 w
 repozytorium CPython.</p>
+<p>Narzędzia oparte na sztucznej inteligencji mają szczególną skłonność do
+tworzenia rozwlekłych i mało przydatnych komunikatów w pull requestach. Jeśli
+korzystasz z narzędzia AI do generowania pull requestu, to <em>ty</em> ponosisz
+odpowiedzialność za to, by opis pull requestu był zwięzły i zawierał wyłącznie
+informacje przydatne w procesie weryfikacji. Nie musisz na przykład podawać
+szczegółów dotyczących „planu testów”, który opisuje, jak uruchomić zestaw
+testów, ani „uzasadnienia”, dlaczego błąd musi zostać naprawiony. Nadmiernie
+rozbudowane treści pull requestów mogą skutkować ich zamknięciem bez przeglądu,
+ponieważ nie uwzględniają one ograniczonych zasobów zespołu głównego.</p>
+<div class="admonition warning">
+<p class="admonition-title">Szablon pull requestu BeeWare</p>
+<p>Szablon pull requestu BeeWare <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">pull request
+template</a>
+<strong>nie</strong> jest opcjonalny. Wymagamy, aby <strong>wszystkie</strong> pull requesty były zgodne z
+tym szablonem. Twój pull request nie zostanie sprawdzony, jeśli brakuje w nim
+sekcji „Lista kontrolna PR” lub jeśli odpowiedzi na pytania z polami wyboru są
+niekompletne lub niespójne. Jeśli do wygenerowania pull requestu użyłeś
+narzędzia AI, <em>musisz</em> zaznaczyć odpowiednie pole i podać szczegóły w wierszu
+„Assisted-by:”.</p>
+</div>
 <h3 id="ciaga-integracja">Ciągła integracja<a class="headerlink" href="#ciaga-integracja" title="Permanent link">&para;</a></h3>
 <p><em>Ciągła integracja</em> (ang. <em>CI</em>) to proces automatycznego sprawdzania pull
 requestów. Może on obejmować proste kontrole, takie jak sprawdzenie poprawności

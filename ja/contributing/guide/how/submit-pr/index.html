@@ -2761,7 +2761,7 @@ aria-label="ヘッダー"
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
         プルリクエストの内容
@@ -2772,7 +2772,7 @@ aria-label="ヘッダー"
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         継続的インテグレーション
@@ -4798,7 +4798,7 @@ aria-label="ヘッダー"
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
         プルリクエストの内容
@@ -4809,7 +4809,7 @@ aria-label="ヘッダー"
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         継続的インテグレーション
@@ -5125,18 +5125,26 @@ aria-label="ヘッダー"
 <ul>
 <li>アップストリームリポジトリに移動し、「プルリクエスト」をクリックした後、「新しいプルリクエスト」を選択し、プルリクエストを送信したいブランチを選択してください。</li>
 <li>最近プッシュした場合は、アップストリームリポジトリに移動し、ファイル一覧の上部に表示される「最近プッシュがあった」ことを示すバナーを見つけ、「比較してプルリクエスト」ボタンをクリックしてください。</li>
-<li>GitHub CLI <code>gh pr create</code> コマンドを使用し、プロンプトに従って入力してください。</li>
 <li>GitHub CLI <code>gh pr create --web</code> コマンドを使用して、PR作成ページにウェブブラウザを開きます。</li>
 </ul>
-<p>これらのいずれかのオプションを選択することで、新しいプルリクエストを作成できます。</p>
 <div class="admonition info">
 <p class="admonition-title">GitHub CLI: <code>gh</code></p>
 <p>GitHubは<a href="https://cli.github.com/">GitHub
 CLI</a>を提供しており、これによりターミナルから<code>gh</code>コマンドを通じてGitHubの多くの機能にアクセスできます。すべての機能については<a href="https://cli.github.com/manual/">GitHub
 CLIドキュメント</a>を参照してください。</p>
 </div>
-<h3 id="_3">プルリクエストの内容<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title"><code>gh pr create</code></p>
+<p>プルリクエストを作成する際、<code>gh pr create</code> コマンドを単独で使用しないでください。BeeWare
+プロジェクトではプルリクエスト用のテンプレートを使用しており、すべての貢献においてこのテンプレートに従うことが求められます。<code>gh pr create</code>
+コマンドを使用すると、このテンプレートの適用が回避されてしまいます。</p>
+</div>
+<h3 id="pr-content">プルリクエストの内容<a class="headerlink" href="#pr-content" title="Permanent link">&para;</a></h3>
 <p>プルリクエストのタイトルは、情報豊富で明確かつ簡潔である必要があります。可能な限り短く保つよう心がけましょう。ただし、必要に応じて長いタイトルも許容されます。優れたPRタイトルは、文脈を知らない人でも、そのPRでどのバグ修正や機能が実装されているかを十分に理解できるものでなければなりません。</p>
+<p>プルリクエストは、必ず BeeWare の
+<a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">プルリクエストテンプレート</a>
+に従ってください。GitHub
+のウェブインターフェースを使用してプルリクエストを作成した場合、このテンプレートがプルリクエストの説明文のベースとして提供されます。もしうっかりこのテンプレートを使用せずにプルリクエストを作成してしまった場合でも、プルリクエストを編集してテンプレートの内容を追加することは可能です。ただし、テンプレートの内容は必ず記載し、適切に記入する必要があります。</p>
 <p>プルリクエストの説明文は、PRの変更内容を明確に反映しなければなりません。文脈を知らない人が説明文を読んだだけで、変更の理由を比較的完全に理解できる必要があります。冗談、慣用句、口語表現、および大文字のみの使用や過剰な句読点といった不要な書式設定は避けてください。これはPRで何が起こっているかを率直に説明するものであり、こうした要素を排除することで説明文の理解しやすさが向上します。</p>
 <p>PRに既に含まれていない再現ケースやテスト手順がある場合は、それらを説明しPRに含める必要があります。説明には、それらの実行方法と、望ましい結果を再現するための手順を含めるべきです。</p>
 <p>プルリクエストが issue #1234 を解決する場合、プルリクエストの説明に <code>Fixes #1234</code>
@@ -5144,7 +5152,14 @@ CLIドキュメント</a>を参照してください。</p>
 が閉じられます。他のディスカッション、issue、プルリクエストも同様の <code>#1234</code> 構文で参照できます。異なるリポジトリの issue
 を参照するには、番号の前に - を付加します。例えば <code>python/cpython#1234</code> は CPython リポジトリの issue 1234
 を指します。</p>
-<h3 id="_4">継続的インテグレーション<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>AIツールは、冗長で役に立たないプルリクエストのメッセージを作成しがちです。AIツールを使用してプルリクエストを生成する場合、プルリクエストの説明文が簡潔であり、レビュープロセスに役立つ情報のみが含まれていることを確認するのは、<em>あなた</em>の責任です。
+例えば、テストスイートの実行方法を説明する「テスト手順」や、バグを修正すべき理由を説明する「根拠」などの詳細を含める必要はありません。過度に冗長なプルリクエスト本文は、コアチームの限られたリソースを尊重していないとみなされ、レビューされることなくプルリクエストが閉じられてしまう可能性があります。</p>
+<div class="admonition warning">
+<p class="admonition-title">BeeWareのプルリクエストテンプレート</p>
+<p>BeeWareの<a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">プルリクエストテンプレート</a>は、<strong>必須</strong>です。
+<strong>すべての</strong>プルリクエストにおいて、このテンプレートの使用が必須です。「PRチェックリスト」セクションが欠落している場合、またはチェックボックスへの回答が不完全もしくは矛盾している場合、プルリクエストは審査されません。AIツールを使用してプルリクエストを生成した場合は、必ず該当するチェックボックスにチェックを入れ、「Assisted-by:」行に詳細を記載してください。</p>
+</div>
+<h3 id="_3">継続的インテグレーション<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p><em>継続的インテグレーション</em>（<em>CI</em>）とは、プルリクエストに対して自動化されたチェックを実行するプロセスです。これには、コードが正しくフォーマットされていることを確認するといった単純なチェックが含まれますが、テストスイートの実行やドキュメントのビルドも含まれます。</p>
 <p>CIの失敗を引き起こす変更は数多く存在します。大まかに言えば、CIを通過していないプルリクエストはレビューしません。プルリクエストを作成してCIが失敗した場合、通過するまでレビューを開始しません。変更が失敗の原因となった場合、その理由を調査し問題を解決するのはあなたの責任です。</p>
 <p>CIが失敗した場合、失敗したリンクはPRページの下部、「一部のチェックが成功しませんでした」という見出しの下に表示されます。

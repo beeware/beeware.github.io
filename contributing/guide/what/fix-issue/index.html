@@ -2341,7 +2341,7 @@ aria-label="Header"
 </li>
         
           <li class="md-nav__item">
-  <a href="#pull-request-content" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
         Pull request content
@@ -5435,7 +5435,7 @@ aria-label="Header"
 </li>
         
           <li class="md-nav__item">
-  <a href="#pull-request-content" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
         Pull request content
@@ -6208,19 +6208,27 @@ aria-label="Header"
 <ul>
 <li>Navigate to the upstream repository, click on "Pull Requests" followed by "New pull request", and choose the from which you want to submit your pull request.</li>
 <li>If you pushed recently, navigate to the upstream repository, locate the banner above the list of files that indicates the repo has "had recent pushes", and click the "Compare &amp; pull request" button.</li>
-<li>Use the GitHub CLI <code>gh pr create</code> command, and fill out the prompts.</li>
 <li>Use the GitHub CLI <code>gh pr create --web</code> command to open a web browser to the PR creation page.</li>
 </ul>
-<p>Any of these options will enable you to create your new pull request.</p>
 <div class="admonition info">
 <p class="admonition-title">The GitHub CLI: <code>gh</code></p>
 <p>GitHub provides the <a href="https://cli.github.com/">GitHub CLI</a>, which gives you access to many of the features of GitHub from your terminal, through the <code>gh</code> command. The <a href="https://cli.github.com/manual/">GitHub CLI documentation</a> covers all the features.</p>
 </div>
-<h3 id="pull-request-content">Pull request content<a class="headerlink" href="#pull-request-content" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title"><code>gh pr create</code></p>
+<p>Do <em>not</em> use the bare <code>gh pr create</code> command to create your pull request. BeeWare projects use a template for pull requests, and we require all contributions to follow this template. The <code>gh pr create</code> command circumvents the use of this template.</p>
+</div>
+<h3 id="pr-content">Pull request content<a class="headerlink" href="#pr-content" title="Permanent link">&para;</a></h3>
 <p>A pull request title must be informative, clear, and concise. Try to keep it short if possible, but longer titles are acceptable, if needed. A good PR title should give a person without any context a reasonably solid idea of what bug or feature is implemented by your PR.</p>
+<p>Your pull request <strong>must</strong> follow the BeeWare <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">pull request template</a>. If you've created your pull request using the GitHub web interface, this template will be provided as a starting point for your pull request description. If you inadvertently create a pull request without using this template, you can edit the pull request to add the template content - but the template content <em>must</em> be provided and filled out appropriately.</p>
 <p>The PR description must clearly reflect the changes in the PR. A person without any context should be able to read your description, and gain a relatively complete understanding of why the change is being made. Avoid jokes, idioms, colloquialisms, and unnecessary formatting, such as using all caps or excessive punctuation; this is meant to be a straightforward explanation of what is happening in your PR, and avoiding those things makes the description more accessible to others.</p>
 <p>If there are any reproduction cases, or any testing regimen that you used that are not already a part of the changes present in the PR, they should be explained and included in the PR. The explanation should include how to run them, and what to do to reproduce the desired outcome.</p>
 <p>If your pull request will resolve issue #1234, you should include the text <code>Fixes #1234</code> in your pull request description. This will cause the issue to be automatically closed when the pull request is merged. You can refer to other discussions, issues or pull requests using the same <code>#1234</code> syntax. You can refer to an issue on a different repository by prefixing the number with - for example <code>python/cpython#1234</code> would refer to issue 1234 on the CPython repository.</p>
+<p>AI tools are especially prone to writing verbose, unhelpful pull request messages. If you use an AI tool to generate your PR, <em>you</em> are responsible for ensuring that the pull request description is concise, and only contains information that is helpful to the review process. You do not, for example, need to include details on a "testing regimen" that describes how to run the test suite, or a "rationale" for why a bug needs to be fixed. Excessively verbose pull request bodies may result in your pull request being closed without being reviewed, as they are not respectful of the limited resources of the core team.</p>
+<div class="admonition warning">
+<p class="admonition-title">The BeeWare Pull Request template</p>
+<p>The BeeWare <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">pull request template</a> is <strong>not</strong> optional. We require <strong>all</strong> pull requests to follow this template. Your pull request will not be reviewed if your pull request is missing the "PR Checklist" section, or your answers to the checkbox questions are incomplete or inconsistent. If you have used an AI tool to generate your pull request, you <em>must</em> check the relevant box, and provide details on the "Assisted-by:" line.</p>
+</div>
 <h3 id="continuous-integration">Continuous integration<a class="headerlink" href="#continuous-integration" title="Permanent link">&para;</a></h3>
 <p><em>Continuous integration</em>, or <em>CI</em>, is the process of running automated checks on your pull request. This can include simple checks like ensuring code is correctly formatted; but it also includes running the test suite, and building documentation.</p>
 <p>There are any number of changes that can result in CI failures. Broadly speaking, we won't review a PR that isn't passing CI. If you create a pull requests and CI fails, we won't begin your review until it is passing. If your changes result in a failure, it is your responsibility to look into the reason, and resolve the issue.</p>

@@ -2328,10 +2328,10 @@ aria-label="Kopfzeile"
 </li>
         
           <li class="md-nav__item">
-  <a href="#inhalt-der-pull-anfrage" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inhalt der Pull-Anfrage
+        Inhalt des Pull-Requests
       
     </span>
   </a>
@@ -5214,10 +5214,10 @@ aria-label="Kopfzeile"
 </li>
         
           <li class="md-nav__item">
-  <a href="#inhalt-der-pull-anfrage" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Inhalt der Pull-Anfrage
+        Inhalt des Pull-Requests
       
     </span>
   </a>
@@ -6115,12 +6115,9 @@ PR-Erstellung zu erhalten:</p>
   suchen Sie das Banner über der Liste der Dateien, das anzeigt, dass das
   Projektarchiv "kürzlich gepusht" wurde, und klicken Sie auf die Schaltfläche
   "Vergleichen &amp; Pull-Anfrage".</li>
-<li>Verwenden Sie den GitHub-CLI-Befehl "gh pr create", und füllen Sie die
-  Eingabeaufforderungen aus.</li>
 <li>Verwenden Sie den GitHub CLI-Befehl "gh pr create &ndash;web", um einen Webbrowser
   zu öffnen, der die PR-Erstellungsseite anzeigt.</li>
 </ul>
-<p>Mit jeder dieser Optionen können Sie Ihre neue Pull-Anfrage erstellen.</p>
 <div class="admonition info">
 <p class="admonition-title">Die GitHub-CLI: <code>gh</code></p>
 <p>GitHub stellt die <a href="https://cli.github.com/">GitHub CLI</a> zur Verfügung, mit der
@@ -6128,12 +6125,27 @@ Sie von Ihrem Terminal aus über den Befehl "gh" auf viele Funktionen von GitHub
 zugreifen können. Die <a href="https://cli.github.com/manual/">GitHub CLI-Dokumentation</a>
 behandelt alle Funktionen.</p>
 </div>
-<h3 id="inhalt-der-pull-anfrage">Inhalt der Pull-Anfrage<a class="headerlink" href="#inhalt-der-pull-anfrage" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title"><code>gh pr create</code></p>
+<p>Verwende <em>bitte</em> nicht den Befehl <code>gh pr create</code> allein, um deinen Pull-Request
+zu erstellen. BeeWare-Projekte verwenden eine Vorlage für Pull-Requests, und wir
+verlangen, dass alle Beiträge dieser Vorlage entsprechen. Der Befehl <code>gh pr
+create</code> umgeht die Verwendung dieser Vorlage.</p>
+</div>
+<h3 id="pr-content">Inhalt des Pull-Requests<a class="headerlink" href="#pr-content" title="Permanent link">&para;</a></h3>
 <p>Der Titel einer Pull-Anfrage muss informativ, klar und prägnant sein. Versuchen
 Sie, ihn möglichst kurz zu halten, aber längere Titel sind akzeptabel, wenn
 nötig. Ein guter PR-Titel sollte einer Person ohne jeglichen Kontext eine
 einigermaßen solide Vorstellung davon geben, welcher Fehler oder welche Funktion
 durch Ihren PR implementiert wird.</p>
+<p>Ihr Pull-Request <strong>muss</strong> der
+BeeWare-<a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">Pull-Request-Vorlage</a>
+entsprechen. Wenn Sie Ihren Pull-Request über die GitHub-Weboberfläche erstellt
+haben, wird diese Vorlage als Ausgangspunkt für die Beschreibung Ihres
+Pull-Requests bereitgestellt. Sollten Sie versehentlich einen Pull-Request
+erstellen, ohne diese Vorlage zu verwenden, können Sie den Pull-Request
+bearbeiten, um den Vorlageninhalt hinzuzufügen – der Vorlageninhalt <em>muss</em>
+jedoch vorhanden sein und ordnungsgemäß ausgefüllt werden.</p>
 <p>Die PR-Beschreibung muss die Änderungen in der PR klar widerspiegeln. Eine
 Person ohne jeglichen Kontext sollte in der Lage sein, Ihre Beschreibung zu
 lesen und relativ vollständig zu verstehen, warum die Änderung vorgenommen wird.
@@ -6153,6 +6165,27 @@ indem Sie die gleiche Syntax <code>#1234</code> verwenden. Sie können auf eine 
 einem anderen Repository verweisen, indem Sie der Nummer ein Präfix voranstellen
 - zum Beispiel würde <code>python/cpython#1234</code> auf die Ausgabe 1234 im CPython
 Repository verweisen.</p>
+<p>KI-Tools neigen besonders dazu, ausführliche, wenig hilfreiche
+Pull-Request-Nachrichten zu verfassen. Wenn du ein KI-Tool zur Erstellung deines
+PR verwendest, bist <em>du</em> dafür verantwortlich, sicherzustellen, dass die
+Pull-Request-Beschreibung prägnant ist und nur Informationen enthält, die für
+den Überprüfungsprozess hilfreich sind. Du musst beispielsweise keine Details zu
+einem „Testablauf“ angeben, der beschreibt, wie die Testsuite ausgeführt wird,
+oder eine „Begründung“ dafür liefern, warum ein Fehler behoben werden muss.
+Übermäßig ausführliche Pull-Request-Texte können dazu führen, dass dein Pull
+Request geschlossen wird, ohne geprüft zu werden, da sie die begrenzten
+Ressourcen des Kernteams nicht berücksichtigen.</p>
+<div class="admonition warning">
+<p class="admonition-title">Die BeeWare-Vorlage für Pull-Anfragen</p>
+<p>Die BeeWare-Vorlage für Pull-Anfragen
+<a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">Pull-Request-Vorlage</a>
+ist <strong>keine</strong> Option. Wir verlangen, dass <strong>alle</strong> Pull-Requests dieser Vorlage
+entsprechen. Ihr Pull-Request wird nicht geprüft, wenn der Abschnitt
+„PR-Checkliste“ fehlt oder Ihre Antworten auf die Fragen mit Kontrollkästchen
+unvollständig oder widersprüchlich sind. Wenn Sie ein KI-Tool zur Erstellung
+Ihres Pull-Requests verwendet haben, <em>müssen</em> Sie das entsprechende Kästchen
+ankreuzen und in der Zeile „Assisted-by:“ Details angeben.</p>
+</div>
 <h3 id="kontinuierliche-integration">Kontinuierliche Integration<a class="headerlink" href="#kontinuierliche-integration" title="Permanent link">&para;</a></h3>
 <p><em>Kontinuierliche Integration</em>, oder <em>CI</em>, ist der Prozess, bei dem
 automatisierte Prüfungen für Ihre Pull-Anfrage durchgeführt werden. Dazu können

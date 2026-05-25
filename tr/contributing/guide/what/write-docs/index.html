@@ -2328,7 +2328,7 @@ aria-label="Başlık"
 </li>
         
           <li class="md-nav__item">
-  <a href="#cekme-istegi-icerigi" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
         Çekme isteği içeriği
@@ -5225,7 +5225,7 @@ aria-label="Başlık"
 </li>
         
           <li class="md-nav__item">
-  <a href="#cekme-istegi-icerigi" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
         Çekme isteği içeriği
@@ -6084,23 +6084,34 @@ Ancak, PR oluşturma URL'sine ulaşmanın başka yolları da vardır:</p>
 <li>Son zamanlarda push yaptıysanız, upstream deposuna gidin, dosya listesinin
   üzerinde deponun "son zamanlarda push yapıldığını" belirten başlığı bulun ve
   "Karşılaştır ve pull isteği" düğmesini tıklayın.</li>
-<li>GitHub CLI <code>gh pr create</code> komutunu kullanın ve istemleri doldurun.</li>
 <li>GitHub CLI <code>gh pr create --web</code> komutunu kullanarak bir web tarayıcısını PR
   oluşturma sayfasına açın.</li>
 </ul>
-<p>Bu seçeneklerden herhangi biri, yeni çekme isteğinizi oluşturmanıza olanak
-tanır.</p>
 <div class="admonition info">
 <p class="admonition-title">GitHub CLI: <code>gh</code></p>
 <p>GitHub, terminalinizden (https://cli.github.com/) komutu aracılığıyla GitHub'ın
 birçok özelliğine erişmenizi sağlayan [GitHub CLI]<code>gh</code> sunar. <a href="https://cli.github.com/manual/">GitHub CLI
 belgeleri</a> tüm özellikleri kapsar.</p>
 </div>
-<h3 id="cekme-istegi-icerigi">Çekme isteği içeriği<a class="headerlink" href="#cekme-istegi-icerigi" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title"><code>gh pr create</code></p>
+<p>Pull isteğinizi oluştururken <em>kesinlikle</em> çıplak <code>gh pr create</code> komutunu
+kullanmayın. BeeWare projeleri, pull istekleri için bir şablon kullanır ve tüm
+katkıların bu şablona uymasını şart koşarız. <code>gh pr create</code> komutu, bu şablonun
+kullanılmasını engeller.</p>
+</div>
+<h3 id="pr-content">Çekme isteği içeriği<a class="headerlink" href="#pr-content" title="Permanent link">&para;</a></h3>
 <p>Bir çekme isteği başlığı bilgilendirici, açık ve özlü olmalıdır. Mümkünse kısa
 tutmaya çalışın, ancak gerekirse daha uzun başlıklar da kabul edilebilir. İyi
 bir PR başlığı, herhangi bir bağlam bilgisi olmayan bir kişiye, PR'nizin hangi
 hatayı veya özelliği uyguladığını makul ölçüde sağlam bir fikir vermelidir.</p>
+<p>Çekme isteğiniz <strong>mutlaka</strong> BeeWare <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">çekme isteği
+şablonunu</a>
+takip etmelidir. Çekme isteğinizi GitHub web arayüzünü kullanarak
+oluşturduysanız, bu şablon çekme isteği açıklamanız için bir başlangıç noktası
+olarak sunulacaktır. Yanlışlıkla bu şablonu kullanmadan bir çekme isteği
+oluşturursanız, çekme isteğini düzenleyerek şablon içeriğini ekleyebilirsiniz;
+ancak şablon içeriği <em>mutlaka</em> sağlanmalı ve uygun şekilde doldurulmalıdır.</p>
 <p>PR açıklaması, PR'daki değişiklikleri açıkça yansıtmalıdır. Konuyla ilgili
 hiçbir bilgisi olmayan bir kişi bile açıklamanızı okuyup, değişikliğin neden
 yapıldığına dair nispeten eksiksiz bir anlayışa sahip olabilmelidir. Şakalar,
@@ -6118,6 +6129,26 @@ otomatik olarak kapatılmasını sağlar. Aynı <code>#1234</code> sözdizimini 
 tartışmalara, sorunlara veya pull isteklerine başvurabilirsiniz. Numaraya - ön
 eki ekleyerek farklı bir depodaki bir soruna başvurabilirsiniz; örneğin,
 <code>python/cpython#1234</code> CPython deposundaki 1234 numaralı soruna başvurur.</p>
+<p>AI araçları, özellikle uzun ve gereksiz pull request mesajları yazmaya
+meyillidir. Pull request'inizi oluşturmak için bir AI aracı kullanıyorsanız,
+pull request açıklamasının özlü olmasını ve yalnızca inceleme sürecine yardımcı
+olacak bilgileri içermesini sağlamak <em>sizin</em> sorumluluğunuzdadır. Örneğin, test
+paketinin nasıl çalıştırılacağını açıklayan bir "test rejimi" veya bir hatanın
+neden düzeltilmesi gerektiğine dair bir "gerekçe" gibi ayrıntıları eklemenize
+gerek yoktur. Aşırı uzun pull request metinleri, çekirdek ekibin sınırlı
+kaynaklarına saygı göstermediği için pull request'inizin incelenmeden
+kapatılmasına neden olabilir.</p>
+<div class="admonition warning">
+<p class="admonition-title">BeeWare Pull Request şablonu</p>
+<p>BeeWare <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">çekme isteği
+şablonu</a>
+<strong>isteğe bağlı</strong> değildir. <strong>Tüm</strong> çekme isteklerinin bu şablonu takip etmesini
+zorunlu tutuyoruz. Çekme isteğinizde "PR Kontrol Listesi" bölümü eksikse veya
+onay kutusu sorularına verdiğiniz cevaplar eksik ya da tutarsızsa, çekme
+isteğiniz incelenmeyecektir. Çekme isteğinizi oluşturmak için bir AI aracı
+kullandıysanız, ilgili kutuyu işaretlemeniz ve "Assisted-by:" satırında
+ayrıntıları belirtmeniz <em>zorunludur</em>.</p>
+</div>
 <h3 id="surekli-entegrasyon">Sürekli entegrasyon<a class="headerlink" href="#surekli-entegrasyon" title="Permanent link">&para;</a></h3>
 <p><em>Sürekli entegrasyon</em> veya <em>CI</em>, çekme isteğiniz üzerinde otomatik kontroller
 gerçekleştirme sürecidir. Bu, kodun doğru biçimde biçimlendirildiğinden emin

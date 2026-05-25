@@ -2354,10 +2354,10 @@ aria-label="Intestazione"
 </li>
         
           <li class="md-nav__item">
-  <a href="#contenuto-della-richiesta-di-pull" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contenuto della richiesta di pull
+        Contenuto della pull request
       
     </span>
   </a>
@@ -5369,10 +5369,10 @@ aria-label="Intestazione"
 </li>
         
           <li class="md-nav__item">
-  <a href="#contenuto-della-richiesta-di-pull" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contenuto della richiesta di pull
+        Contenuto della pull request
       
     </span>
   </a>
@@ -6419,11 +6419,9 @@ l'URL. Tuttavia, ci sono altri modi per raggiungere l'URL di creazione della PR:
 <li>Se si è effettuato un push di recente, navigare nel repository upstream,
   individuare il banner sopra l'elenco dei file che indica che il repository ha
   "avuto push recenti" e fare clic sul pulsante "Compare &amp; pull request".</li>
-<li>Utilizzare il comando <code>gh pr create</code> di GitHub CLI e compilare le richieste.</li>
 <li>Usare il comando GitHub CLI <code>gh pr create --web</code> per aprire un browser web
   alla pagina di creazione della PR.</li>
 </ul>
-<p>Ognuna di queste opzioni consente di creare una nuova richiesta di pull.</p>
 <div class="admonition info">
 <p class="admonition-title">La CLI GitHub: <code>gh</code></p>
 <p>GitHub fornisce la <a href="https://cli.github.com/">GitHub CLI</a>, che consente di
@@ -6431,12 +6429,27 @@ accedere a molte delle funzionalità di GitHub dal proprio terminale, attraverso
 il comando <code>gh</code>. La <a href="https://cli.github.com/manual/">Documentazione della GitHub
 CLI</a> copre tutte le funzionalità.</p>
 </div>
-<h3 id="contenuto-della-richiesta-di-pull">Contenuto della richiesta di pull<a class="headerlink" href="#contenuto-della-richiesta-di-pull" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title"><code>gh pr create</code></p>
+<p>Non utilizzare il comando <code>gh pr create</code> da solo per creare la tua richiesta di
+pull. I progetti BeeWare utilizzano un modello per le richieste di pull e
+richiediamo che tutti i contributi seguano tale modello. Il comando <code>gh pr
+create</code> aggirerebbe l'uso di questo modello.</p>
+</div>
+<h3 id="pr-content">Contenuto della pull request<a class="headerlink" href="#pr-content" title="Permanent link">&para;</a></h3>
 <p>Il titolo di una richiesta di pull deve essere informativo, chiaro e conciso.
 Cercate di mantenerlo breve se possibile, ma titoli più lunghi sono accettabili,
 se necessario. Un buon titolo di una PR dovrebbe dare a una persona senza alcun
 contesto un'idea ragionevolmente solida di quale sia il bug o la funzionalità
 implementata dalla PR.</p>
+<p>La tua richiesta di pull <strong>deve</strong> seguire il <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">modello per le richieste di
+pull</a>
+di BeeWare. Se hai creato la tua richiesta di pull utilizzando l'interfaccia web
+di GitHub, questo modello ti verrà fornito come punto di partenza per la
+descrizione della richiesta. Se dovessi creare inavvertitamente una richiesta di
+pull senza utilizzare questo modello, puoi modificare la richiesta per
+aggiungere il contenuto del modello; tuttavia, il contenuto del modello <em>deve</em>
+essere fornito e compilato in modo appropriato.</p>
 <p>La descrizione della PR deve riflettere chiaramente le modifiche apportate. Una
 persona priva di contesto dovrebbe essere in grado di leggere la descrizione e
 comprendere in modo relativamente completo il motivo della modifica. Evitate
@@ -6455,6 +6468,27 @@ unita. È possibile fare riferimento ad altre discussioni, problemi o richieste
 di pull usando la stessa sintassi <code>#1234</code>. È possibile fare riferimento a un
 problema su un repository diverso anteponendo il numero - per esempio
 <code>python/cpython#1234</code> si riferisce al problema 1234 sul repository CPython.</p>
+<p>Gli strumenti basati sull'intelligenza artificiale tendono particolarmente a
+generare messaggi di pull request prolissi e poco utili. Se utilizzi uno
+strumento di questo tipo per generare la tua PR, <em>tu</em> hai la responsabilità di
+assicurarti che la descrizione della pull request sia concisa e contenga solo
+informazioni utili al processo di revisione. Non è necessario, ad esempio,
+includere dettagli su un "regime di test" che descriva come eseguire la suite di
+test, o una "motivazione" del perché un bug debba essere risolto. I corpi delle
+richieste di pull eccessivamente prolissi possono comportare la chiusura della
+richiesta senza che venga revisionata, poiché non rispettano le risorse limitate
+del team principale.</p>
+<div class="admonition warning">
+<p class="admonition-title">Il modello di pull request di BeeWare</p>
+<p>Il modello di pull request di BeeWare <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">pull request
+template</a>
+<strong>non</strong> è facoltativo. Richiediamo che <strong>tutte</strong> le pull request seguano questo
+modello. La tua pull request non verrà esaminata se manca la sezione "PR
+Checklist" o se le tue risposte alle domande con caselle di controllo sono
+incomplete o incoerenti. Se hai utilizzato uno strumento di IA per generare la
+tua pull request, <em>devi</em> selezionare la casella pertinente e fornire dettagli
+nella riga "Assisted-by:".</p>
+</div>
 <h3 id="integrazione-continua">Integrazione continua<a class="headerlink" href="#integrazione-continua" title="Permanent link">&para;</a></h3>
 <p><em>L'integrazione continua</em>, o <em>CI</em>, è il processo di esecuzione di controlli
 automatici sulla richiesta di pull. Questo può includere controlli semplici,

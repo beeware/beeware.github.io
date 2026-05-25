@@ -2328,10 +2328,10 @@ aria-label="En-tête"
 </li>
         
           <li class="md-nav__item">
-  <a href="#contenu-de-la-demande-dextraction" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contenu de la demande d'extraction
+        Contenu de la pull request
       
     </span>
   </a>
@@ -5225,10 +5225,10 @@ aria-label="En-tête"
 </li>
         
           <li class="md-nav__item">
-  <a href="#contenu-de-la-demande-dextraction" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contenu de la demande d'extraction
+        Contenu de la pull request
       
     </span>
   </a>
@@ -6154,12 +6154,9 @@ l'URL. Cependant, il existe d'autres moyens d'accéder à l'URL de création du 
   bannière au-dessus de la liste des fichiers qui indique que le dépôt a "eu des
   poussées récentes", et cliquez sur le bouton "Comparez et faites une demande
   de traction".</li>
-<li>Utilisez la commande GitHub CLI <code>gh pr create</code>, et répondez aux questions.</li>
 <li>Utilisez la commande GitHub CLI <code>gh pr create --web</code> pour ouvrir un navigateur
   web vers la page de création du PR.</li>
 </ul>
-<p>Chacune de ces options vous permettra de créer votre nouvelle demande
-d'extraction.</p>
 <div class="admonition info">
 <p class="admonition-title">L'interface CLI GitHub : <code>gh</code></p>
 <p>GitHub fournit le <a href="https://cli.github.com/">GitHub CLI</a>, qui vous permet
@@ -6167,12 +6164,26 @@ d'accéder à de nombreuses fonctionnalités de GitHub depuis votre terminal, à
 travers la commande <code>gh</code>. La <a href="https://cli.github.com/manual/">documentation de l'interface de programmation de
 GitHub</a> couvre toutes les fonctionnalités.</p>
 </div>
-<h3 id="contenu-de-la-demande-dextraction">Contenu de la demande d'extraction<a class="headerlink" href="#contenu-de-la-demande-dextraction" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title"><code>gh pr create</code></p>
+<p>N'utilisez <em>pas</em> la commande <code>gh pr create</code> seule pour créer votre pull request.
+Les projets BeeWare utilisent un modèle pour les pull requests, et nous exigeons
+que toutes les contributions respectent ce modèle. La commande <code>gh pr create</code>
+contourne l'utilisation de ce modèle.</p>
+</div>
+<h3 id="pr-content">Contenu de la pull request<a class="headerlink" href="#pr-content" title="Permanent link">&para;</a></h3>
 <p>Le titre d'une demande d'extraction doit être informatif, clair et concis.
 Essayez de le garder court si possible, mais des titres plus longs sont
 acceptables, si nécessaire. Un bon titre de PR devrait donner à une personne
 sans contexte une idée raisonnablement solide du bogue ou de la fonctionnalité
 implémentée par votre PR.</p>
+<p>Votre pull request <strong>doit</strong> respecter le <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">modèle de pull
+request</a>
+de BeeWare. Si vous avez créé votre pull request via l'interface web de GitHub,
+ce modèle vous sera proposé comme point de départ pour la description de votre
+pull request. Si vous créez par inadvertance une pull request sans utiliser ce
+modèle, vous pouvez modifier la pull request pour y ajouter le contenu du modèle
+; toutefois, ce contenu <em>doit</em> être fourni et correctement renseigné.</p>
 <p>La description du PR doit refléter clairement les modifications apportées au PR.
 Une personne dépourvue de tout contexte doit pouvoir lire votre description et
 comprendre de manière relativement complète les raisons de la modification.
@@ -6193,6 +6204,28 @@ demandes d'extraction en utilisant la même syntaxe <code>#1234</code>. Vous pou
 référence à un problème sur un dépôt différent en préfixant le numéro avec - par
 exemple <code>python/cpython#1234</code> ferait référence au problème 1234 sur le dépôt
 CPython.</p>
+<p>Les outils d'IA ont particulièrement tendance à rédiger des messages de pull
+request trop détaillés et peu utiles. Si vous utilisez un outil d'IA pour
+générer votre PR, c'est à <em>vous</em> qu'il incombe de veiller à ce que la
+description de la pull request soit concise et ne contienne que des informations
+utiles au processus de révision. Vous n'avez pas besoin, par exemple, d'inclure
+des détails sur un « protocole de test » décrivant comment exécuter la suite de
+tests, ni une « justification » expliquant pourquoi un bug doit être corrigé.
+Des corps de pull request excessivement verbeux peuvent entraîner la fermeture
+de votre pull request sans qu'elle ne soit examinée, car ils ne respectent pas
+les ressources limitées de l'équipe principale.</p>
+<div class="admonition warning">
+<p class="admonition-title">Le modèle de pull request BeeWare</p>
+<p>Le modèle de pull request BeeWare
+[(https://github.com/beeware/.github/blob/main/.github/pull_request_template.md)]
+n'est <strong>pas</strong> facultatif. Nous exigeons que <strong>toutes</strong> les pull requests
+respectent ce modèle. Votre pull request ne sera pas examinée si la section « PR
+Checklist » (Liste de contrôle PR) est manquante, ou si vos réponses aux
+questions à cocher sont incomplètes ou incohérentes. Si vous avez utilisé un
+outil d'IA pour générer votre pull request, vous <em>devez</em> cocher la case
+correspondante et fournir des détails dans la ligne « Assisted-by: » (Assisté
+par :).</p>
+</div>
 <h3 id="integration-continue">Intégration continue<a class="headerlink" href="#integration-continue" title="Permanent link">&para;</a></h3>
 <p>*L'intégration continue est le processus qui consiste à effectuer des
 vérifications automatisées sur votre demande d'extraction. Il peut s'agir de

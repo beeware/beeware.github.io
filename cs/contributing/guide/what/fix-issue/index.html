@@ -2341,10 +2341,10 @@ aria-label="Záhlaví"
 </li>
         
           <li class="md-nav__item">
-  <a href="#obsah-zadosti-o-stazeni" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Obsah žádosti o stažení
+        Obsah žádosti o začlenění
       
     </span>
   </a>
@@ -5435,10 +5435,10 @@ aria-label="Záhlaví"
 </li>
         
           <li class="md-nav__item">
-  <a href="#obsah-zadosti-o-stazeni" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Obsah žádosti o stažení
+        Obsah žádosti o začlenění
       
     </span>
   </a>
@@ -6488,11 +6488,9 @@ Existují však i jiné způsoby, jak získat URL adresu pro vytvoření PR:</p>
 <li>Pokud jste nedávno provedli push, přejděte do upstreamového repozitáře,
   najděte banner nad seznamem souborů, který označuje, že repozitář „měl nedávné
   pushy“, a klikněte na tlačítko „Porovnat a stáhnout požadavek“.</li>
-<li>Použijte příkaz GitHub CLI <code>gh pr create</code> a vyplňte požadované údaje.</li>
 <li>Pomocí příkazu GitHub CLI <code>gh pr create --web</code> otevřete webový prohlížeč na
   stránce pro vytvoření PR.</li>
 </ul>
-<p>Kterákoli z těchto možností vám umožní vytvořit nový pull request.</p>
 <div class="admonition info">
 <p class="admonition-title">CLI GitHub: <code>gh</code></p>
 <p>GitHub poskytuje <a href="https://cli.github.com/">GitHub CLI</a>, které vám umožňuje
@@ -6500,11 +6498,25 @@ přístup k mnoha funkcím GitHubu z vašeho terminálu pomocí příkazu <code>
 <a href="https://cli.github.com/manual/">Dokumentace GitHub CLI</a> popisuje všechny
 funkce.</p>
 </div>
-<h3 id="obsah-zadosti-o-stazeni">Obsah žádosti o stažení<a class="headerlink" href="#obsah-zadosti-o-stazeni" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title"><code>gh pr create</code></p>
+<p>K vytvoření žádosti o začlenění <em>nepoužívejte</em> příkaz <code>gh pr create</code> bez
+dalšího. Projekty BeeWare používají pro žádosti o začlenění šablonu a
+vyžadujeme, aby všechny příspěvky tuto šablonu dodržovaly. Příkaz <code>gh pr create</code>
+obchází použití této šablony.</p>
+</div>
+<h3 id="pr-content">Obsah žádosti o začlenění<a class="headerlink" href="#pr-content" title="Permanent link">&para;</a></h3>
 <p>Název žádosti o stažení musí být informativní, jasný a stručný. Snažte se, aby
 byl pokud možno krátký, ale v případě potřeby jsou přijatelné i delší názvy.
 Dobrý název PR by měl osobě bez jakéhokoli kontextu poskytnout přiměřeně solidní
 představu o tom, jaká chyba nebo funkce je ve vašem PR implementována.</p>
+<p>Váš pull request <strong>musí</strong> odpovídat šabloně BeeWare <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">pull request
+template</a>.
+Pokud jste pull request vytvořili pomocí webového rozhraní GitHubu, bude vám
+tato šablona poskytnuta jako výchozí text pro popis vašeho pull requestu. Pokud
+jste pull request omylem vytvořili bez použití této šablony, můžete jej upravit
+a obsah šablony doplnit – obsah šablony však <em>musí</em> být uveden a správně
+vyplněn.</p>
 <p>Popis PR musí jasně odrážet změny v PR. Osoba bez jakéhokoli kontextu by měla
 být schopna přečíst váš popis a získat relativně úplné pochopení toho, proč se
 změna provádí. Vyhněte se vtipům, idiomům, hovorovým výrazům a zbytečnému
@@ -6521,6 +6533,25 @@ pull request sloučen. Stejnou syntaxi <code>#1234</code> můžete použít i pr
 diskuze, problémy nebo pull requesty. Pro odkaz na problém v jiném repozitáři
 před číslo vložte znak - například <code>python/cpython#1234</code> odkazuje na problém
 1234 v repozitáři CPython.</p>
+<p>Nástroje s umělou inteligencí mají obzvláště sklon psát rozvláčné a nepoužitelné
+zprávy k žádostem o začlenění. Pokud k vytvoření žádosti o začlenění používáte
+nástroj s umělou inteligencí, <em>vy</em> nesete odpovědnost za to, aby popis žádosti
+byl stručný a obsahoval pouze informace, které jsou užitečné pro proces
+posuzování. Například nemusíte uvádět podrobnosti o „testovacím režimu“, který
+popisuje, jak spustit sadu testů, ani „zdůvodnění“, proč je třeba chybu opravit.
+Příliš podrobné texty pull requestů mohou vést k tomu, že váš pull request bude
+uzavřen bez přezkoumání, protože nerespektují omezené zdroje jádrového týmu.</p>
+<div class="admonition warning">
+<p class="admonition-title">Šablona žádosti o začlenění pro BeeWare</p>
+<p>Šablona pull requestu pro BeeWare <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">pull request
+template</a>
+<strong>není</strong> volitelná. Požadujeme, aby <strong>všechny</strong> žádosti o pull request
+dodržovaly tuto šablonu. Vaše žádost o pull request nebude posouzena, pokud v ní
+chybí část „PR Checklist“ nebo pokud jsou vaše odpovědi na otázky s
+zaškrtávacími políčky neúplné nebo nekonzistentní. Pokud jste k vytvoření
+žádosti o pull request použili nástroj AI, <em>musíte</em> zaškrtnout příslušné políčko
+a uvést podrobnosti v řádku „Assisted-by:“.</p>
+</div>
 <h3 id="kontinualni-integrace">Kontinuální integrace<a class="headerlink" href="#kontinualni-integrace" title="Permanent link">&para;</a></h3>
 <p><em>Kontinuální integrace</em> (CI) je proces automatizované kontroly vašich požadavků
 na stažení. Může zahrnovat jednoduché kontroly, jako je zajištění správného

@@ -2341,10 +2341,10 @@ aria-label="Cabecera"
 </li>
         
           <li class="md-nav__item">
-  <a href="#contenido-de-solicitud-de-extraccion" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contenido de solicitud de extracción
+        Contenido de la solicitud de incorporación de cambios
       
     </span>
   </a>
@@ -5435,10 +5435,10 @@ aria-label="Cabecera"
 </li>
         
           <li class="md-nav__item">
-  <a href="#contenido-de-solicitud-de-extraccion" class="md-nav__link">
+  <a href="#pr-content" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Contenido de solicitud de extracción
+        Contenido de la solicitud de incorporación de cambios
       
     </span>
   </a>
@@ -6527,12 +6527,9 @@ del RP:</p>
   la pancarta por encima del listado de archivos que indican que el repositorio
   ha «tenido recientes extracciones», y pulsa el botón «Comparar y solicitar
   extracción».</li>
-<li>Utiliza el comando <code>gh pr create</code> de la CLI de GitHub, y rellena las
-  solicitudes.</li>
 <li>Utiliza la instrucción de CLI GitHub <code>gh pr create --web</code> para abrir un
   navegador web en la página de creación del RP.</li>
 </ul>
-<p>Cualquiera de estas opciones le habilitará para crear su pull request nuevo.</p>
 <div class="admonition info">
 <p class="admonition-title">La CLI de GitHub: <code>gh</code></p>
 <p>GitHub proporciona la <a href="https://cli.github.com/">CLI de GitHub</a>, la cual te da
@@ -6540,11 +6537,28 @@ acceso a muchas de las prestaciones de GitHub desde tu terminal, a través de la
 instrucción <code>gh</code>. La <a href="https://cli.github.com/manual/">documentación de CLI
 GitHub</a> cubre todas las prestaciones.</p>
 </div>
-<h3 id="contenido-de-solicitud-de-extraccion">Contenido de solicitud de extracción<a class="headerlink" href="#contenido-de-solicitud-de-extraccion" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title"><code>gh pr create</code></p>
+<p><em>No</em> utilices el comando <code>gh pr create</code> sin más para crear tu solicitud de
+incorporación de cambios. Los proyectos de BeeWare utilizan una plantilla para
+las solicitudes de incorporación de cambios, y exigimos que todas las
+contribuciones sigan esta plantilla. El comando <code>gh pr create</code> evita el uso de
+esta plantilla.</p>
+</div>
+<h3 id="pr-content">Contenido de la solicitud de incorporación de cambios<a class="headerlink" href="#pr-content" title="Permanent link">&para;</a></h3>
 <p>El título de una solicitud de extracción debe ser informativo, claro y conciso.
 Intente que sea corto si es posible, pero se aceptan títulos más largos si es
 necesario. Un buen título de RP debe dar a una persona sin ningún contexto una
 idea razonablemente sólida de qué defecto o prestación se implementa en tu RP.</p>
+<p>Tu solicitud de incorporación de cambios <strong>debe</strong> seguir la <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">plantilla de
+solicitud de incorporación de
+cambios</a>
+de BeeWare. Si has creado tu solicitud de incorporación de cambios a través de
+la interfaz web de GitHub, esta plantilla aparecerá como punto de partida para
+la descripción de tu solicitud. Si, sin darte cuenta, creas una solicitud de
+incorporación de cambios sin utilizar esta plantilla, puedes editarla para
+añadir el contenido de la plantilla; sin embargo, <em>es obligatorio</em> incluir dicho
+contenido y rellenarlo correctamente.</p>
 <p>La descripción del RP debe reflejar claramente los cambios en el RP. Una persona
 sin ningún contexto debería ser capaz de leer su descripción, y obtener una
 comprensión relativamente completa de por qué se está realizando el cambio.
@@ -6563,6 +6577,28 @@ referencia a otras discusiones, incidencias o pull requests utilizando la misma
 sintaxis <code>#1234</code>. Puede hacer referencia a una incidencia en un repositorio
 diferente anteponiendo el número; por ejemplo <code>python/cpython#1234</code> haría
 referencia a la incidencia 1234 en el repositorio CPython.</p>
+<p>Las herramientas de IA tienden especialmente a redactar mensajes de solicitud de
+incorporación de cambios (PR) demasiado extensos y poco útiles. Si utilizas una
+herramienta de IA para generar tu PR, <em>tú</em> eres responsable de garantizar que la
+descripción de la solicitud de incorporación de cambios sea concisa y solo
+contenga información útil para el proceso de revisión. Por ejemplo, no es
+necesario que incluyas detalles sobre un «protocolo de pruebas» que describa
+cómo ejecutar el conjunto de pruebas, ni una «justificación» de por qué hay que
+corregir un error. Los cuerpos de las solicitudes de incorporación de cambios
+excesivamente prolijos pueden dar lugar a que tu solicitud se cierre sin ser
+revisada, ya que no respetan los recursos limitados del equipo principal.</p>
+<div class="admonition warning">
+<p class="admonition-title">La plantilla de solicitud de incorporación de cambios de BeeWare</p>
+<p>La <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">plantilla de solicitud de incorporación de
+cambios</a>
+de BeeWare <strong>no</strong> es opcional. Exigimos que <strong>todas</strong> las solicitudes de
+incorporación de cambios sigan esta plantilla. Tu solicitud de incorporación de
+cambios no se revisará si no incluye la sección «Lista de verificación de PR» o
+si tus respuestas a las preguntas de las casillas de verificación están
+incompletas o son incoherentes. Si has utilizado una herramienta de IA para
+generar tu solicitud de incorporación de cambios, <em>debes</em> marcar la casilla
+correspondiente y proporcionar detalles en la línea «Asistido por:».</p>
+</div>
 <h3 id="integracion-continua">Integración continua<a class="headerlink" href="#integracion-continua" title="Permanent link">&para;</a></h3>
 <p>La <em>integración continua</em>, o <em>IC</em>, es el proceso de ejecutar comprobaciones
 automatizadas en tu solicitud de extracción. Esto puede incluir comprobaciones
