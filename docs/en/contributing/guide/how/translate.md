@@ -1,3 +1,3 @@
 # Translating content
 
-{% extends "contribute/how/translate.md" %}
+{% extends "_shared/contribute/how/translate.md" %}
