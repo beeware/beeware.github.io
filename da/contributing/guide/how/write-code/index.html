@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Sidehoved"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/write-code/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/write-code/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -5218,30 +5226,16 @@ aria-label="Sidehoved"
 
 
 <h1 id="skrivning-krsel-og-test-af-kode">Skrivning, kørsel og test af kode<a class="headerlink" href="#skrivning-krsel-og-test-af-kode" title="Permanent link">&para;</a></h1>
-<p>Hvis du skal rette en fejl eller implementere en ny funktion, bliver du nødt til
-at skrive noget nyt kode.</p>
-<p>For at begynde at arbejde med kode skal du sikre dig, at du har en
-<a href="../dev-environment/">udviklingsmiljø</a> opsat, og at du <a href="../branches/">arbejder på en
-gren</a>.</p>
-<p>Vi har en <a href="../../style/code-style-guide/">kodestilguide</a>, der beskriver vores
-retningslinjer for at skrive kode til BeeWare.</p>
+<p>Hvis du skal rette en fejl eller implementere en ny funktion, bliver du nødt til at skrive noget nyt kode.</p>
+<p>For at begynde at arbejde med kode skal du sikre dig, at du har en <a href="../dev-environment/">udviklingsmiljø</a> opsat, og at du <a href="../branches/">arbejder på en gren</a>.</p>
+<p>Vi har en <a href="../../style/code-style-guide/">kodestilguide</a>, der beskriver vores retningslinjer for at skrive kode til BeeWare.</p>
 <h3 id="testdrevet-udvikling">Testdrevet udvikling<a class="headerlink" href="#testdrevet-udvikling" title="Permanent link">&para;</a></h3>
-<p>En god måde at sikre sig på, at din kode kommer til at fungere som forventet, er
-først at skrive et testscenarie til at teste den. Dette testscenarie bør i
-første omgang mislykkes, da den kode, det tester, endnu ikke findes. Derefter
-kan du foretage de nødvendige ændringer i koden, så testen består, og dermed
-vide, at det, du har skrevet, løser det problem, du havde forventet.</p>
+<p>En god måde at sikre sig på, at din kode kommer til at fungere som forventet, er først at skrive et testscenarie til at teste den. Dette testscenarie bør i første omgang mislykkes, da den kode, det tester, endnu ikke findes. Derefter kan du foretage de nødvendige ændringer i koden, så testen består, og dermed vide, at det, du har skrevet, løser det problem, du havde forventet.</p>
 <h3 id="kr-din-kode">Kør din kode<a class="headerlink" href="#kr-din-kode" title="Permanent link">&para;</a></h3>
-<p>Når du har skrevet din kode, skal du sikre dig, at den fungerer. Du skal køre
-koden manuelt for at kontrollere, at den opfører sig som forventet. Hvis du ikke
-allerede har gjort det, bør du skrive en testcase for dine ændringer; som nævnt
-ovenfor skal denne test mislykkes, hvis koden er kommenteret ud eller mangler.</p>
-<p>Du skal tilføje din testtilfælde til testsuiten, så den kan køres sammen med de
-øvrige tests. Det næste trin er at køre testsuiten.</p>
+<p>Når du har skrevet din kode, skal du sikre dig, at den fungerer. Du skal køre koden manuelt for at kontrollere, at den opfører sig som forventet. Hvis du ikke allerede har gjort det, bør du skrive en testcase for dine ændringer; som nævnt ovenfor skal denne test mislykkes, hvis koden er kommenteret ud eller mangler.</p>
+<p>Du skal tilføje din testtilfælde til testsuiten, så den kan køres sammen med de øvrige tests. Det næste trin er at køre testsuiten.</p>
 <h3 id="run-test-suite">Kører test og dækning<a class="headerlink" href="#run-test-suite" title="Permanent link">&para;</a></h3>
-<p>BeeWare bruger <a href="https://tox.wiki/en/latest/"><code>tox</code></a> til at styre
-testprocessen og <a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> til sin egen
-testsuite.</p>
+<p>BeeWare bruger <a href="https://tox.wiki/en/latest/"><code>tox</code></a> til at styre testprocessen og <a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> til sin egen testsuite.</p>
 <p>Standardkommandoen <code>tox</code> omfatter følgende:</p>
 <ul>
 <li>pre-commit-hooks</li>
@@ -5274,33 +5268,13 @@ testsuite.</p>
 </div>
 </div>
 </div>
-<p>Det kan tage et stykke tid at køre den fulde testsuite. Du kan gøre det
-betydeligt hurtigere ved at køre <code>tox</code> parallelt, ved at køre <code>tox p</code> (eller
-<code>tox run-parallel</code>). Når du kører testsuiten parallelt, får du mindre feedback
-om testsuitenes fremskridt undervejs, men du får stadig en oversigt over
-eventuelle fundne problemer ved afslutningen af testkørslen. Du bør få en
-udskrift, der viser, at testene er blevet kørt. Du kan muligvis se <code>SKIPPED</code>
-test, men bør aldrig få nogen <code>FAIL</code> eller <code>ERROR</code> testresultater. Vi kører
-vores fulde testsuite, før vi fletter hver patch. Hvis denne proces opdager
-problemer, fletter vi ikke patchen. Hvis du finder en testfejl eller et
-testsvigt, er der enten noget mærkeligt i dit testmiljø, eller også har du
-fundet et grænsetilfælde, som vi ikke har set før – uanset hvad, så lad os det
-vide!</p>
-<p>Ud over at testene er bestået, bør dette vise <a class="autorefs autorefs-internal" title="Kodedækning" href="#code-coverage">100 %
-testdækning</a>.</p>
+<p>Det kan tage et stykke tid at køre den fulde testsuite. Du kan gøre det betydeligt hurtigere ved at køre <code>tox</code> parallelt, ved at køre <code>tox p</code> (eller <code>tox run-parallel</code>). Når du kører testsuiten parallelt, får du mindre feedback om testsuitenes fremskridt undervejs, men du får stadig en oversigt over eventuelle fundne problemer ved afslutningen af testkørslen. Du bør få en udskrift, der viser, at testene er blevet kørt. Du kan muligvis se <code>SKIPPED</code> test, men bør aldrig få nogen <code>FAIL</code> eller <code>ERROR</code> testresultater. Vi kører vores fulde testsuite, før vi fletter hver patch. Hvis denne proces opdager problemer, fletter vi ikke patchen. Hvis du finder en testfejl eller et testsvigt, er der enten noget mærkeligt i dit testmiljø, eller også har du fundet et grænsetilfælde, som vi ikke har set før – uanset hvad, så lad os det vide!</p>
+<p>Ud over at testene er bestået, bør dette vise <a class="autorefs autorefs-internal" title="Kodedækning" href="#code-coverage">100 % testdækning</a>.</p>
 <h3 id="krsel-af-testvarianter">Kørsel af testvarianter<a class="headerlink" href="#krsel-af-testvarianter" title="Permanent link">&para;</a></h3>
 <h4 id="kr-test-for-flere-versioner-af-python">Kør test for flere versioner af Python<a class="headerlink" href="#kr-test-for-flere-versioner-af-python" title="Permanent link">&para;</a></h4>
-<p>Som standard vil mange af <code>tox</code>-kommandoerne forsøge at køre testsuiten flere
-gange, én gang for hver Python-version, der understøttes af BeeWare.
-For at dette skal lykkes, skal hver af disse Python-versioner dog være
-installeret på din computer og tilgængelig for <code>tox</code>-programmets
-Python-<a href="https://virtualenv.pypa.io/en/latest/explanation.html#python-discovery">discovery</a>-proces.
-Generelt gælder det, at hvis en Python-version er tilgængelig via <code>PATH</code>, bør
-<code>tox</code> kunne finde og bruge den.</p>
+<p>Som standard vil mange af <code>tox</code>-kommandoerne forsøge at køre testsuiten flere gange, én gang for hver Python-version, der understøttes af BeeWare. For at dette skal lykkes, skal hver af disse Python-versioner dog være installeret på din computer og tilgængelig for <code>tox</code>-programmets Python-<a href="https://virtualenv.pypa.io/en/latest/explanation.html#python-discovery">discovery</a>-proces. Generelt gælder det, at hvis en Python-version er tilgængelig via <code>PATH</code>, bør <code>tox</code> kunne finde og bruge den.</p>
 <h4 id="kr-kun-testsuiten">Kør kun testsuiten<a class="headerlink" href="#kr-kun-testsuiten" title="Permanent link">&para;</a></h4>
-<p>Hvis du arbejder hurtigt med en ny funktion, behøver du ikke køre hele
-testsuiten; du kan nøjes med <em>kun</em> at køre enhedstestene. For at gøre dette skal
-du køre:</p>
+<p>Hvis du arbejder hurtigt med en ny funktion, behøver du ikke køre hele testsuiten; du kan nøjes med <em>kun</em> at køre enhedstestene. For at gøre dette skal du køre:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5318,13 +5292,7 @@ du køre:</p>
 </div>
 </div>
 <h4 id="test-subset">Kør en delmængde af testene<a class="headerlink" href="#test-subset" title="Permanent link">&para;</a></h4>
-<p>Som standard kører <code>tox</code> alle testene i enhedstestsuiten. Når du udvikler en ny
-test, kan det være nyttigt at køre <em>kun</em> den ene test. For at gøre dette kan du
-angive <a href="https://docs.pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run">en hvilken som helst <code>pytest</code>
-specifikator</a>
-som et argument til <code>tox</code>. Disse teststier er relative i forhold til
-<code>briefcase</code>-mappen. Hvis du f.eks. kun vil køre testene i en enkelt fil, skal du
-køre:</p>
+<p>Som standard kører <code>tox</code> alle testene i enhedstestsuiten. Når du udvikler en ny test, kan det være nyttigt at køre <em>kun</em> den ene test. For at gøre dette kan du angive <a href="https://docs.pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run">en hvilken som helst <code>pytest</code> specifikator</a> som et argument til <code>tox</code>. Disse teststier er relative i forhold til <code>briefcase</code>-mappen. Hvis du f.eks. kun vil køre testene i en enkelt fil, skal du køre:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5341,14 +5309,9 @@ køre:</p>
 </div>
 </div>
 </div>
-<p>Du får stadig en dækningsrapport, når du kører en del af testsuiten – men
-dækningsresultaterne vil kun vise de kodelinjer, der blev udført af de
-specifikke tests, du kørte.</p>
+<p>Du får stadig en dækningsrapport, når du kører en del af testsuiten – men dækningsresultaterne vil kun vise de kodelinjer, der blev udført af de specifikke tests, du kørte.</p>
 <h4 id="test-py-version">Kør testsuiten for en bestemt Python-version<a class="headerlink" href="#test-py-version" title="Permanent link">&para;</a></h4>
-<p>Som standard kører <code>tox -e py</code> med den fortolker, der identificeres som <code>python</code>
-på din computer. Hvis du har flere Python-versioner installeret og ønsker at
-teste en bestemt version blandt de installerede, kan du angive, hvilken
-Python-version der skal bruges. Hvis du f.eks. vil køre testsuiten på Python 3.10, skal du køre følgende:</p>
+<p>Som standard kører <code>tox -e py</code> med den fortolker, der identificeres som <code>python</code> på din computer. Hvis du har flere Python-versioner installeret og ønsker at teste en bestemt version blandt de installerede, kan du angive, hvilken Python-version der skal bruges. Hvis du f.eks. vil køre testsuiten på Python 3.10, skal du køre følgende:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5365,14 +5328,9 @@ Python-version der skal bruges. Hvis du f.eks. vil køre testsuiten på Python 3
 </div>
 </div>
 </div>
-<p>En <a class="autorefs autorefs-internal" title="Kør en delmængde af testene" href="#test-subset">delmængde af test</a> kan køres ved at tilføje <code>--</code> og en
-testspecifikation til kommandolinjen.</p>
+<p>En <a class="autorefs autorefs-internal" title="Kør en delmængde af testene" href="#test-subset">delmængde af test</a> kan køres ved at tilføje <code>--</code> og en testspecifikation til kommandolinjen.</p>
 <h4 id="kr-testsuiten-uden-dkning-hurtigt">Kør testsuiten uden dækning (hurtigt)<a class="headerlink" href="#kr-testsuiten-uden-dkning-hurtigt" title="Permanent link">&para;</a></h4>
-<p>Som standard kører <code>tox</code> pytest-testsuiten i enkeltrådet tilstand. Du kan gøre
-udførelsen af testsuiten hurtigere ved at køre den parallelt. Denne tilstand
-genererer ikke dækningsfiler på grund af de tekniske udfordringer, der er
-forbundet med at registrere dækning i de oprettede processer. For at køre en
-enkelt Python-version i "hurtig" tilstand skal du køre:</p>
+<p>Som standard kører <code>tox</code> pytest-testsuiten i enkeltrådet tilstand. Du kan gøre udførelsen af testsuiten hurtigere ved at køre den parallelt. Denne tilstand genererer ikke dækningsfiler på grund af de tekniske udfordringer, der er forbundet med at registrere dækning i de oprettede processer. For at køre en enkelt Python-version i "hurtig" tilstand skal du køre:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5389,46 +5347,21 @@ enkelt Python-version i "hurtig" tilstand skal du køre:</p>
 </div>
 </div>
 </div>
-<p>En <a class="autorefs autorefs-internal" title="Kør en delmængde af testene" href="#test-subset">delmængde af test</a> kan køres ved at tilføje <code>--</code> og en
-testspecifikation til kommandolinjen; en <a class="autorefs autorefs-internal" title="Kør testsuiten for en bestemt Python-version" href="#test-py-version">bestemt
-Python-version</a> kan anvendes ved at tilføje versionen til
-testmålet (f.eks. <code>py310-fast</code> for at køre fast på
-Python 3.10).</p>
+<p>En <a class="autorefs autorefs-internal" title="Kør en delmængde af testene" href="#test-subset">delmængde af test</a> kan køres ved at tilføje <code>--</code> og en testspecifikation til kommandolinjen; en <a class="autorefs autorefs-internal" title="Kør testsuiten for en bestemt Python-version" href="#test-py-version">bestemt Python-version</a> kan anvendes ved at tilføje versionen til testmålet (f.eks. <code>py310-fast</code> for at køre fast på Python 3.10).</p>
 <h3 id="code-coverage">Kodedækning<a class="headerlink" href="#code-coverage" title="Permanent link">&para;</a></h3>
-<p>BeeWare opretholder 100 % testdækning i sin kodebase. Når du tilføjer
-eller ændrer kode i projektet, skal du tilføje testkode for at sikre, at alle
-ændringer, du foretager, bliver testet.</p>
-<p>Imidlertid er BeeWare beregnet til flere platforme samt flere
-versioner af Python, så det er ikke muligt at verificere fuld dækning på en
-enkelt platform og Python-version. For at imødekomme dette er der defineret
-flere betingede dækningsregler i
-<code>tool.coverage.coverage_conditional_plugin.rules</code>-sektionen af <code>pyproject.toml</code>
-(f.eks. kan <code>no-cover-if-is-windows</code> bruges til at markere en kodeblok, der ikke
-vil blive udført, når testsuiten køres på Windows). Disse regler bruges til at
-identificere kodestykker, der kun er dækket på bestemte platforme eller
-Python-versioner.</p>
-<p>Det er værd at bemærke, at dækningsrapportering på tværs af Python-versioner kan
-være lidt uforudsigelig. Hvis dækningsfilerne f.eks. genereres ved hjælp af én
-Python-version, men dækningsrapporteringen udføres på en anden, kan rapporten
-indeholde falske positive resultater for oversete forgreninger. Af denne grund
-bør dækningsrapporteringen altid baseres på den ældste Python-version, der blev
-brugt til at generere dækningsfilerne.</p>
+<p>BeeWare opretholder 100 % testdækning i sin kodebase. Når du tilføjer eller ændrer kode i projektet, skal du tilføje testkode for at sikre, at alle ændringer, du foretager, bliver testet.</p>
+<p>Imidlertid er BeeWare beregnet til flere platforme samt flere versioner af Python, så det er ikke muligt at verificere fuld dækning på en enkelt platform og Python-version. For at imødekomme dette er der defineret flere betingede dækningsregler i <code>tool.coverage.coverage_conditional_plugin.rules</code>-sektionen af <code>pyproject.toml</code> (f.eks. kan <code>no-cover-if-is-windows</code> bruges til at markere en kodeblok, der ikke vil blive udført, når testsuiten køres på Windows). Disse regler bruges til at identificere kodestykker, der kun er dækket på bestemte platforme eller Python-versioner.</p>
+<p>Det er værd at bemærke, at dækningsrapportering på tværs af Python-versioner kan være lidt uforudsigelig. Hvis dækningsfilerne f.eks. genereres ved hjælp af én Python-version, men dækningsrapporteringen udføres på en anden, kan rapporten indeholde falske positive resultater for oversete forgreninger. Af denne grund bør dækningsrapporteringen altid baseres på den ældste Python-version, der blev brugt til at generere dækningsfilerne.</p>
 <h4 id="forstaelse-af-dkningsresultater">Forståelse af dækningsresultater<a class="headerlink" href="#forstaelse-af-dkningsresultater" title="Permanent link">&para;</a></h4>
-<p>I slutningen af dækningsprøvens output bør der være en rapport over de
-indsamlede dækningsdata:</p>
+<p>I slutningen af dækningsprøvens output bør der være en rapport over de indsamlede dækningsdata:</p>
 <!-- The extra space at the start of this line is needed to prevent translate-toolkit from parsing the dashes as a markdown document split -->
 
 <div class="highlight"><pre><span></span><code><span class="go">Navn    Stmts   Miss Branch BrPart   Dækning   Mangler</span>
 <span class="go"> ---------------------------------------------------</span>
 <span class="go"> I ALT    7540 0   1040 0  100,0 %</span>
 </code></pre></div>
-<p>Dette fortæller os, at testsuiten har gennemgået alle mulige forgreningsveje i
-koden. Det er ikke en 100 % garanti for, at der ikke er fejl, men det betyder,
-at vi tester hver eneste kodelinje i kodebasen.</p>
-<p>Hvis du foretager ændringer i kodebasen, kan der opstå et hul i dækningen. Når
-det sker, vil dækningsrapporten vise dig, hvilke linjer der ikke udføres. Lad os
-for eksempel sige, at vi har ændret <code>some/interesting_file.py</code> og tilføjet noget
-nyt logik. Dækningsrapporten kan se sådan ud:</p>
+<p>Dette fortæller os, at testsuiten har gennemgået alle mulige forgreningsveje i koden. Det er ikke en 100 % garanti for, at der ikke er fejl, men det betyder, at vi tester hver eneste kodelinje i kodebasen.</p>
+<p>Hvis du foretager ændringer i kodebasen, kan der opstå et hul i dækningen. Når det sker, vil dækningsrapporten vise dig, hvilke linjer der ikke udføres. Lad os for eksempel sige, at vi har ændret <code>some/interesting_file.py</code> og tilføjet noget nyt logik. Dækningsrapporten kan se sådan ud:</p>
 <!-- The extra space at the start of this line is needed to prevent translate-toolkit from parsing the dashes as a markdown document split -->
 
 <div class="highlight"><pre><span></span><code><span class="go">Navn Stmts   Miss Branch BrPart  Cover   Mangler</span>
@@ -5437,12 +5370,9 @@ nyt logik. Dækningsrapporten kan se sådan ud:</p>
 <span class="go"> -------------------------------------------------------------------------------</span>
 <span class="go"> I ALT 7540 1   1726 0  99,9 %</span>
 </code></pre></div>
-<p>Dette viser, at linje 170, linjerne 302–307 samt et spring fra linje 320 til
-linje 335 ikke udføres af testsuiten. Du skal tilføje nye tests (eller ændre en
-eksisterende test) for at genoprette denne dækning.</p>
+<p>Dette viser, at linje 170, linjerne 302–307 samt et spring fra linje 320 til linje 335 ikke udføres af testsuiten. Du skal tilføje nye tests (eller ændre en eksisterende test) for at genoprette denne dækning.</p>
 <h4 id="rapport-om-dkning-for-vrtsplatform-og-python-version">Rapport om dækning for værtsplatform og Python-version<a class="headerlink" href="#rapport-om-dkning-for-vrtsplatform-og-python-version" title="Permanent link">&para;</a></h4>
-<p>Du kan generere en dækningsrapport for din platform og version af Python. Hvis
-du f.eks. vil køre testsuiten og generere en dækningsrapport for Python 3.10, skal du køre følgende kommando:</p>
+<p>Du kan generere en dækningsrapport for din platform og version af Python. Hvis du f.eks. vil køre testsuiten og generere en dækningsrapport for Python 3.10, skal du køre følgende kommando:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5460,8 +5390,7 @@ du f.eks. vil køre testsuiten og generere en dækningsrapport for Python 3.10, 
 </div>
 </div>
 <h4 id="dkningsrapport-for-vrtsplatformen">Dækningsrapport for værtsplatformen<a class="headerlink" href="#dkningsrapport-for-vrtsplatformen" title="Permanent link">&para;</a></h4>
-<p>Hvis alle understøttede versioner af Python er tilgængelige for <code>tox</code>, kan
-dækningen for værtsplatformen rapporteres ved at køre:</p>
+<p>Hvis alle understøttede versioner af Python er tilgængelige for <code>tox</code>, kan dækningen for værtsplatformen rapporteres ved at køre:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">macOS</label><label for="__tabbed_7_2">Linux</label><label for="__tabbed_7_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5479,8 +5408,7 @@ dækningen for værtsplatformen rapporteres ved at køre:</p>
 </div>
 </div>
 <h4 id="rapportering-af-dkning-i-html">Rapportering af dækning i HTML<a class="headerlink" href="#rapportering-af-dkning-i-html" title="Permanent link">&para;</a></h4>
-<p>Der kan genereres en HTML-dækningsrapport ved at tilføje <code>-html</code> til et hvilket
-som helst af dækningsmiljønavnene <code>tox</code>, for eksempel:</p>
+<p>Der kan genereres en HTML-dækningsrapport ved at tilføje <code>-html</code> til et hvilket som helst af dækningsmiljønavnene <code>tox</code>, for eksempel:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">macOS</label><label for="__tabbed_8_2">Linux</label><label for="__tabbed_8_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5498,20 +5426,9 @@ som helst af dækningsmiljønavnene <code>tox</code>, for eksempel:</p>
 </div>
 </div>
 <h3 id="det-handler-ikke-kun-om-at-skrive-tests">Det handler ikke kun om at skrive tests!<a class="headerlink" href="#det-handler-ikke-kun-om-at-skrive-tests" title="Permanent link">&para;</a></h3>
-<p>Selvom vi sørger for at teste al vores kode, handler opgaven ikke <em>kun</em> om at
-opretholde det testniveau. En del af opgaven består i at gennemgå koden
-undervejs. Man kunne godt skrive et omfattende sæt tests til en konkret
-redningsvest&hellip; men en konkret redningsvest ville stadig være ubrugelig til det
-formål, den var beregnet til!</p>
-<p>Når du udvikler test, bør du også kontrollere, at kernemodulet er <strong>konsistent</strong>
-internt. Hvis du bemærker metodernavne, der ikke er internt konsistente (f.eks.
-noget, der hedder <code>on_select</code> i et modul, men <code>on_selected</code> i et andet), eller
-hvor dataene ikke håndteres konsistent, skal du markere det og gøre os opmærksom
-på det ved at oprette en ticket. Eller, hvis du er sikker på, at du ved, hvad
-der skal gøres, kan du oprette en pull-anmodning, der løser det problem, du har
-fundet.</p>
-<p>Når alt fungerer, kan du <a href="../submit-pr/">indsende en pull-anmodning</a> med
-dine ændringer.</p>
+<p>Selvom vi sørger for at teste al vores kode, handler opgaven ikke <em>kun</em> om at opretholde det testniveau. En del af opgaven består i at gennemgå koden undervejs. Man kunne godt skrive et omfattende sæt tests til en konkret redningsvest&hellip; men en konkret redningsvest ville stadig være ubrugelig til det formål, den var beregnet til!</p>
+<p>Når du udvikler test, bør du også kontrollere, at kernemodulet er <strong>konsistent</strong> internt. Hvis du bemærker metodernavne, der ikke er internt konsistente (f.eks. noget, der hedder <code>on_select</code> i et modul, men <code>on_selected</code> i et andet), eller hvor dataene ikke håndteres konsistent, skal du markere det og gøre os opmærksom på det ved at oprette en ticket. Eller, hvis du er sikker på, at du ved, hvad der skal gøres, kan du oprette en pull-anmodning, der løser det problem, du har fundet.</p>
+<p>Når alt fungerer, kan du <a href="../submit-pr/">indsende en pull-anmodning</a> med dine ændringer.</p>
 
 
 

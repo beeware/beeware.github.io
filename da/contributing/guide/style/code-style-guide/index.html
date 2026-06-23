@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Sidehoved"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/style/code-style-guide/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/style/code-style-guide/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4964,38 +4972,15 @@ aria-label="Sidehoved"
 
 
 <h1 id="kode-stilguide">Kode-stilguide<a class="headerlink" href="#kode-stilguide" title="Permanent link">&para;</a></h1>
-<p>Denne vejledning indeholder oplysninger og retningslinjer for skrivning af kode
-til BeeWare.</p>
+<p>Denne vejledning indeholder oplysninger og retningslinjer for skrivning af kode til BeeWare.</p>
 <h3 id="code-style">Kodestil<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h3>
-<p>BeeWare følger <a href="https://peps.python.org/pep-0008/">PEP 8</a> i vores kodebase,
-bortset fra at linjelængden er udvidet fra 79 til 88 tegn. Vi bruger
-<a href="https://docs.astral.sh/ruff/">Ruff</a> til at håndhæve PEP 8-konventioner, hvor
-det er muligt. Når du committer din kode, kører pre-commit nogle kontroller,
-herunder Ruff. Hvor det er muligt, vil dette automatisk formatere din kode for
-at sikre, at den overholder vores formaterings- og stilstandarder. Du kan
-indstille nogle IDE'er til automatisk at køre Ruff ved gemning, hvilket kan
-hjælpe med processen.</p>
-<p>Husk, at det vigtigste i PEP 8 er <a href="https://peps.python.org/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">Afsnit 0: En tåbelig konsistens er små
-sinders
-mareridt</a>.
-Der er situationer, hvor det ikke giver mening at være konsistent med PEP 8, og
-det er vigtigt at forstå, at det i visse tilfælde er acceptabelt og undertiden
-at foretrække at skrive kode, der ikke er i overensstemmelse med de anførte
-regler. At vide, <em>hvornår man skal være inkonsekvent</em> med disse regler, er lige
-så vigtigt som at opretholde konsistens i de fleste situationer.</p>
-<p>Dette kommer blandt andet til udtryk i navngivningskonventionerne.
-BeeWare-biblioteker skal ofte fungere som bro til andre sprog. Når man udvikler
-wrappers til andre sprog, er det ønskeligt (og i nogle tilfælde nødvendigt) at
-følge målsprogets navngivningskonventioner frem for Pythons. Når man for
-eksempel kalder eller henviser til Java-kode, bør funktioner følge Javas
-præference for <code>mixedCase</code>, frem for PEP 8’s præference for <code>snake_case</code>.</p>
+<p>BeeWare følger <a href="https://peps.python.org/pep-0008/">PEP 8</a> i vores kodebase, bortset fra at linjelængden er udvidet fra 79 til 88 tegn. Vi bruger <a href="https://docs.astral.sh/ruff/">Ruff</a> til at håndhæve PEP 8-konventioner, hvor det er muligt. Når du committer din kode, kører pre-commit nogle kontroller, herunder Ruff. Hvor det er muligt, vil dette automatisk formatere din kode for at sikre, at den overholder vores formaterings- og stilstandarder. Du kan indstille nogle IDE'er til automatisk at køre Ruff ved gemning, hvilket kan hjælpe med processen.</p>
+<p>Husk, at det vigtigste i PEP 8 er <a href="https://peps.python.org/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">Afsnit 0: En tåbelig konsistens er små sinders mareridt</a>. Der er situationer, hvor det ikke giver mening at være konsistent med PEP 8, og det er vigtigt at forstå, at det i visse tilfælde er acceptabelt og undertiden at foretrække at skrive kode, der ikke er i overensstemmelse med de anførte regler. At vide, <em>hvornår man skal være inkonsekvent</em> med disse regler, er lige så vigtigt som at opretholde konsistens i de fleste situationer.</p>
+<p>Dette kommer blandt andet til udtryk i navngivningskonventionerne. BeeWare-biblioteker skal ofte fungere som bro til andre sprog. Når man udvikler wrappers til andre sprog, er det ønskeligt (og i nogle tilfælde nødvendigt) at følge målsprogets navngivningskonventioner frem for Pythons. Når man for eksempel kalder eller henviser til Java-kode, bør funktioner følge Javas præference for <code>mixedCase</code>, frem for PEP 8’s præference for <code>snake_case</code>.</p>
 <p>Vi følger amerikansk stavning for API-navngivning, variabler osv.</p>
 <p>Der er også nogle BeeWare-specifikke tilføjelser til PEP 8:</p>
-<p>Selvom typeannotering i overensstemmelse med <a href="https://peps.python.org/pep-0484/">PEP
-484</a> er valgfri, anbefales det på det
-kraftigste, især i forbindelse med offentlige API-grænseflader.</p>
-<p>Nedenfor ses et eksempel på en standardfunktionsdefinition med korrekte
-typeangivelser og en Sphinx-docstring:</p>
+<p>Selvom typeannotering i overensstemmelse med <a href="https://peps.python.org/pep-0484/">PEP 484</a> er valgfri, anbefales det på det kraftigste, især i forbindelse med offentlige API-grænseflader.</p>
+<p>Nedenfor ses et eksempel på en standardfunktionsdefinition med korrekte typeangivelser og en Sphinx-docstring:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="sd">&quot;&quot;&quot;Eksempelfunktion med typer og en docstring.</span>
 
@@ -5006,16 +4991,12 @@ typeangivelser og en Sphinx-docstring:</p>
 <span class="sd">&quot;&quot;&quot;</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">Opdeling af lange funktionskald<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
-<p>Når et funktionskald med mere end ét argument ikke kan være på én linje, skal
-hvert argument placeres på sin egen linje med et komma efter det sidste
-argument. Ruff tillader (og foreslår) et format med flere argumenter på én
-linje, der går over på næste linje:</p>
+<p>Når et funktionskald med mere end ét argument ikke kan være på én linje, skal hvert argument placeres på sin egen linje med et komma efter det sidste argument. Ruff tillader (og foreslår) et format med flere argumenter på én linje, der går over på næste linje:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>Denne stil bør ikke anvendes. I stedet bør argumenterne fordeles med ét pr.
-linje ved at tilføje et komma efter det sidste argument:</p>
+<p>Denne stil bør ikke anvendes. I stedet bør argumenterne fordeles med ét pr. linje ved at tilføje et komma efter det sidste argument:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
     <span class="n">arg2</span><span class="p">,</span>
@@ -5023,10 +5004,7 @@ linje ved at tilføje et komma efter det sidste argument:</p>
 <span class="p">)</span>
 </code></pre></div>
 <h4 id="split-long-strings">Opdeling af lange strenge<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
-<p>Når et strengargument skal deles op på flere linjer for at overholde kravene til
-linjelængde, skal du sætte de sammenkædede strengliteraler i parentes, så det
-fremgår tydeligt, at strengen udgør et enkelt argument. Det vil sige, at vi
-foretrækker:</p>
+<p>Når et strengargument skal deles op på flere linjer for at overholde kravene til linjelængde, skal du sætte de sammenkædede strengliteraler i parentes, så det fremgår tydeligt, at strengen udgør et enkelt argument. Det vil sige, at vi foretrækker:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
  <span class="s2">&quot;dette er en meget lang streng&quot;</span>
@@ -5043,22 +5021,11 @@ foretrækker:</p>
 <span class="p">)</span>
 </code></pre></div>
 <h3 id="ting-man-br-undga">Ting, man bør undgå<a class="headerlink" href="#ting-man-br-undga" title="Permanent link">&para;</a></h3>
-<p>Vi forsøger at undgå <code>utils</code> moduler så meget som muligt, men er klar over, at
-det nogle gange er uundgåeligt. Det foretrukne alternativ er at finde en anden
-placering for funktionen i kildekoden i stedet for at bruge et <code>utils</code> modul.</p>
-<p>Som hovedregel forsøger vi at undgå eller udskyde dyr initialiseringskode for at
-opnå hurtigere opstart af appen. For eksempel er moduler i toga-core-pakken
-"lazy loaded" — de importeres kun, når der anmodes om det, i stedet for på
-forhånd. Dette fremskynder opstarten og bruger kun tid på det, appen faktisk
-bruger.</p>
-<p>Når du skriver kommentarer, skal du undgå at bruge pronomen i første person
-flertal, såsom »vi« (skriv f.eks. »Loop over« i stedet for »Vi loop over«).</p>
-<p>I test-docstrings skal du angive den forventede adfærd, som den enkelte test
-demonstrerer. Undlad at bruge indledende sætninger som »Tester, at« eller
-»Sikrer, at«.</p>
-<p>Gem henvisninger til tickets vedrørende uklarheder, hvor ticketet indeholder
-yderligere oplysninger, der ikke let kan beskrives i docstrings eller
-kommentarer. Angiv ticketnummeret i slutningen af en sætning på følgende måde:</p>
+<p>Vi forsøger at undgå <code>utils</code> moduler så meget som muligt, men er klar over, at det nogle gange er uundgåeligt. Det foretrukne alternativ er at finde en anden placering for funktionen i kildekoden i stedet for at bruge et <code>utils</code> modul.</p>
+<p>Som hovedregel forsøger vi at undgå eller udskyde dyr initialiseringskode for at opnå hurtigere opstart af appen. For eksempel er moduler i toga-core-pakken "lazy loaded" — de importeres kun, når der anmodes om det, i stedet for på forhånd. Dette fremskynder opstarten og bruger kun tid på det, appen faktisk bruger.</p>
+<p>Når du skriver kommentarer, skal du undgå at bruge pronomen i første person flertal, såsom »vi« (skriv f.eks. »Loop over« i stedet for »Vi loop over«).</p>
+<p>I test-docstrings skal du angive den forventede adfærd, som den enkelte test demonstrerer. Undlad at bruge indledende sætninger som »Tester, at« eller »Sikrer, at«.</p>
+<p>Gem henvisninger til tickets vedrørende uklarheder, hvor ticketet indeholder yderligere oplysninger, der ikke let kan beskrives i docstrings eller kommentarer. Angiv ticketnummeret i slutningen af en sætning på følgende måde:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
 <span class="w"> </span><span class="sd">&quot;&quot;&quot;En test-docstring ser sådan ud (#123456).&quot;&quot;&quot;</span>
 </code></pre></div>

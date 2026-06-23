@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Záhlaví"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/build-docs/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/build-docs/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4986,29 +4994,16 @@ aria-label="Záhlaví"
 
 
 <h1 id="stavebni-dokumentace">Stavební dokumentace<a class="headerlink" href="#stavebni-dokumentace" title="Permanent link">&para;</a></h1>
-<p>Před provedením jakýchkoli změn v dokumentaci BeeWare je užitečné
-ověřit, zda můžete sestavit stávající dokumentaci.</p>
-<p>Než začnete vytvářet dokumentaci, připravte si <a href="../dev-environment/">vývojové
-prostředí</a>.</p>
-<p><strong>Musíte</strong> mít nainstalovaný interpret Python 3.13 a musí
-být dostupný ve vaší cestě (tj. <code>python3.13</code> musí spustit
-interpret Python 3.13).</p>
-<p>BeeWare používá <code>tox</code> pro vytváření dokumentace. Následující příkazy
-<code>tox</code> musí být spuštěny ze stejného umístění jako soubor <code>tox.ini</code>, který se
-nachází v kořenovém adresáři projektu.</p>
+<p>Před provedením jakýchkoli změn v dokumentaci BeeWare je užitečné ověřit, zda můžete sestavit stávající dokumentaci.</p>
+<p>Než začnete vytvářet dokumentaci, připravte si <a href="../dev-environment/">vývojové prostředí</a>.</p>
+<p><strong>Musíte</strong> mít nainstalovaný interpret Python 3.13 a musí být dostupný ve vaší cestě (tj. <code>python3.13</code> musí spustit interpret Python 3.13).</p>
+<p>BeeWare používá <code>tox</code> pro vytváření dokumentace. Následující příkazy <code>tox</code> musí být spuštěny ze stejného umístění jako soubor <code>tox.ini</code>, který se nachází v kořenovém adresáři projektu.</p>
 <h3 id="nahled-zive-dokumentace">Náhled živé dokumentace<a class="headerlink" href="#nahled-zive-dokumentace" title="Permanent link">&para;</a></h3>
-<p>Pro podporu rychlé úpravy dokumentace má BeeWare režim „živého
-náhledu“.</p>
+<p>Pro podporu rychlé úpravy dokumentace má BeeWare režim „živého náhledu“.</p>
 <div class="admonition warning">
 <p class="admonition-title">Živý náhled se vytvoří s varováními!</p>
-<p>Live serve je k dispozici pro opakované aktualizace dokumentace. Během
-aktualizace může dojít k problému s označením. Problémy označené jako <code>WARNING</code>
-způsobí selhání standardní kompilace, ale live serve je nastaven tak, aby v
-konzoli zobrazoval varování a pokračoval v kompilaci. To vám umožňuje opakovat
-aktualizace bez nutnosti restartovat živý náhled.</p>
-<p><code>WARNING</code> se liší od <code>ERROR</code>. Pokud zavedete problém, který je považován za
-<code>ERROR</code>, živý server selže a bude vyžadovat restart. Nezačne znovu fungovat,
-dokud nebude problém <code>WARNING</code> vyřešen.</p>
+<p>Live serve je k dispozici pro opakované aktualizace dokumentace. Během aktualizace může dojít k problému s označením. Problémy označené jako <code>WARNING</code> způsobí selhání standardní kompilace, ale live serve je nastaven tak, aby v konzoli zobrazoval varování a pokračoval v kompilaci. To vám umožňuje opakovat aktualizace bez nutnosti restartovat živý náhled.</p>
+<p><code>WARNING</code> se liší od <code>ERROR</code>. Pokud zavedete problém, který je považován za <code>ERROR</code>, živý server selže a bude vyžadovat restart. Nezačne znovu fungovat, dokud nebude problém <code>WARNING</code> vyřešen.</p>
 </div>
 <p>Spuštění živého serveru:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
@@ -5027,26 +5022,17 @@ dokud nebude problém <code>WARNING</code> vyřešen.</p>
 </div>
 </div>
 </div>
-<p>Tím se vytvoří dokumentace, spustí se webový server pro poskytování dokumentace
-a bude sledován souborový systém, zda nedošlo k nějakým změnám ve zdrojovém kódu
-dokumentace.</p>
+<p>Tím se vytvoří dokumentace, spustí se webový server pro poskytování dokumentace a bude sledován souborový systém, zda nedošlo k nějakým změnám ve zdrojovém kódu dokumentace.</p>
 <p>Po spuštění serveru se v konzoli zobrazí následující výstup:</p>
 <div class="highlight"><pre><span></span><code><span class="go">INFO    -  [11:18:51] Obsluhuje na adrese http://127.0.0.1:8000/</span>
 </code></pre></div>
-<p>Otevřete prohlížeč a přejděte na uvedenou adresu URL. Nyní můžete začít s
-iterací dokumentace. Pokud bude zjištěna změna, dokumentace bude znovu sestavena
-a všechny prohlížeče, které zobrazují upravenou stránku, budou automaticky
-aktualizovány.</p>
+<p>Otevřete prohlížeč a přejděte na uvedenou adresu URL. Nyní můžete začít s iterací dokumentace. Pokud bude zjištěna změna, dokumentace bude znovu sestavena a všechny prohlížeče, které zobrazují upravenou stránku, budou automaticky aktualizovány.</p>
 <div class="admonition note">
 <p class="admonition-title"><code>docs-live</code> je první krok</p>
-<p>Spuštění <code>docs-live</code> pro práci s živým serverem je určeno pro počáteční iterace.
-Před odesláním žádosti o stažení byste měli <em>vždy</em> spustit lokální sestavení.</p>
+<p>Spuštění <code>docs-live</code> pro práci s živým serverem je určeno pro počáteční iterace. Před odesláním žádosti o stažení byste měli <em>vždy</em> spustit lokální sestavení.</p>
 </div>
 <h3 id="mistni-sestaveni">Místní sestavení<a class="headerlink" href="#mistni-sestaveni" title="Permanent link">&para;</a></h3>
-<p>Jakmile dokončíte iterace, budete muset provést lokální sestavení dokumentace.
-Tento proces sestavení je navržen tak, aby selhal v případě jakýchkoli problémů
-se značkami. To vám umožní zachytit vše, co jste mohli na živém serveru
-přehlédnout.</p>
+<p>Jakmile dokončíte iterace, budete muset provést lokální sestavení dokumentace. Tento proces sestavení je navržen tak, aby selhal v případě jakýchkoli problémů se značkami. To vám umožní zachytit vše, co jste mohli na živém serveru přehlédnout.</p>
 <h4 id="generovani-lokalni-sestaveni">Generování lokální sestavení<a class="headerlink" href="#generovani-lokalni-sestaveni" title="Permanent link">&para;</a></h4>
 <p>Pro vytvoření lokální sestavení:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
@@ -5065,13 +5051,9 @@ přehlédnout.</p>
 </div>
 </div>
 </div>
-<p>Výstup této sestavení bude umístěn v adresáři <code>_build</code> v kořenovém adresáři
-projektu.</p>
+<p>Výstup této sestavení bude umístěn v adresáři <code>_build</code> v kořenovém adresáři projektu.</p>
 <h4 id="vytvoreni-lokalne-prelozene-sestavy">Vytvoření lokálně přeložené sestavy<a class="headerlink" href="#vytvoreni-lokalne-prelozene-sestavy" title="Permanent link">&para;</a></h4>
-<p>Dokumentace BeeWare' je přeložena do několika jazyků. Aktualizace
-anglické dokumentace mohou způsobit problémy v jiných jazykových verzích. Před
-odesláním žádosti o stažení je důležité ověřit, zda všechny verze fungují
-správně.</p>
+<p>Dokumentace BeeWare' je přeložena do několika jazyků. Aktualizace anglické dokumentace mohou způsobit problémy v jiných jazykových verzích. Před odesláním žádosti o stažení je důležité ověřit, zda všechny verze fungují správně.</p>
 <p>Chcete-li vygenerovat sestavení všech dostupných překladů:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
 <div class="tabbed-content">
@@ -5089,13 +5071,8 @@ správně.</p>
 </div>
 </div>
 </div>
-<p>Výstup každé jazykové sestavy bude umístěn v příslušném adresáři
-<code>_build/html/&lt;languagecode&gt;</code>, kde <code>&lt;languagecode&gt;</code> je dvoumístný nebo pětimístný
-kód jazyka přidružený ke konkrétnímu jazyku (např. <code>fr</code> pro francouzštinu, <code>it</code>
-pro italštinu atd.).</p>
-<p>Pokud narazíte na problém s jednotlivou sestavou, můžete ji spustit samostatně
-pomocí příkazu <code>tox -e docs-&lt;languagecode&gt;</code>. Chcete-li například sestavit pouze
-francouzskou dokumentaci, spusťte:</p>
+<p>Výstup každé jazykové sestavy bude umístěn v příslušném adresáři <code>_build/html/&lt;languagecode&gt;</code>, kde <code>&lt;languagecode&gt;</code> je dvoumístný nebo pětimístný kód jazyka přidružený ke konkrétnímu jazyku (např. <code>fr</code> pro francouzštinu, <code>it</code> pro italštinu atd.).</p>
+<p>Pokud narazíte na problém s jednotlivou sestavou, můžete ji spustit samostatně pomocí příkazu <code>tox -e docs-&lt;languagecode&gt;</code>. Chcete-li například sestavit pouze francouzskou dokumentaci, spusťte:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5114,9 +5091,7 @@ francouzskou dokumentaci, spusťte:</p>
 </div>
 <p>Výstup jednojazyčné sestavy bude umístěn v adresáři <code>_build</code>.</p>
 <h3 id="kontrola-dokumentace">Kontrola dokumentace<a class="headerlink" href="#kontrola-dokumentace" title="Permanent link">&para;</a></h3>
-<p>Proces sestavení identifikuje problémy s Markdownem, ale BeeWare
-provádí některé další kontroly stylu a formátování, známé jako „linting“.
-Chcete-li spustit kontroly lintingu:</p>
+<p>Proces sestavení identifikuje problémy s Markdownem, ale BeeWare provádí některé další kontroly stylu a formátování, známé jako „linting“. Chcete-li spustit kontroly lintingu:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5138,20 +5113,13 @@ Chcete-li spustit kontroly lintingu:</p>
 <li>nefunkční odkazy</li>
 <li>špatně napsaná slova</li>
 </ul>
-<p>Pokud je platný pravopis slova identifikován jako chybný, přidejte slovo do
-seznamu v <code>docs/spelling_wordlist</code>. Tím se slovo přidá do slovníku kontroly
-pravopisu. Při přidávání do tohoto seznamu mějte na paměti:</p>
+<p>Pokud je platný pravopis slova identifikován jako chybný, přidejte slovo do seznamu v <code>docs/spelling_wordlist</code>. Tím se slovo přidá do slovníku kontroly pravopisu. Při přidávání do tohoto seznamu mějte na paměti:</p>
 <ul>
-<li>Upřednostňujeme americkou pravopisnou normu, s určitými výjimkami pro
-  programátorské slangové výrazy (např. „apps“) a slovesné tvary podstatných
-  jmen (např. „scrollable“).</li>
-<li>Při odkazování na název produktu je třeba používat preferované velká písmena
-  (např. „macOS“, „GTK“, „pytest“, „Pygame“, „PyScript“).</li>
-<li>Pokud je termín používán „jako kód“, měl by být uveden v uvozovkách (<code>like
-  this</code>) namísto přidání do slovníku.</li>
+<li>Upřednostňujeme americkou pravopisnou normu, s určitými výjimkami pro programátorské slangové výrazy (např. „apps“) a slovesné tvary podstatných jmen (např. „scrollable“).</li>
+<li>Při odkazování na název produktu je třeba používat preferované velká písmena (např. „macOS“, „GTK“, „pytest“, „Pygame“, „PyScript“).</li>
+<li>Pokud je termín používán „jako kód“, měl by být uveden v uvozovkách (<code>like this</code>) namísto přidání do slovníku.</li>
 </ul>
-<p>Jakmile úspěšně vytvoříte dokumentaci, můžete začít <a href="../write-docs/">psát
-dokumentaci</a>.</p>
+<p>Jakmile úspěšně vytvoříte dokumentaci, můžete začít <a href="../write-docs/">psát dokumentaci</a>.</p>
 
 
 

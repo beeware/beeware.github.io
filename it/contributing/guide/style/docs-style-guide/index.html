@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Intestazione"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/style/docs-style-guide/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/style/docs-style-guide/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -5308,141 +5316,82 @@ aria-label="Intestazione"
 
 
 <h1 id="guida-allo-stile-della-documentazione">Guida allo stile della documentazione<a class="headerlink" href="#guida-allo-stile-della-documentazione" title="Permanent link">&para;</a></h1>
-<p>Questa guida contiene informazioni sullo stile previsto, sulla sintassi
-specifica di MkDocs, sui vari strumenti necessari e sulla traduzione della
-documentazione, per quanto riguarda la scrittura di nuovi contenuti e la
-traduzione di quelli esistenti.</p>
+<p>Questa guida contiene informazioni sullo stile previsto, sulla sintassi specifica di MkDocs, sui vari strumenti necessari e sulla traduzione della documentazione, per quanto riguarda la scrittura di nuovi contenuti e la traduzione di quelli esistenti.</p>
 <h2 id="stile-generale">Stile generale<a class="headerlink" href="#stile-generale" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Le intestazioni e i titoli devono avere solo la prima parola in maiuscolo.</li>
-<li>Preferiamo l'ortografia statunitense, con alcune libertà per i colloqui
-  specifici della programmazione (ad esempio, "apps") e per i verbi dei nomi (ad
-  esempio, "scrollable").</li>
+<li>Preferiamo l'ortografia statunitense, con alcune libertà per i colloqui specifici della programmazione (ad esempio, "apps") e per i verbi dei nomi (ad esempio, "scrollable").</li>
 <li>L'ortografia di "artefatto" e "artefatti" è quella indicata.</li>
 <li>Usiamo uno spazio singolo dopo il punto.</li>
-<li>Utilizziamo un singolo trattino circondato da spazi come trattino lungo (o un
-  letterale HTML <code>&amp;mdash;</code>).</li>
-<li>Qualsiasi riferimento al nome di un prodotto deve utilizzare la
-  capitalizzazione preferita dal prodotto stesso. (ad esempio, <nospell>"macOS",
-  "GTK", "pytest", "Pygame", "PyScript"</nospell>).</li>
-<li>Se un termine viene usato "come codice", allora dovrebbe essere citato come
-  codice in linea, avvolgendolo in singoli backtick, invece di essere aggiunto
-  al dizionario.</li>
-<li>Evitiamo di usare termini come "semplicemente", "solo" o "facilmente" quando
-  descriviamo le azioni che un utente dovrebbe compiere. Questi termini possono
-  essere interpretati come peggiorativi, specialmente quando un utente sta
-  incontrando difficoltà.</li>
+<li>Utilizziamo un singolo trattino circondato da spazi come trattino lungo (o un letterale HTML <code>&amp;mdash;</code>).</li>
+<li>Qualsiasi riferimento al nome di un prodotto deve utilizzare la capitalizzazione preferita dal prodotto stesso. (ad esempio, <nospell>"macOS", "GTK", "pytest", "Pygame", "PyScript"</nospell>).</li>
+<li>Se un termine viene usato "come codice", allora dovrebbe essere citato come codice in linea, avvolgendolo in singoli backtick, invece di essere aggiunto al dizionario.</li>
+<li>Evitiamo di usare termini come "semplicemente", "solo" o "facilmente" quando descriviamo le azioni che un utente dovrebbe compiere. Questi termini possono essere interpretati come peggiorativi, specialmente quando un utente sta incontrando difficoltà.</li>
 </ul>
 <h2 id="informazioni-di-riferimento-incrociato">Informazioni di riferimento incrociato<a class="headerlink" href="#informazioni-di-riferimento-incrociato" title="Permanent link">&para;</a></h2>
-<p>È consigliabile fare riferimenti incrociati ai contenuti della documentazione
-ogni volta che è possibile. Questa sezione illustra i vari modi per farlo,
-ognuno dei quali si basa sul tipo di informazioni a cui si fa riferimento.</p>
-<p>MkDocs rende i collegamenti standard formattati in Markdown. I collegamenti
-ipertestuali web standard in formato Markdown sono i seguenti:</p>
+<p>È consigliabile fare riferimenti incrociati ai contenuti della documentazione ogni volta che è possibile. Questa sezione illustra i vari modi per farlo, ognuno dei quali si basa sul tipo di informazioni a cui si fa riferimento.</p>
+<p>MkDocs rende i collegamenti standard formattati in Markdown. I collegamenti ipertestuali web standard in formato Markdown sono i seguenti:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Testo del link</span>](<span class="na">https://example.com/</span>)
 </code></pre></div>
 <p>È possibile utilizzare questo formato anche per collegarsi a un file locale:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Testo del link</span>](<span class="na">percorso/verso/file.md</span>)
 </code></pre></div>
-<p>Per fare riferimento a sezioni specifiche di file o alla documentazione API è
-necessario utilizzare il formato di collegamento di riferimento di MkDocs.</p>
+<p>Per fare riferimento a sezioni specifiche di file o alla documentazione API è necessario utilizzare il formato di collegamento di riferimento di MkDocs.</p>
 <h3 id="ancoraggi-markdown-personalizzati-e-riferimenti-incrociati-ai-contenuti">Ancoraggi Markdown personalizzati e riferimenti incrociati ai contenuti<a class="headerlink" href="#ancoraggi-markdown-personalizzati-e-riferimenti-incrociati-ai-contenuti" title="Permanent link">&para;</a></h3>
-<p>Markdown genera ancore per tutte le intestazioni (qualsiasi cosa su una singola
-riga che inizia con un numero di simboli <code>#</code> compreso tra uno e sei), in base al
-contenuto dell'intestazione. Per esempio, l'ancora generata per questa sezione è
-<code>custom-markdown-anchors-and-content-cross---referencing</code>. Tuttavia, a causa del
-modo in cui funzionano le nostre traduzioni, ogni volta che si fa riferimento a
-un'intestazione di sezione, questa deve avere un ancoraggio personalizzato.</p>
-<p>MkDocs supporta il rendering di una sintassi di collegamento di riferimento che
-consente di collegarsi a vari altri elementi della documentazione utilizzando un
-collegamento Markdown modificato. Questo include, tra l'altro, il collegamento a
-intestazioni e ancore di testo Markdown personalizzate.</p>
+<p>Markdown genera ancore per tutte le intestazioni (qualsiasi cosa su una singola riga che inizia con un numero di simboli <code>#</code> compreso tra uno e sei), in base al contenuto dell'intestazione. Per esempio, l'ancora generata per questa sezione è <code>custom-markdown-anchors-and-content-cross---referencing</code>. Tuttavia, a causa del modo in cui funzionano le nostre traduzioni, ogni volta che si fa riferimento a un'intestazione di sezione, questa deve avere un ancoraggio personalizzato.</p>
+<p>MkDocs supporta il rendering di una sintassi di collegamento di riferimento che consente di collegarsi a vari altri elementi della documentazione utilizzando un collegamento Markdown modificato. Questo include, tra l'altro, il collegamento a intestazioni e ancore di testo Markdown personalizzate.</p>
 <p>I link di riferimento MkDocs sono tutti i link formattati come segue:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Testo del link</span>][<span class="nl">destinazione del link</span>]
 </code></pre></div>
 <div class="admonition warning">
-<p class="admonition-title">Sono necessari ancoraggi personalizzati per l'intestazione e il</p>
-<p>contenuto</p>
-<p>Qualsiasi intestazione o sezione di contenuto a cui si fa riferimento nel
-contenuto testuale tramite un link di riferimento MkDocs nella documentazione di
-BeeWare <em>deve</em> avere un ancoraggio personalizzato. Altrimenti, è possibile che i
-collegamenti si interrompano quando il contenuto dell'intestazione viene
-tradotto.</p>
+<p class="admonition-title">Sono necessari ancoraggi personalizzati per l'intestazione e il contenuto</p>
+<p>Qualsiasi intestazione o sezione di contenuto a cui si fa riferimento nel contenuto testuale tramite un link di riferimento MkDocs nella documentazione di BeeWare <em>deve</em> avere un ancoraggio personalizzato. Altrimenti, è possibile che i collegamenti si interrompano quando il contenuto dell'intestazione viene tradotto.</p>
 </div>
-<p>Se si ha bisogno di un collegamento a un ancoraggio di intestazione, è
-necessario generare un ancoraggio personalizzato per il contenuto desiderato. La
-sintassi generale per impostare un ancoraggio personalizzato è la seguente:</p>
+<p>Se si ha bisogno di un collegamento a un ancoraggio di intestazione, è necessario generare un ancoraggio personalizzato per il contenuto desiderato. La sintassi generale per impostare un ancoraggio personalizzato è la seguente:</p>
 <div class="highlight"><pre><span></span><code><span class="gh"># Testo dell&#39;intestazione { #anchor-name }</span>
 </code></pre></div>
-<p>Per esempio, la personalizzazione dell'ancora per questa sezione in
-<code>custom-anchors</code> sarebbe fatta con la seguente formattazione:</p>
+<p>Per esempio, la personalizzazione dell'ancora per questa sezione in <code>custom-anchors</code> sarebbe fatta con la seguente formattazione:</p>
 <div class="highlight"><pre><span></span><code><span class="gu">## Ancore Markdown personalizzate { #custom-anchors }</span>
 </code></pre></div>
-<p>È possibile creare un ancoraggio anche su contenuti generici, compresi testi e
-codeblock. La seguente formattazione, con linee nuove sopra e sotto, deve essere
-inclusa sopra il contenuto a cui si desidera collegare:</p>
+<p>È possibile creare un ancoraggio anche su contenuti generici, compresi testi e codeblock. La seguente formattazione, con linee nuove sopra e sotto, deve essere inclusa sopra il contenuto a cui si desidera collegare:</p>
 <div class="highlight"><pre><span></span><code>Contenuto sopra.
 
 [](){ <span class="ni">#nome</span>-ancora }
 
 Contenuto sotto, ora collegato all&#39;ancora sopra.
 </code></pre></div>
-<p>Una volta create le ancore personalizzate, è possibile collegarle all'interno
-dello stesso documento o in altre parti della documentazione.</p>
-<p>Il Markdown standard è usato per collegarsi a un'ancora <em>nello stesso file</em>, che
-è formattata come segue:</p>
+<p>Una volta create le ancore personalizzate, è possibile collegarle all'interno dello stesso documento o in altre parti della documentazione.</p>
+<p>Il Markdown standard è usato per collegarsi a un'ancora <em>nello stesso file</em>, che è formattata come segue:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Testo del link</span>](<span class="na">#anchor-name</span>)
 </code></pre></div>
-<p>Il collegamento a un'ancora in un documento separato utilizza lo stile di
-riferimento di MkDocs, formattato come segue:</p>
+<p>Il collegamento a un'ancora in un documento separato utilizza lo stile di riferimento di MkDocs, formattato come segue:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Testo del link</span>][<span class="nl">nome-ancora</span>]
 </code></pre></div>
 <h3 id="link-di-riferimento-alle-api">Link di riferimento alle API<a class="headerlink" href="#link-di-riferimento-alle-api" title="Permanent link">&para;</a></h3>
-<p>Il collegamento dei riferimenti di MkDocs supporta anche i riferimenti
-incrociati alla documentazione dell'API, comprese le classi documentate, i
-metodi o gli attributi delle classi e i riferimenti a documentazione esterna
-specifica.</p>
-<p>Esistono diverse opzioni per il collegamento a una classe documentata, a un
-metodo o a un attributo di una classe, indipendentemente dal fatto che il
-collegamento avvenga dallo stesso file o da un file separato. Quando ci si
-collega a classi, ecc. è necessario includere i trattini indietro nella prima
-serie di parentesi quadre per rendere il nome come codice in linea. I backtick
-non sono necessari solo se si utilizza un testo personalizzato che non deve
-essere reso come codice in linea. I trattini non devono mai essere inclusi nel
-secondo gruppo di parentesi quadre.</p>
-<p>Il collegamento a una classe con la visualizzazione dello spazio dei nomi è
-formattato come segue:</p>
+<p>Il collegamento dei riferimenti di MkDocs supporta anche i riferimenti incrociati alla documentazione dell'API, comprese le classi documentate, i metodi o gli attributi delle classi e i riferimenti a documentazione esterna specifica.</p>
+<p>Esistono diverse opzioni per il collegamento a una classe documentata, a un metodo o a un attributo di una classe, indipendentemente dal fatto che il collegamento avvenga dallo stesso file o da un file separato. Quando ci si collega a classi, ecc. è necessario includere i trattini indietro nella prima serie di parentesi quadre per rendere il nome come codice in linea. I backtick non sono necessari solo se si utilizza un testo personalizzato che non deve essere reso come codice in linea. I trattini non devono mai essere inclusi nel secondo gruppo di parentesi quadre.</p>
+<p>Il collegamento a una classe con la visualizzazione dello spazio dei nomi è formattato come segue:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`module.ClassName`</span>][]
 </code></pre></div>
-<p>Il collegamento a una classe, pur visualizzando solo il nome della classe, è
-formattato come segue:</p>
+<p>Il collegamento a una classe, pur visualizzando solo il nome della classe, è formattato come segue:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`ClassName`</span>][module.ClassName]
 </code></pre></div>
-<p>Gli attributi sono gli stessi di cui sopra, con il nome dell'attributo incluso.
-Di seguito viene visualizzato lo spazio dei nomi:</p>
+<p>Gli attributi sono gli stessi di cui sopra, con il nome dell'attributo incluso. Di seguito viene visualizzato lo spazio dei nomi:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`module.ClassName.attributename`</span>][]
 </code></pre></div>
-<p>Come per le classi, la visualizzazione del solo nome dell'attributo è formattata
-come segue:</p>
+<p>Come per le classi, la visualizzazione del solo nome dell'attributo è formattata come segue:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`attributename`</span>][module.ClassName.attributename]
 </code></pre></div>
-<p>I metodi devono essere visualizzati con <code>()</code> dopo lo spazio dei nomi e quindi
-devono essere gestiti in modo diverso dagli attributi. Il modo appropriato per
-collegarsi a un metodo è il seguente:</p>
+<p>I metodi devono essere visualizzati con <code>()</code> dopo lo spazio dei nomi e quindi devono essere gestiti in modo diverso dagli attributi. Il modo appropriato per collegarsi a un metodo è il seguente:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`module.ClassName.methodname()`</span>][module.ClassName.methodname]
 </code></pre></div>
-<p>Di seguito viene visualizzato solo il nome della classe e del metodo. È inoltre
-necessario includere le parentesi dopo il nome:</p>
+<p>Di seguito viene visualizzato solo il nome della classe e del metodo. È inoltre necessario includere le parentesi dopo il nome:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`Classname.methodname()`</span>][module.Classname.methodname]
 </code></pre></div>
-<p>È possibile collegarsi a una classe, a un metodo o a un attributo visualizzando
-un testo arbitrario, utilizzando lo stesso metodo con lo spazio dei nomi
-applicabile. Per fare questo con una classe, la formattazione è la seguente:</p>
+<p>È possibile collegarsi a una classe, a un metodo o a un attributo visualizzando un testo arbitrario, utilizzando lo stesso metodo con lo spazio dei nomi applicabile. Per fare questo con una classe, la formattazione è la seguente:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">testo del link</span>][<span class="nl">module.ClassName</span>]
 </code></pre></div>
-<p>È anche possibile collegarsi direttamente alla documentazione del nucleo di
-Python, così come alla documentazione di Pillow. Ad esempio, per collegarsi alla
-documentazione di <code>int</code>:</p>
+<p>È anche possibile collegarsi direttamente alla documentazione del nucleo di Python, così come alla documentazione di Pillow. Ad esempio, per collegarsi alla documentazione di <code>int</code>:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`int`</span>][]
 </code></pre></div>
 <p>Per collegarsi alla documentazione di `Image' di Pillow:</p>
@@ -5450,47 +5399,24 @@ documentazione di <code>int</code>:</p>
 </code></pre></div>
 <h2 id="suggerimenti-per-i-blocchi-di-codice">Suggerimenti per i blocchi di codice<a class="headerlink" href="#suggerimenti-per-i-blocchi-di-codice" title="Permanent link">&para;</a></h2>
 <h3 id="evidenziazione-della-lingua-e-del-codice">Evidenziazione della lingua e del codice<a class="headerlink" href="#evidenziazione-della-lingua-e-del-codice" title="Permanent link">&para;</a></h3>
-<p>È possibile specificare la lingua per il codice contenuto nel blocco di codice
-includendo il nome della lingua dopo i primi tre trattini, senza spazi
-intermedi. In questo modo, il codice viene evidenziato in modo appropriato
-durante il rendering. Per esempio, per specificare Python, si dovrebbe iniziare
-il codeblock con <code>`python</code>.</p>
+<p>È possibile specificare la lingua per il codice contenuto nel blocco di codice includendo il nome della lingua dopo i primi tre trattini, senza spazi intermedi. In questo modo, il codice viene evidenziato in modo appropriato durante il rendering. Per esempio, per specificare Python, si dovrebbe iniziare il codeblock con <code>`python</code>.</p>
 <h3 id="comandi-della-console-e-pulsante-di-copia">Comandi della console e pulsante di copia<a class="headerlink" href="#comandi-della-console-e-pulsante-di-copia" title="Permanent link">&para;</a></h3>
-<p>Se si includono comandi da console o comandi con output, etichettarli come
-<code>console</code> o <code>doscon</code>, a seconda che si stia descrivendo un sistema operativo
-Unix-like (incluso macOS) o Windows. È possibile includere il prompt fornito dal
-sistema operativo; solo il comando verrà copiato quando si fa clic sul pulsante
-di copia. Per esempio, se si inizia un codeblock con ``console'' e si include il
-seguente contenuto:</p>
+<p>Se si includono comandi da console o comandi con output, etichettarli come <code>console</code> o <code>doscon</code>, a seconda che si stia descrivendo un sistema operativo Unix-like (incluso macOS) o Windows. È possibile includere il prompt fornito dal sistema operativo; solo il comando verrà copiato quando si fa clic sul pulsante di copia. Per esempio, se si inizia un codeblock con ``console'' e si include il seguente contenuto:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>mkdir<span class="w"> </span><span class="nb">test</span>
 <span class="gp">$ </span>ls
 <span class="go">test</span>
 </code></pre></div>
-<p>Quindi, facendo clic sul pulsante di copia del blocco di codice, si copieranno
-solo i comandi, ignorando le richieste e l'output. Questo permette di indicare
-che si tratta di comandi della console, pur consentendo agli utenti di
-utilizzare efficacemente il pulsante di copia.</p>
+<p>Quindi, facendo clic sul pulsante di copia del blocco di codice, si copieranno solo i comandi, ignorando le richieste e l'output. Questo permette di indicare che si tratta di comandi della console, pur consentendo agli utenti di utilizzare efficacemente il pulsante di copia.</p>
 <h3 id="evidenziazione-di-linee-di-codice-specifiche">Evidenziazione di linee di codice specifiche<a class="headerlink" href="#evidenziazione-di-linee-di-codice-specifiche" title="Permanent link">&para;</a></h3>
-<p>È possibile evidenziare righe specifiche di codice. Per esempio, per evidenziare
-la riga 2, si aggiunge uno spazio dopo il linguaggio, seguito da
-<code>{hl_lines="2"}</code>. Quindi, il blocco di codice inizierebbe con <code>``python
-{hl_lines="2"}</code>. Il risultato è:</p>
+<p>È possibile evidenziare righe specifiche di codice. Per esempio, per evidenziare la riga 2, si aggiunge uno spazio dopo il linguaggio, seguito da <code>{hl_lines="2"}</code>. Quindi, il blocco di codice inizierebbe con <code>``python {hl_lines="2"}</code>. Il risultato è:</p>
 <div class="highlight"><pre><span></span><code><span class="n">importa</span> <span class="n">toga</span>
 <span class="hll"><span class="n">da</span> <span class="n">toga</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">pack</span> <span class="n">importa</span> <span class="n">COLUMN</span><span class="p">,</span> <span class="n">ROW</span>
 </span></code></pre></div>
-<p>È possibile evidenziare più righe diverse. Per esempio, <code>python {hl_lines="3 5
-9"}</code> evidenzierebbe le righe 3, 5 e 9. È anche possibile evidenziare un
-intervallo di righe. Per esempio, <code>python {hl_lines="3-8"}</code> evidenzia le righe
-da 3 a 8. È possibile evidenziare più intervalli con, ad esempio, <code>python
-{hl_lines="9-18 23-44"}</code>.</p>
+<p>È possibile evidenziare più righe diverse. Per esempio, <code>python {hl_lines="3 5 9"}</code> evidenzierebbe le righe 3, 5 e 9. È anche possibile evidenziare un intervallo di righe. Per esempio, <code>python {hl_lines="3-8"}</code> evidenzia le righe da 3 a 8. È possibile evidenziare più intervalli con, ad esempio, <code>python {hl_lines="9-18 23-44"}</code>.</p>
 <h2 id="elementi-di-markdown-che-richiedono-una-formattazione-specifica">Elementi di Markdown che richiedono una formattazione specifica<a class="headerlink" href="#elementi-di-markdown-che-richiedono-una-formattazione-specifica" title="Permanent link">&para;</a></h2>
-<p>A causa del modo in cui vengono generati i file di traduzione, è importante
-includere le newline necessarie nella sintassi di Markdown per le ammonizioni,
-le note, le schede, le direttive Jinja, le didascalie e l'allineamento delle
-immagini, ecc.</p>
+<p>A causa del modo in cui vengono generati i file di traduzione, è importante includere le newline necessarie nella sintassi di Markdown per le ammonizioni, le note, le schede, le direttive Jinja, le didascalie e l'allineamento delle immagini, ecc.</p>
 <h3 id="ammonizioni-e-note">Ammonizioni e note<a class="headerlink" href="#ammonizioni-e-note" title="Permanent link">&para;</a></h3>
-<p>Le ammonizioni devono essere formattate come segue, assicurando anche una linea
-nuova prima e dopo l'inizio e la fine dell'ammonizione:</p>
+<p>Le ammonizioni devono essere formattate come segue, assicurando anche una linea nuova prima e dopo l'inizio e la fine dell'ammonizione:</p>
 <div class="highlight"><pre><span></span><code>Contenuto sopra.
 
 /// Avviso | Titolo
@@ -5503,9 +5429,7 @@ Un secondo paragrafo.
 
 Contenuto sotto.
 </code></pre></div>
-<p>Questo funziona allo stesso modo con qualsiasi tipo di avvertimento supportato.
-Ad esempio, gli avvertimenti relativi alle note richiedono la stessa
-formattazione e gli stessi caratteri di nuova riga:</p>
+<p>Questo funziona allo stesso modo con qualsiasi tipo di avvertimento supportato. Ad esempio, gli avvertimenti relativi alle note richiedono la stessa formattazione e gli stessi caratteri di nuova riga:</p>
 <div class="highlight"><pre><span></span><code>Contenuto sopra.
 
 /// nota | Titolo della nota
@@ -5516,12 +5440,9 @@ Testo della nota qui.
 
 Contenuto sotto.
 </code></pre></div>
-<p>Tutti i <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">tipi di ammonimento
-supportati</a>
-sono disponibili per l'uso come ammonimenti.</p>
+<p>Tutti i <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">tipi di ammonimento supportati</a> sono disponibili per l'uso come ammonimenti.</p>
 <h3 id="contenuto-a-schede">Contenuto a schede<a class="headerlink" href="#contenuto-a-schede" title="Permanent link">&para;</a></h3>
-<p>Il contenuto della scheda è formattato come segue, con una newline inclusa prima
-dell'inizio e dopo la fine del blocco di contenuto:</p>
+<p>Il contenuto della scheda è formattato come segue, con una newline inclusa prima dell'inizio e dopo la fine del blocco di contenuto:</p>
 <div class="highlight"><pre><span></span><code>Contenuto sopra.
 
 /// scheda | Titolo della scheda uno
@@ -5544,8 +5465,7 @@ Testo della scheda tre.
 
 Contenuto sotto.
 </code></pre></div>
-<p>Una scheda con un'ammonizione annidata verrebbe formattata come segue,
-includendo una newline prima e dopo il blocco di contenuto:</p>
+<p>Una scheda con un'ammonizione annidata verrebbe formattata come segue, includendo una newline prima e dopo il blocco di contenuto:</p>
 <div class="highlight"><pre><span></span><code>Contenuto sopra.
 
 /// scheda | Windows
@@ -5563,8 +5483,7 @@ Testo dell&#39;avviso.
 Contenuto sotto.
 </code></pre></div>
 <h3 id="contenuto-collassato">Contenuto collassato<a class="headerlink" href="#contenuto-collassato" title="Permanent link">&para;</a></h3>
-<p>Il contenuto compresso è formattato come segue, inclusi i caratteri di nuova
-riga:</p>
+<p>Il contenuto compresso è formattato come segue, inclusi i caratteri di nuova riga:</p>
 <div class="highlight"><pre><span></span><code>Contenuto sopra.
 
 /// details-note | Titolo del contenuto nascosto
@@ -5575,28 +5494,16 @@ Contenuto nascosto.
 
 Contenuto sotto.
 </code></pre></div>
-<p>Tutti i <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">tipi di avvertenza
-supportati</a>
-sono disponibili per l'uso con i contenuti compressi, tuttavia è necessario
-dichiararli come <code>details-admonitiontype</code>. Quindi, un blocco compresso di tipo
-"nota" sarebbe <code>details-note</code> (come mostrato sopra), un blocco compresso di tipo
-"avviso" sarebbe <code>details-warning</code> e così via.</p>
+<p>Tutti i <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">tipi di avvertenza supportati</a> sono disponibili per l'uso con i contenuti compressi, tuttavia è necessario dichiararli come <code>details-admonitiontype</code>. Quindi, un blocco compresso di tipo "nota" sarebbe <code>details-note</code> (come mostrato sopra), un blocco compresso di tipo "avviso" sarebbe <code>details-warning</code> e così via.</p>
 <h3 id="direttive-jinja">Direttive Jinja<a class="headerlink" href="#direttive-jinja" title="Permanent link">&para;</a></h3>
-<p>Ci sono alcune caratteristiche della documentazione che utilizzano le direttive
-Jinja nel testo. Tutto ciò che utilizza le funzioni delle direttive Jinja deve
-essere avvolto da newline. Per esempio, il tutorial di BeeWare contiene
-condizionali Jinja basati su variabili per determinare quale ammonizione
-mostrare nella pagina principale. Questi sono formattati come segue:</p>
+<p>Ci sono alcune caratteristiche della documentazione che utilizzano le direttive Jinja nel testo. Tutto ciò che utilizza le funzioni delle direttive Jinja deve essere avvolto da newline. Per esempio, il tutorial di BeeWare contiene condizionali Jinja basati su variabili per determinare quale ammonizione mostrare nella pagina principale. Questi sono formattati come segue:</p>
 <div class="highlight"><pre><span></span><code>Contenuto sopra.
 
 
 
 Contenuto sotto.
 </code></pre></div>
-<p>Esiste anche una sintassi per la sostituzione di simboli o testo. Questa
-sintassi consiste in una variabile avvolta in una coppia di doppie parentesi
-graffe corrispondenti e, se si trova su una riga propria, deve includere una
-newline prima e dopo.</p>
+<p>Esiste anche una sintassi per la sostituzione di simboli o testo. Questa sintassi consiste in una variabile avvolta in una coppia di doppie parentesi graffe corrispondenti e, se si trova su una riga propria, deve includere una newline prima e dopo.</p>
 <div class="highlight"><pre><span></span><code>Contenuto sopra.
 
 {{ variable }}
@@ -5604,20 +5511,14 @@ newline prima e dopo.</p>
 Contenuto sotto.
 </code></pre></div>
 <h3 id="formattazione-dellimmagine">Formattazione dell'immagine<a class="headerlink" href="#formattazione-dellimmagine" title="Permanent link">&para;</a></h3>
-<p>Le immagini possono essere impostate in larghezza e possono essere allineate a
-sinistra, a destra e al centro (con un'avvertenza sul "centro"). Le immagini
-dovrebbero sempre includere un testo alt significativo ai fini
-dell'accessibilità.</p>
-<p>L'impostazione della larghezza di <nospell>300px</nospell> su un'immagine
-verrebbe formattata come segue:</p>
+<p>Le immagini possono essere impostate in larghezza e possono essere allineate a sinistra, a destra e al centro (con un'avvertenza sul "centro"). Le immagini dovrebbero sempre includere un testo alt significativo ai fini dell'accessibilità.</p>
+<p>L'impostazione della larghezza di <nospell>300px</nospell> su un'immagine verrebbe formattata come segue:</p>
 <div class="highlight"><pre><span></span><code>![<span class="nt">Testo alternativo dell&#39;immagine</span>](<span class="na">../percorso/dell&#39;immagine.png</span>){ width=&quot;300px&quot; }
 </code></pre></div>
-<p>L'allineamento di un'immagine a sinistra (o a destra) verrebbe formattato come
-segue:</p>
+<p>L'allineamento di un'immagine a sinistra (o a destra) verrebbe formattato come segue:</p>
 <div class="highlight"><pre><span></span><code>![<span class="nt">Testo alternativo dell&#39;immagine</span>](<span class="na">../percorso/dell&#39;immagine.png</span>){ align=left }
 </code></pre></div>
-<p>L'aggiunta di una didascalia a un'immagine richiede una linea nuova prima e dopo
-e viene formattata come segue:</p>
+<p>L'aggiunta di una didascalia a un'immagine richiede una linea nuova prima e dopo e viene formattata come segue:</p>
 <div class="highlight"><pre><span></span><code>Contenuto sopra.
 
 ![<span class="nt">Testo alternativo dell&#39;immagine</span>](<span class="na">/percorso/dell&#39;immagine.png</span>)
@@ -5630,10 +5531,7 @@ Contenuto della didascalia.
 
 Contenuto sotto.
 </code></pre></div>
-<p>L'allineamento al centro di un'immagine non è possibile con l'attributo <code>align</code>.
-La soluzione consiste nel far seguire all'immagine una didascalia vuota, che
-verrà centrata. È necessario includere dei newline tra ogni sezione e prima e
-dopo. È formattato come segue:</p>
+<p>L'allineamento al centro di un'immagine non è possibile con l'attributo <code>align</code>. La soluzione consiste nel far seguire all'immagine una didascalia vuota, che verrà centrata. È necessario includere dei newline tra ogni sezione e prima e dopo. È formattato come segue:</p>
 <div class="highlight"><pre><span></span><code>Contenuto sopra.
 
 ![<span class="nt">Testo alternativo dell&#39;immagine</span>](<span class="na">../percorso/dell&#39;immagine.png</span>)
@@ -5645,70 +5543,33 @@ dopo. È formattato come segue:</p>
 Contenuto sotto.
 </code></pre></div>
 <h2 id="plugin-con-formattazione-markdown-specifica">Plugin con formattazione Markdown specifica<a class="headerlink" href="#plugin-con-formattazione-markdown-specifica" title="Permanent link">&para;</a></h2>
-<p>Le sezioni seguenti spiegano come utilizzare i plugin che richiedono una
-specifica formattazione Markdown.</p>
+<p>Le sezioni seguenti spiegano come utilizzare i plugin che richiedono una specifica formattazione Markdown.</p>
 <h3 id="utilizzo-degli-snippet-per-includere-contenuti-esterni">Utilizzo degli Snippet per includere contenuti esterni<a class="headerlink" href="#utilizzo-degli-snippet-per-includere-contenuti-esterni" title="Permanent link">&para;</a></h3>
-<p>Per i dettagli su come includere contenuti esterni da un file locale o da un
-URL, vedere la documentazione dell'estensione
-<a href="https://facelessuser.github.io/pymdown-extensions/extensions/snippets/">Snippets</a>.
-Snippets dovrebbe essere usato a patto che il documento non contenga direttive
-Jinja che devono essere eseguite (l'esecuzione di Jinja avviene parallelamente
-all'elaborazione di Snippets e quindi qualsiasi Jinja nel file non verrà
-elaborato). Snippets è necessario se si vogliono usare delimitatori che
-permettano di includere parti specifiche di un file separatamente, ad esempio se
-il documento sorgente è diviso in sezioni da iniettare separatamente l'una
-dall'altra.</p>
+<p>Per i dettagli su come includere contenuti esterni da un file locale o da un URL, vedere la documentazione dell'estensione <a href="https://facelessuser.github.io/pymdown-extensions/extensions/snippets/">Snippets</a>. Snippets dovrebbe essere usato a patto che il documento non contenga direttive Jinja che devono essere eseguite (l'esecuzione di Jinja avviene parallelamente all'elaborazione di Snippets e quindi qualsiasi Jinja nel file non verrà elaborato). Snippets è necessario se si vogliono usare delimitatori che permettano di includere parti specifiche di un file separatamente, ad esempio se il documento sorgente è diviso in sezioni da iniettare separatamente l'una dall'altra.</p>
 <p>Note importanti:</p>
 <ul>
-<li>Si usa <code>-8&lt;-</code> come identificatore di Snippets. La documentazione mostra
-  diverse opzioni; si consiglia di seguire il nostro stile.</li>
-<li>I file presenti nei contenuti condivisi di BeeWare Docs Tools sono trattati
-  come contenuti "locali". Pertanto, si userà solo il nome del file, come in
-  <code>-8&lt;- "docs-style-guide.md"</code>, oppure, se il contenuto è in una sottodirectory,
-  solo la directory e il nome del file, come in <code>-8&lt;-
-  "style/docs-style-guide.md"</code>.</li>
-<li>Se si include un contenuto esterno da un file su GitHub tramite un URL, è
-  necessario utilizzare l'URL del contenuto grezzo, altrimenti verrà
-  visualizzata l'intera pagina web incorporata ovunque la si includa.</li>
+<li>Si usa <code>-8&lt;-</code> come identificatore di Snippets. La documentazione mostra diverse opzioni; si consiglia di seguire il nostro stile.</li>
+<li>I file presenti nei contenuti condivisi di BeeWare Docs Tools sono trattati come contenuti "locali". Pertanto, si userà solo il nome del file, come in <code>-8&lt;- "docs-style-guide.md"</code>, oppure, se il contenuto è in una sottodirectory, solo la directory e il nome del file, come in <code>-8&lt;- "style/docs-style-guide.md"</code>.</li>
+<li>Se si include un contenuto esterno da un file su GitHub tramite un URL, è necessario utilizzare l'URL del contenuto grezzo, altrimenti verrà visualizzata l'intera pagina web incorporata ovunque la si includa.</li>
 </ul>
 <h3 id="utilizzo-delle-macro-per-includere-il-contenuto-di-beeware-docs-tools-condiviso">Utilizzo delle macro per includere il contenuto di BeeWare Docs Tools condiviso<a class="headerlink" href="#utilizzo-delle-macro-per-includere-il-contenuto-di-beeware-docs-tools-condiviso" title="Permanent link">&para;</a></h3>
-<p>È anche possibile includere il contenuto della cartella dei contenuti condivisi
-degli strumenti BeeWare Docs utilizzando il plugin <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">Macros
-MkDocs</a>. Questo
-metodo è necessario se il documento contiene direttive Jinja che devono essere
-eseguite e deve essere usato solo in questa situazione. Non funziona con il
-contenuto esterno tramite un URL. Il <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/#1-variable">meccanismo di sostituzione delle variabili
-di
-Macros</a>
-funziona con questo metodo.</p>
+<p>È anche possibile includere il contenuto della cartella dei contenuti condivisi degli strumenti BeeWare Docs utilizzando il plugin <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">Macros MkDocs</a>. Questo metodo è necessario se il documento contiene direttive Jinja che devono essere eseguite e deve essere usato solo in questa situazione. Non funziona con il contenuto esterno tramite un URL. Il <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/#1-variable">meccanismo di sostituzione delle variabili di Macros</a> funziona con questo metodo.</p>
 <p>Esistono opzioni per includere i contenuti utilizzando le macro:</p>
 <ol>
 <li>
-<p>Usare <a href="https://jinja.palletsprojects.com/en/stable/templates/#include">la sintassi <code>include</code> di
-   Jinja</a> se si
-   vuole includere il documento senza altre modifiche manuali.</p>
+<p>Usare <a href="https://jinja.palletsprojects.com/en/stable/templates/#include">la sintassi <code>include</code> di Jinja</a> se si vuole includere il documento senza altre modifiche manuali.</p>
 </li>
 <li>
-<p>Utilizzare <a href="https://jinja.palletsprojects.com/en/stable/templates/#child-template">la sintassi <code>extends</code> di
-   Jinja</a>
-   se si è inclusa la sintassi <code>block</code> di Jinja nel documento, che consente di
-   sovrascrivere o aggiungere a sezioni specifiche.</p>
+<p>Utilizzare <a href="https://jinja.palletsprojects.com/en/stable/templates/#child-template">la sintassi <code>extends</code> di Jinja</a> se si è inclusa la sintassi <code>block</code> di Jinja nel documento, che consente di sovrascrivere o aggiungere a sezioni specifiche.</p>
 </li>
 </ol>
 <h2 id="pyspelling"><code>pyspelling</code><a class="headerlink" href="#pyspelling" title="Permanent link">&para;</a></h2>
-<p>Utilizziamo il correttore ortografico <code>pyspelling</code>. Viene eseguito durante i
-controlli di lint.</p>
-<p>Quando <code>pyspelling</code> identifica una parola scritta male, nella maggior parte dei
-casi, dovrebbe essere corretta nel contenuto della documentazione.</p>
-<p>Nel raro caso in cui identifichi una parola valida che non è presente nel
-dizionario <code>pyspelling</code>, si hanno due opzioni:</p>
+<p>Utilizziamo il correttore ortografico <code>pyspelling</code>. Viene eseguito durante i controlli di lint.</p>
+<p>Quando <code>pyspelling</code> identifica una parola scritta male, nella maggior parte dei casi, dovrebbe essere corretta nel contenuto della documentazione.</p>
+<p>Nel raro caso in cui identifichi una parola valida che non è presente nel dizionario <code>pyspelling</code>, si hanno due opzioni:</p>
 <ol>
-<li>Se si tratta di una parola che probabilmente verrà riutilizzata più volte, si
-   dovrebbe aggiungere la parola al documento <code>spelling_wordlist</code> nella
-   directory <code>docs</code>, in ordine alfabetico.</li>
-<li>Se si tratta di una parola che difficilmente verrà usata di nuovo, è
-   possibile inserirla in un tag <code>&lt;nospell&gt;</code> / <code>&lt;/nospell&gt;</code> e <code>pyspelling</code> la
-   ignorerà in linea.</li>
+<li>Se si tratta di una parola che probabilmente verrà riutilizzata più volte, si dovrebbe aggiungere la parola al documento <code>spelling_wordlist</code> nella directory <code>docs</code>, in ordine alfabetico.</li>
+<li>Se si tratta di una parola che difficilmente verrà usata di nuovo, è possibile inserirla in un tag <code>&lt;nospell&gt;</code> / <code>&lt;/nospell&gt;</code> e <code>pyspelling</code> la ignorerà in linea.</li>
 </ol>
 
 

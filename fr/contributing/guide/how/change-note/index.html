@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="En-tête"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/change-note/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/change-note/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4770,80 +4778,33 @@ aria-label="En-tête"
 
 
 <h1 id="ajout-dinformations-sur-les-modifications-pour-les-notes-de-mise-a-jour">Ajout d'informations sur les modifications pour les notes de mise à jour<a class="headerlink" href="#ajout-dinformations-sur-les-modifications-pour-les-notes-de-mise-a-jour" title="Permanent link">&para;</a></h1>
-<p>De nombreux outils BeeWare utilisent
-<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> pour aider à la construction
-des notes de version pour chaque version. Lorsque vous soumettez une demande
-d'extraction à l'un des outils applicables, elle devra inclure une <em>note de
-changement</em> - cette note de changement deviendra l'entrée dans les notes de
-publication décrivant le changement qui a été fait.</p>
-<p>Chaque demande d'extraction doit inclure au moins un fichier dans le répertoire
-<code>changes/</code> qui fournit une courte description du changement implémenté par la
-demande d'extraction. La note de changement doit être au format Markdown, dans
-un fichier dont le nom est du format <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Si le changement
-que vous proposez corrige un bogue ou implémente une fonctionnalité pour
-laquelle il existe un numéro de problème, l'ID sera le numéro de ce ticket. Si
-le changement n'a pas de problème correspondant, le numéro de PR peut être
-utilisé comme identifiant. Vous ne connaîtrez pas ce numéro de PR tant que vous
-n'aurez pas poussé la pull request, donc le premier passage du CI échouera la
-vérification <code>towncrier</code> ; ajoutez la note de changement et poussez une mise à
-jour du PR et le CI devrait alors passer.</p>
+<p>De nombreux outils BeeWare utilisent <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> pour aider à la construction des notes de version pour chaque version. Lorsque vous soumettez une demande d'extraction à l'un des outils applicables, elle devra inclure une <em>note de changement</em> - cette note de changement deviendra l'entrée dans les notes de publication décrivant le changement qui a été fait.</p>
+<p>Chaque demande d'extraction doit inclure au moins un fichier dans le répertoire <code>changes/</code> qui fournit une courte description du changement implémenté par la demande d'extraction. La note de changement doit être au format Markdown, dans un fichier dont le nom est du format <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Si le changement que vous proposez corrige un bogue ou implémente une fonctionnalité pour laquelle il existe un numéro de problème, l'ID sera le numéro de ce ticket. Si le changement n'a pas de problème correspondant, le numéro de PR peut être utilisé comme identifiant. Vous ne connaîtrez pas ce numéro de PR tant que vous n'aurez pas poussé la pull request, donc le premier passage du CI échouera la vérification <code>towncrier</code> ; ajoutez la note de changement et poussez une mise à jour du PR et le CI devrait alors passer.</p>
 <p>Il existe cinq types de fragments :</p>
 <ul>
-<li><code>feature</code> : Le PR ajoute un nouveau comportement ou une nouvelle capacité qui
-  n'était pas possible auparavant (par exemple, en ajoutant le support d'un
-  nouveau format d'emballage, ou une nouvelle fonctionnalité dans un format
-  d'emballage existant) ;</li>
+<li><code>feature</code> : Le PR ajoute un nouveau comportement ou une nouvelle capacité qui n'était pas possible auparavant (par exemple, en ajoutant le support d'un nouveau format d'emballage, ou une nouvelle fonctionnalité dans un format d'emballage existant) ;</li>
 <li><code>bugfix</code> : Le PR corrige un bogue dans l'implémentation existante ;</li>
 <li><code>doc</code> : Le PR est une amélioration significative de la documentation ;</li>
 <li><code>removal</code> ; The PR represents a backward incompatible change in BeeWare API ; or the PR represents a backward incompatible change in BeeWare API. API ; ou</li>
-<li><code>misc</code> ; Un changement mineur ou administratif (par exemple, la correction
-  d'une coquille, une clarification linguistique mineure, ou la mise à jour
-  d'une version de dépendance) qui n'a pas besoin d'être annoncé dans les notes
-  de publication.</li>
+<li><code>misc</code> ; Un changement mineur ou administratif (par exemple, la correction d'une coquille, une clarification linguistique mineure, ou la mise à jour d'une version de dépendance) qui n'a pas besoin d'être annoncé dans les notes de publication.</li>
 </ul>
-<p>Cette description dans la note de modification doit être un résumé "marketing"
-de haut niveau de la modification du point de vue de l'utilisateur, et non une
-description technique approfondie ou un détail d'implémentation. Elle se
-distingue d'un message de validation - un message de validation décrit ce qui a
-été fait afin que les futurs développeurs puissent suivre le raisonnement d'un
-changement ; la note de modification est une description à l'intention des
-utilisateurs, qui peuvent ne pas avoir connaissance des éléments internes.</p>
-<p>Par exemple, si vous corrigez un bogue lié à la dénomination d'un projet, le
-message de validation pourrait être le suivant :</p>
+<p>Cette description dans la note de modification doit être un résumé "marketing" de haut niveau de la modification du point de vue de l'utilisateur, et non une description technique approfondie ou un détail d'implémentation. Elle se distingue d'un message de validation - un message de validation décrit ce qui a été fait afin que les futurs développeurs puissent suivre le raisonnement d'un changement ; la note de modification est une description à l'intention des utilisateurs, qui peuvent ne pas avoir connaissance des éléments internes.</p>
+<p>Par exemple, si vous corrigez un bogue lié à la dénomination d'un projet, le message de validation pourrait être le suivant :</p>
 <blockquote>
-<p>Appliquer une vérification d'expression régulière plus forte pour interdire
-les noms de projets qui commencent par des chiffres.</p>
+<p>Appliquer une vérification d'expression régulière plus forte pour interdire les noms de projets qui commencent par des chiffres.</p>
 </blockquote>
 <p>La note de modification correspondante se lirait comme suit :</p>
 <blockquote>
 <p>Les noms de projets ne peuvent plus commencer par un chiffre.</p>
 </blockquote>
-<p>Certains PR introduisent plusieurs fonctionnalités et corrigent plusieurs
-bogues, ou introduisent plusieurs changements incompatibles avec le passé. Dans
-ce cas, la PR peut avoir plusieurs fichiers de notes de modification. Si vous
-devez associer deux types de fragments au même identifiant, vous pouvez ajouter
-un suffixe numérique. Par exemple, si la PR 789 a ajouté une fonctionnalité
-décrite par le ticket 123, a corrigé un bug décrit par le ticket 234, et a
-également apporté deux changements incompatibles, vous pouvez avoir 4 fichiers
-de notes de changement :</p>
+<p>Certains PR introduisent plusieurs fonctionnalités et corrigent plusieurs bogues, ou introduisent plusieurs changements incompatibles avec le passé. Dans ce cas, la PR peut avoir plusieurs fichiers de notes de modification. Si vous devez associer deux types de fragments au même identifiant, vous pouvez ajouter un suffixe numérique. Par exemple, si la PR 789 a ajouté une fonctionnalité décrite par le ticket 123, a corrigé un bug décrit par le ticket 234, et a également apporté deux changements incompatibles, vous pouvez avoir 4 fichiers de notes de changement :</p>
 <ul>
 <li><code>123.feature.md</code></li>
 <li><code>234.bugfix.md</code></li>
 <li><code>789.removal.1.md</code></li>
 <li><code>789.removal.2.md</code></li>
 </ul>
-<p>Pour plus d'informations sur <code>towncrier</code> et les types de fragments, voir <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">News
-Fragments</a>.
-Vous pouvez également voir des exemples existants de fragments de nouvelles dans
-le répertoire <code>changes</code> du référentiel BeeWare. Si ce répertoire est
-vide, c'est probablement parce que BeeWare a récemment publié une
-nouvelle version ; les fichiers de notes de changement sont supprimés et
-combinés pour mettre à jour les <a href="https://github.com/beeware/beeware/releases">notes de
-publication</a> à chaque
-publication. Vous pouvez consulter ce fichier pour voir le style de commentaire
-requis ; vous pouvez consulter <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">PRs récemment
-fusionnés</a> pour voir comment formater vos notes de
-modification.</p>
+<p>Pour plus d'informations sur <code>towncrier</code> et les types de fragments, voir <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">News Fragments</a>. Vous pouvez également voir des exemples existants de fragments de nouvelles dans le répertoire <code>changes</code> du référentiel BeeWare. Si ce répertoire est vide, c'est probablement parce que BeeWare a récemment publié une nouvelle version ; les fichiers de notes de changement sont supprimés et combinés pour mettre à jour les <a href="https://github.com/beeware/beeware/releases">notes de publication</a> à chaque publication. Vous pouvez consulter ce fichier pour voir le style de commentaire requis ; vous pouvez consulter <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">PRs récemment fusionnés</a> pour voir comment formater vos notes de modification.</p>
 
 
 

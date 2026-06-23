@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Sidehoved"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/change-note/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/change-note/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4770,73 +4778,33 @@ aria-label="Sidehoved"
 
 
 <h1 id="tilfjelse-af-ndringsoplysninger-til-release-notes">Tilføjelse af ændringsoplysninger til release notes<a class="headerlink" href="#tilfjelse-af-ndringsoplysninger-til-release-notes" title="Permanent link">&para;</a></h1>
-<p>Mange BeeWare-værktøjer bruger
-<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> til at hjælpe med at oprette
-release notes for hver udgivelse. Når du indsender en pull request til et af de
-relevante værktøjer, skal den indeholde en <em>ændringsnote</em> - denne ændringsnote
-bliver en post i release notes, der beskriver den ændring, der er foretaget.</p>
-<p>Hver pull-anmodning skal indeholde mindst én fil i <code>changes/</code> -mappen, der
-indeholder en kort beskrivelse af den ændring, der implementeres med
-pull-anmodningen. Ændringsnotatet skal være i Markdown-format i en fil med
-navnet <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Hvis den ændring, du foreslår, vil rette en
-fejl eller implementere en funktion, for hvilken der findes et eksisterende
-problemnummer, vil ID'et være nummeret på den pågældende billet. Hvis ændringen
-ikke har noget tilsvarende problem, kan PR-nummeret bruges som ID. Du kender
-ikke dette PR-nummer, før du har sendt pull-anmodningen, så den første CI-test
-vil fejle <code>towncrier</code> -kontrollen. Tilføj ændringsnoten, send en PR-opdatering,
-og CI bør derefter bestå.</p>
+<p>Mange BeeWare-værktøjer bruger <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> til at hjælpe med at oprette release notes for hver udgivelse. Når du indsender en pull request til et af de relevante værktøjer, skal den indeholde en <em>ændringsnote</em> - denne ændringsnote bliver en post i release notes, der beskriver den ændring, der er foretaget.</p>
+<p>Hver pull-anmodning skal indeholde mindst én fil i <code>changes/</code> -mappen, der indeholder en kort beskrivelse af den ændring, der implementeres med pull-anmodningen. Ændringsnotatet skal være i Markdown-format i en fil med navnet <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Hvis den ændring, du foreslår, vil rette en fejl eller implementere en funktion, for hvilken der findes et eksisterende problemnummer, vil ID'et være nummeret på den pågældende billet. Hvis ændringen ikke har noget tilsvarende problem, kan PR-nummeret bruges som ID. Du kender ikke dette PR-nummer, før du har sendt pull-anmodningen, så den første CI-test vil fejle <code>towncrier</code> -kontrollen. Tilføj ændringsnoten, send en PR-opdatering, og CI bør derefter bestå.</p>
 <p>Der er fem fragmenttyper:</p>
 <ul>
-<li><code>feature</code>: PR tilføjer en ny funktion eller mulighed, der ikke tidligere var
-  mulig (f.eks. tilføjelse af support til et nyt pakkeformat eller en ny
-  funktion i et eksisterende pakkeformat).</li>
+<li><code>feature</code>: PR tilføjer en ny funktion eller mulighed, der ikke tidligere var mulig (f.eks. tilføjelse af support til et nyt pakkeformat eller en ny funktion i et eksisterende pakkeformat).</li>
 <li><code>bugfix</code>: PR retter en fejl i den eksisterende implementering.</li>
 <li><code>doc</code>: PR er en væsentlig forbedring af dokumentationen.</li>
-<li><code>removal</code>; PR repræsenterer en bagudkompatibel ændring i BeeWare
-  API; eller</li>
-<li><code>misc</code>; En mindre eller administrativ ændring (f.eks. rettelse af en
-  stavefejl, en mindre sproglig præcisering eller opdatering af en
-  afhængighedsversion), der ikke behøver at blive annonceret i release notes.</li>
+<li><code>removal</code>; PR repræsenterer en bagudkompatibel ændring i BeeWare API; eller</li>
+<li><code>misc</code>; En mindre eller administrativ ændring (f.eks. rettelse af en stavefejl, en mindre sproglig præcisering eller opdatering af en afhængighedsversion), der ikke behøver at blive annonceret i release notes.</li>
 </ul>
-<p>Denne beskrivelse i ændringsnotatet skal være en overordnet
-"markedsføringsmæssig" sammenfatning af ændringen set fra brugerens perspektiv,
-ikke en dybdegående teknisk beskrivelse eller implementeringsdetaljer. Den
-adskiller sig fra en commit-besked – en commit-besked beskriver, hvad der er
-blevet gjort, så fremtidige udviklere kan følge begrundelsen for en ændring;
-ændringsnotatet er en beskrivelse til gavn for brugerne, som muligvis ikke har
-kendskab til de interne forhold.</p>
-<p>Hvis du f.eks. retter en fejl relateret til projektnavngivning, kan
-commit-meddelelsen lyde således:</p>
+<p>Denne beskrivelse i ændringsnotatet skal være en overordnet "markedsføringsmæssig" sammenfatning af ændringen set fra brugerens perspektiv, ikke en dybdegående teknisk beskrivelse eller implementeringsdetaljer. Den adskiller sig fra en commit-besked – en commit-besked beskriver, hvad der er blevet gjort, så fremtidige udviklere kan følge begrundelsen for en ændring; ændringsnotatet er en beskrivelse til gavn for brugerne, som muligvis ikke har kendskab til de interne forhold.</p>
+<p>Hvis du f.eks. retter en fejl relateret til projektnavngivning, kan commit-meddelelsen lyde således:</p>
 <blockquote>
-<p>Anvend en strengere regulær udtryk-kontrol for at forhindre projektnavne, der
-begynder med cifre.</p>
+<p>Anvend en strengere regulær udtryk-kontrol for at forhindre projektnavne, der begynder med cifre.</p>
 </blockquote>
 <p>Den tilsvarende ændringsnote ville lyde nogenlunde således:</p>
 <blockquote>
 <p>Projektnavne kan ikke længere begynde med et tal.</p>
 </blockquote>
-<p>Nogle PR'er introducerer flere funktioner og retter flere fejl eller
-introducerer flere bagudkompatible ændringer. I så fald kan PR'en have flere
-ændringsnotatfiler. Hvis du har brug for at knytte to fragmenttyper til samme
-ID, kan du tilføje et numerisk suffiks. Hvis PR 789 f.eks. tilføjede en funktion
-beskrevet i billet 123, lukkede en fejl beskrevet i billet 234 og også foretog
-to bagudkompatible ændringer, kan du have 4 ændringsnotatfiler:</p>
+<p>Nogle PR'er introducerer flere funktioner og retter flere fejl eller introducerer flere bagudkompatible ændringer. I så fald kan PR'en have flere ændringsnotatfiler. Hvis du har brug for at knytte to fragmenttyper til samme ID, kan du tilføje et numerisk suffiks. Hvis PR 789 f.eks. tilføjede en funktion beskrevet i billet 123, lukkede en fejl beskrevet i billet 234 og også foretog to bagudkompatible ændringer, kan du have 4 ændringsnotatfiler:</p>
 <ul>
 <li><code>123.feature.md</code></li>
 <li><code>234.bugfix.md</code></li>
 <li><code>789.removal.1.md</code></li>
 <li><code>789.removal.2.md</code></li>
 </ul>
-<p>For mere information om <code>towncrier</code> og fragmenttyper, se
-<a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Nyhedsfragmenter</a>.
-Du kan også se eksisterende eksempler på nyhedsfragmenter i <code>changes</code> mappen i
-BeeWare repositoryet. Hvis denne mappe er tom, skyldes det
-sandsynligvis, at BeeWare for nylig har udgivet en ny version;
-ændringsnotatfiler slettes og kombineres for at opdatere <a href="https://github.com/beeware/beeware/releases">release
-notes</a> med hver
-udgivelse. Du kan se den fil for at se, hvilken stil der kræves for kommentarer.
-Du kan se <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">nylig sammenlagte PR'er</a> for at se, hvordan du formaterer dine
-ændringsnoter.</p>
+<p>For mere information om <code>towncrier</code> og fragmenttyper, se <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Nyhedsfragmenter</a>. Du kan også se eksisterende eksempler på nyhedsfragmenter i <code>changes</code> mappen i BeeWare repositoryet. Hvis denne mappe er tom, skyldes det sandsynligvis, at BeeWare for nylig har udgivet en ny version; ændringsnotatfiler slettes og kombineres for at opdatere <a href="https://github.com/beeware/beeware/releases">release notes</a> med hver udgivelse. Du kan se den fil for at se, hvilken stil der kræves for kommentarer. Du kan se <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">nylig sammenlagte PR'er</a> for at se, hvordan du formaterer dine ændringsnoter.</p>
 
 
 

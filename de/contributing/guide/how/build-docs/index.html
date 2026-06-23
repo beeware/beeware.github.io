@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Kopfzeile"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/build-docs/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/build-docs/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4986,32 +4994,16 @@ aria-label="Kopfzeile"
 
 
 <h1 id="gebaudedokumentation">Gebäudedokumentation<a class="headerlink" href="#gebaudedokumentation" title="Permanent link">&para;</a></h1>
-<p>Bevor Sie Änderungen an der Dokumentation von BeeWare vornehmen,
-sollten Sie sich vergewissern, dass Sie die vorhandene Dokumentation erstellen
-können.</p>
-<p>Bevor Sie die Dokumentation erstellen, richten Sie eine
-<a href="../dev-environment/">Entwicklungsumgebung</a> ein.</p>
-<p>Sie <strong>müssen</strong> einen Python 3.13 Interpreter installiert
-und in Ihrem Pfad verfügbar haben (d.h. <code>python3.13</code> muss
-einen Python 3.13 Interpreter starten).</p>
-<p>BeeWare verwendet <code>tox</code> zur Erstellung der Dokumentation. Die
-folgenden <code>tox</code>-Befehle müssen von demselben Ort aus ausgeführt werden wie die
-<code>tox.ini</code>-Datei, die sich im Stammverzeichnis des Projekts befindet.</p>
+<p>Bevor Sie Änderungen an der Dokumentation von BeeWare vornehmen, sollten Sie sich vergewissern, dass Sie die vorhandene Dokumentation erstellen können.</p>
+<p>Bevor Sie die Dokumentation erstellen, richten Sie eine <a href="../dev-environment/">Entwicklungsumgebung</a> ein.</p>
+<p>Sie <strong>müssen</strong> einen Python 3.13 Interpreter installiert und in Ihrem Pfad verfügbar haben (d.h. <code>python3.13</code> muss einen Python 3.13 Interpreter starten).</p>
+<p>BeeWare verwendet <code>tox</code> zur Erstellung der Dokumentation. Die folgenden <code>tox</code>-Befehle müssen von demselben Ort aus ausgeführt werden wie die <code>tox.ini</code>-Datei, die sich im Stammverzeichnis des Projekts befindet.</p>
 <h3 id="live-vorschau-der-dokumentation">Live-Vorschau der Dokumentation<a class="headerlink" href="#live-vorschau-der-dokumentation" title="Permanent link">&para;</a></h3>
 <p>Um die schnelle Bearbeitung der Dokumentation zu unterstützen, verfügt BeeWare über einen "Live-Vorschau"-Modus.</p>
 <div class="admonition warning">
 <p class="admonition-title">Die Live-Vorschau wird mit Warnungen erstellt!</p>
-<p>Der Live-Serve steht Ihnen zur Verfügung, um Ihre Dokumentationsaktualisierungen
-zu wiederholen. Während Sie Dinge aktualisieren, können Sie ein
-Auszeichnungsproblem einführen. Probleme, die als <code>WARNING</code> eingestuft werden,
-führen dazu, dass ein Standard-Build fehlschlägt. Der Live-Serve ist jedoch so
-eingerichtet, dass er Warnungen in der Konsolenausgabe anzeigt, während der
-Build fortgesetzt wird. So können Sie iterieren, ohne die Live-Vorschau neu
-starten zu müssen.</p>
-<p>Eine <code>WARNING</code> unterscheidet sich von einem <code>ERROR</code>. Wenn Sie ein Problem
-einführen, das als "ERROR" eingestuft wird, schlägt der Live-Service fehl und
-erfordert einen Neustart. Er wird erst dann wieder gestartet, wenn das
-<code>WARNING</code>-Problem behoben ist.</p>
+<p>Der Live-Serve steht Ihnen zur Verfügung, um Ihre Dokumentationsaktualisierungen zu wiederholen. Während Sie Dinge aktualisieren, können Sie ein Auszeichnungsproblem einführen. Probleme, die als <code>WARNING</code> eingestuft werden, führen dazu, dass ein Standard-Build fehlschlägt. Der Live-Serve ist jedoch so eingerichtet, dass er Warnungen in der Konsolenausgabe anzeigt, während der Build fortgesetzt wird. So können Sie iterieren, ohne die Live-Vorschau neu starten zu müssen.</p>
+<p>Eine <code>WARNING</code> unterscheidet sich von einem <code>ERROR</code>. Wenn Sie ein Problem einführen, das als "ERROR" eingestuft wird, schlägt der Live-Service fehl und erfordert einen Neustart. Er wird erst dann wieder gestartet, wenn das <code>WARNING</code>-Problem behoben ist.</p>
 </div>
 <p>So starten Sie den Live-Server:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
@@ -5030,28 +5022,17 @@ erfordert einen Neustart. Er wird erst dann wieder gestartet, wenn das
 </div>
 </div>
 </div>
-<p>Dadurch wird die Dokumentation erstellt, ein Webserver gestartet, um die
-Dokumentation bereitzustellen, und das Dateisystem auf Änderungen an der
-Dokumentationsquelle überwacht.</p>
-<p>Sobald der Server gestartet ist, sehen Sie in der Konsolenausgabe etwas wie das
-Folgende:</p>
+<p>Dadurch wird die Dokumentation erstellt, ein Webserver gestartet, um die Dokumentation bereitzustellen, und das Dateisystem auf Änderungen an der Dokumentationsquelle überwacht.</p>
+<p>Sobald der Server gestartet ist, sehen Sie in der Konsolenausgabe etwas wie das Folgende:</p>
 <div class="highlight"><pre><span></span><code><span class="go">INFO    -  [11:18:51] Wird unter http://127.0.0.1:8000/ bereitgestellt</span>
 </code></pre></div>
-<p>Öffnen Sie einen Browser, und navigieren Sie zu der angegebenen URL. Nun können
-Sie mit der Bearbeitung der Dokumentation beginnen. Wenn eine Änderung
-festgestellt wird, wird die Dokumentation neu erstellt, und jeder Browser, der
-die geänderte Seite anzeigt, wird automatisch aktualisiert.</p>
+<p>Öffnen Sie einen Browser, und navigieren Sie zu der angegebenen URL. Nun können Sie mit der Bearbeitung der Dokumentation beginnen. Wenn eine Änderung festgestellt wird, wird die Dokumentation neu erstellt, und jeder Browser, der die geänderte Seite anzeigt, wird automatisch aktualisiert.</p>
 <div class="admonition note">
 <p class="admonition-title">docs-live" ist ein erster Schritt</p>
-<p>Das Ausführen von <code>docs-live</code>, um mit dem Live-Server zu arbeiten, ist für erste
-Iterationen gedacht. Sie sollten <em>immer</em> einen lokalen Build ausführen, bevor
-Sie einen Pull-Request einreichen.</p>
+<p>Das Ausführen von <code>docs-live</code>, um mit dem Live-Server zu arbeiten, ist für erste Iterationen gedacht. Sie sollten <em>immer</em> einen lokalen Build ausführen, bevor Sie einen Pull-Request einreichen.</p>
 </div>
 <h3 id="lokales-gebaude">Lokales Gebäude<a class="headerlink" href="#lokales-gebaude" title="Permanent link">&para;</a></h3>
-<p>Sobald Sie mit der Iteration fertig sind, müssen Sie einen lokalen Build der
-Dokumentation durchführen. Dieser Build-Prozess ist so konzipiert, dass er bei
-Auszeichnungsproblemen fehlschlägt. So können Sie alles auffangen, was Sie auf
-dem Live-Server übersehen haben könnten.</p>
+<p>Sobald Sie mit der Iteration fertig sind, müssen Sie einen lokalen Build der Dokumentation durchführen. Dieser Build-Prozess ist so konzipiert, dass er bei Auszeichnungsproblemen fehlschlägt. So können Sie alles auffangen, was Sie auf dem Live-Server übersehen haben könnten.</p>
 <h4 id="erzeugen-eines-lokalen-builds">Erzeugen eines lokalen Builds<a class="headerlink" href="#erzeugen-eines-lokalen-builds" title="Permanent link">&para;</a></h4>
 <p>Um ein lokales Build zu erstellen:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
@@ -5070,13 +5051,9 @@ dem Live-Server übersehen haben könnten.</p>
 </div>
 </div>
 </div>
-<p>Die Ausgabe dieses Builds befindet sich im Verzeichnis <code>_build</code> im
-Stammverzeichnis des Projekts.</p>
+<p>Die Ausgabe dieses Builds befindet sich im Verzeichnis <code>_build</code> im Stammverzeichnis des Projekts.</p>
 <h4 id="erzeugen-eines-lokal-ubersetzten-builds">Erzeugen eines lokal übersetzten Builds<a class="headerlink" href="#erzeugen-eines-lokal-ubersetzten-builds" title="Permanent link">&para;</a></h4>
-<p>Die Dokumentation von BeeWare ist in mehrere Sprachen übersetzt.
-Aktualisierungen der englischen Dokumentation können zu Problemen in den anderen
-Sprach-Builds führen. Es ist wichtig, dass Sie überprüfen, ob alle Builds
-funktionieren, bevor Sie einen Pull Request einreichen.</p>
+<p>Die Dokumentation von BeeWare ist in mehrere Sprachen übersetzt. Aktualisierungen der englischen Dokumentation können zu Problemen in den anderen Sprach-Builds führen. Es ist wichtig, dass Sie überprüfen, ob alle Builds funktionieren, bevor Sie einen Pull Request einreichen.</p>
 <p>Um ein Build aller verfügbaren Übersetzungen zu erstellen:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
 <div class="tabbed-content">
@@ -5094,14 +5071,8 @@ funktionieren, bevor Sie einen Pull Request einreichen.</p>
 </div>
 </div>
 </div>
-<p>Die Ausgabe jedes Sprach-Builds befindet sich im zugehörigen Verzeichnis
-<code>_build/html/&lt;languagecode&gt;</code>, wobei <code>&lt;languagecode&gt;</code> der zwei- oder fünfstellige
-Sprachcode ist, der der jeweiligen Sprache zugeordnet ist (z.B. <code>fr</code> für
-Französisch, <code>it</code> für Italienisch, usw.).</p>
-<p>Wenn Sie ein Problem mit einem einzelnen Build finden, können Sie diesen
-einzelnen Build separat ausführen, indem Sie <code>tox -e docs-&lt;Sprachcode&gt;</code>
-ausführen. Um zum Beispiel nur die französische Dokumentation zu erstellen,
-führen Sie aus:</p>
+<p>Die Ausgabe jedes Sprach-Builds befindet sich im zugehörigen Verzeichnis <code>_build/html/&lt;languagecode&gt;</code>, wobei <code>&lt;languagecode&gt;</code> der zwei- oder fünfstellige Sprachcode ist, der der jeweiligen Sprache zugeordnet ist (z.B. <code>fr</code> für Französisch, <code>it</code> für Italienisch, usw.).</p>
+<p>Wenn Sie ein Problem mit einem einzelnen Build finden, können Sie diesen einzelnen Build separat ausführen, indem Sie <code>tox -e docs-&lt;Sprachcode&gt;</code> ausführen. Um zum Beispiel nur die französische Dokumentation zu erstellen, führen Sie aus:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5120,9 +5091,7 @@ führen Sie aus:</p>
 </div>
 <p>Die Ausgabe eines einsprachigen Builds befindet sich im Verzeichnis <code>_build</code>.</p>
 <h3 id="linting-der-dokumentation">Linting der Dokumentation<a class="headerlink" href="#linting-der-dokumentation" title="Permanent link">&para;</a></h3>
-<p>Der Erstellungsprozess erkennt Markdown-Probleme, aber BeeWare führt
-einige zusätzliche Prüfungen für Stil und Formatierung durch, die als "Linting"
-bekannt sind. So führen Sie die Lint-Prüfungen durch:</p>
+<p>Der Erstellungsprozess erkennt Markdown-Probleme, aber BeeWare führt einige zusätzliche Prüfungen für Stil und Formatierung durch, die als "Linting" bekannt sind. So führen Sie die Lint-Prüfungen durch:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5144,21 +5113,13 @@ bekannt sind. So führen Sie die Lint-Prüfungen durch:</p>
 <li>tote Hyperlinks</li>
 <li>falsch geschriebene Wörter</li>
 </ul>
-<p>Wenn eine gültige Schreibweise eines Wortes als falsch erkannt wird, dann fügen
-Sie das Wort der Liste in <code>docs/spelling_wordlist</code> hinzu. Dadurch wird das Wort
-in das Wörterbuch der Rechtschreibprüfung aufgenommen. Denken Sie beim
-Hinzufügen zu dieser Liste daran:</p>
+<p>Wenn eine gültige Schreibweise eines Wortes als falsch erkannt wird, dann fügen Sie das Wort der Liste in <code>docs/spelling_wordlist</code> hinzu. Dadurch wird das Wort in das Wörterbuch der Rechtschreibprüfung aufgenommen. Denken Sie beim Hinzufügen zu dieser Liste daran:</p>
 <ul>
-<li>Wir bevorzugen die US-amerikanische Rechtschreibung, mit einigen Freiheiten
-  für programmierspezifische Umgangssprache (z. B. "Apps") und Verben von
-  Substantiven (z. B. "scrollable")</li>
-<li>Jeder Verweis auf einen Produktnamen sollte die bevorzugte Großschreibung des
-  Produkts verwenden. (z. B. "macOS", "GTK", "pytest", "Pygame", "PyScript").</li>
-<li>Wenn ein Begriff "als Code" verwendet wird, sollte er als Literal zitiert
-  werden (<code>wie dies</code>) und nicht in das Wörterbuch aufgenommen werden.</li>
+<li>Wir bevorzugen die US-amerikanische Rechtschreibung, mit einigen Freiheiten für programmierspezifische Umgangssprache (z. B. "Apps") und Verben von Substantiven (z. B. "scrollable")</li>
+<li>Jeder Verweis auf einen Produktnamen sollte die bevorzugte Großschreibung des Produkts verwenden. (z. B. "macOS", "GTK", "pytest", "Pygame", "PyScript").</li>
+<li>Wenn ein Begriff "als Code" verwendet wird, sollte er als Literal zitiert werden (<code>wie dies</code>) und nicht in das Wörterbuch aufgenommen werden.</li>
 </ul>
-<p>Sobald Sie die Dokumentation erfolgreich erstellt haben, können Sie mit dem
-<a href="../write-docs/">Verfassen der Dokumentation</a> beginnen.</p>
+<p>Sobald Sie die Dokumentation erfolgreich erstellt haben, können Sie mit dem <a href="../write-docs/">Verfassen der Dokumentation</a> beginnen.</p>
 
 
 

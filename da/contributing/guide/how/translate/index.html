@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Sidehoved"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/translate/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/translate/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -5109,18 +5117,11 @@ aria-label="Sidehoved"
 
 <h1 id="oversttelse-af-indhold">Oversættelse af indhold<a class="headerlink" href="#oversttelse-af-indhold" title="Permanent link">&para;</a></h1>
 <h3 id="kom-godt-i-gang-med-oversttelse">Kom godt i gang med oversættelse<a class="headerlink" href="#kom-godt-i-gang-med-oversttelse" title="Permanent link">&para;</a></h3>
-<p>Hvis du gerne vil bidrage til BeeWares oversættelsesarbejde, skal du have en
-konto på <a href="https://hosted.weblate.org">Weblate</a>. <a href="https://hosted.weblate.org/accounts/register/">Opret en ny
-konto</a>, hvis du ikke allerede har
-en, og fortæl os, at du er interesseret i at hjælpe med oversættelser.</p>
-<p>Der er to muligheder for at fortælle os, at du gerne vil hjælpe med
-oversættelser:</p>
+<p>Hvis du gerne vil bidrage til BeeWares oversættelsesarbejde, skal du have en konto på <a href="https://hosted.weblate.org">Weblate</a>. <a href="https://hosted.weblate.org/accounts/register/">Opret en ny konto</a>, hvis du ikke allerede har en, og fortæl os, at du er interesseret i at hjælpe med oversættelser.</p>
+<p>Der er to muligheder for at fortælle os, at du gerne vil hjælpe med oversættelser:</p>
 <ul>
-<li>Hvis du er på Discord, kan du tilmelde dig
-  <a href="https://beeware.org/bee/chat/">BeeWare-serveren</a> og gå til kanalen
-  <code>#translations</code>.</li>
-<li>Hvis du ikke er på Discord, kan du oprette en ny sag på BeeWare
-  repository.</li>
+<li>Hvis du er på Discord, kan du tilmelde dig <a href="https://beeware.org/bee/chat/">BeeWare-serveren</a> og gå til kanalen <code>#translations</code>.</li>
+<li>Hvis du ikke er på Discord, kan du oprette en ny sag på BeeWare repository.</li>
 </ul>
 <p>I begge tilfælde skal du efterlade en besked med følgende oplysninger:</p>
 <ul>
@@ -5129,19 +5130,15 @@ oversættelser:</p>
 </ul>
 <p>Når vi har disse oplysninger, tilføjer vi dig til teamet.</p>
 <h3 id="tilfjelse-af-en-ny-oversttelse">Tilføjelse af en ny oversættelse<a class="headerlink" href="#tilfjelse-af-en-ny-oversttelse" title="Permanent link">&para;</a></h3>
-<p>Hvis det sprog, du planlægger at hjælpe med, ikke allerede findes, er der nogle
-yderligere trin, der skal udføres, før du kan komme i gang:</p>
+<p>Hvis det sprog, du planlægger at hjælpe med, ikke allerede findes, er der nogle yderligere trin, der skal udføres, før du kan komme i gang:</p>
 <ul>
 <li>Opret filen <code>/docs/mkdocs.language-code.yml</code> med sprogspecifikt indhold.</li>
 <li>Opdater <code>tox.ini</code> for at inkludere de nye sprogopbygningskommandoer.</li>
 <li>Opdater <code>/docs/config.yml</code> for at inkludere sproget under <code>extra: alternate:</code>.</li>
 </ul>
-<p>Følgende viser de nødvendige ændringer ved hjælp af tysk som eksempel; der
-findes allerede en tysk oversættelse; udskift henvisningerne til tysk, <code>de</code>
-eller andet indhold med det sprog, du målretter mod.</p>
+<p>Følgende viser de nødvendige ændringer ved hjælp af tysk som eksempel; der findes allerede en tysk oversættelse; udskift henvisningerne til tysk, <code>de</code> eller andet indhold med det sprog, du målretter mod.</p>
 <h4 id="en-ny-mkdocs-konfigurationsfil">En ny MkDocs-konfigurationsfil<a class="headerlink" href="#en-ny-mkdocs-konfigurationsfil" title="Permanent link">&para;</a></h4>
-<p>Opret først en ny fil med navnet <code>mkdocs.de.yml</code> i mappen <code>docs</code> med følgende
-indhold:</p>
+<p>Opret først en ny fil med navnet <code>mkdocs.de.yml</code> i mappen <code>docs</code> med følgende indhold:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">INHERIT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">config.yml</span>
 <span class="nt">site_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BeeWare Dokumentation</span>
 <span class="nt">site_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://beeware.org/de</span>
@@ -5167,107 +5164,58 @@ indhold:</p>
 <li>Værdien <code>site_name</code> oversættes.</li>
 <li>Værdien <code>site_url</code> er projektets webadressen efterfulgt af sprogkoden.</li>
 <li><code>docs_dir</code> skal være sprogkoden.</li>
-<li>Værdien <code>theme: language:</code> skal være sprogkoden, som <a href="https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/">angivet af MkDocs
-  Material-temaet</a>.
-  For de fleste sprog vil dette være det samme som sprogkoden <code>docs_dir</code>, men
-  for nogle sprog (især sprog med lokale varianter som <code>zh_CN</code>) er der
-  forskelle.</li>
-<li><code>extra: language_url:</code> skal være sprogkoden efterfulgt af en enkelt skråstreg,
-  f.eks. <code>de/</code> for tysk.</li>
-<li><code>extra: translation_type:</code> skal være <code>machine</code> indtil oversættelsen når 100 %
-  for første gang, hvorefter den skal være <code>human</code>. Den vil vende tilbage til
-  <code>machine</code> fra <code>human</code>, hvis den falder til under 90 %.</li>
-<li>Indholdet under <code>extra: header</code> er oversættelserne af titler, der vises i
-  overskriftsbjælken. Denne definition er <em>ikke</em> påkrævet på BeeWares
-  hovedwebsted; den er kun påkrævet på <em>andre</em> websteder (f.eks. vejledningen
-  eller projektdokumentationen).</li>
+<li>Værdien <code>theme: language:</code> skal være sprogkoden, som <a href="https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/">angivet af MkDocs Material-temaet</a>. For de fleste sprog vil dette være det samme som sprogkoden <code>docs_dir</code>, men for nogle sprog (især sprog med lokale varianter som <code>zh_CN</code>) er der forskelle.</li>
+<li><code>extra: language_url:</code> skal være sprogkoden efterfulgt af en enkelt skråstreg, f.eks. <code>de/</code> for tysk.</li>
+<li><code>extra: translation_type:</code> skal være <code>machine</code> indtil oversættelsen når 100 % for første gang, hvorefter den skal være <code>human</code>. Den vil vende tilbage til <code>machine</code> fra <code>human</code>, hvis den falder til under 90 %.</li>
+<li>Indholdet under <code>extra: header</code> er oversættelserne af titler, der vises i overskriftsbjælken. Denne definition er <em>ikke</em> påkrævet på BeeWares hovedwebsted; den er kun påkrævet på <em>andre</em> websteder (f.eks. vejledningen eller projektdokumentationen).</li>
 </ul>
 <h4 id="opdater-toxini">Opdater <code>tox.ini</code><a class="headerlink" href="#opdater-toxini" title="Permanent link">&para;</a></h4>
 <p>Du skal foretage flere ændringer i <code>tox.ini</code> filen.</p>
 <p>Du skal tilføje følgende:</p>
 <ul>
-<li>Det nye sprogkodeflag til header-linjen, der begynder med <code>[testenv:docs</code>,
-  hvor sprogkoden er forud for en <code>-</code>, uden mellemrum, f.eks. <code>-de</code>.</li>
-<li>Den nye sprogkodeeksklusion til den første kommando, der begynder med <code>!lint</code>,
-  forud for <code>-!</code>, uden mellemrum, f.eks. <code>-!de</code>.</li>
-<li>Den nye sprogkode til linjen, der begynder med <code>translate :
-  build_po_translations</code>.</li>
-<li>Den nye sprogkode til linjen, der begynder med <code>translate :
-  update_machine_translations</code></li>
-<li>En ny kommando, der begynder med f.eks. <code>de : build_md_translations</code> for tysk,
-  alfabetisk inden for de eksisterende sprogspecifikke kommandoer, der matcher
-  indholdet af disse kommandoer, med den nye sprogkode.</li>
+<li>Det nye sprogkodeflag til header-linjen, der begynder med <code>[testenv:docs</code>, hvor sprogkoden er forud for en <code>-</code>, uden mellemrum, f.eks. <code>-de</code>.</li>
+<li>Den nye sprogkodeeksklusion til den første kommando, der begynder med <code>!lint</code>, forud for <code>-!</code>, uden mellemrum, f.eks. <code>-!de</code>.</li>
+<li>Den nye sprogkode til linjen, der begynder med <code>translate : build_po_translations</code>.</li>
+<li>Den nye sprogkode til linjen, der begynder med <code>translate : update_machine_translations</code></li>
+<li>En ny kommando, der begynder med f.eks. <code>de : build_md_translations</code> for tysk, alfabetisk inden for de eksisterende sprogspecifikke kommandoer, der matcher indholdet af disse kommandoer, med den nye sprogkode.</li>
 <li>Den nye sprogkode til linjen, der begynder med <code>all:</code>.</li>
 </ul>
 <h4 id="opdater-configyml">Opdater <code>config.yml</code><a class="headerlink" href="#opdater-configyml" title="Permanent link">&para;</a></h4>
-<p>Føj sproget til <code>config.yml</code>, så det vises i sprogvælgeren i overskriften. Find
-afsnittet, der begynder med <code>extra:</code>, og find derefter underafsnittet, der
-begynder med <code>alternate:</code>. For tysk skal du tilføje følgende:</p>
+<p>Føj sproget til <code>config.yml</code>, så det vises i sprogvælgeren i overskriften. Find afsnittet, der begynder med <code>extra:</code>, og find derefter underafsnittet, der begynder med <code>alternate:</code>. For tysk skal du tilføje følgende:</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">navn</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tysk</span>
 <span class="w w-Error"> </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/de/</span>
 <span class="w"> </span><span class="nt">sprog</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 </code></pre></div>
 <p>Sprognavnet skal oversættes til sproget. Linket skal indeholde <code>/</code>s.</p>
 <h4 id="kr-tox-translate">Kør <code>tox translate</code><a class="headerlink" href="#kr-tox-translate" title="Permanent link">&para;</a></h4>
-<p>Du kan nu køre <code>tox -e docs-translate</code>. Dette vil generere en tom
-oversættelsesfil. Hvis du har en DeepL-konto, kan du bruge den til at udfylde de
-første maskinoversættelser. Hvis du ikke har en DeepL-konto, er det ikke noget
-problem – vi kører selv de første oversættelser, før vi accepterer
-pull-anmodningen.</p>
+<p>Du kan nu køre <code>tox -e docs-translate</code>. Dette vil generere en tom oversættelsesfil. Hvis du har en DeepL-konto, kan du bruge den til at udfylde de første maskinoversættelser. Hvis du ikke har en DeepL-konto, er det ikke noget problem – vi kører selv de første oversættelser, før vi accepterer pull-anmodningen.</p>
 <h3 id="retningslinjer-for-oversttelse">Retningslinjer for oversættelse<a class="headerlink" href="#retningslinjer-for-oversttelse" title="Permanent link">&para;</a></h3>
-<p>Når du er blevet tilføjet til teamet, er det tid til at logge ind på
-<a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> og begynde at oversætte
-strenge.</p>
+<p>Når du er blevet tilføjet til teamet, er det tid til at logge ind på <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> og begynde at oversætte strenge.</p>
 <h4 id="tone-kontra-ordret-oversttelse">Tone kontra ordret oversættelse<a class="headerlink" href="#tone-kontra-ordret-oversttelse" title="Permanent link">&para;</a></h4>
-<p>Det er vigtigere at bevare tonen i den engelske tekst end at stræbe efter en
-ordret oversættelse. Vi forsøger at være venlige og lidt uformelle i vores
-indhold; prøv at bevare den ånd i dine oversættelser.</p>
-<p>Hvis den engelske tekst indeholder et stærkt engelsk idiom, skal du ikke føle
-dig forpligtet til at bevare idiomet, hvis der findes et analogt udtryk på dit
-sprog, der fungerer lige så godt. Hvis udtrykket eller sætningen i den engelske
-tekst er et særligt idiomatisk udtryk eller slangudtryk, skal du ikke være bange
-for at fortælle os, at vi bør overveje at ændre det. Selv for engelsktalende kan
-idiomer og slang udgøre en vanskelighed. Nogle gange er vi nødt til at ændre den
-engelske tekst for at gøre den mere forståelig for både oversættere og læsere.</p>
+<p>Det er vigtigere at bevare tonen i den engelske tekst end at stræbe efter en ordret oversættelse. Vi forsøger at være venlige og lidt uformelle i vores indhold; prøv at bevare den ånd i dine oversættelser.</p>
+<p>Hvis den engelske tekst indeholder et stærkt engelsk idiom, skal du ikke føle dig forpligtet til at bevare idiomet, hvis der findes et analogt udtryk på dit sprog, der fungerer lige så godt. Hvis udtrykket eller sætningen i den engelske tekst er et særligt idiomatisk udtryk eller slangudtryk, skal du ikke være bange for at fortælle os, at vi bør overveje at ændre det. Selv for engelsktalende kan idiomer og slang udgøre en vanskelighed. Nogle gange er vi nødt til at ændre den engelske tekst for at gøre den mere forståelig for både oversættere og læsere.</p>
 <h4 id="skal-jeg-overstte-det">Skal jeg oversætte det?<a class="headerlink" href="#skal-jeg-overstte-det" title="Permanent link">&para;</a></h4>
 <p>Følgende punkter bør <em>ikke</em> oversættes eller opdateres:</p>
 <ul>
-<li><strong>Kommandoer</strong>. For eksempel skal kun "Du skal køre" oversættes i "Du skal
-  køre `briefcase create`.".</li>
+<li><strong>Kommandoer</strong>. For eksempel skal kun "Du skal køre" oversættes i "Du skal køre `briefcase create`.".</li>
 <li><strong>Navneområder</strong>, såsom klasse-, metode- eller attributnavne.</li>
-<li><strong>Link-URL'er</strong>. Standard Markdown-links skal i Weblate angives som <code>[Link
-  text]{1}</code>, hvor <code>1</code> angiver linkets placering i teksten i forhold til
-  eventuelle andre links. Hvis den fulde URL er inkluderet i teksten, f.eks.
-  <code>[Link text](https://example.com/)</code>, skal denne URL udelades ved
-  oversættelsen.</li>
+<li><strong>Link-URL'er</strong>. Standard Markdown-links skal i Weblate angives som <code>[Link text]{1}</code>, hvor <code>1</code> angiver linkets placering i teksten i forhold til eventuelle andre links. Hvis den fulde URL er inkluderet i teksten, f.eks. <code>[Link text](https://example.com/)</code>, skal denne URL udelades ved oversættelsen.</li>
 <li>
-<p><strong>Referencelinks, der indeholder klasse-, metode- eller attributnavne</strong>. Disse
-  skal forblive uændrede, inklusive backticks. Ingen dele af det her viste
-  eksempel på et link vil blive oversat.</p>
+<p><strong>Referencelinks, der indeholder klasse-, metode- eller attributnavne</strong>. Disse skal forblive uændrede, inklusive backticks. Ingen dele af det her viste eksempel på et link vil blive oversat.</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`Class.attribute`</span>][Klasse.attribut]
 </code></pre></div>
 </li>
 <li>
-<p><strong>Indholdet af et referencelink</strong>. For eksempel vil <code>link-content</code> blive
-  sprunget over i følgende:</p>
+<p><strong>Indholdet af et referencelink</strong>. For eksempel vil <code>link-content</code> blive sprunget over i følgende:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Linktekst</span>][<span class="nl">linkindhold</span>]
 </code></pre></div>
 </li>
 <li>
-<p><strong>Jinja-direktiver</strong>. Dette er ethvert indhold, der er indkapslet mellem to
-  par matchende krøllede parenteser eller et matchende par enkelte krøllede
-  parenteser med procenttegn i hver ende. Bemærk: Hvis du inkluderer et eksempel
-  på syntaksen her, vil Macros-pluginet forsøge at gengive det. Se
-  <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">Macros-dokumentationen</a>
-  for eksempler.</p>
+<p><strong>Jinja-direktiver</strong>. Dette er ethvert indhold, der er indkapslet mellem to par matchende krøllede parenteser eller et matchende par enkelte krøllede parenteser med procenttegn i hver ende. Bemærk: Hvis du inkluderer et eksempel på syntaksen her, vil Macros-pluginet forsøge at gengive det. Se <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">Macros-dokumentationen</a> for eksempler.</p>
 </li>
-<li><strong>Brugerdefinerede ankre</strong>. De findes efter overskrifter eller over noget
-  indhold og er formateret som <code>{ #anchor }</code>.</li>
+<li><strong>Brugerdefinerede ankre</strong>. De findes efter overskrifter eller over noget indhold og er formateret som <code>{ #anchor }</code>.</li>
 <li>
-<p><strong>Admonition syntax</strong>. I det følgende eksempel skal ordet "admonition" ikke
-  oversættes. Dette gælder alle former for formaninger, herunder bemærkninger,
-  advarsler osv. Se næste afsnit for information om oversættelse af resten af
-  indholdet.</p>
+<p><strong>Admonition syntax</strong>. I det følgende eksempel skal ordet "admonition" ikke oversættes. Dette gælder alle former for formaninger, herunder bemærkninger, advarsler osv. Se næste afsnit for information om oversættelse af resten af indholdet.</p>
 <div class="highlight"><pre><span></span><code>/// admonition | Sidens titel
 
 Indhold.
@@ -5276,49 +5224,26 @@ Indhold.
 </code></pre></div>
 </li>
 <li>
-<p><strong>Backticks</strong>. De skal forblive som backticks; de bruges til formatering af
-  både indbygget kode og kodeblokke.</p>
+<p><strong>Backticks</strong>. De skal forblive som backticks; de bruges til formatering af både indbygget kode og kodeblokke.</p>
 </li>
-<li><strong>Syntaksen for at inkludere eksternt indhold</strong>. Dette er alt, der står på
-  samme linje som <code>-8&lt;-</code>, eller på linjerne mellem to <code>-8&lt;-</code> på separate linjer.</li>
+<li><strong>Syntaksen for at inkludere eksternt indhold</strong>. Dette er alt, der står på samme linje som <code>-8&lt;-</code>, eller på linjerne mellem to <code>-8&lt;-</code> på separate linjer.</li>
 </ul>
 <p>Følgende punkter <em>bør</em> oversættes:</p>
 <ul>
-<li><strong>Linktekst</strong>. I linksyntaks kommer teksten før URL'en og er omgivet af
-  parenteser, som i <code>[Link text](URL)</code>. Standard Markdown-links skal vises i
-  Weblate som <code>[Link text]{1}</code>, hvor <code>1</code> er linkets position i strengen med
-  henvisning til andre mulige links.</li>
+<li><strong>Linktekst</strong>. I linksyntaks kommer teksten før URL'en og er omgivet af parenteser, som i <code>[Link text](URL)</code>. Standard Markdown-links skal vises i Weblate som <code>[Link text]{1}</code>, hvor <code>1</code> er linkets position i strengen med henvisning til andre mulige links.</li>
 <li>
 <p><strong>Referencelinktekst</strong>. For eksempel vil <code>Link text</code> blive oversat som følger:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Linktekst</span>][<span class="nl">linkindhold</span>]
 </code></pre></div>
 </li>
 <li>
-<p><strong>Advarselstitler og indhold</strong>. I det foregående eksempel på en advarsel skal
-  "Sidens titel" og "Indhold" oversættes.</p>
+<p><strong>Advarselstitler og indhold</strong>. I det foregående eksempel på en advarsel skal "Sidens titel" og "Indhold" oversættes.</p>
 </li>
 </ul>
 <h3 id="weblate">Weblate<a class="headerlink" href="#weblate" title="Permanent link">&para;</a></h3>
-<p>Vi bruger <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> til
-oversættelse af vores indhold. Når vi tilføjer en ny oversættelse, bruger vi
-<a href="https://www.deepl.com/en/translator">DeepL</a> til maskinoversættelse for at få en
-første udgave af oversættelsen. Det betyder, at det indhold, du skal oversætte,
-typisk allerede er maskinoversat. Det forventes, at du som oversætter gennemgår,
-redigerer og forbedrer den eksisterende maskinoversættelse.</p>
-<p>Weblate behandler alt streng for streng. Det samler ændringer og sender hvert
-par timer en samlet commit med alle de strenge, der er ændret i det pågældende
-interval. Det kan derfor tage et par timer, før dine ændringer vises på
-hjemmesiden, men du kan forvente, at opdateringen vises inden for fire timer.</p>
-<p>Hvis dine ændringer stadig ikke er blevet vist efter dette tidspunkt, er den
-sandsynlige årsag en markup-fejl, der har resulteret i en fejl i
-dokumentopbygningen for det pågældende sprog. Ethvert markup-problem i en streng
-vil forhindre, at hele oversættelsen bliver offentliggjort. Du kan holde øje med
-opbygningssiden for dit sprog for at se, om det er blevet opbygget korrekt.
-Linket er formateret på samme måde som dette link til den franske opbygningsside
-<a href="https://app.readthedocs.org/projects/beewareorg/">https://app.readthedocs.org/projects/beewareorg/</a>; Skift
-sprogkoden til dit sprog for at se den relevante build-side. Dette viser status
-for den seneste build af webstedet. Hvis buildet mislykkes, skal du se på
-build-loggen og se, om du kan identificere årsagen til problemet.</p>
+<p>Vi bruger <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> til oversættelse af vores indhold. Når vi tilføjer en ny oversættelse, bruger vi <a href="https://www.deepl.com/en/translator">DeepL</a> til maskinoversættelse for at få en første udgave af oversættelsen. Det betyder, at det indhold, du skal oversætte, typisk allerede er maskinoversat. Det forventes, at du som oversætter gennemgår, redigerer og forbedrer den eksisterende maskinoversættelse.</p>
+<p>Weblate behandler alt streng for streng. Det samler ændringer og sender hvert par timer en samlet commit med alle de strenge, der er ændret i det pågældende interval. Det kan derfor tage et par timer, før dine ændringer vises på hjemmesiden, men du kan forvente, at opdateringen vises inden for fire timer.</p>
+<p>Hvis dine ændringer stadig ikke er blevet vist efter dette tidspunkt, er den sandsynlige årsag en markup-fejl, der har resulteret i en fejl i dokumentopbygningen for det pågældende sprog. Ethvert markup-problem i en streng vil forhindre, at hele oversættelsen bliver offentliggjort. Du kan holde øje med opbygningssiden for dit sprog for at se, om det er blevet opbygget korrekt. Linket er formateret på samme måde som dette link til den franske opbygningsside <a href="https://app.readthedocs.org/projects/beewareorg/">https://app.readthedocs.org/projects/beewareorg/</a>; Skift sprogkoden til dit sprog for at se den relevante build-side. Dette viser status for den seneste build af webstedet. Hvis buildet mislykkes, skal du se på build-loggen og se, om du kan identificere årsagen til problemet.</p>
 
 
 

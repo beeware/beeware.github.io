@@ -90,6 +90,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -532,6 +534,12 @@ aria-label="ヘッダー"
           <li class="md-select__item">
             <a href="../../../../../ru/news/buzz/2026/april-2026-status-update/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/news/buzz/2026/april-2026-status-update/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4819,138 +4827,46 @@ aria-label="ヘッダー"
 
   <h1>April 2026 Status Update</h1>
 
-<p>April saw some extremely important improvements to BeeWare's Windows support,
-and some important new policy decisions.</p>
+<p>April saw some extremely important improvements to BeeWare's Windows support, and some important new policy decisions.</p>
 <!-- more -->
 
 <h2 id="what-weve-done">What we've done<a class="headerlink" href="#what-weve-done" title="Permanent link">&para;</a></h2>
 <ul>
-<li>We formally adopted <a href="https://github.com/beeware/.github/pull/328">an AI and Autonomous code contribution
-  policy</a>. This policy is neutral
-  on whether AI tools can be used for contribution, but clearly places the
-  responsibility on a human contributor to take full responsibility for the
-  output of any tool they use, and to declare if AI tooling <em>has</em> been used.</li>
-<li>As part of adopting a format AI usage policy, we've added an <code>AGENTS.md</code> file,
-  and a <a href="https://github.github.com/spec-kit/">Spec Kit constitution</a> to
-  <a href="https://github.com/beeware/briefcase/pull/2733">Briefcase</a>,
-  <a href="https://github.com/beeware/toga/pull/4344">Toga</a>, and <a href="https://github.com/beeware/rubicon-objc/pull/751">Rubicon
-  ObjC</a>. We expect we'll be
-  tweaking and tuning those configurations over time as we discover what does
-  (and doesn't) work. If you've got experience in developing these foundational
-  AI configuration files, we'd appreciate any suggestions or feedback you may
-  have.</li>
-<li>You can now build <a href="https://github.com/beeware/briefcase/pull/2797">native ARM64 Windows binaries and installers with
-  Briefcase</a>.</li>
-<li>We added support for <a href="https://github.com/beeware/briefcase-windows-VisualStudio-template/pull/90">detecting if .NET is installed as part of a Windows MSI
-  installer</a>.</li>
-<li>We added the ability to <a href="https://github.com/beeware/briefcase-windows-VisualStudio-template/pull/91">customize the banner and background images in an MSI
-  installer</a>.</li>
-<li>We added a utility method for formatting the <a href="https://github.com/beeware/briefcase/pull/2563">banner-style warning messages
-  that Briefcase generates</a>. We
-  haven't rolled out the usage of this banner across all parts of the Briefcase
-  codebase, but it will allow us to improve consistency in the display of
-  warning output.</li>
-<li>We modified the new project wizard to <a href="https://github.com/beeware/briefcase/pull/2640">improve the visibility of known
-  third-party bootstraps</a>.</li>
-<li>We added a runtime checks for <a href="https://github.com/beeware/briefcase/pull/2760">using an x86-64 Python interpreter on an Apple
-  Silicon Mac</a>. This
-  configuration can cause issues when trying to run an iOS simulator.</li>
-<li>We <a href="https://github.com/beeware/briefcase/pull/2788">added the ability to create a "skinless" Android
-  emulator</a>. This is mostly
-  useful for CI configurations, where the extra visual detail doesn't help, but
-  downloading the skin will sometimes fail due to rate limits imposed by
-  Google's servers.</li>
-<li>We <a href="https://github.com/beeware/briefcase/pull/2796">improved the verification of installed Android SDK
-  images</a>.</li>
-<li>We <a href="https://github.com/beeware/toga/pull/4331">added support for the use of .NET Core 10 in
-  Toga</a>. This was primarily required
-  to support WinForms on ARM64, but it also means features like dark mode are
-  now possible on WinForms.</li>
-<li>We performed a <a href="https://github.com/beeware/toga/pull/4328">major refactor of the internals of the Canvas
-  widget</a>, and modified the Canvas
-  API to <a href="https://github.com/beeware/toga/pull/4330">align better with JavaScript's HTML5 Canvas
-  API</a>.</li>
-<li>We migrated Toga's Web backend to use <a href="https://github.com/beeware/toga/pull/4262">WebAwesome, rather than
-  Shoelace</a>. WebAwesome is
-  effectively "Shoelace 3", after the Shoelace project was adopted by the
-  FontAwesome team.</li>
-<li>We added a <a href="https://github.com/beeware/toga/pull/4319">full implementation of <code>DetailedList</code> on
-  WinForms</a>. This was the last widget
-  in Beta status on WinForms - WinForms is now widget complete!</li>
-<li>We corrected some crashes that could occur <a href="https://github.com/beeware/toga/pull/4265">on macOS when clicking on empty
-  rows of a table, or the table header
-  row</a>.</li>
-<li>We corrected an unusual bounce when <a href="https://github.com/beeware/toga/pull/4276">calling <code>scroll_to_bottom()</code> on a
-  WinForms <code>MultilineText</code> widget</a>.</li>
-<li>We <a href="https://github.com/beeware/toga/pull/4277">made the definition of accessors optional when defining
-  sources</a>.</li>
-<li>We added support for <a href="https://github.com/beeware/toga/pull/4314">fonts that have been system-registered on iOS and
-  macOS</a>.</li>
-<li>We <a href="https://github.com/python/cpython/pull/146451">normalized the feature set of the CPython Android build script with other
-  platform build scripts</a>.</li>
-<li>We completed the migration of <a href="https://github.com/python/cpython/pull/148282">CPython Android build tooling to the Platforms
-  folder</a>.</li>
-<li>We <a href="https://github.com/python/cpython/pull/148054">increased the RAM available to the Python Android
-  testbed</a> to accommodate more
-  demanding test suites.</li>
-<li>We submitted <a href="https://github.com/pypa/cibuildwheel/pull/2695">updates to
-  <code>cibuildwheel</code></a> to support
-  Android packages that use Fortran, NumPy's C API, and external libraries
-  bundled with auditwheel.</li>
+<li>We formally adopted <a href="https://github.com/beeware/.github/pull/328">an AI and Autonomous code contribution policy</a>. This policy is neutral on whether AI tools can be used for contribution, but clearly places the responsibility on a human contributor to take full responsibility for the output of any tool they use, and to declare if AI tooling <em>has</em> been used.</li>
+<li>As part of adopting a format AI usage policy, we've added an <code>AGENTS.md</code> file, and a <a href="https://github.github.com/spec-kit/">Spec Kit constitution</a> to <a href="https://github.com/beeware/briefcase/pull/2733">Briefcase</a>, <a href="https://github.com/beeware/toga/pull/4344">Toga</a>, and <a href="https://github.com/beeware/rubicon-objc/pull/751">Rubicon ObjC</a>. We expect we'll be tweaking and tuning those configurations over time as we discover what does (and doesn't) work. If you've got experience in developing these foundational AI configuration files, we'd appreciate any suggestions or feedback you may have.</li>
+<li>You can now build <a href="https://github.com/beeware/briefcase/pull/2797">native ARM64 Windows binaries and installers with Briefcase</a>.</li>
+<li>We added support for <a href="https://github.com/beeware/briefcase-windows-VisualStudio-template/pull/90">detecting if .NET is installed as part of a Windows MSI installer</a>.</li>
+<li>We added the ability to <a href="https://github.com/beeware/briefcase-windows-VisualStudio-template/pull/91">customize the banner and background images in an MSI installer</a>.</li>
+<li>We added a utility method for formatting the <a href="https://github.com/beeware/briefcase/pull/2563">banner-style warning messages that Briefcase generates</a>. We haven't rolled out the usage of this banner across all parts of the Briefcase codebase, but it will allow us to improve consistency in the display of warning output.</li>
+<li>We modified the new project wizard to <a href="https://github.com/beeware/briefcase/pull/2640">improve the visibility of known third-party bootstraps</a>.</li>
+<li>We added a runtime checks for <a href="https://github.com/beeware/briefcase/pull/2760">using an x86-64 Python interpreter on an Apple Silicon Mac</a>. This configuration can cause issues when trying to run an iOS simulator.</li>
+<li>We <a href="https://github.com/beeware/briefcase/pull/2788">added the ability to create a "skinless" Android emulator</a>. This is mostly useful for CI configurations, where the extra visual detail doesn't help, but downloading the skin will sometimes fail due to rate limits imposed by Google's servers.</li>
+<li>We <a href="https://github.com/beeware/briefcase/pull/2796">improved the verification of installed Android SDK images</a>.</li>
+<li>We <a href="https://github.com/beeware/toga/pull/4331">added support for the use of .NET Core 10 in Toga</a>. This was primarily required to support WinForms on ARM64, but it also means features like dark mode are now possible on WinForms.</li>
+<li>We performed a <a href="https://github.com/beeware/toga/pull/4328">major refactor of the internals of the Canvas widget</a>, and modified the Canvas API to <a href="https://github.com/beeware/toga/pull/4330">align better with JavaScript's HTML5 Canvas API</a>.</li>
+<li>We migrated Toga's Web backend to use <a href="https://github.com/beeware/toga/pull/4262">WebAwesome, rather than Shoelace</a>. WebAwesome is effectively "Shoelace 3", after the Shoelace project was adopted by the FontAwesome team.</li>
+<li>We added a <a href="https://github.com/beeware/toga/pull/4319">full implementation of <code>DetailedList</code> on WinForms</a>. This was the last widget in Beta status on WinForms - WinForms is now widget complete!</li>
+<li>We corrected some crashes that could occur <a href="https://github.com/beeware/toga/pull/4265">on macOS when clicking on empty rows of a table, or the table header row</a>.</li>
+<li>We corrected an unusual bounce when <a href="https://github.com/beeware/toga/pull/4276">calling <code>scroll_to_bottom()</code> on a WinForms <code>MultilineText</code> widget</a>.</li>
+<li>We <a href="https://github.com/beeware/toga/pull/4277">made the definition of accessors optional when defining sources</a>.</li>
+<li>We added support for <a href="https://github.com/beeware/toga/pull/4314">fonts that have been system-registered on iOS and macOS</a>.</li>
+<li>We <a href="https://github.com/python/cpython/pull/146451">normalized the feature set of the CPython Android build script with other platform build scripts</a>.</li>
+<li>We completed the migration of <a href="https://github.com/python/cpython/pull/148282">CPython Android build tooling to the Platforms folder</a>.</li>
+<li>We <a href="https://github.com/python/cpython/pull/148054">increased the RAM available to the Python Android testbed</a> to accommodate more demanding test suites.</li>
+<li>We submitted <a href="https://github.com/pypa/cibuildwheel/pull/2695">updates to <code>cibuildwheel</code></a> to support Android packages that use Fortran, NumPy's C API, and external libraries bundled with auditwheel.</li>
 </ul>
-<p>Much of this work is due to the contributions of members of the BeeWare
-community. Thanks to <nospell>Abdo (<a href="https://github.com/abdnh">@abdnh</a>), Keyang
-Zheng (<a href="https://github.com/albuszheng">@albuszheng</a>), Filip Łajszczak
-(<a href="https://github.com/filiplajszczak">@filiplajszczak</a>), John
-(<a href="https://github.com/johnzhou721">@johnzhou721</a>), Luis Palacios
-(<a href="https://github.com/moondial-pal">@moondial-pal</a>), Matt Van Horn
-(<a href="https://github.com/mvanhorn">@mvanhorn</a>),
-<a href="https://github.com/Oliver-Leigh">@Oliver-Leigh</a>,
-<a href="https://github.com/otekraden">@otekraden</a>, Robert Kirkman
-(<a href="https://github.com/robertkirkman">@robertkirkman</a>), Matt Cooper
-(<a href="https://github.com/vtbassmatt">@vtbassmatt</a>)</nospell> for their code and
-documentation contributions this month.</p>
-<p>Special thanks go to <nospell>Scott Halgrim
-(<a href="https://github.com/shalgrim">@shalgrim</a>), Juan
-(<a href="https://github.com/Pulga8">@Pulga8</a>), and Vui Nguyen
-(<a href="https://github.com/vuinguyen">@vuinguyen</a>)</nospell> who were contributing to
-BeeWare as part of Session 6 of the <a href="https://djangonaut.space">Djangonaut Space
-program</a>. Go Team Mercury!</p>
+<p>Much of this work is due to the contributions of members of the BeeWare community. Thanks to <nospell>Abdo (<a href="https://github.com/abdnh">@abdnh</a>), Keyang Zheng (<a href="https://github.com/albuszheng">@albuszheng</a>), Filip Łajszczak (<a href="https://github.com/filiplajszczak">@filiplajszczak</a>), John (<a href="https://github.com/johnzhou721">@johnzhou721</a>), Luis Palacios (<a href="https://github.com/moondial-pal">@moondial-pal</a>), Matt Van Horn (<a href="https://github.com/mvanhorn">@mvanhorn</a>), <a href="https://github.com/Oliver-Leigh">@Oliver-Leigh</a>, <a href="https://github.com/otekraden">@otekraden</a>, Robert Kirkman (<a href="https://github.com/robertkirkman">@robertkirkman</a>), Matt Cooper (<a href="https://github.com/vtbassmatt">@vtbassmatt</a>)</nospell> for their code and documentation contributions this month.</p>
+<p>Special thanks go to <nospell>Scott Halgrim (<a href="https://github.com/shalgrim">@shalgrim</a>), Juan (<a href="https://github.com/Pulga8">@Pulga8</a>), and Vui Nguyen (<a href="https://github.com/vuinguyen">@vuinguyen</a>)</nospell> who were contributing to BeeWare as part of Session 6 of the <a href="https://djangonaut.space">Djangonaut Space program</a>. Go Team Mercury!</p>
 <h2 id="whats-next">What's next?<a class="headerlink" href="#whats-next" title="Permanent link">&para;</a></h2>
-<p>A lot of May will be spent preparing for and attending <a href="https://us.pycon.org/2026/schedule/presentation/36/">PyCon
-US</a>. We're presenting talks
-on <a href="https://us.pycon.org/2026/schedule/presentation/36/">mechanisms for distributing Python
-code</a> and <a href="https://us.pycon.org/2026/schedule/presentation/6/">switching your
-project documentation from Sphinx to
-Markdown</a>. We'll be there
-for <a href="https://us.pycon.org/2026/events/dev-sprints/">both days of the sprints</a>,
-hosting some open spaces (watch the boards at the venue for details), attending
-the community showcase, as well as participating in a other events and generally
-lurking around the hallways. Tickets are still available - if you're around,
-come say hi! We're actively looking for stories of how you're using BeeWare, or
-how you'd like to use BeeWare.</p>
-<p>In what time that remains in the month, we'll be focused primarily on Briefcase,
-adding more customizations for MSI installers, and starting to experiment with
-mechanisms for improving the development experience for mobile apps.</p>
+<p>A lot of May will be spent preparing for and attending <a href="https://us.pycon.org/2026/schedule/presentation/36/">PyCon US</a>. We're presenting talks on <a href="https://us.pycon.org/2026/schedule/presentation/36/">mechanisms for distributing Python code</a> and <a href="https://us.pycon.org/2026/schedule/presentation/6/">switching your project documentation from Sphinx to Markdown</a>. We'll be there for <a href="https://us.pycon.org/2026/events/dev-sprints/">both days of the sprints</a>, hosting some open spaces (watch the boards at the venue for details), attending the community showcase, as well as participating in a other events and generally lurking around the hallways. Tickets are still available - if you're around, come say hi! We're actively looking for stories of how you're using BeeWare, or how you'd like to use BeeWare.</p>
+<p>In what time that remains in the month, we'll be focused primarily on Briefcase, adding more customizations for MSI installers, and starting to experiment with mechanisms for improving the development experience for mobile apps.</p>
 <h2 id="want-to-get-involved">Want to get involved?<a class="headerlink" href="#want-to-get-involved" title="Permanent link">&para;</a></h2>
-<p>Want to get involved? We curate issues that should be approachable for
-first-time contributors to BeeWare. They're all relatively minor changes, but
-would provide a big improvement to the lives of BeeWare users:</p>
+<p>Want to get involved? We curate issues that should be approachable for first-time contributors to BeeWare. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:</p>
 <ul>
-<li>If you're interested in the tooling for deploying applications to various
-  platforms, take a look at
-  <a href="https://github.com/beeware/briefcase/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22">Briefcase</a>.</li>
-<li>Or, if you're interested in GUI widgets, take a look at
-  <a href="https://github.com/beeware/toga/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22">Toga</a>.</li>
+<li>If you're interested in the tooling for deploying applications to various platforms, take a look at <a href="https://github.com/beeware/briefcase/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22">Briefcase</a>.</li>
+<li>Or, if you're interested in GUI widgets, take a look at <a href="https://github.com/beeware/toga/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22">Toga</a>.</li>
 </ul>
-<p>These lists can also be filtered by platform - so you can find issues that are
-specific to your preferred operating system. Pick one of these tickets, drop a
-comment on the ticket to let others know you're looking at it, and try your hand
-at a PR! We have a <a href="https://briefcase.beeware.org/en/latest/how-to/contribute/how/dev-environment/">guide on setting up a Briefcase development
-environment</a>;
-but if you need any additional assistance or guidance, you can ask on the
-ticket, or join us on the <a href="https://beeware.org/bee/chat/">BeeWare Discord
-server</a>.</p>
+<p>These lists can also be filtered by platform - so you can find issues that are specific to your preferred operating system. Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a <a href="https://briefcase.beeware.org/en/latest/how-to/contribute/how/dev-environment/">guide on setting up a Briefcase development environment</a>; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the <a href="https://beeware.org/bee/chat/">BeeWare Discord server</a>.</p>
 
 
 

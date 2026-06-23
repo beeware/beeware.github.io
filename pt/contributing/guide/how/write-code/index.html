@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Cabeçalho"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/write-code/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/write-code/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -5218,33 +5226,16 @@ aria-label="Cabeçalho"
 
 
 <h1 id="escrever-executar-e-testar-codigo">Escrever, executar e testar código<a class="headerlink" href="#escrever-executar-e-testar-codigo" title="Permanent link">&para;</a></h1>
-<p>Corrigir um bug ou implementar uma funcionalidade vai requerer escrever algum
-código novo.</p>
-<p>Para começar a trabalhar em código, certifique-se de ter um <a href="../dev-environment/">ambiente de
-desenvolvimento</a> configurado e de estar <a href="../branches/">a trabalhar
-num ramo</a></p>
-<p>Temos um <a href="../../style/code-style-guide/">guia de estilo de código</a> que descreve
-as nossas diretrizes para escrever código para o BeeWare.</p>
+<p>Corrigir um bug ou implementar uma funcionalidade vai requerer escrever algum código novo.</p>
+<p>Para começar a trabalhar em código, certifique-se de ter um <a href="../dev-environment/">ambiente de desenvolvimento</a> configurado e de estar <a href="../branches/">a trabalhar num ramo</a></p>
+<p>Temos um <a href="../../style/code-style-guide/">guia de estilo de código</a> que descreve as nossas diretrizes para escrever código para o BeeWare.</p>
 <h3 id="desenvolvimento-orientado-por-testes">Desenvolvimento orientado por testes<a class="headerlink" href="#desenvolvimento-orientado-por-testes" title="Permanent link">&para;</a></h3>
-<p>Uma boa maneira de garantir que o seu código funciona conforme o esperado é,
-primeiro, escrever um caso de teste para verifica-lo. Esse caso de teste deve
-falhar inicialmente, já que o código que ele está a testar ainda não está
-presente. Pode então fazer as alterações necessárias no código para que o teste
-seja aprovado e ter a certeza de que o que escreveu está a resolver o problema
-que espera resolver.</p>
+<p>Uma boa maneira de garantir que o seu código funciona conforme o esperado é, primeiro, escrever um caso de teste para verifica-lo. Esse caso de teste deve falhar inicialmente, já que o código que ele está a testar ainda não está presente. Pode então fazer as alterações necessárias no código para que o teste seja aprovado e ter a certeza de que o que escreveu está a resolver o problema que espera resolver.</p>
 <h3 id="correr-o-seu-codigo">Correr o seu código<a class="headerlink" href="#correr-o-seu-codigo" title="Permanent link">&para;</a></h3>
-<p>Depois de escrever o código, é preciso garantir que ele funciona. Vai precisar
-executa-lo manualmente para verificar se ele está a fazer o que espera. Se ainda
-não o fez, é recomendável escrever um caso de teste para as alterações; conforme
-mencionado acima, esse teste deve falhar se o seu código estiver comentado ou
-ausente.</p>
-<p>Vai adicionar o seu caso de teste ao conjunto de testes, para que ele possa ser
-executado junto com os outros testes. O próximo passo é executar o conjunto de
-testes.</p>
+<p>Depois de escrever o código, é preciso garantir que ele funciona. Vai precisar executa-lo manualmente para verificar se ele está a fazer o que espera. Se ainda não o fez, é recomendável escrever um caso de teste para as alterações; conforme mencionado acima, esse teste deve falhar se o seu código estiver comentado ou ausente.</p>
+<p>Vai adicionar o seu caso de teste ao conjunto de testes, para que ele possa ser executado junto com os outros testes. O próximo passo é executar o conjunto de testes.</p>
 <h3 id="run-test-suite">Correr testes e cobertura<a class="headerlink" href="#run-test-suite" title="Permanent link">&para;</a></h3>
-<p>BeeWare utiliza <a href="https://tox.wiki/en/latest/"><code>tox</code></a> para gerir o
-processo de testes e <a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> para o seu
-próprio conjunto de testes.</p>
+<p>BeeWare utiliza <a href="https://tox.wiki/en/latest/"><code>tox</code></a> para gerir o processo de testes e <a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> para o seu próprio conjunto de testes.</p>
 <p>O comando predefinido <code>tox</code> inclui a execução de:</p>
 <ul>
 <li>ganchos de pré-submissão</li>
@@ -5277,32 +5268,13 @@ próprio conjunto de testes.</p>
 </div>
 </div>
 </div>
-<p>A execução do conjunto completo de testes pode demorar algum tempo. Pode
-acelerar consideravelmente o processo executando <code>tox</code> em paralelo, ao correr
-<code>tox p</code> (ou <code>tox run-parallel</code>). Ao executar o conjunto de testes emparalelo,
-vai receber menos retorno sobre a evolução dos testes durante a execução, mas
-mesmo assim vai obter um resumo de quaisquer problemas encontrados no final da
-execução. Deverá ver algum resultado a indicar que os testes foram executados.
-Pode ver testes <code>SALTADOS</code>, mas nunca deve receber resultados de teste <code>FALHOU</code>
-ou <code>ERRO</code>. Executamos o nosso conjunto completo de testes antes de fundir cada
-patch. Se esse processo detetar algum problema, não fundimos o patch. Se
-encontrar um erro ou falha no teste, ou há algo estranho no seu ambiente de
-teste, ou encontrou um caso extremo que não vimos antes — de qualquer forma,
-comunique-nos isso!</p>
-<p>Além da aprovação dos testes, isto deve indicar <a class="autorefs autorefs-internal" title="Cobertura de código" href="#code-coverage">100% de cobertura de
-teste</a>.</p>
+<p>A execução do conjunto completo de testes pode demorar algum tempo. Pode acelerar consideravelmente o processo executando <code>tox</code> em paralelo, ao correr <code>tox p</code> (ou <code>tox run-parallel</code>). Ao executar o conjunto de testes emparalelo, vai receber menos retorno sobre a evolução dos testes durante a execução, mas mesmo assim vai obter um resumo de quaisquer problemas encontrados no final da execução. Deverá ver algum resultado a indicar que os testes foram executados. Pode ver testes <code>SALTADOS</code>, mas nunca deve receber resultados de teste <code>FALHOU</code> ou <code>ERRO</code>. Executamos o nosso conjunto completo de testes antes de fundir cada patch. Se esse processo detetar algum problema, não fundimos o patch. Se encontrar um erro ou falha no teste, ou há algo estranho no seu ambiente de teste, ou encontrou um caso extremo que não vimos antes — de qualquer forma, comunique-nos isso!</p>
+<p>Além da aprovação dos testes, isto deve indicar <a class="autorefs autorefs-internal" title="Cobertura de código" href="#code-coverage">100% de cobertura de teste</a>.</p>
 <h3 id="executar-variacoes-de-teste">Executar variações de teste<a class="headerlink" href="#executar-variacoes-de-teste" title="Permanent link">&para;</a></h3>
 <h4 id="executar-testes-para-varias-versoes-do-python">Executar testes para várias versões do Python<a class="headerlink" href="#executar-testes-para-varias-versoes-do-python" title="Permanent link">&para;</a></h4>
-<p>Por predefinição, muitos dos comandos <code>tox</code> tentam executar o conjunto de testes
-várias vezes, uma vez para cada versão do Python compatível com o BeeWare. No entanto, para fazer isto, cada uma das versões do Python deve estar
-instalada no seu computador e disponível para o processo de
-<a href="https://virtualenv.pypa.io/en/latest/explanation.html#python-discovery">deteção</a>
-do Python do <code>tox</code>. Em geral, se uma versão do Python estiver disponível via
-<code>PATH</code>, então o <code>tox</code> deverá ser capaz de a encontrar e utilizar.</p>
+<p>Por predefinição, muitos dos comandos <code>tox</code> tentam executar o conjunto de testes várias vezes, uma vez para cada versão do Python compatível com o BeeWare. No entanto, para fazer isto, cada uma das versões do Python deve estar instalada no seu computador e disponível para o processo de <a href="https://virtualenv.pypa.io/en/latest/explanation.html#python-discovery">deteção</a> do Python do <code>tox</code>. Em geral, se uma versão do Python estiver disponível via <code>PATH</code>, então o <code>tox</code> deverá ser capaz de a encontrar e utilizar.</p>
 <h4 id="executar-apenas-o-conjunto-de-testes">Executar apenas o conjunto de testes<a class="headerlink" href="#executar-apenas-o-conjunto-de-testes" title="Permanent link">&para;</a></h4>
-<p>Se estiver a iterar rapidamente uma nova funcionalidade, não precisa executar o
-conjunto completo de testes; pode executar <em>apenas</em> os testes de unidade. Para
-fazer isso, execute:</p>
+<p>Se estiver a iterar rapidamente uma nova funcionalidade, não precisa executar o conjunto completo de testes; pode executar <em>apenas</em> os testes de unidade. Para fazer isso, execute:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5320,13 +5292,7 @@ fazer isso, execute:</p>
 </div>
 </div>
 <h4 id="test-subset">Executar um subconjunto de testes<a class="headerlink" href="#test-subset" title="Permanent link">&para;</a></h4>
-<p>Por predefinição, <code>tox</code> vai executar todos os testes do conjunto de testes de
-unidade. Ao desenvolver um novo teste, pode ser útil executar <em>apenas</em> esse
-teste específico. Para isso, pode passar <a href="https://docs.pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run">qualquer especificador
-<code>pytest</code></a>
-como argumento para o <code>tox</code>. Estes caminhos de teste são relativos ao diretório
-<code>briefcase</code>. Por exemplo, para executar apenas os testes contidos num único
-ficheiro, execute:</p>
+<p>Por predefinição, <code>tox</code> vai executar todos os testes do conjunto de testes de unidade. Ao desenvolver um novo teste, pode ser útil executar <em>apenas</em> esse teste específico. Para isso, pode passar <a href="https://docs.pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run">qualquer especificador <code>pytest</code></a> como argumento para o <code>tox</code>. Estes caminhos de teste são relativos ao diretório <code>briefcase</code>. Por exemplo, para executar apenas os testes contidos num único ficheiro, execute:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5343,15 +5309,9 @@ ficheiro, execute:</p>
 </div>
 </div>
 </div>
-<p>Vai ainda receber um relatório de cobertura ao executar uma parte do conjunto de
-testes — mas os resultados de cobertura vão mostrar apenas as linhas de código
-que foram executadas pelos testes específicos que executou.</p>
+<p>Vai ainda receber um relatório de cobertura ao executar uma parte do conjunto de testes — mas os resultados de cobertura vão mostrar apenas as linhas de código que foram executadas pelos testes específicos que executou.</p>
 <h4 id="test-py-version">Executar o conjunto de testes para uma versão específica do Python<a class="headerlink" href="#test-py-version" title="Permanent link">&para;</a></h4>
-<p>Por predefinição, <code>tox -e py</code> vai correr usando qualquer interpretador que
-resolver como <code>python</code> no seu computador. Se tiver várias versões do Python
-instaladas e quiser testar uma versão específica entre as que estão instaladas,
-é possível especificar a versão do Python a ser usada. Por exemplo, para
-executar o conjunto de testes no Python 3.10, execute:</p>
+<p>Por predefinição, <code>tox -e py</code> vai correr usando qualquer interpretador que resolver como <code>python</code> no seu computador. Se tiver várias versões do Python instaladas e quiser testar uma versão específica entre as que estão instaladas, é possível especificar a versão do Python a ser usada. Por exemplo, para executar o conjunto de testes no Python 3.10, execute:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5368,14 +5328,9 @@ executar o conjunto de testes no Python 3.10, execute:</p>
 </div>
 </div>
 </div>
-<p>Pode ser executado um <a class="autorefs autorefs-internal" title="Executar um subconjunto de testes" href="#test-subset">subconjunto de testes</a> ao adicionar <code>--</code> e
-uma especificação de teste à linha de comando.</p>
+<p>Pode ser executado um <a class="autorefs autorefs-internal" title="Executar um subconjunto de testes" href="#test-subset">subconjunto de testes</a> ao adicionar <code>--</code> e uma especificação de teste à linha de comando.</p>
 <h4 id="executar-o-conjunto-de-testes-sem-cobertura-rapido">Executar o conjunto de testes sem cobertura (rápido)<a class="headerlink" href="#executar-o-conjunto-de-testes-sem-cobertura-rapido" title="Permanent link">&para;</a></h4>
-<p>Por predefinição, <code>tox</code> vai correr o conjunto de testes pytest no modo de única
-linha de execução. Pode acelerar a execução do conjunto de testes executando-o
-em paralelo. Esse modo não gera ficheiros de cobertura devido às complexidades
-envolvidas na captura de cobertura dentro dos processos criados. Para executar
-uma única versão do Python no modo "rápido", execute:</p>
+<p>Por predefinição, <code>tox</code> vai correr o conjunto de testes pytest no modo de única linha de execução. Pode acelerar a execução do conjunto de testes executando-o em paralelo. Esse modo não gera ficheiros de cobertura devido às complexidades envolvidas na captura de cobertura dentro dos processos criados. Para executar uma única versão do Python no modo "rápido", execute:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5392,48 +5347,21 @@ uma única versão do Python no modo "rápido", execute:</p>
 </div>
 </div>
 </div>
-<p>Pode ser executado um <a class="autorefs autorefs-internal" title="Executar um subconjunto de testes" href="#test-subset">subconjunto de testes</a> ao adicionar <code>--</code> e
-uma especificação de teste à linha de comando; é possível usar uma <a class="autorefs autorefs-internal" title="Executar o conjunto de testes para uma versão específica do Python" href="#test-py-version">versão
-específica do Python</a> adicionando a versão ao destino do teste
-(por exemplo, <code>py310-fast</code> para executar rápido em
-Python 3.10).</p>
+<p>Pode ser executado um <a class="autorefs autorefs-internal" title="Executar um subconjunto de testes" href="#test-subset">subconjunto de testes</a> ao adicionar <code>--</code> e uma especificação de teste à linha de comando; é possível usar uma <a class="autorefs autorefs-internal" title="Executar o conjunto de testes para uma versão específica do Python" href="#test-py-version">versão específica do Python</a> adicionando a versão ao destino do teste (por exemplo, <code>py310-fast</code> para executar rápido em Python 3.10).</p>
 <h3 id="code-coverage">Cobertura de código<a class="headerlink" href="#code-coverage" title="Permanent link">&para;</a></h3>
-<p>BeeWare mantém 100% de cobertura de ramo no seu código-fonte. Ao
-adicionar ou modificar código no projeto, é necessário adicionar código de teste
-para garantir a cobertura de todas as alterações realizadas.</p>
-<p>No entanto, BeeWare visa várias plataformas, bem como várias versões
-do Python, pelo que não é possível verificar a cobertura total numa única
-plataforma e versão do Python. Para contornar isso, várias regras de cobertura
-condicional são definidas na secção
-<code>tool.coverage.coverage_conditional_plugin.rules</code> do <code>pyproject.toml</code> (por
-exemplo, <code>no-cover-if-is-windows</code> pode ser usado para sinalizar um bloco de
-código que não será executado ao rodar o conjunto de testes no Windows). Essas
-regras são usadas para identificar secções de código que são cobertas apenas em
-plataformas ou versões específicas do Python.</p>
-<p>De notar que a geração de relatórios de cobertura entre diferentes versões do
-Python pode apresentar algumas peculiaridades. Por exemplo, se os ficheiros de
-cobertura forem gerados usando uma versão do Python, mas a geração do relatório
-for feita noutra, o relatório poderá incluir falsos positivos para ramos não
-verificados. Por esse motivo, a geração de relatórios de cobertura deve sempre
-utilizar a versão mais antiga do Python usada para gerar os ficheiros de
-cobertura.</p>
+<p>BeeWare mantém 100% de cobertura de ramo no seu código-fonte. Ao adicionar ou modificar código no projeto, é necessário adicionar código de teste para garantir a cobertura de todas as alterações realizadas.</p>
+<p>No entanto, BeeWare visa várias plataformas, bem como várias versões do Python, pelo que não é possível verificar a cobertura total numa única plataforma e versão do Python. Para contornar isso, várias regras de cobertura condicional são definidas na secção <code>tool.coverage.coverage_conditional_plugin.rules</code> do <code>pyproject.toml</code> (por exemplo, <code>no-cover-if-is-windows</code> pode ser usado para sinalizar um bloco de código que não será executado ao rodar o conjunto de testes no Windows). Essas regras são usadas para identificar secções de código que são cobertas apenas em plataformas ou versões específicas do Python.</p>
+<p>De notar que a geração de relatórios de cobertura entre diferentes versões do Python pode apresentar algumas peculiaridades. Por exemplo, se os ficheiros de cobertura forem gerados usando uma versão do Python, mas a geração do relatório for feita noutra, o relatório poderá incluir falsos positivos para ramos não verificados. Por esse motivo, a geração de relatórios de cobertura deve sempre utilizar a versão mais antiga do Python usada para gerar os ficheiros de cobertura.</p>
 <h4 id="compreender-os-resultados-da-cobertura">Compreender os resultados da cobertura<a class="headerlink" href="#compreender-os-resultados-da-cobertura" title="Permanent link">&para;</a></h4>
-<p>No final do resultado do teste de cobertura, deve haver um relatório com os
-dados de cobertura recolhidos:</p>
+<p>No final do resultado do teste de cobertura, deve haver um relatório com os dados de cobertura recolhidos:</p>
 <!-- The extra space at the start of this line is needed to prevent translate-toolkit from parsing the dashes as a markdown document split -->
 
 <div class="highlight"><pre><span></span><code><span class="go">Name    Stmts   Miss Branch BrPart   Cover   Missing</span>
 <span class="go"> ---------------------------------------------------</span>
 <span class="go"> TOTAL    7540      0   1040      0  100.0%</span>
 </code></pre></div>
-<p>Isto indica-nos que o conjunto de testes executou todos os caminhos de ramo
-possíveis no código. Isto não é uma garantia de 100% de que não há bugs, mas
-significa que estamos a testar cada linha de código da base de código.</p>
-<p>Se fizer alterações no código-fonte, é possível que surja uma lacuna nessa
-cobertura. Quando isso acontecer, o relatório de cobertura indicará quais linhas
-não estão a ser executadas. Por exemplo, digamos que fizemos uma alteração em
-<code>some/interesting_file.py</code>, adicionando uma nova lógica. O relatório de
-cobertura poderia ficar mais ou menos assim:</p>
+<p>Isto indica-nos que o conjunto de testes executou todos os caminhos de ramo possíveis no código. Isto não é uma garantia de 100% de que não há bugs, mas significa que estamos a testar cada linha de código da base de código.</p>
+<p>Se fizer alterações no código-fonte, é possível que surja uma lacuna nessa cobertura. Quando isso acontecer, o relatório de cobertura indicará quais linhas não estão a ser executadas. Por exemplo, digamos que fizemos uma alteração em <code>some/interesting_file.py</code>, adicionando uma nova lógica. O relatório de cobertura poderia ficar mais ou menos assim:</p>
 <!-- The extra space at the start of this line is needed to prevent translate-toolkit from parsing the dashes as a markdown document split -->
 
 <div class="highlight"><pre><span></span><code><span class="go">Name                                 Stmts   Miss Branch BrPart  Cover   Missing</span>
@@ -5442,14 +5370,9 @@ cobertura poderia ficar mais ou menos assim:</p>
 <span class="go"> -------------------------------------------------------------------------------</span>
 <span class="go"> TOTAL                                 7540      1   1726      0  99.9%</span>
 </code></pre></div>
-<p>Isto diz-nos que a linha 170, as linhas 302 a 307 e um salto de ramo desde linha
-320 para a linha 335 não estão a ser executados pelo conjunto de testes. Vai
-precisar adicionar novos testes (ou modificar um teste existente) para restaurar
-essa cobertura.</p>
+<p>Isto diz-nos que a linha 170, as linhas 302 a 307 e um salto de ramo desde linha 320 para a linha 335 não estão a ser executados pelo conjunto de testes. Vai precisar adicionar novos testes (ou modificar um teste existente) para restaurar essa cobertura.</p>
 <h4 id="relatorio-de-cobertura-para-a-plataforma-anfitria-e-a-versao-do-python">Relatório de cobertura para a plataforma anfitriã e a versão do Python<a class="headerlink" href="#relatorio-de-cobertura-para-a-plataforma-anfitria-e-a-versao-do-python" title="Permanent link">&para;</a></h4>
-<p>Pode gerar um relatório de cobertura para a sua plataforma e versão do Python.
-Por exemplo, para correr o conjunto de testes e gerar um relatório de cobertura
-no Python 3.10, execute:</p>
+<p>Pode gerar um relatório de cobertura para a sua plataforma e versão do Python. Por exemplo, para correr o conjunto de testes e gerar um relatório de cobertura no Python 3.10, execute:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5467,8 +5390,7 @@ no Python 3.10, execute:</p>
 </div>
 </div>
 <h4 id="relatorio-de-cobertura-para-a-plataforma-anfitria">Relatório de cobertura para a plataforma anfitriã<a class="headerlink" href="#relatorio-de-cobertura-para-a-plataforma-anfitria" title="Permanent link">&para;</a></h4>
-<p>Se todas as versões suportadas do Python estiverem disponíveis para <code>tox</code>, a
-cobertura para a plataforma anfitriã pode ser reportada executando:</p>
+<p>Se todas as versões suportadas do Python estiverem disponíveis para <code>tox</code>, a cobertura para a plataforma anfitriã pode ser reportada executando:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">macOS</label><label for="__tabbed_7_2">Linux</label><label for="__tabbed_7_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5486,8 +5408,7 @@ cobertura para a plataforma anfitriã pode ser reportada executando:</p>
 </div>
 </div>
 <h4 id="relatorios-de-cobertura-em-html">Relatórios de cobertura em HTML<a class="headerlink" href="#relatorios-de-cobertura-em-html" title="Permanent link">&para;</a></h4>
-<p>Pode ser gerado um relatório de cobertura HTML acrescentando <code>-html</code> a qualquer
-um dos nomes de ambiente de cobertura <code>tox</code>, por exemplo:</p>
+<p>Pode ser gerado um relatório de cobertura HTML acrescentando <code>-html</code> a qualquer um dos nomes de ambiente de cobertura <code>tox</code>, por exemplo:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">macOS</label><label for="__tabbed_8_2">Linux</label><label for="__tabbed_8_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5505,20 +5426,9 @@ um dos nomes de ambiente de cobertura <code>tox</code>, por exemplo:</p>
 </div>
 </div>
 <h3 id="nao-se-trata-apenas-de-escrever-testes">Não se trata apenas de escrever testes!<a class="headerlink" href="#nao-se-trata-apenas-de-escrever-testes" title="Permanent link">&para;</a></h3>
-<p>Embora nos certificamos de testar todo o nosso código, a tarefa não se resume
-<em>apenas</em> a manter esse nível de testes. Parte da tarefa consiste em rever o
-código à medida que se avança. Podemos escrever um conjunto compreensível de
-testes para um colete salva-vidas de betão&hellip; mas um colete salva-vidas de betão
-continuava a ser inútil para o objetivo pretendido!</p>
-<p>À medida que desenvolve testes, deve verificar se o módulo principal também é
-<strong>consistente</strong> internamente. Se notar algum nome de método que não seja
-internamente consistente (por exemplo, algo chamado <code>on_select</code> num módulo, mas
-chamado <code>on_selected</code> noutro), ou onde os dados não estejam sendo tratados de
-forma consistente, sinalize isso e nos informe criando um bilhete. Ou, se tiver
-certeza do que precisa ser feito, crie um pedido de puxar que corrija o problema
-que encontrou.</p>
-<p>Depois de ter tudo a funcionar, pode <a href="../submit-pr/">submeter um pedido de
-puxar</a> com as suas alterações.</p>
+<p>Embora nos certificamos de testar todo o nosso código, a tarefa não se resume <em>apenas</em> a manter esse nível de testes. Parte da tarefa consiste em rever o código à medida que se avança. Podemos escrever um conjunto compreensível de testes para um colete salva-vidas de betão&hellip; mas um colete salva-vidas de betão continuava a ser inútil para o objetivo pretendido!</p>
+<p>À medida que desenvolve testes, deve verificar se o módulo principal também é <strong>consistente</strong> internamente. Se notar algum nome de método que não seja internamente consistente (por exemplo, algo chamado <code>on_select</code> num módulo, mas chamado <code>on_selected</code> noutro), ou onde os dados não estejam sendo tratados de forma consistente, sinalize isso e nos informe criando um bilhete. Ou, se tiver certeza do que precisa ser feito, crie um pedido de puxar que corrija o problema que encontrou.</p>
+<p>Depois de ter tudo a funcionar, pode <a href="../submit-pr/">submeter um pedido de puxar</a> com as suas alterações.</p>
 
 
 

@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Intestazione"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/build-docs/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/build-docs/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4986,30 +4994,16 @@ aria-label="Intestazione"
 
 
 <h1 id="documentazione-delledificio">Documentazione dell'edificio<a class="headerlink" href="#documentazione-delledificio" title="Permanent link">&para;</a></h1>
-<p>Prima di apportare qualsiasi modifica alla documentazione di {{ nome_formale }},
-è utile confermare che si può costruire la documentazione esistente.</p>
-<p>Prima di creare la documentazione, assicurati di avere un <a href="../dev-environment/">ambiente di
-sviluppo</a> configurato.</p>
-<p>È <strong>necessario</strong> avere un interprete Python 3.13 installato
-e disponibile sul proprio percorso (cioè, <code>python3.13</code> deve
-avviare un interprete Python 3.13).</p>
-<p>{{ nome_formale }} usa <code>tox</code> per costruire la documentazione. I seguenti comandi
-di <code>tox</code> devono essere eseguiti dalla stessa posizione del file <code>tox.ini</code>, che
-si trova nella directory principale del progetto.</p>
+<p>Prima di apportare qualsiasi modifica alla documentazione di {{ nome_formale }}, è utile confermare che si può costruire la documentazione esistente.</p>
+<p>Prima di creare la documentazione, assicurati di avere un <a href="../dev-environment/">ambiente di sviluppo</a> configurato.</p>
+<p>È <strong>necessario</strong> avere un interprete Python 3.13 installato e disponibile sul proprio percorso (cioè, <code>python3.13</code> deve avviare un interprete Python 3.13).</p>
+<p>{{ nome_formale }} usa <code>tox</code> per costruire la documentazione. I seguenti comandi di <code>tox</code> devono essere eseguiti dalla stessa posizione del file <code>tox.ini</code>, che si trova nella directory principale del progetto.</p>
 <h3 id="anteprima-della-documentazione-in-tempo-reale">Anteprima della documentazione in tempo reale<a class="headerlink" href="#anteprima-della-documentazione-in-tempo-reale" title="Permanent link">&para;</a></h3>
-<p>Per favorire la modifica rapida della documentazione, {{ nome_formale }} dispone
-di una modalità di "anteprima dal vivo".</p>
+<p>Per favorire la modifica rapida della documentazione, {{ nome_formale }} dispone di una modalità di "anteprima dal vivo".</p>
 <div class="admonition warning">
 <p class="admonition-title">L'anteprima live verrà generata con avvisi!</p>
-<p>Il servizio live è disponibile per iterare gli aggiornamenti della
-documentazione. Mentre si aggiornano le cose, si può introdurre un problema di
-markup. I problemi considerati un `AVVERTIMENTO' causano il fallimento della
-compilazione standard; tuttavia, il servizio live è impostato per indicare gli
-avvertimenti nell'output della console, pur continuando la compilazione. Questo
-permette di iterare senza dover riavviare l'anteprima live.</p>
-<p>Un <code>AVVISO' è diverso da un</code>ERRORE'. Se si introduce un problema considerato un
-<code>ERRORE</code>, il servizio live fallirà e richiederà un riavvio. Non si riavvierà
-fino a quando il problema <code>WARNING</code> non sarà risolto.</p>
+<p>Il servizio live è disponibile per iterare gli aggiornamenti della documentazione. Mentre si aggiornano le cose, si può introdurre un problema di markup. I problemi considerati un `AVVERTIMENTO' causano il fallimento della compilazione standard; tuttavia, il servizio live è impostato per indicare gli avvertimenti nell'output della console, pur continuando la compilazione. Questo permette di iterare senza dover riavviare l'anteprima live.</p>
+<p>Un <code>AVVISO' è diverso da un</code>ERRORE'. Se si introduce un problema considerato un <code>ERRORE</code>, il servizio live fallirà e richiederà un riavvio. Non si riavvierà fino a quando il problema <code>WARNING</code> non sarà risolto.</p>
 </div>
 <p>Per avviare il server live:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
@@ -5028,28 +5022,17 @@ fino a quando il problema <code>WARNING</code> non sarà risolto.</p>
 </div>
 </div>
 </div>
-<p>Questo costruisce la documentazione, avvia un server web per servire la
-documentazione e controlla il file system per qualsiasi modifica alla fonte
-della documentazione.</p>
-<p>Una volta avviato il server, nell'output della console si vedrà qualcosa di
-simile a quanto segue:</p>
+<p>Questo costruisce la documentazione, avvia un server web per servire la documentazione e controlla il file system per qualsiasi modifica alla fonte della documentazione.</p>
+<p>Una volta avviato il server, nell'output della console si vedrà qualcosa di simile a quanto segue:</p>
 <div class="highlight"><pre><span></span><code><span class="go">INFO    -  [11:18:51] In esecuzione su http://127.0.0.1:8000/</span>
 </code></pre></div>
-<p>Aprire un browser e navigare all'URL fornito. Ora si può iniziare a iterare
-sulla documentazione. Se viene rilevata una modifica, la documentazione viene
-ricostruita e qualsiasi browser che visualizza la pagina modificata viene
-automaticamente aggiornato.</p>
+<p>Aprire un browser e navigare all'URL fornito. Ora si può iniziare a iterare sulla documentazione. Se viene rilevata una modifica, la documentazione viene ricostruita e qualsiasi browser che visualizza la pagina modificata viene automaticamente aggiornato.</p>
 <div class="admonition note">
 <p class="admonition-title"><code>docs-live</code> è un passo iniziale</p>
-<p>L'esecuzione di <code>docs-live</code> per lavorare con il server live è pensata per
-l'iterazione iniziale. Si dovrebbe <em>sempre</em> eseguire una build locale prima di
-inviare una richiesta di pull.</p>
+<p>L'esecuzione di <code>docs-live</code> per lavorare con il server live è pensata per l'iterazione iniziale. Si dovrebbe <em>sempre</em> eseguire una build locale prima di inviare una richiesta di pull.</p>
 </div>
 <h3 id="costruzione-locale">Costruzione locale<a class="headerlink" href="#costruzione-locale" title="Permanent link">&para;</a></h3>
-<p>Una volta terminata l'iterazione, è necessario eseguire una compilazione locale
-della documentazione. Questo processo di creazione è progettato per fallire se
-ci sono problemi di markup. In questo modo è possibile individuare tutto ciò che
-potrebbe essere sfuggito con il server live.</p>
+<p>Una volta terminata l'iterazione, è necessario eseguire una compilazione locale della documentazione. Questo processo di creazione è progettato per fallire se ci sono problemi di markup. In questo modo è possibile individuare tutto ciò che potrebbe essere sfuggito con il server live.</p>
 <h4 id="generazione-di-una-build-locale">Generazione di una build locale<a class="headerlink" href="#generazione-di-una-build-locale" title="Permanent link">&para;</a></h4>
 <p>Per generare una build locale:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
@@ -5068,13 +5051,9 @@ potrebbe essere sfuggito con il server live.</p>
 </div>
 </div>
 </div>
-<p>L'output di questa compilazione sarà nella cartella <code>_build</code> nella radice del
-progetto.</p>
+<p>L'output di questa compilazione sarà nella cartella <code>_build</code> nella radice del progetto.</p>
 <h4 id="generazione-di-una-build-locale-tradotta">Generazione di una build locale tradotta<a class="headerlink" href="#generazione-di-una-build-locale-tradotta" title="Permanent link">&para;</a></h4>
-<p>La documentazione di BeeWare è tradotta in più lingue. Gli
-aggiornamenti della documentazione in inglese possono potenzialmente causare
-problemi nelle build delle altre lingue. È importante verificare che tutte le
-build funzionino prima di inviare una richiesta di pull.</p>
+<p>La documentazione di BeeWare è tradotta in più lingue. Gli aggiornamenti della documentazione in inglese possono potenzialmente causare problemi nelle build delle altre lingue. È importante verificare che tutte le build funzionino prima di inviare una richiesta di pull.</p>
 <p>Per generare una build di tutte le traduzioni disponibili:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
 <div class="tabbed-content">
@@ -5092,14 +5071,8 @@ build funzionino prima di inviare una richiesta di pull.</p>
 </div>
 </div>
 </div>
-<p>L'output di ogni compilazione di una lingua si trova nella directory associata
-<code>_build/html/&lt;languagecode&gt;</code>, dove <code>&lt;languagecode&gt;</code> è il codice di due o cinque
-caratteri associato alla lingua specifica (ad esempio, <code>fr</code> per il francese,
-<code>it</code> per l'italiano, ecc.)</p>
-<p>Se si riscontra un problema con una singola compilazione, è possibile eseguire
-quella singola compilazione separatamente eseguendo <code>tox -e
-docs-&lt;languagecode&gt;</code>. Per esempio, per creare solo la documentazione francese,
-eseguire:</p>
+<p>L'output di ogni compilazione di una lingua si trova nella directory associata <code>_build/html/&lt;languagecode&gt;</code>, dove <code>&lt;languagecode&gt;</code> è il codice di due o cinque caratteri associato alla lingua specifica (ad esempio, <code>fr</code> per il francese, <code>it</code> per l'italiano, ecc.)</p>
+<p>Se si riscontra un problema con una singola compilazione, è possibile eseguire quella singola compilazione separatamente eseguendo <code>tox -e docs-&lt;languagecode&gt;</code>. Per esempio, per creare solo la documentazione francese, eseguire:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5116,11 +5089,9 @@ eseguire:</p>
 </div>
 </div>
 </div>
-<p>L'output di una compilazione in una sola lingua si trova nella directory
-<code>_build</code>.</p>
+<p>L'output di una compilazione in una sola lingua si trova nella directory <code>_build</code>.</p>
 <h3 id="linting-della-documentazione">Linting della documentazione<a class="headerlink" href="#linting-della-documentazione" title="Permanent link">&para;</a></h3>
-<p>Il processo di compilazione identifica i problemi di Markdown, ma {{ nome_formale }} esegue alcuni controlli aggiuntivi per lo stile e la formattazione, noti come
-"linting". Per eseguire i controlli di lint:</p>
+<p>Il processo di compilazione identifica i problemi di Markdown, ma {{ nome_formale }} esegue alcuni controlli aggiuntivi per lo stile e la formattazione, noti come "linting". Per eseguire i controlli di lint:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5142,22 +5113,13 @@ eseguire:</p>
 <li>collegamenti ipertestuali morti</li>
 <li>parole sbagliate</li>
 </ul>
-<p>Se un'ortografia valida di una parola viene identificata come errata, aggiungere
-la parola all'elenco in <code>docs/spelling_wordlist</code>. Questo aggiungerà la parola al
-dizionario del correttore ortografico. Quando si aggiunge a questo elenco,
-ricordate:</p>
+<p>Se un'ortografia valida di una parola viene identificata come errata, aggiungere la parola all'elenco in <code>docs/spelling_wordlist</code>. Questo aggiungerà la parola al dizionario del correttore ortografico. Quando si aggiunge a questo elenco, ricordate:</p>
 <ul>
-<li>Preferiamo l'ortografia statunitense, con alcune libertà per i colloqui
-  specifici della programmazione (ad esempio, "apps") e per i verbi dei nomi (ad
-  esempio, "scrollable").</li>
-<li>Qualsiasi riferimento al nome di un prodotto deve utilizzare la
-  capitalizzazione preferita dal prodotto stesso. (ad esempio, "macOS", "GTK",
-  "pytest", "Pygame", "PyScript").</li>
-<li>Se un termine viene usato "come codice", allora dovrebbe essere citato come
-  letterale (<code>come questo</code>) invece di essere aggiunto al dizionario.</li>
+<li>Preferiamo l'ortografia statunitense, con alcune libertà per i colloqui specifici della programmazione (ad esempio, "apps") e per i verbi dei nomi (ad esempio, "scrollable").</li>
+<li>Qualsiasi riferimento al nome di un prodotto deve utilizzare la capitalizzazione preferita dal prodotto stesso. (ad esempio, "macOS", "GTK", "pytest", "Pygame", "PyScript").</li>
+<li>Se un termine viene usato "come codice", allora dovrebbe essere citato come letterale (<code>come questo</code>) invece di essere aggiunto al dizionario.</li>
 </ul>
-<p>Una volta completata con successo la creazione dei documenti, sei pronto per
-<a href="../write-docs/">scrivere la documentazione</a>.</p>
+<p>Una volta completata con successo la creazione dei documenti, sei pronto per <a href="../write-docs/">scrivere la documentazione</a>.</p>
 
 
 

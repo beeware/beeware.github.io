@@ -88,6 +88,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -530,6 +532,12 @@ aria-label="Intestazione"
           <li class="md-select__item">
             <a href="../../../../../ru/news/buzz/2026/may-2026-status-update/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/news/buzz/2026/may-2026-status-update/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4817,150 +4825,43 @@ aria-label="Intestazione"
 
   <h1>May 2026 Status Update</h1>
 
-<p>May was dominated by <a href="https://us.pycon.org/2026/">PyCon US</a>, where the BeeWare
-team ran another successful sprint, resulting in a number of improvements - many
-from first time contributors.</p>
+<p>May was dominated by <a href="https://us.pycon.org/2026/">PyCon US</a>, where the BeeWare team ran another successful sprint, resulting in a number of improvements - many from first time contributors.</p>
 <!-- more -->
 
 <h2 id="what-weve-done">What we've done<a class="headerlink" href="#what-weve-done" title="Permanent link">&para;</a></h2>
 <ul>
-<li>We presented 2 main track talks at PyCon US - one on <a href="https://us.pycon.org/2026/schedule/presentation/36/">mechanisms for
-  distributing Python
-  code</a>, and one on
-  <a href="https://us.pycon.org/2026/schedule/presentation/6/">switching your project documentation from Sphinx to
-  Markdown</a>. We also
-  presented at the <a href="https://us.pycon.org/2026/events/webassembly-summit/">Web Assembly
-  Summit</a>, and <a href="https://us.pycon.org/2026/events/packaging-summit/">Packaging
-  Summit</a>.</li>
-<li>We rolled out a series of updates to our GitHub Action workflows, simplifying
-  our use of Dependabot, and adding some improvements to help users <a href="https://github.com/beeware/.github/pull/357">identify if
-  they haven't filled out our PR
-  template</a> or <a href="https://github.com/beeware/.github/pull/361">provided a
-  Towncrier change note</a>.</li>
-<li>We adopted the use of our new warning banner helper <a href="https://github.com/beeware/briefcase/pull/2842">throughout the Briefcase
-  repository</a>, replacing the
-  existing banners.</li>
-<li>We <a href="https://github.com/beeware/briefcase/pull/2825">improved Briefcase's validation of bundle
-  identifiers</a>, allowing
-  single-dot bundle IDs while still rejecting invalid ones.</li>
-<li>Now that <a href="https://github.com/pythonnet/pythonnet/issues/2610">Python.net supports Python
-  3.14</a>, we have <a href="https://github.com/beeware/beeware-tutorial/pull/78">removed
-  the warning in the BeeWare tutorial that advised against using Python 3.14 on
-  Windows</a>.</li>
-<li>We modified <a href="https://github.com/beeware/toga/pull/4332">Toga's <code>Canvas</code> widget to expose drawing-context attributes
-  (<code>fill_style</code>, <code>stroke_style</code>, <code>line_width</code>, <code>line_dash</code>) along with
-  <code>save</code>/<code>restore</code> methods</a>,
-  continuing the alignment with the HTML5 Canvas API, and completed a
-  <a href="https://github.com/beeware/toga/pull/4362">comprehensive revamp of the documentation of the <code>Canvas</code>
-  widget</a>.</li>
-<li>We implemented <a href="https://github.com/beeware/toga/pull/4408">dark mode detection in Toga for iOS, web, and
-  Windows</a>.</li>
-<li>We addressed some <a href="https://github.com/beeware/toga/pull/4363">reliability problems with Toga's app-level dialogs on macOS
-  26</a>.</li>
-<li>We modified Toga's <a href="https://github.com/beeware/toga/pull/4359"><code>Window</code> initialization process to ensure event handlers
-  exist before the underlying widget is
-  constructed</a>.</li>
-<li>We added <a href="https://github.com/beeware/toga/pull/4360">keyboard toggling for nodes in the Toga's WinForms Tree
-  widget</a>.</li>
-<li>We <a href="https://github.com/beeware/toga/pull/4410">modified the handling of static HTML content in the Android
-  <code>WebView</code></a>, fixing a rendering
-  problem observed when content contained characters such as <code>#</code>.</li>
-<li>We <a href="https://github.com/beeware/toga/pull/4379">improved Toga's GTK <code>MapView</code> handling of null
-  values</a>.</li>
-<li>We corrected an issue with the Toga testbed app that caused <a href="https://github.com/beeware/toga/pull/4428">tests to fail if
-  the user had multiple monitors</a>.</li>
-<li>We <a href="https://github.com/beeware/toga/pull/4369">documented the limitations of <code>OptionContainer</code> on mobile
-  platforms</a>.</li>
-<li>We ensured Toga's codebase <a href="https://github.com/beeware/toga/pull/4365">checks for default encoding
-  warnings</a>, and corrected some
-  examples where encoding wasn't being explicitly specified.</li>
-<li>We <a href="https://github.com/beeware/toga/pull/4424">improved the resilience of Toga's <code>WebView</code> tests under
-  Qt</a>.</li>
-<li>We <a href="https://github.com/beeware/briefcase-template/pull/258">migrated Briefcase's project template to include a Markdown
-  README</a>.</li>
-<li>We <a href="https://github.com/beeware/beeware.github.io/pull/783">improved the BeeWare overview page with details about the platforms that
-  BeeWare supports</a>.</li>
-<li>We <a href="https://github.com/python/cpython/pull/150444">corrected a configuration issue that broke compilation of Python for iOS
-  on macOS 26</a>.</li>
-<li>We landed <a href="https://github.com/pypa/cibuildwheel/pull/2695">the <code>cibuildwheel</code> improvements needed for building NumPy and
-  related packages on Android</a>,
-  and <a href="https://github.com/pypa/auditwheel/pull/643">added Android support to
-  <code>auditwheel</code></a>. Together, these
-  are the foundation that will let <code>cibuildwheel</code> build a much wider range of
-  scientific-Python wheels for Android.</li>
+<li>We presented 2 main track talks at PyCon US - one on <a href="https://us.pycon.org/2026/schedule/presentation/36/">mechanisms for distributing Python code</a>, and one on <a href="https://us.pycon.org/2026/schedule/presentation/6/">switching your project documentation from Sphinx to Markdown</a>. We also presented at the <a href="https://us.pycon.org/2026/events/webassembly-summit/">Web Assembly Summit</a>, and <a href="https://us.pycon.org/2026/events/packaging-summit/">Packaging Summit</a>.</li>
+<li>We rolled out a series of updates to our GitHub Action workflows, simplifying our use of Dependabot, and adding some improvements to help users <a href="https://github.com/beeware/.github/pull/357">identify if they haven't filled out our PR template</a> or <a href="https://github.com/beeware/.github/pull/361">provided a Towncrier change note</a>.</li>
+<li>We adopted the use of our new warning banner helper <a href="https://github.com/beeware/briefcase/pull/2842">throughout the Briefcase repository</a>, replacing the existing banners.</li>
+<li>We <a href="https://github.com/beeware/briefcase/pull/2825">improved Briefcase's validation of bundle identifiers</a>, allowing single-dot bundle IDs while still rejecting invalid ones.</li>
+<li>Now that <a href="https://github.com/pythonnet/pythonnet/issues/2610">Python.net supports Python 3.14</a>, we have <a href="https://github.com/beeware/beeware-tutorial/pull/78">removed the warning in the BeeWare tutorial that advised against using Python 3.14 on Windows</a>.</li>
+<li>We modified <a href="https://github.com/beeware/toga/pull/4332">Toga's <code>Canvas</code> widget to expose drawing-context attributes (<code>fill_style</code>, <code>stroke_style</code>, <code>line_width</code>, <code>line_dash</code>) along with <code>save</code>/<code>restore</code> methods</a>, continuing the alignment with the HTML5 Canvas API, and completed a <a href="https://github.com/beeware/toga/pull/4362">comprehensive revamp of the documentation of the <code>Canvas</code> widget</a>.</li>
+<li>We implemented <a href="https://github.com/beeware/toga/pull/4408">dark mode detection in Toga for iOS, web, and Windows</a>.</li>
+<li>We addressed some <a href="https://github.com/beeware/toga/pull/4363">reliability problems with Toga's app-level dialogs on macOS 26</a>.</li>
+<li>We modified Toga's <a href="https://github.com/beeware/toga/pull/4359"><code>Window</code> initialization process to ensure event handlers exist before the underlying widget is constructed</a>.</li>
+<li>We added <a href="https://github.com/beeware/toga/pull/4360">keyboard toggling for nodes in the Toga's WinForms Tree widget</a>.</li>
+<li>We <a href="https://github.com/beeware/toga/pull/4410">modified the handling of static HTML content in the Android <code>WebView</code></a>, fixing a rendering problem observed when content contained characters such as <code>#</code>.</li>
+<li>We <a href="https://github.com/beeware/toga/pull/4379">improved Toga's GTK <code>MapView</code> handling of null values</a>.</li>
+<li>We corrected an issue with the Toga testbed app that caused <a href="https://github.com/beeware/toga/pull/4428">tests to fail if the user had multiple monitors</a>.</li>
+<li>We <a href="https://github.com/beeware/toga/pull/4369">documented the limitations of <code>OptionContainer</code> on mobile platforms</a>.</li>
+<li>We ensured Toga's codebase <a href="https://github.com/beeware/toga/pull/4365">checks for default encoding warnings</a>, and corrected some examples where encoding wasn't being explicitly specified.</li>
+<li>We <a href="https://github.com/beeware/toga/pull/4424">improved the resilience of Toga's <code>WebView</code> tests under Qt</a>.</li>
+<li>We <a href="https://github.com/beeware/briefcase-template/pull/258">migrated Briefcase's project template to include a Markdown README</a>.</li>
+<li>We <a href="https://github.com/beeware/beeware.github.io/pull/783">improved the BeeWare overview page with details about the platforms that BeeWare supports</a>.</li>
+<li>We <a href="https://github.com/python/cpython/pull/150444">corrected a configuration issue that broke compilation of Python for iOS on macOS 26</a>.</li>
+<li>We landed <a href="https://github.com/pypa/cibuildwheel/pull/2695">the <code>cibuildwheel</code> improvements needed for building NumPy and related packages on Android</a>, and <a href="https://github.com/pypa/auditwheel/pull/643">added Android support to <code>auditwheel</code></a>. Together, these are the foundation that will let <code>cibuildwheel</code> build a much wider range of scientific-Python wheels for Android.</li>
 </ul>
-<p>Much of this work is due to the contributions of members of the BeeWare
-community, many of these users contributed at the PyCon US Sprints. Thanks to
-<nospell>Abdo (<a href="https://github.com/abdnh">@abdnh</a>), Abdur-Rahmaan Janhangeer
-(<a href="https://github.com/Abdur-rahmaanJ">@Abdur-rahmaanJ</a>),
-<a href="https://github.com/AJTheDataGuy">@AJTheDataGuy</a>,
-<a href="https://github.com/albertchae">@albertchae</a>, Aman Sachan
-(<a href="https://github.com/AmSach">@AmSach</a>), Aqil Aziz
-(<a href="https://github.com/aqilaziz">@aqilaziz</a>),
-<a href="https://github.com/atuseract">@atuseract</a>, Audrey Dang
-(<a href="https://github.com/audreydng">@audreydng</a>), Campbell
-(<a href="https://github.com/ceggy91">@ceggy91</a>),
-<a href="https://github.com/changquan">@changquan</a>, Andy P Fundinger
-(<a href="https://github.com/Ciemaar">@Ciemaar</a>), <a href="https://github.com/drewRB">@drewRB</a>,
-Chris Patti (<a href="https://github.com/feoh">@feoh</a>), Grant Wang
-(<a href="https://github.com/gwdio">@gwdio</a>), Michael Wilson
-(<a href="https://github.com/hyperboloid">@hyperboloid</a>), Ian Dolge
-(<a href="https://github.com/iandolge">@iandolge</a>), Joel Peter
-(<a href="https://github.com/joelpeter-c">@joelpeter-c</a>), John
-(<a href="https://github.com/johnzhou721">@johnzhou721</a>), Jorge
-(<a href="https://github.com/jvigueras">@jvigueras</a>),
-<a href="https://github.com/lihua-xinghun">@lihua-xinghun</a>, Matthew Wygal
-(<a href="https://github.com/matthew-wy">@matthew-wy</a>), Miro
-(<a href="https://github.com/Mirochill">@Mirochill</a>), Jeong Kim
-<a href="https://github.com/mrds555">@mrds555</a>, Matt Van Horn
-(<a href="https://github.com/mvanhorn">@mvanhorn</a>),
-<a href="https://github.com/Nando301">@Nando301</a>, Oliver Leigh
-(<a href="https://github.com/Oliver-Leigh">@Oliver-Leigh</a>), Taiwo Osunrinde
-(<a href="https://github.com/osunrinde">@osunrinde</a>), Puneet Dixit
-(<a href="https://github.com/puneetdixit200">@puneetdixit200</a>), Robert J Spencer
-(<a href="https://github.com/Rjvs">@Rjvs</a>),
-<a href="https://github.com/Rowlando13">@Rowlando13</a>, Shannon
-(<a href="https://github.com/shannonmcin">@shannonmcin</a>), Darryl Wang
-(<a href="https://github.com/Tridwoxi">@Tridwoxi</a>),
-<a href="https://github.com/tylerboutwell">@tylerboutwell</a>, Vinicius Gubiani Ferreira
-(<a href="https://github.com/vinigfer">@vinigfer</a>), and David_C
-(<a href="https://github.com/YuDavidCao">@YuDavidCao</a>)</nospell> for their code and
-documentation contributions this month.</p>
+<p>Much of this work is due to the contributions of members of the BeeWare community, many of these users contributed at the PyCon US Sprints. Thanks to <nospell>Abdo (<a href="https://github.com/abdnh">@abdnh</a>), Abdur-Rahmaan Janhangeer (<a href="https://github.com/Abdur-rahmaanJ">@Abdur-rahmaanJ</a>), <a href="https://github.com/AJTheDataGuy">@AJTheDataGuy</a>, <a href="https://github.com/albertchae">@albertchae</a>, Aman Sachan (<a href="https://github.com/AmSach">@AmSach</a>), Aqil Aziz (<a href="https://github.com/aqilaziz">@aqilaziz</a>), <a href="https://github.com/atuseract">@atuseract</a>, Audrey Dang (<a href="https://github.com/audreydng">@audreydng</a>), Campbell (<a href="https://github.com/ceggy91">@ceggy91</a>), <a href="https://github.com/changquan">@changquan</a>, Andy P Fundinger (<a href="https://github.com/Ciemaar">@Ciemaar</a>), <a href="https://github.com/drewRB">@drewRB</a>, Chris Patti (<a href="https://github.com/feoh">@feoh</a>), Grant Wang (<a href="https://github.com/gwdio">@gwdio</a>), Michael Wilson (<a href="https://github.com/hyperboloid">@hyperboloid</a>), Ian Dolge (<a href="https://github.com/iandolge">@iandolge</a>), Joel Peter (<a href="https://github.com/joelpeter-c">@joelpeter-c</a>), John (<a href="https://github.com/johnzhou721">@johnzhou721</a>), Jorge (<a href="https://github.com/jvigueras">@jvigueras</a>), <a href="https://github.com/lihua-xinghun">@lihua-xinghun</a>, Matthew Wygal (<a href="https://github.com/matthew-wy">@matthew-wy</a>), Miro (<a href="https://github.com/Mirochill">@Mirochill</a>), Jeong Kim <a href="https://github.com/mrds555">@mrds555</a>, Matt Van Horn (<a href="https://github.com/mvanhorn">@mvanhorn</a>), <a href="https://github.com/Nando301">@Nando301</a>, Oliver Leigh (<a href="https://github.com/Oliver-Leigh">@Oliver-Leigh</a>), Taiwo Osunrinde (<a href="https://github.com/osunrinde">@osunrinde</a>), Puneet Dixit (<a href="https://github.com/puneetdixit200">@puneetdixit200</a>), Robert J Spencer (<a href="https://github.com/Rjvs">@Rjvs</a>), <a href="https://github.com/Rowlando13">@Rowlando13</a>, Shannon (<a href="https://github.com/shannonmcin">@shannonmcin</a>), Darryl Wang (<a href="https://github.com/Tridwoxi">@Tridwoxi</a>), <a href="https://github.com/tylerboutwell">@tylerboutwell</a>, Vinicius Gubiani Ferreira (<a href="https://github.com/vinigfer">@vinigfer</a>), and David_C (<a href="https://github.com/YuDavidCao">@YuDavidCao</a>)</nospell> for their code and documentation contributions this month.</p>
 <h2 id="whats-next">What's next?<a class="headerlink" href="#whats-next" title="Permanent link">&para;</a></h2>
-<p>On the technical front, in the coming month, we'll also be looking into options
-for updating code in a running app; and continuing work on the "big picture" app
-navigation plan published earlier in the year. If time permits, we'll begin
-investigations into the use of Conda environments in Briefcase apps.</p>
-<p>We're also planning to step up our efforts to build the BeeWare community. We've
-developed a reputation at PyCon US for running extremely effective sprints; but
-we need to do more of that outreach for people who can't make it to PyCon. We've
-already begun doing an audit of our outstanding issues in the hope of curating a
-more actionable list of work for contributors; and we're going to start being
-more active on social media, including reaching out to more social media
-channels. We're also going to host our first Community Call - a monthly live
-video event where members of the core team and community members can share what
-they've been working on. <a href="https://discord.gg/U6RfbGDN?event=1509015071890870443">Join us on Discord on June 11 at 11PM UTC (7PM EDT,
-4PM PDT, 9AM AEST)</a> (and
-yes - we're planning to add calls at other times more convenient for European
-and Asian audiences).</p>
+<p>On the technical front, in the coming month, we'll also be looking into options for updating code in a running app; and continuing work on the "big picture" app navigation plan published earlier in the year. If time permits, we'll begin investigations into the use of Conda environments in Briefcase apps.</p>
+<p>We're also planning to step up our efforts to build the BeeWare community. We've developed a reputation at PyCon US for running extremely effective sprints; but we need to do more of that outreach for people who can't make it to PyCon. We've already begun doing an audit of our outstanding issues in the hope of curating a more actionable list of work for contributors; and we're going to start being more active on social media, including reaching out to more social media channels. We're also going to host our first Community Call - a monthly live video event where members of the core team and community members can share what they've been working on. <a href="https://discord.gg/U6RfbGDN?event=1509015071890870443">Join us on Discord on June 11 at 11PM UTC (7PM EDT, 4PM PDT, 9AM AEST)</a> (and yes - we're planning to add calls at other times more convenient for European and Asian audiences).</p>
 <h2 id="want-to-get-involved">Want to get involved?<a class="headerlink" href="#want-to-get-involved" title="Permanent link">&para;</a></h2>
-<p>Want to get involved? We curate issues that should be approachable for
-first-time contributors to BeeWare. They're all relatively minor changes, but
-would provide a big improvement to the lives of BeeWare users:</p>
+<p>Want to get involved? We curate issues that should be approachable for first-time contributors to BeeWare. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:</p>
 <ul>
-<li>If you're interested in the tooling for deploying applications to various
-  platforms, take a look at
-  <a href="https://github.com/beeware/briefcase/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22">Briefcase</a>.</li>
-<li>Or, if you're interested in GUI widgets, take a look at
-  <a href="https://github.com/beeware/toga/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22">Toga</a>.</li>
+<li>If you're interested in the tooling for deploying applications to various platforms, take a look at <a href="https://github.com/beeware/briefcase/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22">Briefcase</a>.</li>
+<li>Or, if you're interested in GUI widgets, take a look at <a href="https://github.com/beeware/toga/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22">Toga</a>.</li>
 </ul>
-<p>These lists can also be filtered by platform - so you can find issues that are
-specific to your preferred operating system. Pick one of these tickets, drop a
-comment on the ticket to let others know you're looking at it, and try your hand
-at a PR! We have a <a href="https://beeware.org/contributing/guide/">contribution
-guide</a>; but if you need any additional
-assistance or guidance, you can ask on the ticket, or join us on the <a href="https://beeware.org/bee/chat/">BeeWare
-Discord server</a>.</p>
+<p>These lists can also be filtered by platform - so you can find issues that are specific to your preferred operating system. Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a <a href="https://beeware.org/contributing/guide/">contribution guide</a>; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the <a href="https://beeware.org/bee/chat/">BeeWare Discord server</a>.</p>
 
 
 

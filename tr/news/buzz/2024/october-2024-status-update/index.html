@@ -90,6 +90,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -532,6 +534,12 @@ aria-label="Başlık"
           <li class="md-select__item">
             <a href="../../../../../ru/news/buzz/2024/october-2024-status-update/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/news/buzz/2024/october-2024-status-update/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4819,93 +4827,38 @@ aria-label="Başlık"
 
   <h1>October 2024 Status Update</h1>
 
-<p>In October, BeeWare saw some important releases, plus more good progress on
-binary packaging for iOS.</p>
+<p>In October, BeeWare saw some important releases, plus more good progress on binary packaging for iOS.</p>
 <!-- more -->
 
 <h2 id="what-weve-done">What we've done<a class="headerlink" href="#what-weve-done" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Most importantly, we released <a href="https://pypi.org/project/briefcase/0.3.20/">Briefcase
-  0.3.20</a> and <a href="https://pypi.org/project/toga/0.4.8/">Toga
-  0.4.8</a>, including support for Python
-  3.13 - which includes the official support in Python for iOS and Android! This
-  is a major milestone for BeeWare as a project, representing a significant
-  portion of the work done over the last 12 months.</li>
-<li>We've prepared an <a href="https://github.com/freakboy3742/cibuildwheel/tree/ios-support">initial patch to <code>cibuildwheel</code> that is able to build and
-  test simple iOS
-  wheels</a>. This
-  patch isn't ready to submit upstream, but it is able to build simple iOS
-  wheels.</li>
-<li>We've submitted a patch to Pillow to <a href="https://github.com/python-pillow/Pillow/pull/8497">isolate its build system from Homebrew
-  when building on macOS</a>.
-  This is essential for iOS support, as it's easy for Homebrew macOS ARM64
-  binaries to leak into iOS builds; but it also has benefits for macOS builds.</li>
-<li>We've made <a href="https://github.com/multi-build/multibuild">a number of improvements to
-  <code>multibuild</code></a>, the tooling that
-  Pillow uses to compile non-Python binary dependencies.</li>
-<li>We've <a href="https://github.com/python/cpython/pull/126169">modified the CPython iOS testbed
-  project</a> so that it can be used
-  as a testbed for <em>any</em> iOS Python project.</li>
-<li>We've <a href="https://github.com/beeware/briefcase/pull/2033">improved error reporting when Briefcase can't clone a
-  template</a>.</li>
-<li>We've switched to using <code>httpx</code> instead of <code>requests</code> for <a href="https://github.com/beeware/briefcase/pull/2041">Briefcase's
-  internal download handling</a>.
-  This provides slightly better error handling, better options for improving
-  HTTP/2 usage, and we're now consistently using <code>httpx</code> in Briefcase and in our
-  example code.</li>
-<li>We've modified Toga to <a href="https://github.com/beeware/toga/pull/2686">lazily load
-  components</a>, rather than importing
-  everything into the <code>toga</code> namespace at startup. This should improve
-  application startup times, especially on platforms like mobile and web where
-  this startup time is noticeable.</li>
-<li>We resolved an issue causing <a href="https://github.com/beeware/toga/pull/2893">intermittent test failures when testing Toga on
-  Wayland</a>.</li>
+<li>Most importantly, we released <a href="https://pypi.org/project/briefcase/0.3.20/">Briefcase 0.3.20</a> and <a href="https://pypi.org/project/toga/0.4.8/">Toga 0.4.8</a>, including support for Python 3.13 - which includes the official support in Python for iOS and Android! This is a major milestone for BeeWare as a project, representing a significant portion of the work done over the last 12 months.</li>
+<li>We've prepared an <a href="https://github.com/freakboy3742/cibuildwheel/tree/ios-support">initial patch to <code>cibuildwheel</code> that is able to build and test simple iOS wheels</a>. This patch isn't ready to submit upstream, but it is able to build simple iOS wheels.</li>
+<li>We've submitted a patch to Pillow to <a href="https://github.com/python-pillow/Pillow/pull/8497">isolate its build system from Homebrew when building on macOS</a>. This is essential for iOS support, as it's easy for Homebrew macOS ARM64 binaries to leak into iOS builds; but it also has benefits for macOS builds.</li>
+<li>We've made <a href="https://github.com/multi-build/multibuild">a number of improvements to <code>multibuild</code></a>, the tooling that Pillow uses to compile non-Python binary dependencies.</li>
+<li>We've <a href="https://github.com/python/cpython/pull/126169">modified the CPython iOS testbed project</a> so that it can be used as a testbed for <em>any</em> iOS Python project.</li>
+<li>We've <a href="https://github.com/beeware/briefcase/pull/2033">improved error reporting when Briefcase can't clone a template</a>.</li>
+<li>We've switched to using <code>httpx</code> instead of <code>requests</code> for <a href="https://github.com/beeware/briefcase/pull/2041">Briefcase's internal download handling</a>. This provides slightly better error handling, better options for improving HTTP/2 usage, and we're now consistently using <code>httpx</code> in Briefcase and in our example code.</li>
+<li>We've modified Toga to <a href="https://github.com/beeware/toga/pull/2686">lazily load components</a>, rather than importing everything into the <code>toga</code> namespace at startup. This should improve application startup times, especially on platforms like mobile and web where this startup time is noticeable.</li>
+<li>We resolved an issue causing <a href="https://github.com/beeware/toga/pull/2893">intermittent test failures when testing Toga on Wayland</a>.</li>
 </ul>
 <h2 id="whats-next">What's next?<a class="headerlink" href="#whats-next" title="Permanent link">&para;</a></h2>
-<p>We will be continuing to work on binary packaging in November. We're using
-Pillow as a demonstrator for this work - it's a package that has a significant
-binary component, is widely used (including on mobile), but has a non-trivial
-build process (largely due to the non-Python binary dependencies). The hope is
-that by the time we're able to compile Pillow for iOS, we will have resolved
-many of the issues facing other binary packages. Our goal remains to have at
-least <em>some</em> third-party projects officially supporting iOS and Android by the
-end of the year, but this may be impeded by the sequence of dependencies that
-need to land and be published before upstream projects can accept iOS and
-Android patches.</p>
-<p>We'll also be speaking at <a href="https://2024.pycon.org.au">PyCon AU</a> at the end of
-the month, including attending both days of the sprints. If you're able to make
-it to <nospell>Narrm</nospell>/Melbourne, we hope we'll see you there!</p>
+<p>We will be continuing to work on binary packaging in November. We're using Pillow as a demonstrator for this work - it's a package that has a significant binary component, is widely used (including on mobile), but has a non-trivial build process (largely due to the non-Python binary dependencies). The hope is that by the time we're able to compile Pillow for iOS, we will have resolved many of the issues facing other binary packages. Our goal remains to have at least <em>some</em> third-party projects officially supporting iOS and Android by the end of the year, but this may be impeded by the sequence of dependencies that need to land and be published before upstream projects can accept iOS and Android patches.</p>
+<p>We'll also be speaking at <a href="https://2024.pycon.org.au">PyCon AU</a> at the end of the month, including attending both days of the sprints. If you're able to make it to <nospell>Narrm</nospell>/Melbourne, we hope we'll see you there!</p>
 <h2 id="want-to-get-involved">Want to get involved?<a class="headerlink" href="#want-to-get-involved" title="Permanent link">&para;</a></h2>
-<p>Want to get involved? Here are some open issues that would be a great place to
-get started with contributing to a BeeWare project. They're all relatively minor
-changes, but would provide a big improvement to the lives of BeeWare users:</p>
+<p>Want to get involved? Here are some open issues that would be a great place to get started with contributing to a BeeWare project. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:</p>
 <ol>
-<li><a href="https://github.com/beeware/toga/issues/2251">Update the Toga testbed test suite to use Pixel 7 Pro device
-   sizes</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/780">Filter out a message generated after Xcode
-   updates</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/808">Add the ability to configure the ABIs built by an Android
-   project</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1099">Rationalize the application of ad hoc signing on
-   macOS</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1270">Add support for custom PyPI
-   repositories</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1393">Document how to debug an application in popular
-   IDEs</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/737">Add an option to select the Android base image when creating new
-   emulators</a></li>
-<li><a href="https://github.com/beeware/toga/issues/2305">Add an API to entirely replace the style of a
-   widget</a></li>
-<li><a href="https://github.com/beeware/briefcase/issues/1876">Correct the handling of quotation marks in Android
-   apps</a></li>
+<li><a href="https://github.com/beeware/toga/issues/2251">Update the Toga testbed test suite to use Pixel 7 Pro device sizes</a></li>
+<li><a href="https://github.com/beeware/briefcase/issues/780">Filter out a message generated after Xcode updates</a></li>
+<li><a href="https://github.com/beeware/briefcase/issues/808">Add the ability to configure the ABIs built by an Android project</a></li>
+<li><a href="https://github.com/beeware/briefcase/issues/1099">Rationalize the application of ad hoc signing on macOS</a></li>
+<li><a href="https://github.com/beeware/briefcase/issues/1270">Add support for custom PyPI repositories</a></li>
+<li><a href="https://github.com/beeware/briefcase/issues/1393">Document how to debug an application in popular IDEs</a></li>
+<li><a href="https://github.com/beeware/briefcase/issues/737">Add an option to select the Android base image when creating new emulators</a></li>
+<li><a href="https://github.com/beeware/toga/issues/2305">Add an API to entirely replace the style of a widget</a></li>
+<li><a href="https://github.com/beeware/briefcase/issues/1876">Correct the handling of quotation marks in Android apps</a></li>
 </ol>
-<p>Pick one of these tickets, drop a comment on the ticket to let others know
-you're looking at it, and try your hand at a PR! We have a <a href="https://briefcase.beeware.org/en/latest/how-to/contribute/how/dev-environment/">guide on setting up
-a Briefcase development
-environment</a>;
-but if you need any additional assistance or guidance, you can ask on the
-ticket, or join us on the <a href="https://beeware.org/bee/chat/">BeeWare Discord
-server</a>.</p>
+<p>Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a <a href="https://briefcase.beeware.org/en/latest/how-to/contribute/how/dev-environment/">guide on setting up a Briefcase development environment</a>; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the <a href="https://beeware.org/bee/chat/">BeeWare Discord server</a>.</p>
 
 
 

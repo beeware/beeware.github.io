@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Nagłówek"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/what/implement-feature/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/what/implement-feature/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4886,62 +4894,28 @@ aria-label="Nagłówek"
 
 
 <h1 id="wdrazanie-nowej-funkcji">Wdrażanie nowej funkcji<a class="headerlink" href="#wdrazanie-nowej-funkcji" title="Permanent link">&para;</a></h1>
-<p>Po zakończeniu <a href="../propose-feature/">procesu składania propozycji</a> powinieneś
-mieć gotowy projekt nowej funkcji. Oznacza to, że nadszedł czas, aby zacząć
-pisać!</p>
-<p>Jeśli Twoja funkcja wymaga implementacji specyficznej dla platformy, proces
-składania wniosków powinien potwierdzić, że pomysł <em>może</em> zostać wdrożony na
-wszystkich platformach. Jednak jako osoba wdrażająca nową funkcję po raz
-pierwszy nie jesteś odpowiedzialny za wdrożenie nowej funkcji na wszystkich
-platformach. Musisz zapewnić kompletną implementację dla <em>co najmniej</em> jednej
-platformy, w tym testy. W przypadku wszystkich innych platform będziesz musiał
-zapewnić implementację „stub” — implementację, która zapewnia podstawową
-definicję interfejsu, ale generuje <code>NotImplementedError</code> lub wyświetla komunikat
-dziennika informujący, że dane zachowanie nie jest zaimplementowane na tej
-platformie.</p>
-<p>Ważnym elementem wdrażania nowej funkcji jest zapewnienie jej pełnej
-dokumentacji. Oznacza to co najmniej zapewnienie dokumentacji API, ale może
-również wymagać dodania instrukcji obsługi lub przewodnika tematycznego.</p>
+<p>Po zakończeniu <a href="../propose-feature/">procesu składania propozycji</a> powinieneś mieć gotowy projekt nowej funkcji. Oznacza to, że nadszedł czas, aby zacząć pisać!</p>
+<p>Jeśli Twoja funkcja wymaga implementacji specyficznej dla platformy, proces składania wniosków powinien potwierdzić, że pomysł <em>może</em> zostać wdrożony na wszystkich platformach. Jednak jako osoba wdrażająca nową funkcję po raz pierwszy nie jesteś odpowiedzialny za wdrożenie nowej funkcji na wszystkich platformach. Musisz zapewnić kompletną implementację dla <em>co najmniej</em> jednej platformy, w tym testy. W przypadku wszystkich innych platform będziesz musiał zapewnić implementację „stub” — implementację, która zapewnia podstawową definicję interfejsu, ale generuje <code>NotImplementedError</code> lub wyświetla komunikat dziennika informujący, że dane zachowanie nie jest zaimplementowane na tej platformie.</p>
+<p>Ważnym elementem wdrażania nowej funkcji jest zapewnienie jej pełnej dokumentacji. Oznacza to co najmniej zapewnienie dokumentacji API, ale może również wymagać dodania instrukcji obsługi lub przewodnika tematycznego.</p>
 <h2 id="wprowadzanie-nowych-funkcji">Wprowadzanie nowych funkcji<a class="headerlink" href="#wprowadzanie-nowych-funkcji" title="Permanent link">&para;</a></h2>
 <details class="abstract">
 <summary>Skonfiguruj środowisko programistyczne</summary>
 <h1 id="konfiguracja-srodowiska-programistycznego">Konfiguracja środowiska programistycznego<a class="headerlink" href="#konfiguracja-srodowiska-programistycznego" title="Permanent link">&para;</a></h1>
-<p>Kroki niezbędne do skonfigurowania środowiska programistycznego różnią się w
-zależności od projektu, w którym bierzesz udział. Wybierz jedną z poniższych
-opcji:</p>
+<p>Kroki niezbędne do skonfigurowania środowiska programistycznego różnią się w zależności od projektu, w którym bierzesz udział. Wybierz jedną z poniższych opcji:</p>
 <ul>
 <li><a href="https://briefcase.beeware.org/en/stable/how-to/contribute/how/dev-environment/">Briefcase</a></li>
 <li><a href="https://toga.beeware.org/en/stable/how-to/contribute/how/dev-environment/">Toga</a></li>
-<li><a href="https://rubicon-objc.beeware.org/en/stable/how-to/contribute/how/dev-environment/">Rubicon
-  Objective-C</a></li>
+<li><a href="https://rubicon-objc.beeware.org/en/stable/how-to/contribute/how/dev-environment/">Rubicon Objective-C</a></li>
 </ul>
-<p>Jeśli repozytorium, do którego chcesz wnieść swój wkład, nie znajduje się na tej
-liście, postępuj zgodnie z przewodnikiem programistycznym odpowiedniego
-projektu. Na przykład, jeśli chcesz pracować nad repozytorium szablonów
-Briefcase, powinieneś postępować zgodnie z przewodnikiem dotyczącym Briefcase.</p>
+<p>Jeśli repozytorium, do którego chcesz wnieść swój wkład, nie znajduje się na tej liście, postępuj zgodnie z przewodnikiem programistycznym odpowiedniego projektu. Na przykład, jeśli chcesz pracować nad repozytorium szablonów Briefcase, powinieneś postępować zgodnie z przewodnikiem dotyczącym Briefcase.</p>
 </details>
 <details class="abstract">
 <summary>Praca z oddziału</summary>
 <h1 id="pracuj-z-gaezia-funkcji-a-nie-z-gaezia-main">Pracuj z gałęzią funkcji, a nie z gałęzią <code>main</code>.<a class="headerlink" href="#pracuj-z-gaezia-funkcji-a-nie-z-gaezia-main" title="Permanent link">&para;</a></h1>
-<p>Zanim zaczniesz pracować nad zmianą, upewnij się, że utworzyłeś gałąź. Domyślnie
-po sklonowaniu repozytorium fork zostaniesz przeniesiony do gałęzi <code>main</code>. Jest
-to bezpośrednia kopia gałęzi BeeWare z <code>main</code>.</p>
-<p>Chociaż <em>możesz</em> przesłać pull request z gałęzi <code>main</code>, lepiej tego <em>nie</em> robić.
-Jeśli prześlesz pull request, który jest <em>prawie</em> poprawny, członek zespołu
-głównego, który go sprawdzi, może wprowadzić niezbędne zmiany, zamiast prosić o
-drobne poprawki. Jeśli jednak prześlesz pull request z gałęzi <code>main</code>, recenzenci
-nie będą mogli wprowadzać zmian.</p>
-<p>Praca nad główną gałęzią utrudnia również <em>tobie</em> po zakończeniu pierwszego pull
-requestu. Jeśli chcesz pracować nad drugim pull requestem, będziesz potrzebować
-„czystej” kopii głównej gałęzi projektu upstream, na której opierasz swój drugi
-wkład; jeśli swój pierwszy wkład wykonałeś z gałęzi <code>main</code>, nie masz już
-dostępnej tej czystej wersji.</p>
-<p>Zamiast tego należy wprowadzać zmiany w <em>gałęzi funkcji</em>. Gałąź funkcji ma
-prostą nazwę, która pozwala zidentyfikować wprowadzoną zmianę. Na przykład,
-jeśli naprawiasz błąd powodujący problemy z kompilacją w systemie Windows 11,
-możesz utworzyć gałąź funkcji <code>fix-win11-build</code>. Jeśli błąd dotyczy konkretnego
-zgłoszonego problemu, często w nazwie gałęzi podaje się numer tego problemu (np.
-<code>fix-1234</code>).</p>
+<p>Zanim zaczniesz pracować nad zmianą, upewnij się, że utworzyłeś gałąź. Domyślnie po sklonowaniu repozytorium fork zostaniesz przeniesiony do gałęzi <code>main</code>. Jest to bezpośrednia kopia gałęzi BeeWare z <code>main</code>.</p>
+<p>Chociaż <em>możesz</em> przesłać pull request z gałęzi <code>main</code>, lepiej tego <em>nie</em> robić. Jeśli prześlesz pull request, który jest <em>prawie</em> poprawny, członek zespołu głównego, który go sprawdzi, może wprowadzić niezbędne zmiany, zamiast prosić o drobne poprawki. Jeśli jednak prześlesz pull request z gałęzi <code>main</code>, recenzenci nie będą mogli wprowadzać zmian.</p>
+<p>Praca nad główną gałęzią utrudnia również <em>tobie</em> po zakończeniu pierwszego pull requestu. Jeśli chcesz pracować nad drugim pull requestem, będziesz potrzebować „czystej” kopii głównej gałęzi projektu upstream, na której opierasz swój drugi wkład; jeśli swój pierwszy wkład wykonałeś z gałęzi <code>main</code>, nie masz już dostępnej tej czystej wersji.</p>
+<p>Zamiast tego należy wprowadzać zmiany w <em>gałęzi funkcji</em>. Gałąź funkcji ma prostą nazwę, która pozwala zidentyfikować wprowadzoną zmianę. Na przykład, jeśli naprawiasz błąd powodujący problemy z kompilacją w systemie Windows 11, możesz utworzyć gałąź funkcji <code>fix-win11-build</code>. Jeśli błąd dotyczy konkretnego zgłoszonego problemu, często w nazwie gałęzi podaje się numer tego problemu (np. <code>fix-1234</code>).</p>
 <p>Aby utworzyć gałąź funkcji <code>fix-win11-build</code>, uruchom:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
 <div class="tabbed-content">
@@ -4963,73 +4937,26 @@ zgłoszonego problemu, często w nazwie gałęzi podaje się numer tego problemu
 <details class="abstract">
 <summary>Unikaj rozszerzania zakresu projektu</summary>
 <h1 id="unikanie-rozszerzania-zakresu-projektu">Unikanie rozszerzania zakresu projektu<a class="headerlink" href="#unikanie-rozszerzania-zakresu-projektu" title="Permanent link">&para;</a></h1>
-<p>„Rozszerzenie zakresu” ma miejsce, gdy lista problemów rozwiązanych lub funkcji
-wdrożonych w ramach jednego wkładu znacznie wykracza poza to, co było zamierzone
-na początku pracy. Zaczynasz od prostego problemu, odkrywasz ściśle powiązany
-problem i decydujesz się uwzględnić również to rozwiązanie, a potem pojawia się
-trzeci&hellip; Zanim się zorientujesz, masz pull request, który zamyka 5 problemów i
-dodaje 3 nowe funkcje, w tym dziesiątki plików.</p>
-<p>Rozszerzanie zakresu projektu zdarza się każdemu. Jest to pojęcie dobrze znane
-doświadczonym programistom; wszyscy robiliśmy to wielokrotnie i doświadczyliśmy
-wszystkich problemów, które się z tym wiążą.</p>
-<p>Istnieją bardzo praktyczne powody, dla których należy unikać rozszerzania
-zakresu projektu. Im większy jest wkład, tym trudniej jest nad nim pracować.
-Trudniej jest zidentyfikować skrajne przypadki lub potencjalne problemy, co
-oznacza, że ogólna jakość wkładu może ulec pogorszeniu. Recenzje stają się
-również trudniejsze, gdy recenzent musi zajmować się wieloma, potencjalnie
-niepowiązanymi kontekstami. Większy wkład oznacza więcej komentarzy recenzentów,
-a jako autor wkładu może być trudno śledzić wiele wątków recenzji. Nawet Twoje
-doświadczenia z GitHubem ucierpią — interfejs użytkownika GitHub spowolni wraz
-ze wzrostem rozmiaru PR, co oznacza, że nawigacja po plikach za pośrednictwem
-interfejsu GitHub i próba pozostawienia komentarzy recenzentów stanie się coraz
-trudniejsza.</p>
-<p>Za każdym razem, gdy znajdziesz powód, aby dodać coś do swojego wkładu, co nie
-jest wyraźnie częścią pierwotnej propozycji lub zgłoszenia błędu, powinieneś
-rozważyć, czy nie zmierzasz w kierunku rozszerzenia zakresu projektu. Czy
-istnieją dwie odrębne funkcje, które można by wdrożyć osobno? Czy funkcja może
-zostać wdrożona ze znanym ograniczeniem lub błędem, a błąd ten naprawiony w
-kolejnym pull request? Czy jedna część poprawki błędu jest niezależna od
-drugiej? Jeśli część zmiany można pominąć bez zmiany pierwotnego wkładu,
-prawdopodobnie należy to zrobić.</p>
-<p>Tworzenie oprogramowania to zawsze proces stopniowego doskonalenia. Każdy
-indywidualny wkład powinien poprawiać stan kodu źródłowego w wyniku scalenia,
-ale całkowicie dopuszczalne jest pozostawienie błędów lub części funkcji do
-poprawienia w przyszłości. Może to oznaczać podzielenie pull requestu na wiele
-części, które można sprawdzić niezależnie, lub zarejestrowanie problemu, aby
-ktoś inny mógł go zbadać i rozwiązać.</p>
-<p>Ograniczenie zakresu każdego wkładu pomaga wszystkim zaangażowanym osobom, w tym
-również Tobie. Twoi recenzenci, a nawet Ty sam, z pewnością to docenicie.</p>
+<p>„Rozszerzenie zakresu” ma miejsce, gdy lista problemów rozwiązanych lub funkcji wdrożonych w ramach jednego wkładu znacznie wykracza poza to, co było zamierzone na początku pracy. Zaczynasz od prostego problemu, odkrywasz ściśle powiązany problem i decydujesz się uwzględnić również to rozwiązanie, a potem pojawia się trzeci&hellip; Zanim się zorientujesz, masz pull request, który zamyka 5 problemów i dodaje 3 nowe funkcje, w tym dziesiątki plików.</p>
+<p>Rozszerzanie zakresu projektu zdarza się każdemu. Jest to pojęcie dobrze znane doświadczonym programistom; wszyscy robiliśmy to wielokrotnie i doświadczyliśmy wszystkich problemów, które się z tym wiążą.</p>
+<p>Istnieją bardzo praktyczne powody, dla których należy unikać rozszerzania zakresu projektu. Im większy jest wkład, tym trudniej jest nad nim pracować. Trudniej jest zidentyfikować skrajne przypadki lub potencjalne problemy, co oznacza, że ogólna jakość wkładu może ulec pogorszeniu. Recenzje stają się również trudniejsze, gdy recenzent musi zajmować się wieloma, potencjalnie niepowiązanymi kontekstami. Większy wkład oznacza więcej komentarzy recenzentów, a jako autor wkładu może być trudno śledzić wiele wątków recenzji. Nawet Twoje doświadczenia z GitHubem ucierpią — interfejs użytkownika GitHub spowolni wraz ze wzrostem rozmiaru PR, co oznacza, że nawigacja po plikach za pośrednictwem interfejsu GitHub i próba pozostawienia komentarzy recenzentów stanie się coraz trudniejsza.</p>
+<p>Za każdym razem, gdy znajdziesz powód, aby dodać coś do swojego wkładu, co nie jest wyraźnie częścią pierwotnej propozycji lub zgłoszenia błędu, powinieneś rozważyć, czy nie zmierzasz w kierunku rozszerzenia zakresu projektu. Czy istnieją dwie odrębne funkcje, które można by wdrożyć osobno? Czy funkcja może zostać wdrożona ze znanym ograniczeniem lub błędem, a błąd ten naprawiony w kolejnym pull request? Czy jedna część poprawki błędu jest niezależna od drugiej? Jeśli część zmiany można pominąć bez zmiany pierwotnego wkładu, prawdopodobnie należy to zrobić.</p>
+<p>Tworzenie oprogramowania to zawsze proces stopniowego doskonalenia. Każdy indywidualny wkład powinien poprawiać stan kodu źródłowego w wyniku scalenia, ale całkowicie dopuszczalne jest pozostawienie błędów lub części funkcji do poprawienia w przyszłości. Może to oznaczać podzielenie pull requestu na wiele części, które można sprawdzić niezależnie, lub zarejestrowanie problemu, aby ktoś inny mógł go zbadać i rozwiązać.</p>
+<p>Ograniczenie zakresu każdego wkładu pomaga wszystkim zaangażowanym osobom, w tym również Tobie. Twoi recenzenci, a nawet Ty sam, z pewnością to docenicie.</p>
 </details>
 <details class="abstract">
 <summary>Wdrożenie nowej funkcji</summary>
 <h1 id="pisanie-uruchamianie-i-testowanie-kodu">Pisanie, uruchamianie i testowanie kodu<a class="headerlink" href="#pisanie-uruchamianie-i-testowanie-kodu" title="Permanent link">&para;</a></h1>
-<p>Naprawienie błędu lub wdrożenie nowej funkcji będzie wymagało napisania nowego
-kodu.</p>
-<p>Aby rozpocząć pracę nad kodem, upewnij się, że masz skonfigurowane <a href="../../how/dev-environment/">środowisko
-programistyczne</a> i <a href="../../how/branches/">pracujesz na
-gałęzi</a>.</p>
-<p>Mamy <a href="../../style/code-style-guide/">przewodnik stylistyczny dotyczący kodu</a>, w
-którym przedstawiono wytyczne dotyczące pisania kodu dla BeeWare.</p>
+<p>Naprawienie błędu lub wdrożenie nowej funkcji będzie wymagało napisania nowego kodu.</p>
+<p>Aby rozpocząć pracę nad kodem, upewnij się, że masz skonfigurowane <a href="../../how/dev-environment/">środowisko programistyczne</a> i <a href="../../how/branches/">pracujesz na gałęzi</a>.</p>
+<p>Mamy <a href="../../style/code-style-guide/">przewodnik stylistyczny dotyczący kodu</a>, w którym przedstawiono wytyczne dotyczące pisania kodu dla BeeWare.</p>
 <h3 id="programowanie-sterowane-testami">Programowanie sterowane testami<a class="headerlink" href="#programowanie-sterowane-testami" title="Permanent link">&para;</a></h3>
-<p>Dobrym sposobem na upewnienie się, że kod będzie działał zgodnie z
-oczekiwaniami, jest najpierw napisanie przypadku testowego, który to sprawdzi.
-Ten przypadek testowy powinien początkowo zakończyć się niepowodzeniem, ponieważ
-kod, który ma sprawdzić, jeszcze nie istnieje. Następnie można wprowadzić zmiany
-w kodzie niezbędne do pomyślnego przejścia testu i mieć pewność, że napisany kod
-rozwiązuje problem zgodnie z oczekiwaniami.</p>
+<p>Dobrym sposobem na upewnienie się, że kod będzie działał zgodnie z oczekiwaniami, jest najpierw napisanie przypadku testowego, który to sprawdzi. Ten przypadek testowy powinien początkowo zakończyć się niepowodzeniem, ponieważ kod, który ma sprawdzić, jeszcze nie istnieje. Następnie można wprowadzić zmiany w kodzie niezbędne do pomyślnego przejścia testu i mieć pewność, że napisany kod rozwiązuje problem zgodnie z oczekiwaniami.</p>
 <h3 id="uruchom-swoj-kod">Uruchom swój kod<a class="headerlink" href="#uruchom-swoj-kod" title="Permanent link">&para;</a></h3>
-<p>Po napisaniu kodu musisz upewnić się, że działa. Będziesz musiał ręcznie
-uruchomić kod, aby sprawdzić, czy działa zgodnie z oczekiwaniami. Jeśli jeszcze
-tego nie zrobiłeś, warto napisać przypadek testowy dla wprowadzonych zmian; jak
-wspomniano powyżej, test ten powinien zakończyć się niepowodzeniem, jeśli kod
-zostanie zakomentowany lub nie będzie obecny.</p>
-<p>Dodaj swój przypadek testowy do zestawu testów, aby można go było uruchomić
-razem z pozostałymi testami. Następnym krokiem jest uruchomienie zestawu testów.</p>
+<p>Po napisaniu kodu musisz upewnić się, że działa. Będziesz musiał ręcznie uruchomić kod, aby sprawdzić, czy działa zgodnie z oczekiwaniami. Jeśli jeszcze tego nie zrobiłeś, warto napisać przypadek testowy dla wprowadzonych zmian; jak wspomniano powyżej, test ten powinien zakończyć się niepowodzeniem, jeśli kod zostanie zakomentowany lub nie będzie obecny.</p>
+<p>Dodaj swój przypadek testowy do zestawu testów, aby można go było uruchomić razem z pozostałymi testami. Następnym krokiem jest uruchomienie zestawu testów.</p>
 <h3 id="run-test-suite">Uruchamianie testów  oraz pokrycie<a class="headerlink" href="#run-test-suite" title="Permanent link">&para;</a></h3>
-<p>BeeWare wykorzystuje <a href="https://tox.wiki/en/latest/"><code>tox</code></a> do
-zarządzania procesem testowania oraz
-<a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> do obsługi własnego zestawu
-testów.</p>
+<p>BeeWare wykorzystuje <a href="https://tox.wiki/en/latest/"><code>tox</code></a> do zarządzania procesem testowania oraz <a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> do obsługi własnego zestawu testów.</p>
 <p>Domyślne polecenie <code>tox</code> obejmuje wykonanie:</p>
 <ul>
 <li>haki przed zatwierdzeniem</li>
@@ -5062,34 +4989,13 @@ testów.</p>
 </div>
 </div>
 </div>
-<p>Uruchomienie pełnego zestawu testów może chwilę potrwać. Można to znacznie
-przyspieszyć, uruchamiając <code>tox</code> równolegle, czyli korzystając z opcji <code>tox p</code>
-(lub <code>tox run-parallel</code>). W przypadku równoległego uruchamiania zestawu testów
-otrzymasz mniej informacji zwrotnych na temat postępów w trakcie działania, ale
-na koniec cyklu testowego nadal pojawi się podsumowanie wszelkich wykrytych
-problemów. Powinieneś zobaczyć komunikat potwierdzający, że testy zostały
-przeprowadzone. Możesz zobaczyć <code>SKIPPED</code> testów, ale nigdy nie powinieneś
-otrzymać żadnych wyników testów <code>FAIL</code> lub <code>ERROR</code>. Przed scaleniem każdej
-poprawki uruchamiamy nasz pełny zestaw testów. Jeśli proces ten wykryje
-jakiekolwiek problemy, nie scalamy poprawki. Jeśli znajdziesz błąd lub
-niepowodzenie testu, oznacza to, że albo coś jest nie tak w Twoim środowisku
-testowym, albo znalazłeś skrajny przypadek, którego wcześniej nie widzieliśmy —
-w każdym razie daj nam znać!</p>
-<p>Oprócz pomyślnego zakończenia testów powinno to wykazać <a class="autorefs autorefs-internal" title="Pokrycie kodu" href="#code-coverage">100% pokrycie
-testowe</a>.</p>
+<p>Uruchomienie pełnego zestawu testów może chwilę potrwać. Można to znacznie przyspieszyć, uruchamiając <code>tox</code> równolegle, czyli korzystając z opcji <code>tox p</code> (lub <code>tox run-parallel</code>). W przypadku równoległego uruchamiania zestawu testów otrzymasz mniej informacji zwrotnych na temat postępów w trakcie działania, ale na koniec cyklu testowego nadal pojawi się podsumowanie wszelkich wykrytych problemów. Powinieneś zobaczyć komunikat potwierdzający, że testy zostały przeprowadzone. Możesz zobaczyć <code>SKIPPED</code> testów, ale nigdy nie powinieneś otrzymać żadnych wyników testów <code>FAIL</code> lub <code>ERROR</code>. Przed scaleniem każdej poprawki uruchamiamy nasz pełny zestaw testów. Jeśli proces ten wykryje jakiekolwiek problemy, nie scalamy poprawki. Jeśli znajdziesz błąd lub niepowodzenie testu, oznacza to, że albo coś jest nie tak w Twoim środowisku testowym, albo znalazłeś skrajny przypadek, którego wcześniej nie widzieliśmy — w każdym razie daj nam znać!</p>
+<p>Oprócz pomyślnego zakończenia testów powinno to wykazać <a class="autorefs autorefs-internal" title="Pokrycie kodu" href="#code-coverage">100% pokrycie testowe</a>.</p>
 <h3 id="przeprowadzanie-roznych-wariantow-testow">Przeprowadzanie różnych wariantów testów<a class="headerlink" href="#przeprowadzanie-roznych-wariantow-testow" title="Permanent link">&para;</a></h3>
 <h4 id="przeprowadz-testy-dla-wielu-wersji-jezyka-python">Przeprowadź testy dla wielu wersji języka Python<a class="headerlink" href="#przeprowadz-testy-dla-wielu-wersji-jezyka-python" title="Permanent link">&para;</a></h4>
-<p>Domyślnie wiele poleceń <code>tox</code> próbuje uruchomić zestaw testów wielokrotnie – po
-jednym razie dla każdej wersji języka Python obsługiwanej przez BeeWare. Aby było to możliwe, każda z tych wersji musi być zainstalowana na
-komputerze użytkownika i dostępna dla procesu [wykrywania]<code>tox</code> języka Python
-realizowanego przez
-(https://virtualenv.pypa.io/en/latest/explanation.html#python-discovery).
-Ogólnie rzecz biorąc, jeśli dana wersja języka Python jest dostępna za
-pośrednictwem <code>PATH</code>, to <code>tox</code> powinno być w stanie ją znaleźć i wykorzystać.</p>
+<p>Domyślnie wiele poleceń <code>tox</code> próbuje uruchomić zestaw testów wielokrotnie – po jednym razie dla każdej wersji języka Python obsługiwanej przez BeeWare. Aby było to możliwe, każda z tych wersji musi być zainstalowana na komputerze użytkownika i dostępna dla procesu [wykrywania]<code>tox</code> języka Python realizowanego przez (https://virtualenv.pypa.io/en/latest/explanation.html#python-discovery). Ogólnie rzecz biorąc, jeśli dana wersja języka Python jest dostępna za pośrednictwem <code>PATH</code>, to <code>tox</code> powinno być w stanie ją znaleźć i wykorzystać.</p>
 <h4 id="uruchom-tylko-zestaw-testow">Uruchom tylko zestaw testów<a class="headerlink" href="#uruchom-tylko-zestaw-testow" title="Permanent link">&para;</a></h4>
-<p>Jeśli szybko wprowadzasz kolejne wersje nowej funkcji, nie musisz uruchamiać
-pełnego zestawu testów; możesz uruchomić <em>tylko</em> testy jednostkowe. Aby to
-zrobić, wpisz:</p>
+<p>Jeśli szybko wprowadzasz kolejne wersje nowej funkcji, nie musisz uruchamiać pełnego zestawu testów; możesz uruchomić <em>tylko</em> testy jednostkowe. Aby to zrobić, wpisz:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5107,13 +5013,7 @@ zrobić, wpisz:</p>
 </div>
 </div>
 <h4 id="test-subset">Uruchom podzbiór testów<a class="headerlink" href="#test-subset" title="Permanent link">&para;</a></h4>
-<p>Domyślnie polecenie <code>tox</code> uruchamia wszystkie testy z zestawu testów
-jednostkowych. Podczas tworzenia nowego testu przydatne może być uruchomienie
-<em>tylko</em> tego jednego testu. W tym celu można przekazać <a href="https://docs.pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run">dowolny specyfikator
-<code>pytest</code></a>
-jako argument polecenia <code>tox</code>. Ścieżki do testów są podawane względem katalogu
-<code>briefcase</code>. Na przykład, aby uruchomić tylko testy zawarte w jednym pliku,
-należy wpisać:</p>
+<p>Domyślnie polecenie <code>tox</code> uruchamia wszystkie testy z zestawu testów jednostkowych. Podczas tworzenia nowego testu przydatne może być uruchomienie <em>tylko</em> tego jednego testu. W tym celu można przekazać <a href="https://docs.pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run">dowolny specyfikator <code>pytest</code></a> jako argument polecenia <code>tox</code>. Ścieżki do testów są podawane względem katalogu <code>briefcase</code>. Na przykład, aby uruchomić tylko testy zawarte w jednym pliku, należy wpisać:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5130,15 +5030,9 @@ należy wpisać:</p>
 </div>
 </div>
 </div>
-<p>Nawet jeśli uruchomisz tylko część zestawu testów, nadal otrzymasz raport
-pokrycia – jednak wyniki pokrycia będą obejmowały wyłącznie te linie kodu, które
-zostały wykonane przez konkretne testy, które uruchomiłeś.</p>
+<p>Nawet jeśli uruchomisz tylko część zestawu testów, nadal otrzymasz raport pokrycia – jednak wyniki pokrycia będą obejmowały wyłącznie te linie kodu, które zostały wykonane przez konkretne testy, które uruchomiłeś.</p>
 <h4 id="test-py-version">Uruchom zestaw testów dla konkretnej wersji języka Python<a class="headerlink" href="#test-py-version" title="Permanent link">&para;</a></h4>
-<p>Domyślnie <code>tox -e py</code> zostanie uruchomione przy użyciu interpretera, który na
-danym komputerze zostanie rozpoznany jako <code>python</code>. Jeśli masz zainstalowanych
-kilka wersji Pythona i chcesz przetestować konkretną wersję spośród
-zainstalowanych, możesz wskazać konkretną wersję Pythona do użycia. Na przykład,
-aby uruchomić zestaw testów w Pythonie 3.10, wpisz:</p>
+<p>Domyślnie <code>tox -e py</code> zostanie uruchomione przy użyciu interpretera, który na danym komputerze zostanie rozpoznany jako <code>python</code>. Jeśli masz zainstalowanych kilka wersji Pythona i chcesz przetestować konkretną wersję spośród zainstalowanych, możesz wskazać konkretną wersję Pythona do użycia. Na przykład, aby uruchomić zestaw testów w Pythonie 3.10, wpisz:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5155,14 +5049,9 @@ aby uruchomić zestaw testów w Pythonie 3.10, wpisz:</p>
 </div>
 </div>
 </div>
-<p>Podzbiór testów [test-subset] można uruchomić, dodając do wiersza poleceń znak
-<code>--</code> oraz specyfikację testu.</p>
+<p>Podzbiór testów [test-subset] można uruchomić, dodając do wiersza poleceń znak <code>--</code> oraz specyfikację testu.</p>
 <h4 id="uruchom-zestaw-testow-bez-sprawdzania-pokrycia-szybko">Uruchom zestaw testów bez sprawdzania pokrycia (szybko)<a class="headerlink" href="#uruchom-zestaw-testow-bez-sprawdzania-pokrycia-szybko" title="Permanent link">&para;</a></h4>
-<p>Domyślnie polecenie <code>tox</code> uruchamia zestaw testów pytest w trybie jednowątkowym.
-Można przyspieszyć wykonywanie zestawu testów, uruchamiając go równolegle. Tryb
-ten nie generuje plików pokrycia ze względu na trudności związane z
-rejestrowaniem pokrycia w uruchomionych procesach. Aby uruchomić pojedynczą
-wersję Pythona w trybie „szybkim”, należy wpisać:</p>
+<p>Domyślnie polecenie <code>tox</code> uruchamia zestaw testów pytest w trybie jednowątkowym. Można przyspieszyć wykonywanie zestawu testów, uruchamiając go równolegle. Tryb ten nie generuje plików pokrycia ze względu na trudności związane z rejestrowaniem pokrycia w uruchomionych procesach. Aby uruchomić pojedynczą wersję Pythona w trybie „szybkim”, należy wpisać:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5179,44 +5068,21 @@ wersję Pythona w trybie „szybkim”, należy wpisać:</p>
 </div>
 </div>
 </div>
-<p>Aby uruchomić <a class="autorefs autorefs-internal" title="Uruchom podzbiór testów" href="#test-subset">podzbiór testów</a>, należy dodać <code>--</code> oraz
-specyfikację testu do wiersza poleceń; aby użyć <a class="autorefs autorefs-internal" title="Uruchom zestaw testów dla konkretnej wersji języka Python" href="#test-py-version">określonej wersji
-Pythona</a>, należy dodać tę wersję do celu testu (np. <code>py310-fast</code> w celu uruchomienia testu fast w Pythonie 3.10).</p>
+<p>Aby uruchomić <a class="autorefs autorefs-internal" title="Uruchom podzbiór testów" href="#test-subset">podzbiór testów</a>, należy dodać <code>--</code> oraz specyfikację testu do wiersza poleceń; aby użyć <a class="autorefs autorefs-internal" title="Uruchom zestaw testów dla konkretnej wersji języka Python" href="#test-py-version">określonej wersji Pythona</a>, należy dodać tę wersję do celu testu (np. <code>py310-fast</code> w celu uruchomienia testu fast w Pythonie 3.10).</p>
 <h3 id="code-coverage">Pokrycie kodu<a class="headerlink" href="#code-coverage" title="Permanent link">&para;</a></h3>
-<p>BeeWare zapewnia 100% pokrycie gałęzi w swoim kodzie źródłowym.
-Dodając lub modyfikując kod w projekcie, należy dodać kod testowy, aby zapewnić
-pokrycie wszystkich wprowadzonych zmian.</p>
-<p>Jednak BeeWare jest przeznaczony dla wielu platform, a także dla wielu
-wersji języka Python, więc nie da się zweryfikować pełnego pokrycia na jednej
-platformie i w jednej wersji języka Python. Aby temu zaradzić, w sekcji
-<code>tool.coverage.coverage_conditional_plugin.rules</code> pliku <code>pyproject.toml</code>
-zdefiniowano kilka reguł warunkowego pokrycia (np. <code>no-cover-if-is-windows</code> może
-służyć do oznaczenia bloku kodu, który nie zostanie wykonany podczas
-uruchamiania zestawu testów w systemie Windows). Reguły te służą do
-identyfikacji fragmentów kodu, które są objęte pokryciem tylko na określonych
-platformach lub w określonych wersjach Pythona.</p>
-<p>Warto zauważyć, że generowanie raportów pokrycia w różnych wersjach Pythona może
-przebiegać nieco nieprzewidywalnie. Na przykład, jeśli pliki pokrycia zostały
-utworzone przy użyciu jednej wersji Pythona, a raportowanie pokrycia odbywa się
-w innej, raport może zawierać fałszywe alarmy dotyczące pominiętych gałęzi. Z
-tego powodu do generowania raportów pokrycia należy zawsze używać najstarszej
-wersji Pythona, w której utworzono pliki pokrycia.</p>
+<p>BeeWare zapewnia 100% pokrycie gałęzi w swoim kodzie źródłowym. Dodając lub modyfikując kod w projekcie, należy dodać kod testowy, aby zapewnić pokrycie wszystkich wprowadzonych zmian.</p>
+<p>Jednak BeeWare jest przeznaczony dla wielu platform, a także dla wielu wersji języka Python, więc nie da się zweryfikować pełnego pokrycia na jednej platformie i w jednej wersji języka Python. Aby temu zaradzić, w sekcji <code>tool.coverage.coverage_conditional_plugin.rules</code> pliku <code>pyproject.toml</code> zdefiniowano kilka reguł warunkowego pokrycia (np. <code>no-cover-if-is-windows</code> może służyć do oznaczenia bloku kodu, który nie zostanie wykonany podczas uruchamiania zestawu testów w systemie Windows). Reguły te służą do identyfikacji fragmentów kodu, które są objęte pokryciem tylko na określonych platformach lub w określonych wersjach Pythona.</p>
+<p>Warto zauważyć, że generowanie raportów pokrycia w różnych wersjach Pythona może przebiegać nieco nieprzewidywalnie. Na przykład, jeśli pliki pokrycia zostały utworzone przy użyciu jednej wersji Pythona, a raportowanie pokrycia odbywa się w innej, raport może zawierać fałszywe alarmy dotyczące pominiętych gałęzi. Z tego powodu do generowania raportów pokrycia należy zawsze używać najstarszej wersji Pythona, w której utworzono pliki pokrycia.</p>
 <h4 id="interpretacja-wynikow-badan">Interpretacja wyników badań<a class="headerlink" href="#interpretacja-wynikow-badan" title="Permanent link">&para;</a></h4>
-<p>Na końcu wyników testu pokrycia powinno znaleźć się zestawienie zebranych danych
-dotyczących pokrycia:</p>
+<p>Na końcu wyników testu pokrycia powinno znaleźć się zestawienie zebranych danych dotyczących pokrycia:</p>
 <!-- The extra space at the start of this line is needed to prevent translate-toolkit from parsing the dashes as a markdown document split -->
 
 <div class="highlight"><pre><span></span><code><span class="go">Nazwa    Wypowiedzi   Nieobecności   Oddziały   Część   Pokrycie   Brakujące</span>
 <span class="go"> ---------------------------------------------------</span>
 <span class="go"> RAZEM    7540 0   1040 0  100,0%</span>
 </code></pre></div>
-<p>Oznacza to, że zestaw testów sprawdził wszystkie możliwe ścieżki rozgałęzień w
-kodzie. Nie daje to stuprocentowej gwarancji, że nie ma żadnych błędów, ale
-oznacza, że sprawdzamy każdą linię kodu w całym kodzie źródłowym.</p>
-<p>Jeśli wprowadzisz zmiany w kodzie, może to spowodować powstanie luki w pokryciu.
-W takim przypadku raport pokrycia wskaże, które linie nie są wykonywane. Załóżmy
-na przykład, że wprowadziliśmy zmianę w <code>some/interesting_file.py</code>, dodając nową
-logikę. Raport pokrycia mógłby wyglądać mniej więcej tak:</p>
+<p>Oznacza to, że zestaw testów sprawdził wszystkie możliwe ścieżki rozgałęzień w kodzie. Nie daje to stuprocentowej gwarancji, że nie ma żadnych błędów, ale oznacza, że sprawdzamy każdą linię kodu w całym kodzie źródłowym.</p>
+<p>Jeśli wprowadzisz zmiany w kodzie, może to spowodować powstanie luki w pokryciu. W takim przypadku raport pokrycia wskaże, które linie nie są wykonywane. Załóżmy na przykład, że wprowadziliśmy zmianę w <code>some/interesting_file.py</code>, dodając nową logikę. Raport pokrycia mógłby wyglądać mniej więcej tak:</p>
 <!-- The extra space at the start of this line is needed to prevent translate-toolkit from parsing the dashes as a markdown document split -->
 
 <div class="highlight"><pre><span></span><code><span class="go">Nazwa Stmts   Miss Branch BrPart  Cover   Brakujące</span>
@@ -5225,13 +5091,9 @@ logikę. Raport pokrycia mógłby wyglądać mniej więcej tak:</p>
 <span class="go"> -------------------------------------------------------------------------------</span>
 <span class="go"> RAZEM 7540 1   1726 0  99,9%</span>
 </code></pre></div>
-<p>Oznacza to, że wiersz 170, wiersze 302–307 oraz skok rozgałęzienia z wiersza 320
-do wiersza 335 nie są wykonywane przez zestaw testów. Aby przywrócić ten poziom
-pokrycia, należy dodać nowe testy (lub zmodyfikować istniejący test).</p>
+<p>Oznacza to, że wiersz 170, wiersze 302–307 oraz skok rozgałęzienia z wiersza 320 do wiersza 335 nie są wykonywane przez zestaw testów. Aby przywrócić ten poziom pokrycia, należy dodać nowe testy (lub zmodyfikować istniejący test).</p>
 <h4 id="raport-dotyczacy-obsugi-platformy-hosta-i-wersji-jezyka-python">Raport dotyczący obsługi platformy hosta i wersji języka Python<a class="headerlink" href="#raport-dotyczacy-obsugi-platformy-hosta-i-wersji-jezyka-python" title="Permanent link">&para;</a></h4>
-<p>Możesz wygenerować raport pokrycia dla swojej platformy i wersji języka Python.
-Na przykład, aby uruchomić zestaw testów i wygenerować raport pokrycia dla
-języka Python 3.10, wpisz:</p>
+<p>Możesz wygenerować raport pokrycia dla swojej platformy i wersji języka Python. Na przykład, aby uruchomić zestaw testów i wygenerować raport pokrycia dla języka Python 3.10, wpisz:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">macOS</label><label for="__tabbed_7_2">Linux</label><label for="__tabbed_7_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5249,8 +5111,7 @@ języka Python 3.10, wpisz:</p>
 </div>
 </div>
 <h4 id="raport-dotyczacy-zasiegu-dla-platformy-hostujacej">Raport dotyczący zasięgu dla platformy hostującej<a class="headerlink" href="#raport-dotyczacy-zasiegu-dla-platformy-hostujacej" title="Permanent link">&para;</a></h4>
-<p>Jeśli wszystkie obsługiwane wersje języka Python są dostępne dla <code>tox</code>, wówczas
-pokrycie dla platformy hosta można sprawdzić, uruchamiając:</p>
+<p>Jeśli wszystkie obsługiwane wersje języka Python są dostępne dla <code>tox</code>, wówczas pokrycie dla platformy hosta można sprawdzić, uruchamiając:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">macOS</label><label for="__tabbed_8_2">Linux</label><label for="__tabbed_8_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5268,8 +5129,7 @@ pokrycie dla platformy hosta można sprawdzić, uruchamiając:</p>
 </div>
 </div>
 <h4 id="raportowanie-zasiegu-w-formacie-html">Raportowanie zasięgu w formacie HTML<a class="headerlink" href="#raportowanie-zasiegu-w-formacie-html" title="Permanent link">&para;</a></h4>
-<p>Raport pokrycia HTML można wygenerować, dodając <code>-html</code> do dowolnej nazwy
-środowiska pokrycia <code>tox</code>, na przykład:</p>
+<p>Raport pokrycia HTML można wygenerować, dodając <code>-html</code> do dowolnej nazwy środowiska pokrycia <code>tox</code>, na przykład:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">macOS</label><label for="__tabbed_9_2">Linux</label><label for="__tabbed_9_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5287,46 +5147,23 @@ pokrycie dla platformy hosta można sprawdzić, uruchamiając:</p>
 </div>
 </div>
 <h3 id="nie-chodzi-tylko-o-pisanie-testow">Nie chodzi tylko o pisanie testów!<a class="headerlink" href="#nie-chodzi-tylko-o-pisanie-testow" title="Permanent link">&para;</a></h3>
-<p>Chociaż dbamy o to, by przetestować cały nasz kod, zadanie to nie polega <em>tylko</em>
-na utrzymaniu tego poziomu testowania. Częścią tego zadania jest bieżąca
-kontrola kodu. Można by napisać obszerny zestaw testów dla konkretnej kamizelki
-ratunkowej… ale taka kamizelka nadal byłaby bezużyteczna w zamierzonym celu!</p>
-<p>Podczas tworzenia testów należy również sprawdzać, czy moduł podstawowy jest
-<strong>spójny</strong> wewnętrznie. Jeśli zauważysz nazwy metod, które nie są spójne
-wewnętrznie (np. coś nazywa się <code>on_select</code> w jednym module, a <code>on_selected</code> w
-innym) lub dane nie są przetwarzane w spójny sposób, zaznacz to i zgłoś nam ten
-problem, tworząc zgłoszenie. Jeśli natomiast jesteś pewien, co należy zrobić,
-utwórz pull request, który naprawi znaleziony problem.</p>
-<p>Gdy wszystko będzie już działać, możesz <a href="../../how/submit-pr/">przesłać pull
-request</a> ze swoimi zmianami.</p>
+<p>Chociaż dbamy o to, by przetestować cały nasz kod, zadanie to nie polega <em>tylko</em> na utrzymaniu tego poziomu testowania. Częścią tego zadania jest bieżąca kontrola kodu. Można by napisać obszerny zestaw testów dla konkretnej kamizelki ratunkowej… ale taka kamizelka nadal byłaby bezużyteczna w zamierzonym celu!</p>
+<p>Podczas tworzenia testów należy również sprawdzać, czy moduł podstawowy jest <strong>spójny</strong> wewnętrznie. Jeśli zauważysz nazwy metod, które nie są spójne wewnętrznie (np. coś nazywa się <code>on_select</code> w jednym module, a <code>on_selected</code> w innym) lub dane nie są przetwarzane w spójny sposób, zaznacz to i zgłoś nam ten problem, tworząc zgłoszenie. Jeśli natomiast jesteś pewien, co należy zrobić, utwórz pull request, który naprawi znaleziony problem.</p>
+<p>Gdy wszystko będzie już działać, możesz <a href="../../how/submit-pr/">przesłać pull request</a> ze swoimi zmianami.</p>
 </details>
 <details class="abstract">
 <summary>Dokumentacja budowy</summary>
 <h1 id="dokumentacja-budowlana">Dokumentacja budowlana<a class="headerlink" href="#dokumentacja-budowlana" title="Permanent link">&para;</a></h1>
-<p>Przed wprowadzeniem jakichkolwiek zmian w dokumentacji BeeWare, warto
-sprawdzić, czy można skompilować istniejącą dokumentację.</p>
-<p>Przed przystąpieniem do tworzenia dokumentacji należy skonfigurować <a href="../../how/dev-environment/">środowisko
-programistyczne</a>.</p>
-<p><strong>Musisz</strong> mieć zainstalowany interpreter języka Python 3.13 i dostępny w ścieżce (tj. <code>python3.13</code> musi uruchamiać
-interpreter języka Python 3.13).</p>
-<p>BeeWare używa <code>tox</code> do tworzenia dokumentacji. Poniższe polecenia
-<code>tox</code> muszą być uruchamiane z tej samej lokalizacji co plik <code>tox.ini</code>, który
-znajduje się w katalogu głównym projektu.</p>
+<p>Przed wprowadzeniem jakichkolwiek zmian w dokumentacji BeeWare, warto sprawdzić, czy można skompilować istniejącą dokumentację.</p>
+<p>Przed przystąpieniem do tworzenia dokumentacji należy skonfigurować <a href="../../how/dev-environment/">środowisko programistyczne</a>.</p>
+<p><strong>Musisz</strong> mieć zainstalowany interpreter języka Python 3.13 i dostępny w ścieżce (tj. <code>python3.13</code> musi uruchamiać interpreter języka Python 3.13).</p>
+<p>BeeWare używa <code>tox</code> do tworzenia dokumentacji. Poniższe polecenia <code>tox</code> muszą być uruchamiane z tej samej lokalizacji co plik <code>tox.ini</code>, który znajduje się w katalogu głównym projektu.</p>
 <h3 id="podglad-dokumentacji-na-zywo">Podgląd dokumentacji na żywo<a class="headerlink" href="#podglad-dokumentacji-na-zywo" title="Permanent link">&para;</a></h3>
-<p>Aby ułatwić szybką edycję dokumentacji, BeeWare posiada tryb „podglądu
-na żywo”.</p>
+<p>Aby ułatwić szybką edycję dokumentacji, BeeWare posiada tryb „podglądu na żywo”.</p>
 <div class="admonition warning">
 <p class="admonition-title">Podgląd na żywo zostanie utworzony wraz z ostrzeżeniami!</p>
-<p>Usługa Live Serve umożliwia iterację aktualizacji dokumentacji. Podczas
-aktualizacji może pojawić się problem z oznaczeniami. Problemy oznaczone jako
-<code>WARNING</code> spowodują niepowodzenie standardowej kompilacji, jednak usługa Live
-Serve jest skonfigurowana tak, aby wyświetlać ostrzeżenia w konsoli, kontynuując
-jednocześnie kompilację. Dzięki temu można przeprowadzać iteracje bez
-konieczności ponownego uruchamiania podglądu na żywo.</p>
-<p><code>WARNING</code> różni się od <code>ERROR</code>. Jeśli wprowadzisz problem uznawany za <code>ERROR</code>,
-serwis na żywo nie będzie działał i konieczne będzie jego ponowne uruchomienie.
-Nie zostanie on ponownie uruchomiony, dopóki problem <code>WARNING</code> nie zostanie
-rozwiązany.</p>
+<p>Usługa Live Serve umożliwia iterację aktualizacji dokumentacji. Podczas aktualizacji może pojawić się problem z oznaczeniami. Problemy oznaczone jako <code>WARNING</code> spowodują niepowodzenie standardowej kompilacji, jednak usługa Live Serve jest skonfigurowana tak, aby wyświetlać ostrzeżenia w konsoli, kontynuując jednocześnie kompilację. Dzięki temu można przeprowadzać iteracje bez konieczności ponownego uruchamiania podglądu na żywo.</p>
+<p><code>WARNING</code> różni się od <code>ERROR</code>. Jeśli wprowadzisz problem uznawany za <code>ERROR</code>, serwis na żywo nie będzie działał i konieczne będzie jego ponowne uruchomienie. Nie zostanie on ponownie uruchomiony, dopóki problem <code>WARNING</code> nie zostanie rozwiązany.</p>
 </div>
 <p>Aby uruchomić serwer na żywo:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">macOS</label><label for="__tabbed_10_2">Linux</label><label for="__tabbed_10_3">Windows</label></div>
@@ -5345,27 +5182,17 @@ rozwiązany.</p>
 </div>
 </div>
 </div>
-<p>Spowoduje to utworzenie dokumentacji, uruchomienie serwera WWW do obsługi
-dokumentacji oraz monitorowanie systemu plików pod kątem wszelkich zmian w
-źródłach dokumentacji.</p>
+<p>Spowoduje to utworzenie dokumentacji, uruchomienie serwera WWW do obsługi dokumentacji oraz monitorowanie systemu plików pod kątem wszelkich zmian w źródłach dokumentacji.</p>
 <p>Po uruchomieniu serwera w konsoli pojawi się następujący komunikat:</p>
 <div class="highlight"><pre><span></span><code><span class="go">INFO    -  [11:18:51] Obsługa na stronie http://127.0.0.1:8000/</span>
 </code></pre></div>
-<p>Otwórz przeglądarkę i przejdź do podanego adresu URL. Teraz możesz rozpocząć
-iterację dokumentacji. W przypadku wykrycia zmiany dokumentacja zostanie
-ponownie zbudowana, a każda przeglądarka wyświetlająca zmodyfikowaną stronę
-zostanie automatycznie odświeżona.</p>
+<p>Otwórz przeglądarkę i przejdź do podanego adresu URL. Teraz możesz rozpocząć iterację dokumentacji. W przypadku wykrycia zmiany dokumentacja zostanie ponownie zbudowana, a każda przeglądarka wyświetlająca zmodyfikowaną stronę zostanie automatycznie odświeżona.</p>
 <div class="admonition note">
 <p class="admonition-title"><code>docs-live</code> to pierwszy krok</p>
-<p>Uruchomienie <code>docs-live</code> w celu pracy z serwerem na żywo służy do wstępnej
-iteracji. Przed przesłaniem pull requestu należy <em>zawsze</em> uruchomić lokalną
-kompilację.</p>
+<p>Uruchomienie <code>docs-live</code> w celu pracy z serwerem na żywo służy do wstępnej iteracji. Przed przesłaniem pull requestu należy <em>zawsze</em> uruchomić lokalną kompilację.</p>
 </div>
 <h3 id="lokalna-kompilacja">Lokalna kompilacja<a class="headerlink" href="#lokalna-kompilacja" title="Permanent link">&para;</a></h3>
-<p>Po zakończeniu iteracji należy wykonać lokalną kompilację dokumentacji. Proces
-kompilacji jest zaprojektowany tak, aby zakończył się niepowodzeniem w przypadku
-wystąpienia jakichkolwiek problemów z oznaczeniami. Pozwala to wychwycić
-wszystko, co mogło zostać przeoczone na serwerze produkcyjnym.</p>
+<p>Po zakończeniu iteracji należy wykonać lokalną kompilację dokumentacji. Proces kompilacji jest zaprojektowany tak, aby zakończył się niepowodzeniem w przypadku wystąpienia jakichkolwiek problemów z oznaczeniami. Pozwala to wychwycić wszystko, co mogło zostać przeoczone na serwerze produkcyjnym.</p>
 <h4 id="generowanie-lokalnej-kompilacji">Generowanie lokalnej kompilacji<a class="headerlink" href="#generowanie-lokalnej-kompilacji" title="Permanent link">&para;</a></h4>
 <p>Aby wygenerować lokalną kompilację:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">macOS</label><label for="__tabbed_11_2">Linux</label><label for="__tabbed_11_3">Windows</label></div>
@@ -5384,13 +5211,9 @@ wszystko, co mogło zostać przeoczone na serwerze produkcyjnym.</p>
 </div>
 </div>
 </div>
-<p>Wynik tej kompilacji zostanie zapisany w katalogu <code>_build</code> w katalogu głównym
-projektu.</p>
+<p>Wynik tej kompilacji zostanie zapisany w katalogu <code>_build</code> w katalogu głównym projektu.</p>
 <h4 id="generowanie-lokalnej-przetumaczonej-kompilacji">Generowanie lokalnej, przetłumaczonej kompilacji<a class="headerlink" href="#generowanie-lokalnej-przetumaczonej-kompilacji" title="Permanent link">&para;</a></h4>
-<p>Dokumentacja BeeWare' jest tłumaczona na wiele języków. Aktualizacje
-dokumentacji angielskiej mogą powodować problemy w wersjach w innych językach.
-Przed przesłaniem pull requestu należy sprawdzić, czy wszystkie wersje działają
-poprawnie.</p>
+<p>Dokumentacja BeeWare' jest tłumaczona na wiele języków. Aktualizacje dokumentacji angielskiej mogą powodować problemy w wersjach w innych językach. Przed przesłaniem pull requestu należy sprawdzić, czy wszystkie wersje działają poprawnie.</p>
 <p>Aby wygenerować kompilację wszystkich dostępnych tłumaczeń:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">macOS</label><label for="__tabbed_12_2">Linux</label><label for="__tabbed_12_3">Windows</label></div>
 <div class="tabbed-content">
@@ -5408,13 +5231,8 @@ poprawnie.</p>
 </div>
 </div>
 </div>
-<p>Wynik każdej kompilacji języka będzie znajdował się w powiązanym katalogu
-<code>_build/html/&lt;languagecode&gt;</code>, gdzie <code>&lt;languagecode&gt;</code> to dwu- lub pięcioznakowy
-kod języka powiązany z konkretnym językiem (np. <code>fr</code> dla francuskiego, <code>it</code> dla
-włoskiego itp.).</p>
-<p>Jeśli wykryjesz problem z pojedynczą kompilacją, możesz uruchomić tę kompilację
-osobno, wykonując polecenie <code>tox -e docs-&lt;languagecode&gt;</code>. Na przykład, aby
-skompilować tylko dokumentację w języku francuskim, uruchom:</p>
+<p>Wynik każdej kompilacji języka będzie znajdował się w powiązanym katalogu <code>_build/html/&lt;languagecode&gt;</code>, gdzie <code>&lt;languagecode&gt;</code> to dwu- lub pięcioznakowy kod języka powiązany z konkretnym językiem (np. <code>fr</code> dla francuskiego, <code>it</code> dla włoskiego itp.).</p>
+<p>Jeśli wykryjesz problem z pojedynczą kompilacją, możesz uruchomić tę kompilację osobno, wykonując polecenie <code>tox -e docs-&lt;languagecode&gt;</code>. Na przykład, aby skompilować tylko dokumentację w języku francuskim, uruchom:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">macOS</label><label for="__tabbed_13_2">Linux</label><label for="__tabbed_13_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5433,8 +5251,7 @@ skompilować tylko dokumentację w języku francuskim, uruchom:</p>
 </div>
 <p>Wynik kompilacji w jednym języku zostanie zapisany w katalogu <code>_build</code>.</p>
 <h3 id="sprawdzanie-poprawnosci-dokumentacji">Sprawdzanie poprawności dokumentacji<a class="headerlink" href="#sprawdzanie-poprawnosci-dokumentacji" title="Permanent link">&para;</a></h3>
-<p>Proces kompilacji wykrywa problemy związane z formatowaniem Markdown, ale BeeWare wykonuje dodatkowe kontrole stylu i formatowania, znane jako
-„linting”. Aby uruchomić kontrole lintingowe:</p>
+<p>Proces kompilacji wykrywa problemy związane z formatowaniem Markdown, ale BeeWare wykonuje dodatkowe kontrole stylu i formatowania, znane jako „linting”. Aby uruchomić kontrole lintingowe:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">macOS</label><label for="__tabbed_14_2">Linux</label><label for="__tabbed_14_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5456,141 +5273,72 @@ skompilować tylko dokumentację w języku francuskim, uruchom:</p>
 <li>nieaktywne hiperłącza</li>
 <li>błędnie napisane słowa</li>
 </ul>
-<p>Jeśli poprawna pisownia słowa zostanie uznana za błędną, dodaj to słowo do listy
-w <code>docs/spelling_wordlist</code>. Spowoduje to dodanie słowa do słownika modułu
-sprawdzania pisowni. Dodając słowo do tej listy, pamiętaj:</p>
+<p>Jeśli poprawna pisownia słowa zostanie uznana za błędną, dodaj to słowo do listy w <code>docs/spelling_wordlist</code>. Spowoduje to dodanie słowa do słownika modułu sprawdzania pisowni. Dodając słowo do tej listy, pamiętaj:</p>
 <ul>
-<li>Preferujemy pisownię amerykańską, z pewnymi swobodami w przypadku
-  kolokwializmów związanych z programowaniem (np. „apps”) oraz czasownikowania
-  rzeczowników (np. „scrollable”).</li>
-<li>Wszelkie odniesienia do nazw produktów powinny być zapisywane zgodnie z
-  preferowaną wielkością liter (np. „macOS”, „GTK”, „pytest”, „Pygame”,
-  „PyScript”).</li>
-<li>Jeśli termin jest używany „jako kod”, należy go cytować jako literał (<code>like
-  this</code>), a nie dodawać do słownika.</li>
+<li>Preferujemy pisownię amerykańską, z pewnymi swobodami w przypadku kolokwializmów związanych z programowaniem (np. „apps”) oraz czasownikowania rzeczowników (np. „scrollable”).</li>
+<li>Wszelkie odniesienia do nazw produktów powinny być zapisywane zgodnie z preferowaną wielkością liter (np. „macOS”, „GTK”, „pytest”, „Pygame”, „PyScript”).</li>
+<li>Jeśli termin jest używany „jako kod”, należy go cytować jako literał (<code>like this</code>), a nie dodawać do słownika.</li>
 </ul>
-<p>Po pomyślnym utworzeniu dokumentacji możesz przystąpić do <a href="../../how/write-docs/">pisania
-dokumentacji</a>.</p>
+<p>Po pomyślnym utworzeniu dokumentacji możesz przystąpić do <a href="../../how/write-docs/">pisania dokumentacji</a>.</p>
 </details>
 <details class="abstract">
 <summary>Napisz dokumentację</summary>
 <h1 id="pisanie-dokumentacji">Pisanie dokumentacji<a class="headerlink" href="#pisanie-dokumentacji" title="Permanent link">&para;</a></h1>
 <p>Oto kroki, które należy wykonać, aby napisać swój wkład w dokumentację BeeWare.</p>
-<p>Zanim zaczniesz pisać dokumentację, upewnij się, że jesteś w stanie <a href="../../how/build-docs/">zbudować
-dokumentację</a> i że <a href="../../how/branches/">pracujesz na
-gałęzi</a>.</p>
+<p>Zanim zaczniesz pisać dokumentację, upewnij się, że jesteś w stanie <a href="../../how/build-docs/">zbudować dokumentację</a> i że <a href="../../how/branches/">pracujesz na gałęzi</a>.</p>
 <h3 id="aktualizacja-istniejacej-dokumentacji">Aktualizacja istniejącej dokumentacji<a class="headerlink" href="#aktualizacja-istniejacej-dokumentacji" title="Permanent link">&para;</a></h3>
-<p>Jeśli edytujesz istniejące dokumenty, musisz znaleźć plik w katalogu <code>/docs/en</code>.
-Struktura plików jest zgodna ze strukturą stron, więc możesz znaleźć plik,
-korzystając z adresu URL dokumentacji.</p>
+<p>Jeśli edytujesz istniejące dokumenty, musisz znaleźć plik w katalogu <code>/docs/en</code>. Struktura plików jest zgodna ze strukturą stron, więc możesz znaleźć plik, korzystając z adresu URL dokumentacji.</p>
 <h3 id="dodawanie-nowej-dokumentacji">Dodawanie nowej dokumentacji<a class="headerlink" href="#dodawanie-nowej-dokumentacji" title="Permanent link">&para;</a></h3>
 <p>Jeśli dodajesz nowy dokument, musisz wykonać kilka dodatkowych czynności.</p>
-<p>Musisz utworzyć dokument w odpowiedniej lokalizacji w katalogu <code>docs/en</code>. Dla
-celów dyskusji załóżmy, że dodajesz nowy dokument o nazwie <code>new_doc.md</code>.</p>
-<p>Następnie należy zaktualizować plik <code>docs/en/SUMMARY.md</code>, aby uwzględnić nowy
-plik. Plik <code>SUMMARY.md</code> jest zorganizowany w sposób zasadniczo odzwierciedlający
-strukturę katalogów <code>docs/en</code>, ale co ważniejsze, bezpośrednio określa strukturę
-lewego paska bocznego. Jeśli zlokalizujesz sekcję, w której zamierzasz umieścić
-<code>new_doc.md</code>, nie musisz nic zmieniać w pliku <code>SUMMARY.md</code>, jeśli widzisz
-wymienioną ścieżkę z symbolem wieloznacznym. Na przykład:</p>
+<p>Musisz utworzyć dokument w odpowiedniej lokalizacji w katalogu <code>docs/en</code>. Dla celów dyskusji załóżmy, że dodajesz nowy dokument o nazwie <code>new_doc.md</code>.</p>
+<p>Następnie należy zaktualizować plik <code>docs/en/SUMMARY.md</code>, aby uwzględnić nowy plik. Plik <code>SUMMARY.md</code> jest zorganizowany w sposób zasadniczo odzwierciedlający strukturę katalogów <code>docs/en</code>, ale co ważniejsze, bezpośrednio określa strukturę lewego paska bocznego. Jeśli zlokalizujesz sekcję, w której zamierzasz umieścić <code>new_doc.md</code>, nie musisz nic zmieniać w pliku <code>SUMMARY.md</code>, jeśli widzisz wymienioną ścieżkę z symbolem wieloznacznym. Na przykład:</p>
 <div class="highlight"><pre><span></span><code><span class="k">-</span><span class="w"> </span>./ścieżka/do/katalogu/*
 </code></pre></div>
-<p>Jeśli sekcja, w której zamierzasz umieścić <code>new_doc.md</code>, jest listą
-poszczególnych linków Markdown, musisz dodać wyraźny link do swojego. Na
-przykład:</p>
+<p>Jeśli sekcja, w której zamierzasz umieścić <code>new_doc.md</code>, jest listą poszczególnych linków Markdown, musisz dodać wyraźny link do swojego. Na przykład:</p>
 <div class="highlight"><pre><span></span><code><span class="k">-</span><span class="w"> </span>[<span class="nt">Mój nowy dokument</span>](<span class="na">new_doc.md</span>)
 </code></pre></div>
 <h3 id="pisanie-dokumentacji_1">Pisanie dokumentacji<a class="headerlink" href="#pisanie-dokumentacji_1" title="Permanent link">&para;</a></h3>
 <p>Teraz możesz otworzyć wybrany plik w edytorze i rozpocząć pisanie.</p>
-<p>Posiadamy <a href="../../style/docs-style-guide/">przewodnik stylistyczny dotyczący
-dokumentacji</a>, który zawiera wytyczne dotyczące
-pisania dokumentacji dla BeeWare.</p>
-<p>Gdy będziesz zadowolony z nowej dokumentacji, możesz <a href="../../how/submit-pr/">przesłać pull
-request</a> z proponowanymi zmianami.</p>
+<p>Posiadamy <a href="../../style/docs-style-guide/">przewodnik stylistyczny dotyczący dokumentacji</a>, który zawiera wytyczne dotyczące pisania dokumentacji dla BeeWare.</p>
+<p>Gdy będziesz zadowolony z nowej dokumentacji, możesz <a href="../../how/submit-pr/">przesłać pull request</a> z proponowanymi zmianami.</p>
 </details>
 <details class="abstract">
 <summary>Dodaj notatkę dotyczącą zmiany</summary>
 <h1 id="dodawanie-informacji-o-zmianach-do-informacji-o-wydaniu">Dodawanie informacji o zmianach do informacji o wydaniu<a class="headerlink" href="#dodawanie-informacji-o-zmianach-do-informacji-o-wydaniu" title="Permanent link">&para;</a></h1>
-<p>Wiele narzędzi BeeWare wykorzystuje
-<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> do pomocy w tworzeniu
-informacji o wydaniu dla każdej wersji. Kiedy wysyłasz pull request do jednego z
-odpowiednich narzędzi, musi on zawierać <em>informację o zmianie</em> — ta informacja
-stanie się wpisem w informacjach o wydaniu opisującym wprowadzoną zmianę.</p>
-<p>Każde żądanie pull musi zawierać co najmniej jeden plik w katalogu <code>changes/</code>,
-zawierający krótki opis zmiany wprowadzonej przez żądanie pull. Informacja o
-zmianie powinna być w formacie Markdown, w pliku o nazwie w formacie
-<code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Jeśli proponowana zmiana naprawia błąd lub wprowadza
-funkcję, dla której istnieje numer zgłoszenia, identyfikatorem będzie numer tego
-zgłoszenia. Jeśli zmiana nie ma odpowiadającego jej zgłoszenia, jako
-identyfikator można użyć numeru PR. Numer PR będzie znany dopiero po przesłaniu
-pull requestu, więc pierwsze przejście CI zakończy się niepowodzeniem
-sprawdzenia <code>towncrier</code>; dodaj notatkę dotyczącą zmiany i prześlij aktualizację
-PR, a CI powinno przejść pomyślnie.</p>
+<p>Wiele narzędzi BeeWare wykorzystuje <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> do pomocy w tworzeniu informacji o wydaniu dla każdej wersji. Kiedy wysyłasz pull request do jednego z odpowiednich narzędzi, musi on zawierać <em>informację o zmianie</em> — ta informacja stanie się wpisem w informacjach o wydaniu opisującym wprowadzoną zmianę.</p>
+<p>Każde żądanie pull musi zawierać co najmniej jeden plik w katalogu <code>changes/</code>, zawierający krótki opis zmiany wprowadzonej przez żądanie pull. Informacja o zmianie powinna być w formacie Markdown, w pliku o nazwie w formacie <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Jeśli proponowana zmiana naprawia błąd lub wprowadza funkcję, dla której istnieje numer zgłoszenia, identyfikatorem będzie numer tego zgłoszenia. Jeśli zmiana nie ma odpowiadającego jej zgłoszenia, jako identyfikator można użyć numeru PR. Numer PR będzie znany dopiero po przesłaniu pull requestu, więc pierwsze przejście CI zakończy się niepowodzeniem sprawdzenia <code>towncrier</code>; dodaj notatkę dotyczącą zmiany i prześlij aktualizację PR, a CI powinno przejść pomyślnie.</p>
 <p>Istnieje pięć typów fragmentów:</p>
 <ul>
-<li><code>feature</code>: PR dodaje nowe zachowanie lub funkcję, które wcześniej nie były
-  możliwe (np. dodanie obsługi nowego formatu pakietów lub nowej funkcji w
-  istniejącym formacie pakietów);</li>
+<li><code>feature</code>: PR dodaje nowe zachowanie lub funkcję, które wcześniej nie były możliwe (np. dodanie obsługi nowego formatu pakietów lub nowej funkcji w istniejącym formacie pakietów);</li>
 <li><code>bugfix</code>: PR naprawia błąd w istniejącej implementacji;</li>
 <li><code>doc</code>: PR stanowi znaczną poprawę dokumentacji;</li>
 <li><code>doc</code>: PR stanowi znaczną poprawę dokumentacji;</li>
-<li><code>misc</code>; Niewielka lub administracyjna zmiana (np. poprawienie literówki,
-  niewielkie wyjaśnienie językowe lub aktualizacja wersji zależności), która nie
-  wymaga ogłoszenia w informacjach o wydaniu.</li>
+<li><code>misc</code>; Niewielka lub administracyjna zmiana (np. poprawienie literówki, niewielkie wyjaśnienie językowe lub aktualizacja wersji zależności), która nie wymaga ogłoszenia w informacjach o wydaniu.</li>
 </ul>
-<p>Opis w notatce dotyczącej zmian powinien być ogólnym podsumowaniem zmian z
-punktu widzenia użytkownika, a nie szczegółowym opisem technicznym lub
-szczegółami wdrożenia. Różni się on od komunikatu zatwierdzenia — komunikat
-zatwierdzenia opisuje, co zostało zrobione, aby przyszli programiści mogli
-zrozumieć powody wprowadzenia zmian; notatka dotycząca zmian jest opisem
-przeznaczonym dla użytkowników, którzy mogą nie mieć wiedzy na temat
-wewnętrznych aspektów.</p>
-<p>Na przykład, jeśli naprawisz błąd związany z nazewnictwem projektu, komunikat
-zatwierdzenia może brzmieć:</p>
+<p>Opis w notatce dotyczącej zmian powinien być ogólnym podsumowaniem zmian z punktu widzenia użytkownika, a nie szczegółowym opisem technicznym lub szczegółami wdrożenia. Różni się on od komunikatu zatwierdzenia — komunikat zatwierdzenia opisuje, co zostało zrobione, aby przyszli programiści mogli zrozumieć powody wprowadzenia zmian; notatka dotycząca zmian jest opisem przeznaczonym dla użytkowników, którzy mogą nie mieć wiedzy na temat wewnętrznych aspektów.</p>
+<p>Na przykład, jeśli naprawisz błąd związany z nazewnictwem projektu, komunikat zatwierdzenia może brzmieć:</p>
 <blockquote>
-<p>Zastosuj silniejsze sprawdzanie wyrażeń regularnych, aby uniemożliwić
-stosowanie nazw projektów zaczynających się od cyfr.</p>
+<p>Zastosuj silniejsze sprawdzanie wyrażeń regularnych, aby uniemożliwić stosowanie nazw projektów zaczynających się od cyfr.</p>
 </blockquote>
 <p>Odpowiednia informacja o zmianie brzmiałaby mniej więcej tak:</p>
 <blockquote>
 <p>Nazwy projektów nie mogą już zaczynać się od cyfry.</p>
 </blockquote>
-<p>Niektóre PR wprowadzają wiele funkcji i naprawiają wiele błędów lub wprowadzają
-wiele zmian niezgodnych wstecznie. W takim przypadku PR może zawierać wiele
-plików z informacjami o zmianach. Jeśli chcesz powiązać dwa typy fragmentów z
-tym samym identyfikatorem, możesz dodać numeryczny sufiks. Na przykład, jeśli PR
-789 dodał funkcję opisaną w zgłoszeniu 123, zamknął błąd opisany w zgłoszeniu
-234, a także wprowadził dwie zmiany niezgodne wstecznie, możesz mieć 4 pliki z
-informacjami o zmianach:</p>
+<p>Niektóre PR wprowadzają wiele funkcji i naprawiają wiele błędów lub wprowadzają wiele zmian niezgodnych wstecznie. W takim przypadku PR może zawierać wiele plików z informacjami o zmianach. Jeśli chcesz powiązać dwa typy fragmentów z tym samym identyfikatorem, możesz dodać numeryczny sufiks. Na przykład, jeśli PR 789 dodał funkcję opisaną w zgłoszeniu 123, zamknął błąd opisany w zgłoszeniu 234, a także wprowadził dwie zmiany niezgodne wstecznie, możesz mieć 4 pliki z informacjami o zmianach:</p>
 <ul>
 <li><code>123.feature.md</code></li>
 <li><code>234.bugfix.md</code></li>
 <li><code>789.removal.1.md</code></li>
 <li><code>789.removal.2.md</code></li>
 </ul>
-<p>Więcej informacji na temat <code>towncrier</code> i typów fragmentów można znaleźć w sekcji
-<a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Fragmenty
-wiadomości</a>.
-Istniejące przykłady fragmentów wiadomości można również znaleźć w katalogu
-<code>changes</code> repozytorium BeeWare. Jeśli ten folder jest pusty,
-prawdopodobnie wynika to z faktu, że BeeWare opublikowało niedawno
-nową wersję; pliki z informacjami o zmianach są usuwane i łączone w celu
-aktualizacji <a href="https://github.com/beeware/beeware/releases">informacji o wydaniu</a> wraz z każdym wydaniem. Możesz zapoznać się z tym plikiem, aby
-zobaczyć wymagany styl komentarzy; możesz również przejrzeć <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">ostatnio scalone
-PR-y</a>, aby zobaczyć, jak sformatować swoje informacje
-o zmianach.</p>
+<p>Więcej informacji na temat <code>towncrier</code> i typów fragmentów można znaleźć w sekcji <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Fragmenty wiadomości</a>. Istniejące przykłady fragmentów wiadomości można również znaleźć w katalogu <code>changes</code> repozytorium BeeWare. Jeśli ten folder jest pusty, prawdopodobnie wynika to z faktu, że BeeWare opublikowało niedawno nową wersję; pliki z informacjami o zmianach są usuwane i łączone w celu aktualizacji <a href="https://github.com/beeware/beeware/releases">informacji o wydaniu</a> wraz z każdym wydaniem. Możesz zapoznać się z tym plikiem, aby zobaczyć wymagany styl komentarzy; możesz również przejrzeć <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">ostatnio scalone PR-y</a>, aby zobaczyć, jak sformatować swoje informacje o zmianach.</p>
 </details>
 <details class="abstract">
 <summary>Prześlij żądanie ściągnięcia</summary>
 <h1 id="przesyanie-zadania-sciagniecia">Przesyłanie żądania ściągnięcia<a class="headerlink" href="#przesyanie-zadania-sciagniecia" title="Permanent link">&para;</a></h1>
-<p>Po zatwierdzeniu wszystkich zmian możesz przesłać pull request. Aby proces
-weryfikacji przebiegł sprawnie, należy wykonać kilka czynności.</p>
+<p>Po zatwierdzeniu wszystkich zmian możesz przesłać pull request. Aby proces weryfikacji przebiegł sprawnie, należy wykonać kilka czynności.</p>
 <h3 id="praca-z-pre-commit">Praca z pre-commit<a class="headerlink" href="#praca-z-pre-commit" title="Permanent link">&para;</a></h3>
-<p>Kiedy zatwierdzasz jakąkolwiek zmianę, pre-commit uruchamia się automatycznie.
-Jeśli zostaną wykryte jakiekolwiek problemy związane z zatwierdzeniem, spowoduje
-to niepowodzenie zatwierdzenia. Tam, gdzie to możliwe, pre-commit wprowadzi
-zmiany niezbędne do skorygowania wykrytych problemów. W poniższym przykładzie
-problem z formatowaniem kodu został wykryty przez sprawdzanie <code>ruff</code>:</p>
+<p>Kiedy zatwierdzasz jakąkolwiek zmianę, pre-commit uruchamia się automatycznie. Jeśli zostaną wykryte jakiekolwiek problemy związane z zatwierdzeniem, spowoduje to niepowodzenie zatwierdzenia. Tam, gdzie to możliwe, pre-commit wprowadzi zmiany niezbędne do skorygowania wykrytych problemów. W poniższym przykładzie problem z formatowaniem kodu został wykryty przez sprawdzanie <code>ruff</code>:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="15:3"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><input id="__tabbed_15_3" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">macOS</label><label for="__tabbed_15_2">Linux</label><label for="__tabbed_15_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5652,11 +5400,7 @@ problem z formatowaniem kodu został wykryty przez sprawdzanie <code>ruff</code>
 </div>
 </div>
 </div>
-<p>W tym przypadku <code>ruff</code> automatycznie naprawiło problem, więc możesz ponownie
-dodać wszystkie pliki, które zostały zmodyfikowane w wyniku sprawdzeń przed
-zatwierdzeniem, i ponownie zatwierdzić zmianę. Jednak niektóre sprawdzenia będą
-wymagały ręcznych modyfikacji. Po wprowadzeniu tych zmian ponownie dodaj
-wszystkie zmodyfikowane pliki i ponownie zatwierdź.</p>
+<p>W tym przypadku <code>ruff</code> automatycznie naprawiło problem, więc możesz ponownie dodać wszystkie pliki, które zostały zmodyfikowane w wyniku sprawdzeń przed zatwierdzeniem, i ponownie zatwierdzić zmianę. Jednak niektóre sprawdzenia będą wymagały ręcznych modyfikacji. Po wprowadzeniu tych zmian ponownie dodaj wszystkie zmodyfikowane pliki i ponownie zatwierdź.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="16:3"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><input id="__tabbed_16_2" name="__tabbed_16" type="radio" /><input id="__tabbed_16_3" name="__tabbed_16" type="radio" /><div class="tabbed-labels"><label for="__tabbed_16_1">macOS</label><label for="__tabbed_16_2">Linux</label><label for="__tabbed_16_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5709,15 +5453,10 @@ wszystkie zmodyfikowane pliki i ponownie zatwierdź.</p>
 </div>
 </div>
 </div>
-<p>Gdy wszystko przebiegnie pomyślnie, pojawi się komunikat informujący o
-sfinalizowaniu zatwierdzenia, a log git pokaże Twoje zatwierdzenie jako
-najnowszy dodatek. Teraz możesz przesłać zmiany do GitHub.</p>
+<p>Gdy wszystko przebiegnie pomyślnie, pojawi się komunikat informujący o sfinalizowaniu zatwierdzenia, a log git pokaże Twoje zatwierdzenie jako najnowszy dodatek. Teraz możesz przesłać zmiany do GitHub.</p>
 <h3 id="przeslij-zmiany-do-serwisu-github-i-utworz-zadanie-sciagniecia">Prześlij zmiany do serwisu GitHub i utwórz żądanie ściągnięcia.<a class="headerlink" href="#przeslij-zmiany-do-serwisu-github-i-utworz-zadanie-sciagniecia" title="Permanent link">&para;</a></h3>
-<p>Przy pierwszym przesłaniu do serwisu GitHub otrzymasz adres URL, który
-przeniesie Cię bezpośrednio do strony GitHub, gdzie możesz utworzyć nowe żądanie
-ściągnięcia. Kliknij ten adres i utwórz żądanie ściągnięcia.</p>
-<p>Poniżej przedstawiono przykład tego, czego można się spodziewać na <code>push</code>, z
-zaznaczonym adresem URL.</p>
+<p>Przy pierwszym przesłaniu do serwisu GitHub otrzymasz adres URL, który przeniesie Cię bezpośrednio do strony GitHub, gdzie możesz utworzyć nowe żądanie ściągnięcia. Kliknij ten adres i utwórz żądanie ściągnięcia.</p>
+<p>Poniżej przedstawiono przykład tego, czego można się spodziewać na <code>push</code>, z zaznaczonym adresem URL.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="17:3"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio" /><input id="__tabbed_17_2" name="__tabbed_17" type="radio" /><input id="__tabbed_17_3" name="__tabbed_17" type="radio" /><div class="tabbed-labels"><label for="__tabbed_17_1">macOS</label><label for="__tabbed_17_2">Linux</label><label for="__tabbed_17_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5773,126 +5512,45 @@ zaznaczonym adresem URL.</p>
 </div>
 </div>
 </div>
-<p>Jeśli wcześniej przesłałeś bieżącą gałąź do serwisu GitHub, nie otrzymasz
-ponownie adresu URL. Istnieją jednak inne sposoby uzyskania adresu URL służącego
-do tworzenia PR:</p>
+<p>Jeśli wcześniej przesłałeś bieżącą gałąź do serwisu GitHub, nie otrzymasz ponownie adresu URL. Istnieją jednak inne sposoby uzyskania adresu URL służącego do tworzenia PR:</p>
 <ul>
-<li>Przejdź do repozytorium upstream, kliknij „Pull Requests” (Żądania
-  ściągnięcia), a następnie „New pull request” (Nowe żądanie ściągnięcia) i
-  wybierz, z którego chcesz przesłać swoje żądanie ściągnięcia.</li>
-<li>Jeśli ostatnio przesłałeś dane, przejdź do repozytorium upstream, znajdź baner
-  nad listą plików, który wskazuje, że repozytorium „miało ostatnio przesłane
-  dane”, i kliknij przycisk „Porównaj i pobierz żądanie”.</li>
-<li>Użyj polecenia GitHub CLI <code>gh pr create --web</code>, aby otworzyć przeglądarkę
-  internetową na stronie tworzenia PR.</li>
+<li>Przejdź do repozytorium upstream, kliknij „Pull Requests” (Żądania ściągnięcia), a następnie „New pull request” (Nowe żądanie ściągnięcia) i wybierz, z którego chcesz przesłać swoje żądanie ściągnięcia.</li>
+<li>Jeśli ostatnio przesłałeś dane, przejdź do repozytorium upstream, znajdź baner nad listą plików, który wskazuje, że repozytorium „miało ostatnio przesłane dane”, i kliknij przycisk „Porównaj i pobierz żądanie”.</li>
+<li>Użyj polecenia GitHub CLI <code>gh pr create --web</code>, aby otworzyć przeglądarkę internetową na stronie tworzenia PR.</li>
 </ul>
 <div class="admonition info">
 <p class="admonition-title">Interfejs CLI GitHub: <code>gh</code></p>
-<p>GitHub udostępnia <a href="https://cli.github.com/">GitHub CLI</a>, które umożliwia dostęp
-do wielu funkcji GitHub z poziomu terminala za pomocą polecenia <code>gh</code>.
-Dokumentacja <a href="https://cli.github.com/manual/">GitHub CLI</a> zawiera opis
-wszystkich funkcji.</p>
+<p>GitHub udostępnia <a href="https://cli.github.com/">GitHub CLI</a>, które umożliwia dostęp do wielu funkcji GitHub z poziomu terminala za pomocą polecenia <code>gh</code>. Dokumentacja <a href="https://cli.github.com/manual/">GitHub CLI</a> zawiera opis wszystkich funkcji.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title"><code>gh pr create</code></p>
-<p><em>Nie</em> używaj samego polecenia <code>gh pr create</code> do tworzenia pull requestów.
-Projekty BeeWare korzystają z szablonu pull requestów i wymagamy, aby wszystkie
-zgłoszenia były zgodne z tym szablonem. Polecenie <code>gh pr create</code> pozwala ominąć
-ten szablon.</p>
+<p><em>Nie</em> używaj samego polecenia <code>gh pr create</code> do tworzenia pull requestów. Projekty BeeWare korzystają z szablonu pull requestów i wymagamy, aby wszystkie zgłoszenia były zgodne z tym szablonem. Polecenie <code>gh pr create</code> pozwala ominąć ten szablon.</p>
 </div>
 <h3 id="pr-content">Treść zgłoszenia pull request<a class="headerlink" href="#pr-content" title="Permanent link">&para;</a></h3>
-<p>Tytuł pull requestu musi być informacyjny, jasny i zwięzły. Staraj się, aby był
-jak najkrótszy, ale w razie potrzeby dopuszczalne są też dłuższe tytuły. Dobry
-tytuł PR powinien dać osobie nieznającej kontekstu dość solidne pojęcie o tym,
-jaki błąd lub funkcja została zaimplementowana w Twoim PR.</p>
-<p>Twoje zgłoszenie pull request <strong>musi</strong> być zgodne z <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">szablonem zgłoszenia pull
-request</a>
-BeeWare. Jeśli utworzyłeś zgłoszenie pull request za pomocą interfejsu
-internetowego GitHub, szablon ten zostanie wyświetlony jako punkt wyjścia dla
-opisu Twojego zgłoszenia. Jeśli nieumyślnie utworzyłeś zgłoszenie pull request
-bez skorzystania z tego szablonu, możesz je edytować i dodać treść szablonu –
-jednak treść szablonu <em>musi</em> zostać podana i odpowiednio wypełniona.</p>
-<p>Opis PR musi jasno odzwierciedlać zmiany wprowadzone w PR. Osoba nieznająca
-kontekstu powinna być w stanie przeczytać opis i uzyskać stosunkowo pełne
-zrozumienie powodów wprowadzenia zmian. Należy unikać żartów, idiomów,
-kolokwializmów i niepotrzebnego formatowania, takiego jak używanie wielkich
-liter lub nadmiernej interpunkcji. Opis ma być prostym wyjaśnieniem tego, co
-dzieje się w PR, a unikanie tych elementów sprawia, że opis jest bardziej
-przystępny dla innych.</p>
-<p>Jeśli istnieją jakieś przypadki reprodukcji lub stosowane przez Ciebie schematy
-testowania, które nie zostały uwzględnione w zmianach zawartych w PR, należy je
-wyjaśnić i uwzględnić w PR. Wyjaśnienie powinno zawierać informacje dotyczące
-sposobu ich uruchamiania oraz czynności niezbędnych do odtworzenia pożądanego
-wyniku.</p>
-<p>Jeśli Twoje żądanie pull request rozwiąże problem nr 1234, powinieneś umieścić
-tekst <code>Fixes #1234</code> w opisie żądania pull request. Spowoduje to automatyczne
-zamknięcie problemu po scaleniu żądania pull request. Możesz odwoływać się do
-innych dyskusji, problemów lub żądań pull request, używając tej samej składni
-<code>#1234</code>. Możesz odwołać się do problemu w innym repozytorium, poprzedzając numer
-znakiem - na przykład <code>python/cpython#1234</code> odnosi się do problemu 1234 w
-repozytorium CPython.</p>
-<p>Narzędzia oparte na sztucznej inteligencji mają szczególną skłonność do
-tworzenia rozwlekłych i mało przydatnych komunikatów w pull requestach. Jeśli
-korzystasz z narzędzia AI do generowania pull requestu, to <em>ty</em> ponosisz
-odpowiedzialność za to, by opis pull requestu był zwięzły i zawierał wyłącznie
-informacje przydatne w procesie weryfikacji. Nie musisz na przykład podawać
-szczegółów dotyczących „planu testów”, który opisuje, jak uruchomić zestaw
-testów, ani „uzasadnienia”, dlaczego błąd musi zostać naprawiony. Nadmiernie
-rozbudowane treści pull requestów mogą skutkować ich zamknięciem bez przeglądu,
-ponieważ nie uwzględniają one ograniczonych zasobów zespołu głównego.</p>
+<p>Tytuł pull requestu musi być informacyjny, jasny i zwięzły. Staraj się, aby był jak najkrótszy, ale w razie potrzeby dopuszczalne są też dłuższe tytuły. Dobry tytuł PR powinien dać osobie nieznającej kontekstu dość solidne pojęcie o tym, jaki błąd lub funkcja została zaimplementowana w Twoim PR.</p>
+<p>Twoje zgłoszenie pull request <strong>musi</strong> być zgodne z <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">szablonem zgłoszenia pull request</a> BeeWare. Jeśli utworzyłeś zgłoszenie pull request za pomocą interfejsu internetowego GitHub, szablon ten zostanie wyświetlony jako punkt wyjścia dla opisu Twojego zgłoszenia. Jeśli nieumyślnie utworzyłeś zgłoszenie pull request bez skorzystania z tego szablonu, możesz je edytować i dodać treść szablonu – jednak treść szablonu <em>musi</em> zostać podana i odpowiednio wypełniona.</p>
+<p>Opis PR musi jasno odzwierciedlać zmiany wprowadzone w PR. Osoba nieznająca kontekstu powinna być w stanie przeczytać opis i uzyskać stosunkowo pełne zrozumienie powodów wprowadzenia zmian. Należy unikać żartów, idiomów, kolokwializmów i niepotrzebnego formatowania, takiego jak używanie wielkich liter lub nadmiernej interpunkcji. Opis ma być prostym wyjaśnieniem tego, co dzieje się w PR, a unikanie tych elementów sprawia, że opis jest bardziej przystępny dla innych.</p>
+<p>Jeśli istnieją jakieś przypadki reprodukcji lub stosowane przez Ciebie schematy testowania, które nie zostały uwzględnione w zmianach zawartych w PR, należy je wyjaśnić i uwzględnić w PR. Wyjaśnienie powinno zawierać informacje dotyczące sposobu ich uruchamiania oraz czynności niezbędnych do odtworzenia pożądanego wyniku.</p>
+<p>Jeśli Twoje żądanie pull request rozwiąże problem nr 1234, powinieneś umieścić tekst <code>Fixes #1234</code> w opisie żądania pull request. Spowoduje to automatyczne zamknięcie problemu po scaleniu żądania pull request. Możesz odwoływać się do innych dyskusji, problemów lub żądań pull request, używając tej samej składni <code>#1234</code>. Możesz odwołać się do problemu w innym repozytorium, poprzedzając numer znakiem - na przykład <code>python/cpython#1234</code> odnosi się do problemu 1234 w repozytorium CPython.</p>
+<p>Narzędzia oparte na sztucznej inteligencji mają szczególną skłonność do tworzenia rozwlekłych i mało przydatnych komunikatów w pull requestach. Jeśli korzystasz z narzędzia AI do generowania pull requestu, to <em>ty</em> ponosisz odpowiedzialność za to, by opis pull requestu był zwięzły i zawierał wyłącznie informacje przydatne w procesie weryfikacji. Nie musisz na przykład podawać szczegółów dotyczących „planu testów”, który opisuje, jak uruchomić zestaw testów, ani „uzasadnienia”, dlaczego błąd musi zostać naprawiony. Nadmiernie rozbudowane treści pull requestów mogą skutkować ich zamknięciem bez przeglądu, ponieważ nie uwzględniają one ograniczonych zasobów zespołu głównego.</p>
 <div class="admonition warning">
 <p class="admonition-title">Szablon pull requestu BeeWare</p>
-<p>Szablon pull requestu BeeWare <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">pull request
-template</a>
-<strong>nie</strong> jest opcjonalny. Wymagamy, aby <strong>wszystkie</strong> pull requesty były zgodne z
-tym szablonem. Twój pull request nie zostanie sprawdzony, jeśli brakuje w nim
-sekcji „Lista kontrolna PR” lub jeśli odpowiedzi na pytania z polami wyboru są
-niekompletne lub niespójne. Jeśli do wygenerowania pull requestu użyłeś
-narzędzia AI, <em>musisz</em> zaznaczyć odpowiednie pole i podać szczegóły w wierszu
-„Assisted-by:”.</p>
+<p>Szablon pull requestu BeeWare <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">pull request template</a> <strong>nie</strong> jest opcjonalny. Wymagamy, aby <strong>wszystkie</strong> pull requesty były zgodne z tym szablonem. Twój pull request nie zostanie sprawdzony, jeśli brakuje w nim sekcji „Lista kontrolna PR” lub jeśli odpowiedzi na pytania z polami wyboru są niekompletne lub niespójne. Jeśli do wygenerowania pull requestu użyłeś narzędzia AI, <em>musisz</em> zaznaczyć odpowiednie pole i podać szczegóły w wierszu „Assisted-by:”.</p>
 </div>
 <h3 id="ciaga-integracja">Ciągła integracja<a class="headerlink" href="#ciaga-integracja" title="Permanent link">&para;</a></h3>
-<p><em>Ciągła integracja</em> (ang. <em>CI</em>) to proces automatycznego sprawdzania pull
-requestów. Może on obejmować proste kontrole, takie jak sprawdzenie poprawności
-formatowania kodu, ale także uruchamianie zestawu testów i tworzenie
-dokumentacji.</p>
-<p>Istnieje wiele zmian, które mogą spowodować niepowodzenie CI. Ogólnie rzecz
-biorąc, nie będziemy recenzować PR, który nie przeszedł CI. Jeśli utworzysz pull
-request, a CI zakończy się niepowodzeniem, nie rozpoczniemy recenzji, dopóki nie
-przejdzie on pomyślnie. Jeśli Twoje zmiany spowodują niepowodzenie, Twoim
-obowiązkiem jest zbadanie przyczyny i rozwiązanie problemu.</p>
-<p>W przypadku niepowodzenia CI, linki dotyczące niepowodzeń pojawią się na dole
-strony PR, pod nagłówkiem „Niektóre kontrole nie powiodły się”. Zobaczysz listę
-nieudanych kontroli, która pojawi się na górze listy wszystkich kontroli, jeśli
-są też kontrole, które się powiodły. Jeśli klikniesz na link z niepowodzeniem,
-przeniesie Cię on do logu. Log często zawiera wszystkie informacje potrzebne do
-ustalenia przyczyny niepowodzenia. Przeczytaj log i spróbuj ustalić, dlaczego
-wystąpiło niepowodzenie, a następnie zrób to, co konieczne, aby je rozwiązać.</p>
-<p>Czasami kontrola CI zakończy się niepowodzeniem z przyczyn niezwiązanych z
-wprowadzonymi zmianami. Może to wynikać z problemu na komputerze, na którym
-przeprowadzana jest kontrola CI, lub z niestabilności samej kontroli. Jeśli
-zauważysz niepowodzenie i masz pewność, że nie jest ono związane z wprowadzonymi
-zmianami, dodaj odpowiedni komentarz do swojego PR, a my zajmiemy się tą sprawą.</p>
+<p><em>Ciągła integracja</em> (ang. <em>CI</em>) to proces automatycznego sprawdzania pull requestów. Może on obejmować proste kontrole, takie jak sprawdzenie poprawności formatowania kodu, ale także uruchamianie zestawu testów i tworzenie dokumentacji.</p>
+<p>Istnieje wiele zmian, które mogą spowodować niepowodzenie CI. Ogólnie rzecz biorąc, nie będziemy recenzować PR, który nie przeszedł CI. Jeśli utworzysz pull request, a CI zakończy się niepowodzeniem, nie rozpoczniemy recenzji, dopóki nie przejdzie on pomyślnie. Jeśli Twoje zmiany spowodują niepowodzenie, Twoim obowiązkiem jest zbadanie przyczyny i rozwiązanie problemu.</p>
+<p>W przypadku niepowodzenia CI, linki dotyczące niepowodzeń pojawią się na dole strony PR, pod nagłówkiem „Niektóre kontrole nie powiodły się”. Zobaczysz listę nieudanych kontroli, która pojawi się na górze listy wszystkich kontroli, jeśli są też kontrole, które się powiodły. Jeśli klikniesz na link z niepowodzeniem, przeniesie Cię on do logu. Log często zawiera wszystkie informacje potrzebne do ustalenia przyczyny niepowodzenia. Przeczytaj log i spróbuj ustalić, dlaczego wystąpiło niepowodzenie, a następnie zrób to, co konieczne, aby je rozwiązać.</p>
+<p>Czasami kontrola CI zakończy się niepowodzeniem z przyczyn niezwiązanych z wprowadzonymi zmianami. Może to wynikać z problemu na komputerze, na którym przeprowadzana jest kontrola CI, lub z niestabilności samej kontroli. Jeśli zauważysz niepowodzenie i masz pewność, że nie jest ono związane z wprowadzonymi zmianami, dodaj odpowiedni komentarz do swojego PR, a my zajmiemy się tą sprawą.</p>
 <p>Aby uruchomić nowe wykonanie CI, musisz wprowadzić nowe zmiany do swojej gałęzi.</p>
-<p>Jeśli znajdziesz się w sytuacji, w której potrzebujesz pomocy, aby przejść CI,
-zostaw komentarz na PR, informując nas o tym, a my zrobimy, co w naszej mocy,
-aby pomóc.</p>
+<p>Jeśli znajdziesz się w sytuacji, w której potrzebujesz pomocy, aby przejść CI, zostaw komentarz na PR, informując nas o tym, a my zrobimy, co w naszej mocy, aby pomóc.</p>
 <div class="admonition note">
 <p class="admonition-title">Kontrole <code>pre-commit</code> i <code>towncrier</code></p>
-<p>Jeśli sprawdzanie <code>pre-commit</code> lub <code>towncrier</code> zakończy się niepowodzeniem,
-zablokuje to wykonanie większości pozostałych sprawdzeń CI. Aby wykonać pełen
-zestaw sprawdzeń, należy najpierw rozwiązać odpowiednie problemy.</p>
+<p>Jeśli sprawdzanie <code>pre-commit</code> lub <code>towncrier</code> zakończy się niepowodzeniem, zablokuje to wykonanie większości pozostałych sprawdzeń CI. Aby wykonać pełen zestaw sprawdzeń, należy najpierw rozwiązać odpowiednie problemy.</p>
 </div>
-<p>Mamy ograniczone zasoby CI. Należy pamiętać, że za każdym razem, gdy przesyłasz
-zmiany do gałęzi, uruchamia się CI. Jeśli zamierzasz wprowadzić wiele zmian,
-lepiej jest wykonać je lokalnie, a następnie przesłać wszystkie naraz. CI będzie
-działać tylko na najnowszym commitcie w partii, minimalizując obciążenie naszego
-systemu CI.</p>
-<p>Proces przesyłania PR nie jest zakończony, dopóki nie przejdzie on kontroli CI
-lub nie podasz wyjaśnienia, dlaczego tak się nie stało.</p>
-<p>Twoja prośba o wprowadzenie zmian może wymagać dodatkowej treści, takiej jak
-<a href="../../how/change-note/">informacja o zmianach</a>, zanim będzie mogła zostać
-<a href="../../next/pr-review/">przejrzana</a>.</p>
+<p>Mamy ograniczone zasoby CI. Należy pamiętać, że za każdym razem, gdy przesyłasz zmiany do gałęzi, uruchamia się CI. Jeśli zamierzasz wprowadzić wiele zmian, lepiej jest wykonać je lokalnie, a następnie przesłać wszystkie naraz. CI będzie działać tylko na najnowszym commitcie w partii, minimalizując obciążenie naszego systemu CI.</p>
+<p>Proces przesyłania PR nie jest zakończony, dopóki nie przejdzie on kontroli CI lub nie podasz wyjaśnienia, dlaczego tak się nie stało.</p>
+<p>Twoja prośba o wprowadzenie zmian może wymagać dodatkowej treści, takiej jak <a href="../../how/change-note/">informacja o zmianach</a>, zanim będzie mogła zostać <a href="../../next/pr-review/">przejrzana</a>.</p>
 </details>
 
 

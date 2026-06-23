@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="页眉"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/style/code-style-guide/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/style/code-style-guide/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4966,20 +4974,12 @@ aria-label="页眉"
 <h1 id="_1">代码风格指南<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>本指南包含为 BeeWare 编写代码的信息和指南。</p>
 <h3 id="code-style">代码风格<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h3>
-<p>BeeWare 在代码库中遵循 <a href="https://peps.python.org/pep-0008/">PEP 8</a> 规范，但行长度从 79 扩展至 88
-个字符。 我们尽可能使用<a href="https://docs.astral.sh/ruff/">Ruff</a>工具强制执行PEP
-8规范。提交代码时，pre-commit会自动运行包括Ruff在内的检查程序。该工具会自动格式化代码以确保符合我们的格式与风格标准。您可配置某些IDE在保存时自动运行Ruff，这将有效提升开发效率。</p>
-<p>请记住，PEP 8 中最重要的部分是<a href="https://peps.python.org/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">第 0
-节：愚蠢的一致性是小脑袋的妖怪</a>。在某些情况下，与
-PEP 8 保持一致是没有意义的，重要的是要明白，在适用的情况下，编写不符合所列规则的代码是可以接受的，有时甚至是首选。在大多数情况下，了解 * 何时 *
-与这些规则不一致与保持一致性同样重要。</p>
-<p>这一点在命名约定中有所体现。BeeWare 库经常需要与其他语言进行桥接。在构建其他语言的封装器时，最好（在某些情况下甚至是必须）遵循目标语言的命名约定，而不是
-Python 的约定。例如，在调用或引用 Java 代码时，函数应遵循 Java 推荐的 <code>mixedCase</code> 格式，而不是 PEP 8 推荐的
-<code>snake_case</code> 格式。</p>
+<p>BeeWare 在代码库中遵循 <a href="https://peps.python.org/pep-0008/">PEP 8</a> 规范，但行长度从 79 扩展至 88 个字符。 我们尽可能使用<a href="https://docs.astral.sh/ruff/">Ruff</a>工具强制执行PEP 8规范。提交代码时，pre-commit会自动运行包括Ruff在内的检查程序。该工具会自动格式化代码以确保符合我们的格式与风格标准。您可配置某些IDE在保存时自动运行Ruff，这将有效提升开发效率。</p>
+<p>请记住，PEP 8 中最重要的部分是<a href="https://peps.python.org/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">第 0 节：愚蠢的一致性是小脑袋的妖怪</a>。在某些情况下，与 PEP 8 保持一致是没有意义的，重要的是要明白，在适用的情况下，编写不符合所列规则的代码是可以接受的，有时甚至是首选。在大多数情况下，了解 * 何时 * 与这些规则不一致与保持一致性同样重要。</p>
+<p>这一点在命名约定中有所体现。BeeWare 库经常需要与其他语言进行桥接。在构建其他语言的封装器时，最好（在某些情况下甚至是必须）遵循目标语言的命名约定，而不是 Python 的约定。例如，在调用或引用 Java 代码时，函数应遵循 Java 推荐的 <code>mixedCase</code> 格式，而不是 PEP 8 推荐的 <code>snake_case</code> 格式。</p>
 <p>在 API 命名、变量等方面，我们采用美国拼写法。</p>
 <p>此外，PEP 8 中还针对 BeeWare 增加了一些内容：</p>
-<p>虽然遵循 <a href="https://peps.python.org/pep-0484/">PEP 484</a> 的类型注解是可选的，但我们仍强烈建议使用，尤其是在任何公开的
-API 接口中。</p>
+<p>虽然遵循 <a href="https://peps.python.org/pep-0484/">PEP 484</a> 的类型注解是可选的，但我们仍强烈建议使用，尤其是在任何公开的 API 接口中。</p>
 <p>下面是一个带有正确类型提示和 Sphinx 文档字符串的标准函数定义示例：</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="sd">&quot;&quot;&quot;带类型和文档字符串的示例函数。</span>
@@ -5021,8 +5021,7 @@ API 接口中。</p>
 <span class="p">)</span>
 </code></pre></div>
 <h3 id="_2">应避免的事项<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>我们尽量避免使用 <code>utils</code> 模块，但也知道有时它们是不可避免的。首选的替代方法是在源代码的其他地方为该功能找到合适的位置，而不是使用 <code>utils</code>
-模块。</p>
+<p>我们尽量避免使用 <code>utils</code> 模块，但也知道有时它们是不可避免的。首选的替代方法是在源代码的其他地方为该功能找到合适的位置，而不是使用 <code>utils</code> 模块。</p>
 <p>通常情况下，我们尽量避免或延迟执行任何耗时的初始化代码，以实现更快的应用启动速度。例如，toga-core包中的模块采用"延迟加载"机制——它们仅在被请求时才被导入，而非预先全部加载。这种方式既能加速启动过程，又能确保资源仅消耗在应用实际使用的功能上。</p>
 <p>在编写注释时，请避免使用第一人称复数代词，例如“我们”（例如，应写“遍历”而非“我们遍历”）。</p>
 <p>在测试文档字符串中，请说明每个测试所验证的预期行为。请勿包含诸如“测试是否”或“确保”之类的引言。</p>

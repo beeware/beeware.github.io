@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="頁首"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/style/code-style-guide/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/style/code-style-guide/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4966,21 +4974,12 @@ aria-label="頁首"
 <h1 id="_1">程式碼樣式指南<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>本指南包含為 BeeWare 寫程式碼的資訊和指引。</p>
 <h3 id="code-style">程式碼風格<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h3>
-<p>BeeWare 在程式碼庫中遵循 <a href="https://peps.python.org/pep-0008/">PEP 8</a> 規範，唯獨行長限制從 79 字元放寬至
-88 字元。 我們盡可能使用<a href="https://docs.astral.sh/ruff/">Ruff</a>來強制執行PEP
-8規範。當您提交程式碼時，預提交檢查會執行包括Ruff在內的驗證。在可行情況下，系統將自動格式化您的程式碼以符合我們的格式與風格標準。您可設定某些整合開發環境在儲存時自動執行Ruff，這有助於簡化流程。</p>
-<p>請記住，PEP 8 最重要的部分是 <a href="https://peps.python.org/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">第 0
-節：愚蠢的一致性是小腦袋的妖精</a>。在某些情況下，與
-PEP 8 保持一致是沒有意義的，重要的是要了解，在適用的情況下，寫出不符合所列規則的程式碼是可以接受的，有時甚至是首選。在大多數情況下，知道 * 何時 *
-與這些規則不一致 * 與保持一致性同樣重要。</p>
-<p>這一點在命名規範上可見一斑。BeeWare
-函式庫經常需要與其他語言進行橋接。在建構其他語言的封裝函式庫時，最好（在某些情況下甚至必須）遵循目標語言的命名規範，而非 Python
-的規範。例如，在呼叫或引用 Java 程式碼時，函式應遵循 Java 偏好的 <code>mixedCase</code> 格式，而非 PEP 8 偏好的 <code>snake_case</code>
-格式。</p>
+<p>BeeWare 在程式碼庫中遵循 <a href="https://peps.python.org/pep-0008/">PEP 8</a> 規範，唯獨行長限制從 79 字元放寬至 88 字元。 我們盡可能使用<a href="https://docs.astral.sh/ruff/">Ruff</a>來強制執行PEP 8規範。當您提交程式碼時，預提交檢查會執行包括Ruff在內的驗證。在可行情況下，系統將自動格式化您的程式碼以符合我們的格式與風格標準。您可設定某些整合開發環境在儲存時自動執行Ruff，這有助於簡化流程。</p>
+<p>請記住，PEP 8 最重要的部分是 <a href="https://peps.python.org/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">第 0 節：愚蠢的一致性是小腦袋的妖精</a>。在某些情況下，與 PEP 8 保持一致是沒有意義的，重要的是要了解，在適用的情況下，寫出不符合所列規則的程式碼是可以接受的，有時甚至是首選。在大多數情況下，知道 * 何時 * 與這些規則不一致 * 與保持一致性同樣重要。</p>
+<p>這一點在命名規範上可見一斑。BeeWare 函式庫經常需要與其他語言進行橋接。在建構其他語言的封裝函式庫時，最好（在某些情況下甚至必須）遵循目標語言的命名規範，而非 Python 的規範。例如，在呼叫或引用 Java 程式碼時，函式應遵循 Java 偏好的 <code>mixedCase</code> 格式，而非 PEP 8 偏好的 <code>snake_case</code> 格式。</p>
 <p>在 API 命名、變數等方面，我們遵循美國的拼寫方式。</p>
 <p>此外，PEP 8 還針對 BeeWare 進行了若干補充：</p>
-<p>雖然遵循 <a href="https://peps.python.org/pep-0484/">PEP 484</a> 的類型註解屬選用性質，但仍強烈建議使用，特別是在任何公開的
-API 介面上。</p>
+<p>雖然遵循 <a href="https://peps.python.org/pep-0484/">PEP 484</a> 的類型註解屬選用性質，但仍強烈建議使用，特別是在任何公開的 API 介面上。</p>
 <p>以下是一個包含正確類型提示和 Sphinx 文件字串的標準函式定義範例：</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="sd">&quot;&quot;&quot;帶有類型和說明字串的範例函式。</span>
@@ -5022,10 +5021,8 @@ API 介面上。</p>
 <span class="p">)</span>
 </code></pre></div>
 <h3 id="_2">應避免的事項<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>我們儘量避免使用 <code>utils</code> 模組，但也了解到有時這些模組是無法避免的。比較可取的替代方法是在原始碼的其他地方為功能找地方，而不是使用 <code>utils</code>
-模組。</p>
-<p>一般而言，我們會盡量避免或延遲執行任何耗費資源的初始化程式碼，以實現更快的應用程式啟動速度。例如，toga-core
-套件中的模組採用「延遲載入」機制——僅在被請求時才進行匯入，而非預先全部載入。此設計不僅加速啟動流程，更能精準將資源集中於應用程式實際使用的部分。</p>
+<p>我們儘量避免使用 <code>utils</code> 模組，但也了解到有時這些模組是無法避免的。比較可取的替代方法是在原始碼的其他地方為功能找地方，而不是使用 <code>utils</code> 模組。</p>
+<p>一般而言，我們會盡量避免或延遲執行任何耗費資源的初始化程式碼，以實現更快的應用程式啟動速度。例如，toga-core 套件中的模組採用「延遲載入」機制——僅在被請求時才進行匯入，而非預先全部載入。此設計不僅加速啟動流程，更能精準將資源集中於應用程式實際使用的部分。</p>
 <p>撰寫註解時，請避免使用第一人稱複數代詞，例如「我們」（例如，應寫作「進行迴圈」而非「我們進行迴圈」）。</p>
 <p>在測試文檔字串中，請說明每項測試所驗證的預期行為。請勿包含「測試是否」或「確保」等開場白。</p>
 <p>請將票證參考編號保留給那些較為冷門的問題，這些問題的票證中包含無法在文檔字串或註解中輕鬆描述的額外細節。請像這樣在句尾加入票證編號：</p>

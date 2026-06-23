@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="頁首"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/change-note/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/change-note/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4770,12 +4778,8 @@ aria-label="頁首"
 
 
 <h1 id="_1">為發行說明新增變更資訊<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>許多BeeWare工具使用<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a>來協助建立每個版本的發行紀錄。當您提交一個拉取請求給其中一個適用的工具時，它將需要包含一個<em>變更備註</em>
-- 這個變更備註將成為發行記錄中描述所做變更的項目。</p>
-<p>每個 pull request 必須在 <code>changes/</code> 目錄中包含至少一個檔案，提供該 pull request 所執行變更的簡短說明。變更說明應該使用
-Markdown 格式，檔案名稱格式為 <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>。如果您提出的變更會修復一個 bug
-或實作一個現有問題編號的功能，ID 就是該票據的編號。如果變更沒有對應的問題，則可以使用 PR 編號作為 ID。在您推送拉取請求之前，您不會知道這個 PR
-編號，所以第一次 CI 傳送會無法通過 <code>towncrier</code> 檢查；新增變更備註並推送 PR 更新，CI 應該就會通過。</p>
+<p>許多BeeWare工具使用<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a>來協助建立每個版本的發行紀錄。當您提交一個拉取請求給其中一個適用的工具時，它將需要包含一個<em>變更備註</em> - 這個變更備註將成為發行記錄中描述所做變更的項目。</p>
+<p>每個 pull request 必須在 <code>changes/</code> 目錄中包含至少一個檔案，提供該 pull request 所執行變更的簡短說明。變更說明應該使用 Markdown 格式，檔案名稱格式為 <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>。如果您提出的變更會修復一個 bug 或實作一個現有問題編號的功能，ID 就是該票據的編號。如果變更沒有對應的問題，則可以使用 PR 編號作為 ID。在您推送拉取請求之前，您不會知道這個 PR 編號，所以第一次 CI 傳送會無法通過 <code>towncrier</code> 檢查；新增變更備註並推送 PR 更新，CI 應該就會通過。</p>
 <p>共有五種片段類型：</p>
 <ul>
 <li>特性」：PR 增加了以前無法實現的新行為或功能（例如，增加對新封裝格式的支援，或在現有封裝格式中增加新功能）；</li>
@@ -4784,8 +4788,7 @@ Markdown 格式，檔案名稱格式為 <code>&lt;id&gt;.&lt;fragment type&gt;.m
 <li>刪除」； PR 代表 BeeWare 中向後不相容的變更。API; 或</li>
 <li><code>misc</code>; 輕微或管理性的變更（例如修正錯字、輕微的語言澄清，或更新依賴版本），不需要在發行公告中公佈。</li>
 </ul>
-<p>變更筆記中的描述應該是從使用者的角度對變更的高層次「行銷」摘要，而不是深入的技術描述或實作細節。它有別於提交訊息 -
-提交訊息會說明已經做了什麼，以便未來的開發人員可以了解變更的原因；變更說明則是為了使用者的利益而做的說明，因為使用者可能不了解內部的情況。</p>
+<p>變更筆記中的描述應該是從使用者的角度對變更的高層次「行銷」摘要，而不是深入的技術描述或實作細節。它有別於提交訊息 - 提交訊息會說明已經做了什麼，以便未來的開發人員可以了解變更的原因；變更說明則是為了使用者的利益而做的說明，因為使用者可能不了解內部的情況。</p>
 <p>例如，如果您修正了與專案命名相關的錯誤，提交訊息可能會寫成</p>
 <blockquote>
 <p>套用更強的正則表達式檢查，禁止使用以數字開頭的專案名稱。</p>
@@ -4794,20 +4797,14 @@ Markdown 格式，檔案名稱格式為 <code>&lt;id&gt;.&lt;fragment type&gt;.m
 <blockquote>
 <p>專案名稱不能再以數字開頭。</p>
 </blockquote>
-<p>有些 PR 會引入多項功能並修復多個錯誤，或引入多項向後不相容的變更。在這種情況下，PR 可能有多個變更備註檔。如果需要將兩個片段類型與相同的 ID
-聯繫起來，可以附加一個數字後綴。例如，如果 PR 789 增加了 ticket 123 所描述的功能，關閉了 ticket 234
-所描述的錯誤，還做了兩項向後不相容的變更，您可能會有 4 個變更備註檔案：</p>
+<p>有些 PR 會引入多項功能並修復多個錯誤，或引入多項向後不相容的變更。在這種情況下，PR 可能有多個變更備註檔。如果需要將兩個片段類型與相同的 ID 聯繫起來，可以附加一個數字後綴。例如，如果 PR 789 增加了 ticket 123 所描述的功能，關閉了 ticket 234 所描述的錯誤，還做了兩項向後不相容的變更，您可能會有 4 個變更備註檔案：</p>
 <ul>
 <li><code>123.feature.md</code></li>
 <li><code>234.bugfix.md</code></li>
 <li><code>789.removal.1.md</code></li>
 <li><code>789.removal.2.md</code></li>
 </ul>
-<p>更多關於 <code>towncrier</code> 和片段類型的資訊，請參閱 <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">News
-Fragments</a>。您也可以在
-BeeWare 儲存庫的 <code>changes</code> 目錄中查看現有的新聞片段範例。如果這個資料夾是空的，很可能是因為 BeeWare 最近發行了新版本；每次發行時，都會刪除變更備註檔，並合併更新 <a href="https://github.com/beeware/beeware/releases">release
-notes</a>
-。您可以查看該檔案，瞭解所需的注釋樣式；您可以查看 <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">recently merged PRs</a> 來瞭解變更備註的格式。</p>
+<p>更多關於 <code>towncrier</code> 和片段類型的資訊，請參閱 <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">News Fragments</a>。您也可以在 BeeWare 儲存庫的 <code>changes</code> 目錄中查看現有的新聞片段範例。如果這個資料夾是空的，很可能是因為 BeeWare 最近發行了新版本；每次發行時，都會刪除變更備註檔，並合併更新 <a href="https://github.com/beeware/beeware/releases">release notes</a> 。您可以查看該檔案，瞭解所需的注釋樣式；您可以查看 <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">recently merged PRs</a> 來瞭解變更備註的格式。</p>
 
 
 

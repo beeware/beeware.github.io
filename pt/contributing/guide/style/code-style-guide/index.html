@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Cabeçalho"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/style/code-style-guide/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/style/code-style-guide/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4966,36 +4974,13 @@ aria-label="Cabeçalho"
 <h1 id="guia-de-estilo-de-codigo">Guia de estilo de código<a class="headerlink" href="#guia-de-estilo-de-codigo" title="Permanent link">&para;</a></h1>
 <p>Este guia inclui informações e diretrizes para escrever código para BeeWare.</p>
 <h3 id="code-style">Estilo de código<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h3>
-<p>O BeeWare segue a <a href="https://peps.python.org/pep-0008/">PEP 8</a> em nossa base de
-código, exceto pelo comprimento da linha, que foi expandido de 79 para 88
-caracteres. Usamos o <a href="https://docs.astral.sh/ruff/">Ruff</a> para aplicar as
-convenções do PEP 8 sempre que possível. Quando você faz o commit do seu código,
-o pre-commit executa verificações, incluindo o Ruff. Sempre que possível, isso
-formata automaticamente o seu código para garantir que ele atenda aos nossos
-padrões de formatação e estilo. Você pode configurar alguns IDEs para executar
-automaticamente o Ruff ao salvar, o que pode ajudar no processo.</p>
-<p>Tenha em mente que a parte mais importante da PEP 8 é a <a href="https://peps.python.org/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">Seção 0: A Foolish
-Consistency is the Hobgoblin of Little
-Minds</a>.
-Há situações em que permanecer consistente com a PEP 8 não faz sentido, e é
-importante entender que, quando aplicável, é aceitável, e às vezes preferível,
-escrever código que não esteja alinhado com as regras listadas. Saber <em>quando
-ser inconsistente</em> com essas regras é tão importante quanto manter a
-consistência na maioria das situações.</p>
-<p>Uma manifestação disso pode ser observada nas convenções de nomenclatura. As
-bibliotecas BeeWare frequentemente precisam fazer a ponte com outras linguagens.
-Ao criar wrappers para outras linguagens, é recomendável (e, em alguns casos,
-obrigatório) seguir as convenções de nomenclatura da linguagem de destino, em
-vez das do Python. Por exemplo, ao chamar ou referenciar código Java, as funções
-devem seguir a preferência do Java por <code>mixedCase</code>, em vez da preferência da PEP
-8 por <code>snake_case</code>.</p>
+<p>O BeeWare segue a <a href="https://peps.python.org/pep-0008/">PEP 8</a> em nossa base de código, exceto pelo comprimento da linha, que foi expandido de 79 para 88 caracteres. Usamos o <a href="https://docs.astral.sh/ruff/">Ruff</a> para aplicar as convenções do PEP 8 sempre que possível. Quando você faz o commit do seu código, o pre-commit executa verificações, incluindo o Ruff. Sempre que possível, isso formata automaticamente o seu código para garantir que ele atenda aos nossos padrões de formatação e estilo. Você pode configurar alguns IDEs para executar automaticamente o Ruff ao salvar, o que pode ajudar no processo.</p>
+<p>Tenha em mente que a parte mais importante da PEP 8 é a <a href="https://peps.python.org/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">Seção 0: A Foolish Consistency is the Hobgoblin of Little Minds</a>. Há situações em que permanecer consistente com a PEP 8 não faz sentido, e é importante entender que, quando aplicável, é aceitável, e às vezes preferível, escrever código que não esteja alinhado com as regras listadas. Saber <em>quando ser inconsistente</em> com essas regras é tão importante quanto manter a consistência na maioria das situações.</p>
+<p>Uma manifestação disso pode ser observada nas convenções de nomenclatura. As bibliotecas BeeWare frequentemente precisam fazer a ponte com outras linguagens. Ao criar wrappers para outras linguagens, é recomendável (e, em alguns casos, obrigatório) seguir as convenções de nomenclatura da linguagem de destino, em vez das do Python. Por exemplo, ao chamar ou referenciar código Java, as funções devem seguir a preferência do Java por <code>mixedCase</code>, em vez da preferência da PEP 8 por <code>snake_case</code>.</p>
 <p>Seguimos a ortografia dos EUA para nomear APIs, variáveis, etc.</p>
 <p>Há também algumas adições específicas do BeeWare à PEP 8:</p>
-<p>Embora a anotação de tipos em conformidade com a <a href="https://peps.python.org/pep-0484/">PEP
-484</a> seja opcional, ela continua sendo
-fortemente recomendada, especialmente em todas as interfaces de API públicas.</p>
-<p>Segue abaixo um exemplo de definição de função padrão com indicações de tipo
-adequadas e uma string de documentação do Sphinx:</p>
+<p>Embora a anotação de tipos em conformidade com a <a href="https://peps.python.org/pep-0484/">PEP 484</a> seja opcional, ela continua sendo fortemente recomendada, especialmente em todas as interfaces de API públicas.</p>
+<p>Segue abaixo um exemplo de definição de função padrão com indicações de tipo adequadas e uma string de documentação do Sphinx:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">nome_da_função</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="sd">&quot;&quot;&quot;Exemplo de função com tipos e uma string de documentação.</span>
 
@@ -5006,16 +4991,12 @@ adequadas e uma string de documentação do Sphinx:</p>
 <span class="sd">&quot;&quot;&quot;</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">Divisão de chamadas de função longas<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
-<p>Quando uma chamada de função com mais de um argumento não couber em uma única
-linha, coloque cada argumento em uma linha separada, com uma vírgula no final do
-último argumento. O Ruff permite (e sugere) um formato com vários argumentos em
-uma única linha quebrada:</p>
+<p>Quando uma chamada de função com mais de um argumento não couber em uma única linha, coloque cada argumento em uma linha separada, com uma vírgula no final do último argumento. O Ruff permite (e sugere) um formato com vários argumentos em uma única linha quebrada:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>Este estilo não deve ser usado. Em vez disso, distribua os argumentos em uma
-linha por cada um, adicionando uma vírgula no final do último argumento:</p>
+<p>Este estilo não deve ser usado. Em vez disso, distribua os argumentos em uma linha por cada um, adicionando uma vírgula no final do último argumento:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
     <span class="n">arg2</span><span class="p">,</span>
@@ -5023,10 +5004,7 @@ linha por cada um, adicionando uma vírgula no final do último argumento:</p>
 <span class="p">)</span>
 </code></pre></div>
 <h4 id="split-long-strings">Dividir strings longas<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
-<p>Quando um argumento de string precisar ser dividido em várias linhas para
-atender aos requisitos de comprimento de linha, coloque os literais de string
-concatenados entre parênteses para que fique claro que a string é um único
-argumento. Ou seja, preferimos:</p>
+<p>Quando um argumento de string precisar ser dividido em várias linhas para atender aos requisitos de comprimento de linha, coloque os literais de string concatenados entre parênteses para que fique claro que a string é um único argumento. Ou seja, preferimos:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
  <span class="s2">&quot;esta é uma string muito longa&quot;</span>
@@ -5043,23 +5021,11 @@ argumento. Ou seja, preferimos:</p>
 <span class="p">)</span>
 </code></pre></div>
 <h3 id="coisas-a-serem-evitadas">Coisas a serem evitadas<a class="headerlink" href="#coisas-a-serem-evitadas" title="Permanent link">&para;</a></h3>
-<p>Tentamos evitar os módulos "utils" o máximo possível, com o entendimento de que,
-às vezes, eles são inevitáveis. A alternativa preferida é encontrar um lugar
-para o recurso em outra parte do código-fonte, em vez de usar um módulo <code>utils</code>.</p>
-<p>Como regra geral, tentamos evitar ou adiar qualquer código de inicialização
-caro, a fim de obter uma inicialização mais rápida do aplicação. Por exemplo, os
-módulos no pacote toga-core são “carregados de forma preguiçosa” — eles só são
-importados quando solicitados, em vez de todos de uma vez. Isso acelera a
-inicialização e gasta tempo apenas com o que o aplicação está realmente usando.</p>
-<p>Ao escrever comentários, evite o uso de pronomes na primeira pessoa do plural,
-como “nós” (por exemplo, escreva “Faça um loop” em vez de “Nós fazemos um
-loop”).</p>
-<p>Nas descrições dos testes, indique o comportamento esperado que cada teste
-demonstra. Não inclua introduções como “Testa se” ou “Verifica se”.</p>
-<p>Reserve as referências a tickets para questões pouco conhecidas, nas quais o
-ticket contenha detalhes adicionais que não possam ser facilmente descritos em
-docstrings ou comentários. Inclua o número do ticket no final de uma frase,
-desta forma:</p>
+<p>Tentamos evitar os módulos "utils" o máximo possível, com o entendimento de que, às vezes, eles são inevitáveis. A alternativa preferida é encontrar um lugar para o recurso em outra parte do código-fonte, em vez de usar um módulo <code>utils</code>.</p>
+<p>Como regra geral, tentamos evitar ou adiar qualquer código de inicialização caro, a fim de obter uma inicialização mais rápida do aplicação. Por exemplo, os módulos no pacote toga-core são “carregados de forma preguiçosa” — eles só são importados quando solicitados, em vez de todos de uma vez. Isso acelera a inicialização e gasta tempo apenas com o que o aplicação está realmente usando.</p>
+<p>Ao escrever comentários, evite o uso de pronomes na primeira pessoa do plural, como “nós” (por exemplo, escreva “Faça um loop” em vez de “Nós fazemos um loop”).</p>
+<p>Nas descrições dos testes, indique o comportamento esperado que cada teste demonstra. Não inclua introduções como “Testa se” ou “Verifica se”.</p>
+<p>Reserve as referências a tickets para questões pouco conhecidas, nas quais o ticket contenha detalhes adicionais que não possam ser facilmente descritos em docstrings ou comentários. Inclua o número do ticket no final de uma frase, desta forma:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
 <span class="w"> </span><span class="sd">&quot;&quot;&quot;Uma string de documentação de teste tem este formato (#123456).&quot;&quot;&quot;</span>
 </code></pre></div>

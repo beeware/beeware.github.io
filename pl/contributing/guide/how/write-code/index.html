@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Nagłówek"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/write-code/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/write-code/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -5218,33 +5226,16 @@ aria-label="Nagłówek"
 
 
 <h1 id="pisanie-uruchamianie-i-testowanie-kodu">Pisanie, uruchamianie i testowanie kodu<a class="headerlink" href="#pisanie-uruchamianie-i-testowanie-kodu" title="Permanent link">&para;</a></h1>
-<p>Naprawienie błędu lub wdrożenie nowej funkcji będzie wymagało napisania nowego
-kodu.</p>
-<p>Aby rozpocząć pracę nad kodem, upewnij się, że masz skonfigurowane <a href="../dev-environment/">środowisko
-programistyczne</a> i <a href="../branches/">pracujesz na
-gałęzi</a>.</p>
-<p>Mamy <a href="../../style/code-style-guide/">przewodnik stylistyczny dotyczący kodu</a>, w
-którym przedstawiono wytyczne dotyczące pisania kodu dla BeeWare.</p>
+<p>Naprawienie błędu lub wdrożenie nowej funkcji będzie wymagało napisania nowego kodu.</p>
+<p>Aby rozpocząć pracę nad kodem, upewnij się, że masz skonfigurowane <a href="../dev-environment/">środowisko programistyczne</a> i <a href="../branches/">pracujesz na gałęzi</a>.</p>
+<p>Mamy <a href="../../style/code-style-guide/">przewodnik stylistyczny dotyczący kodu</a>, w którym przedstawiono wytyczne dotyczące pisania kodu dla BeeWare.</p>
 <h3 id="programowanie-sterowane-testami">Programowanie sterowane testami<a class="headerlink" href="#programowanie-sterowane-testami" title="Permanent link">&para;</a></h3>
-<p>Dobrym sposobem na upewnienie się, że kod będzie działał zgodnie z
-oczekiwaniami, jest najpierw napisanie przypadku testowego, który to sprawdzi.
-Ten przypadek testowy powinien początkowo zakończyć się niepowodzeniem, ponieważ
-kod, który ma sprawdzić, jeszcze nie istnieje. Następnie można wprowadzić zmiany
-w kodzie niezbędne do pomyślnego przejścia testu i mieć pewność, że napisany kod
-rozwiązuje problem zgodnie z oczekiwaniami.</p>
+<p>Dobrym sposobem na upewnienie się, że kod będzie działał zgodnie z oczekiwaniami, jest najpierw napisanie przypadku testowego, który to sprawdzi. Ten przypadek testowy powinien początkowo zakończyć się niepowodzeniem, ponieważ kod, który ma sprawdzić, jeszcze nie istnieje. Następnie można wprowadzić zmiany w kodzie niezbędne do pomyślnego przejścia testu i mieć pewność, że napisany kod rozwiązuje problem zgodnie z oczekiwaniami.</p>
 <h3 id="uruchom-swoj-kod">Uruchom swój kod<a class="headerlink" href="#uruchom-swoj-kod" title="Permanent link">&para;</a></h3>
-<p>Po napisaniu kodu musisz upewnić się, że działa. Będziesz musiał ręcznie
-uruchomić kod, aby sprawdzić, czy działa zgodnie z oczekiwaniami. Jeśli jeszcze
-tego nie zrobiłeś, warto napisać przypadek testowy dla wprowadzonych zmian; jak
-wspomniano powyżej, test ten powinien zakończyć się niepowodzeniem, jeśli kod
-zostanie zakomentowany lub nie będzie obecny.</p>
-<p>Dodaj swój przypadek testowy do zestawu testów, aby można go było uruchomić
-razem z pozostałymi testami. Następnym krokiem jest uruchomienie zestawu testów.</p>
+<p>Po napisaniu kodu musisz upewnić się, że działa. Będziesz musiał ręcznie uruchomić kod, aby sprawdzić, czy działa zgodnie z oczekiwaniami. Jeśli jeszcze tego nie zrobiłeś, warto napisać przypadek testowy dla wprowadzonych zmian; jak wspomniano powyżej, test ten powinien zakończyć się niepowodzeniem, jeśli kod zostanie zakomentowany lub nie będzie obecny.</p>
+<p>Dodaj swój przypadek testowy do zestawu testów, aby można go było uruchomić razem z pozostałymi testami. Następnym krokiem jest uruchomienie zestawu testów.</p>
 <h3 id="run-test-suite">Uruchamianie testów  oraz pokrycie<a class="headerlink" href="#run-test-suite" title="Permanent link">&para;</a></h3>
-<p>BeeWare wykorzystuje <a href="https://tox.wiki/en/latest/"><code>tox</code></a> do
-zarządzania procesem testowania oraz
-<a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> do obsługi własnego zestawu
-testów.</p>
+<p>BeeWare wykorzystuje <a href="https://tox.wiki/en/latest/"><code>tox</code></a> do zarządzania procesem testowania oraz <a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> do obsługi własnego zestawu testów.</p>
 <p>Domyślne polecenie <code>tox</code> obejmuje wykonanie:</p>
 <ul>
 <li>haki przed zatwierdzeniem</li>
@@ -5277,34 +5268,13 @@ testów.</p>
 </div>
 </div>
 </div>
-<p>Uruchomienie pełnego zestawu testów może chwilę potrwać. Można to znacznie
-przyspieszyć, uruchamiając <code>tox</code> równolegle, czyli korzystając z opcji <code>tox p</code>
-(lub <code>tox run-parallel</code>). W przypadku równoległego uruchamiania zestawu testów
-otrzymasz mniej informacji zwrotnych na temat postępów w trakcie działania, ale
-na koniec cyklu testowego nadal pojawi się podsumowanie wszelkich wykrytych
-problemów. Powinieneś zobaczyć komunikat potwierdzający, że testy zostały
-przeprowadzone. Możesz zobaczyć <code>SKIPPED</code> testów, ale nigdy nie powinieneś
-otrzymać żadnych wyników testów <code>FAIL</code> lub <code>ERROR</code>. Przed scaleniem każdej
-poprawki uruchamiamy nasz pełny zestaw testów. Jeśli proces ten wykryje
-jakiekolwiek problemy, nie scalamy poprawki. Jeśli znajdziesz błąd lub
-niepowodzenie testu, oznacza to, że albo coś jest nie tak w Twoim środowisku
-testowym, albo znalazłeś skrajny przypadek, którego wcześniej nie widzieliśmy —
-w każdym razie daj nam znać!</p>
-<p>Oprócz pomyślnego zakończenia testów powinno to wykazać <a class="autorefs autorefs-internal" title="Pokrycie kodu" href="#code-coverage">100% pokrycie
-testowe</a>.</p>
+<p>Uruchomienie pełnego zestawu testów może chwilę potrwać. Można to znacznie przyspieszyć, uruchamiając <code>tox</code> równolegle, czyli korzystając z opcji <code>tox p</code> (lub <code>tox run-parallel</code>). W przypadku równoległego uruchamiania zestawu testów otrzymasz mniej informacji zwrotnych na temat postępów w trakcie działania, ale na koniec cyklu testowego nadal pojawi się podsumowanie wszelkich wykrytych problemów. Powinieneś zobaczyć komunikat potwierdzający, że testy zostały przeprowadzone. Możesz zobaczyć <code>SKIPPED</code> testów, ale nigdy nie powinieneś otrzymać żadnych wyników testów <code>FAIL</code> lub <code>ERROR</code>. Przed scaleniem każdej poprawki uruchamiamy nasz pełny zestaw testów. Jeśli proces ten wykryje jakiekolwiek problemy, nie scalamy poprawki. Jeśli znajdziesz błąd lub niepowodzenie testu, oznacza to, że albo coś jest nie tak w Twoim środowisku testowym, albo znalazłeś skrajny przypadek, którego wcześniej nie widzieliśmy — w każdym razie daj nam znać!</p>
+<p>Oprócz pomyślnego zakończenia testów powinno to wykazać <a class="autorefs autorefs-internal" title="Pokrycie kodu" href="#code-coverage">100% pokrycie testowe</a>.</p>
 <h3 id="przeprowadzanie-roznych-wariantow-testow">Przeprowadzanie różnych wariantów testów<a class="headerlink" href="#przeprowadzanie-roznych-wariantow-testow" title="Permanent link">&para;</a></h3>
 <h4 id="przeprowadz-testy-dla-wielu-wersji-jezyka-python">Przeprowadź testy dla wielu wersji języka Python<a class="headerlink" href="#przeprowadz-testy-dla-wielu-wersji-jezyka-python" title="Permanent link">&para;</a></h4>
-<p>Domyślnie wiele poleceń <code>tox</code> próbuje uruchomić zestaw testów wielokrotnie – po
-jednym razie dla każdej wersji języka Python obsługiwanej przez BeeWare. Aby było to możliwe, każda z tych wersji musi być zainstalowana na
-komputerze użytkownika i dostępna dla procesu [wykrywania]<code>tox</code> języka Python
-realizowanego przez
-(https://virtualenv.pypa.io/en/latest/explanation.html#python-discovery).
-Ogólnie rzecz biorąc, jeśli dana wersja języka Python jest dostępna za
-pośrednictwem <code>PATH</code>, to <code>tox</code> powinno być w stanie ją znaleźć i wykorzystać.</p>
+<p>Domyślnie wiele poleceń <code>tox</code> próbuje uruchomić zestaw testów wielokrotnie – po jednym razie dla każdej wersji języka Python obsługiwanej przez BeeWare. Aby było to możliwe, każda z tych wersji musi być zainstalowana na komputerze użytkownika i dostępna dla procesu [wykrywania]<code>tox</code> języka Python realizowanego przez (https://virtualenv.pypa.io/en/latest/explanation.html#python-discovery). Ogólnie rzecz biorąc, jeśli dana wersja języka Python jest dostępna za pośrednictwem <code>PATH</code>, to <code>tox</code> powinno być w stanie ją znaleźć i wykorzystać.</p>
 <h4 id="uruchom-tylko-zestaw-testow">Uruchom tylko zestaw testów<a class="headerlink" href="#uruchom-tylko-zestaw-testow" title="Permanent link">&para;</a></h4>
-<p>Jeśli szybko wprowadzasz kolejne wersje nowej funkcji, nie musisz uruchamiać
-pełnego zestawu testów; możesz uruchomić <em>tylko</em> testy jednostkowe. Aby to
-zrobić, wpisz:</p>
+<p>Jeśli szybko wprowadzasz kolejne wersje nowej funkcji, nie musisz uruchamiać pełnego zestawu testów; możesz uruchomić <em>tylko</em> testy jednostkowe. Aby to zrobić, wpisz:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5322,13 +5292,7 @@ zrobić, wpisz:</p>
 </div>
 </div>
 <h4 id="test-subset">Uruchom podzbiór testów<a class="headerlink" href="#test-subset" title="Permanent link">&para;</a></h4>
-<p>Domyślnie polecenie <code>tox</code> uruchamia wszystkie testy z zestawu testów
-jednostkowych. Podczas tworzenia nowego testu przydatne może być uruchomienie
-<em>tylko</em> tego jednego testu. W tym celu można przekazać <a href="https://docs.pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run">dowolny specyfikator
-<code>pytest</code></a>
-jako argument polecenia <code>tox</code>. Ścieżki do testów są podawane względem katalogu
-<code>briefcase</code>. Na przykład, aby uruchomić tylko testy zawarte w jednym pliku,
-należy wpisać:</p>
+<p>Domyślnie polecenie <code>tox</code> uruchamia wszystkie testy z zestawu testów jednostkowych. Podczas tworzenia nowego testu przydatne może być uruchomienie <em>tylko</em> tego jednego testu. W tym celu można przekazać <a href="https://docs.pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run">dowolny specyfikator <code>pytest</code></a> jako argument polecenia <code>tox</code>. Ścieżki do testów są podawane względem katalogu <code>briefcase</code>. Na przykład, aby uruchomić tylko testy zawarte w jednym pliku, należy wpisać:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5345,15 +5309,9 @@ należy wpisać:</p>
 </div>
 </div>
 </div>
-<p>Nawet jeśli uruchomisz tylko część zestawu testów, nadal otrzymasz raport
-pokrycia – jednak wyniki pokrycia będą obejmowały wyłącznie te linie kodu, które
-zostały wykonane przez konkretne testy, które uruchomiłeś.</p>
+<p>Nawet jeśli uruchomisz tylko część zestawu testów, nadal otrzymasz raport pokrycia – jednak wyniki pokrycia będą obejmowały wyłącznie te linie kodu, które zostały wykonane przez konkretne testy, które uruchomiłeś.</p>
 <h4 id="test-py-version">Uruchom zestaw testów dla konkretnej wersji języka Python<a class="headerlink" href="#test-py-version" title="Permanent link">&para;</a></h4>
-<p>Domyślnie <code>tox -e py</code> zostanie uruchomione przy użyciu interpretera, który na
-danym komputerze zostanie rozpoznany jako <code>python</code>. Jeśli masz zainstalowanych
-kilka wersji Pythona i chcesz przetestować konkretną wersję spośród
-zainstalowanych, możesz wskazać konkretną wersję Pythona do użycia. Na przykład,
-aby uruchomić zestaw testów w Pythonie 3.10, wpisz:</p>
+<p>Domyślnie <code>tox -e py</code> zostanie uruchomione przy użyciu interpretera, który na danym komputerze zostanie rozpoznany jako <code>python</code>. Jeśli masz zainstalowanych kilka wersji Pythona i chcesz przetestować konkretną wersję spośród zainstalowanych, możesz wskazać konkretną wersję Pythona do użycia. Na przykład, aby uruchomić zestaw testów w Pythonie 3.10, wpisz:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5370,14 +5328,9 @@ aby uruchomić zestaw testów w Pythonie 3.10, wpisz:</p>
 </div>
 </div>
 </div>
-<p>Podzbiór testów [test-subset] można uruchomić, dodając do wiersza poleceń znak
-<code>--</code> oraz specyfikację testu.</p>
+<p>Podzbiór testów [test-subset] można uruchomić, dodając do wiersza poleceń znak <code>--</code> oraz specyfikację testu.</p>
 <h4 id="uruchom-zestaw-testow-bez-sprawdzania-pokrycia-szybko">Uruchom zestaw testów bez sprawdzania pokrycia (szybko)<a class="headerlink" href="#uruchom-zestaw-testow-bez-sprawdzania-pokrycia-szybko" title="Permanent link">&para;</a></h4>
-<p>Domyślnie polecenie <code>tox</code> uruchamia zestaw testów pytest w trybie jednowątkowym.
-Można przyspieszyć wykonywanie zestawu testów, uruchamiając go równolegle. Tryb
-ten nie generuje plików pokrycia ze względu na trudności związane z
-rejestrowaniem pokrycia w uruchomionych procesach. Aby uruchomić pojedynczą
-wersję Pythona w trybie „szybkim”, należy wpisać:</p>
+<p>Domyślnie polecenie <code>tox</code> uruchamia zestaw testów pytest w trybie jednowątkowym. Można przyspieszyć wykonywanie zestawu testów, uruchamiając go równolegle. Tryb ten nie generuje plików pokrycia ze względu na trudności związane z rejestrowaniem pokrycia w uruchomionych procesach. Aby uruchomić pojedynczą wersję Pythona w trybie „szybkim”, należy wpisać:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5394,44 +5347,21 @@ wersję Pythona w trybie „szybkim”, należy wpisać:</p>
 </div>
 </div>
 </div>
-<p>Aby uruchomić <a class="autorefs autorefs-internal" title="Uruchom podzbiór testów" href="#test-subset">podzbiór testów</a>, należy dodać <code>--</code> oraz
-specyfikację testu do wiersza poleceń; aby użyć <a class="autorefs autorefs-internal" title="Uruchom zestaw testów dla konkretnej wersji języka Python" href="#test-py-version">określonej wersji
-Pythona</a>, należy dodać tę wersję do celu testu (np. <code>py310-fast</code> w celu uruchomienia testu fast w Pythonie 3.10).</p>
+<p>Aby uruchomić <a class="autorefs autorefs-internal" title="Uruchom podzbiór testów" href="#test-subset">podzbiór testów</a>, należy dodać <code>--</code> oraz specyfikację testu do wiersza poleceń; aby użyć <a class="autorefs autorefs-internal" title="Uruchom zestaw testów dla konkretnej wersji języka Python" href="#test-py-version">określonej wersji Pythona</a>, należy dodać tę wersję do celu testu (np. <code>py310-fast</code> w celu uruchomienia testu fast w Pythonie 3.10).</p>
 <h3 id="code-coverage">Pokrycie kodu<a class="headerlink" href="#code-coverage" title="Permanent link">&para;</a></h3>
-<p>BeeWare zapewnia 100% pokrycie gałęzi w swoim kodzie źródłowym.
-Dodając lub modyfikując kod w projekcie, należy dodać kod testowy, aby zapewnić
-pokrycie wszystkich wprowadzonych zmian.</p>
-<p>Jednak BeeWare jest przeznaczony dla wielu platform, a także dla wielu
-wersji języka Python, więc nie da się zweryfikować pełnego pokrycia na jednej
-platformie i w jednej wersji języka Python. Aby temu zaradzić, w sekcji
-<code>tool.coverage.coverage_conditional_plugin.rules</code> pliku <code>pyproject.toml</code>
-zdefiniowano kilka reguł warunkowego pokrycia (np. <code>no-cover-if-is-windows</code> może
-służyć do oznaczenia bloku kodu, który nie zostanie wykonany podczas
-uruchamiania zestawu testów w systemie Windows). Reguły te służą do
-identyfikacji fragmentów kodu, które są objęte pokryciem tylko na określonych
-platformach lub w określonych wersjach Pythona.</p>
-<p>Warto zauważyć, że generowanie raportów pokrycia w różnych wersjach Pythona może
-przebiegać nieco nieprzewidywalnie. Na przykład, jeśli pliki pokrycia zostały
-utworzone przy użyciu jednej wersji Pythona, a raportowanie pokrycia odbywa się
-w innej, raport może zawierać fałszywe alarmy dotyczące pominiętych gałęzi. Z
-tego powodu do generowania raportów pokrycia należy zawsze używać najstarszej
-wersji Pythona, w której utworzono pliki pokrycia.</p>
+<p>BeeWare zapewnia 100% pokrycie gałęzi w swoim kodzie źródłowym. Dodając lub modyfikując kod w projekcie, należy dodać kod testowy, aby zapewnić pokrycie wszystkich wprowadzonych zmian.</p>
+<p>Jednak BeeWare jest przeznaczony dla wielu platform, a także dla wielu wersji języka Python, więc nie da się zweryfikować pełnego pokrycia na jednej platformie i w jednej wersji języka Python. Aby temu zaradzić, w sekcji <code>tool.coverage.coverage_conditional_plugin.rules</code> pliku <code>pyproject.toml</code> zdefiniowano kilka reguł warunkowego pokrycia (np. <code>no-cover-if-is-windows</code> może służyć do oznaczenia bloku kodu, który nie zostanie wykonany podczas uruchamiania zestawu testów w systemie Windows). Reguły te służą do identyfikacji fragmentów kodu, które są objęte pokryciem tylko na określonych platformach lub w określonych wersjach Pythona.</p>
+<p>Warto zauważyć, że generowanie raportów pokrycia w różnych wersjach Pythona może przebiegać nieco nieprzewidywalnie. Na przykład, jeśli pliki pokrycia zostały utworzone przy użyciu jednej wersji Pythona, a raportowanie pokrycia odbywa się w innej, raport może zawierać fałszywe alarmy dotyczące pominiętych gałęzi. Z tego powodu do generowania raportów pokrycia należy zawsze używać najstarszej wersji Pythona, w której utworzono pliki pokrycia.</p>
 <h4 id="interpretacja-wynikow-badan">Interpretacja wyników badań<a class="headerlink" href="#interpretacja-wynikow-badan" title="Permanent link">&para;</a></h4>
-<p>Na końcu wyników testu pokrycia powinno znaleźć się zestawienie zebranych danych
-dotyczących pokrycia:</p>
+<p>Na końcu wyników testu pokrycia powinno znaleźć się zestawienie zebranych danych dotyczących pokrycia:</p>
 <!-- The extra space at the start of this line is needed to prevent translate-toolkit from parsing the dashes as a markdown document split -->
 
 <div class="highlight"><pre><span></span><code><span class="go">Nazwa    Wypowiedzi   Nieobecności   Oddziały   Część   Pokrycie   Brakujące</span>
 <span class="go"> ---------------------------------------------------</span>
 <span class="go"> RAZEM    7540 0   1040 0  100,0%</span>
 </code></pre></div>
-<p>Oznacza to, że zestaw testów sprawdził wszystkie możliwe ścieżki rozgałęzień w
-kodzie. Nie daje to stuprocentowej gwarancji, że nie ma żadnych błędów, ale
-oznacza, że sprawdzamy każdą linię kodu w całym kodzie źródłowym.</p>
-<p>Jeśli wprowadzisz zmiany w kodzie, może to spowodować powstanie luki w pokryciu.
-W takim przypadku raport pokrycia wskaże, które linie nie są wykonywane. Załóżmy
-na przykład, że wprowadziliśmy zmianę w <code>some/interesting_file.py</code>, dodając nową
-logikę. Raport pokrycia mógłby wyglądać mniej więcej tak:</p>
+<p>Oznacza to, że zestaw testów sprawdził wszystkie możliwe ścieżki rozgałęzień w kodzie. Nie daje to stuprocentowej gwarancji, że nie ma żadnych błędów, ale oznacza, że sprawdzamy każdą linię kodu w całym kodzie źródłowym.</p>
+<p>Jeśli wprowadzisz zmiany w kodzie, może to spowodować powstanie luki w pokryciu. W takim przypadku raport pokrycia wskaże, które linie nie są wykonywane. Załóżmy na przykład, że wprowadziliśmy zmianę w <code>some/interesting_file.py</code>, dodając nową logikę. Raport pokrycia mógłby wyglądać mniej więcej tak:</p>
 <!-- The extra space at the start of this line is needed to prevent translate-toolkit from parsing the dashes as a markdown document split -->
 
 <div class="highlight"><pre><span></span><code><span class="go">Nazwa Stmts   Miss Branch BrPart  Cover   Brakujące</span>
@@ -5440,13 +5370,9 @@ logikę. Raport pokrycia mógłby wyglądać mniej więcej tak:</p>
 <span class="go"> -------------------------------------------------------------------------------</span>
 <span class="go"> RAZEM 7540 1   1726 0  99,9%</span>
 </code></pre></div>
-<p>Oznacza to, że wiersz 170, wiersze 302–307 oraz skok rozgałęzienia z wiersza 320
-do wiersza 335 nie są wykonywane przez zestaw testów. Aby przywrócić ten poziom
-pokrycia, należy dodać nowe testy (lub zmodyfikować istniejący test).</p>
+<p>Oznacza to, że wiersz 170, wiersze 302–307 oraz skok rozgałęzienia z wiersza 320 do wiersza 335 nie są wykonywane przez zestaw testów. Aby przywrócić ten poziom pokrycia, należy dodać nowe testy (lub zmodyfikować istniejący test).</p>
 <h4 id="raport-dotyczacy-obsugi-platformy-hosta-i-wersji-jezyka-python">Raport dotyczący obsługi platformy hosta i wersji języka Python<a class="headerlink" href="#raport-dotyczacy-obsugi-platformy-hosta-i-wersji-jezyka-python" title="Permanent link">&para;</a></h4>
-<p>Możesz wygenerować raport pokrycia dla swojej platformy i wersji języka Python.
-Na przykład, aby uruchomić zestaw testów i wygenerować raport pokrycia dla
-języka Python 3.10, wpisz:</p>
+<p>Możesz wygenerować raport pokrycia dla swojej platformy i wersji języka Python. Na przykład, aby uruchomić zestaw testów i wygenerować raport pokrycia dla języka Python 3.10, wpisz:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5464,8 +5390,7 @@ języka Python 3.10, wpisz:</p>
 </div>
 </div>
 <h4 id="raport-dotyczacy-zasiegu-dla-platformy-hostujacej">Raport dotyczący zasięgu dla platformy hostującej<a class="headerlink" href="#raport-dotyczacy-zasiegu-dla-platformy-hostujacej" title="Permanent link">&para;</a></h4>
-<p>Jeśli wszystkie obsługiwane wersje języka Python są dostępne dla <code>tox</code>, wówczas
-pokrycie dla platformy hosta można sprawdzić, uruchamiając:</p>
+<p>Jeśli wszystkie obsługiwane wersje języka Python są dostępne dla <code>tox</code>, wówczas pokrycie dla platformy hosta można sprawdzić, uruchamiając:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">macOS</label><label for="__tabbed_7_2">Linux</label><label for="__tabbed_7_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5483,8 +5408,7 @@ pokrycie dla platformy hosta można sprawdzić, uruchamiając:</p>
 </div>
 </div>
 <h4 id="raportowanie-zasiegu-w-formacie-html">Raportowanie zasięgu w formacie HTML<a class="headerlink" href="#raportowanie-zasiegu-w-formacie-html" title="Permanent link">&para;</a></h4>
-<p>Raport pokrycia HTML można wygenerować, dodając <code>-html</code> do dowolnej nazwy
-środowiska pokrycia <code>tox</code>, na przykład:</p>
+<p>Raport pokrycia HTML można wygenerować, dodając <code>-html</code> do dowolnej nazwy środowiska pokrycia <code>tox</code>, na przykład:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">macOS</label><label for="__tabbed_8_2">Linux</label><label for="__tabbed_8_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5502,18 +5426,9 @@ pokrycie dla platformy hosta można sprawdzić, uruchamiając:</p>
 </div>
 </div>
 <h3 id="nie-chodzi-tylko-o-pisanie-testow">Nie chodzi tylko o pisanie testów!<a class="headerlink" href="#nie-chodzi-tylko-o-pisanie-testow" title="Permanent link">&para;</a></h3>
-<p>Chociaż dbamy o to, by przetestować cały nasz kod, zadanie to nie polega <em>tylko</em>
-na utrzymaniu tego poziomu testowania. Częścią tego zadania jest bieżąca
-kontrola kodu. Można by napisać obszerny zestaw testów dla konkretnej kamizelki
-ratunkowej… ale taka kamizelka nadal byłaby bezużyteczna w zamierzonym celu!</p>
-<p>Podczas tworzenia testów należy również sprawdzać, czy moduł podstawowy jest
-<strong>spójny</strong> wewnętrznie. Jeśli zauważysz nazwy metod, które nie są spójne
-wewnętrznie (np. coś nazywa się <code>on_select</code> w jednym module, a <code>on_selected</code> w
-innym) lub dane nie są przetwarzane w spójny sposób, zaznacz to i zgłoś nam ten
-problem, tworząc zgłoszenie. Jeśli natomiast jesteś pewien, co należy zrobić,
-utwórz pull request, który naprawi znaleziony problem.</p>
-<p>Gdy wszystko będzie już działać, możesz <a href="../submit-pr/">przesłać pull
-request</a> ze swoimi zmianami.</p>
+<p>Chociaż dbamy o to, by przetestować cały nasz kod, zadanie to nie polega <em>tylko</em> na utrzymaniu tego poziomu testowania. Częścią tego zadania jest bieżąca kontrola kodu. Można by napisać obszerny zestaw testów dla konkretnej kamizelki ratunkowej… ale taka kamizelka nadal byłaby bezużyteczna w zamierzonym celu!</p>
+<p>Podczas tworzenia testów należy również sprawdzać, czy moduł podstawowy jest <strong>spójny</strong> wewnętrznie. Jeśli zauważysz nazwy metod, które nie są spójne wewnętrznie (np. coś nazywa się <code>on_select</code> w jednym module, a <code>on_selected</code> w innym) lub dane nie są przetwarzane w spójny sposób, zaznacz to i zgłoś nam ten problem, tworząc zgłoszenie. Jeśli natomiast jesteś pewien, co należy zrobić, utwórz pull request, który naprawi znaleziony problem.</p>
+<p>Gdy wszystko będzie już działać, możesz <a href="../submit-pr/">przesłać pull request</a> ze swoimi zmianami.</p>
 
 
 

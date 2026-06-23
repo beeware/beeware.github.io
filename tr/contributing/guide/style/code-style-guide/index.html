@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Başlık"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/style/code-style-guide/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/style/code-style-guide/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4964,37 +4972,15 @@ aria-label="Başlık"
 
 
 <h1 id="kod-stil-klavuzu">Kod stil kılavuzu<a class="headerlink" href="#kod-stil-klavuzu" title="Permanent link">&para;</a></h1>
-<p>Bu kılavuz, BeeWare için kod yazmaya ilişkin bilgiler ve yönergeler
-içerir.</p>
+<p>Bu kılavuz, BeeWare için kod yazmaya ilişkin bilgiler ve yönergeler içerir.</p>
 <h3 id="code-style">Kod stili<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h3>
-<p>BeeWare, kod tabanımızda <a href="https://peps.python.org/pep-0008/">PEP 8</a> kurallarını
-takip eder, ancak satır uzunluğu 79 karakterden 88 karaktere çıkarılmıştır.
-Mümkün olduğunda PEP 8 kurallarını uygulamak için
-<a href="https://docs.astral.sh/ruff/">Ruff</a> kullanıyoruz. Kodunuzu kaydettiğinizde,
-pre-commit Ruff dahil olmak üzere çeşitli kontroller yapar. Mümkün olduğunda,
-kodunuzu biçimlendirme ve stil standartlarımıza uygun hale getirmek için
-otomatik olarak biçimlendirir. Bazı IDE'leri kaydetme sırasında Ruff'ı otomatik
-olarak çalıştıracak şekilde ayarlayabilirsiniz, bu da sürece yardımcı olabilir.</p>
-<p>PEP 8'in en önemli kısmının <a href="https://peps.python.org/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">Bölüm 0: Aptalca Tutarlılık Küçük Zihinlerin
-Hobgoblinidir</a>
-olduğunu unutmayın. PEP 8 ile tutarlı kalmanın mantıklı olmadığı durumlar vardır
-ve uygun olduğunda, listelenen kurallara uymayan kod yazmanın kabul edilebilir
-ve bazen tercih edilebilir olduğunu anlamak önemlidir. Bu kurallara <em>ne zaman
-tutarsız olunması gerektiğini</em> bilmek, çoğu durumda tutarlılığı korumak kadar
-önemlidir.</p>
-<p>Bunun bir örneği, adlandırma kurallarında görülebilir. BeeWare kütüphaneleri
-sıklıkla diğer dillerle entegrasyon kurmak zorundadır. Diğer dillere yönelik
-sarmalayıcılar oluşturulurken, Python yerine hedef dilin adlandırma kurallarına
-uymak tercih edilir (ve bazı durumlarda zorunludur). Örneğin, Java kodunu
-çağırırken veya referans verirken, işlevler PEP 8'in <code>mixedCase</code> tercihini
-değil, Java'nın <code>snake_case</code> tercihini benimsemelidir.</p>
+<p>BeeWare, kod tabanımızda <a href="https://peps.python.org/pep-0008/">PEP 8</a> kurallarını takip eder, ancak satır uzunluğu 79 karakterden 88 karaktere çıkarılmıştır. Mümkün olduğunda PEP 8 kurallarını uygulamak için <a href="https://docs.astral.sh/ruff/">Ruff</a> kullanıyoruz. Kodunuzu kaydettiğinizde, pre-commit Ruff dahil olmak üzere çeşitli kontroller yapar. Mümkün olduğunda, kodunuzu biçimlendirme ve stil standartlarımıza uygun hale getirmek için otomatik olarak biçimlendirir. Bazı IDE'leri kaydetme sırasında Ruff'ı otomatik olarak çalıştıracak şekilde ayarlayabilirsiniz, bu da sürece yardımcı olabilir.</p>
+<p>PEP 8'in en önemli kısmının <a href="https://peps.python.org/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">Bölüm 0: Aptalca Tutarlılık Küçük Zihinlerin Hobgoblinidir</a> olduğunu unutmayın. PEP 8 ile tutarlı kalmanın mantıklı olmadığı durumlar vardır ve uygun olduğunda, listelenen kurallara uymayan kod yazmanın kabul edilebilir ve bazen tercih edilebilir olduğunu anlamak önemlidir. Bu kurallara <em>ne zaman tutarsız olunması gerektiğini</em> bilmek, çoğu durumda tutarlılığı korumak kadar önemlidir.</p>
+<p>Bunun bir örneği, adlandırma kurallarında görülebilir. BeeWare kütüphaneleri sıklıkla diğer dillerle entegrasyon kurmak zorundadır. Diğer dillere yönelik sarmalayıcılar oluşturulurken, Python yerine hedef dilin adlandırma kurallarına uymak tercih edilir (ve bazı durumlarda zorunludur). Örneğin, Java kodunu çağırırken veya referans verirken, işlevler PEP 8'in <code>mixedCase</code> tercihini değil, Java'nın <code>snake_case</code> tercihini benimsemelidir.</p>
 <p>API adlandırma, değişkenler vb. için ABD yazım kurallarını takip ediyoruz.</p>
 <p>PEP 8'e BeeWare'e özgü bazı eklemeler de yapılmıştır:</p>
-<p><a href="https://peps.python.org/pep-0484/">PEP 484</a> standardına uygun tip açıklamaları
-isteğe bağlı olmakla birlikte, özellikle herkese açık API arayüzlerinde
-kullanılması şiddetle tavsiye edilmektedir.</p>
-<p>Aşağıda, uygun tür ipuçları ve bir Sphinx docstring içeren standart bir işlev
-tanımına örnek verilmiştir:</p>
+<p><a href="https://peps.python.org/pep-0484/">PEP 484</a> standardına uygun tip açıklamaları isteğe bağlı olmakla birlikte, özellikle herkese açık API arayüzlerinde kullanılması şiddetle tavsiye edilmektedir.</p>
+<p>Aşağıda, uygun tür ipuçları ve bir Sphinx docstring içeren standart bir işlev tanımına örnek verilmiştir:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="sd">&quot;&quot;&quot;Türleri ve bir docstring içeren örnek işlev.</span>
 
@@ -5005,16 +4991,12 @@ tanımına örnek verilmiştir:</p>
 <span class="sd">&quot;&quot;&quot;</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">Uzun işlev çağrılarını bölme<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
-<p>Birden fazla argüman içeren bir işlev çağrısı tek bir satıra sığmadığında, her
-argümanı ayrı bir satıra yerleştirin ve son argümanın sonuna virgül ekleyin.
-Ruff, birden fazla argümanın tek bir satıra sığdırılmasına izin verir (ve bunu
-önerir):</p>
+<p>Birden fazla argüman içeren bir işlev çağrısı tek bir satıra sığmadığında, her argümanı ayrı bir satıra yerleştirin ve son argümanın sonuna virgül ekleyin. Ruff, birden fazla argümanın tek bir satıra sığdırılmasına izin verir (ve bunu önerir):</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>Bu biçim kullanılmamalıdır. Bunun yerine, son argümana sondan virgül ekleyerek
-argümanları her satıra bir tane olacak şekilde dağıtın:</p>
+<p>Bu biçim kullanılmamalıdır. Bunun yerine, son argümana sondan virgül ekleyerek argümanları her satıra bir tane olacak şekilde dağıtın:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
     <span class="n">arg2</span><span class="p">,</span>
@@ -5022,10 +5004,7 @@ argümanları her satıra bir tane olacak şekilde dağıtın:</p>
 <span class="p">)</span>
 </code></pre></div>
 <h4 id="split-long-strings">Uzun dizeleri bölme<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
-<p>Bir dize argümanının satır uzunluğu kısıtlamalarına uymak için satırlara
-bölünmesi gerektiğinde, birleştirilmiş dize sabitlerini parantez içine alın;
-böylece dizenin tek bir argüman olduğu açıkça anlaşılır. Yani, şu şekilde
-yazmayı tercih ederiz:</p>
+<p>Bir dize argümanının satır uzunluğu kısıtlamalarına uymak için satırlara bölünmesi gerektiğinde, birleştirilmiş dize sabitlerini parantez içine alın; böylece dizenin tek bir argüman olduğu açıkça anlaşılır. Yani, şu şekilde yazmayı tercih ederiz:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
  <span class="s2">&quot;bu, iki satıra yayılmış</span>
@@ -5041,21 +5020,11 @@ yazmayı tercih ederiz:</p>
 <span class="p">)</span>
 </code></pre></div>
 <h3 id="kacnlmas-gerekenler">Kaçınılması gerekenler<a class="headerlink" href="#kacnlmas-gerekenler" title="Permanent link">&para;</a></h3>
-<p>Bazen kaçınılmaz olduklarını bilerek, <code>utils</code> modüllerini mümkün olduğunca
-kullanmamaya çalışıyoruz. Tercih edilen alternatif, <code>utils</code> modülünü kullanmak
-yerine, kaynak kodun başka bir yerinde bu özelliği bulmaktır.</p>
-<p>Genel bir kural olarak, uygulamanın daha hızlı başlatılması için pahalı başlatma
-kodlarını önlemeye veya ertelemeye çalışırız. Örneğin, toga-core paketindeki
-modüller "tembel yükleme" ile çalışır; yani, önceden değil, yalnızca talep
-edildiğinde içe aktarılır. Bu, başlatma sürecini hızlandırır ve yalnızca
-uygulamanın gerçekten kullandığı şeyler için zaman harcanmasını sağlar.</p>
-<p>Yorum yazarken, "biz" gibi birinci çoğul şahıs zamirlerini kullanmaktan kaçının
-(örneğin, "Biz döngü yapıyoruz" yerine "Döngü yap" yazın).</p>
-<p>Test açıklamalarında, her bir testin sergilediği beklenen davranışı belirtin.
-"Şunu test eder" veya "Şunu sağlar" gibi giriş cümlelerini eklemeyin.</p>
-<p>Belgelerde veya yorumlarda kolayca açıklanamayan ek ayrıntılar içeren, daha az
-bilinen sorunlar için bilet referanslarını saklayın. Bilet numarasını şu şekilde
-cümlenin sonuna ekleyin:</p>
+<p>Bazen kaçınılmaz olduklarını bilerek, <code>utils</code> modüllerini mümkün olduğunca kullanmamaya çalışıyoruz. Tercih edilen alternatif, <code>utils</code> modülünü kullanmak yerine, kaynak kodun başka bir yerinde bu özelliği bulmaktır.</p>
+<p>Genel bir kural olarak, uygulamanın daha hızlı başlatılması için pahalı başlatma kodlarını önlemeye veya ertelemeye çalışırız. Örneğin, toga-core paketindeki modüller "tembel yükleme" ile çalışır; yani, önceden değil, yalnızca talep edildiğinde içe aktarılır. Bu, başlatma sürecini hızlandırır ve yalnızca uygulamanın gerçekten kullandığı şeyler için zaman harcanmasını sağlar.</p>
+<p>Yorum yazarken, "biz" gibi birinci çoğul şahıs zamirlerini kullanmaktan kaçının (örneğin, "Biz döngü yapıyoruz" yerine "Döngü yap" yazın).</p>
+<p>Test açıklamalarında, her bir testin sergilediği beklenen davranışı belirtin. "Şunu test eder" veya "Şunu sağlar" gibi giriş cümlelerini eklemeyin.</p>
+<p>Belgelerde veya yorumlarda kolayca açıklanamayan ek ayrıntılar içeren, daha az bilinen sorunlar için bilet referanslarını saklayın. Bilet numarasını şu şekilde cümlenin sonuna ekleyin:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
 <span class="w"> </span><span class="sd">&quot;&quot;&quot;Bir test docstring&#39;i şöyle görünür (#123456).&quot;&quot;&quot;</span>
 </code></pre></div>

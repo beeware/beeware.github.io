@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Nagłówek"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/what/write-docs/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/what/write-docs/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -5030,216 +5038,75 @@ aria-label="Nagłówek"
 
 
 <h1 id="dodawanie-dokumentacji">Dodawanie dokumentacji<a class="headerlink" href="#dodawanie-dokumentacji" title="Permanent link">&para;</a></h1>
-<p>Możesz mieć najlepsze oprogramowanie na świecie, ale jeśli nikt nie wie, jak z
-niego korzystać, to jaki ma to sens? Dokumentacja zawsze może zostać ulepszona –
-i potrzebujemy Twojej pomocy!</p>
+<p>Możesz mieć najlepsze oprogramowanie na świecie, ale jeśli nikt nie wie, jak z niego korzystać, to jaki ma to sens? Dokumentacja zawsze może zostać ulepszona – i potrzebujemy Twojej pomocy!</p>
 <h2 id="docs-form">Formularze dokumentacji<a class="headerlink" href="#docs-form" title="Permanent link">&para;</a></h2>
-<p>Dokumentacja BeeWare's została napisana przy użyciu <a href="https://www.markdownguide.org/basic-syntax/">MkDocs i
-Markdown</a>. Staramy się stosować
-framework <a href="https://diataxis.fr">Diataxis</a> do strukturyzowania dokumentacji.</p>
+<p>Dokumentacja BeeWare's została napisana przy użyciu <a href="https://www.markdownguide.org/basic-syntax/">MkDocs i Markdown</a>. Staramy się stosować framework <a href="https://diataxis.fr">Diataxis</a> do strukturyzowania dokumentacji.</p>
 <p>Struktura Diataxis opisuje cztery „formy” dokumentacji:</p>
 <ul>
-<li><strong>Samouczek</strong> — doświadczenie edukacyjne z przewodnikiem, z konkretnym celem
-  projektu.</li>
-<li><strong>Poradnik</strong> – instrukcje, które prowadzą czytelnika do określonego celu lub
-  rezultatu.</li>
-<li><strong>Przewodnik tematyczny</strong> – omówienie pojedynczej idei, wyjaśnione w taki
-  sposób, aby podstawowe pojęcia były jasne.</li>
-<li><strong>Odniesienie</strong> — opisy techniczne konkretnych interfejsów API lub innych
-  interfejsów.</li>
+<li><strong>Samouczek</strong> — doświadczenie edukacyjne z przewodnikiem, z konkretnym celem projektu.</li>
+<li><strong>Poradnik</strong> – instrukcje, które prowadzą czytelnika do określonego celu lub rezultatu.</li>
+<li><strong>Przewodnik tematyczny</strong> – omówienie pojedynczej idei, wyjaśnione w taki sposób, aby podstawowe pojęcia były jasne.</li>
+<li><strong>Odniesienie</strong> — opisy techniczne konkretnych interfejsów API lub innych interfejsów.</li>
 </ul>
-<p>Przed rozpoczęciem pracy nad dokumentacją należy określić, jaki format będzie
-najbardziej odpowiedni. Wiele propozycji dotyczących dokumentacji jest
-początkowo opisywanych jako prośba o „samouczek dotyczący X”, ale w większości
-przypadków faktycznie potrzebne są instrukcje, przewodniki tematyczne lub
-ulepszone informacje referencyjne.</p>
-<p>Jako przykład rozważmy zadanie polegające na napisaniu dokumentacji dotyczącej
-pieczenia ciasteczek.</p>
+<p>Przed rozpoczęciem pracy nad dokumentacją należy określić, jaki format będzie najbardziej odpowiedni. Wiele propozycji dotyczących dokumentacji jest początkowo opisywanych jako prośba o „samouczek dotyczący X”, ale w większości przypadków faktycznie potrzebne są instrukcje, przewodniki tematyczne lub ulepszone informacje referencyjne.</p>
+<p>Jako przykład rozważmy zadanie polegające na napisaniu dokumentacji dotyczącej pieczenia ciasteczek.</p>
 <h3 id="samouczek">Samouczek<a class="headerlink" href="#samouczek" title="Permanent link">&para;</a></h3>
-<p>Samouczek to wprowadzenie, skierowane szczególnie do początkujących, którego
-celem powinno być przeprowadzenie czytelnika od czystego punktu wyjścia do
-gotowego produktu. Wymaga on bardzo konkretnych instrukcji i szczegółowych
-wyjaśnień, które umieszczają kolejne kroki samouczka w odpowiednim kontekście.
-Nie należy zakładać żadnego doświadczenia czytelnika w zakresie opisywanego
-narzędzia, chociaż rozsądne jest założenie pewnej podstawowej znajomości języka
-Python.</p>
-<p>Samouczek powinien zawierać regularne punkty kontrolne, w których czytelnik może
-sprawdzić, czy udało mu się wykonać opisane czynności. W każdym punkcie
-kontrolnym kryteria sukcesu powinny być jasne. Należy wyraźnie opisać znane
-przypadki niepowodzeń, w tym wyjaśnienia wszelkich prawdopodobnych błędów lub
-problemów, które mogą wystąpić u czytelnika. Należy wskazać rzeczy, które
-ulegają zmianie w wyniku działań podjętych przez czytelnika, nawet jeśli wydają
-się oczywiste. Zachęca się do powtarzania, zwłaszcza jeśli próbujesz ustalić
-najlepsze praktyki lub wspólne procesy. Należy unikać wyjaśnień dotyczących
-wewnętrznych aspektów, podobnie jak alternatywnych ścieżek prowadzących do tego
-samego wyniku.</p>
-<p>Samouczek dotyczący pieczenia ciasteczek to coś więcej niż tylko przepis.
-Instrukcje zawarte w samouczku powinny być zrozumiałe dla osób, które nigdy
-wcześniej nie piekły (np. dzieci), i powinny uwzględniać kwestie, które dla
-doświadczonego piekarza są oczywiste, takie jak sposób ubijania cukru i masła,
-proces rozgrzewania piekarnika lub czas, przez jaki ciasteczka powinny ostygnąć
-przed spożyciem. Celem samouczka nie jest wypieczenie ciasteczek, ale
-przekazanie podstawowych informacji na temat pieczenia. Gotowe ciasteczka są
-smacznym przysmakiem, który przekonuje kogoś do skorzystania z samouczka.</p>
+<p>Samouczek to wprowadzenie, skierowane szczególnie do początkujących, którego celem powinno być przeprowadzenie czytelnika od czystego punktu wyjścia do gotowego produktu. Wymaga on bardzo konkretnych instrukcji i szczegółowych wyjaśnień, które umieszczają kolejne kroki samouczka w odpowiednim kontekście. Nie należy zakładać żadnego doświadczenia czytelnika w zakresie opisywanego narzędzia, chociaż rozsądne jest założenie pewnej podstawowej znajomości języka Python.</p>
+<p>Samouczek powinien zawierać regularne punkty kontrolne, w których czytelnik może sprawdzić, czy udało mu się wykonać opisane czynności. W każdym punkcie kontrolnym kryteria sukcesu powinny być jasne. Należy wyraźnie opisać znane przypadki niepowodzeń, w tym wyjaśnienia wszelkich prawdopodobnych błędów lub problemów, które mogą wystąpić u czytelnika. Należy wskazać rzeczy, które ulegają zmianie w wyniku działań podjętych przez czytelnika, nawet jeśli wydają się oczywiste. Zachęca się do powtarzania, zwłaszcza jeśli próbujesz ustalić najlepsze praktyki lub wspólne procesy. Należy unikać wyjaśnień dotyczących wewnętrznych aspektów, podobnie jak alternatywnych ścieżek prowadzących do tego samego wyniku.</p>
+<p>Samouczek dotyczący pieczenia ciasteczek to coś więcej niż tylko przepis. Instrukcje zawarte w samouczku powinny być zrozumiałe dla osób, które nigdy wcześniej nie piekły (np. dzieci), i powinny uwzględniać kwestie, które dla doświadczonego piekarza są oczywiste, takie jak sposób ubijania cukru i masła, proces rozgrzewania piekarnika lub czas, przez jaki ciasteczka powinny ostygnąć przed spożyciem. Celem samouczka nie jest wypieczenie ciasteczek, ale przekazanie podstawowych informacji na temat pieczenia. Gotowe ciasteczka są smacznym przysmakiem, który przekonuje kogoś do skorzystania z samouczka.</p>
 <h3 id="poradnik">Poradnik<a class="headerlink" href="#poradnik" title="Permanent link">&para;</a></h3>
-<p>Poradnik powinien skupiać się na konkretnych, rzeczywistych przypadkach użycia i
-praktycznych wynikach, a nie na teoretycznych wyjaśnieniach. W przeciwieństwie
-do samouczka, można założyć, że czytelnik ma pewną znajomość istniejących
-narzędzi. Czytelnik powinien być w stanie postępować zgodnie z poradnikiem od
-początku do końca i osiągnąć cel, ale może potrzebować do tego pewnej wiedzy.
-Poradnik powinien zawierać zestaw konkretnych instrukcji lub logicznych kroków,
-które należy wykonać, aby osiągnąć cel poradnika.</p>
-<p>Przepis w książce kucharskiej jest dobrym przykładem instrukcji obsługi.
-Istnieje wiele przepisów na ciasteczka z kawałkami czekolady i wszystkie one
-mają wspólne cechy, ale każdy konkretny przepis powinien być możliwy do
-wykonania od początku do końca i dawać spójny rezultat. Dobry przepis na
-ciasteczka z kawałkami czekolady nie będzie zawierał dygresji na temat
-względnych zalet różnych rodzajów cukru lub mąki ani szczegółowych instrukcji
-dotyczących podstawowych technik lub procesów; będzie zawierał tylko składniki i
-instrukcje dotyczące pieczenia partii ciasteczek, zakładając, że czytelnik ma
-podstawową wiedzę na temat pieczenia.</p>
+<p>Poradnik powinien skupiać się na konkretnych, rzeczywistych przypadkach użycia i praktycznych wynikach, a nie na teoretycznych wyjaśnieniach. W przeciwieństwie do samouczka, można założyć, że czytelnik ma pewną znajomość istniejących narzędzi. Czytelnik powinien być w stanie postępować zgodnie z poradnikiem od początku do końca i osiągnąć cel, ale może potrzebować do tego pewnej wiedzy. Poradnik powinien zawierać zestaw konkretnych instrukcji lub logicznych kroków, które należy wykonać, aby osiągnąć cel poradnika.</p>
+<p>Przepis w książce kucharskiej jest dobrym przykładem instrukcji obsługi. Istnieje wiele przepisów na ciasteczka z kawałkami czekolady i wszystkie one mają wspólne cechy, ale każdy konkretny przepis powinien być możliwy do wykonania od początku do końca i dawać spójny rezultat. Dobry przepis na ciasteczka z kawałkami czekolady nie będzie zawierał dygresji na temat względnych zalet różnych rodzajów cukru lub mąki ani szczegółowych instrukcji dotyczących podstawowych technik lub procesów; będzie zawierał tylko składniki i instrukcje dotyczące pieczenia partii ciasteczek, zakładając, że czytelnik ma podstawową wiedzę na temat pieczenia.</p>
 <h3 id="przewodnik-tematyczny">Przewodnik tematyczny<a class="headerlink" href="#przewodnik-tematyczny" title="Permanent link">&para;</a></h3>
-<p>Przewodnik tematyczny opisuje pojedynczy temat lub ideę. Może zawierać
-przykładowy kod lub instrukcje, ale w znacznie większym stopniu skupia się na
-przedstawieniu ogólnego zarysu danej koncepcji. Może zawierać opinie i
-alternatywne punkty widzenia, ale należy zachować nacisk na konkretny temat
-przewodnika.</p>
-<p>Przewodnik tematyczny dotyczący pieczenia ciastek może zawierać informacje na
-temat historii ciastek jako wypieku, wyjaśniać, w jaki sposób procesy
-przemysłowe wpływają na różnice między ciastkami przemysłowymi a domowymi, lub
-sugerować sposoby włączenia ciastek do zbilansowanej diety. Sam w sobie nie
-byłby to zbyt przydatny dokument dla osób chcących upiec ciastka, ale mógłby
-stanowić źródło informacji umożliwiające osobom zaznajomionym z pieczeniem
-dostosowanie istniejącego przepisu na ciastka do własnych potrzeb.</p>
+<p>Przewodnik tematyczny opisuje pojedynczy temat lub ideę. Może zawierać przykładowy kod lub instrukcje, ale w znacznie większym stopniu skupia się na przedstawieniu ogólnego zarysu danej koncepcji. Może zawierać opinie i alternatywne punkty widzenia, ale należy zachować nacisk na konkretny temat przewodnika.</p>
+<p>Przewodnik tematyczny dotyczący pieczenia ciastek może zawierać informacje na temat historii ciastek jako wypieku, wyjaśniać, w jaki sposób procesy przemysłowe wpływają na różnice między ciastkami przemysłowymi a domowymi, lub sugerować sposoby włączenia ciastek do zbilansowanej diety. Sam w sobie nie byłby to zbyt przydatny dokument dla osób chcących upiec ciastka, ale mógłby stanowić źródło informacji umożliwiające osobom zaznajomionym z pieczeniem dostosowanie istniejącego przepisu na ciastka do własnych potrzeb.</p>
 <h3 id="odniesienie">Odniesienie<a class="headerlink" href="#odniesienie" title="Permanent link">&para;</a></h3>
-<p>Dokumentacja referencyjna ma charakter informacyjny i opisuje specyfikę
-działania biblioteki narzędzi. Często można ją wygenerować na podstawie samego
-kodu, ale dobra dokumentacja API może wymagać dodatkowych wyjaśnień i kontekstu.
-Chociaż czasami może zawierać przykłady użycia, należy unikać szczegółowych
-wyjaśnień.</p>
-<p>Przewodnik po pieczeniu może zawierać opis rodzajów cukru, które można stosować,
-oraz szczegółowe informacje na temat ich właściwości podczas pieczenia. Opisuje
-on fakty dotyczące cukru, ale szersza dyskusja na temat wyboru rodzajów cukru
-powinna być przedmiotem poradnika lub przewodnika tematycznego. Informacje o
-wartościach odżywczych znajdujące się na większości opakowań produktów
-spożywczych można uznać za dokumentację referencyjną.</p>
+<p>Dokumentacja referencyjna ma charakter informacyjny i opisuje specyfikę działania biblioteki narzędzi. Często można ją wygenerować na podstawie samego kodu, ale dobra dokumentacja API może wymagać dodatkowych wyjaśnień i kontekstu. Chociaż czasami może zawierać przykłady użycia, należy unikać szczegółowych wyjaśnień.</p>
+<p>Przewodnik po pieczeniu może zawierać opis rodzajów cukru, które można stosować, oraz szczegółowe informacje na temat ich właściwości podczas pieczenia. Opisuje on fakty dotyczące cukru, ale szersza dyskusja na temat wyboru rodzajów cukru powinna być przedmiotem poradnika lub przewodnika tematycznego. Informacje o wartościach odżywczych znajdujące się na większości opakowań produktów spożywczych można uznać za dokumentację referencyjną.</p>
 <h2 id="styl-dokumentacji">Styl dokumentacji<a class="headerlink" href="#styl-dokumentacji" title="Permanent link">&para;</a></h2>
-<p>Dokumentacja BeeWare's jest zgodna z wytycznymi zawartymi w
-<a href="../../style/docs-style-guide/">przewodniku stylistycznym dokumentacji</a>.
-Przewodnik ten zawiera podstawowe zasady dotyczące stylu i formatowania oraz
-proces sprawdzania pisowni. Obejmuje również różne szczegóły składni Markdown,
-takie jak składnia linków referencyjnych, wskazówki dotyczące pracy z blokami
-kodu i obsługi obrazów.</p>
+<p>Dokumentacja BeeWare's jest zgodna z wytycznymi zawartymi w <a href="../../style/docs-style-guide/">przewodniku stylistycznym dokumentacji</a>. Przewodnik ten zawiera podstawowe zasady dotyczące stylu i formatowania oraz proces sprawdzania pisowni. Obejmuje również różne szczegóły składni Markdown, takie jak składnia linków referencyjnych, wskazówki dotyczące pracy z blokami kodu i obsługi obrazów.</p>
 <h2 id="dokumentacja-pomocnicza">Dokumentacja pomocnicza<a class="headerlink" href="#dokumentacja-pomocnicza" title="Permanent link">&para;</a></h2>
 <details class="abstract">
 <summary>Proponowanie nowej dokumentacji</summary>
 <h1 id="proponowanie-nowej-funkcji">Proponowanie nowej funkcji<a class="headerlink" href="#proponowanie-nowej-funkcji" title="Permanent link">&para;</a></h1>
-<p>Masz pomysł na ulepszenie BeeWare – jak zgłosić ten pomysł do
-rozpatrzenia?</p>
+<p>Masz pomysł na ulepszenie BeeWare – jak zgłosić ten pomysł do rozpatrzenia?</p>
 <h3 id="zrob-swoje-badania">Zrób swoje badania<a class="headerlink" href="#zrob-swoje-badania" title="Permanent link">&para;</a></h3>
-<p>Pierwszym krokiem jest przeszukanie systemu śledzenia problemów BeeWare pod kątem istniejących <a href="https://github.com/search?q=org%3Abeeware+is%3Aopen+is%3Aissue+label%3Aenhancement&amp;type=issues">problemów dotyczących funkcji (problemy oznaczone
-tagiem „enhancement”)</a>, <a href="https://github.com/search?q=org%3Abeeware+is%3Aopen+is%3Aissue+label%3Adocumentation&amp;type=issues">problemów
-dotyczących dokumentacji (problemy oznaczone tagiem „documentation”)</a> lub <a href="https://github.com/beeware/beeware/discussions">wątków
-dyskusyjnych</a>, aby
-sprawdzić, czy pomysł został już wcześniej zgłoszony. Jeśli tak, a masz nowe
-informacje lub pomysły do dodania, dołącz je do istniejącego wątku. Jeśli
-potrzebujesz pomocy w poszukiwaniach, możesz poprosić o nią na kanale #dev na
-<a href="https://beeware.org/bee/chat/">BeeWare Discord</a>. Być może będziemy w stanie
-wskazać Ci istniejące wątki, dostarczyć informacji, których możesz nie znać, lub
-połączyć Twój pomysł z innym, który na pierwszy rzut oka może wydawać się
-niepowiązany.</p>
+<p>Pierwszym krokiem jest przeszukanie systemu śledzenia problemów BeeWare pod kątem istniejących <a href="https://github.com/search?q=org%3Abeeware+is%3Aopen+is%3Aissue+label%3Aenhancement&amp;type=issues">problemów dotyczących funkcji (problemy oznaczone tagiem „enhancement”)</a>, <a href="https://github.com/search?q=org%3Abeeware+is%3Aopen+is%3Aissue+label%3Adocumentation&amp;type=issues">problemów dotyczących dokumentacji (problemy oznaczone tagiem „documentation”)</a> lub <a href="https://github.com/beeware/beeware/discussions">wątków dyskusyjnych</a>, aby sprawdzić, czy pomysł został już wcześniej zgłoszony. Jeśli tak, a masz nowe informacje lub pomysły do dodania, dołącz je do istniejącego wątku. Jeśli potrzebujesz pomocy w poszukiwaniach, możesz poprosić o nią na kanale #dev na <a href="https://beeware.org/bee/chat/">BeeWare Discord</a>. Być może będziemy w stanie wskazać Ci istniejące wątki, dostarczyć informacji, których możesz nie znać, lub połączyć Twój pomysł z innym, który na pierwszy rzut oka może wydawać się niepowiązany.</p>
 <h3 id="omow-pomys">Omów pomysł<a class="headerlink" href="#omow-pomys" title="Permanent link">&para;</a></h3>
-<p>Jeśli nie znajdziesz żadnych istniejących odniesień do swojego pomysłu,
-rozpocznij <a href="https://github.com/beeware/beeware/discussions">wątek dyskusji</a>. Przedstaw ogólny opis celu i zastosowania swojego pomysłu.
-Dodaj wszelkie przemyślenia na temat tego, jak wyglądałaby ta funkcja, gdyby
-została wdrożona, np. ogólny kształt interfejsu API, wygląd wizualny funkcji lub
-dokument, który zostałby dodany. W stosownych przypadkach należy również
-dołączyć wszelkie badania dotyczące tego, jak pomysł zostałby zrealizowany na
-różnych platformach.</p>
-<p>Po otwarciu wątku dyskusji zespół BeeWare i reszta społeczności udzielą
-odpowiedzi. Główny zespół postara się przedstawić przynajmniej wstępną opinię na
-temat Twojego pomysłu w ciągu dwóch dni roboczych. Jeśli pomysł jest szczególnie
-złożony, bardziej szczegółowa analiza może potrwać do tygodnia. Wydarzenia takie
-jak święta i konferencje mogą spowodować nieznaczne wydłużenie tych terminów.</p>
-<p>To Twoja szansa, aby wziąć udział w dyskusji na temat Twojego pomysłu. Możemy
-poprosić Cię o podanie dodatkowych szczegółów lub kontekstu. Inni członkowie
-społeczności również mogą włączyć się do dyskusji, przedstawiając inne
-perspektywy, sugestie lub kontrpropozycje. Wynik tej dyskusji będzie decydował o
-kolejnych krokach.</p>
-<p>Ważne jest, aby zrozumieć, że nie wszystkie pomysły zostaną zaakceptowane.
-Proces ten rozpoczyna się od złożenia wniosku, aby uniknąć sytuacji, w której
-wykonasz całą pracę, a następnie dowiesz się, że istnieje powód, dla którego
-Twoja zmiana nie zostanie zaakceptowana.</p>
-<p>Nie oznacza to, że nie był to dobry pomysł! Mogą istnieć techniczne powody, dla
-których nie można go wdrożyć. Na przykład możemy odrzucić pomysł, jeśli:</p>
+<p>Jeśli nie znajdziesz żadnych istniejących odniesień do swojego pomysłu, rozpocznij <a href="https://github.com/beeware/beeware/discussions">wątek dyskusji</a>. Przedstaw ogólny opis celu i zastosowania swojego pomysłu. Dodaj wszelkie przemyślenia na temat tego, jak wyglądałaby ta funkcja, gdyby została wdrożona, np. ogólny kształt interfejsu API, wygląd wizualny funkcji lub dokument, który zostałby dodany. W stosownych przypadkach należy również dołączyć wszelkie badania dotyczące tego, jak pomysł zostałby zrealizowany na różnych platformach.</p>
+<p>Po otwarciu wątku dyskusji zespół BeeWare i reszta społeczności udzielą odpowiedzi. Główny zespół postara się przedstawić przynajmniej wstępną opinię na temat Twojego pomysłu w ciągu dwóch dni roboczych. Jeśli pomysł jest szczególnie złożony, bardziej szczegółowa analiza może potrwać do tygodnia. Wydarzenia takie jak święta i konferencje mogą spowodować nieznaczne wydłużenie tych terminów.</p>
+<p>To Twoja szansa, aby wziąć udział w dyskusji na temat Twojego pomysłu. Możemy poprosić Cię o podanie dodatkowych szczegółów lub kontekstu. Inni członkowie społeczności również mogą włączyć się do dyskusji, przedstawiając inne perspektywy, sugestie lub kontrpropozycje. Wynik tej dyskusji będzie decydował o kolejnych krokach.</p>
+<p>Ważne jest, aby zrozumieć, że nie wszystkie pomysły zostaną zaakceptowane. Proces ten rozpoczyna się od złożenia wniosku, aby uniknąć sytuacji, w której wykonasz całą pracę, a następnie dowiesz się, że istnieje powód, dla którego Twoja zmiana nie zostanie zaakceptowana.</p>
+<p>Nie oznacza to, że nie był to dobry pomysł! Mogą istnieć techniczne powody, dla których nie można go wdrożyć. Na przykład możemy odrzucić pomysł, jeśli:</p>
 <ul>
-<li>Byłoby to trudne lub niemożliwe do wdrożenia w sposób niezawodny na wszystkich
-  obsługiwanych platformach; lub</li>
-<li>Byłoby to trudne do utrzymania lub konserwacja wymagałaby dostępu do
-  technologii lub oprogramowania, które nie są powszechnie dostępne; lub</li>
-<li>Obsługuje niszową grupę odbiorców, ale nakłada znaczne obciążenia na innych
-  użytkowników.</li>
+<li>Byłoby to trudne lub niemożliwe do wdrożenia w sposób niezawodny na wszystkich obsługiwanych platformach; lub</li>
+<li>Byłoby to trudne do utrzymania lub konserwacja wymagałaby dostępu do technologii lub oprogramowania, które nie są powszechnie dostępne; lub</li>
+<li>Obsługuje niszową grupę odbiorców, ale nakłada znaczne obciążenia na innych użytkowników.</li>
 </ul>
-<p>Jeśli uznamy, że Twój pomysł nie pasuje, nie oznacza to koniecznie, że
-powinieneś z niego zrezygnować. Chociaż możemy odrzucić <em>konkretny</em> pomysł,
-możemy być znacznie bardziej skłonni do dodania interfejsu wtyczki lub innego
-punktu rozszerzenia, który pozwoliłby Ci zachować tę samą funkcję jako
-bibliotekę zewnętrzną. W ten sposób możesz mieć tę funkcję, ale bez konkretnych
-problemów związanych z utrzymaniem lub ograniczeń funkcji, które stałyby się
-ograniczeniem dla samego projektu.</p>
+<p>Jeśli uznamy, że Twój pomysł nie pasuje, nie oznacza to koniecznie, że powinieneś z niego zrezygnować. Chociaż możemy odrzucić <em>konkretny</em> pomysł, możemy być znacznie bardziej skłonni do dodania interfejsu wtyczki lub innego punktu rozszerzenia, który pozwoliłby Ci zachować tę samą funkcję jako bibliotekę zewnętrzną. W ten sposób możesz mieć tę funkcję, ale bez konkretnych problemów związanych z utrzymaniem lub ograniczeń funkcji, które stałyby się ograniczeniem dla samego projektu.</p>
 <h3 id="przeksztac-w-formalna-prosbe-o-dodanie-funkcji">Przekształć w formalną prośbę o dodanie funkcji<a class="headerlink" href="#przeksztac-w-formalna-prosbe-o-dodanie-funkcji" title="Permanent link">&para;</a></h3>
-<p>Gdy dyskusja doprowadzi do konsensusu w sprawie formy funkcji, można utworzyć
-nowe zgłoszenie dotyczące funkcji (https://github.com/beeware/beeware/issues/new/choose) w systemie śledzenia zgłoszeń BeeWare, które
-podsumowuje dyskusję i zawiera link do niej dla kontekstu.</p>
-<p>Nie musisz samodzielnie wdrażać swojej propozycji funkcji; możesz zgłosić
-problem, podając szczegóły swojej propozycji. Jednak samo zgłoszenie problemu
-nie oznacza, że zostanie on wdrożony. Musisz poczekać, aż ktoś inny
-zainteresowany tą samą funkcją, czy to inny członek społeczności, czy zespół
-główny, potencjalnie ją wybierze; nie ma jednak gwarancji, że tak się stanie.
-Jeśli chcesz mieć gwarancję wdrożenia, musisz wdrożyć ją samodzielnie lub
-zapłacić komuś, kto zrobi to za Ciebie.</p>
-<p>Jeśli jesteś zainteresowany, możesz rozpocząć <a href="../implement-feature/">wdrażanie nowej
-funkcji</a>.</p>
+<p>Gdy dyskusja doprowadzi do konsensusu w sprawie formy funkcji, można utworzyć nowe zgłoszenie dotyczące funkcji (https://github.com/beeware/beeware/issues/new/choose) w systemie śledzenia zgłoszeń BeeWare, które podsumowuje dyskusję i zawiera link do niej dla kontekstu.</p>
+<p>Nie musisz samodzielnie wdrażać swojej propozycji funkcji; możesz zgłosić problem, podając szczegóły swojej propozycji. Jednak samo zgłoszenie problemu nie oznacza, że zostanie on wdrożony. Musisz poczekać, aż ktoś inny zainteresowany tą samą funkcją, czy to inny członek społeczności, czy zespół główny, potencjalnie ją wybierze; nie ma jednak gwarancji, że tak się stanie. Jeśli chcesz mieć gwarancję wdrożenia, musisz wdrożyć ją samodzielnie lub zapłacić komuś, kto zrobi to za Ciebie.</p>
+<p>Jeśli jesteś zainteresowany, możesz rozpocząć <a href="../implement-feature/">wdrażanie nowej funkcji</a>.</p>
 </details>
 <details class="abstract">
 <summary>Skonfiguruj środowisko programistyczne</summary>
 <h1 id="konfiguracja-srodowiska-programistycznego">Konfiguracja środowiska programistycznego<a class="headerlink" href="#konfiguracja-srodowiska-programistycznego" title="Permanent link">&para;</a></h1>
-<p>Kroki niezbędne do skonfigurowania środowiska programistycznego różnią się w
-zależności od projektu, w którym bierzesz udział. Wybierz jedną z poniższych
-opcji:</p>
+<p>Kroki niezbędne do skonfigurowania środowiska programistycznego różnią się w zależności od projektu, w którym bierzesz udział. Wybierz jedną z poniższych opcji:</p>
 <ul>
 <li><a href="https://briefcase.beeware.org/en/stable/how-to/contribute/how/dev-environment/">Briefcase</a></li>
 <li><a href="https://toga.beeware.org/en/stable/how-to/contribute/how/dev-environment/">Toga</a></li>
-<li><a href="https://rubicon-objc.beeware.org/en/stable/how-to/contribute/how/dev-environment/">Rubicon
-  Objective-C</a></li>
+<li><a href="https://rubicon-objc.beeware.org/en/stable/how-to/contribute/how/dev-environment/">Rubicon Objective-C</a></li>
 </ul>
-<p>Jeśli repozytorium, do którego chcesz wnieść swój wkład, nie znajduje się na tej
-liście, postępuj zgodnie z przewodnikiem programistycznym odpowiedniego
-projektu. Na przykład, jeśli chcesz pracować nad repozytorium szablonów
-Briefcase, powinieneś postępować zgodnie z przewodnikiem dotyczącym Briefcase.</p>
+<p>Jeśli repozytorium, do którego chcesz wnieść swój wkład, nie znajduje się na tej liście, postępuj zgodnie z przewodnikiem programistycznym odpowiedniego projektu. Na przykład, jeśli chcesz pracować nad repozytorium szablonów Briefcase, powinieneś postępować zgodnie z przewodnikiem dotyczącym Briefcase.</p>
 </details>
 <details class="abstract">
 <summary>Praca z oddziału</summary>
 <h1 id="pracuj-z-gaezia-funkcji-a-nie-z-gaezia-main">Pracuj z gałęzią funkcji, a nie z gałęzią <code>main</code>.<a class="headerlink" href="#pracuj-z-gaezia-funkcji-a-nie-z-gaezia-main" title="Permanent link">&para;</a></h1>
-<p>Zanim zaczniesz pracować nad zmianą, upewnij się, że utworzyłeś gałąź. Domyślnie
-po sklonowaniu repozytorium fork zostaniesz przeniesiony do gałęzi <code>main</code>. Jest
-to bezpośrednia kopia gałęzi BeeWare z <code>main</code>.</p>
-<p>Chociaż <em>możesz</em> przesłać pull request z gałęzi <code>main</code>, lepiej tego <em>nie</em> robić.
-Jeśli prześlesz pull request, który jest <em>prawie</em> poprawny, członek zespołu
-głównego, który go sprawdzi, może wprowadzić niezbędne zmiany, zamiast prosić o
-drobne poprawki. Jeśli jednak prześlesz pull request z gałęzi <code>main</code>, recenzenci
-nie będą mogli wprowadzać zmian.</p>
-<p>Praca nad główną gałęzią utrudnia również <em>tobie</em> po zakończeniu pierwszego pull
-requestu. Jeśli chcesz pracować nad drugim pull requestem, będziesz potrzebować
-„czystej” kopii głównej gałęzi projektu upstream, na której opierasz swój drugi
-wkład; jeśli swój pierwszy wkład wykonałeś z gałęzi <code>main</code>, nie masz już
-dostępnej tej czystej wersji.</p>
-<p>Zamiast tego należy wprowadzać zmiany w <em>gałęzi funkcji</em>. Gałąź funkcji ma
-prostą nazwę, która pozwala zidentyfikować wprowadzoną zmianę. Na przykład,
-jeśli naprawiasz błąd powodujący problemy z kompilacją w systemie Windows 11,
-możesz utworzyć gałąź funkcji <code>fix-win11-build</code>. Jeśli błąd dotyczy konkretnego
-zgłoszonego problemu, często w nazwie gałęzi podaje się numer tego problemu (np.
-<code>fix-1234</code>).</p>
+<p>Zanim zaczniesz pracować nad zmianą, upewnij się, że utworzyłeś gałąź. Domyślnie po sklonowaniu repozytorium fork zostaniesz przeniesiony do gałęzi <code>main</code>. Jest to bezpośrednia kopia gałęzi BeeWare z <code>main</code>.</p>
+<p>Chociaż <em>możesz</em> przesłać pull request z gałęzi <code>main</code>, lepiej tego <em>nie</em> robić. Jeśli prześlesz pull request, który jest <em>prawie</em> poprawny, członek zespołu głównego, który go sprawdzi, może wprowadzić niezbędne zmiany, zamiast prosić o drobne poprawki. Jeśli jednak prześlesz pull request z gałęzi <code>main</code>, recenzenci nie będą mogli wprowadzać zmian.</p>
+<p>Praca nad główną gałęzią utrudnia również <em>tobie</em> po zakończeniu pierwszego pull requestu. Jeśli chcesz pracować nad drugim pull requestem, będziesz potrzebować „czystej” kopii głównej gałęzi projektu upstream, na której opierasz swój drugi wkład; jeśli swój pierwszy wkład wykonałeś z gałęzi <code>main</code>, nie masz już dostępnej tej czystej wersji.</p>
+<p>Zamiast tego należy wprowadzać zmiany w <em>gałęzi funkcji</em>. Gałąź funkcji ma prostą nazwę, która pozwala zidentyfikować wprowadzoną zmianę. Na przykład, jeśli naprawiasz błąd powodujący problemy z kompilacją w systemie Windows 11, możesz utworzyć gałąź funkcji <code>fix-win11-build</code>. Jeśli błąd dotyczy konkretnego zgłoszonego problemu, często w nazwie gałęzi podaje się numer tego problemu (np. <code>fix-1234</code>).</p>
 <p>Aby utworzyć gałąź funkcji <code>fix-win11-build</code>, uruchom:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
 <div class="tabbed-content">
@@ -5261,70 +5128,26 @@ zgłoszonego problemu, często w nazwie gałęzi podaje się numer tego problemu
 <details class="abstract">
 <summary>Unikaj rozszerzania zakresu projektu</summary>
 <h1 id="unikanie-rozszerzania-zakresu-projektu">Unikanie rozszerzania zakresu projektu<a class="headerlink" href="#unikanie-rozszerzania-zakresu-projektu" title="Permanent link">&para;</a></h1>
-<p>„Rozszerzenie zakresu” ma miejsce, gdy lista problemów rozwiązanych lub funkcji
-wdrożonych w ramach jednego wkładu znacznie wykracza poza to, co było zamierzone
-na początku pracy. Zaczynasz od prostego problemu, odkrywasz ściśle powiązany
-problem i decydujesz się uwzględnić również to rozwiązanie, a potem pojawia się
-trzeci&hellip; Zanim się zorientujesz, masz pull request, który zamyka 5 problemów i
-dodaje 3 nowe funkcje, w tym dziesiątki plików.</p>
-<p>Rozszerzanie zakresu projektu zdarza się każdemu. Jest to pojęcie dobrze znane
-doświadczonym programistom; wszyscy robiliśmy to wielokrotnie i doświadczyliśmy
-wszystkich problemów, które się z tym wiążą.</p>
-<p>Istnieją bardzo praktyczne powody, dla których należy unikać rozszerzania
-zakresu projektu. Im większy jest wkład, tym trudniej jest nad nim pracować.
-Trudniej jest zidentyfikować skrajne przypadki lub potencjalne problemy, co
-oznacza, że ogólna jakość wkładu może ulec pogorszeniu. Recenzje stają się
-również trudniejsze, gdy recenzent musi zajmować się wieloma, potencjalnie
-niepowiązanymi kontekstami. Większy wkład oznacza więcej komentarzy recenzentów,
-a jako autor wkładu może być trudno śledzić wiele wątków recenzji. Nawet Twoje
-doświadczenia z GitHubem ucierpią — interfejs użytkownika GitHub spowolni wraz
-ze wzrostem rozmiaru PR, co oznacza, że nawigacja po plikach za pośrednictwem
-interfejsu GitHub i próba pozostawienia komentarzy recenzentów stanie się coraz
-trudniejsza.</p>
-<p>Za każdym razem, gdy znajdziesz powód, aby dodać coś do swojego wkładu, co nie
-jest wyraźnie częścią pierwotnej propozycji lub zgłoszenia błędu, powinieneś
-rozważyć, czy nie zmierzasz w kierunku rozszerzenia zakresu projektu. Czy
-istnieją dwie odrębne funkcje, które można by wdrożyć osobno? Czy funkcja może
-zostać wdrożona ze znanym ograniczeniem lub błędem, a błąd ten naprawiony w
-kolejnym pull request? Czy jedna część poprawki błędu jest niezależna od
-drugiej? Jeśli część zmiany można pominąć bez zmiany pierwotnego wkładu,
-prawdopodobnie należy to zrobić.</p>
-<p>Tworzenie oprogramowania to zawsze proces stopniowego doskonalenia. Każdy
-indywidualny wkład powinien poprawiać stan kodu źródłowego w wyniku scalenia,
-ale całkowicie dopuszczalne jest pozostawienie błędów lub części funkcji do
-poprawienia w przyszłości. Może to oznaczać podzielenie pull requestu na wiele
-części, które można sprawdzić niezależnie, lub zarejestrowanie problemu, aby
-ktoś inny mógł go zbadać i rozwiązać.</p>
-<p>Ograniczenie zakresu każdego wkładu pomaga wszystkim zaangażowanym osobom, w tym
-również Tobie. Twoi recenzenci, a nawet Ty sam, z pewnością to docenicie.</p>
+<p>„Rozszerzenie zakresu” ma miejsce, gdy lista problemów rozwiązanych lub funkcji wdrożonych w ramach jednego wkładu znacznie wykracza poza to, co było zamierzone na początku pracy. Zaczynasz od prostego problemu, odkrywasz ściśle powiązany problem i decydujesz się uwzględnić również to rozwiązanie, a potem pojawia się trzeci&hellip; Zanim się zorientujesz, masz pull request, który zamyka 5 problemów i dodaje 3 nowe funkcje, w tym dziesiątki plików.</p>
+<p>Rozszerzanie zakresu projektu zdarza się każdemu. Jest to pojęcie dobrze znane doświadczonym programistom; wszyscy robiliśmy to wielokrotnie i doświadczyliśmy wszystkich problemów, które się z tym wiążą.</p>
+<p>Istnieją bardzo praktyczne powody, dla których należy unikać rozszerzania zakresu projektu. Im większy jest wkład, tym trudniej jest nad nim pracować. Trudniej jest zidentyfikować skrajne przypadki lub potencjalne problemy, co oznacza, że ogólna jakość wkładu może ulec pogorszeniu. Recenzje stają się również trudniejsze, gdy recenzent musi zajmować się wieloma, potencjalnie niepowiązanymi kontekstami. Większy wkład oznacza więcej komentarzy recenzentów, a jako autor wkładu może być trudno śledzić wiele wątków recenzji. Nawet Twoje doświadczenia z GitHubem ucierpią — interfejs użytkownika GitHub spowolni wraz ze wzrostem rozmiaru PR, co oznacza, że nawigacja po plikach za pośrednictwem interfejsu GitHub i próba pozostawienia komentarzy recenzentów stanie się coraz trudniejsza.</p>
+<p>Za każdym razem, gdy znajdziesz powód, aby dodać coś do swojego wkładu, co nie jest wyraźnie częścią pierwotnej propozycji lub zgłoszenia błędu, powinieneś rozważyć, czy nie zmierzasz w kierunku rozszerzenia zakresu projektu. Czy istnieją dwie odrębne funkcje, które można by wdrożyć osobno? Czy funkcja może zostać wdrożona ze znanym ograniczeniem lub błędem, a błąd ten naprawiony w kolejnym pull request? Czy jedna część poprawki błędu jest niezależna od drugiej? Jeśli część zmiany można pominąć bez zmiany pierwotnego wkładu, prawdopodobnie należy to zrobić.</p>
+<p>Tworzenie oprogramowania to zawsze proces stopniowego doskonalenia. Każdy indywidualny wkład powinien poprawiać stan kodu źródłowego w wyniku scalenia, ale całkowicie dopuszczalne jest pozostawienie błędów lub części funkcji do poprawienia w przyszłości. Może to oznaczać podzielenie pull requestu na wiele części, które można sprawdzić niezależnie, lub zarejestrowanie problemu, aby ktoś inny mógł go zbadać i rozwiązać.</p>
+<p>Ograniczenie zakresu każdego wkładu pomaga wszystkim zaangażowanym osobom, w tym również Tobie. Twoi recenzenci, a nawet Ty sam, z pewnością to docenicie.</p>
 </details>
 <details class="abstract">
 <summary>Dokumentacja budowlana</summary>
 <h1 id="dokumentacja-budowlana">Dokumentacja budowlana<a class="headerlink" href="#dokumentacja-budowlana" title="Permanent link">&para;</a></h1>
-<p>Przed wprowadzeniem jakichkolwiek zmian w dokumentacji BeeWare, warto
-sprawdzić, czy można skompilować istniejącą dokumentację.</p>
-<p>Przed przystąpieniem do tworzenia dokumentacji należy skonfigurować <a href="../../how/dev-environment/">środowisko
-programistyczne</a>.</p>
-<p><strong>Musisz</strong> mieć zainstalowany interpreter języka Python 3.13 i dostępny w ścieżce (tj. <code>python3.13</code> musi uruchamiać
-interpreter języka Python 3.13).</p>
-<p>BeeWare używa <code>tox</code> do tworzenia dokumentacji. Poniższe polecenia
-<code>tox</code> muszą być uruchamiane z tej samej lokalizacji co plik <code>tox.ini</code>, który
-znajduje się w katalogu głównym projektu.</p>
+<p>Przed wprowadzeniem jakichkolwiek zmian w dokumentacji BeeWare, warto sprawdzić, czy można skompilować istniejącą dokumentację.</p>
+<p>Przed przystąpieniem do tworzenia dokumentacji należy skonfigurować <a href="../../how/dev-environment/">środowisko programistyczne</a>.</p>
+<p><strong>Musisz</strong> mieć zainstalowany interpreter języka Python 3.13 i dostępny w ścieżce (tj. <code>python3.13</code> musi uruchamiać interpreter języka Python 3.13).</p>
+<p>BeeWare używa <code>tox</code> do tworzenia dokumentacji. Poniższe polecenia <code>tox</code> muszą być uruchamiane z tej samej lokalizacji co plik <code>tox.ini</code>, który znajduje się w katalogu głównym projektu.</p>
 <h3 id="podglad-dokumentacji-na-zywo">Podgląd dokumentacji na żywo<a class="headerlink" href="#podglad-dokumentacji-na-zywo" title="Permanent link">&para;</a></h3>
-<p>Aby ułatwić szybką edycję dokumentacji, BeeWare posiada tryb „podglądu
-na żywo”.</p>
+<p>Aby ułatwić szybką edycję dokumentacji, BeeWare posiada tryb „podglądu na żywo”.</p>
 <div class="admonition warning">
 <p class="admonition-title">Podgląd na żywo zostanie utworzony wraz z ostrzeżeniami!</p>
-<p>Usługa Live Serve umożliwia iterację aktualizacji dokumentacji. Podczas
-aktualizacji może pojawić się problem z oznaczeniami. Problemy oznaczone jako
-<code>WARNING</code> spowodują niepowodzenie standardowej kompilacji, jednak usługa Live
-Serve jest skonfigurowana tak, aby wyświetlać ostrzeżenia w konsoli, kontynuując
-jednocześnie kompilację. Dzięki temu można przeprowadzać iteracje bez
-konieczności ponownego uruchamiania podglądu na żywo.</p>
-<p><code>WARNING</code> różni się od <code>ERROR</code>. Jeśli wprowadzisz problem uznawany za <code>ERROR</code>,
-serwis na żywo nie będzie działał i konieczne będzie jego ponowne uruchomienie.
-Nie zostanie on ponownie uruchomiony, dopóki problem <code>WARNING</code> nie zostanie
-rozwiązany.</p>
+<p>Usługa Live Serve umożliwia iterację aktualizacji dokumentacji. Podczas aktualizacji może pojawić się problem z oznaczeniami. Problemy oznaczone jako <code>WARNING</code> spowodują niepowodzenie standardowej kompilacji, jednak usługa Live Serve jest skonfigurowana tak, aby wyświetlać ostrzeżenia w konsoli, kontynuując jednocześnie kompilację. Dzięki temu można przeprowadzać iteracje bez konieczności ponownego uruchamiania podglądu na żywo.</p>
+<p><code>WARNING</code> różni się od <code>ERROR</code>. Jeśli wprowadzisz problem uznawany za <code>ERROR</code>, serwis na żywo nie będzie działał i konieczne będzie jego ponowne uruchomienie. Nie zostanie on ponownie uruchomiony, dopóki problem <code>WARNING</code> nie zostanie rozwiązany.</p>
 </div>
 <p>Aby uruchomić serwer na żywo:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
@@ -5343,27 +5166,17 @@ rozwiązany.</p>
 </div>
 </div>
 </div>
-<p>Spowoduje to utworzenie dokumentacji, uruchomienie serwera WWW do obsługi
-dokumentacji oraz monitorowanie systemu plików pod kątem wszelkich zmian w
-źródłach dokumentacji.</p>
+<p>Spowoduje to utworzenie dokumentacji, uruchomienie serwera WWW do obsługi dokumentacji oraz monitorowanie systemu plików pod kątem wszelkich zmian w źródłach dokumentacji.</p>
 <p>Po uruchomieniu serwera w konsoli pojawi się następujący komunikat:</p>
 <div class="highlight"><pre><span></span><code><span class="go">INFO    -  [11:18:51] Obsługa na stronie http://127.0.0.1:8000/</span>
 </code></pre></div>
-<p>Otwórz przeglądarkę i przejdź do podanego adresu URL. Teraz możesz rozpocząć
-iterację dokumentacji. W przypadku wykrycia zmiany dokumentacja zostanie
-ponownie zbudowana, a każda przeglądarka wyświetlająca zmodyfikowaną stronę
-zostanie automatycznie odświeżona.</p>
+<p>Otwórz przeglądarkę i przejdź do podanego adresu URL. Teraz możesz rozpocząć iterację dokumentacji. W przypadku wykrycia zmiany dokumentacja zostanie ponownie zbudowana, a każda przeglądarka wyświetlająca zmodyfikowaną stronę zostanie automatycznie odświeżona.</p>
 <div class="admonition note">
 <p class="admonition-title"><code>docs-live</code> to pierwszy krok</p>
-<p>Uruchomienie <code>docs-live</code> w celu pracy z serwerem na żywo służy do wstępnej
-iteracji. Przed przesłaniem pull requestu należy <em>zawsze</em> uruchomić lokalną
-kompilację.</p>
+<p>Uruchomienie <code>docs-live</code> w celu pracy z serwerem na żywo służy do wstępnej iteracji. Przed przesłaniem pull requestu należy <em>zawsze</em> uruchomić lokalną kompilację.</p>
 </div>
 <h3 id="lokalna-kompilacja">Lokalna kompilacja<a class="headerlink" href="#lokalna-kompilacja" title="Permanent link">&para;</a></h3>
-<p>Po zakończeniu iteracji należy wykonać lokalną kompilację dokumentacji. Proces
-kompilacji jest zaprojektowany tak, aby zakończył się niepowodzeniem w przypadku
-wystąpienia jakichkolwiek problemów z oznaczeniami. Pozwala to wychwycić
-wszystko, co mogło zostać przeoczone na serwerze produkcyjnym.</p>
+<p>Po zakończeniu iteracji należy wykonać lokalną kompilację dokumentacji. Proces kompilacji jest zaprojektowany tak, aby zakończył się niepowodzeniem w przypadku wystąpienia jakichkolwiek problemów z oznaczeniami. Pozwala to wychwycić wszystko, co mogło zostać przeoczone na serwerze produkcyjnym.</p>
 <h4 id="generowanie-lokalnej-kompilacji">Generowanie lokalnej kompilacji<a class="headerlink" href="#generowanie-lokalnej-kompilacji" title="Permanent link">&para;</a></h4>
 <p>Aby wygenerować lokalną kompilację:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
@@ -5382,13 +5195,9 @@ wszystko, co mogło zostać przeoczone na serwerze produkcyjnym.</p>
 </div>
 </div>
 </div>
-<p>Wynik tej kompilacji zostanie zapisany w katalogu <code>_build</code> w katalogu głównym
-projektu.</p>
+<p>Wynik tej kompilacji zostanie zapisany w katalogu <code>_build</code> w katalogu głównym projektu.</p>
 <h4 id="generowanie-lokalnej-przetumaczonej-kompilacji">Generowanie lokalnej, przetłumaczonej kompilacji<a class="headerlink" href="#generowanie-lokalnej-przetumaczonej-kompilacji" title="Permanent link">&para;</a></h4>
-<p>Dokumentacja BeeWare' jest tłumaczona na wiele języków. Aktualizacje
-dokumentacji angielskiej mogą powodować problemy w wersjach w innych językach.
-Przed przesłaniem pull requestu należy sprawdzić, czy wszystkie wersje działają
-poprawnie.</p>
+<p>Dokumentacja BeeWare' jest tłumaczona na wiele języków. Aktualizacje dokumentacji angielskiej mogą powodować problemy w wersjach w innych językach. Przed przesłaniem pull requestu należy sprawdzić, czy wszystkie wersje działają poprawnie.</p>
 <p>Aby wygenerować kompilację wszystkich dostępnych tłumaczeń:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
@@ -5406,13 +5215,8 @@ poprawnie.</p>
 </div>
 </div>
 </div>
-<p>Wynik każdej kompilacji języka będzie znajdował się w powiązanym katalogu
-<code>_build/html/&lt;languagecode&gt;</code>, gdzie <code>&lt;languagecode&gt;</code> to dwu- lub pięcioznakowy
-kod języka powiązany z konkretnym językiem (np. <code>fr</code> dla francuskiego, <code>it</code> dla
-włoskiego itp.).</p>
-<p>Jeśli wykryjesz problem z pojedynczą kompilacją, możesz uruchomić tę kompilację
-osobno, wykonując polecenie <code>tox -e docs-&lt;languagecode&gt;</code>. Na przykład, aby
-skompilować tylko dokumentację w języku francuskim, uruchom:</p>
+<p>Wynik każdej kompilacji języka będzie znajdował się w powiązanym katalogu <code>_build/html/&lt;languagecode&gt;</code>, gdzie <code>&lt;languagecode&gt;</code> to dwu- lub pięcioznakowy kod języka powiązany z konkretnym językiem (np. <code>fr</code> dla francuskiego, <code>it</code> dla włoskiego itp.).</p>
+<p>Jeśli wykryjesz problem z pojedynczą kompilacją, możesz uruchomić tę kompilację osobno, wykonując polecenie <code>tox -e docs-&lt;languagecode&gt;</code>. Na przykład, aby skompilować tylko dokumentację w języku francuskim, uruchom:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5431,8 +5235,7 @@ skompilować tylko dokumentację w języku francuskim, uruchom:</p>
 </div>
 <p>Wynik kompilacji w jednym języku zostanie zapisany w katalogu <code>_build</code>.</p>
 <h3 id="sprawdzanie-poprawnosci-dokumentacji">Sprawdzanie poprawności dokumentacji<a class="headerlink" href="#sprawdzanie-poprawnosci-dokumentacji" title="Permanent link">&para;</a></h3>
-<p>Proces kompilacji wykrywa problemy związane z formatowaniem Markdown, ale BeeWare wykonuje dodatkowe kontrole stylu i formatowania, znane jako
-„linting”. Aby uruchomić kontrole lintingowe:</p>
+<p>Proces kompilacji wykrywa problemy związane z formatowaniem Markdown, ale BeeWare wykonuje dodatkowe kontrole stylu i formatowania, znane jako „linting”. Aby uruchomić kontrole lintingowe:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5454,141 +5257,72 @@ skompilować tylko dokumentację w języku francuskim, uruchom:</p>
 <li>nieaktywne hiperłącza</li>
 <li>błędnie napisane słowa</li>
 </ul>
-<p>Jeśli poprawna pisownia słowa zostanie uznana za błędną, dodaj to słowo do listy
-w <code>docs/spelling_wordlist</code>. Spowoduje to dodanie słowa do słownika modułu
-sprawdzania pisowni. Dodając słowo do tej listy, pamiętaj:</p>
+<p>Jeśli poprawna pisownia słowa zostanie uznana za błędną, dodaj to słowo do listy w <code>docs/spelling_wordlist</code>. Spowoduje to dodanie słowa do słownika modułu sprawdzania pisowni. Dodając słowo do tej listy, pamiętaj:</p>
 <ul>
-<li>Preferujemy pisownię amerykańską, z pewnymi swobodami w przypadku
-  kolokwializmów związanych z programowaniem (np. „apps”) oraz czasownikowania
-  rzeczowników (np. „scrollable”).</li>
-<li>Wszelkie odniesienia do nazw produktów powinny być zapisywane zgodnie z
-  preferowaną wielkością liter (np. „macOS”, „GTK”, „pytest”, „Pygame”,
-  „PyScript”).</li>
-<li>Jeśli termin jest używany „jako kod”, należy go cytować jako literał (<code>like
-  this</code>), a nie dodawać do słownika.</li>
+<li>Preferujemy pisownię amerykańską, z pewnymi swobodami w przypadku kolokwializmów związanych z programowaniem (np. „apps”) oraz czasownikowania rzeczowników (np. „scrollable”).</li>
+<li>Wszelkie odniesienia do nazw produktów powinny być zapisywane zgodnie z preferowaną wielkością liter (np. „macOS”, „GTK”, „pytest”, „Pygame”, „PyScript”).</li>
+<li>Jeśli termin jest używany „jako kod”, należy go cytować jako literał (<code>like this</code>), a nie dodawać do słownika.</li>
 </ul>
-<p>Po pomyślnym utworzeniu dokumentacji możesz przystąpić do <a href="../../how/write-docs/">pisania
-dokumentacji</a>.</p>
+<p>Po pomyślnym utworzeniu dokumentacji możesz przystąpić do <a href="../../how/write-docs/">pisania dokumentacji</a>.</p>
 </details>
 <details class="abstract">
 <summary>Pisanie dokumentacji</summary>
 <h1 id="pisanie-dokumentacji">Pisanie dokumentacji<a class="headerlink" href="#pisanie-dokumentacji" title="Permanent link">&para;</a></h1>
 <p>Oto kroki, które należy wykonać, aby napisać swój wkład w dokumentację BeeWare.</p>
-<p>Zanim zaczniesz pisać dokumentację, upewnij się, że jesteś w stanie <a href="../../how/build-docs/">zbudować
-dokumentację</a> i że <a href="../../how/branches/">pracujesz na
-gałęzi</a>.</p>
+<p>Zanim zaczniesz pisać dokumentację, upewnij się, że jesteś w stanie <a href="../../how/build-docs/">zbudować dokumentację</a> i że <a href="../../how/branches/">pracujesz na gałęzi</a>.</p>
 <h3 id="aktualizacja-istniejacej-dokumentacji">Aktualizacja istniejącej dokumentacji<a class="headerlink" href="#aktualizacja-istniejacej-dokumentacji" title="Permanent link">&para;</a></h3>
-<p>Jeśli edytujesz istniejące dokumenty, musisz znaleźć plik w katalogu <code>/docs/en</code>.
-Struktura plików jest zgodna ze strukturą stron, więc możesz znaleźć plik,
-korzystając z adresu URL dokumentacji.</p>
+<p>Jeśli edytujesz istniejące dokumenty, musisz znaleźć plik w katalogu <code>/docs/en</code>. Struktura plików jest zgodna ze strukturą stron, więc możesz znaleźć plik, korzystając z adresu URL dokumentacji.</p>
 <h3 id="dodawanie-nowej-dokumentacji">Dodawanie nowej dokumentacji<a class="headerlink" href="#dodawanie-nowej-dokumentacji" title="Permanent link">&para;</a></h3>
 <p>Jeśli dodajesz nowy dokument, musisz wykonać kilka dodatkowych czynności.</p>
-<p>Musisz utworzyć dokument w odpowiedniej lokalizacji w katalogu <code>docs/en</code>. Dla
-celów dyskusji załóżmy, że dodajesz nowy dokument o nazwie <code>new_doc.md</code>.</p>
-<p>Następnie należy zaktualizować plik <code>docs/en/SUMMARY.md</code>, aby uwzględnić nowy
-plik. Plik <code>SUMMARY.md</code> jest zorganizowany w sposób zasadniczo odzwierciedlający
-strukturę katalogów <code>docs/en</code>, ale co ważniejsze, bezpośrednio określa strukturę
-lewego paska bocznego. Jeśli zlokalizujesz sekcję, w której zamierzasz umieścić
-<code>new_doc.md</code>, nie musisz nic zmieniać w pliku <code>SUMMARY.md</code>, jeśli widzisz
-wymienioną ścieżkę z symbolem wieloznacznym. Na przykład:</p>
+<p>Musisz utworzyć dokument w odpowiedniej lokalizacji w katalogu <code>docs/en</code>. Dla celów dyskusji załóżmy, że dodajesz nowy dokument o nazwie <code>new_doc.md</code>.</p>
+<p>Następnie należy zaktualizować plik <code>docs/en/SUMMARY.md</code>, aby uwzględnić nowy plik. Plik <code>SUMMARY.md</code> jest zorganizowany w sposób zasadniczo odzwierciedlający strukturę katalogów <code>docs/en</code>, ale co ważniejsze, bezpośrednio określa strukturę lewego paska bocznego. Jeśli zlokalizujesz sekcję, w której zamierzasz umieścić <code>new_doc.md</code>, nie musisz nic zmieniać w pliku <code>SUMMARY.md</code>, jeśli widzisz wymienioną ścieżkę z symbolem wieloznacznym. Na przykład:</p>
 <div class="highlight"><pre><span></span><code><span class="k">-</span><span class="w"> </span>./ścieżka/do/katalogu/*
 </code></pre></div>
-<p>Jeśli sekcja, w której zamierzasz umieścić <code>new_doc.md</code>, jest listą
-poszczególnych linków Markdown, musisz dodać wyraźny link do swojego. Na
-przykład:</p>
+<p>Jeśli sekcja, w której zamierzasz umieścić <code>new_doc.md</code>, jest listą poszczególnych linków Markdown, musisz dodać wyraźny link do swojego. Na przykład:</p>
 <div class="highlight"><pre><span></span><code><span class="k">-</span><span class="w"> </span>[<span class="nt">Mój nowy dokument</span>](<span class="na">new_doc.md</span>)
 </code></pre></div>
 <h3 id="pisanie-dokumentacji_1">Pisanie dokumentacji<a class="headerlink" href="#pisanie-dokumentacji_1" title="Permanent link">&para;</a></h3>
 <p>Teraz możesz otworzyć wybrany plik w edytorze i rozpocząć pisanie.</p>
-<p>Posiadamy <a href="../../style/docs-style-guide/">przewodnik stylistyczny dotyczący
-dokumentacji</a>, który zawiera wytyczne dotyczące
-pisania dokumentacji dla BeeWare.</p>
-<p>Gdy będziesz zadowolony z nowej dokumentacji, możesz <a href="../../how/submit-pr/">przesłać pull
-request</a> z proponowanymi zmianami.</p>
+<p>Posiadamy <a href="../../style/docs-style-guide/">przewodnik stylistyczny dotyczący dokumentacji</a>, który zawiera wytyczne dotyczące pisania dokumentacji dla BeeWare.</p>
+<p>Gdy będziesz zadowolony z nowej dokumentacji, możesz <a href="../../how/submit-pr/">przesłać pull request</a> z proponowanymi zmianami.</p>
 </details>
 <details class="abstract">
 <summary>Dodaj notatkę dotyczącą zmiany</summary>
 <h1 id="dodawanie-informacji-o-zmianach-do-informacji-o-wydaniu">Dodawanie informacji o zmianach do informacji o wydaniu<a class="headerlink" href="#dodawanie-informacji-o-zmianach-do-informacji-o-wydaniu" title="Permanent link">&para;</a></h1>
-<p>Wiele narzędzi BeeWare wykorzystuje
-<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> do pomocy w tworzeniu
-informacji o wydaniu dla każdej wersji. Kiedy wysyłasz pull request do jednego z
-odpowiednich narzędzi, musi on zawierać <em>informację o zmianie</em> — ta informacja
-stanie się wpisem w informacjach o wydaniu opisującym wprowadzoną zmianę.</p>
-<p>Każde żądanie pull musi zawierać co najmniej jeden plik w katalogu <code>changes/</code>,
-zawierający krótki opis zmiany wprowadzonej przez żądanie pull. Informacja o
-zmianie powinna być w formacie Markdown, w pliku o nazwie w formacie
-<code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Jeśli proponowana zmiana naprawia błąd lub wprowadza
-funkcję, dla której istnieje numer zgłoszenia, identyfikatorem będzie numer tego
-zgłoszenia. Jeśli zmiana nie ma odpowiadającego jej zgłoszenia, jako
-identyfikator można użyć numeru PR. Numer PR będzie znany dopiero po przesłaniu
-pull requestu, więc pierwsze przejście CI zakończy się niepowodzeniem
-sprawdzenia <code>towncrier</code>; dodaj notatkę dotyczącą zmiany i prześlij aktualizację
-PR, a CI powinno przejść pomyślnie.</p>
+<p>Wiele narzędzi BeeWare wykorzystuje <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> do pomocy w tworzeniu informacji o wydaniu dla każdej wersji. Kiedy wysyłasz pull request do jednego z odpowiednich narzędzi, musi on zawierać <em>informację o zmianie</em> — ta informacja stanie się wpisem w informacjach o wydaniu opisującym wprowadzoną zmianę.</p>
+<p>Każde żądanie pull musi zawierać co najmniej jeden plik w katalogu <code>changes/</code>, zawierający krótki opis zmiany wprowadzonej przez żądanie pull. Informacja o zmianie powinna być w formacie Markdown, w pliku o nazwie w formacie <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Jeśli proponowana zmiana naprawia błąd lub wprowadza funkcję, dla której istnieje numer zgłoszenia, identyfikatorem będzie numer tego zgłoszenia. Jeśli zmiana nie ma odpowiadającego jej zgłoszenia, jako identyfikator można użyć numeru PR. Numer PR będzie znany dopiero po przesłaniu pull requestu, więc pierwsze przejście CI zakończy się niepowodzeniem sprawdzenia <code>towncrier</code>; dodaj notatkę dotyczącą zmiany i prześlij aktualizację PR, a CI powinno przejść pomyślnie.</p>
 <p>Istnieje pięć typów fragmentów:</p>
 <ul>
-<li><code>feature</code>: PR dodaje nowe zachowanie lub funkcję, które wcześniej nie były
-  możliwe (np. dodanie obsługi nowego formatu pakietów lub nowej funkcji w
-  istniejącym formacie pakietów);</li>
+<li><code>feature</code>: PR dodaje nowe zachowanie lub funkcję, które wcześniej nie były możliwe (np. dodanie obsługi nowego formatu pakietów lub nowej funkcji w istniejącym formacie pakietów);</li>
 <li><code>bugfix</code>: PR naprawia błąd w istniejącej implementacji;</li>
 <li><code>doc</code>: PR stanowi znaczną poprawę dokumentacji;</li>
 <li><code>doc</code>: PR stanowi znaczną poprawę dokumentacji;</li>
-<li><code>misc</code>; Niewielka lub administracyjna zmiana (np. poprawienie literówki,
-  niewielkie wyjaśnienie językowe lub aktualizacja wersji zależności), która nie
-  wymaga ogłoszenia w informacjach o wydaniu.</li>
+<li><code>misc</code>; Niewielka lub administracyjna zmiana (np. poprawienie literówki, niewielkie wyjaśnienie językowe lub aktualizacja wersji zależności), która nie wymaga ogłoszenia w informacjach o wydaniu.</li>
 </ul>
-<p>Opis w notatce dotyczącej zmian powinien być ogólnym podsumowaniem zmian z
-punktu widzenia użytkownika, a nie szczegółowym opisem technicznym lub
-szczegółami wdrożenia. Różni się on od komunikatu zatwierdzenia — komunikat
-zatwierdzenia opisuje, co zostało zrobione, aby przyszli programiści mogli
-zrozumieć powody wprowadzenia zmian; notatka dotycząca zmian jest opisem
-przeznaczonym dla użytkowników, którzy mogą nie mieć wiedzy na temat
-wewnętrznych aspektów.</p>
-<p>Na przykład, jeśli naprawisz błąd związany z nazewnictwem projektu, komunikat
-zatwierdzenia może brzmieć:</p>
+<p>Opis w notatce dotyczącej zmian powinien być ogólnym podsumowaniem zmian z punktu widzenia użytkownika, a nie szczegółowym opisem technicznym lub szczegółami wdrożenia. Różni się on od komunikatu zatwierdzenia — komunikat zatwierdzenia opisuje, co zostało zrobione, aby przyszli programiści mogli zrozumieć powody wprowadzenia zmian; notatka dotycząca zmian jest opisem przeznaczonym dla użytkowników, którzy mogą nie mieć wiedzy na temat wewnętrznych aspektów.</p>
+<p>Na przykład, jeśli naprawisz błąd związany z nazewnictwem projektu, komunikat zatwierdzenia może brzmieć:</p>
 <blockquote>
-<p>Zastosuj silniejsze sprawdzanie wyrażeń regularnych, aby uniemożliwić
-stosowanie nazw projektów zaczynających się od cyfr.</p>
+<p>Zastosuj silniejsze sprawdzanie wyrażeń regularnych, aby uniemożliwić stosowanie nazw projektów zaczynających się od cyfr.</p>
 </blockquote>
 <p>Odpowiednia informacja o zmianie brzmiałaby mniej więcej tak:</p>
 <blockquote>
 <p>Nazwy projektów nie mogą już zaczynać się od cyfry.</p>
 </blockquote>
-<p>Niektóre PR wprowadzają wiele funkcji i naprawiają wiele błędów lub wprowadzają
-wiele zmian niezgodnych wstecznie. W takim przypadku PR może zawierać wiele
-plików z informacjami o zmianach. Jeśli chcesz powiązać dwa typy fragmentów z
-tym samym identyfikatorem, możesz dodać numeryczny sufiks. Na przykład, jeśli PR
-789 dodał funkcję opisaną w zgłoszeniu 123, zamknął błąd opisany w zgłoszeniu
-234, a także wprowadził dwie zmiany niezgodne wstecznie, możesz mieć 4 pliki z
-informacjami o zmianach:</p>
+<p>Niektóre PR wprowadzają wiele funkcji i naprawiają wiele błędów lub wprowadzają wiele zmian niezgodnych wstecznie. W takim przypadku PR może zawierać wiele plików z informacjami o zmianach. Jeśli chcesz powiązać dwa typy fragmentów z tym samym identyfikatorem, możesz dodać numeryczny sufiks. Na przykład, jeśli PR 789 dodał funkcję opisaną w zgłoszeniu 123, zamknął błąd opisany w zgłoszeniu 234, a także wprowadził dwie zmiany niezgodne wstecznie, możesz mieć 4 pliki z informacjami o zmianach:</p>
 <ul>
 <li><code>123.feature.md</code></li>
 <li><code>234.bugfix.md</code></li>
 <li><code>789.removal.1.md</code></li>
 <li><code>789.removal.2.md</code></li>
 </ul>
-<p>Więcej informacji na temat <code>towncrier</code> i typów fragmentów można znaleźć w sekcji
-<a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Fragmenty
-wiadomości</a>.
-Istniejące przykłady fragmentów wiadomości można również znaleźć w katalogu
-<code>changes</code> repozytorium BeeWare. Jeśli ten folder jest pusty,
-prawdopodobnie wynika to z faktu, że BeeWare opublikowało niedawno
-nową wersję; pliki z informacjami o zmianach są usuwane i łączone w celu
-aktualizacji <a href="https://github.com/beeware/beeware/releases">informacji o wydaniu</a> wraz z każdym wydaniem. Możesz zapoznać się z tym plikiem, aby
-zobaczyć wymagany styl komentarzy; możesz również przejrzeć <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">ostatnio scalone
-PR-y</a>, aby zobaczyć, jak sformatować swoje informacje
-o zmianach.</p>
+<p>Więcej informacji na temat <code>towncrier</code> i typów fragmentów można znaleźć w sekcji <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Fragmenty wiadomości</a>. Istniejące przykłady fragmentów wiadomości można również znaleźć w katalogu <code>changes</code> repozytorium BeeWare. Jeśli ten folder jest pusty, prawdopodobnie wynika to z faktu, że BeeWare opublikowało niedawno nową wersję; pliki z informacjami o zmianach są usuwane i łączone w celu aktualizacji <a href="https://github.com/beeware/beeware/releases">informacji o wydaniu</a> wraz z każdym wydaniem. Możesz zapoznać się z tym plikiem, aby zobaczyć wymagany styl komentarzy; możesz również przejrzeć <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">ostatnio scalone PR-y</a>, aby zobaczyć, jak sformatować swoje informacje o zmianach.</p>
 </details>
 <details class="abstract">
 <summary>Prześlij żądanie ściągnięcia</summary>
 <h1 id="przesyanie-zadania-sciagniecia">Przesyłanie żądania ściągnięcia<a class="headerlink" href="#przesyanie-zadania-sciagniecia" title="Permanent link">&para;</a></h1>
-<p>Po zatwierdzeniu wszystkich zmian możesz przesłać pull request. Aby proces
-weryfikacji przebiegł sprawnie, należy wykonać kilka czynności.</p>
+<p>Po zatwierdzeniu wszystkich zmian możesz przesłać pull request. Aby proces weryfikacji przebiegł sprawnie, należy wykonać kilka czynności.</p>
 <h3 id="praca-z-pre-commit">Praca z pre-commit<a class="headerlink" href="#praca-z-pre-commit" title="Permanent link">&para;</a></h3>
-<p>Kiedy zatwierdzasz jakąkolwiek zmianę, pre-commit uruchamia się automatycznie.
-Jeśli zostaną wykryte jakiekolwiek problemy związane z zatwierdzeniem, spowoduje
-to niepowodzenie zatwierdzenia. Tam, gdzie to możliwe, pre-commit wprowadzi
-zmiany niezbędne do skorygowania wykrytych problemów. W poniższym przykładzie
-problem z formatowaniem kodu został wykryty przez sprawdzanie <code>ruff</code>:</p>
+<p>Kiedy zatwierdzasz jakąkolwiek zmianę, pre-commit uruchamia się automatycznie. Jeśli zostaną wykryte jakiekolwiek problemy związane z zatwierdzeniem, spowoduje to niepowodzenie zatwierdzenia. Tam, gdzie to możliwe, pre-commit wprowadzi zmiany niezbędne do skorygowania wykrytych problemów. W poniższym przykładzie problem z formatowaniem kodu został wykryty przez sprawdzanie <code>ruff</code>:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">macOS</label><label for="__tabbed_7_2">Linux</label><label for="__tabbed_7_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5650,11 +5384,7 @@ problem z formatowaniem kodu został wykryty przez sprawdzanie <code>ruff</code>
 </div>
 </div>
 </div>
-<p>W tym przypadku <code>ruff</code> automatycznie naprawiło problem, więc możesz ponownie
-dodać wszystkie pliki, które zostały zmodyfikowane w wyniku sprawdzeń przed
-zatwierdzeniem, i ponownie zatwierdzić zmianę. Jednak niektóre sprawdzenia będą
-wymagały ręcznych modyfikacji. Po wprowadzeniu tych zmian ponownie dodaj
-wszystkie zmodyfikowane pliki i ponownie zatwierdź.</p>
+<p>W tym przypadku <code>ruff</code> automatycznie naprawiło problem, więc możesz ponownie dodać wszystkie pliki, które zostały zmodyfikowane w wyniku sprawdzeń przed zatwierdzeniem, i ponownie zatwierdzić zmianę. Jednak niektóre sprawdzenia będą wymagały ręcznych modyfikacji. Po wprowadzeniu tych zmian ponownie dodaj wszystkie zmodyfikowane pliki i ponownie zatwierdź.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">macOS</label><label for="__tabbed_8_2">Linux</label><label for="__tabbed_8_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5707,15 +5437,10 @@ wszystkie zmodyfikowane pliki i ponownie zatwierdź.</p>
 </div>
 </div>
 </div>
-<p>Gdy wszystko przebiegnie pomyślnie, pojawi się komunikat informujący o
-sfinalizowaniu zatwierdzenia, a log git pokaże Twoje zatwierdzenie jako
-najnowszy dodatek. Teraz możesz przesłać zmiany do GitHub.</p>
+<p>Gdy wszystko przebiegnie pomyślnie, pojawi się komunikat informujący o sfinalizowaniu zatwierdzenia, a log git pokaże Twoje zatwierdzenie jako najnowszy dodatek. Teraz możesz przesłać zmiany do GitHub.</p>
 <h3 id="przeslij-zmiany-do-serwisu-github-i-utworz-zadanie-sciagniecia">Prześlij zmiany do serwisu GitHub i utwórz żądanie ściągnięcia.<a class="headerlink" href="#przeslij-zmiany-do-serwisu-github-i-utworz-zadanie-sciagniecia" title="Permanent link">&para;</a></h3>
-<p>Przy pierwszym przesłaniu do serwisu GitHub otrzymasz adres URL, który
-przeniesie Cię bezpośrednio do strony GitHub, gdzie możesz utworzyć nowe żądanie
-ściągnięcia. Kliknij ten adres i utwórz żądanie ściągnięcia.</p>
-<p>Poniżej przedstawiono przykład tego, czego można się spodziewać na <code>push</code>, z
-zaznaczonym adresem URL.</p>
+<p>Przy pierwszym przesłaniu do serwisu GitHub otrzymasz adres URL, który przeniesie Cię bezpośrednio do strony GitHub, gdzie możesz utworzyć nowe żądanie ściągnięcia. Kliknij ten adres i utwórz żądanie ściągnięcia.</p>
+<p>Poniżej przedstawiono przykład tego, czego można się spodziewać na <code>push</code>, z zaznaczonym adresem URL.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">macOS</label><label for="__tabbed_9_2">Linux</label><label for="__tabbed_9_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5771,126 +5496,45 @@ zaznaczonym adresem URL.</p>
 </div>
 </div>
 </div>
-<p>Jeśli wcześniej przesłałeś bieżącą gałąź do serwisu GitHub, nie otrzymasz
-ponownie adresu URL. Istnieją jednak inne sposoby uzyskania adresu URL służącego
-do tworzenia PR:</p>
+<p>Jeśli wcześniej przesłałeś bieżącą gałąź do serwisu GitHub, nie otrzymasz ponownie adresu URL. Istnieją jednak inne sposoby uzyskania adresu URL służącego do tworzenia PR:</p>
 <ul>
-<li>Przejdź do repozytorium upstream, kliknij „Pull Requests” (Żądania
-  ściągnięcia), a następnie „New pull request” (Nowe żądanie ściągnięcia) i
-  wybierz, z którego chcesz przesłać swoje żądanie ściągnięcia.</li>
-<li>Jeśli ostatnio przesłałeś dane, przejdź do repozytorium upstream, znajdź baner
-  nad listą plików, który wskazuje, że repozytorium „miało ostatnio przesłane
-  dane”, i kliknij przycisk „Porównaj i pobierz żądanie”.</li>
-<li>Użyj polecenia GitHub CLI <code>gh pr create --web</code>, aby otworzyć przeglądarkę
-  internetową na stronie tworzenia PR.</li>
+<li>Przejdź do repozytorium upstream, kliknij „Pull Requests” (Żądania ściągnięcia), a następnie „New pull request” (Nowe żądanie ściągnięcia) i wybierz, z którego chcesz przesłać swoje żądanie ściągnięcia.</li>
+<li>Jeśli ostatnio przesłałeś dane, przejdź do repozytorium upstream, znajdź baner nad listą plików, który wskazuje, że repozytorium „miało ostatnio przesłane dane”, i kliknij przycisk „Porównaj i pobierz żądanie”.</li>
+<li>Użyj polecenia GitHub CLI <code>gh pr create --web</code>, aby otworzyć przeglądarkę internetową na stronie tworzenia PR.</li>
 </ul>
 <div class="admonition info">
 <p class="admonition-title">Interfejs CLI GitHub: <code>gh</code></p>
-<p>GitHub udostępnia <a href="https://cli.github.com/">GitHub CLI</a>, które umożliwia dostęp
-do wielu funkcji GitHub z poziomu terminala za pomocą polecenia <code>gh</code>.
-Dokumentacja <a href="https://cli.github.com/manual/">GitHub CLI</a> zawiera opis
-wszystkich funkcji.</p>
+<p>GitHub udostępnia <a href="https://cli.github.com/">GitHub CLI</a>, które umożliwia dostęp do wielu funkcji GitHub z poziomu terminala za pomocą polecenia <code>gh</code>. Dokumentacja <a href="https://cli.github.com/manual/">GitHub CLI</a> zawiera opis wszystkich funkcji.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title"><code>gh pr create</code></p>
-<p><em>Nie</em> używaj samego polecenia <code>gh pr create</code> do tworzenia pull requestów.
-Projekty BeeWare korzystają z szablonu pull requestów i wymagamy, aby wszystkie
-zgłoszenia były zgodne z tym szablonem. Polecenie <code>gh pr create</code> pozwala ominąć
-ten szablon.</p>
+<p><em>Nie</em> używaj samego polecenia <code>gh pr create</code> do tworzenia pull requestów. Projekty BeeWare korzystają z szablonu pull requestów i wymagamy, aby wszystkie zgłoszenia były zgodne z tym szablonem. Polecenie <code>gh pr create</code> pozwala ominąć ten szablon.</p>
 </div>
 <h3 id="pr-content">Treść zgłoszenia pull request<a class="headerlink" href="#pr-content" title="Permanent link">&para;</a></h3>
-<p>Tytuł pull requestu musi być informacyjny, jasny i zwięzły. Staraj się, aby był
-jak najkrótszy, ale w razie potrzeby dopuszczalne są też dłuższe tytuły. Dobry
-tytuł PR powinien dać osobie nieznającej kontekstu dość solidne pojęcie o tym,
-jaki błąd lub funkcja została zaimplementowana w Twoim PR.</p>
-<p>Twoje zgłoszenie pull request <strong>musi</strong> być zgodne z <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">szablonem zgłoszenia pull
-request</a>
-BeeWare. Jeśli utworzyłeś zgłoszenie pull request za pomocą interfejsu
-internetowego GitHub, szablon ten zostanie wyświetlony jako punkt wyjścia dla
-opisu Twojego zgłoszenia. Jeśli nieumyślnie utworzyłeś zgłoszenie pull request
-bez skorzystania z tego szablonu, możesz je edytować i dodać treść szablonu –
-jednak treść szablonu <em>musi</em> zostać podana i odpowiednio wypełniona.</p>
-<p>Opis PR musi jasno odzwierciedlać zmiany wprowadzone w PR. Osoba nieznająca
-kontekstu powinna być w stanie przeczytać opis i uzyskać stosunkowo pełne
-zrozumienie powodów wprowadzenia zmian. Należy unikać żartów, idiomów,
-kolokwializmów i niepotrzebnego formatowania, takiego jak używanie wielkich
-liter lub nadmiernej interpunkcji. Opis ma być prostym wyjaśnieniem tego, co
-dzieje się w PR, a unikanie tych elementów sprawia, że opis jest bardziej
-przystępny dla innych.</p>
-<p>Jeśli istnieją jakieś przypadki reprodukcji lub stosowane przez Ciebie schematy
-testowania, które nie zostały uwzględnione w zmianach zawartych w PR, należy je
-wyjaśnić i uwzględnić w PR. Wyjaśnienie powinno zawierać informacje dotyczące
-sposobu ich uruchamiania oraz czynności niezbędnych do odtworzenia pożądanego
-wyniku.</p>
-<p>Jeśli Twoje żądanie pull request rozwiąże problem nr 1234, powinieneś umieścić
-tekst <code>Fixes #1234</code> w opisie żądania pull request. Spowoduje to automatyczne
-zamknięcie problemu po scaleniu żądania pull request. Możesz odwoływać się do
-innych dyskusji, problemów lub żądań pull request, używając tej samej składni
-<code>#1234</code>. Możesz odwołać się do problemu w innym repozytorium, poprzedzając numer
-znakiem - na przykład <code>python/cpython#1234</code> odnosi się do problemu 1234 w
-repozytorium CPython.</p>
-<p>Narzędzia oparte na sztucznej inteligencji mają szczególną skłonność do
-tworzenia rozwlekłych i mało przydatnych komunikatów w pull requestach. Jeśli
-korzystasz z narzędzia AI do generowania pull requestu, to <em>ty</em> ponosisz
-odpowiedzialność za to, by opis pull requestu był zwięzły i zawierał wyłącznie
-informacje przydatne w procesie weryfikacji. Nie musisz na przykład podawać
-szczegółów dotyczących „planu testów”, który opisuje, jak uruchomić zestaw
-testów, ani „uzasadnienia”, dlaczego błąd musi zostać naprawiony. Nadmiernie
-rozbudowane treści pull requestów mogą skutkować ich zamknięciem bez przeglądu,
-ponieważ nie uwzględniają one ograniczonych zasobów zespołu głównego.</p>
+<p>Tytuł pull requestu musi być informacyjny, jasny i zwięzły. Staraj się, aby był jak najkrótszy, ale w razie potrzeby dopuszczalne są też dłuższe tytuły. Dobry tytuł PR powinien dać osobie nieznającej kontekstu dość solidne pojęcie o tym, jaki błąd lub funkcja została zaimplementowana w Twoim PR.</p>
+<p>Twoje zgłoszenie pull request <strong>musi</strong> być zgodne z <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">szablonem zgłoszenia pull request</a> BeeWare. Jeśli utworzyłeś zgłoszenie pull request za pomocą interfejsu internetowego GitHub, szablon ten zostanie wyświetlony jako punkt wyjścia dla opisu Twojego zgłoszenia. Jeśli nieumyślnie utworzyłeś zgłoszenie pull request bez skorzystania z tego szablonu, możesz je edytować i dodać treść szablonu – jednak treść szablonu <em>musi</em> zostać podana i odpowiednio wypełniona.</p>
+<p>Opis PR musi jasno odzwierciedlać zmiany wprowadzone w PR. Osoba nieznająca kontekstu powinna być w stanie przeczytać opis i uzyskać stosunkowo pełne zrozumienie powodów wprowadzenia zmian. Należy unikać żartów, idiomów, kolokwializmów i niepotrzebnego formatowania, takiego jak używanie wielkich liter lub nadmiernej interpunkcji. Opis ma być prostym wyjaśnieniem tego, co dzieje się w PR, a unikanie tych elementów sprawia, że opis jest bardziej przystępny dla innych.</p>
+<p>Jeśli istnieją jakieś przypadki reprodukcji lub stosowane przez Ciebie schematy testowania, które nie zostały uwzględnione w zmianach zawartych w PR, należy je wyjaśnić i uwzględnić w PR. Wyjaśnienie powinno zawierać informacje dotyczące sposobu ich uruchamiania oraz czynności niezbędnych do odtworzenia pożądanego wyniku.</p>
+<p>Jeśli Twoje żądanie pull request rozwiąże problem nr 1234, powinieneś umieścić tekst <code>Fixes #1234</code> w opisie żądania pull request. Spowoduje to automatyczne zamknięcie problemu po scaleniu żądania pull request. Możesz odwoływać się do innych dyskusji, problemów lub żądań pull request, używając tej samej składni <code>#1234</code>. Możesz odwołać się do problemu w innym repozytorium, poprzedzając numer znakiem - na przykład <code>python/cpython#1234</code> odnosi się do problemu 1234 w repozytorium CPython.</p>
+<p>Narzędzia oparte na sztucznej inteligencji mają szczególną skłonność do tworzenia rozwlekłych i mało przydatnych komunikatów w pull requestach. Jeśli korzystasz z narzędzia AI do generowania pull requestu, to <em>ty</em> ponosisz odpowiedzialność za to, by opis pull requestu był zwięzły i zawierał wyłącznie informacje przydatne w procesie weryfikacji. Nie musisz na przykład podawać szczegółów dotyczących „planu testów”, który opisuje, jak uruchomić zestaw testów, ani „uzasadnienia”, dlaczego błąd musi zostać naprawiony. Nadmiernie rozbudowane treści pull requestów mogą skutkować ich zamknięciem bez przeglądu, ponieważ nie uwzględniają one ograniczonych zasobów zespołu głównego.</p>
 <div class="admonition warning">
 <p class="admonition-title">Szablon pull requestu BeeWare</p>
-<p>Szablon pull requestu BeeWare <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">pull request
-template</a>
-<strong>nie</strong> jest opcjonalny. Wymagamy, aby <strong>wszystkie</strong> pull requesty były zgodne z
-tym szablonem. Twój pull request nie zostanie sprawdzony, jeśli brakuje w nim
-sekcji „Lista kontrolna PR” lub jeśli odpowiedzi na pytania z polami wyboru są
-niekompletne lub niespójne. Jeśli do wygenerowania pull requestu użyłeś
-narzędzia AI, <em>musisz</em> zaznaczyć odpowiednie pole i podać szczegóły w wierszu
-„Assisted-by:”.</p>
+<p>Szablon pull requestu BeeWare <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">pull request template</a> <strong>nie</strong> jest opcjonalny. Wymagamy, aby <strong>wszystkie</strong> pull requesty były zgodne z tym szablonem. Twój pull request nie zostanie sprawdzony, jeśli brakuje w nim sekcji „Lista kontrolna PR” lub jeśli odpowiedzi na pytania z polami wyboru są niekompletne lub niespójne. Jeśli do wygenerowania pull requestu użyłeś narzędzia AI, <em>musisz</em> zaznaczyć odpowiednie pole i podać szczegóły w wierszu „Assisted-by:”.</p>
 </div>
 <h3 id="ciaga-integracja">Ciągła integracja<a class="headerlink" href="#ciaga-integracja" title="Permanent link">&para;</a></h3>
-<p><em>Ciągła integracja</em> (ang. <em>CI</em>) to proces automatycznego sprawdzania pull
-requestów. Może on obejmować proste kontrole, takie jak sprawdzenie poprawności
-formatowania kodu, ale także uruchamianie zestawu testów i tworzenie
-dokumentacji.</p>
-<p>Istnieje wiele zmian, które mogą spowodować niepowodzenie CI. Ogólnie rzecz
-biorąc, nie będziemy recenzować PR, który nie przeszedł CI. Jeśli utworzysz pull
-request, a CI zakończy się niepowodzeniem, nie rozpoczniemy recenzji, dopóki nie
-przejdzie on pomyślnie. Jeśli Twoje zmiany spowodują niepowodzenie, Twoim
-obowiązkiem jest zbadanie przyczyny i rozwiązanie problemu.</p>
-<p>W przypadku niepowodzenia CI, linki dotyczące niepowodzeń pojawią się na dole
-strony PR, pod nagłówkiem „Niektóre kontrole nie powiodły się”. Zobaczysz listę
-nieudanych kontroli, która pojawi się na górze listy wszystkich kontroli, jeśli
-są też kontrole, które się powiodły. Jeśli klikniesz na link z niepowodzeniem,
-przeniesie Cię on do logu. Log często zawiera wszystkie informacje potrzebne do
-ustalenia przyczyny niepowodzenia. Przeczytaj log i spróbuj ustalić, dlaczego
-wystąpiło niepowodzenie, a następnie zrób to, co konieczne, aby je rozwiązać.</p>
-<p>Czasami kontrola CI zakończy się niepowodzeniem z przyczyn niezwiązanych z
-wprowadzonymi zmianami. Może to wynikać z problemu na komputerze, na którym
-przeprowadzana jest kontrola CI, lub z niestabilności samej kontroli. Jeśli
-zauważysz niepowodzenie i masz pewność, że nie jest ono związane z wprowadzonymi
-zmianami, dodaj odpowiedni komentarz do swojego PR, a my zajmiemy się tą sprawą.</p>
+<p><em>Ciągła integracja</em> (ang. <em>CI</em>) to proces automatycznego sprawdzania pull requestów. Może on obejmować proste kontrole, takie jak sprawdzenie poprawności formatowania kodu, ale także uruchamianie zestawu testów i tworzenie dokumentacji.</p>
+<p>Istnieje wiele zmian, które mogą spowodować niepowodzenie CI. Ogólnie rzecz biorąc, nie będziemy recenzować PR, który nie przeszedł CI. Jeśli utworzysz pull request, a CI zakończy się niepowodzeniem, nie rozpoczniemy recenzji, dopóki nie przejdzie on pomyślnie. Jeśli Twoje zmiany spowodują niepowodzenie, Twoim obowiązkiem jest zbadanie przyczyny i rozwiązanie problemu.</p>
+<p>W przypadku niepowodzenia CI, linki dotyczące niepowodzeń pojawią się na dole strony PR, pod nagłówkiem „Niektóre kontrole nie powiodły się”. Zobaczysz listę nieudanych kontroli, która pojawi się na górze listy wszystkich kontroli, jeśli są też kontrole, które się powiodły. Jeśli klikniesz na link z niepowodzeniem, przeniesie Cię on do logu. Log często zawiera wszystkie informacje potrzebne do ustalenia przyczyny niepowodzenia. Przeczytaj log i spróbuj ustalić, dlaczego wystąpiło niepowodzenie, a następnie zrób to, co konieczne, aby je rozwiązać.</p>
+<p>Czasami kontrola CI zakończy się niepowodzeniem z przyczyn niezwiązanych z wprowadzonymi zmianami. Może to wynikać z problemu na komputerze, na którym przeprowadzana jest kontrola CI, lub z niestabilności samej kontroli. Jeśli zauważysz niepowodzenie i masz pewność, że nie jest ono związane z wprowadzonymi zmianami, dodaj odpowiedni komentarz do swojego PR, a my zajmiemy się tą sprawą.</p>
 <p>Aby uruchomić nowe wykonanie CI, musisz wprowadzić nowe zmiany do swojej gałęzi.</p>
-<p>Jeśli znajdziesz się w sytuacji, w której potrzebujesz pomocy, aby przejść CI,
-zostaw komentarz na PR, informując nas o tym, a my zrobimy, co w naszej mocy,
-aby pomóc.</p>
+<p>Jeśli znajdziesz się w sytuacji, w której potrzebujesz pomocy, aby przejść CI, zostaw komentarz na PR, informując nas o tym, a my zrobimy, co w naszej mocy, aby pomóc.</p>
 <div class="admonition note">
 <p class="admonition-title">Kontrole <code>pre-commit</code> i <code>towncrier</code></p>
-<p>Jeśli sprawdzanie <code>pre-commit</code> lub <code>towncrier</code> zakończy się niepowodzeniem,
-zablokuje to wykonanie większości pozostałych sprawdzeń CI. Aby wykonać pełen
-zestaw sprawdzeń, należy najpierw rozwiązać odpowiednie problemy.</p>
+<p>Jeśli sprawdzanie <code>pre-commit</code> lub <code>towncrier</code> zakończy się niepowodzeniem, zablokuje to wykonanie większości pozostałych sprawdzeń CI. Aby wykonać pełen zestaw sprawdzeń, należy najpierw rozwiązać odpowiednie problemy.</p>
 </div>
-<p>Mamy ograniczone zasoby CI. Należy pamiętać, że za każdym razem, gdy przesyłasz
-zmiany do gałęzi, uruchamia się CI. Jeśli zamierzasz wprowadzić wiele zmian,
-lepiej jest wykonać je lokalnie, a następnie przesłać wszystkie naraz. CI będzie
-działać tylko na najnowszym commitcie w partii, minimalizując obciążenie naszego
-systemu CI.</p>
-<p>Proces przesyłania PR nie jest zakończony, dopóki nie przejdzie on kontroli CI
-lub nie podasz wyjaśnienia, dlaczego tak się nie stało.</p>
-<p>Twoja prośba o wprowadzenie zmian może wymagać dodatkowej treści, takiej jak
-<a href="../../how/change-note/">informacja o zmianach</a>, zanim będzie mogła zostać
-<a href="../../next/pr-review/">przejrzana</a>.</p>
+<p>Mamy ograniczone zasoby CI. Należy pamiętać, że za każdym razem, gdy przesyłasz zmiany do gałęzi, uruchamia się CI. Jeśli zamierzasz wprowadzić wiele zmian, lepiej jest wykonać je lokalnie, a następnie przesłać wszystkie naraz. CI będzie działać tylko na najnowszym commitcie w partii, minimalizując obciążenie naszego systemu CI.</p>
+<p>Proces przesyłania PR nie jest zakończony, dopóki nie przejdzie on kontroli CI lub nie podasz wyjaśnienia, dlaczego tak się nie stało.</p>
+<p>Twoja prośba o wprowadzenie zmian może wymagać dodatkowej treści, takiej jak <a href="../../how/change-note/">informacja o zmianach</a>, zanim będzie mogła zostać <a href="../../next/pr-review/">przejrzana</a>.</p>
 </details>
 
 

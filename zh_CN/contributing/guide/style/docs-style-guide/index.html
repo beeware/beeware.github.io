@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="页眉"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/style/docs-style-guide/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/style/docs-style-guide/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -5330,10 +5338,8 @@ aria-label="页眉"
 </code></pre></div>
 <p>引用文件的特定部分或 API 文档需要使用 MkDocs 引用链接格式。</p>
 <h3 id="markdown">自定义 Markdown 锚点和内容交叉引用<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h3>
-<p>Markdown 会根据标题的内容为所有标题（单行中以 1 到 6 个 <code>#</code>
-符号开头的任何内容）生成锚点。例如，本节生成的锚点是："custom-markdown-anchors-and-content-cross&ndash;referencing"。不过，由于我们的翻译工作方式，无论何时引用章节标题，都必须使用自定义锚点。</p>
-<p>MkDocs 支持呈现引用链接语法，允许您使用修改后的 Markdown 链接来链接文档中的各种其他元素。这包括链接到自定义 Markdown
-标题和文本锚点等。</p>
+<p>Markdown 会根据标题的内容为所有标题（单行中以 1 到 6 个 <code>#</code> 符号开头的任何内容）生成锚点。例如，本节生成的锚点是："custom-markdown-anchors-and-content-cross&ndash;referencing"。不过，由于我们的翻译工作方式，无论何时引用章节标题，都必须使用自定义锚点。</p>
+<p>MkDocs 支持呈现引用链接语法，允许您使用修改后的 Markdown 链接来链接文档中的各种其他元素。这包括链接到自定义 Markdown 标题和文本锚点等。</p>
 <p>MkDocs 引用链接是格式如下的任何链接：</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">链接文本</span>][<span class="nl">链接目标</span>]
 </code></pre></div>
@@ -5393,24 +5399,20 @@ aria-label="页眉"
 </code></pre></div>
 <h2 id="_5">代码块提示<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="_6">语言和代码高亮<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>您可以指定代码块中包含的代码的语言，方法是在前三个回车键后加上语言名称，中间不留空格。这样在渲染代码时就会突出显示相应的代码。例如，要指定 Python
-语言，您可以在代码块的开头使用 <code>``python</code>.</p>
+<p>您可以指定代码块中包含的代码的语言，方法是在前三个回车键后加上语言名称，中间不留空格。这样在渲染代码时就会突出显示相应的代码。例如，要指定 Python 语言，您可以在代码块的开头使用 <code>``python</code>.</p>
 <h3 id="_7">控制台命令和复制按钮<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<p>如果您要包含控制台命令或带输出的命令，请根据您描述的是类 Unix（包括 macOS）操作系统还是 Windows，将其标注为 "console "或
-"doscon"。您可以包含操作系统提供的提示；点击复制按钮时，只有命令会被复制。例如，如果您以 <code>``console</code> 开始代码块，并包含以下内容：</p>
+<p>如果您要包含控制台命令或带输出的命令，请根据您描述的是类 Unix（包括 macOS）操作系统还是 Windows，将其标注为 "console "或 "doscon"。您可以包含操作系统提供的提示；点击复制按钮时，只有命令会被复制。例如，如果您以 <code>``console</code> 开始代码块，并包含以下内容：</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>mkdir<span class="w"> </span><span class="nb">test</span>
 <span class="gp">$ </span>ls
 <span class="go">test</span>
 </code></pre></div>
 <p>然后，点击代码块上的复制按钮将只复制命令，而忽略提示和输出。这样既能表明它们是控制台命令，又能让用户有效使用复制按钮。</p>
 <h3 id="_8">突出显示特定代码行<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<p>您可以高亮特定的代码行。例如，要高亮第 2 行，您可以在语言后添加一个空格，然后跟上 <code>{hl_lines="2"}</code>。因此，您的代码块将以 <code>``python
-{hl_lines="2"}</code> 开头。`.结果是</p>
+<p>您可以高亮特定的代码行。例如，要高亮第 2 行，您可以在语言后添加一个空格，然后跟上 <code>{hl_lines="2"}</code>。因此，您的代码块将以 <code>``python {hl_lines="2"}</code> 开头。`.结果是</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">toga</span>
 <span class="hll"><span class="kn">from</span><span class="w"> </span><span class="nn">toga.style.pack</span><span class="w"> </span><span class="kn">import</span> <span class="n">COLUMN</span><span class="p">,</span> <span class="n">ROW</span>
 </span></code></pre></div>
-<p>您可以高亮多个不同的行。例如，<code>python {hl_lines="3 5 9"}</code>将高亮第 3、5 和 9 行。您还可以高亮一系列行。例如，<code>python
-{hl_lines="3-8"}</code> 将高亮第 3 行至第 8 行。例如，<code>python {hl_lines="9-18 23-44"}</code>可以高亮多个范围。</p>
+<p>您可以高亮多个不同的行。例如，<code>python {hl_lines="3 5 9"}</code>将高亮第 3、5 和 9 行。您还可以高亮一系列行。例如，<code>python {hl_lines="3-8"}</code> 将高亮第 3 行至第 8 行。例如，<code>python {hl_lines="9-18 23-44"}</code>可以高亮多个范围。</p>
 <h2 id="markdown_1">需要特定格式的 Markdown 元素<a class="headerlink" href="#markdown_1" title="Permanent link">&para;</a></h2>
 <p>由于翻译文件的生成方式，必须在 Markdown 语法中为训诫、注释、制表符、Jinja 指令、图像标题和对齐方式等加入所需的换行符。</p>
 <h3 id="_9">训诫和说明<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
@@ -5494,8 +5496,7 @@ aria-label="页眉"
 </code></pre></div>
 <p>所有<a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">支持的警告类型</a>均可用于折叠内容，但必须声明为<code>details-admonitiontype</code>。因此，"注释"类型的折叠块应为<code>details-note</code>（如上所示），"警告"类型的折叠块应为<code>details-warning</code>，依此类推。</p>
 <h3 id="_12">金贾指令<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
-<p>文档中有一些功能在文本中使用了 Jinja 指令。任何使用 Jinja 指令功能的内容都需要用换行符包起来。例如，BeeWare 教程包含基于变量的 Jinja
-条件句，用于决定在主页上显示什么告诫。其格式如下</p>
+<p>文档中有一些功能在文本中使用了 Jinja 指令。任何使用 Jinja 指令功能的内容都需要用换行符包起来。例如，BeeWare 教程包含基于变量的 Jinja 条件句，用于决定在主页上显示什么告诫。其格式如下</p>
 <div class="highlight"><pre><span></span><code>上方内容。
 
 
@@ -5544,35 +5545,22 @@ aria-label="页眉"
 <h2 id="markdown_2">具有特定 Markdown 格式的插件<a class="headerlink" href="#markdown_2" title="Permanent link">&para;</a></h2>
 <p>下文将介绍如何使用需要特定 Markdown 格式的插件。</p>
 <h3 id="_14">使用片段包含外部内容<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
-<p>有关如何从本地文件或 URL 中包含外部内容的详情，请参阅<a href="https://facelessuser.github.io/pymdown-extensions/extensions/snippets/">Snippets
-扩展文档</a>。只要文档不包含需要执行的金沙指令，就应使用
-Snippets（金沙指令的执行与 Snippets
-处理同时进行，因此文件中的任何金沙指令都不会被处理）。如果您希望使用分隔符来单独包含文件的特定部分，例如将源文件划分为多个部分并分别注入，那么 Snippets
-就是必要的。</p>
+<p>有关如何从本地文件或 URL 中包含外部内容的详情，请参阅<a href="https://facelessuser.github.io/pymdown-extensions/extensions/snippets/">Snippets 扩展文档</a>。只要文档不包含需要执行的金沙指令，就应使用 Snippets（金沙指令的执行与 Snippets 处理同时进行，因此文件中的任何金沙指令都不会被处理）。如果您希望使用分隔符来单独包含文件的特定部分，例如将源文件划分为多个部分并分别注入，那么 Snippets 就是必要的。</p>
 <p>重要说明</p>
 <ul>
 <li>我们使用 <code>-8&lt;-</code> 作为 Snippets 标识符。文档中显示了多种选项，请遵循我们的风格。</li>
-<li>在 BeeWare 文档工具共享内容中找到的文件被视为 "本地 "内容。因此，要么只使用文件名，如 <code>-8&lt;-
-  "docs-style-guide.md"</code>，要么如果内容在子目录中，只使用目录和文件名，如 <code>-8&lt;-
-  "style/docs-style-guide.md"</code>。</li>
+<li>在 BeeWare 文档工具共享内容中找到的文件被视为 "本地 "内容。因此，要么只使用文件名，如 <code>-8&lt;- "docs-style-guide.md"</code>，要么如果内容在子目录中，只使用目录和文件名，如 <code>-8&lt;- "style/docs-style-guide.md"</code>。</li>
 <li>如果您通过 URL 从 GitHub 上的文件包含外部内容，您_must_必须使用原始内容 URL，否则无论您在哪里包含，都会呈现嵌入的完整网页。</li>
 </ul>
 <h3 id="beeware">使用宏将 BeeWare 文档工具共享内容包含在内<a class="headerlink" href="#beeware" title="Permanent link">&para;</a></h3>
-<p>您还可以使用 <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">Macros MkDocs
-插件</a>，从 BeeWare Docs
-工具共享内容目录中添加内容。如果文档中包含需要执行的 Jinja 指令，则必须使用此方法，并且只能在这种情况下使用。该方法不适用于通过 URL
-发送的外部内容。Macros
-变量替换机制](https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/#1-variable)
-与此方法配合使用。</p>
+<p>您还可以使用 <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">Macros MkDocs 插件</a>，从 BeeWare Docs 工具共享内容目录中添加内容。如果文档中包含需要执行的 Jinja 指令，则必须使用此方法，并且只能在这种情况下使用。该方法不适用于通过 URL 发送的外部内容。Macros 变量替换机制](https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/#1-variable) 与此方法配合使用。</p>
 <p>可以选择使用宏来包含内容：</p>
 <ol>
 <li>
-<p>如果您想在不对文档进行其他手动更改的情况下包含文档，请使用<a href="https://jinja.palletsprojects.com/en/stable/templates/#include"><code>include</code> Jinja
-   语法</a>。</p>
+<p>如果您想在不对文档进行其他手动更改的情况下包含文档，请使用<a href="https://jinja.palletsprojects.com/en/stable/templates/#include"><code>include</code> Jinja 语法</a>。</p>
 </li>
 <li>
-<p>如果您在文档中包含了金雅 "块 "语法，则使用<a href="https://jinja.palletsprojects.com/en/stable/templates/#child-template">金雅 "扩展
-   "语法</a>，该语法允许您覆盖或添加到特定部分。</p>
+<p>如果您在文档中包含了金雅 "块 "语法，则使用<a href="https://jinja.palletsprojects.com/en/stable/templates/#child-template">金雅 "扩展 "语法</a>，该语法允许您覆盖或添加到特定部分。</p>
 </li>
 </ol>
 <h2 id="_15">拼写<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
@@ -5581,8 +5569,7 @@ Snippets（金沙指令的执行与 Snippets
 <p>在极少数情况下，如果它识别出的有效单词不在 "拼写 "字典中，您有两种选择：</p>
 <ol>
 <li>如果是可能被多次重复使用的单词，则应按字母顺序将该单词添加到<code>docs</code>目录下的<code>spelling_wordlist</code>文档中。</li>
-<li>如果是不太可能再次使用的单词，可以用 <code>&lt;nospell&gt;</code> / <code>&lt;/nospell&gt;</code> 标记将其包裹起来，这样 <code>pyspelling</code>
-   就会在内联时忽略它。</li>
+<li>如果是不太可能再次使用的单词，可以用 <code>&lt;nospell&gt;</code> / <code>&lt;/nospell&gt;</code> 标记将其包裹起来，这样 <code>pyspelling</code> 就会在内联时忽略它。</li>
 </ol>
 
 

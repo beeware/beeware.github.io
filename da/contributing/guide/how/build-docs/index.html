@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Sidehoved"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/build-docs/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/build-docs/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4986,30 +4994,16 @@ aria-label="Sidehoved"
 
 
 <h1 id="bygningsdokumentation">Bygningsdokumentation<a class="headerlink" href="#bygningsdokumentation" title="Permanent link">&para;</a></h1>
-<p>Inden du foretager ændringer i BeeWares dokumentation, er det en god
-idé at kontrollere, at du kan oprette den eksisterende dokumentation.</p>
-<p>Før du opretter dokumentationen, skal du have et
-<a href="../dev-environment/">udviklingsmiljø</a> opsat.</p>
-<p>Du <strong>skal</strong> have en Python 3.13 fortolker installeret og
-tilgængelig på din sti (dvs. <code>python3.13</code> skal starte en
-Python 3.13 fortolker).</p>
-<p>BeeWare bruger <code>tox</code> til at oprette dokumentation. Følgende <code>tox</code>
-kommandoer skal køres fra samme placering som <code>tox.ini</code> filen, som findes i
-projektets rodmappe.</p>
+<p>Inden du foretager ændringer i BeeWares dokumentation, er det en god idé at kontrollere, at du kan oprette den eksisterende dokumentation.</p>
+<p>Før du opretter dokumentationen, skal du have et <a href="../dev-environment/">udviklingsmiljø</a> opsat.</p>
+<p>Du <strong>skal</strong> have en Python 3.13 fortolker installeret og tilgængelig på din sti (dvs. <code>python3.13</code> skal starte en Python 3.13 fortolker).</p>
+<p>BeeWare bruger <code>tox</code> til at oprette dokumentation. Følgende <code>tox</code> kommandoer skal køres fra samme placering som <code>tox.ini</code> filen, som findes i projektets rodmappe.</p>
 <h3 id="live-dokumentationsforhandsvisning">Live dokumentationsforhåndsvisning<a class="headerlink" href="#live-dokumentationsforhandsvisning" title="Permanent link">&para;</a></h3>
-<p>For at understøtte hurtig redigering af dokumentation har BeeWare en
-"live preview"-tilstand.</p>
+<p>For at understøtte hurtig redigering af dokumentation har BeeWare en "live preview"-tilstand.</p>
 <div class="admonition warning">
 <p class="admonition-title">Live-previewet vil blive opbygget med advarsler!</p>
-<p>Live-serveren er tilgængelig til iteration af dine dokumentopdateringer. Mens du
-er i gang med at opdatere ting, kan du støde på et markup-problem. Problemer,
-der betragtes som <code>WARNING</code>, vil medføre, at en standardbuild mislykkes, men
-live-serveren er indstillet til at vise advarsler i konsoloutputtet, mens den
-fortsætter med at bygge. Dette giver dig mulighed for at iterere uden at skulle
-genstarte live-previewet.</p>
-<p>En <code>WARNING</code> er forskellig fra en <code>ERROR</code>. Hvis du introducerer et problem, der
-betragtes som en <code>ERROR</code>, vil live-serveren fejle og kræve en genstart. Den vil
-ikke starte op igen, før <code>WARNING</code> problemet er løst.</p>
+<p>Live-serveren er tilgængelig til iteration af dine dokumentopdateringer. Mens du er i gang med at opdatere ting, kan du støde på et markup-problem. Problemer, der betragtes som <code>WARNING</code>, vil medføre, at en standardbuild mislykkes, men live-serveren er indstillet til at vise advarsler i konsoloutputtet, mens den fortsætter med at bygge. Dette giver dig mulighed for at iterere uden at skulle genstarte live-previewet.</p>
+<p>En <code>WARNING</code> er forskellig fra en <code>ERROR</code>. Hvis du introducerer et problem, der betragtes som en <code>ERROR</code>, vil live-serveren fejle og kræve en genstart. Den vil ikke starte op igen, før <code>WARNING</code> problemet er løst.</p>
 </div>
 <p>Sådan starter du live-serveren:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
@@ -5028,26 +5022,17 @@ ikke starte op igen, før <code>WARNING</code> problemet er løst.</p>
 </div>
 </div>
 </div>
-<p>Dette vil opbygge dokumentationen, starte en webserver til at servere
-dokumentationen og overvåge filsystemet for eventuelle ændringer i
-dokumentationskilden.</p>
+<p>Dette vil opbygge dokumentationen, starte en webserver til at servere dokumentationen og overvåge filsystemet for eventuelle ændringer i dokumentationskilden.</p>
 <p>Når serveren er startet, vil du se noget lignende følgende i konsoludskriften:</p>
 <div class="highlight"><pre><span></span><code><span class="go">INFO    -  [11:18:51] Serveres på http://127.0.0.1:8000/</span>
 </code></pre></div>
-<p>Åbn en browser, og naviger til den angivne URL. Nu kan du begynde at gentage
-dokumentationen. Hvis der registreres en ændring, genopbygges dokumentationen,
-og alle browsere, der viser den ændrede side, opdateres automatisk.</p>
+<p>Åbn en browser, og naviger til den angivne URL. Nu kan du begynde at gentage dokumentationen. Hvis der registreres en ændring, genopbygges dokumentationen, og alle browsere, der viser den ændrede side, opdateres automatisk.</p>
 <div class="admonition note">
 <p class="admonition-title"><code>docs-live</code> er et første skridt</p>
-<p>Kørsel af <code>docs-live</code> for at arbejde med live-serveren er beregnet til
-indledende iteration. Du bør <em>altid</em> køre en lokal build, før du indsender en
-pull-anmodning.</p>
+<p>Kørsel af <code>docs-live</code> for at arbejde med live-serveren er beregnet til indledende iteration. Du bør <em>altid</em> køre en lokal build, før du indsender en pull-anmodning.</p>
 </div>
 <h3 id="lokal-opbygning">Lokal opbygning<a class="headerlink" href="#lokal-opbygning" title="Permanent link">&para;</a></h3>
-<p>Når du er færdig med iterationen, skal du foretage en lokal kompilering af
-dokumentationen. Denne kompileringsproces er designet til at mislykkes, hvis der
-er problemer med markeringen. Dette giver dig mulighed for at fange alt, hvad du
-måtte have overset med live-serveren.</p>
+<p>Når du er færdig med iterationen, skal du foretage en lokal kompilering af dokumentationen. Denne kompileringsproces er designet til at mislykkes, hvis der er problemer med markeringen. Dette giver dig mulighed for at fange alt, hvad du måtte have overset med live-serveren.</p>
 <h4 id="generering-af-en-lokal-build">Generering af en lokal build<a class="headerlink" href="#generering-af-en-lokal-build" title="Permanent link">&para;</a></h4>
 <p>For at generere en lokal build:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
@@ -5068,10 +5053,7 @@ måtte have overset med live-serveren.</p>
 </div>
 <p>Outputtet fra denne build vil være i <code>_build</code> -mappen i projektets rodmappe.</p>
 <h4 id="generering-af-en-lokal-oversat-build">Generering af en lokal oversat build<a class="headerlink" href="#generering-af-en-lokal-oversat-build" title="Permanent link">&para;</a></h4>
-<p>BeeWare's dokumentation er oversat til flere sprog. Opdateringer af
-den engelske dokumentation kan potentielt medføre problemer i de andre
-sprogversioner. Det er vigtigt at kontrollere, at alle versioner fungerer, inden
-der indsendes en pull-anmodning.</p>
+<p>BeeWare's dokumentation er oversat til flere sprog. Opdateringer af den engelske dokumentation kan potentielt medføre problemer i de andre sprogversioner. Det er vigtigt at kontrollere, at alle versioner fungerer, inden der indsendes en pull-anmodning.</p>
 <p>For at generere en build af alle tilgængelige oversættelser:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
 <div class="tabbed-content">
@@ -5089,13 +5071,8 @@ der indsendes en pull-anmodning.</p>
 </div>
 </div>
 </div>
-<p>Outputtet fra hver sprogversion vil være i det tilknyttede
-<code>_build/html/&lt;languagecode&gt;</code> bibliotek, hvor <code>&lt;languagecode&gt;</code> er den to- eller
-fem-tegnede sprogkode, der er tilknyttet det specifikke sprog (f.eks. <code>fr</code> for
-fransk, <code>it</code> for italiensk osv.).</p>
-<p>Hvis du finder et problem med en enkelt build, kan du køre den enkelte build
-separat ved at køre <code>tox -e docs-&lt;languagecode&gt;</code>. For eksempel, for kun at bygge
-den franske dokumentation, skal du køre:</p>
+<p>Outputtet fra hver sprogversion vil være i det tilknyttede <code>_build/html/&lt;languagecode&gt;</code> bibliotek, hvor <code>&lt;languagecode&gt;</code> er den to- eller fem-tegnede sprogkode, der er tilknyttet det specifikke sprog (f.eks. <code>fr</code> for fransk, <code>it</code> for italiensk osv.).</p>
+<p>Hvis du finder et problem med en enkelt build, kan du køre den enkelte build separat ved at køre <code>tox -e docs-&lt;languagecode&gt;</code>. For eksempel, for kun at bygge den franske dokumentation, skal du køre:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5114,9 +5091,7 @@ den franske dokumentation, skal du køre:</p>
 </div>
 <p>Outputtet fra en enkelt-sprogs build vil være i <code>_build</code> mappen.</p>
 <h3 id="dokumentation-linting">Dokumentation linting<a class="headerlink" href="#dokumentation-linting" title="Permanent link">&para;</a></h3>
-<p>Build-processen identificerer Markdown-problemer, men BeeWare udfører
-nogle yderligere kontroller af stil og formatering, også kaldet "linting". Sådan
-kører du lint-kontrollerne:</p>
+<p>Build-processen identificerer Markdown-problemer, men BeeWare udfører nogle yderligere kontroller af stil og formatering, også kaldet "linting". Sådan kører du lint-kontrollerne:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5138,20 +5113,13 @@ kører du lint-kontrollerne:</p>
 <li>døde hyperlinks</li>
 <li>stavede ord</li>
 </ul>
-<p>Hvis en gyldig stavning af et ord identificeres som forkert stavet, skal du
-tilføje ordet til listen i <code>docs/spelling_wordlist</code>. Dette vil tilføje ordet til
-stavekontrollens ordbog. Når du tilføjer til denne liste, skal du huske:</p>
+<p>Hvis en gyldig stavning af et ord identificeres som forkert stavet, skal du tilføje ordet til listen i <code>docs/spelling_wordlist</code>. Dette vil tilføje ordet til stavekontrollens ordbog. Når du tilføjer til denne liste, skal du huske:</p>
 <ul>
-<li>Vi foretrækker amerikansk stavning, med nogle undtagelser for
-  programmeringsspecifikke slangudtryk (f.eks. "apps") og verbificering af
-  navneord (f.eks. "scrollable").</li>
-<li>Enhver henvisning til et produktnavn skal bruge produktets foretrukne store
-  bogstaver. (f.eks. "macOS", "GTK", "pytest", "Pygame", "PyScript").</li>
-<li>Hvis et udtryk bruges "som kode", skal det angives som en bogstavelig
-  angivelse (<code>like this</code>) i stedet for at blive tilføjet til ordbogen.</li>
+<li>Vi foretrækker amerikansk stavning, med nogle undtagelser for programmeringsspecifikke slangudtryk (f.eks. "apps") og verbificering af navneord (f.eks. "scrollable").</li>
+<li>Enhver henvisning til et produktnavn skal bruge produktets foretrukne store bogstaver. (f.eks. "macOS", "GTK", "pytest", "Pygame", "PyScript").</li>
+<li>Hvis et udtryk bruges "som kode", skal det angives som en bogstavelig angivelse (<code>like this</code>) i stedet for at blive tilføjet til ordbogen.</li>
 </ul>
-<p>Når du har opbygget dokumenterne, er du klar til at <a href="../write-docs/">skrive
-dokumentation</a>.</p>
+<p>Når du har opbygget dokumenterne, er du klar til at <a href="../write-docs/">skrive dokumentation</a>.</p>
 
 
 

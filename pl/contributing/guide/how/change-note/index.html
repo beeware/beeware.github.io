@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Nagłówek"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/change-note/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/change-note/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4770,74 +4778,33 @@ aria-label="Nagłówek"
 
 
 <h1 id="dodawanie-informacji-o-zmianach-do-informacji-o-wydaniu">Dodawanie informacji o zmianach do informacji o wydaniu<a class="headerlink" href="#dodawanie-informacji-o-zmianach-do-informacji-o-wydaniu" title="Permanent link">&para;</a></h1>
-<p>Wiele narzędzi BeeWare wykorzystuje
-<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> do pomocy w tworzeniu
-informacji o wydaniu dla każdej wersji. Kiedy wysyłasz pull request do jednego z
-odpowiednich narzędzi, musi on zawierać <em>informację o zmianie</em> — ta informacja
-stanie się wpisem w informacjach o wydaniu opisującym wprowadzoną zmianę.</p>
-<p>Każde żądanie pull musi zawierać co najmniej jeden plik w katalogu <code>changes/</code>,
-zawierający krótki opis zmiany wprowadzonej przez żądanie pull. Informacja o
-zmianie powinna być w formacie Markdown, w pliku o nazwie w formacie
-<code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Jeśli proponowana zmiana naprawia błąd lub wprowadza
-funkcję, dla której istnieje numer zgłoszenia, identyfikatorem będzie numer tego
-zgłoszenia. Jeśli zmiana nie ma odpowiadającego jej zgłoszenia, jako
-identyfikator można użyć numeru PR. Numer PR będzie znany dopiero po przesłaniu
-pull requestu, więc pierwsze przejście CI zakończy się niepowodzeniem
-sprawdzenia <code>towncrier</code>; dodaj notatkę dotyczącą zmiany i prześlij aktualizację
-PR, a CI powinno przejść pomyślnie.</p>
+<p>Wiele narzędzi BeeWare wykorzystuje <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> do pomocy w tworzeniu informacji o wydaniu dla każdej wersji. Kiedy wysyłasz pull request do jednego z odpowiednich narzędzi, musi on zawierać <em>informację o zmianie</em> — ta informacja stanie się wpisem w informacjach o wydaniu opisującym wprowadzoną zmianę.</p>
+<p>Każde żądanie pull musi zawierać co najmniej jeden plik w katalogu <code>changes/</code>, zawierający krótki opis zmiany wprowadzonej przez żądanie pull. Informacja o zmianie powinna być w formacie Markdown, w pliku o nazwie w formacie <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Jeśli proponowana zmiana naprawia błąd lub wprowadza funkcję, dla której istnieje numer zgłoszenia, identyfikatorem będzie numer tego zgłoszenia. Jeśli zmiana nie ma odpowiadającego jej zgłoszenia, jako identyfikator można użyć numeru PR. Numer PR będzie znany dopiero po przesłaniu pull requestu, więc pierwsze przejście CI zakończy się niepowodzeniem sprawdzenia <code>towncrier</code>; dodaj notatkę dotyczącą zmiany i prześlij aktualizację PR, a CI powinno przejść pomyślnie.</p>
 <p>Istnieje pięć typów fragmentów:</p>
 <ul>
-<li><code>feature</code>: PR dodaje nowe zachowanie lub funkcję, które wcześniej nie były
-  możliwe (np. dodanie obsługi nowego formatu pakietów lub nowej funkcji w
-  istniejącym formacie pakietów);</li>
+<li><code>feature</code>: PR dodaje nowe zachowanie lub funkcję, które wcześniej nie były możliwe (np. dodanie obsługi nowego formatu pakietów lub nowej funkcji w istniejącym formacie pakietów);</li>
 <li><code>bugfix</code>: PR naprawia błąd w istniejącej implementacji;</li>
 <li><code>doc</code>: PR stanowi znaczną poprawę dokumentacji;</li>
 <li><code>doc</code>: PR stanowi znaczną poprawę dokumentacji;</li>
-<li><code>misc</code>; Niewielka lub administracyjna zmiana (np. poprawienie literówki,
-  niewielkie wyjaśnienie językowe lub aktualizacja wersji zależności), która nie
-  wymaga ogłoszenia w informacjach o wydaniu.</li>
+<li><code>misc</code>; Niewielka lub administracyjna zmiana (np. poprawienie literówki, niewielkie wyjaśnienie językowe lub aktualizacja wersji zależności), która nie wymaga ogłoszenia w informacjach o wydaniu.</li>
 </ul>
-<p>Opis w notatce dotyczącej zmian powinien być ogólnym podsumowaniem zmian z
-punktu widzenia użytkownika, a nie szczegółowym opisem technicznym lub
-szczegółami wdrożenia. Różni się on od komunikatu zatwierdzenia — komunikat
-zatwierdzenia opisuje, co zostało zrobione, aby przyszli programiści mogli
-zrozumieć powody wprowadzenia zmian; notatka dotycząca zmian jest opisem
-przeznaczonym dla użytkowników, którzy mogą nie mieć wiedzy na temat
-wewnętrznych aspektów.</p>
-<p>Na przykład, jeśli naprawisz błąd związany z nazewnictwem projektu, komunikat
-zatwierdzenia może brzmieć:</p>
+<p>Opis w notatce dotyczącej zmian powinien być ogólnym podsumowaniem zmian z punktu widzenia użytkownika, a nie szczegółowym opisem technicznym lub szczegółami wdrożenia. Różni się on od komunikatu zatwierdzenia — komunikat zatwierdzenia opisuje, co zostało zrobione, aby przyszli programiści mogli zrozumieć powody wprowadzenia zmian; notatka dotycząca zmian jest opisem przeznaczonym dla użytkowników, którzy mogą nie mieć wiedzy na temat wewnętrznych aspektów.</p>
+<p>Na przykład, jeśli naprawisz błąd związany z nazewnictwem projektu, komunikat zatwierdzenia może brzmieć:</p>
 <blockquote>
-<p>Zastosuj silniejsze sprawdzanie wyrażeń regularnych, aby uniemożliwić
-stosowanie nazw projektów zaczynających się od cyfr.</p>
+<p>Zastosuj silniejsze sprawdzanie wyrażeń regularnych, aby uniemożliwić stosowanie nazw projektów zaczynających się od cyfr.</p>
 </blockquote>
 <p>Odpowiednia informacja o zmianie brzmiałaby mniej więcej tak:</p>
 <blockquote>
 <p>Nazwy projektów nie mogą już zaczynać się od cyfry.</p>
 </blockquote>
-<p>Niektóre PR wprowadzają wiele funkcji i naprawiają wiele błędów lub wprowadzają
-wiele zmian niezgodnych wstecznie. W takim przypadku PR może zawierać wiele
-plików z informacjami o zmianach. Jeśli chcesz powiązać dwa typy fragmentów z
-tym samym identyfikatorem, możesz dodać numeryczny sufiks. Na przykład, jeśli PR
-789 dodał funkcję opisaną w zgłoszeniu 123, zamknął błąd opisany w zgłoszeniu
-234, a także wprowadził dwie zmiany niezgodne wstecznie, możesz mieć 4 pliki z
-informacjami o zmianach:</p>
+<p>Niektóre PR wprowadzają wiele funkcji i naprawiają wiele błędów lub wprowadzają wiele zmian niezgodnych wstecznie. W takim przypadku PR może zawierać wiele plików z informacjami o zmianach. Jeśli chcesz powiązać dwa typy fragmentów z tym samym identyfikatorem, możesz dodać numeryczny sufiks. Na przykład, jeśli PR 789 dodał funkcję opisaną w zgłoszeniu 123, zamknął błąd opisany w zgłoszeniu 234, a także wprowadził dwie zmiany niezgodne wstecznie, możesz mieć 4 pliki z informacjami o zmianach:</p>
 <ul>
 <li><code>123.feature.md</code></li>
 <li><code>234.bugfix.md</code></li>
 <li><code>789.removal.1.md</code></li>
 <li><code>789.removal.2.md</code></li>
 </ul>
-<p>Więcej informacji na temat <code>towncrier</code> i typów fragmentów można znaleźć w sekcji
-<a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Fragmenty
-wiadomości</a>.
-Istniejące przykłady fragmentów wiadomości można również znaleźć w katalogu
-<code>changes</code> repozytorium BeeWare. Jeśli ten folder jest pusty,
-prawdopodobnie wynika to z faktu, że BeeWare opublikowało niedawno
-nową wersję; pliki z informacjami o zmianach są usuwane i łączone w celu
-aktualizacji <a href="https://github.com/beeware/beeware/releases">informacji o wydaniu</a> wraz z każdym wydaniem. Możesz zapoznać się z tym plikiem, aby
-zobaczyć wymagany styl komentarzy; możesz również przejrzeć <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">ostatnio scalone
-PR-y</a>, aby zobaczyć, jak sformatować swoje informacje
-o zmianach.</p>
+<p>Więcej informacji na temat <code>towncrier</code> i typów fragmentów można znaleźć w sekcji <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Fragmenty wiadomości</a>. Istniejące przykłady fragmentów wiadomości można również znaleźć w katalogu <code>changes</code> repozytorium BeeWare. Jeśli ten folder jest pusty, prawdopodobnie wynika to z faktu, że BeeWare opublikowało niedawno nową wersję; pliki z informacjami o zmianach są usuwane i łączone w celu aktualizacji <a href="https://github.com/beeware/beeware/releases">informacji o wydaniu</a> wraz z każdym wydaniem. Możesz zapoznać się z tym plikiem, aby zobaczyć wymagany styl komentarzy; możesz również przejrzeć <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">ostatnio scalone PR-y</a>, aby zobaczyć, jak sformatować swoje informacje o zmianach.</p>
 
 
 

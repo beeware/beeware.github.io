@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Başlık"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/change-note/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/change-note/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4770,69 +4778,33 @@ aria-label="Başlık"
 
 
 <h1 id="surum-notlar-icin-degisiklik-bilgileri-ekleme">Sürüm notları için değişiklik bilgileri ekleme<a class="headerlink" href="#surum-notlar-icin-degisiklik-bilgileri-ekleme" title="Permanent link">&para;</a></h1>
-<p>Birçok BeeWare aracı, her sürüm için sürüm notlarının oluşturulmasına yardımcı
-olmak için <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> kullanır. İlgili
-araçlardan birine çekme isteği gönderdiğinizde, bu isteğin bir <em>değişiklik notu</em>
-içermesi gerekir. Bu değişiklik notu, yapılan değişikliği açıklayan sürüm
-notlarında bir giriş haline gelir.</p>
-<p>Her çekme isteği, çekme isteği tarafından uygulanan değişikliğin kısa bir
-açıklamasını içeren <code>changes/</code> dizininde en az bir dosya içermelidir. Değişiklik
-notu, <code>&lt;id&gt;.&lt;fragment type&gt;.md</code> biçiminde bir dosyada Markdown biçiminde
-olmalıdır. Önerdiğiniz değişiklik, mevcut bir sorun numarası olan bir hatayı
-düzeltecek veya bir özelliği uygulayacaksa, kimlik numarası o biletin numarası
-olacaktır. Değişikliğin karşılık gelen bir sorunu yoksa, PR numarası kimlik
-numarası olarak kullanılabilir. Pull isteğini gönderene kadar bu PR numarasını
-bilemeyeceksiniz, bu nedenle ilk CI geçişi <code>towncrier</code> kontrolünde başarısız
-olacaktır; değişiklik notunu ekleyin ve bir PR güncellemesi gönderin, ardından
-CI geçmelidir.</p>
+<p>Birçok BeeWare aracı, her sürüm için sürüm notlarının oluşturulmasına yardımcı olmak için <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> kullanır. İlgili araçlardan birine çekme isteği gönderdiğinizde, bu isteğin bir <em>değişiklik notu</em> içermesi gerekir. Bu değişiklik notu, yapılan değişikliği açıklayan sürüm notlarında bir giriş haline gelir.</p>
+<p>Her çekme isteği, çekme isteği tarafından uygulanan değişikliğin kısa bir açıklamasını içeren <code>changes/</code> dizininde en az bir dosya içermelidir. Değişiklik notu, <code>&lt;id&gt;.&lt;fragment type&gt;.md</code> biçiminde bir dosyada Markdown biçiminde olmalıdır. Önerdiğiniz değişiklik, mevcut bir sorun numarası olan bir hatayı düzeltecek veya bir özelliği uygulayacaksa, kimlik numarası o biletin numarası olacaktır. Değişikliğin karşılık gelen bir sorunu yoksa, PR numarası kimlik numarası olarak kullanılabilir. Pull isteğini gönderene kadar bu PR numarasını bilemeyeceksiniz, bu nedenle ilk CI geçişi <code>towncrier</code> kontrolünde başarısız olacaktır; değişiklik notunu ekleyin ve bir PR güncellemesi gönderin, ardından CI geçmelidir.</p>
 <p>Beş parça türü vardır:</p>
 <ul>
-<li><code>feature</code>: PR, daha önce mümkün olmayan yeni bir davranış veya yetenek ekler
-  (örneğin, yeni bir paketleme formatı için destek eklemek veya mevcut bir
-  paketleme formatına yeni bir özellik eklemek);</li>
+<li><code>feature</code>: PR, daha önce mümkün olmayan yeni bir davranış veya yetenek ekler (örneğin, yeni bir paketleme formatı için destek eklemek veya mevcut bir paketleme formatına yeni bir özellik eklemek);</li>
 <li><code>bugfix</code>: PR, mevcut uygulamadaki bir hatayı düzeltir;</li>
 <li><code>doc</code>: PR, dokümantasyon açısından önemli bir iyileştirmedir;</li>
 <li><code>doc</code>: PR, dokümantasyon açısından önemli bir iyileştirmedir;</li>
 <li><code>doc</code>: PR, dokümantasyon açısından önemli bir iyileştirmedir;</li>
 </ul>
-<p>Değişiklik notundaki bu açıklama, derinlemesine teknik bir açıklama veya
-uygulama detayı değil, kullanıcının bakış açısından değişikliğin üst düzey bir
-"pazarlama" özeti olmalıdır. Bu, bir taahhüt mesajından farklıdır - taahhüt
-mesajı, gelecekteki geliştiricilerin bir değişikliğin gerekçesini takip
-edebilmeleri için ne yapıldığını açıklar; değişiklik notu ise, iç işleyiş
-hakkında bilgi sahibi olmayabilecek kullanıcıların yararına bir açıklamadır.</p>
-<p>Örneğin, proje adlandırmasıyla ilgili bir hatayı düzelttiyseniz, commit mesajı
-şöyle olabilir:</p>
+<p>Değişiklik notundaki bu açıklama, derinlemesine teknik bir açıklama veya uygulama detayı değil, kullanıcının bakış açısından değişikliğin üst düzey bir "pazarlama" özeti olmalıdır. Bu, bir taahhüt mesajından farklıdır - taahhüt mesajı, gelecekteki geliştiricilerin bir değişikliğin gerekçesini takip edebilmeleri için ne yapıldığını açıklar; değişiklik notu ise, iç işleyiş hakkında bilgi sahibi olmayabilecek kullanıcıların yararına bir açıklamadır.</p>
+<p>Örneğin, proje adlandırmasıyla ilgili bir hatayı düzelttiyseniz, commit mesajı şöyle olabilir:</p>
 <blockquote>
-<p>Rakamlarla başlayan proje adlarını yasaklamak için daha güçlü bir düzenli
-ifade kontrolü uygulayın.</p>
+<p>Rakamlarla başlayan proje adlarını yasaklamak için daha güçlü bir düzenli ifade kontrolü uygulayın.</p>
 </blockquote>
 <p>İlgili değişiklik notu şu şekilde olacaktır:</p>
 <blockquote>
 <p>Proje adları artık sayı ile başlayamaz.</p>
 </blockquote>
-<p>Bazı PR'ler birden fazla özellik sunar ve birden fazla hatayı düzeltir veya
-birden fazla geriye dönük uyumsuz değişiklik yapar. Bu durumda, PR'da birden
-fazla değişiklik notu dosyası olabilir. Aynı kimliğe sahip iki parça türünü
-ilişkilendirmeniz gerekiyorsa, sayısal bir son ek ekleyebilirsiniz. Örneğin, PR
-789, bilet 123 ile açıklanan bir özellik ekledi, bilet 234 ile açıklanan bir
-hatayı kapattı ve ayrıca geriye dönük uyumsuz iki değişiklik yaptıysa, 4
-değişiklik notu dosyanız olabilir:</p>
+<p>Bazı PR'ler birden fazla özellik sunar ve birden fazla hatayı düzeltir veya birden fazla geriye dönük uyumsuz değişiklik yapar. Bu durumda, PR'da birden fazla değişiklik notu dosyası olabilir. Aynı kimliğe sahip iki parça türünü ilişkilendirmeniz gerekiyorsa, sayısal bir son ek ekleyebilirsiniz. Örneğin, PR 789, bilet 123 ile açıklanan bir özellik ekledi, bilet 234 ile açıklanan bir hatayı kapattı ve ayrıca geriye dönük uyumsuz iki değişiklik yaptıysa, 4 değişiklik notu dosyanız olabilir:</p>
 <ul>
 <li><code>123.feature.md</code></li>
 <li><code>234.bugfix.md</code></li>
 <li><code>789.removal.1.md</code></li>
 <li><code>789.removal.2.md</code></li>
 </ul>
-<p><code>towncrier</code> ve parça türleri hakkında daha fazla bilgi için <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Haber
-Parçaları</a>
-bölümüne bakın. Ayrıca, <code>changes</code> deposunun BeeWare dizininde mevcut
-haber parçaları örneklerini de görebilirsiniz. Bu klasör boşsa, bunun nedeni BeeWare'nin yakın zamanda yeni bir sürüm yayınlamış olmasıdır; değişiklik
-notu dosyaları silinir ve her sürümde <a href="https://github.com/beeware/beeware/releases">sürüm
-notları</a> güncellenmek
-üzere birleştirilir. Gerekli yorum stilini görmek için bu dosyaya
-bakabilirsiniz; değişiklik notlarınızı nasıl biçimlendireceğinizi görmek için
-<a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">son birleştirilen PR'lere</a> bakabilirsiniz.</p>
+<p><code>towncrier</code> ve parça türleri hakkında daha fazla bilgi için <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Haber Parçaları</a> bölümüne bakın. Ayrıca, <code>changes</code> deposunun BeeWare dizininde mevcut haber parçaları örneklerini de görebilirsiniz. Bu klasör boşsa, bunun nedeni BeeWare'nin yakın zamanda yeni bir sürüm yayınlamış olmasıdır; değişiklik notu dosyaları silinir ve her sürümde <a href="https://github.com/beeware/beeware/releases">sürüm notları</a> güncellenmek üzere birleştirilir. Gerekli yorum stilini görmek için bu dosyaya bakabilirsiniz; değişiklik notlarınızı nasıl biçimlendireceğinizi görmek için <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">son birleştirilen PR'lere</a> bakabilirsiniz.</p>
 
 
 

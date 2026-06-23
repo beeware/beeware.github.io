@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="頁首"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/translate/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/translate/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -5109,12 +5117,10 @@ aria-label="頁首"
 
 <h1 id="_1">翻譯內容<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h3 id="_2">開始翻譯<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>如果您想為BeeWare的翻譯工作出一份力，您需要在<a href="https://hosted.weblate.org">Weblate</a>上註冊一個帳號。如果您目前沒有帳號，請
-<a href="https://hosted.weblate.org/accounts/register/">建立新帳號</a>；然後讓我們知道您有興趣幫忙翻譯。</p>
+<p>如果您想為BeeWare的翻譯工作出一份力，您需要在<a href="https://hosted.weblate.org">Weblate</a>上註冊一個帳號。如果您目前沒有帳號，請 <a href="https://hosted.weblate.org/accounts/register/">建立新帳號</a>；然後讓我們知道您有興趣幫忙翻譯。</p>
 <p>有兩種方式可以讓我們知道您想要協助翻譯：</p>
 <ul>
-<li>如果您在 Discord 上，請加入 <a href="https://beeware.org/bee/chat/">BeeWare 伺服器</a>，並前往
-  <code>#translations</code> 頻道。</li>
+<li>如果您在 Discord 上，請加入 <a href="https://beeware.org/bee/chat/">BeeWare 伺服器</a>，並前往 <code>#translations</code> 頻道。</li>
 <li>如果您不在 Discord 上，可以在 BeeWare 套件庫上建立新問題。</li>
 </ul>
 <p>在這兩種情況下，請留下包含下列資訊的訊息：</p>
@@ -5158,15 +5164,10 @@ aria-label="頁首"
 <li>會翻譯 <code>site_name</code> 值。</li>
 <li><code>site_url</code> 值是專案網站的 URL，接著是語言代碼。</li>
 <li>docs_dir` 應該是語言代碼。</li>
-<li><code>theme: language:</code> 值應該是 <a href="https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/">MkDocs Material
-  theme</a>
-  所指定的語言代碼。對大多數語言而言，這與 <code>docs_dir</code> 語言代碼相同；但對某些語言 (尤其是像 <code>zh_CN</code> 這種有區域性變異的語言)
-  而言，則會有差異。</li>
+<li><code>theme: language:</code> 值應該是 <a href="https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/">MkDocs Material theme</a> 所指定的語言代碼。對大多數語言而言，這與 <code>docs_dir</code> 語言代碼相同；但對某些語言 (尤其是像 <code>zh_CN</code> 這種有區域性變異的語言) 而言，則會有差異。</li>
 <li><code>extra: language_url:</code> 應為語言代碼，後接單斜線，例如 <code>de/</code> 代表德語。</li>
-<li><code>extra: translation_type:</code> 應該是 <code>machine</code>，直到翻譯首次達到 100%，此時它應該是 <code>human</code>。如果它倒退到低於
-  90%，就會從 <code>human</code> 回復到 <code>machine</code>。</li>
-<li><code>extra: header</code> 下的內容是標題列中出現的標題翻譯。此定義在 BeeWare
-  主要網站上<em>非</em>必要；僅在<em>其他</em>網站（例如教學文件或專案文件）上需要此定義。</li>
+<li><code>extra: translation_type:</code> 應該是 <code>machine</code>，直到翻譯首次達到 100%，此時它應該是 <code>human</code>。如果它倒退到低於 90%，就會從 <code>human</code> 回復到 <code>machine</code>。</li>
+<li><code>extra: header</code> 下的內容是標題列中出現的標題翻譯。此定義在 BeeWare 主要網站上<em>非</em>必要；僅在<em>其他</em>網站（例如教學文件或專案文件）上需要此定義。</li>
 </ul>
 <h4 id="toxini">更新 `tox.ini<a class="headerlink" href="#toxini" title="Permanent link">&para;</a></h4>
 <p>您需要對 <code>tox.ini</code> 檔案進行幾項變更。</p>
@@ -5176,24 +5177,20 @@ aria-label="頁首"
 <li>新的語言代碼排除到第一個指令，以 <code>!lint</code> 開頭，前面加上 <code>-!</code>，不含空格，例如 <code>-!de</code>。</li>
 <li>新的語言代碼對應至以 <code>translate : build_po_translations</code> 開頭的行。</li>
 <li>新的語言代碼對應至以 <code>translate : update_machine_translations</code> 開頭的行</li>
-<li>新增指令，例如以 <code>de : build_md_translations</code>
-  為德語指令開頭，在現有語言專屬指令中按字母順序排列，其內容需與這些指令相符，並採用新的語言代碼。</li>
+<li>新增指令，例如以 <code>de : build_md_translations</code> 為德語指令開頭，在現有語言專屬指令中按字母順序排列，其內容需與這些指令相符，並採用新的語言代碼。</li>
 <li>新的語言代碼對應至以 <code>all:</code> 開頭的行。</li>
 </ul>
 <h4 id="configyml">更新 <code>config.yml</code><a class="headerlink" href="#configyml" title="Permanent link">&para;</a></h4>
-<p>將語言加入 <code>config.yml</code>
-中，使其顯示在標頭的語言選擇器中。找到以<code>extra:</code>開頭的部分，然後再找到以<code>alternate:</code>開頭的小節。對於德語，您可以新增以下內容：</p>
+<p>將語言加入 <code>config.yml</code> 中，使其顯示在標頭的語言選擇器中。找到以<code>extra:</code>開頭的部分，然後再找到以<code>alternate:</code>開頭的小節。對於德語，您可以新增以下內容：</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">德語</span>
 <span class="w w-Error"> </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/de/</span>
 <span class="w"> </span><span class="nt">lang</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 </code></pre></div>
 <p>語言名稱應翻譯為該語言。連結必須包含 <code>/</code>。</p>
 <h4 id="tox-translate">執行 <code>tox translate</code><a class="headerlink" href="#tox-translate" title="Permanent link">&para;</a></h4>
-<p>現在您可以執行 <code>tox -e docs-translate</code>。這會產生一個空的翻譯檔案；如果您有 DeepL
-帳戶，可以使用該帳戶來填入初步的機器翻譯內容。如果您沒有 DeepL 帳戶也沒關係——我們會在接受拉取請求之前自行執行初步翻譯。</p>
+<p>現在您可以執行 <code>tox -e docs-translate</code>。這會產生一個空的翻譯檔案；如果您有 DeepL 帳戶，可以使用該帳戶來填入初步的機器翻譯內容。如果您沒有 DeepL 帳戶也沒關係——我們會在接受拉取請求之前自行執行初步翻譯。</p>
 <h3 id="_4">翻譯指引<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>當您加入團隊後，就可以登入 <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a>
-並開始進行翻譯字串的工作。</p>
+<p>當您加入團隊後，就可以登入 <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> 並開始進行翻譯字串的工作。</p>
 <h4 id="_5">語調與逐字翻譯<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
 <p>保持英文文本的語調比追求一字不差的翻譯更重要。我們嘗試在內容上表現得友善且有點口語化；在您的翻譯中嘗試維持這種精神。</p>
 <p>如果英文文本中包含強烈的英文慣用語，如果您的語言中有類似的慣用語也同樣適用，請不要覺得必須保留該慣用語。如果英文文本中的詞彙或詞組是特別的成語或俚語，請不要害怕告訴我們應該考慮做出修改。即使對於英語使用者而言，成語和俚語也會造成困難。有時我們需要修改英文原文，讓翻譯者和讀者都能更直覺地理解。</p>
@@ -5202,9 +5199,7 @@ aria-label="頁首"
 <ul>
 <li><strong>命令</strong>。例如，在 "You should run <code>briefcase create\</code>.「 中，應只翻譯 」You should run"。</li>
 <li><strong>名稱空間</strong>，例如類別、方法或屬性名稱。</li>
-<li><strong>連結網址</strong>。標準 Markdown 連結在 Weblate 中應以 <code>[Link text]{1}</code> 形式呈現，其中 <code>1</code>
-  代表該連結在字串中相對於其他可能連結的位置。若字串中已包含完整的網址（例如 <code>[Link
-  text](https://example.com/)</code>），則該網址應跳過不進行翻譯。</li>
+<li><strong>連結網址</strong>。標準 Markdown 連結在 Weblate 中應以 <code>[Link text]{1}</code> 形式呈現，其中 <code>1</code> 代表該連結在字串中相對於其他可能連結的位置。若字串中已包含完整的網址（例如 <code>[Link text](https://example.com/)</code>），則該網址應跳過不進行翻譯。</li>
 <li>
 <p>** 包含類別、方法或屬性名稱的參考連結**。這些連結應保持原樣，包括反標記。這裡顯示的範例連結的每個部分都不會被翻譯。</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`Class.attribute`</span>][Class.attribute]
@@ -5216,9 +5211,7 @@ aria-label="頁首"
 </code></pre></div>
 </li>
 <li>
-<p><strong>Jinja 指令</strong>。這是包裝在兩對相對的大括弧內的任何內容，或是包裝在一對相對的單一大括弧內的任何內容，兩端都有百分號。注意：在此加入語法範例會導致
-  Macros 外掛嘗試渲染該語法；範例請參閱 <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">Macros
-  文件</a>。</p>
+<p><strong>Jinja 指令</strong>。這是包裝在兩對相對的大括弧內的任何內容，或是包裝在一對相對的單一大括弧內的任何內容，兩端都有百分號。注意：在此加入語法範例會導致 Macros 外掛嘗試渲染該語法；範例請參閱 <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">Macros 文件</a>。</p>
 </li>
 <li>** 自訂錨點**。它們會出現在標題之後或某些內容之上，格式為 <code>{ #anchor }</code>。</li>
 <li>
@@ -5237,8 +5230,7 @@ aria-label="頁首"
 </ul>
 <p>下列項目<em>應</em>予翻譯：</p>
 <ul>
-<li>** 連結文字**。在連結語法中，文字在URL之前，並用括弧括起，如<code>[連結文字](URL)</code>。標準的 Markdown 連結應該在 Weblate
-  中顯示為 <code>[連結文字]{1}</code>，其中 <code>1</code> 是連結在字串中的位置，並參照其他可能的連結。</li>
+<li>** 連結文字**。在連結語法中，文字在URL之前，並用括弧括起，如<code>[連結文字](URL)</code>。標準的 Markdown 連結應該在 Weblate 中顯示為 <code>[連結文字]{1}</code>，其中 <code>1</code> 是連結在字串中的位置，並參照其他可能的連結。</li>
 <li>
 <p><strong>參考連結文字</strong>。例如，<code>Link text</code> 將在以下內容中被翻譯為：</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">連結文字</span>][<span class="nl">連結內容</span>]
@@ -5249,14 +5241,9 @@ aria-label="頁首"
 </li>
 </ul>
 <h3 id="weblate">Weblate<a class="headerlink" href="#weblate" title="Permanent link">&para;</a></h3>
-<p>我們使用 <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a>
-進行內容翻譯。當我們新增翻譯時，我們會使用 <a href="https://www.deepl.com/en/translator">DeepL</a>
-進行機器翻譯，以產生第一遍翻譯。這表示，一般而言，您要翻譯的內容已經由機器翻譯完成。我們的期望是，身為譯者的您將審閱、編輯並改善現有的機器翻譯。</p>
-<p>Weblate
-會逐個字串處理。它會對變更進行批次處理，每隔幾小時就會提交一次批量提交，其中包含在該時間間隔內發生變更的所有字串。因此，您的變更可能需要幾小時才能顯示在網站上，但您可以預期更新會在四小時內出現。</p>
-<p>若超過上述時間後，您的修改仍未顯示，可能原因在於標記錯誤導致該語言的文件建置失敗。任何字串中的標記問題都會阻擋整個翻譯版本公開發布。您可持續關注您語言的建置頁面，確認是否已成功建置。
-連結格式類似此法語建置頁面連結：<a href="https://app.readthedocs.org/projects/beewareorg/">https://app.readthedocs.org/projects/beewareorg/</a>;
-請將語言代碼替換為您所屬語言，即可查看對應的建置頁面。此頁面將顯示網站最新建置狀態。若建置失敗，請查閱建置日誌以釐清問題根源。</p>
+<p>我們使用 <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> 進行內容翻譯。當我們新增翻譯時，我們會使用 <a href="https://www.deepl.com/en/translator">DeepL</a> 進行機器翻譯，以產生第一遍翻譯。這表示，一般而言，您要翻譯的內容已經由機器翻譯完成。我們的期望是，身為譯者的您將審閱、編輯並改善現有的機器翻譯。</p>
+<p>Weblate 會逐個字串處理。它會對變更進行批次處理，每隔幾小時就會提交一次批量提交，其中包含在該時間間隔內發生變更的所有字串。因此，您的變更可能需要幾小時才能顯示在網站上，但您可以預期更新會在四小時內出現。</p>
+<p>若超過上述時間後，您的修改仍未顯示，可能原因在於標記錯誤導致該語言的文件建置失敗。任何字串中的標記問題都會阻擋整個翻譯版本公開發布。您可持續關注您語言的建置頁面，確認是否已成功建置。 連結格式類似此法語建置頁面連結：<a href="https://app.readthedocs.org/projects/beewareorg/">https://app.readthedocs.org/projects/beewareorg/</a>; 請將語言代碼替換為您所屬語言，即可查看對應的建置頁面。此頁面將顯示網站最新建置狀態。若建置失敗，請查閱建置日誌以釐清問題根源。</p>
 
 
 

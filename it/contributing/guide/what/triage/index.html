@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Intestazione"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/what/triage/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/what/triage/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4886,106 +4894,30 @@ aria-label="Intestazione"
 
 
 <h1 id="valutazione-di-un-problema">Valutazione di un problema<a class="headerlink" href="#valutazione-di-un-problema" title="Permanent link">&para;</a></h1>
-<p>{{ nome_formale }} riceve regolarmente segnalazioni di problemi da parte di
-utenti che stanno riscontrando problemi. Quando viene segnalato un nuovo
-problema, tale segnalazione deve essere <em>trattata</em>, cioè abbiamo bisogno di
-qualcuno che legga la segnalazione, prenda le informazioni fornite dal
-segnalatore e cerchi di riprodurre il problema descritto.</p>
-<p>Sfortunatamente, i rapporti sui problemi, pur avendo in genere buone intenzioni,
-sono spesso incompleti o confusi. Lo scopo del processo di triage è quello di
-colmare le lacune della segnalazione originale. Ciò significa generare dettagli
-sufficienti per confermare la riproducibilità del problema, oppure confermare
-che il segnalatore originale si è sbagliato nella sua segnalazione.</p>
-<p>La gestione di un problema non significa che ci si aspetta che lo si risolva. A
-seconda del problema, il triage può anche non comportare la scrittura di codice.
-È possibile eseguire il triage di un problema con una conoscenza minima di
-{{ nome_formale }}, in quanto si dovrebbe essere in grado di seguire i passaggi
-inclusi nel rapporto e riprodurre il problema descritto.</p>
+<p>{{ nome_formale }} riceve regolarmente segnalazioni di problemi da parte di utenti che stanno riscontrando problemi. Quando viene segnalato un nuovo problema, tale segnalazione deve essere <em>trattata</em>, cioè abbiamo bisogno di qualcuno che legga la segnalazione, prenda le informazioni fornite dal segnalatore e cerchi di riprodurre il problema descritto.</p>
+<p>Sfortunatamente, i rapporti sui problemi, pur avendo in genere buone intenzioni, sono spesso incompleti o confusi. Lo scopo del processo di triage è quello di colmare le lacune della segnalazione originale. Ciò significa generare dettagli sufficienti per confermare la riproducibilità del problema, oppure confermare che il segnalatore originale si è sbagliato nella sua segnalazione.</p>
+<p>La gestione di un problema non significa che ci si aspetta che lo si risolva. A seconda del problema, il triage può anche non comportare la scrittura di codice. È possibile eseguire il triage di un problema con una conoscenza minima di {{ nome_formale }}, in quanto si dovrebbe essere in grado di seguire i passaggi inclusi nel rapporto e riprodurre il problema descritto.</p>
 <h2 id="contribuire-al-triage-dei-problemi">Contribuire al triage dei problemi<a class="headerlink" href="#contribuire-al-triage-dei-problemi" title="Permanent link">&para;</a></h2>
 <details class="abstract">
 <summary>Riproduci il problema</summary>
 <h1 id="riproduzione-di-un-problema">Riproduzione di un problema<a class="headerlink" href="#riproduzione-di-un-problema" title="Permanent link">&para;</a></h1>
-<p>Non si può risolvere un problema se non si ha il problema stesso. Pertanto,
-riprodurre il problema è un prerequisito per risolverlo. Nel software, i
-problemi sono comunemente chiamati
-<a href="https://en.wikipedia.org/wiki/Software_bug">"bug"</a>, mentre i problemi sono
-spesso chiamati "segnalazioni di bug".</p>
-<p>Qualcuno ha fornito una segnalazione di bug. È necessario verificare che i
-passaggi descritti dal segnalatore producano il bug segnalato. È possibile
-riprodurre lo stesso risultato facendo esattamente ciò che è stato descritto
-nella segnalazione? Se non ci riuscite, dovete capire perché.</p>
-<p>Per iniziare a riprodurre un problema, è necessario configurare un <a href="../../how/dev-environment/">ambiente di
-sviluppo</a>.</p>
+<p>Non si può risolvere un problema se non si ha il problema stesso. Pertanto, riprodurre il problema è un prerequisito per risolverlo. Nel software, i problemi sono comunemente chiamati <a href="https://en.wikipedia.org/wiki/Software_bug">"bug"</a>, mentre i problemi sono spesso chiamati "segnalazioni di bug".</p>
+<p>Qualcuno ha fornito una segnalazione di bug. È necessario verificare che i passaggi descritti dal segnalatore producano il bug segnalato. È possibile riprodurre lo stesso risultato facendo esattamente ciò che è stato descritto nella segnalazione? Se non ci riuscite, dovete capire perché.</p>
+<p>Per iniziare a riprodurre un problema, è necessario configurare un <a href="../../how/dev-environment/">ambiente di sviluppo</a>.</p>
 <h3 id="bug-nel-codice">Bug nel codice<a class="headerlink" href="#bug-nel-codice" title="Permanent link">&para;</a></h3>
-<p>In una situazione ideale, si avrà la stessa configurazione della persona che ha
-segnalato il bug, si seguiranno i passaggi e si riuscirà a riprodurre il bug
-come descritto. In molti casi, però, non sarà così semplice. Molte segnalazioni
-di bug includono solo spiegazioni vaghe e una serie di condizioni vaghe. Il
-problema è che molti bug variano in base all'insieme di condizioni coinvolte,
-tra cui le modalità di interazione, le varie precondizioni, il sistema
-operativo, la versione del sistema operativo, l'architettura della CPU o il
-fatto che la macchina dell'utente sia vecchia e lenta o nuova e veloce. Più
-informazioni abbiamo sulla situazione che circonda il bug, meglio è. Cercate di
-riprodurre l'insieme di condizioni fornite dal segnalatore. Se non si riesce a
-farlo, il passo successivo potrebbe essere quello di richiedere ulteriori
-informazioni alla persona che ha segnalato il bug.</p>
-<p>Il modo migliore per riprodurre un bug è con l'esempio più piccolo possibile che
-presenti comunque il problema. La maggior parte delle volte i segnalatori non
-forniranno un esempio minimo fattibile; se forniscono un <em>qualsiasi</em> esempio,
-sarà copiato direttamente dalla loro applicazione del "mondo reale". Il vostro
-obiettivo sarà quello di ridurre il rapporto alla forma più semplice possibile
-che mostri il problema. Il miglior caso di riproduzione è il programma più
-piccolo possibile. Questa riduzione è di per sé utile perché determina quale sia
-il problema effettivo. Chiunque può prendere l'esempio minimo, eseguirlo e
-osservare il bug descritto.</p>
+<p>In una situazione ideale, si avrà la stessa configurazione della persona che ha segnalato il bug, si seguiranno i passaggi e si riuscirà a riprodurre il bug come descritto. In molti casi, però, non sarà così semplice. Molte segnalazioni di bug includono solo spiegazioni vaghe e una serie di condizioni vaghe. Il problema è che molti bug variano in base all'insieme di condizioni coinvolte, tra cui le modalità di interazione, le varie precondizioni, il sistema operativo, la versione del sistema operativo, l'architettura della CPU o il fatto che la macchina dell'utente sia vecchia e lenta o nuova e veloce. Più informazioni abbiamo sulla situazione che circonda il bug, meglio è. Cercate di riprodurre l'insieme di condizioni fornite dal segnalatore. Se non si riesce a farlo, il passo successivo potrebbe essere quello di richiedere ulteriori informazioni alla persona che ha segnalato il bug.</p>
+<p>Il modo migliore per riprodurre un bug è con l'esempio più piccolo possibile che presenti comunque il problema. La maggior parte delle volte i segnalatori non forniranno un esempio minimo fattibile; se forniscono un <em>qualsiasi</em> esempio, sarà copiato direttamente dalla loro applicazione del "mondo reale". Il vostro obiettivo sarà quello di ridurre il rapporto alla forma più semplice possibile che mostri il problema. Il miglior caso di riproduzione è il programma più piccolo possibile. Questa riduzione è di per sé utile perché determina quale sia il problema effettivo. Chiunque può prendere l'esempio minimo, eseguirlo e osservare il bug descritto.</p>
 <h3 id="bug-nella-documentazione">Bug nella documentazione<a class="headerlink" href="#bug-nella-documentazione" title="Permanent link">&para;</a></h3>
-<p>I bug nella documentazione possono manifestarsi in modi diversi. Ci sono
-problemi di formattazione che causano problemi di rendering. A volte non si
-tratta nemmeno di un bug; la persona potrebbe aver letto male la documentazione
-o aver commesso un vero e proprio errore. Questo non significa necessariamente
-che non ci sia un problema nella documentazione. Il contenuto può essere poco
-chiaro o impreciso, lasciando spazio a confusione o interpretazioni errate. È
-possibile che un concetto che dovrebbe essere discusso non lo sia, perché è
-completamente privo di documentazione.</p>
-<p>Quando viene segnalato un bug per un problema di documentazione, è necessario
-verificare che il problema segnalato esista effettivamente. Nel caso di problemi
-di rendering, è necessario costruire la documentazione per vedere se è possibile
-riprodurre il problema. Per i problemi relativi ai contenuti è necessario
-verificare che nessuno abbia inviato un aggiornamento.</p>
+<p>I bug nella documentazione possono manifestarsi in modi diversi. Ci sono problemi di formattazione che causano problemi di rendering. A volte non si tratta nemmeno di un bug; la persona potrebbe aver letto male la documentazione o aver commesso un vero e proprio errore. Questo non significa necessariamente che non ci sia un problema nella documentazione. Il contenuto può essere poco chiaro o impreciso, lasciando spazio a confusione o interpretazioni errate. È possibile che un concetto che dovrebbe essere discusso non lo sia, perché è completamente privo di documentazione.</p>
+<p>Quando viene segnalato un bug per un problema di documentazione, è necessario verificare che il problema segnalato esista effettivamente. Nel caso di problemi di rendering, è necessario costruire la documentazione per vedere se è possibile riprodurre il problema. Per i problemi relativi ai contenuti è necessario verificare che nessuno abbia inviato un aggiornamento.</p>
 <h3 id="aggiornare-il-problema">Aggiornare il problema<a class="headerlink" href="#aggiornare-il-problema" title="Permanent link">&para;</a></h3>
-<p>La fase finale del processo di triage consiste nel documentare le proprie
-scoperte lasciando un commento sul problema.</p>
-<p>Se siete in grado di riprodurre il problema esattamente come descritto, è tutto
-ciò che dovete dire. Lasciate un commento dicendo che avete confermato di
-riscontrare lo stesso problema, nel modo esatto descritto dal segnalatore
-originale.</p>
-<p>Se siete in grado di fornire un contesto aggiuntivo, includete i dettagli di
-tale contesto. Ad esempio, è possibile riprodurre il problema su un sistema
-operativo diverso o con una versione diversa di alcuni dei software coinvolti, o
-qualsiasi altra cosa che differisca dalla segnalazione originale.</p>
-<p>Se il rapporto originale mancava di dettagli necessari per riprodurre il
-rapporto, includere <em>questi</em> dettagli. Ad esempio, si possono fornire dettagli
-sul sistema operativo o sulla versione che il report originale non ha fornito,
-registri o tracce di stack più completi o istruzioni più chiare sull'esatta
-sequenza di operazioni necessarie per riprodurre il problema. Se avete
-sviluppato un modo più semplice per riprodurre il problema (o il segnalatore
-originale non ha fornito un caso di riproduzione), potete includere i dettagli
-di tale metodologia di riproduzione.</p>
-<p>Se <em>non riesci</em> a riprodurre il problema, lascia comunque un commento
-descrivendo in dettaglio ciò che hai provato a fare. Sapere dove un problema
-<em>non</em> esiste è importante quasi quanto sapere dove <em>esiste</em>, perché aiuta a
-restringere il campo delle possibili cause. Se hai qualche teoria sul <em>perché</em>
-non riesci a riprodurre il problema, ad esempio se pensi che si tratti di un
-errore di utilizzo o che il problema sia stato risolto da un recente
-aggiornamento del sistema operativo, includi questa ipotesi nel tuo commento.</p>
-<p>Infine, si possono fornire eventuali raccomandazioni al team centrale. Se
-ritenete che la segnalazione originale sia errata, suggerite di chiudere il
-problema; se avete una teoria sulla causa del problema, potete suggerire anche
-quella. I vostri commenti aiuteranno il team centrale a capire come far passare
-il problema alla fase successiva.</p>
-<p>A questo punto, potresti scegliere di provare a <a href="../fix-issue/">risolvere il
-problema</a> che hai appena riprodotto; in alternativa, puoi
-scrivere le tue conclusioni e provare a riprodurre un altro problema.</p>
+<p>La fase finale del processo di triage consiste nel documentare le proprie scoperte lasciando un commento sul problema.</p>
+<p>Se siete in grado di riprodurre il problema esattamente come descritto, è tutto ciò che dovete dire. Lasciate un commento dicendo che avete confermato di riscontrare lo stesso problema, nel modo esatto descritto dal segnalatore originale.</p>
+<p>Se siete in grado di fornire un contesto aggiuntivo, includete i dettagli di tale contesto. Ad esempio, è possibile riprodurre il problema su un sistema operativo diverso o con una versione diversa di alcuni dei software coinvolti, o qualsiasi altra cosa che differisca dalla segnalazione originale.</p>
+<p>Se il rapporto originale mancava di dettagli necessari per riprodurre il rapporto, includere <em>questi</em> dettagli. Ad esempio, si possono fornire dettagli sul sistema operativo o sulla versione che il report originale non ha fornito, registri o tracce di stack più completi o istruzioni più chiare sull'esatta sequenza di operazioni necessarie per riprodurre il problema. Se avete sviluppato un modo più semplice per riprodurre il problema (o il segnalatore originale non ha fornito un caso di riproduzione), potete includere i dettagli di tale metodologia di riproduzione.</p>
+<p>Se <em>non riesci</em> a riprodurre il problema, lascia comunque un commento descrivendo in dettaglio ciò che hai provato a fare. Sapere dove un problema <em>non</em> esiste è importante quasi quanto sapere dove <em>esiste</em>, perché aiuta a restringere il campo delle possibili cause. Se hai qualche teoria sul <em>perché</em> non riesci a riprodurre il problema, ad esempio se pensi che si tratti di un errore di utilizzo o che il problema sia stato risolto da un recente aggiornamento del sistema operativo, includi questa ipotesi nel tuo commento.</p>
+<p>Infine, si possono fornire eventuali raccomandazioni al team centrale. Se ritenete che la segnalazione originale sia errata, suggerite di chiudere il problema; se avete una teoria sulla causa del problema, potete suggerire anche quella. I vostri commenti aiuteranno il team centrale a capire come far passare il problema alla fase successiva.</p>
+<p>A questo punto, potresti scegliere di provare a <a href="../fix-issue/">risolvere il problema</a> che hai appena riprodotto; in alternativa, puoi scrivere le tue conclusioni e provare a riprodurre un altro problema.</p>
 </details>
 
 

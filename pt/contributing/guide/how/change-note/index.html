@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Cabeçalho"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/change-note/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/change-note/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4770,79 +4778,33 @@ aria-label="Cabeçalho"
 
 
 <h1 id="adicionar-informacoes-de-alteracoes-para-as-notas-de-lancamento">Adicionar informações de alterações para as notas de lançamento<a class="headerlink" href="#adicionar-informacoes-de-alteracoes-para-as-notas-de-lancamento" title="Permanent link">&para;</a></h1>
-<p>Muitas ferramentas do BeeWare utilizam o
-<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> para auxiliar na criação das
-notas de lançamento de cada versão. Quando envia um pedido de puxar para uma das
-ferramentas aplicáveis, ele precisa de incluir uma <em>nota de alteração</em> - esta
-nota de alteração vai se tornar na entrada nas notas de lançamento que descrevem
-a alteração que foi feita.</p>
-<p>Todo o pedido de puxar deve incluir pelo menos um ficheiro no diretório
-<code>changes/</code> que forneça uma breve descrição da alteração implementada pelo pedido
-de puxar. A nota de alteração deve estar no formato Markdown, num ficheiro que
-tenha o nome no formato <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Se a alteração que está a
-propor for corrigir um bug ou implementar uma funcionalidade para o qual há um
-número de problema existente, o ID deverá ser o número desse bilhete. Se a
-alteração não tiver um problema correspondente, o número do PR poderá ser usado
-como ID. Você não vai saber o número do PR até que envie o pedido, portanto, a
-primeira passagem do CI vai falhar na verificação do <code>towncrier</code>; adicione a
-nota de alteração e envie uma atualização do PR e o CI deverá ser aprovado.</p>
+<p>Muitas ferramentas do BeeWare utilizam o <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> para auxiliar na criação das notas de lançamento de cada versão. Quando envia um pedido de puxar para uma das ferramentas aplicáveis, ele precisa de incluir uma <em>nota de alteração</em> - esta nota de alteração vai se tornar na entrada nas notas de lançamento que descrevem a alteração que foi feita.</p>
+<p>Todo o pedido de puxar deve incluir pelo menos um ficheiro no diretório <code>changes/</code> que forneça uma breve descrição da alteração implementada pelo pedido de puxar. A nota de alteração deve estar no formato Markdown, num ficheiro que tenha o nome no formato <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Se a alteração que está a propor for corrigir um bug ou implementar uma funcionalidade para o qual há um número de problema existente, o ID deverá ser o número desse bilhete. Se a alteração não tiver um problema correspondente, o número do PR poderá ser usado como ID. Você não vai saber o número do PR até que envie o pedido, portanto, a primeira passagem do CI vai falhar na verificação do <code>towncrier</code>; adicione a nota de alteração e envie uma atualização do PR e o CI deverá ser aprovado.</p>
 <p>Há cinco tipos de fragmentos:</p>
 <ul>
-<li><code>feature</code>: O PR adiciona um novo comportamento ou capacidade que não era
-  possível anteriormente (ex., adicionar suporte a um novo formato de
-  empacotamento ou uma nova funcionalidade num formato de empacotamento
-  existente);</li>
+<li><code>feature</code>: O PR adiciona um novo comportamento ou capacidade que não era possível anteriormente (ex., adicionar suporte a um novo formato de empacotamento ou uma nova funcionalidade num formato de empacotamento existente);</li>
 <li><code>bugfix</code>: O PR corrige um bug na implementação existente;</li>
 <li><code>doc</code>: O PR é uma melhoria significativa na documentação;</li>
-<li><code>removal</code>; O PR representa uma alteração incompatível com versões anteriores
-  na API BeeWare API; ou</li>
-<li><code>misc</code>; Uma alteração menor ou administrativa (ex., correção de um erro de
-  ortográfico, um esclarecimento menor de linguagem ou atualização de uma versão
-  de dependência) que não precisa ser anunciada nas notas de lançamento.</li>
+<li><code>removal</code>; O PR representa uma alteração incompatível com versões anteriores na API BeeWare API; ou</li>
+<li><code>misc</code>; Uma alteração menor ou administrativa (ex., correção de um erro de ortográfico, um esclarecimento menor de linguagem ou atualização de uma versão de dependência) que não precisa ser anunciada nas notas de lançamento.</li>
 </ul>
-<p>Essa descrição na nota de alteração deve ser um resumo de "publicidade" de alto
-nível da alteração sob a perspetiva do utilizador, e não uma descrição técnica
-profunda ou detalhes de implementação. Ela é diferente de uma mensagem de
-submissão - uma mensagem de submissão descreve o que foi feito para que os
-futuros desenvolvedores possam acompanhar o raciocínio de uma alteração; a nota
-de alteração é uma descrição para o benefício dos utilizadores, que podem não
-ter conhecimento dos aspetos internos.</p>
-<p>Por exemplo, se corrigir um bug relacionado com a nomenclatura do projeto, a
-mensagem de submissão poderá ser a seguinte:</p>
+<p>Essa descrição na nota de alteração deve ser um resumo de "publicidade" de alto nível da alteração sob a perspetiva do utilizador, e não uma descrição técnica profunda ou detalhes de implementação. Ela é diferente de uma mensagem de submissão - uma mensagem de submissão descreve o que foi feito para que os futuros desenvolvedores possam acompanhar o raciocínio de uma alteração; a nota de alteração é uma descrição para o benefício dos utilizadores, que podem não ter conhecimento dos aspetos internos.</p>
+<p>Por exemplo, se corrigir um bug relacionado com a nomenclatura do projeto, a mensagem de submissão poderá ser a seguinte:</p>
 <blockquote>
-<p>Aplicar uma verificação de expressão regular mais forte para não permitir
-nomes de projetos que comecem com dígitos.</p>
+<p>Aplicar uma verificação de expressão regular mais forte para não permitir nomes de projetos que comecem com dígitos.</p>
 </blockquote>
 <p>A nota de alteração correspondente seria algo como:</p>
 <blockquote>
 <p>Os nomes dos projetos não podem mais começar com um número.</p>
 </blockquote>
-<p>Alguns PRs vão introduzir várias funcionalidades e corrigir vários bugs, ou
-introduzir várias alterações incompatíveis com versões anteriores. Neste caso, o
-PR pode ter vários ficheiros de notas de alteração. Se precisar associar dois
-tipos de fragmentos à mesma ID, poderá acrescentar um sufixo numérico. Por
-exemplo, se o PR 789 adicionou uma funcionalidade descrita pelo bilhete 123,
-fechou um bug descrito pelo bilhete 234 e também fez duas alterações
-incompatíveis com versões anteriores, pode ter 4 ficheiros de notas de
-alteração:</p>
+<p>Alguns PRs vão introduzir várias funcionalidades e corrigir vários bugs, ou introduzir várias alterações incompatíveis com versões anteriores. Neste caso, o PR pode ter vários ficheiros de notas de alteração. Se precisar associar dois tipos de fragmentos à mesma ID, poderá acrescentar um sufixo numérico. Por exemplo, se o PR 789 adicionou uma funcionalidade descrita pelo bilhete 123, fechou um bug descrito pelo bilhete 234 e também fez duas alterações incompatíveis com versões anteriores, pode ter 4 ficheiros de notas de alteração:</p>
 <ul>
 <li><code>123.feature.md</code></li>
 <li><code>234.bugfix.md</code></li>
 <li><code>789.removal.1.md</code></li>
 <li><code>789.removal.2.md</code></li>
 </ul>
-<p>Para mais informações sobre o <code>towncrier</code> e os tipos de fragmentos, consulte
-<a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">News
-Fragments</a>.
-Também pode ver exemplos existentes de fragmentos de notícias no diretório
-<code>changes</code> do repositório BeeWare. Se essa pasta estiver vazia,
-provavelmente é porque BeeWare publicou recentemente uma nova versão;
-os ficheiros de notas de alteração são excluídos e combinados para atualizar as
-<a href="https://github.com/beeware/beeware/releases">notas de lançamento</a>
-com cada versão. Pode consultar esse ficheiro para ver o estilo de comentário
-necessário; pode consultar <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">PRs recentemente
-fundidos</a> para ver como formatar as suas notas de
-alteração.</p>
+<p>Para mais informações sobre o <code>towncrier</code> e os tipos de fragmentos, consulte <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">News Fragments</a>. Também pode ver exemplos existentes de fragmentos de notícias no diretório <code>changes</code> do repositório BeeWare. Se essa pasta estiver vazia, provavelmente é porque BeeWare publicou recentemente uma nova versão; os ficheiros de notas de alteração são excluídos e combinados para atualizar as <a href="https://github.com/beeware/beeware/releases">notas de lançamento</a> com cada versão. Pode consultar esse ficheiro para ver o estilo de comentário necessário; pode consultar <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">PRs recentemente fundidos</a> para ver como formatar as suas notas de alteração.</p>
 
 
 

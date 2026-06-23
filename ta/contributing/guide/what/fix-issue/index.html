@@ -1,0 +1,5748 @@
+<!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+<!doctype html>
+<html lang="ta" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://beeware.org/contributing/guide/what/fix-issue/">
+      
+      
+        <link rel="prev" href="../../">
+      
+      
+        <link rel="next" href="../implement-feature/">
+      
+      
+        
+          <link rel="alternate" href="/en/" hreflang="en">
+        
+          <link rel="alternate" href="/ar/" hreflang="ar">
+        
+          <link rel="alternate" href="/cs/" hreflang="cs">
+        
+          <link rel="alternate" href="/da/" hreflang="da">
+        
+          <link rel="alternate" href="/de/" hreflang="de">
+        
+          <link rel="alternate" href="/es/" hreflang="es">
+        
+          <link rel="alternate" href="/fa/" hreflang="fa">
+        
+          <link rel="alternate" href="/fr/" hreflang="fr">
+        
+          <link rel="alternate" href="/it/" hreflang="it">
+        
+          <link rel="alternate" href="/ja/" hreflang="ja">
+        
+          <link rel="alternate" href="/ko/" hreflang="ko">
+        
+          <link rel="alternate" href="/pl/" hreflang="pl">
+        
+          <link rel="alternate" href="/pt/" hreflang="pt">
+        
+          <link rel="alternate" href="/ru/" hreflang="ru">
+        
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
+          <link rel="alternate" href="/tr/" hreflang="tr">
+        
+          <link rel="alternate" href="/vi/" hreflang="vi">
+        
+          <link rel="alternate" href="/zh_CN/" hreflang="zh-Hant">
+        
+          <link rel="alternate" href="/zh_TW/" hreflang="zh-TW">
+        
+      
+      
+        <link rel="alternate" type="application/rss+xml" title="RSS ஊட்டம்" href="../../../../feed_rss_created.xml">
+        <link rel="alternate" type="application/rss+xml" title="புதுப்பிக்கப்பட்ட உள்ளடக்கத்தின் RSS ஊட்டம்" href="../../../../feed_rss_updated.xml">
+      
+      <link rel="icon" href="../../../../assets/images/brutus-256.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>ஒரு சிக்கலைச் சரிசெய்யவும் - BeeWare</title>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../assets/stylesheets/beeware_theme.css">
+
+    
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    <script src="https://kit.fontawesome.com/9a40a729b9.js" crossorigin="anonymous"></script>
+
+    
+      <link rel="stylesheet" href="../../../../stylesheets/beeware.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          உள்ளடக்கத்திற்கு செல்க
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine classes -->
+
+
+  
+
+
+<!-- Header -->
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav
+class="md-header__inner md-grid"
+aria-label="தலைப்பு"
+>
+
+    <!-- Link to home -->
+    <a
+      href="https://beeware.org/"
+      title="BeeWare"
+      class="md-header__button md-logo"
+      aria-label="BeeWare"
+      data-md-component="logo"
+    >
+      <!-- include "partials/logo.html" Modified content is included here. -->
+          <img src="../../../../assets/images/brutus-256.png" alt="Logo" />
+
+    </a>
+
+    <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+      <a href="https://beeware.org/"
+         title="BeeWare">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            BeeWare
+          </span>
+        </div>
+        </a>
+      </div>
+    </div>
+
+    <nav
+      class="md-tabs"
+      aria-label="தாவல்கள்"
+      data-md-component="tabs"
+    >
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+    
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../about/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  பற்றி
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../docs/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ஆவணங்கள்
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../community/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  சமூகம்
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  பங்களிப்பு
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../news/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  செய்திகள்
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../membership/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  விளம்பரதாரர்
+
+        </a>
+      </li>
+    
+  
+
+      
+    
+    </ul>
+  </div>
+</nav>
+    </ul>
+  </div>
+</nav>
+
+    <!-- Color palette toggle -->
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+
+    <!-- User preference: color palette -->
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+
+    <!-- Site language selector -->
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="மொழியைத் தேர்ந்தெடுக்கவும்">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../../../contributing/guide/what/fix-issue/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ar/contributing/guide/what/fix-issue/" hreflang="ar" class="md-select__link">
+              العَرَبِيَّة
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../cs/contributing/guide/what/fix-issue/" hreflang="cs" class="md-select__link">
+              Čeština
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../da/contributing/guide/what/fix-issue/" hreflang="da" class="md-select__link">
+              Dansk
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../de/contributing/guide/what/fix-issue/" hreflang="de" class="md-select__link">
+              Deutsch
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../es/contributing/guide/what/fix-issue/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../fa/contributing/guide/what/fix-issue/" hreflang="fa" class="md-select__link">
+              فارسی
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../fr/contributing/guide/what/fix-issue/" hreflang="fr" class="md-select__link">
+              Français
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../it/contributing/guide/what/fix-issue/" hreflang="it" class="md-select__link">
+              Italiano
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ja/contributing/guide/what/fix-issue/" hreflang="ja" class="md-select__link">
+              日本語
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ko/contributing/guide/what/fix-issue/" hreflang="ko" class="md-select__link">
+              한국어
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../pl/contributing/guide/what/fix-issue/" hreflang="pl" class="md-select__link">
+              Polski
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../pt/contributing/guide/what/fix-issue/" hreflang="pt" class="md-select__link">
+              Português
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ru/contributing/guide/what/fix-issue/" hreflang="ru" class="md-select__link">
+              Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/what/fix-issue/" hreflang="ta" class="md-select__link">
+              தமிழ்
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../tr/contributing/guide/what/fix-issue/" hreflang="tr" class="md-select__link">
+              Türkçe
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../vi/contributing/guide/what/fix-issue/" hreflang="vi" class="md-select__link">
+              Tiếng Việt
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../zh_CN/contributing/guide/what/fix-issue/" hreflang="zh-Hant" class="md-select__link">
+              中文(简体)
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../zh_TW/contributing/guide/what/fix-issue/" hreflang="zh-TW" class="md-select__link">
+              中文(繁體)
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+
+    <!-- Button to open search modal -->
+    
+      
+
+      <!-- Check if search is actually enabled - see https://t.ly/DT_0V -->
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+
+        <!-- Search interface -->
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="தேடு" placeholder="தேடு" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="தேடு">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="பகிரவும்" aria-label="பகிரவும்" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="அழிக்கவும்" aria-label="அழிக்கவும்" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            தேடலைத் துவக்குகிறது
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Determine classes -->
+
+
+<!-- Navigation -->
+<nav
+  class="md-nav md-nav--primary"
+  aria-label="வழிசெலுத்தல்"
+  data-md-level="0"
+>
+
+  <!-- Site title -->
+  <label class="md-nav__title small" for="__drawer">
+    <a
+    href="../../../.."
+    title="BeeWare"
+    class="md-nav__button md-logo"
+    aria-label="BeeWare"
+    data-md-component="logo"
+    >
+        <div class="sidebar-title-block">
+            <div class="sidebar-logo">
+            
+  <img src="../../../../assets/images/brutus-256.png" alt="logo">
+
+            </div>
+            <div class="sidebar-title-block-name">
+                <div class="site-name">
+                  BeeWare
+                </div>
+                
+            </div>
+        </div>
+    </a>
+      
+  </label>
+
+  <!-- Repository information -->
+  
+
+  <!-- Navigation list -->
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_1"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../../about/"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    பற்றி
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+              
+              <label
+                class="md-nav__link "
+                for="__nav_1"
+                id="__nav_1_label"
+                tabindex=""
+              >
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_1_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    பற்றி
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/overview/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    BeeWare என்றால் என்ன?
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/team/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    தேனீக் குழு
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/history/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    வரலாறு மற்றும் தத்துவம்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/success/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    வெற்றிக் கதைகள்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/contact/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    தொடர்பு
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../about/branding/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    பிராண்டிங் வழிகாட்டுதல்கள்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_2"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../../docs/"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    ஆவணங்கள்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_2_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    ஆவணங்கள்
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_3"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../../community/"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    சமூகம்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+              
+              <label
+                class="md-nav__link "
+                for="__nav_3"
+                id="__nav_3_label"
+                tabindex=""
+              >
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_3_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    சமூகம்
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../community/code-of-conduct/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    BeeWare சமூக நடத்தை விதிமுறைகள்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../community/governance/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    ஆளுகை
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+    
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle "
+          type="checkbox"
+          id="__nav_4"
+          checked
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    பங்களிப்பு
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+              
+              <label
+                class="md-nav__link "
+                for="__nav_4"
+                id="__nav_4_label"
+                tabindex=""
+              >
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_4_label"
+          aria-expanded="true"
+        >
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    பங்களிப்பு
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../first-time-contributors/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    முதல் முறை பங்களிப்பாளர்கள்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+    
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle "
+          type="checkbox"
+          id="__nav_4_3"
+          checked
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    பங்களிப்பு வழிகாட்டி
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+              
+              <label
+                class="md-nav__link "
+                for="__nav_4_3"
+                id="__nav_4_3_label"
+                tabindex=""
+              >
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="2"
+          aria-labelledby="__nav_4_3_label"
+          aria-expanded="true"
+        >
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    பங்களிப்பு வழிகாட்டி
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+    
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+
+      <!-- State toggle -->
+      <input
+        class="md-nav__toggle md-toggle"
+        type="checkbox"
+        id="__toc"
+      />
+
+      <!-- Hack: see partials/toc.html for more information -->
+      
+      
+        
+      
+
+      <!-- Navigation link to table of contents -->
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    ஒரு சிக்கலைச் சரிசெய்யவும்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a
+        href="./"
+        class="md-nav__link md-nav__link--active"
+      >
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    ஒரு சிக்கலைச் சரிசெய்யவும்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+
+      <!-- Table of contents -->
+      
+        <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine title -->
+
+
+  
+
+
+<!-- Table of contents -->
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+
+  <!--
+    Check whether the content starts with a level 1 headline. If it does, the
+    top-level anchor must be skipped, since it would be redundant to the link
+    to the current page that is located just above the anchor. Therefore we
+    directly continue with the children of the anchor.
+  -->
+  
+  
+    
+  
+
+  <!-- Table of contents title and list -->
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ஒரு சிக்கலுக்குத் தீர்வு பங்களித்தல்
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+<div id="ethical-ad-placement"></div>
+</nav>
+      
+    </li>
+
+  <!-- Navigation item -->
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../implement-feature/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    ஒரு புதிய அம்சத்தைச் செயல்படுத்தவும்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../write-docs/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    ஆவணங்களை எழுதுங்கள்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../triage/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    ஒரு சிக்கலை முன்னுரிமைப்படுத்துதல்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../review-pr/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    ஒரு புல் கோரிக்கையை மதிப்பாய்வு செய்யவும்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../propose-feature/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    புதிய அம்சத்தை முன்மொழியுங்கள்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../translate/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    உள்ளடக்கத்தை மொழிபெயர்க்கவும்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../use-tools/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    கருவிகளைப் பயன்படுத்துங்கள்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/dev-environment/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    ஒரு மேம்பாட்டுச் சூழலை அமைத்தல்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/reproduce-issue/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    ஒரு சிக்கலை மீண்டும் உருவாக்குதல்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/branches/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    கிளையிலிருந்து வேலை செய்தல்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/scope-creep/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    எல்லை மீறலைத் தவிர்த்தல்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/write-code/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    எழுதுதல், இயக்கிப் பார்த்தல் மற்றும் சோதனை செய்தல்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/build-docs/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    கட்டுமான ஆவணங்கள்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/write-docs/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    ஆவணங்களை எழுதுதல்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/change-note/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    மாற்றக் குறிப்பைச் சேர்த்தல்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/submit-pr/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    புல் ரிக்வெஸ்டைச் சமர்ப்பித்தல்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/review-pr/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    மதிப்பாய்வு வழங்குதல்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/new-issue/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    புதிய சிக்கலைச் சமர்ப்பித்தல்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/propose-feature/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    புதிய அம்சத்தை முன்மொழிதல்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../how/translate/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    உள்ளடக்கத்தை மொழிபெயர்த்தல்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../next/pr-review/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    புல் ரிக்வெஸ்ட் மதிப்பாய்வு செயல்முறை
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../next/release/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    வெளியீட்டு செயல்முறை
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../policies/ai-policy/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    கலைமருத்துவக் கொள்கை
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../style/code-style-guide/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    குறியீட்டு நடை வழிகாட்டி
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../style/docs-style-guide/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    ஆவணப்படுத்தல் பாணி வழிகாட்டி
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../sprint-guide/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    ஸ்приன்ட் வழிகாட்டி
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../challenge-coins/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    சவால் நாணயங்கள்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_5"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../../news/"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    செய்திகள்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+              
+              <label
+                class="md-nav__link "
+                for="__nav_5"
+                id="__nav_5_label"
+                tabindex=""
+              >
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_5_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    செய்திகள்
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_5_2"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <label
+            class="md-nav__link"
+            for="__nav_5_2"
+            id="__nav_5_2_label"
+            tabindex="0"
+          >
+            
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    காப்பகம்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+
+        <!-- Toggle to expand nested items with link to index page -->
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="2"
+          aria-labelledby="__nav_5_2_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    காப்பகம்
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2026/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2026
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2025/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2025
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2024/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2024
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2023/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2023
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2022/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2022
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2021/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2021
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2020/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2020
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2019/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2019
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2018/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2018
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2017/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2017
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2016/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2016
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2015/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2015
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2014/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2014
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/archive/2013/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    2013
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_5_3"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <label
+            class="md-nav__link"
+            for="__nav_5_3"
+            id="__nav_5_3_label"
+            tabindex="0"
+          >
+            
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    வகைகள்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+
+        <!-- Toggle to expand nested items with link to index page -->
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="2"
+          aria-labelledby="__nav_5_3_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    வகைகள்
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/buzz/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Buzz
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/events/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Events
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+    
+  
+
+  <!-- Navigation item with nested items -->
+  
+    <li class="md-nav__item">
+      <a href="../../../../news/resources/" class="md-nav__link">
+        
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    Resources
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+      
+      
+
+  <!-- Determine classes -->
+  
+  
+
+  <!-- Determine active page for paginated views -->
+  
+
+  <!-- Navigation item with nested items -->
+  
+
+    <!-- Determine all nested items that are index pages -->
+    
+    
+      
+        
+          
+        
+      
+    
+    
+
+
+    <!-- Navigation sections originally interacted with tabs in an undesirable way. -->
+    <!-- sections is only enabled on the website, so this is only necessary there. -->
+    
+        <!-- Render 1st and 2nd level items with nested items as sections -->
+        
+          
+          
+        
+    
+
+    <!-- Navigation pruning -->
+    
+
+
+    <!-- Nested navigation item -->
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+
+        <!-- Determine checked and indeterminate state -->
+        
+          
+        
+
+        <!-- Active checkbox expands items contained within nested section -->
+        <input
+          class="md-nav__toggle md-toggle md-toggle--indeterminate"
+          type="checkbox"
+          id="__nav_6"
+          
+        />
+
+        <!-- Toggle to expand nested items -->
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a
+              href="../../../../membership/"
+              class="md-nav__link "
+            >
+              
+  
+
+  <!-- Navigation link icon -->
+  
+
+  <!-- Navigation link title -->
+  <span class="md-ellipsis">
+    
+
+  <!-- Typeset title -->
+  
+    விளம்பரதாரர்
+  
+
+
+    <!-- Navigation link subtitle -->
+    
+  </span>
+
+  <!-- Navigation link to encrypted content -->
+  
+
+  <!-- Navigation link status -->
+  
+
+            </a>
+
+            <!-- Only render toggle if there's at least one more page -->
+            
+          </div>
+        
+
+        <!-- Nested navigation -->
+        <nav
+          class="md-nav"
+          data-md-level="1"
+          aria-labelledby="__nav_6_label"
+          aria-expanded="false"
+        >
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+
+  <!-- Typeset title -->
+  
+    விளம்பரதாரர்
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+
+            <!-- Nested navigation item -->
+              
+              
+              
+            
+              
+            
+          </ul>
+        </nav>
+
+      <!-- Pruned navigation item -->
+      
+    </li>
+
+  <!-- Currently active page -->
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Determine title -->
+
+
+  
+
+
+<!-- Table of contents -->
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+
+  <!--
+    Check whether the content starts with a level 1 headline. If it does, the
+    top-level anchor must be skipped, since it would be redundant to the link
+    to the current page that is located just above the anchor. Therefore we
+    directly continue with the children of the anchor.
+  -->
+  
+  
+    
+  
+
+  <!-- Table of contents title and list -->
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ஒரு சிக்கலுக்குத் தீர்வு பங்களித்தல்
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+<div id="ethical-ad-placement"></div>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+
+
+<!-- Determine whether to show navigation path -->
+
+  
+
+
+<!-- Determine whether we have enough pages for rendering -->
+
+
+
+<!-- Navigation path (breadcrumbs) -->
+
+  <nav class="md-path" aria-label="வழிசெலுத்தல்" >
+    <ol class="md-path__list">
+
+      
+
+      <!-- Render ancestors in reverse -->
+      
+        
+          
+
+  <!-- Render navigation item -->
+  
+
+  
+    <!-- Navigation item with nested items -->
+    
+
+    
+        <!-- Nested navigation item -->
+        
+          <li class="md-path__item">
+            <a href="../../../" class="md-path__link">
+              
+  <span class="md-ellipsis">
+    பங்களிப்பு
+  </span>
+
+            </a>
+          </li>
+        
+    
+
+  
+
+        
+      
+        
+          
+
+  <!-- Render navigation item -->
+  
+
+  
+    <!-- Navigation item with nested items -->
+    
+
+    
+        <!-- Nested navigation item -->
+        
+          <li class="md-path__item">
+            <a href="../../" class="md-path__link">
+              
+  <span class="md-ellipsis">
+    பங்களிப்பு வழிகாட்டி
+  </span>
+
+            </a>
+          </li>
+        
+    
+
+  
+
+        
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+
+<h1 id="_1">ஒரு சிக்கலைச் சரிசெய்தல்<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>BeeWare என்பது <a href="https://github.com/search?q=org%3Abeeware%20is%3Aopen%20is%3Aissue%20label%3Abug&amp;type=issues">அறியப்பட்ட சிக்கல்கள்</a> பட்டியலைக் கண்காணிக்கிறது. இவற்றில் ஏதேனும் சிக்கல்கள் வேலை செய்யத் தகுதியானவை.</p>
+<p>இந்தப் பட்டியலை பல்வேறு வழிகளில் வடிகட்டலாம். உதாரணமாக, நீங்கள் தளத்தின் அடிப்படையில் வடிகட்டலாம், இதன் மூலம் நீங்கள் சோதிக்கக்கூடிய தளங்களைப் பாதிக்கும் சிக்கல்களில் கவனம் செலுத்தலாம்; அல்லது நீங்கள் சிக்கல் வகையின் அடிப்படையில், <a href="https://github.com/search?q=org%3Abeeware+is%3Aopen+is%3Aissue+label%3Abug+label%3Adocumentation&amp;type=issues">ஆவணச் சிக்கல்கள்</a> போன்றவற்றை வடிகட்டலாம். <a href="https://github.com/search?q=org%3Abeeware+is%3Aopen+is%3Aissue+label%3Abug+label%3A%22good+first+issue%22&amp;type=issues">முதலில் செய்ய நல்ல சிக்கல்கள்</a> என்பதற்கான ஒரு வடிகட்டியும் உள்ளது - இவை அறியப்பட்ட காரணத்தைக் கொண்ட, மற்றும் சரிசெய்வது ஒப்பீட்டளவில் எளிமையானதாக <em>இருக்க வேண்டும்</em> என்று நாங்கள் நம்பும் சிக்கல்கள் ஆகும் (எங்கள் ஆய்வில் நாங்கள் தவறாக இருக்கலாம்).</p>
+<p>ஒரு சிக்கல் 6 மாதங்களுக்கு மேல் பழமையானதாக இருந்தால், அது முற்றிலும் தீர்க்கப்பட்டிருக்க வாய்ப்புள்ளது, எனவே முதல் படி நீங்கள் அந்தச் சிக்கலை மீண்டும் உருவாக்க முடியுமா என்பதைச் சரிபார்ப்பதாகும். பிழை அறிக்கையில் வழங்கப்பட்ட தகவல்களைப் பயன்படுத்தி சிக்கலை மீண்டும் உருவாக்க முயற்சிக்கவும். உங்களால் சிக்கலை மீண்டும் உருவாக்க முடியாவிட்டால், நீங்கள் கண்டறிந்ததை அந்த சிக்கலில் ஒரு கருத்தாகப் பதிவுசெய்து, மற்றொரு சிக்கலைத் தேர்ந்தெடுக்கவும்.</p>
+<p>சிக்கலை உங்களால் மீண்டும் உருவாக்க முடிந்தால், அதைச் சரிசெய்ய முயற்சி செய்யுங்கள்! இந்த அம்சத்தை எந்தக் குறியீடு கலவை செயல்படுத்துகிறது என்பதைக் கண்டறிந்து, எது சரியாகச் செயல்படவில்லை என்பதையும் கண்டறிய முயற்சி செய்யுங்கள்.</p>
+<p>உங்களால் சிக்கலை சரிசெய்ய முடியாவிட்டாலும், அந்தச் செயல்பாட்டின் போது நீங்கள் கண்டறியும் எதையும் சிக்கல் பதிவில் ஒரு கருத்தாகப் பதிவிடுவது பயனுள்ளதாக இருக்கும். சிக்கலின் மூலத்தைக் கண்டறிந்து, ஆனால் அதற்கான தீர்வைக் கண்டறிய முடியாவிட்டால், அந்த அறிவு, அந்தத் தளத்தைப் பற்றி நன்கு அறிந்த ஒருவரால் சிக்கலைத் தீர்க்கப் போதுமானதாக இருக்கும். சிக்கலை மீண்டும் உருவாக்கும் ஒரு நல்ல மாதிரி (சிக்கலை மட்டும் மீண்டும் உருவாக்கும் ஒரு சிறிய மாதிரிச் செயலி) ஏற்கனவே வழங்கப்படவில்லை என்றால், அதை வழங்குவது ஒரு பெரிய உதவியாக இருக்கும்.</p>
+<h2 id="_2">ஒரு சிக்கலுக்குத் தீர்வு பங்களித்தல்<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<details class="abstract">
+<summary>ஒரு மேம்பாட்டுச் சூழலை அமைக்கவும்</summary>
+<h1 id="_3">ஒரு மேம்பாட்டுச் சூழலை அமைத்தல்<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<p>நீங்கள் பங்களிக்கும் திட்டத்தைப் பொறுத்து, ஒரு மேம்பாட்டுச் சூழலை அமைப்பதற்கான படிகள் மாறுபடும். பின்வருவனவற்றிலிருந்து தேர்ந்தெடுக்கவும்:</p>
+<ul>
+<li><a href="https://briefcase.beeware.org/en/stable/how-to/contribute/how/dev-environment/">Briefcase</a></li>
+<li><a href="https://toga.beeware.org/en/stable/how-to/contribute/how/dev-environment/">Toga</a></li>
+<li><a href="https://rubicon-objc.beeware.org/en/stable/how-to/contribute/how/dev-environment/">ரூபிகான் ஆப்ஜெக்டிவ்-சி</a></li>
+</ul>
+<p>நீங்கள் பங்களிக்க விரும்பும் களஞ்சியம் இந்தப் பட்டியலில் இல்லை என்றால், மிகவும் பொருத்தமான திட்டத்திற்கான மேம்பாட்டு வழிகாட்டியைப் பின்பற்றவும். உதாரணமாக, நீங்கள் ஒரு பிரீஃப்கேஸ் வார்ப்புரு களஞ்சியத்தில் பணியாற்ற விரும்பினால், நீங்கள் பிரீஃப்கேஸிற்கான வழிகாட்டியைப் பின்பற்ற வேண்டும்.</p>
+</details>
+<details class="abstract">
+<summary>கிளையிலிருந்து வேலை செய்யுங்கள்</summary>
+<h1 id="main">உங்கள் <code>main</code> கிளை அல்ல, ஒரு அம்சக் கிளையிலிருந்து வேலை செய்யுங்கள்.<a class="headerlink" href="#main" title="Permanent link">&para;</a></h1>
+<p>உங்கள் மாற்றத்தில் வேலை செய்யத் தொடங்குவதற்கு முன், நீங்கள் ஒரு கிளை உருவாக்கியுள்ளீர்கள் என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள். இயல்பாக, உங்கள் களஞ்சியப் பிளக்கை நீங்கள் நகலெடுக்கும்போது, உங்கள் <code>main</code> கிளையில் நீங்கள் சரிபார்க்கப்படுவீர்கள். இது BeeWare-இன் <code>main</code> கிளையின் நேரடி நகலாகும்.</p>
+<p>உங்கள் <code>main</code> கிளைகளிலிருந்து ஒரு புல் கோரிக்கையைச் சமர்ப்பிக்க <em>முடிந்தாலும்</em>, நீங்கள் அவ்வாறு செய்யாமல் இருப்பது நல்லது. நீங்கள் கிட்டத்தட்ட சரியான ஒரு புல் கோரிக்கையைச் சமர்ப்பித்தால், உங்கள் புல் கோரிக்கையை மதிப்பாய்வு செய்யும் முக்கியக் குழு உறுப்பினர், ஒரு சிறிய மாற்றத்தைக் கேட்கும் கருத்துக்களைக் கொடுப்பதற்குப் பதிலாக, தேவையான மாற்றங்களைச் செய்ய முடியும். இருப்பினும், உங்கள் <code>main</code> கிளை இருந்து உங்கள் புல் கோரிக்கையைச் சமர்ப்பித்தால், மதிப்பாய்வாளர்கள் மாற்றங்களைச் செய்வதிலிருந்து தடுக்கப்படுகிறார்கள்.</p>
+<p>உங்கள் முதன்மை கிளை (main branch) அடிப்படையிலான உங்கள் முதல் புல் கோரிக்கையை முடித்த பிறகு, அதிலிருந்து வேலை செய்வது <em>உங்களுக்கும்</em> கடினமாக்குகிறது. நீங்கள் இரண்டாவது புல் ரிக்வெஸ்டில் வேலை செய்ய விரும்பினால், உங்கள் இரண்டாவது பங்களிப்பை அடிப்படையாகக் கொள்ள, அப்ஸ்ட்ரீம் திட்டத்தின் பிரதான கிளைக்கான ஒரு "தூய்மையான" பிரதியை நீங்கள் வைத்திருக்க வேண்டும்; உங்கள் முதல் பங்களிப்பை உங்கள் <code>main</code> கிளையிலிருந்து செய்திருந்தால், அந்தத் தூய்மையான பதிப்பு இனி உங்களிடம் இருக்காது.</p>
+<p>அதற்குப் பதிலாக, நீங்கள் உங்கள் மாற்றங்களை ஒரு <em>ஃபீச்சர் பிராஞ்சில்</em> செய்ய வேண்டும். நீங்கள் செய்த மாற்றத்தை அடையாளம் காண, ஒரு ஃபீச்சர் பிராஞ்ச் ஒரு எளிய பெயரைக் கொண்டிருக்கும். உதாரணமாக, நீங்கள் விண்டோஸ் 11-ல் கட்டமைப்புப் பிரச்சினைகளை ஏற்படுத்தும் ஒரு பிழையைச் சரிசெய்கிறீர்கள் என்றால், நீங்கள் ஒரு அம்சக் கிளையை <code>fix-win11-build</code> என உருவாக்கலாம். உங்கள் பிழை, ஏற்கனவே புகாரளிக்கப்பட்ட ஒரு குறிப்பிட்ட சிக்கலுடன் தொடர்புடையது என்றால், கிளைப் பெயரில் அந்தச் சிக்கல் எண்ணைக் குறிப்பிடுவதும் வழக்கம் (எ.கா., <code>fix-1234</code>).</p>
+<p>ஒரு <code>fix-win11-build</code> ஃபீச்சர் பிராஞ்சை உருவாக்க, ஓட்டுங்கள்:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>fix-win11-build
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>fix-win11-build
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git switch -c fix-win11-build
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<details class="abstract">
+<summary>சிக்கலை மீண்டும் உருவாக்கவும்</summary>
+<h1 id="_4">ஒரு சிக்கலை மீண்டும் உருவாக்குதல்<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<p>முதலில் ஒரு சிக்கல் உங்களுக்கு இல்லையென்றால், அதை உங்களால் சரிசெய்ய முடியாது. எனவே, சிக்கலைச் சரிசெய்வதற்கு, அதை மீண்டும் உருவாக்குவது ஒரு முன்நிபந்தனையாகும். மென்பொருளில், சிக்கல்கள் பொதுவாக <a href="https://en.wikipedia.org/wiki/Software_bug">"பிழைகள்"</a> என்று குறிப்பிடப்படுகின்றன, மேலும் பிரச்சினைகள் பெரும்பாலும் "பிழை அறிக்கைகள்" என்று அழைக்கப்படுகின்றன.</p>
+<p>யாரோ ஒருவர் பிழை அறிக்கை ஒன்றை வழங்கியுள்ளார். அறிக்கையாளர் விவரிக்கும் படிகள், குறிப்பிடப்பட்ட பிழைக்கு வழிவகுப்பதை நீங்கள் சரிபார்க்க வேண்டும். அறிக்கையில் விவரிக்கப்பட்டதை அப்படியே செய்து, அதே முடிவை உங்களால் மீண்டும் பெற முடியுமா? முடியாவிட்டால், அதற்கான காரணத்தை நீங்கள் கண்டறிய வேண்டும்.</p>
+<p>ஒரு சிக்கலை மீண்டும் உருவாக்கத் தொடங்க, நீங்கள் ஒரு <a href="../../how/dev-environment/">மேம்பாட்டுச் சூழலை</a> அமைக்க வேண்டும்.</p>
+<h3 id="_5">குறியீட்டுப் பிழைகள்<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>ஒரு சிறந்த சூழ்நிலையில், பிழையைத் தெரிவித்த நபரின் அதே அமைப்பை நீங்கள் கொண்டிருப்பீர்கள், வழிமுறைகளைப் பின்பற்றி, விவரிக்கப்பட்டபடி பிழையை மீண்டும் உருவாக்க முடியும். இருப்பினும், பல சந்தர்ப்பங்களில், அது அவ்வளவு எளிமையாக இருக்காது. பல பிழை அறிக்கைகளில் தெளிவற்ற விளக்கங்களும், தெளிவற்ற நிபந்தனைகளின் தொகுப்பும் மட்டுமே அடங்கியிருக்கும். சிக்கல் என்னவென்றால், பல பிழைகள் சம்பந்தப்பட்ட நிலைமைகளின் அடிப்படையில் மாறுபடுகின்றன, இதில் அவற்றுடன் எவ்வாறு தொடர்பு கொள்ளப்படுகிறது, பல்வேறு முன்நிபந்தனைகள், இயக்க முறைமை, இயக்க முறைமை பதிப்பு, செயலி கட்டமைப்பு, அல்லது பயனரின் கணினி பழையதாகவும் மெதுவாகவும் உள்ளதா அல்லது புதியதாகவும் வேகமாகவும் உள்ளதா என்பது அடங்கும். பிழையைச் சுற்றியுள்ள சூழ்நிலை பற்றிய எங்களிடம் எவ்வளவு அதிக தகவல்கள் இருக்கின்றனவோ, அவ்வளவு நல்லது. புகாரை அளித்தவர் வழங்கிய நிலைமைகளை மீண்டும் உருவாக்க முயற்சிக்கவும். உங்களால் அவ்வாறு செய்ய முடியாவிட்டால், பிழையைப் புகாரளித்தவரிடமிருந்து மேலும் தகவல்களைக் கோருவது உங்கள் அடுத்த படியாக இருக்கலாம்.</p>
+<p>ஒரு பிழையை மீண்டும் உருவாக்குவதற்கான சிறந்த வழி, சிக்கலை வெளிப்படுத்தும் மிகச் சிறிய சாத்தியமான உதாரணத்தை பயன்படுத்துவதாகும். பெரும்பாலான நேரங்களில், புகாரளிப்பவர்கள் ஒரு குறைந்தபட்ச சாத்தியமான உதாரணத்தை வழங்க மாட்டார்கள்; அவர்கள் <em>எந்தவொரு</em> உதாரணத்தையாவது வழங்கினால், அது அவர்களின் "உண்மையான உலக" பயன்பாட்டிலிருந்து நேரடியாக நகலெடுக்கப்பட்டிருக்கும். அந்தப் பிழையை வெளிப்படுத்தும் மிக எளிய வடிவத்திற்கு அறிக்கையைக் குறைப்பதே உங்கள் நோக்கமாக இருக்க வேண்டும். மிகச் சிறப்பாகப் பிழையை மீண்டும் உருவாக்கும் முறை என்பது, மிகச் சிறிய சாத்தியமான நிரலாகும். இந்தச் சுருக்கமே மிகவும் உதவிகரமானது, ஏனெனில் இது உண்மையான சிக்கல் என்ன என்பதைத் தீர்மானிக்கிறது. யார் வேண்டுமானாலும் அந்த குறைந்தபட்ச உதாரணத்தை எடுத்து, இயக்கிப் பார்த்தால், விவரிக்கப்பட்ட பிழையை அவர்களால் காண முடியும்.</p>
+<h3 id="_6">ஆவணங்களில் உள்ள பிழைகள்<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>ஆவணங்களில் உள்ள பிழைகள் பல்வேறு வழிகளில் வெளிப்படலாம். வடிவமைப்பில் உள்ள சிக்கல்கள், காட்சிப்படுத்தல் பிரச்சனைகளுக்கு வழிவகுக்கின்றன. சில நேரங்களில் அது ஒரு பிழையாகக் கூட இருக்காது; அந்த நபர் ஆவணங்களைத் தவறாகப் படித்திருக்கலாம் அல்லது ஒரு உண்மையான தவறைச் செய்திருக்கலாம். இது ஆவணங்களில் சிக்கல் இல்லை என்று அர்த்தமல்ல. உள்ளடக்கம் தெளிவற்றதாகவோ அல்லது துல்லியமற்றதாகவோ இருக்கலாம், இது குழப்பத்திற்கோ அல்லது தவறான புரிதலுக்கோ வழிவகுக்கும். விவாதிக்கப்பட வேண்டிய ஒரு கருத்து, அது முற்றிலும் ஆவணப்படுத்தப்படாததால், விவாதிக்கப்படாமல் போக வாய்ப்புள்ளது.</p>
+<p>ஒரு ஆவணப் பிரச்சினைக்காகப் பிழை பதிவு செய்யப்படும்போது, அறிவிக்கப்பட்ட பிரச்சினை உண்மையில் இன்னும் இருக்கிறதா என்பதை நீங்கள் சரிபார்க்க வேண்டும். காட்சிப்படுத்தல் பிரச்சினைகளின் விஷயத்தில், அந்தப் பிரச்சினையை மீண்டும் உருவாக்க முடியுமா என்பதைப் பார்க்க நீங்கள் ஆவணங்களை உருவாக்க வேண்டும். உள்ளடக்கப் பிரச்சினைகள் என்பவை, யாரும் புதுப்பிப்பைச் சமர்ப்பிக்கவில்லை என்பதை உறுதிப்படுத்தப் படிப்பதே ஆகும்.</p>
+<h3 id="_7">சிக்கலைப் புதுப்பிக்கவும்<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>முன்னுரிமைப் பணியில், சிக்கலில் ஒரு கருத்தைப் பதிவிடுவதன் மூலம் உங்கள் கண்டுபிடிப்புகளைப் பதிவு செய்வதே இறுதிப் படியாகும்.</p>
+<p>விவரிக்கப்பட்ட அதே முறையில் சிக்கலை உங்களால் மீண்டும் உருவாக்க முடிந்தால், அதை மட்டும் கூறினால் போதும். அசல் புகார்தாரர் விவரித்த அதே விதத்தில், அதே சிக்கலை நீங்களும் காண்கிறீர்கள் என்பதை உறுதிப்படுத்தி ஒரு கருத்தைப் பதிவிடுங்கள்.</p>
+<p>உங்களால் கூடுதல் சூழலை வழங்க முடிந்தால், அந்தச் சூழலின் விவரங்களைச் சேர்க்கவும். இதில், சிக்கலை வேறு ஒரு இயக்க முறைமையில் மீண்டும் உருவாக்குவது, சம்பந்தப்பட்ட மென்பொருட்களின் வேறுபட்ட பதிப்பைப் பயன்படுத்துவது, அல்லது அசல் அறிக்கையிலிருந்து வேறுபடும் வேறு எதுவாக இருந்தாலும் அடங்கும்.</p>
+<p>அசல் அறிக்கையை மீண்டும் உருவாக்க உங்களுக்குத் தேவையான விவரங்கள் அதில் இல்லாத பட்சத்தில், <em>அந்த</em> விவரங்களைச் சேர்க்கவும். இதில், அசல் அறிக்கையில் இல்லாத இயக்க முறைமை அல்லது பதிப்பு விவரங்கள், முழுமையான பதிவுகள் அல்லது ஸ்டேக் டிரேஸ்கள், அல்லது சிக்கலை மீண்டும் உருவாக்கத் தேவையான செயல்பாடுகளின் சரியான வரிசை குறித்த தெளிவான வழிமுறைகள் ஆகியவை அடங்கலாம். சிக்கலை மீண்டும் உருவாக்க ஒரு எளிய வழியை நீங்கள் உருவாக்கியிருந்தால் (அல்லது அசல் புகார்தாரர் மீண்டும் உருவாக்கும் நிகழ்வை வழங்கவில்லை என்றால்), அந்த மீண்டும் உருவாக்கும் வழிமுறையின் விவரங்களையும் நீங்கள் சேர்க்கலாம்.</p>
+<p>உங்களால் சிக்கலை மீண்டும் உருவாக்க முடியாவிட்டால், நீங்கள் என்ன முயற்சி செய்தீர்கள் என்பதை விவரித்து ஒரு கருத்தையும் இடவும். ஒரு சிக்கல் எங்கே இல்லை என்பதை அறிவது, அது எங்கே இருக்கிறது என்பதை அறிவதைப் போலவே முக்கியமானது, ஏனெனில் அது சாத்தியமான காரணத்தைக் கண்டறிய உதவுகிறது. உங்களால் சிக்கலை மீண்டும் உருவாக்க <em>ஏன்</em> முடியவில்லை என்பது குறித்த ஏதேனும் கோட்பாடுகள் இருந்தால் - எடுத்துக்காட்டாக, இது பயன்பாட்டுப் பிழை என்று நீங்கள் நினைத்தால், அல்லது சமீபத்திய இயக்க முறைமைப் புதுப்பிப்பால் சிக்கல் சரிசெய்யப்பட்டுவிட்டது என்று நீங்கள் கருதினால் - அந்த ஊகத்தையும் உங்கள் கருத்தின் ஒரு பகுதியாகச் சேர்க்கவும்.</p>
+<p>கடைசியாக, உங்களிடம் ஏதேனும் பரிந்துரைகள் இருந்தால் அவற்றை முக்கியக் குழுவிற்கு வழங்கலாம். அசல் அறிக்கை பிழையாக இருப்பதாக நீங்கள் நினைத்தால், சிக்கலை மூட வேண்டும் என்று பரிந்துரைக்கவும்; சிக்கலின் காரணத்தைப் பற்றிய ஒரு கோட்பாடு உங்களிடம் இருந்தால், அதையும் பரிந்துரைக்கலாம். உங்கள் கருத்துகள், சிக்கலை அடுத்த கட்டத்திற்கு எவ்வாறு கொண்டு செல்வது என்பதை முக்கியக் குழு தீர்மானிக்க உதவும்.</p>
+<p>இந்த நிலையில், நீங்கள் இப்போது மீண்டும் உருவாக்கிய சிக்கலைச் சரிசெய்ய முயற்சி செய்யலாம்; மாற்றாக, உங்கள் கண்டுபிடிப்புகளை எழுதி, மற்றொரு சிக்கலை மீண்டும் உருவாக்க முயற்சி செய்யலாம்.</p>
+</details>
+<p><strong>சிக்கலைச் சரிசெய்ய குறியீட்டில் மாற்றங்கள் தேவைப்பட்டால்:</strong></p>
+<details class="abstract">
+<summary>குறியீட்டை எழுதுங்கள், இயக்கவும், சோதிக்கவும்</summary>
+<h1 id="_8">எழுதுதல், இயக்கிப் பார்த்தல் மற்றும் சோதனை செய்தல்<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h1>
+<p>ஒரு பிழையைச் சரிசெய்வதற்கோ அல்லது ஒரு அம்சத்தைச் செயல்படுத்துவதற்கோ நீங்கள் சில புதிய குறியீட்டை எழுத வேண்டியிருக்கும்.</p>
+<p>கோடில் வேலை செய்யத் தொடங்க, நீங்கள் ஒரு <a href="../../how/dev-environment/">வளர்ச்சிச் சூழலை</a> அமைத்துள்ளீர்கள் என்பதையும், ஒரு <a href="../../how/branches/">கிளையில்</a> வேலை செய்கிறீர்கள் என்பதையும் உறுதிப்படுத்திக் கொள்ளுங்கள்.</p>
+<p>BeeWare-க்கான குறியீட்டை எழுதுவதற்கான எங்கள் வழிகாட்டுதல்களை விவரிக்கும் ஒரு <a href="../../style/code-style-guide/">குறியீட்டு நடை வழிகாட்டி</a> எங்களிடம் உள்ளது.</p>
+<h3 id="_9">சோதனை வழி மேம்பாடு<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>உங்கள் குறியீடு நீங்கள் எதிர்பார்ப்பதைச் செய்யும் என்பதை உறுதி செய்வதற்கான ஒரு நல்ல வழி, முதலில் அதைச் சோதிக்க ஒரு சோதனை நிகழ்வை எழுதுவதாகும். இந்தச் சோதனை நிகழ்வு ஆரம்பத்தில் தோல்வியடைய வேண்டும், ஏனெனில் அது சோதிக்கும் குறியீடு இன்னும் உருவாக்கப்படவில்லை. பின்னர், சோதனையில் வெற்றிபெறத் தேவையான குறியீடு மாற்றங்களை நீங்கள் எழுதலாம், மேலும் நீங்கள் எழுதியது நீங்கள் எதிர்பார்க்கும் சிக்கலைத் தீர்க்கிறது என்பதை அறிந்து கொள்ளலாம்.</p>
+<h3 id="_10">உங்கள் குறியீட்டை இயக்கவும்<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>உங்கள் குறியீடு எழுதப்பட்டவுடன், அது இயங்குகிறதா என்பதை நீங்கள் உறுதி செய்ய வேண்டும். நீங்கள் எதிர்பார்ப்பதை அது செய்கிறதா என்பதைச் சரிபார்க்க, உங்கள் குறியீட்டை நீங்கள் கைமுறையாக இயக்க வேண்டும். நீங்கள் இன்னும் செய்யவில்லை என்றால், உங்கள் மாற்றங்களுக்காக ஒரு சோதனை நிகழ்வை எழுத வேண்டும்; மேலே குறிப்பிட்டது போல், உங்கள் குறியீடு கருத்துரைக்கப்பட்டிருந்தாலோ அல்லது இல்லை என்றாலோ இந்தச் சோதனை தோல்வியடைய வேண்டும்.</p>
+<p>உங்கள் சோதனை நிகழ்வை மற்ற சோதனைகளுடன் சேர்த்து இயக்கக்கூடிய வகையில் சோதனைத் தொகுப்பில் சேர்ப்பீர்கள். அடுத்த கட்டம், சோதனைத் தொகுப்பை இயக்குவதாகும்.</p>
+<h3 id="run-test-suite">சோதனைகளை இயக்குதல் மற்றும் கவரேஜ்<a class="headerlink" href="#run-test-suite" title="Permanent link">&para;</a></h3>
+<p>BeeWare சோதனை செயல்முறையை நிர்வகிக்க <a href="https://tox.wiki/en/latest/"><code>tox</code></a> மற்றும் அதன் சொந்த சோதனைத் தொகுப்பிற்கு <a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> ஐப் பயன்படுத்துகிறது.</p>
+<p>பூர்வீக <code>tox</code> கட்டளை இயங்குவதை உள்ளடக்கியது:</p>
+<ul>
+<li>முன்-அர்ப்பணிப்பு கொக்கிகள்</li>
+<li><code>towncrier</code> வெளியீட்டுக் குறிப்பு சரிபார்ப்பு</li>
+<li>
+<p>ஆவணப்படுத்தல் லிண்டிங்</p>
+</li>
+<li>
+<p>கிடைக்கும் பைத்தான் பதிப்புகளுக்கான சோதனைத் தொகுப்பு</p>
+</li>
+<li>
+<p>குறியீட்டு உள்ளடக்க அறிக்கை</p>
+</li>
+</ul>
+<p>நீங்கள் ஒரு புல் ரிக்குவஸ்ட்டை சமர்ப்பிக்கும்போது, அடிப்படையில் CI இதுதான் இயக்கும்.</p>
+<p>முழுமையான சோதனைத் தொகுப்பை இயக்க, இயக்கி:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>tox
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>முழுமையான சோதனைத் தொகுப்பை இயக்க சிறிது நேரம் ஆகலாம். <code>tox</code> ஐ இணையாக இயக்குவதன் மூலமும், <code>tox p</code> (அல்லது <code>tox run-parallel</code>)-ஐ இயக்குவதன் மூலமும் நீங்கள் இதை கணிசமாக வேகப்படுத்தலாம். சோதனைத் தொகுப்பை இணையாக இயக்கும்போது, அது இயங்கும் போது அதன் முன்னேற்றம் குறித்த குறைந்த பின்னூட்டத்தையே பெறுவீர்கள், ஆனால் சோதனை இயக்கம் முடிந்ததும் கண்டறியப்பட்ட ஏதேனும் சிக்கல்களின் சுருக்கத்தை நீங்கள் பெறுவீர்கள். சோதனைகள் நடத்தப்பட்டன என்பதைக் குறிக்கும் சில வெளியீட்டை நீங்கள் பெற வேண்டும். நீங்கள் <code>SKIPPED</code> சோதனைகளைக் காணலாம், ஆனால் <code>FAIL</code> அல்லது <code>ERROR</code> சோதனை முடிவுகளை ஒருபோதும் பெறக்கூடாது. ஒவ்வொரு பேட்சையும் இணைப்பதற்கு முன்பு நாங்கள் எங்கள் முழுமையான சோதனைத் தொகுப்பை இயக்குகிறோம். அந்தச் செயல்முறை ஏதேனும் சிக்கல்களைக் கண்டறிந்தால், நாங்கள் அந்தப் பேட்சை இணைப்பதில்லை. நீங்கள் ஒரு சோதனைப் பிழை அல்லது தோல்வியைக் கண்டறிந்தால், ஒன்று உங்கள் சோதனைச் சூழலில் ஏதேனும் விசித்திரமாக உள்ளது, அல்லது நாங்கள் இதற்கு முன்பு காணாத ஒரு விளிம்புநிலை நிகழ்வை நீங்கள் கண்டறிந்துள்ளீர்கள் - எதுவாக இருந்தாலும், எங்களுக்குத் தெரியப்படுத்துங்கள்!</p>
+<p>சோதனைகள் தேர்ச்சி பெறுவதோடு கூடுதலாக, இது <a class="autorefs autorefs-internal" title="குறியீடு உள்ளடக்கம்" href="#code-coverage">100% சோதனை உள்ளடக்கம்</a> எனவும் அறிக்கையிட வேண்டும்.</p>
+<h3 id="_11">சோதனை மாறுபாடுகளை இயக்குதல்<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h4 id="_12">பைத்தனின் பல பதிப்புகளுக்கு சோதனைகளை இயக்கவும்<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+<p>வழக்கமாக, பல <code>tox</code> கட்டளைகள், BeeWare ஆதரிக்கும் ஒவ்வொரு Python பதிப்பிற்கும் ஒருமுறை என, சோதனைத் தொகுப்பை பலமுறை இயக்க முயற்சிக்கும். இருப்பினும், இதைச் செய்ய, ஒவ்வொரு Python பதிப்பும் உங்கள் கணினியில் நிறுவப்பட்டிருக்க வேண்டும் மற்றும் <code>tox</code>-இன் Python <a href="https://virtualenv.pypa.io/en/latest/explanation.html#python-discovery">கண்டறிதல்</a> செயல்முறைக்குக் கிடைக்கக்கூடியதாக இருக்க வேண்டும். பொதுவாக, ஒரு பைத்தான் பதிப்பு <code>PATH</code> வழியாகக் கிடைத்தால், <code>tox</code> அதைக் கண்டறிந்து பயன்படுத்த முடியும்.</p>
+<h4 id="_13">சோதனைத் தொகுப்பை மட்டும் இயக்கவும்<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+<p>நீங்கள் ஒரு புதிய அம்சத்தை வேகமாக மேம்படுத்திக் கொண்டிருந்தால், முழுமையான சோதனைத் தொகுப்பை இயக்க வேண்டிய அவசியமில்லை; நீங்கள் <em>மட்டுமே</em> யூனிட் சோதனைகளை இயக்கலாம். இதைச் செய்ய, பின்வருவனவற்றை இயக்கவும்:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>py
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>py
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>tox -e py
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="test-subset">சோதனைகளின் ஒரு பகுதியை நடத்துக<a class="headerlink" href="#test-subset" title="Permanent link">&para;</a></h4>
+<p>பயன்பாட்டுக்கு, <code>tox</code> யூனிட் டெஸ்ட் தொகுப்பில் உள்ள அனைத்து சோதனைகளையும் இயக்கும். நீங்கள் உங்கள் புதிய சோதனையை உருவாக்கும்போது, <em>அந்த ஒரு சோதனையை மட்டும்</em> இயக்குவது உதவியாக இருக்கும். இதைச் செய்ய, நீங்கள் <code>pytest</code>-க்கு ஒரு வாதமாக [எந்தவொரு (https://docs.pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run) குறிப்பிடுவதையும்]<code>tox</code> அனுப்பலாம். இந்த சோதனைப் பாதைகள் <code>briefcase</code> கோப்பகத்திற்கு சார்புடையவை. உதாரணமாக, ஒரே கோப்பில் உள்ள சோதனைகளை மட்டும் இயக்க, பின்வருமாறு இயக்கவும்:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>py<span class="w"> </span>--<span class="w"> </span>tests/path_to_test_file/test_some_test.py
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>py<span class="w"> </span>--<span class="w"> </span>tests/path_to_test_file/test_some_test.py
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>tox -e py -- tests/path_to_test_file/test_some_test.py
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>சோதனைத் தொகுப்பின் ஒரு பகுதியை இயக்கும்போதும் உங்களுக்கு ஒரு கவரேஜ் அறிக்கை கிடைக்கும் - ஆனால், நீங்கள் இயக்கிய குறிப்பிட்ட சோதனைகளால் செயல்படுத்தப்பட்ட கோட் வரிகளை மட்டுமே கவரேஜ் முடிவுகள் தெரிவிக்கும்.</p>
+<h4 id="test-py-version">ஒரு குறிப்பிட்ட பைத்தான் பதிப்பிற்கான சோதனைத் தொகுப்பை இயக்கவும்<a class="headerlink" href="#test-py-version" title="Permanent link">&para;</a></h4>
+<p>பின்னமைப்பாக <code>tox -e py</code> உங்கள் கணினியில் <code>python</code> எனத் தீர்க்கப்படும் எந்தவொரு விளக்கிகொண்டும் இயங்கும். உங்களிடம் பல பைத்தான் பதிப்புகள் நிறுவப்பட்டிருந்தால், மேலும் நீங்கள் நிறுவியுள்ள பதிப்புகளில் இருந்து ஒரு குறிப்பிட்ட பைத்தான் பதிப்பைச் சோதிக்க விரும்பினால், பயன்படுத்த ஒரு குறிப்பிட்ட பைத்தான் பதிப்பை நீங்கள் குறிப்பிடலாம். உதாரணமாக, பைத்தான் 3.10 இல் சோதனைத் தொகுப்பை இயக்க, பின்வருவனவற்றை இயக்கவும்:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>py310
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>py310
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>tox -e py310
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>கட்டளை வரியில் <code>--</code> மற்றும் ஒரு சோதனை விவரக்குறிப்பைச் சேர்ப்பதன் மூலம் ஒரு <a class="autorefs autorefs-internal" title="சோதனைகளின் ஒரு பகுதியை நடத்துக" href="#test-subset">சோதனைகளின் துணைக்குழு</a>-ஐ இயக்க முடியும்.</p>
+<h4 id="_14">கவரேஜ் இல்லாமல் சோதனைத் தொகுப்பை இயக்கவும் (வேகமாக)<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
+<p>இயல்பாக, <code>tox</code> pytest தொகுப்பை ஒற்றை இழை பயன்முறையில் (single threaded mode) இயக்கும். சோதனைத் தொகுப்பை இணை இழை பயன்முறையில் (parallel) இயற்றுவதன் மூலம் அதன் செயல்பாட்டை நீங்கள் வேகப்படுத்தலாம். உருவாக்கப்பட்ட செயல்முறைகளுக்குள் உள்ளடக்கத்தை (coverage) பதிவு செய்வதில் உள்ள சிக்கல்களால், இந்த பயன்முறை உள்ளடக்கக் கோப்புகளை (coverage files) உருவாக்காது. ஒரு தனி பைத்தான் பதிப்பை "வேகமான" பயன்முறையில் (fast mode) இயக்க, பின்வருமாறு இயற்றவும்:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>py-fast
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>py-fast
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>tox -e py-fast
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>ஒரு <a class="autorefs autorefs-internal" title="சோதனைகளின் ஒரு பகுதியை நடத்துக" href="#test-subset">சோதனைகளின் உட்பிரிவு</a>-ஐ கட்டளை வரியில் <code>--</code> மற்றும் ஒரு சோதனை விவரக்குறிப்பைச் சேர்ப்பதன் மூலம் இயக்கலாம்; ஒரு <a class="autorefs autorefs-internal" title="ஒரு குறிப்பிட்ட பைத்தான் பதிப்பிற்கான சோதனைத் தொகுப்பை இயக்கவும்" href="#test-py-version">குறிப்பிட்ட பைத்தான் பதிப்பு</a>-ஐ சோதனை இலக்கில் பதிப்பைச் சேர்ப்பதன் மூலம் பயன்படுத்தலாம் (எ.கா., பைத்தானில் <code>py310-fast</code> வேகமாக இயக்க 3.10).</p>
+<h3 id="code-coverage">குறியீடு உள்ளடக்கம்<a class="headerlink" href="#code-coverage" title="Permanent link">&para;</a></h3>
+<p>BeeWare அதன் குறியீட்டுத் தொகுப்பில் 100% கிளை உள்ளடக்கத்தை பராமரிக்கிறது. நீங்கள் திட்டத்தில் குறியீட்டைச் சேர்க்கும்போது அல்லது மாற்றியமைக்கும்போது, நீங்கள் செய்யும் மாற்றங்களின் உள்ளடக்கத்தை உறுதிசெய்ய, சோதனைக் குறியீட்டைச் சேர்க்க வேண்டும்.</p>
+<p>இருப்பினும், BeeWare பல தளங்களையும், பைத்தனின் பல பதிப்புகளையும் இலக்காகக் கொண்டுள்ளது, எனவே முழுமையான உள்ளடக்கத்தை ஒரே தளம் மற்றும் பைத்தான் பதிப்பில் சரிபார்க்க முடியாது. இதைச் சமாளிக்க, <code>tool.coverage.coverage_conditional_plugin.rules</code> பிரிவில் பல நிபந்தனை மறைப்பு விதிகள் வரையறுக்கப்பட்டுள்ளன (எ.கா., விண்டோஸில் சோதனைத் தொகுப்பை இயக்கும்போது செயல்படுத்தப்படாத ஒரு குறியீட்டுத் தொகுப்பைக் குறிக்க <code>pyproject.toml</code> பயன்படுத்தப்படலாம்). இந்த விதிகள், குறிப்பிட்ட தளங்கள் அல்லது பைத்தானின் பதிப்புகளில் மட்டுமே மறைக்கப்படும் குறியீட்டுப் பகுதிகளை அடையாளம் காணப் பயன்படுகின்றன.</p>
+<p>குறிப்பிடத்தக்க வகையில், பைத்தான் பதிப்புகளுக்கு இடையே கவரேஜ் அறிக்கை செய்வது சற்று விசித்திரமாக இருக்கலாம். உதாரணமாக, கவரேஜ் கோப்புகள் ஒரு பைத்தான் பதிப்பைப் பயன்படுத்தி உருவாக்கப்பட்டு, ஆனால் மற்றொரு பதிப்பில் கவரேஜ் அறிக்கை செய்யப்பட்டால், தவறவிட்ட கிளைகளுக்கான தவறான நேர்மறை முடிவுகள் அந்த அறிக்கையில் இருக்கலாம். இந்தக் காரணத்திற்காக, கவரேஜ் கோப்புகளை உருவாக்கப் பயன்படுத்தப்பட்ட பைத்தானின் பழமையான பதிப்பையே கவரேஜ் அறிக்கை எப்போதும் பயன்படுத்த வேண்டும்.</p>
+<h4 id="_15">கவரேஜ் முடிவுகளைப் புரிந்துகொள்ளுதல்<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<p>கவரேஜ் சோதனை வெளியீட்டின் முடிவில், சேகரிக்கப்பட்ட கவரேஜ் தரவுகளின் அறிக்கை இருக்க வேண்டும்:</p>
+<!-- The extra space at the start of this line is needed to prevent translate-toolkit from parsing the dashes as a markdown document split -->
+
+<div class="highlight"><pre><span></span><code><span class="go">பெயர்    கூற்றுகள்   தவறுகள்   கிளை   பகுதி   உறை   விடுபட்டவை</span>
+<span class="go"> ---------------------------------------------------</span>
+<span class="go"> மொத்தம்    7540 0   1040 0  100.0%</span>
+</code></pre></div>
+<p>சோதனைத் தொகுப்பு குறியீட்டில் உள்ள ஒவ்வொரு சாத்தியமான கிளைப் பாதையையும் இயக்கியுள்ளது என்பதை இது நமக்குத் தெரிவிக்கிறது. இது பிழைகள் இல்லை என்பதற்கு 100% உத்தரவாதம் அளிக்கவில்லை, ஆனால் குறியீட்டுத் தொகுப்பில் உள்ள ஒவ்வொரு வரியையும் நாம் இயக்கிப் பார்க்கிறோம் என்று இது அர்த்தப்படுத்துகிறது.</p>
+<p>நீங்கள் குறியீட்டுத் தொகுப்பில் மாற்றங்களைச் செய்தால், இந்த உள்ளடக்கத்தில் ஒரு இடைவெளியை நீங்கள் அறிமுகப்படுத்தக்கூடும். இது நிகழும்போது, எந்த வரிகள் இயக்கப்படவில்லை என்பதை உள்ளடக்க அறிக்கை உங்களுக்குக் கூறும். உதாரணமாக, நாம் <code>some/interesting_file.py</code>-இல் சில புதிய தர்க்கங்களைச் சேர்த்து ஒரு மாற்றத்தைச் செய்ததாகக் கொள்வோம். உள்ளடக்க அறிக்கை ஏறக்குறைய இவ்வாறு இருக்கலாம்:</p>
+<!-- The extra space at the start of this line is needed to prevent translate-toolkit from parsing the dashes as a markdown document split -->
+
+<div class="highlight"><pre><span></span><code><span class="go">பெயர் அறிக்கைகள்   செல்வி பிராஞ்ச் பகுதி   உறை   விடுபட்டது</span>
+<span class="go"> -------------------------------------------------------------------------------</span>
+<span class="go"> src/some/interesting_file.py 111 1     26 0  98.1%   170, 302-307, 320-&gt;335</span>
+<span class="go"> -------------------------------------------------------------------------------</span>
+<span class="go"> மொத்தம் 7540 1   1726 0  99.9%</span>
+</code></pre></div>
+<p>சோதனைத் தொகுப்பால் வரி 170, வரிகள் 302-307, மற்றும் வரி 320-லிருந்து வரி 335-க்குச் செல்லும் ஒரு கிளை ஆகியவை செயல்படுத்தப்படவில்லை என்பதை இது நமக்குத் தெரிவிக்கிறது. இந்த உள்ளடக்கத்தை மீட்டெடுக்க நீங்கள் புதிய சோதனைகளைச் சேர்க்க வேண்டும் (அல்லது ஏற்கனவே உள்ள சோதனையைத் திருத்த வேண்டும்).</p>
+<h4 id="_16">விருந்தளிக்கும் தளம் மற்றும் பைத்தான் பதிப்புக்கான உள்ளடக்க அறிக்கை<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<p>உங்கள் பிளாட்ஃபார்ம் மற்றும் பைத்தானின் பதிப்பிற்கான ஒரு கவரேஜ் அறிக்கையை நீங்கள் உருவாக்கலாம். உதாரணமாக, டெஸ்ட் சூட்டை இயக்கி, பைத்தான் 3.10 இல் ஒரு கவரேஜ் அறிக்கையை உருவாக்க, இயக்கும்:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">macOS</label><label for="__tabbed_7_2">Linux</label><label for="__tabbed_7_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-m<span class="w"> </span>test310
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-m<span class="w"> </span>test310
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>tox -m test310
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="_17">விருந்தளிக்கும் தளத்திற்கான உள்ளடக்க அறிக்கை<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<p>பைத்தனின் ஆதரிக்கப்படும் அனைத்துப் பதிப்புகளும் <code>tox</code>-க்குக் கிடைத்தால், ஹோஸ்ட் தளத்திற்கான கவரேஜை பின்வருவனவற்றை இயக்கி அறிக்கையிடலாம்:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">macOS</label><label for="__tabbed_8_2">Linux</label><label for="__tabbed_8_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>p<span class="w"> </span>-m<span class="w"> </span>test-platform
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>p<span class="w"> </span>-m<span class="w"> </span>test-platform
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>tox p -m test-platform
+</code></pre></div>
+</div>
+</div>
+</div>
+<h4 id="html-">HTML-ல் உள்ளடக்க அறிக்கை<a class="headerlink" href="#html-" title="Permanent link">&para;</a></h4>
+<p>கவரேஜ் <code>-html</code> சுற்றுச்சூழல் பெயர்களில் ஏதேனும் ஒன்றிற்கு <code>tox</code> என்பதைச் சேர்ப்பதன் மூலம் ஒரு HTML கவரேஜ் அறிக்கையை உருவாக்கலாம், உதாரணமாக:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">macOS</label><label for="__tabbed_9_2">Linux</label><label for="__tabbed_9_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>coverage-platform-html
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>coverage-platform-html
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>tox -e coverage-platform-html
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="_18">இது வெறும் தேர்வுகளை எழுதுவது மட்டுமல்ல!<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p>எங்கள் எல்லா குறியீடுகளையும் சோதிப்பதை நாங்கள் உறுதி செய்தாலும், இந்தப் பணி என்பது அந்தச் சோதனை அளவைப் பராமரிப்பது <em>மட்டும்</em> அல்ல. இந்தப் பணியின் ஒரு பகுதி, நீங்கள் குறியீட்டை எழுதும்போதே அதைத் தணிக்கை செய்வதும் ஆகும். நீங்கள் ஒரு கான்கிரீட் உயிர் காப்பு vest-க்கு ஒரு விரிவான சோதனைத் தொகுப்பை எழுதலாம்&hellip; ஆனால் ஒரு கான்கிரீட் உயிர் காப்பு vest, அது உருவாக்கப்பட்ட நோக்கத்திற்காக இன்னும் பயனற்றதாகவே இருக்கும்!</p>
+<p>நீங்கள் சோதனைகளை உருவாக்கும்போது, முக்கிய தொகுதி உட்புறமாக <strong>சீராக</strong> உள்ளதா என்பதையும் சரிபார்க்க வேண்டும். உள்ளகத்தில் சீரற்றதாக இருக்கும் ஏதேனும் மெத்தட் பெயர்களை நீங்கள் கவனித்தால் (எ.கா., ஒரு மாட்யூலில் <code>on_select</code> என்று அழைக்கப்படுவது, மற்றொன்றில் <code>on_selected</code> என்று அழைக்கப்படுவது), அல்லது தரவு சீராகக் கையாளப்படாத இடங்களைக் கண்டால், அதைக் குறிப்பிட்டு ஒரு டிக்கெட் எழுப்புவதன் மூலம் எங்கள் கவனத்திற்குக் கொண்டு வாருங்கள். அல்லது, என்ன செய்ய வேண்டும் என்பது உங்களுக்குத் தெரியும் என்பதில் நீங்கள் நம்பிக்கையுடன் இருந்தால், நீங்கள் கண்டறிந்த சிக்கலைச் சரிசெய்யும் ஒரு புல் கோரிக்கையை உருவாக்குங்கள்.</p>
+<p>அனைத்தும் சரியாக வேலை செய்தவுடன், உங்கள் மாற்றங்களுடன் ஒரு <a href="../../how/submit-pr/">புல் ரிக்குவஸ்டை சமர்ப்பிக்கலாம்</a>.</p>
+</details>
+<p><strong>சிக்கலைச் சரிசெய்ய ஆவணங்களில் மாற்றங்கள் தேவைப்பட்டால்:</strong></p>
+<details class="abstract">
+<summary>ஆவணங்களை உருவாக்கு</summary>
+<h1 id="_19">கட்டுமான ஆவணங்கள்<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h1>
+<p>BeeWare-இன் ஆவணத்தில் ஏதேனும் மாற்றங்களைச் செய்வதற்கு முன், ஏற்கனவே உள்ள ஆவணத்தை உங்களால் உருவாக்க முடியும் என்பதை உறுதி செய்வது உதவியாக இருக்கும்.</p>
+<p>நீங்கள் ஆவணத்தை உருவாக்குவதற்கும், ஒரு <a href="../../how/dev-environment/">மேம்பாட்டுச் சூழலை</a> அமைப்பதற்கும் முன்.</p>
+<p>உங்கள் path-இல் ஒரு Python 3.13 இன்டர்ப்ரெட்டர் நிறுவப்பட்டு, கிடைக்கப்பெற வேண்டும் (அதாவது, <code>python3.13</code> ஒரு Python 3.13 இன்டர்ப்ரெட்டரைத் தொடங்க வேண்டும்).</p>
+<p>BeeWare ஆவணங்களை உருவாக்க <code>tox</code>-ஐப் பயன்படுத்துகிறது. பின்வரும் <code>tox</code> கட்டளைகள், <code>tox.ini</code> கோப்பு உள்ள அதே இடத்திலிருந்து இயக்கப்பட வேண்டும், அது திட்டத்தின் ரூட் டைரக்டரியில் உள்ளது.</p>
+<h3 id="_20">நேரடி ஆவண முன்னோட்டம்<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p>ஆவணங்களை விரைவாகத் திருத்த உதவுவதற்காக, BeeWare ஒரு "நேரடி முன்னோட்டம்" பயன்முறையைக் கொண்டுள்ளது.</p>
+<div class="admonition warning">
+<p class="admonition-title">நேரடி முன்னோட்டம் எச்சரிக்கைகளுடன் உருவாக்கப்படும்!</p>
+<p>உங்கள் ஆவணப் புதுப்பிப்புகளைச் சோதித்து மேம்படுத்த, நேரலை சேவை (live serve) கிடைக்கிறது. நீங்கள் புதுப்பிப்புகளைச் செய்யும் போது, ஒரு மார்க்அப் சிக்கலை ஏற்படுத்தக்கூடும். <code>WARNING</code> எனக் கருதப்படும் சிக்கல்கள் ஒரு சாதாரண பில்டைத் தோல்வியடையச் செய்யும், இருப்பினும், லைவ் சர்வ் பில்டிங்கைத் தொடரும் அதே வேளையில், கன்சோல் வெளியீட்டில் எச்சரிக்கைகளைக் காட்டும்படி அமைக்கப்பட்டுள்ளது. இது லைவ் ப்ரீவியூவை மீண்டும் தொடங்க வேண்டிய அவசியமின்றி, உங்கள் மாற்றங்களைத் திரும்பச் செய்ய அனுமதிக்கிறது.</p>
+<p>ஒரு <code>WARNING</code> என்பது மற்றொரு <code>ERROR</code>-இலிருந்து வேறுபட்டது. நீங்கள் <code>ERROR</code> எனக் கருதப்படும் ஒரு சிக்கலை அறிமுகப்படுத்தினால், நேரலைச் சேவை தோல்வியடையும், மேலும் அதை மீண்டும் தொடங்க வேண்டும். <code>WARNING</code> சிக்கல் தீர்க்கப்படும் வரை அது மீண்டும் தொடங்காது.</p>
+</div>
+<p>நேரலை சேவையகத்தைத் தொடங்க:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">macOS</label><label for="__tabbed_10_2">Linux</label><label for="__tabbed_10_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-live
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-live
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">C:\...&gt;</span>tox -e docs-live
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>இது ஆவணங்களை உருவாக்கி, ஆவணங்களை வழங்க ஒரு வலை சேவையகத்தைத் தொடங்கி, ஆவணங்களின் மூலக் கோப்புகளில் ஏதேனும் மாற்றங்கள் ஏற்படுகிறதா என கோப்பு அமைப்பைக் கண்காணிக்கும்.</p>
+<p>சர்வர் துவக்கப்பட்டவுடன், கன்சோல் வெளியீட்டில் பின்வருவன போன்ற ஒன்றை நீங்கள் காண்பீர்கள்:</p>
+<div class="highlight"><pre><span></span><code><span class="go">தகவல் - [11:18:51] http://127.0.0.1:8000/ இல் சேவை செய்கிறது</span>
+</code></pre></div>
+<p>ஒரு உலாவியைத் திறந்து, வழங்கப்பட்ட URL-க்குச் செல்லவும். இப்போது நீங்கள் ஆவணத்தில் திருத்தங்களைச் செய்யத் தொடங்கலாம். ஒரு மாற்றம் கண்டறியப்பட்டால், ஆவணம் மீண்டும் உருவாக்கப்படும், மேலும் மாற்றியமைக்கப்பட்ட பக்கத்தைப் பார்க்கும் எந்தவொரு உலாவியும் தானாகவே புதுப்பிக்கப்படும்.</p>
+<div class="admonition note">
+<p class="admonition-title"><code>docs-live</code> ஒரு ஆரம்பப் படியாகும்.</p>
+<p>நேரலை சேவையகத்துடன் வேலை செய்ய <code>docs-live</code> இயக்குவது ஆரம்பகட்ட மறுஆய்வுக்கு மட்டுமே. ஒரு புல் கோரிக்கையைச் சமர்ப்பிக்கும் முன், நீங்கள் <em>எப்போதும்</em> ஒரு உள்ளூர் உருவாக்கத்தை இயக்க வேண்டும்.</p>
+</div>
+<h3 id="_21">உள்ளூர் உருவாக்கம்<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p>நீங்கள் மீண்டும் மீண்டும் மேம்படுத்துவதை முடித்தவுடன், ஆவணங்களுக்கான உள்ளூர் கட்டமைப்பைச் செய்ய வேண்டும். ஏதேனும் குறியீட்டுப் பிழைகள் இருந்தால், இந்தக் கட்டமைப்புத் செயல்முறை தோல்வியடையும் வகையில் வடிவமைக்கப்பட்டுள்ளது. இது, நேரலை சேவையகத்தில் நீங்கள் தவறவிட்டிருக்கக்கூடிய எதையும் கண்டறிய உதவுகிறது.</p>
+<h4 id="_22">உள்ளூர் உருவாக்கத்தை உருவாக்குதல்<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<p>உள்ளூர் பில்டை உருவாக்க:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">macOS</label><label for="__tabbed_11_2">Linux</label><label for="__tabbed_11_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">C:\...&gt;</span>tox -e docs
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>இந்த பில்டின் வெளியீடு, ப்ராஜெக்ட்டின் ரூட் கோப்பகத்தில் உள்ள <code>_build</code> கோப்பகத்தில் இருக்கும்.</p>
+<h4 id="_23">உள்ளூர் மொழிபெயர்க்கப்பட்ட பில்டை உருவாக்குதல்<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<p>BeeWareயின் ஆவணங்கள் பல மொழிகளில் மொழிபெயர்க்கப்பட்டுள்ளன. ஆங்கில ஆவணங்களில் செய்யப்படும் புதுப்பிப்புகள், மற்ற மொழி பில்ட்களில் சிக்கல்களை ஏற்படுத்தக்கூடும். ஒரு புல் கோரிக்கையைச் சமர்ப்பிக்கும் முன், அனைத்து பில்ட்களும் சரியாக வேலை செய்கின்றனவா என்பதைச் சரிபார்ப்பது அவசியம்.</p>
+<p>கிடைக்கக்கூடிய அனைத்து மொழிபெயர்ப்புகளின் பில்டை உருவாக்க:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">macOS</label><label for="__tabbed_12_2">Linux</label><label for="__tabbed_12_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(வினைச்சொல்)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-all
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(வினைச்சொல்)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-all
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">C:\...&gt;</span>tox -e docs-all
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>ஒவ்வொரு மொழி உருவாக்கத்தின் வெளியீடும் அதனுடன் தொடர்புடைய <code>_build/html/&lt;languagecode&gt;</code> கோப்பகத்தில் இருக்கும், இதில் <code>&lt;languagecode&gt;</code> என்பது அந்தந்த மொழியுடன் தொடர்புடைய இரண்டு அல்லது ஐந்து எழுத்துக்கள் கொண்ட மொழி குறியீடாகும் (எ.கா. பிரெஞ்சு மொழிக்கு <code>fr</code>, இத்தாலிய மொழிக்கு <code>it</code>, போன்றவை).</p>
+<p>ஒரு தனிப்பட்ட பில்டில் உங்களுக்கு ஒரு சிக்கல் ஏற்பட்டால், <code>tox -e docs-&lt;languagecode&gt;</code> என்பதை இயக்கி அந்தந்த பில்டைத் தனித்தனியாக இயக்கலாம். உதாரணமாக, பிரெஞ்சு ஆவணங்களை மட்டும் உருவாக்க, பின்வருமாறு இயக்கவும்:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">macOS</label><label for="__tabbed_13_2">Linux</label><label for="__tabbed_13_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-fr
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-fr
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">C:\...&gt;</span>tox -e docs-fr
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>ஒரு மொழிக்கான பில்டின் வெளியீடு <code>_build</code> கோப்பகத்தில் இருக்கும்.</p>
+<h3 id="_24">ஆவணப்படுத்தல் லிண்டிங்<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<p>கட்டமைப்பு செயல்முறை மார்க்அப் பிழைகளைக் கண்டறியும், ஆனால் BeeWare என்பது "லிண்டிங்" எனப்படும் பாணி மற்றும் வடிவமைப்புக்கான சில கூடுதல் சோதனைகளைச் செய்கிறது. லிண்ட் சோதனைகளை இயக்க:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">macOS</label><label for="__tabbed_14_2">Linux</label><label for="__tabbed_14_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-lint
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-lint
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">C:\...&gt;</span>tox -e docs-lint
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>இது ஆவணத்தில் பின்வருவன அடங்கவில்லை என்பதைச் சரிபார்க்கும்:</p>
+<ul>
+<li>செயலிழந்த இணைப்புகள்</li>
+<li>தவறாக எழுதப்பட்ட வார்த்தைகள்</li>
+</ul>
+<p>ஒரு வார்த்தையின் சரியான எழுத்துப்பிழை, தவறாக எழுதப்பட்டதாகக் கண்டறியப்பட்டால், அந்த வார்த்தையை <code>docs/spelling_wordlist</code> என்பதில் உள்ள பட்டியலில் சேர்க்கவும். இது அந்த வார்த்தையை எழுத்துப்பிழை சரிபார்ப்பாளரின் அகராதியில் சேர்க்கும். இந்தப் பட்டியலில் சேர்க்கும்போது, நினைவில் கொள்ளுங்கள்:</p>
+<ul>
+<li>நாங்கள் அமெரிக்க எழுத்துப்பிடியை விரும்புகிறோம், மேலும் நிரலாக்கத்திற்கே உரிய சில பேச்சு வழக்குகளுக்கும் (எ.கா., "apps") பெயர்களைச் செயலாக்குவதற்கும் (எ.கா., "scrollable") சில சுதந்திரங்கள் எடுத்துக்கொள்கிறோம்.</li>
+<li>ஒரு தயாரிப்புப் பெயரைக் குறிப்பிடும்போது, அந்தத் தயாரிப்பின் விரும்பப்படும் பெரியெழுத்துப் பயன்பாட்டைப் பயன்படுத்த வேண்டும். (எ.கா., "macOS", "GTK", "pytest", "Pygame", "PyScript").</li>
+<li>ஒரு சொல் "குறியீடாக" பயன்படுத்தப்பட்டால், அதை அகராதியில் சேர்ப்பதற்குப் பதிலாக, ஒரு நேரியல் (<code>like this</code>) ஆக மேற்கோள் காட்ட வேண்டும்.</li>
+</ul>
+<p>நீங்கள் ஆவணங்களை வெற்றிகரமாக உருவாக்கியவுடன், <a href="../../how/write-docs/">ஆவணங்களை எழுத</a> நீங்கள் தயாராக உள்ளீர்கள்.</p>
+</details>
+<details class="abstract">
+<summary>ஆவணங்களை எழுதுங்கள்</summary>
+<h1 id="_25">ஆவணங்களை எழுதுதல்<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h1>
+<p>BeeWare-க்கான உங்கள் ஆவணப் பங்களிப்பை எழுதப் பின்பற்ற வேண்டிய படிகள் இவை.</p>
+<p>ஆவணங்களை எழுதத் தொடங்குவதற்கு முன், உங்களால் ஆவணங்களை உருவாக்க முடியும் என்பதையும், நீங்கள் ஒரு கிளைகளில் வேலை செய்கிறீர்கள் என்பதையும் உறுதிப்படுத்திக் கொள்ளுங்கள்.</p>
+<h3 id="_26">தற்போதுள்ள ஆவணங்களைப் புதுப்பித்தல்<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h3>
+<p>நீங்கள் ஏற்கனவே உள்ள ஆவணங்களைத் திருத்தினால், <code>/docs/en</code> கோப்பகத்தில் அந்தக் கோப்பை நீங்கள் கண்டறிய வேண்டும். கோப்பு அமைப்பு பக்க அமைப்பைப் பின்பற்றுகிறது, எனவே ஆவண URL-ஐப் பயன்படுத்தி நீங்கள் கோப்பைக் கண்டறியலாம்.</p>
+<h3 id="_27">புதிய ஆவணத்தைச் சேர்த்தல்<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h3>
+<p>நீங்கள் ஒரு புதிய ஆவணத்தைச் சேர்த்தால், இன்னும் சில படிகள் உள்ளன.</p>
+<p>நீங்கள் <code>docs/en</code> கோப்பகத்திற்குள் பொருத்தமான இடத்தில் ஆவணத்தை உருவாக்க வேண்டும். விவாதத்திற்காக, நீங்கள் <code>new_doc.md</code> என்ற கோப்புப் பெயரில் ஒரு புதிய ஆவணத்தைச் சேர்க்கிறீர்கள் என்று கொள்வோம்.</p>
+<p>பின்னர், உங்கள் புதிய கோப்பைச் சேர்க்க <code>docs/en/SUMMARY.md</code> கோப்பை நீங்கள் புதுப்பிக்க வேண்டும். <code>SUMMARY.md</code> கோப்பு அடிப்படையில் <code>docs/en</code> கோப்பக அமைப்பைப் பிரதிபலிக்கும் வகையில் ஒழுங்கமைக்கப்பட்டுள்ளது, ஆனால், மிக முக்கியமாக, இது இடது பக்கப்பட்டியின் அமைப்பை நேரடியாகத் தீர்மானிக்கிறது. நீங்கள் <code>new_doc.md</code>-ஐச் சேர்க்க விரும்பும் பிரிவைக் கண்டறிந்தால், அங்கு ஒரு வைல்ட்கார்டு பாதை பட்டியலிடப்பட்டிருந்தால், <code>SUMMARY.md</code>-இல் எதையும் மாற்றத் தேவையில்லை. எடுத்துக்காட்டாக:</p>
+<div class="highlight"><pre><span></span><code><span class="k">-</span><span class="w"> </span>கோப்பகப் பாதை/*
+</code></pre></div>
+<p>நீங்கள் <code>new_doc.md</code>-ஐச் சேர்க்க விரும்பும் பகுதி தனிப்பட்ட மார்க்அப் இணைப்புகளின் பட்டியலாக இருந்தால், உங்கள் இணைப்பிற்கு ஒரு வெளிப்படையான இணைப்பைச் சேர்க்க வேண்டும். உதாரணமாக:</p>
+<div class="highlight"><pre><span></span><code><span class="k">-</span><span class="w"> </span>[<span class="nt">எனது புதிய ஆவணம்</span>](<span class="na">new_doc.md</span>)
+</code></pre></div>
+<h3 id="_28">உங்கள் ஆவணங்களை எழுதுதல்<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h3>
+<p>நீங்கள் இப்போது விரும்பிய கோப்பை உங்கள் எடிட்டரில் திறந்து, எழுதத் தொடங்கலாம்.</p>
+<p>BeeWare-க்கான ஆவணங்களை எழுதுவதற்கான எங்கள் வழிகாட்டுதல்களை விவரிக்கும் ஒரு <a href="../../style/docs-style-guide/">ஆவணப்படுத்தல் பாணி வழிகாட்டி</a> எங்களிடம் உள்ளது.</p>
+<p>உங்கள் புதிய ஆவணங்களைப் பற்றி நீங்கள் திருப்தி அடைந்தவுடன், உங்கள் முன்மொழியப்பட்ட மாற்றங்களுடன் <a href="../../how/submit-pr/">ஒரு புல் கோரிக்கையைச் சமர்ப்பிக்கலாம்</a>.</p>
+</details>
+<p>உங்கள் பங்களிப்பைச் சமர்ப்பிக்கத் தயாராகும்போது:</p>
+<details class="abstract">
+<summary>மாற்றக் குறிப்பைச் சேர்க்கவும்</summary>
+<h1 id="_29">வெளியீட்டுக் குறிப்புகளுக்கான மாற்றத் தகவலைச் சேர்த்தல்<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h1>
+<p>பல BeeWare கருவிகள் ஒவ்வொரு வெளியீட்டிற்கான வெளியீட்டுக் குறிப்புகளை உருவாக்க உதவுவதற்காக <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> என்பதைப் பயன்படுத்துகின்றன. பொருந்தக்கூடிய கருவிகளில் ஒன்றிற்கு நீங்கள் ஒரு புல் ரிக்குவெஸ்டைச் சமர்ப்பிக்கும்போது, அதில் ஒரு <em>மாற்றக் குறிப்பு</em> சேர்க்கப்பட வேண்டும் - இந்த மாற்றக் குறிப்பு, செய்யப்பட்ட மாற்றத்தை விவரிக்கும் வெளியீட்டுக் குறிப்புகளில் உள்ள ஒரு உள்ளீடாக மாறும்.</p>
+<p>ஒவ்வொரு புல் கோரிக்கையிலும், அந்தப் புல் கோரிக்கையால் செயல்படுத்தப்பட்ட மாற்றத்தைப் பற்றிய ஒரு சுருக்கமான விளக்கத்தை வழங்கும் <code>changes/</code> கோப்பகத்தில் குறைந்தது ஒரு கோப்பாவது இருக்க வேண்டும். மாற்றக் குறிப்பு, <code>&lt;id&gt;.&lt;fragment type&gt;.md</code> என்ற வடிவத்தில் உள்ள ஒரு கோப்பில் மார்க்அப் வடிவத்தில் இருக்க வேண்டும். நீங்கள் முன்மொழிகின்ற மாற்றம், ஏற்கனவே ஒரு சிக்கல் எண் உள்ள பிழைத்திருத்தமாக இருந்தாலோ அல்லது ஒரு அம்சமாக இருந்தாலோ, அந்த சிக்கலின் எண்ணே ஐடியாக இருக்கும். மாற்றத்திற்கு தொடர்புடைய சிக்கல் எதுவும் இல்லையென்றால், PR எண்ணை ஐடியாகப் பயன்படுத்தலாம். பல் ரிக்வெஸ்டை நீங்கள் புஷ் செய்யும் வரை இந்த PR எண்ணை உங்களால் அறிய முடியாது, எனவே முதல் CI பாஸ் <code>towncrier</code> சோதனையில் தோல்வியடையும்; மாற்றக் குறிப்பைச் சேர்த்து ஒரு PR புதுப்பிப்பை புஷ் செய்யவும், அதன் பிறகு CI பாஸ் ஆகும்.</p>
+<p>ஐந்து துண்டு வகைகள் உள்ளன:</p>
+<ul>
+<li><code>feature</code>: PR ஆனது, முன்பு சாத்தியமில்லாத ஒரு புதிய நடத்தை அல்லது திறனைச் சேர்க்கிறது (எ.கா., ஒரு புதிய பேக்கேஜிங் வடிவத்திற்கு ஆதரவைச் சேர்ப்பது, அல்லது ஏற்கனவே உள்ள பேக்கேஜிங் வடிவத்தில் ஒரு புதிய அம்சத்தைச் சேர்ப்பது);</li>
+<li><code>bugfix</code>: PR ஆனது தற்போதைய செயலாக்கத்தில் உள்ள ஒரு பிழையை சரிசெய்கிறது;</li>
+<li><code>doc</code>: PR ஆவணப்படுத்தலில் ஒரு குறிப்பிடத்தக்க முன்னேற்றம்;</li>
+<li><code>removal</code>; PR ஆனது BeeWare API-இல் பின்னோக்கி இணக்கமற்ற மாற்றத்தைக் குறிக்கிறது; அல்லது</li>
+<li><code>misc</code>; ஒரு சிறிய அல்லது நிர்வாக மாற்றம் (எ.கா., எழுத்துப்பிழை திருத்துதல், ஒரு சிறிய மொழி விளக்கம், அல்லது ஒரு சார்பு பதிப்பைப் புதுப்பித்தல்), இது வெளியீட்டுக் குறிப்புகளில் அறிவிக்கப்பட வேண்டிய அவசியமில்லை.</li>
+</ul>
+<p>மாற்றக் குறிப்பில் உள்ள இந்த விளக்கம், பயனரின் கண்ணோட்டத்தில் மாற்றத்தின் ஒரு உயர் மட்ட "சந்தைப்படுத்தல்" சுருக்கமாக இருக்க வேண்டுமே தவிர, ஆழமான தொழில்நுட்ப விளக்கமாகவோ அல்லது செயல்படுத்தல் விவரமாகவோ இருக்கக்கூடாது. இது ஒரு கமிட் செய்தியிலிருந்து வேறுபட்டது - ஒரு கமிட் செய்தி, எதிர்கால டெவலப்பர்கள் ஒரு மாற்றத்திற்கான காரணத்தைப் பின்பற்றும் வகையில் என்ன செய்யப்பட்டது என்பதை விவரிக்கிறது; மாற்றக் குறிப்பு என்பது உள்நாட்டு விவரங்கள் பற்றி அறிந்திருக்க வாய்ப்பில்லாத பயனர்களின் நலனுக்காகக் கொடுக்கப்படும் விளக்கமாகும்.</p>
+<p>உதாரணமாக, நீங்கள் திட்டப் பெயரிடுதல் தொடர்பான ஒரு பிழையைச் சரிசெய்தால், கமிட் செய்தியின் வாசகம் இவ்வாறு இருக்கலாம்:</p>
+<blockquote>
+<p>எண்களில் தொடங்கும் திட்டப் பெயர்களைத் தடுக்க, வலுவான ரெகுலர் எக்ஸ்பிரஷன் சோதனையைப் பயன்படுத்தவும்.</p>
+</blockquote>
+<p>அதற்குரிய மாற்றக் குறிப்பு ஏறக்குறைய இவ்வாறு இருக்கும்:</p>
+<blockquote>
+<p>திட்டப் பெயர்கள் இனி எண் கொண்டு தொடங்க முடியாது.</p>
+</blockquote>
+<p>சில PR-கள் பல அம்சங்களை அறிமுகப்படுத்தும், பல பிழைகளை சரிசெய்யும், அல்லது பல பின்னோக்கிய இணக்கமற்ற மாற்றங்களை அறிமுகப்படுத்தும். அப்படியானால், அந்த PR-ல் பல மாற்றக் குறிப்பு கோப்புகள் இருக்கலாம். இரண்டு ஃபிராக்மென்ட் வகைகளை ஒரே ஐடி-யுடன் தொடர்புபடுத்த வேண்டியிருந்தால், நீங்கள் ஒரு எண் சார்ந்த பின்னொட்டைச் சேர்க்கலாம். உதாரணமாக, PR 789, டிக்கெட் 123-ல் விவரிக்கப்பட்ட ஒரு அம்சத்தைச் சேர்த்து, டிக்கெட் 234-ல் விவரிக்கப்பட்ட ஒரு பிழையை சரிசெய்து, மேலும் இரண்டு பின்னோக்கி இணக்கமற்ற மாற்றங்களையும் செய்திருந்தால், உங்களிடம் 4 மாற்றக் குறிப்புக் கோப்புகள் இருக்கலாம்:</p>
+<ul>
+<li><code>123.feature.md</code></li>
+<li><code>234.bugfix.md</code></li>
+<li><code>789.removal.1.md</code></li>
+<li><code>789.removal.2.md</code></li>
+</ul>
+<p><code>towncrier</code> மற்றும் துண்டு வகைகள் பற்றிய கூடுதல் தகவல்களுக்கு <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">News Fragments</a>-ஐப் பார்க்கவும். <code>changes</code> களஞ்சியத்தின் BeeWare கோப்பகத்தில் உள்ள செய்தித் துண்டுகளின் தற்போதைய எடுத்துக்காட்டுகளையும் நீங்கள் காணலாம். இந்த கோப்புறை காலியாக இருந்தால், BeeWare சமீபத்தில் ஒரு புதிய வெளியீட்டை வெளியிட்டிருக்கலாம்; ஒவ்வொரு வெளியீட்டுடனும் <a href="https://github.com/beeware/beeware/releases">வெளியீட்டுக் குறிப்புகளை</a> புதுப்பிக்க, மாற்றக் குறிப்புக் கோப்புகள் நீக்கப்பட்டு இணைக்கப்படுகின்றன. தேவையான கருத்துருப் பாணியைக் காண அந்தக் கோப்பைப் பார்க்கலாம்; உங்கள் மாற்றக் குறிப்புகளை எவ்வாறு வடிவமைப்பது என்பதைக் காண <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">சமீபத்தில் ஒன்றிணைக்கப்பட்ட PR-களை</a> பார்க்கலாம்.</p>
+</details>
+<details class="abstract">
+<summary>பல் ரிக்வெஸ்டைச் சமர்ப்பிக்கவும்</summary>
+<h1 id="_30">புல் ரிக்வெஸ்டைச் சமர்ப்பித்தல்<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h1>
+<p>இப்போது உங்கள் மாற்றங்கள் அனைத்தையும் கமிட் செய்துவிட்டதால், நீங்கள் ஒரு புல் கோரிக்கையைச் சமர்ப்பிக்கத் தயாராக உள்ளீர்கள். உங்கள் மதிப்பாய்வு செயல்முறை தடையின்றி நடைபெறுவதை உறுதிசெய்ய, நீங்கள் எடுக்க வேண்டிய சில படிகள் உள்ளன.</p>
+<h3 id="-">முன்-அர்ப்பணிப்புடன் பணியாற்றுதல்<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
+<p>நீங்கள் எந்த மாற்றத்தையும் கமிட் செய்யும்போது, ப்ரீ-கமிட் தானாகவே இயங்கும். கமிட்டில் ஏதேனும் சிக்கல்கள் கண்டறியப்பட்டால், இது உங்கள் கமிட்டைத் தோல்வியடையச் செய்யும். முடிந்தவரை, ப்ரீ-கமிட் கண்டறிந்த சிக்கல்களைச் சரிசெய்யத் தேவையான மாற்றங்களைச் செய்யும். பின்வரும் எடுத்துக்காட்டில், <code>ruff</code> சரிபார்ப்பு மூலம் ஒரு குறியீடு வடிவமைப்புச் சிக்கல் கண்டறியப்பட்டது:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:3"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><input id="__tabbed_15_3" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">macOS</label><label for="__tabbed_15_2">Linux</label><label for="__tabbed_15_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>some/interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Failed</span>
+<span class="go">- hook id: ruff-format</span>
+<span class="go">- files were modified by this hook</span>
+
+<span class="go">1 file reformatted, 488 files left unchanged</span>
+
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>some/interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Failed</span>
+<span class="go">- hook id: ruff-format</span>
+<span class="go">- files were modified by this hook</span>
+
+<span class="go">1 file reformatted, 488 files left unchanged</span>
+
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git add some/interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git commit -m <span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Failed</span>
+<span class="go">- hook id: ruff-format</span>
+<span class="go">- files were modified by this hook</span>
+
+<span class="go">1 file reformatted, 488 files left unchanged</span>
+
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>இந்த நேர்வில், <code>ruff</code> தானாகவே சிக்கலைச் சரிசெய்தது; எனவே முன்-சமர்ப்பிப்புச் சரிபார்ப்புகளின் விளைவாக மாற்றியமைக்கப்பட்ட எந்தவொரு கோப்புகளையும் மீண்டும் சேர்த்து, மாற்றத்தை மீண்டும் சமர்ப்பிக்கலாம். இருப்பினும், சில சரிபார்ப்புகளுக்கு நீங்கள் கைமுறையாக மாற்றங்களைச் செய்ய வேண்டியிருக்கும். அந்த மாற்றங்களைச் செய்தவுடன், மாற்றியமைக்கப்பட்ட கோப்புகளை மீண்டும் சேர்த்து, மீண்டும் சமர்ப்பிக்கவும்.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="16:3"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><input id="__tabbed_16_2" name="__tabbed_16" type="radio" /><input id="__tabbed_16_3" name="__tabbed_16" type="radio" /><div class="tabbed-labels"><label for="__tabbed_16_1">macOS</label><label for="__tabbed_16_2">Linux</label><label for="__tabbed_16_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>some/interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Passed</span>
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+<span class="go">[bugfix e3e0f73] Minor change</span>
+<span class="go">1 file changed, 4 insertions(+), 2 deletions(-)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>add<span class="w"> </span>some/interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Passed</span>
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+<span class="go">[bugfix e3e0f73] Minor change</span>
+<span class="go">1 file changed, 4 insertions(+), 2 deletions(-)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git add some\interesting_file.py
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git commit -m <span class="s2">&quot;Minor change&quot;</span>
+<span class="go">check toml...............................................................Passed</span>
+<span class="go">check yaml...............................................................Passed</span>
+<span class="go">check for case conflicts.................................................Passed</span>
+<span class="go">check docstring is first.................................................Passed</span>
+<span class="go">fix end of files.........................................................Passed</span>
+<span class="go">trim trailing whitespace.................................................Passed</span>
+<span class="go">ruff format..............................................................Passed</span>
+<span class="go">ruff check...............................................................Passed</span>
+<span class="go">codespell................................................................Passed</span>
+<span class="go">[bugfix e3e0f73] Minor change</span>
+<span class="go">1 file changed, 4 insertions(+), 2 deletions(-)</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>எல்லாம் முடிந்ததும், கமிட் இறுதி செய்யப்பட்டது என்பதைக் குறிக்கும் ஒரு செய்தியைக் காண்பீர்கள், மேலும் உங்கள் git log-ல் உங்கள் கமிட் மிகச் சமீபத்திய சேர்ப்பாகக் காண்பிக்கப்படும். இப்போது நீங்கள் GitHub-க்கு புஷ் செய்யத் தயாராக உள்ளீர்கள்.</p>
+<h3 id="github-">உங்கள் மாற்றங்களை GitHub-க்கு அனுப்பி, உங்கள் புல் கோரிக்கையை உருவாக்குங்கள்.<a class="headerlink" href="#github-" title="Permanent link">&para;</a></h3>
+<p>நீங்கள் GitHub-க்கு முதல் முறையாக புஷ் செய்யும்போது, ஒரு URL வழங்கப்படும், அது உங்களை நேரடியாக ஒரு புதிய புல் கோரிக்கையை உருவாக்க GitHub பக்கத்திற்கு அழைத்துச் செல்லும். அந்த URL-ஐப் பின்பற்றி உங்கள் புல் கோரிக்கையை உருவாக்கவும்.</p>
+<p>பின்வருவது, URL முன்னிலைப்படுத்தப்பட்ட நிலையில், <code>push</code>-இல் நீங்கள் எதிர்பார்க்கக்கூடிய ஒன்றின் உதாரணத்தைக் காட்டுகிறது.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="17:3"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio" /><input id="__tabbed_17_2" name="__tabbed_17" type="radio" /><input id="__tabbed_17_3" name="__tabbed_17" type="radio" /><div class="tabbed-labels"><label for="__tabbed_17_1">macOS</label><label for="__tabbed_17_2">Linux</label><label for="__tabbed_17_3">Windows</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>push
+<span class="go">Enumerating objects: 15, done.</span>
+<span class="go">Counting objects: 100% (15/15), done.</span>
+<span class="go">Delta compression using up to 24 threads</span>
+<span class="go">Compressing objects: 100% (6/6), done.</span>
+<span class="go">Writing objects: 100% (8/8), 689 bytes | 689.00 KiB/s, done.</span>
+<span class="go">Total 8 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)</span>
+<span class="go">remote: Resolving deltas: 100% (4/4), completed with 4 local objects.</span>
+<span class="go">remote:</span>
+<span class="go">remote: Create a pull request for &#39;fix-win11-build&#39; on GitHub by visiting:</span>
+<span class="hll"><span class="go">remote:      https://github.com/&lt;your GitHub username&gt;/BeeWare/pull/new/fix-win11-build</span>
+</span><span class="go">remote:</span>
+<span class="go">To https://github.com/&lt;your GitHub username&gt;/BeeWare.git</span>
+<span class="go"> * [new branch]      fix-win11-build -&gt; fix-win11-build</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>git<span class="w"> </span>push
+<span class="go">Enumerating objects: 15, done.</span>
+<span class="go">Counting objects: 100% (15/15), done.</span>
+<span class="go">Delta compression using up to 24 threads</span>
+<span class="go">Compressing objects: 100% (6/6), done.</span>
+<span class="go">Writing objects: 100% (8/8), 689 bytes | 689.00 KiB/s, done.</span>
+<span class="go">Total 8 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)</span>
+<span class="go">remote: Resolving deltas: 100% (4/4), completed with 4 local objects.</span>
+<span class="go">remote:</span>
+<span class="go">remote: Create a pull request for &#39;fix-win11-build&#39; on GitHub by visiting:</span>
+<span class="hll"><span class="go">remote:      https://github.com/&lt;your GitHub username&gt;/BeeWare/pull/new/fix-win11-build</span>
+</span><span class="go">remote:</span>
+<span class="go">To https://github.com/&lt;your GitHub username&gt;/BeeWare.git</span>
+<span class="go"> * [new branch]      fix-win11-build -&gt; fix-win11-build</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">C:\...&gt;</span>git push
+<span class="go">Enumerating objects: 15, done.</span>
+<span class="go">Counting objects: 100% (15/15), done.</span>
+<span class="go">Delta compression using up to 24 threads</span>
+<span class="go">Compressing objects: 100% (6/6), done.</span>
+<span class="go">Writing objects: 100% (8/8), 689 bytes | 689.00 KiB/s, done.</span>
+<span class="go">Total 8 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)</span>
+<span class="go">remote: Resolving deltas: 100% (4/4), completed with 4 local objects.</span>
+<span class="go">remote:</span>
+<span class="go">remote: Create a pull request for &#39;fix-win11-build&#39; on GitHub by visiting:</span>
+<span class="hll"><span class="gp">remote:      https://github.com/&lt;your GitHub username&gt;</span>/BeeWare/pull/new/fix-win11-build
+</span><span class="go">remote:</span>
+<span class="gp">To https://github.com/&lt;your GitHub username&gt;</span>/BeeWare.git
+<span class="gp"> * [new branch]      fix-win11-build -&gt;</span> fix-win11-build
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>நீங்கள் ஏற்கனவே தற்போதைய கிளை (current branch)-ஐ GitHub-க்குத் தள்ளியிருந்தால், நீங்கள் URL-ஐ மீண்டும் பெறமாட்டீர்கள். இருப்பினும், PR உருவாக்கும் URL-ஐப் பெறுவதற்கு வேறு வழிகளும் உள்ளன:</p>
+<ul>
+<li>அப்ஸ்ட்ரீம் ரெபாசிட்டரிக்குச் சென்று, "புல் கோரிக்கைகள்" என்பதைக் கிளிக் செய்து, அதைத் தொடர்ந்து "புதிய புல் கோரிக்கை" என்பதைக் கிளிக் செய்யவும். பின்னர், உங்கள் புல் கோரிக்கையை நீங்கள் சமர்ப்பிக்க விரும்பும் இடத்திலிருந்து தேர்ந்தெடுக்கவும்.</li>
+<li>நீங்கள் சமீபத்தில் புஷ் செய்திருந்தால், அப்ஸ்ட்ரீம் ரெபாசிட்டரிக்குச் சென்று, கோப்புகளின் பட்டியலுக்கு மேலே உள்ள, ரெப்போவில் "சமீபத்திய புஷ்கள்" இருந்தன என்பதைக் குறிக்கும் பேனரைக் கண்டறிந்து, "ஒப்பிட்டு &amp; புல் கோரிக்கை" பொத்தானைக் கிளிக் செய்யவும்.</li>
+<li>PR உருவாக்கும் பக்கத்தை வலை உலாவியில் திறக்க, GitHub CLI <code>gh pr create --web</code> கட்டளையைப் பயன்படுத்தவும்.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">GitHub CLI: <code>gh</code></p>
+<p>GitHub, (https://cli.github.com/) கட்டளை மூலம் உங்கள் டெர்மினலில் இருந்தே GitHub-இன் பல அம்சங்களை அணுக <code>gh</code> என்ற கருவியை வழங்குகிறது. <a href="https://cli.github.com/manual/">GitHub CLI ஆவணங்கள்</a> அனைத்து அம்சங்களையும் உள்ளடக்கியுள்ளது.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">ஜிஎச் பிஆர் கிரியேட்</p>
+<p>உங்கள் புல் ரிக்குவஸ்டை உருவாக்க, வெறும் <code>gh pr create</code> கட்டளையைப் பயன்படுத்த வேண்டாம். BeeWare திட்டங்கள் புல் ரிக்குவஸ்டுகளுக்கு ஒரு வார்ப்புருவைப் பயன்படுத்துகின்றன, மேலும் அனைத்து பங்களிப்புகளும் இந்த வார்ப்புருவைப் பின்பற்ற வேண்டும் என நாங்கள் எதிர்பார்க்கிறோம். <code>gh pr create</code> கட்டளை இந்த வார்ப்புருவின் பயன்பாட்டைத் தவிர்த்துவிடுகிறது.</p>
+</div>
+<h3 id="pr-content">இழு கோரிக்கை உள்ளடக்கம்<a class="headerlink" href="#pr-content" title="Permanent link">&para;</a></h3>
+<p>ஒரு புல் ரிக்வெஸ்ட் தலைப்பு தகவல் நிறைந்ததாகவும், தெளிவாகவும், சுருக்கமாகவும் இருக்க வேண்டும். முடிந்தால் அதைச் சுருக்கமாக வைத்திருக்க முயற்சி செய்யுங்கள், ஆனால் தேவைப்பட்டால் நீண்ட தலைப்புகளும் ஏற்றுக்கொள்ளத்தக்கவை. ஒரு நல்ல PR தலைப்பு, எந்தச் சூழலும் அறியாத ஒருவருக்குக் கூட, உங்கள் PR மூலம் எந்தப் பிழை அல்லது அம்சம் செயல்படுத்தப்பட்டுள்ளது என்பது பற்றிய ஒரு திடமான யோசனையை வழங்க வேண்டும்.</p>
+<p>உங்கள் புல் ரிக்வெஸ்ட் <strong>கட்டாயமாக</strong> BeeWare <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">புல் ரிக்வெஸ்ட் டெம்ப்ளேட்டை</a> பின்பற்ற வேண்டும். நீங்கள் GitHub வலை இடைமுகத்தைப் பயன்படுத்தி உங்கள் புல் ரிக்வெஸ்ட்டை உருவாக்கியிருந்தால், இந்த டெம்ப்ளேட் உங்கள் புல் ரிக்வெஸ்ட் விளக்கத்திற்கான ஒரு தொடக்கப் புள்ளியாக வழங்கப்படும். தற்செயலாக இந்த வார்ப்புருவைப் பயன்படுத்தாமல் ஒரு புல் ரிக்வெஸ்டை உருவாக்கினால், வார்ப்புரு உள்ளடக்கத்தைச் சேர்க்க புல் ரிக்வெஸ்டைத் திருத்தலாம் - ஆனால் வார்ப்புரு உள்ளடக்கம் <em>கட்டாயமாக</em> வழங்கப்பட்டு, பொருத்தமாக நிரப்பப்பட வேண்டும்.</p>
+<p>PR-இல் உள்ள மாற்றங்களை PR விளக்கம் தெளிவாகப் பிரதிபலிக்க வேண்டும். எந்தச் சூழலும் அறியாத ஒருவரால் உங்கள் விளக்கத்தைப் படித்து, ஏன் இந்த மாற்றம் செய்யப்படுகிறது என்பது பற்றிய ஒரு முழுமையான புரிதலைப் பெற முடிந்திருக்க வேண்டும். நகைச்சுவைகள், சொற்றொடர்கள், பேச்சு வழக்குகள் மற்றும் தேவையற்ற வடிவமைப்பு போன்றவற்றைத் தவிர்க்கவும், உதாரணமாக, பெரிய எழுத்துக்களில் எழுதுதல் அல்லது அதிகப்படியான நிறுத்தற்குறிகளைப் பயன்படுத்துதல்; இது உங்கள் PR-இல் என்ன நடக்கிறது என்பதற்கான ஒரு நேரடியான விளக்கமாக இருக்க வேண்டும், மேலும் இத்தகைய விஷயங்களைத் தவிர்ப்பது மற்றவர்கள் எளிதில் புரிந்துகொள்ள உதவுகிறது.</p>
+<p>ஏதேனும் மறுஉருவாக்க நிகழ்வுகள் இருந்தாலோ, அல்லது நீங்கள் பயன்படுத்திய ஏதேனும் சோதனை நடைமுறைகள் PR-ல் ஏற்கனவே உள்ள மாற்றங்களின் ஒரு பகுதியாக இல்லாவிட்டாலோ, அவை விளக்கப்பட்டு PR-ல் சேர்க்கப்பட வேண்டும். அந்த விளக்கத்தில் அவற்றை எவ்வாறு இயக்குவது மற்றும் விரும்பிய முடிவை மீண்டும் பெற என்ன செய்ய வேண்டும் என்பன அடங்கியிருக்க வேண்டும்.</p>
+<p>உங்கள் புல் ரிக்குவஸ்ட் சிக்கல் #1234-ஐத் தீர்க்கும் பட்சத்தில், உங்கள் புல் ரிக்குவஸ்ட் விளக்கத்தில் <code>Fixes #1234</code> என்ற உரையைச் சேர்க்க வேண்டும். இது, புல் ரிக்குவஸ்ட் ஒன்றிணைக்கப்படும்போது, அந்தச் சிக்கல் தானாகவே மூடப்படுவதற்கு வழிவகுக்கும். இதே <code>#1234</code> சொற்றொடையைப் பயன்படுத்தி நீங்கள் மற்ற கலந்துரையாடல்கள், சிக்கல்கள் அல்லது புல் கோரிக்கைகளைக் குறிப்பிடலாம். ஒரு எண்ணுக்கு முன்னால் - குறியைச் சேர்ப்பதன் மூலம் நீங்கள் வேறு ஒரு களஞ்சியத்தில் உள்ள ஒரு சிக்கலைக் குறிப்பிடலாம். உதாரணமாக, <code>python/cpython#1234</code> என்பது CPython களஞ்சியத்தில் உள்ள சிக்கல் 1234-ஐக் குறிக்கும்.</p>
+<p>AI கருவிகள், சோதனைத் தொகுப்பை எவ்வாறு இயக்குவது என்பதை விவரிக்கும் "சோதனை நெறிமுறை" அல்லது ஒரு பிழை ஏன் சரிசெய்யப்பட வேண்டும் என்பதற்கான "காரணம்" போன்ற, அதிகப்படியான, உதவாத புல் ரிக்வெஸ்ட் செய்திகளை எழுதுவதற்கு குறிப்பாக முனைகின்றன. உங்கள் PR-ஐ உருவாக்க நீங்கள் ஒரு AI கருவியைப் பயன்படுத்தினால், புல் ரிக்வெஸ்ட் விளக்கம் சுருக்கமாகவும், மதிப்பாய்வு செயல்முறைக்கு உதவக்கூடிய தகவல்களை மட்டுமே கொண்டிருப்பதை உறுதி செய்வதற்கும் <em>நீங்களே</em> பொறுப்பு. உதாரணமாக, சோதனைத் தொகுப்பை (test suite) எவ்வாறு இயக்குவது என்பதை விவரிக்கும் "சோதனை நெறிமுறை" அல்லது ஒரு பிழை ஏன் சரிசெய்யப்பட வேண்டும் என்பதற்கான "காரணம்" போன்ற விவரங்களை நீங்கள் சேர்க்க வேண்டியதில்லை. அளவுக்கு அதிகமாக நீளமான புல் ரிக்வெஸ்ட் உள்ளடக்கங்கள், முக்கிய குழுவின் வரையறுக்கப்பட்ட வளங்களைக் கருத்தில் கொள்ளாததால், உங்கள் புல் ரிக்வெஸ்ட் மதிப்பாய்வு செய்யப்படாமலேயே மூடப்படுவதற்கு வழிவகுக்கும்.</p>
+<div class="admonition warning">
+<p class="admonition-title">பீவேர் புல் ரிக்வெஸ்ட் வார்ப்புரு</p>
+<p>BeeWare <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">பல் ரிக்வெஸ்ட் வார்ப்புரு</a> <strong>விருப்பத்திற்குரியது அல்ல</strong>. <strong>அனைத்து</strong> பல் ரிக்வெஸ்ட்களும் இந்த வார்ப்புருவைப் பின்பற்ற வேண்டும். உங்கள் பல் ரிக்வெஸ்டில் "PR சரிபார்ப்புப் பட்டியல்" பகுதி இல்லை என்றாலோ, அல்லது சரிபார்ப்புப் பெட்டி கேள்விகளுக்கான உங்கள் பதில்கள் முழுமையற்றதாகவோ அல்லது முரண்பாடாகவோ இருந்தாலோ, உங்கள் பல் ரிக்வெஸ்ட் மதிப்பாய்வு செய்யப்படாது. உங்கள் புல் கோரிக்கையை உருவாக்க நீங்கள் ஒரு AI கருவியைப் பயன்படுத்தியிருந்தால், நீங்கள் தொடர்புடைய பெட்டியை <em>கட்டாயமாக</em> தேர்வு செய்ய வேண்டும், மேலும் "Assisted-by:" என்ற வரிசையில் விவரங்களை வழங்க வேண்டும்.</p>
+</div>
+<h3 id="_31">தொடர் ஒருங்கிணைப்பு<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h3>
+<p><em>தொடர் ஒருங்கிணைப்பு</em>, அல்லது <em>CI</em>, என்பது உங்கள் புல் ரிக்குவஸ்டில் தானியங்கு சரிபார்ப்புகளை இயக்கும் செயல்முறையாகும். இதில் குறியீடு சரியாக வடிவமைக்கப்பட்டுள்ளதா என்பதை உறுதி செய்வது போன்ற எளிய சரிபார்ப்புகள் அடங்கும்; ஆனால் இது சோதனைத் தொகுப்பை இயக்குவது மற்றும் ஆவணங்களை உருவாக்குவதும் அடங்கும்.</p>
+<p>CI தோல்விகளுக்கு வழிவகுக்கும் எண்ணற்ற மாற்றங்கள் உள்ளன. பொதுவாகச் சொல்வதானால், CI-ல் தேர்ச்சி பெறாத ஒரு PR-ஐ நாங்கள் மதிப்பாய்வு செய்ய மாட்டோம். நீங்கள் ஒரு புல் ரிக்வெஸ்டை உருவாக்கி, CI தோல்வியுற்றால், அது தேர்ச்சி பெறும் வரை நாங்கள் உங்கள் மதிப்பாய்வைத் தொடங்க மாட்டோம். உங்கள் மாற்றங்கள் தோல்விக்கு வழிவகுத்தால், அதற்கான காரணத்தைக் கண்டறிந்து, சிக்கலைத் தீர்ப்பது உங்கள் பொறுப்பாகும்.</p>
+<p>CI தோல்வியடையும் போது, "சில சரிபார்ப்புகள் வெற்றிகரமாக அமையவில்லை" என்ற தலைப்பின் கீழ், PR பக்கத்தின் கீழே தோல்வி இணைப்புகள் தோன்றும். தோல்வியுற்ற சரிபார்ப்புகளின் பட்டியலை நீங்கள் காண்பீர்கள், மேலும், தேர்ச்சி பெற்ற சரிபார்ப்புகளும் இருந்தால், அவை அனைத்து சரிபார்ப்புகளின் பட்டியலின் மேலே தோன்றும். நீங்கள் தோல்வி இணைப்பைக் கிளிக் செய்தால், அது உங்களை லாகிற்கு அழைத்துச் செல்லும். தோல்விக்கான காரணத்தைக் கண்டறியத் தேவையான அனைத்துத் தகவல்களையும் அந்த லாக் பெரும்பாலும் வழங்கும். லாக்கை முழுமையாகப் படித்து, தோல்வி ஏன் ஏற்படுகிறது என்பதைக் கண்டறிய முயற்சி செய்யுங்கள், பின்னர் அதைத் தீர்க்கத் தேவையானதைச் செய்யுங்கள்.</p>
+<p>அவ்வப்போது, உங்கள் மாற்றங்களுடன் தொடர்பில்லாத காரணங்களுக்காக ஒரு CI சரிபார்ப்பு தோல்வியடையலாம். இது CI சரிபார்ப்பை இயக்கும் கணினியில் உள்ள ஒரு சிக்கல் காரணமாகவோ, அல்லது ஒரு CI சரிபார்ப்பு நிலையற்றதாக இருப்பதால்வோ இருக்கலாம். நீங்கள் ஒரு தோல்வியைக் கண்டால், அது உங்கள் மாற்றங்களுடன் தொடர்பில்லாதது என்று உங்களுக்கு உறுதியாகத் தெரிந்தால், அந்தக் கருத்தை உங்கள் PR-இல் சேர்க்கவும், நாங்கள் அதை ஆராய்வோம்.</p>
+<p>ஒரு புதிய CI ஓட்டத்தைத் தூண்ட, உங்கள் கிளைக்கு புதிய மாற்றங்களைத் தள்ள வேண்டும்.</p>
+<p>CI-ஐ கடக்க உங்களுக்கு உதவி தேவைப்படும் சூழ்நிலையில் நீங்கள் இருந்தால், PR-இல் ஒரு கருத்தைப் பதிவிட்டு எங்களுக்குத் தெரியப்படுத்துங்கள், நாங்கள் உதவ எங்களால் முடிந்ததைச் செய்வோம்.</p>
+<div class="admonition note">
+<p class="admonition-title"><code>pre-commit</code> மற்றும் <code>towncrier</code> சரிபார்ப்புகள்</p>
+<p><code>pre-commit</code> அல்லது <code>towncrier</code> சரிபார்ப்புகளில் ஏதேனும் ஒன்று தோல்வியுற்றால், அது CI சரிபார்ப்புகளில் மீதமுள்ள பெரும்பாலானவற்றை இயங்குவதிலிருந்து தடுக்கும். முழுமையான சரிபார்ப்புகளும் இயங்குவதற்கு முன்பு, பொருந்தக்கூடிய சிக்கல்களை நீங்கள் சரிசெய்ய வேண்டும்.</p>
+</div>
+<p>எங்களிடம் வரையறுக்கப்பட்ட CI வளங்கள் உள்ளன. நீங்கள் ஒவ்வொரு முறையும் பிராஞ்சிற்கு புஷ் செய்யும்போது, CI தொடங்கும் என்பதைப் புரிந்துகொள்வது அவசியம். நீங்கள் பல மாற்றங்களைச் செய்யப் போகிறீர்கள் என்றால், அந்த மாற்றங்களை உள்ளூரில் செய்து, அனைத்தையும் ஒரே நேரத்தில் புஷ் செய்வது நல்லது. CI ஒரு தொகுதியில் உள்ள மிகச் சமீபத்திய கமிட்டில் மட்டுமே இயங்கும், இது எங்கள் CI அமைப்பின் சுமையைக் குறைக்கிறது.</p>
+<p>உங்கள் PR சமர்ப்பிக்கும் செயல்முறை, அது CI-ஐ கடக்கும் வரை அல்லது அது ஏன் கடக்கவில்லை என்பதற்கான விளக்கத்தை நீங்கள் வழங்கும் வரை முழுமையடையாது.</p>
+<p>உங்கள் புல் ரிக்வெஸ்ட் <a href="../../next/pr-review/">மதிப்பாய்வு</a> செய்யப்படுவதற்கு முன்பு, அதற்கு <a href="../../how/change-note/">மாற்றக் குறிப்பு</a> போன்ற கூடுதல் உள்ளடக்கம் தேவைப்படலாம்.</p>
+</details>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © Russell Keith-Magee
+    </div>
+  
+  
+</div>
+      
+        <!--
+  Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!--
+  Split a string with a separator - while Jinja allows to call ".split" on a
+  string, it doesn't natively bring a "split" filter implementation. We can't
+  simply add further filters, since MkDocs doesn't allow it, so we're stuck
+  with the function call. This however doesn't work with minijinja, which does
+  not allow to call functions on template variables, but has a "split" filter.
+  Thus, we just branch and extract the part that interests us here.
+-->
+
+
+<!-- ---------------------------------------------------------------------- -->
+
+<!-- Social links -->
+<div class="md-social">
+  
+
+    <!-- Automatically set rel=me for Mastodon -->
+    
+    
+
+    <!-- Compute title and render link -->
+    
+    
+    <a
+      href="https://github.com/beeware"
+      target="_blank" rel="noopener"
+      title="BeeWare on GitHub"
+      class="md-social__link"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+
+    <!-- Automatically set rel=me for Mastodon -->
+    
+    
+      
+    
+
+    <!-- Compute title and render link -->
+    
+    
+    <a
+      href="https://fosstodon.org/@beeware"
+      target="_blank" rel="noopener me"
+      title="BeeWare on Mastodon"
+      class="md-social__link"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54-.6-4.6-.9-9.3-.9-13.9 85.6 20.9 158.7 9.1 178.7 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6V190.1c0-49.7-64-51.6-64 6.9v62.5H201V197c0-58.5-64-56.6-64-6.9v114.2H90.3c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175"/></svg>
+    </a>
+  
+
+    <!-- Automatically set rel=me for Mastodon -->
+    
+    
+
+    <!-- Compute title and render link -->
+    
+    
+    <a
+      href="https://beeware.org/bee/chat/"
+      target="_blank" rel="noopener"
+      title="BeeWare on Discord"
+      class="md-social__link"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2"/></svg>
+    </a>
+  
+
+    <!-- Automatically set rel=me for Mastodon -->
+    
+    
+
+    <!-- Compute title and render link -->
+    
+    
+    <a
+      href="https://beeware.org/news/buzz/atom.xml"
+      target="_blank" rel="noopener"
+      title="BeeWare blog RSS feed"
+      class="md-social__link"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M64 32C28.7 32 0 60.7 0 96v320c0 35.3 28.7 64 64 64h320c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64zm32 104c0-13.3 10.7-24 24-24 137 0 248 111 248 248 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-110.5-89.5-200-200-200-13.3 0-24-10.7-24-24m0 96c0-13.3 10.7-24 24-24 83.9 0 152 68.1 152 152 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-57.4-46.6-104-104-104-13.3 0-24-10.7-24-24m0 120a32 32 0 1 1 64 0 32 32 0 1 1-64 0"/></svg>
+    </a>
+  
+        <div class="footer-link">
+            <a href="https://beeware.org/bee/coc">Code of Conduct</a>
+        </div>
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.tabs.link", "toc.follow", "navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.sections", "navigation.path", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u0b95\u0bbf\u0bb3\u0bbf\u0baa\u0bcd\u0baa\u0bcb\u0bb0\u0bcd\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0bc1 \u0ba8\u0b95\u0bb2\u0bc6\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0baa\u0bcd\u0baa\u0b9f\u0bcd\u0b9f\u0ba4\u0bc1", "clipboard.copy": "\u0b95\u0bbf\u0bb3\u0bbf\u0baa\u0bcd\u0baa\u0bcb\u0bb0\u0bcd\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0bc1 \u0ba8\u0b95\u0bb2\u0bc6\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0bb5\u0bc1\u0bae\u0bcd", "search.result.more.one": "\u0b87\u0ba8\u0bcd\u0ba4\u0baa\u0bcd \u0baa\u0b95\u0bcd\u0b95\u0ba4\u0bcd\u0ba4\u0bbf\u0bb2\u0bcd \u0bae\u0bc7\u0bb2\u0bc1\u0bae\u0bcd 1", "search.result.more.other": "\u0b87\u0ba8\u0bcd\u0ba4\u0baa\u0bcd \u0baa\u0b95\u0bcd\u0b95\u0ba4\u0bcd\u0ba4\u0bbf\u0bb2\u0bcd \u0bae\u0bc7\u0bb2\u0bc1\u0bae\u0bcd #", "search.result.none": "\u0baa\u0bca\u0bb0\u0bc1\u0ba8\u0bcd\u0ba4\u0b95\u0bcd\u0b95\u0bc2\u0b9f\u0bbf\u0baf \u0b86\u0bb5\u0ba3\u0b99\u0bcd\u0b95\u0bb3\u0bcd \u0b87\u0bb2\u0bcd\u0bb2\u0bc8", "search.result.one": "1 \u0baa\u0bca\u0bb0\u0bc1\u0ba8\u0bcd\u0ba4\u0bc1\u0bae\u0bcd \u0b86\u0bb5\u0ba3\u0bae\u0bcd", "search.result.other": "# \u0baa\u0bca\u0bb0\u0bc1\u0ba8\u0bcd\u0ba4\u0bc1\u0bae\u0bcd \u0b86\u0bb5\u0ba3\u0b99\u0bcd\u0b95\u0bb3\u0bcd", "search.result.placeholder": "\u0ba4\u0bc7\u0b9f\u0bb2\u0bc8\u0ba4\u0bcd \u0ba4\u0bca\u0b9f\u0b99\u0bcd\u0b95 \u0ba4\u0b9f\u0bcd\u0b9f\u0b9a\u0bcd\u0b9a\u0bc1 \u0b9a\u0bc6\u0baf\u0bcd\u0baf\u0bb5\u0bc1\u0bae\u0bcd", "search.result.term.missing": "\u0b95\u0bbe\u0ba3\u0bb5\u0bbf\u0bb2\u0bcd\u0bb2\u0bc8", "select.version": "\u0baa\u0ba4\u0bbf\u0baa\u0bcd\u0baa\u0bc8\u0ba4\u0bcd \u0ba4\u0bc7\u0bb0\u0bcd\u0ba8\u0bcd\u0ba4\u0bc6\u0b9f\u0bc1\u0b95\u0bcd\u0b95\u0bb5\u0bc1\u0bae\u0bcd"}, "version": null}</script>
+    
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+    <script src="../../../../assets/javascripts/copy_button.js"></script>
+
+  </body>
+</html>

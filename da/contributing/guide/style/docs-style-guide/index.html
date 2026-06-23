@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Sidehoved"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/style/docs-style-guide/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/style/docs-style-guide/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -5308,130 +5316,82 @@ aria-label="Sidehoved"
 
 
 <h1 id="dokumentationsstilguide">Dokumentationsstilguide<a class="headerlink" href="#dokumentationsstilguide" title="Permanent link">&para;</a></h1>
-<p>Denne vejledning indeholder oplysninger om forventet stil, MkDocs-specifik
-syntaks, forskellige nødvendige værktøjer og oversættelse af dokumentation med
-hensyn til at skrive nyt indhold og oversætte eksisterende indhold.</p>
+<p>Denne vejledning indeholder oplysninger om forventet stil, MkDocs-specifik syntaks, forskellige nødvendige værktøjer og oversættelse af dokumentation med hensyn til at skrive nyt indhold og oversætte eksisterende indhold.</p>
 <h2 id="generel-stil">Generel stil<a class="headerlink" href="#generel-stil" title="Permanent link">&para;</a></h2>
 <ul>
 <li>I overskrifter og titler skal kun det første ord skrives med stort.</li>
-<li>Vi foretrækker amerikansk stavning, med nogle undtagelser for
-  programmeringsspecifikke slangudtryk (f.eks. "apps") og verbificering af
-  navneord (f.eks. "scrollable").</li>
+<li>Vi foretrækker amerikansk stavning, med nogle undtagelser for programmeringsspecifikke slangudtryk (f.eks. "apps") og verbificering af navneord (f.eks. "scrollable").</li>
 <li>Stavningen af "artefact" og "artefacts" er som vist.</li>
 <li>Vi bruger enkelt mellemrum efter punktum.</li>
-<li>Vi bruger en enkelt bindestreg omgivet af mellemrum som en lang tankestreg
-  (eller en HTML <code>&amp;mdash;</code> literal).</li>
-<li>Enhver henvisning til et produktnavn skal bruge produktets foretrukne store
-  bogstaver. (f.eks. <nospell>"macOS", "GTK", "pytest", "Pygame",
-  "PyScript"</nospell>).</li>
-<li>Hvis et udtryk bruges "som kode", skal det angives som indbygget kode ved at
-  omslutte det med enkelt backticks i stedet for at føje det til ordbogen.</li>
-<li>Vi undgår at bruge udtryk som "blot", "bare" eller "let", når vi beskriver
-  handlinger, som en bruger skal udføre. Disse udtryk kan opfattes som
-  nedsættende, især når en bruger oplever vanskeligheder.</li>
+<li>Vi bruger en enkelt bindestreg omgivet af mellemrum som en lang tankestreg (eller en HTML <code>&amp;mdash;</code> literal).</li>
+<li>Enhver henvisning til et produktnavn skal bruge produktets foretrukne store bogstaver. (f.eks. <nospell>"macOS", "GTK", "pytest", "Pygame", "PyScript"</nospell>).</li>
+<li>Hvis et udtryk bruges "som kode", skal det angives som indbygget kode ved at omslutte det med enkelt backticks i stedet for at føje det til ordbogen.</li>
+<li>Vi undgår at bruge udtryk som "blot", "bare" eller "let", når vi beskriver handlinger, som en bruger skal udføre. Disse udtryk kan opfattes som nedsættende, især når en bruger oplever vanskeligheder.</li>
 </ul>
 <h2 id="krydshenvisninger-til-oplysninger">Krydshenvisninger til oplysninger<a class="headerlink" href="#krydshenvisninger-til-oplysninger" title="Permanent link">&para;</a></h2>
-<p>Du bør krydshenvise til indhold i dokumentationen, når det er muligt. Dette
-afsnit beskriver de forskellige måder, du kan gøre det på, som hver især er
-baseret på den type information, der henvises til.</p>
-<p>MkDocs gengiver standard Markdown-formaterede links. Standard
-Markdown-formaterede webhyperlinks er som følger:</p>
+<p>Du bør krydshenvise til indhold i dokumentationen, når det er muligt. Dette afsnit beskriver de forskellige måder, du kan gøre det på, som hver især er baseret på den type information, der henvises til.</p>
+<p>MkDocs gengiver standard Markdown-formaterede links. Standard Markdown-formaterede webhyperlinks er som følger:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Linktekst</span>](<span class="na">https://example.com/</span>)
 </code></pre></div>
 <p>Du kan også bruge dette format til at linke til en lokal fil:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Linktekst</span>](<span class="na">sti/til/fil.md</span>)
 </code></pre></div>
-<p>Henvisning til specifikke afsnit i filer eller API-dokumentation kræver brug af
-MkDocs-referencelinkformatet.</p>
+<p>Henvisning til specifikke afsnit i filer eller API-dokumentation kræver brug af MkDocs-referencelinkformatet.</p>
 <h3 id="brugerdefinerede-markdown-ankre-og-krydshenvisninger-til-indhold">Brugerdefinerede Markdown-ankre og krydshenvisninger til indhold<a class="headerlink" href="#brugerdefinerede-markdown-ankre-og-krydshenvisninger-til-indhold" title="Permanent link">&para;</a></h3>
-<p>Markdown genererer ankre for alle overskrifter (alt på en enkelt linje, der
-starter med mellem et og seks <code>#</code> symboler) baseret på indholdet af
-overskriften. For eksempel er det anker, der genereres for dette afsnit,
-<code>custom-markdown-anchors-and-content-cross---referencing</code>. På grund af den måde,
-vores oversættelser fungerer på, skal der dog altid være et brugerdefineret
-anker, når der henvises til en afsnitsoverkrift.</p>
-<p>MkDocs understøtter gengivelse af en referencelinksyntaks, der giver dig
-mulighed for at linke til forskellige andre elementer i dokumentationen ved
-hjælp af et modificeret Markdown-link. Dette omfatter blandt andet linking til
-brugerdefinerede Markdown-overskrifter og tekstankre.</p>
+<p>Markdown genererer ankre for alle overskrifter (alt på en enkelt linje, der starter med mellem et og seks <code>#</code> symboler) baseret på indholdet af overskriften. For eksempel er det anker, der genereres for dette afsnit, <code>custom-markdown-anchors-and-content-cross---referencing</code>. På grund af den måde, vores oversættelser fungerer på, skal der dog altid være et brugerdefineret anker, når der henvises til en afsnitsoverkrift.</p>
+<p>MkDocs understøtter gengivelse af en referencelinksyntaks, der giver dig mulighed for at linke til forskellige andre elementer i dokumentationen ved hjælp af et modificeret Markdown-link. Dette omfatter blandt andet linking til brugerdefinerede Markdown-overskrifter og tekstankre.</p>
 <p>MkDocs-referencelinks er alle links, der er formateret som følger:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Linktekst</span>][<span class="nl">link-mål</span>]
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Brugerdefinerede overskrifter og indholdsankre er påkrævet</p>
-<p>Enhver overskrift eller indholdssektion, der henvises til i tekstindhold via et
-MkDocs-referencelink i BeeWare-dokumentationen, skal have et brugerdefineret
-anker knyttet til sig. Ellers er der risiko for, at linkene brydes, når
-overskriftsindholdet oversættes.</p>
+<p>Enhver overskrift eller indholdssektion, der henvises til i tekstindhold via et MkDocs-referencelink i BeeWare-dokumentationen, skal have et brugerdefineret anker knyttet til sig. Ellers er der risiko for, at linkene brydes, når overskriftsindholdet oversættes.</p>
 </div>
-<p>Hvis du har brug for at linke til et header-anker, skal du generere et
-brugerdefineret anker til det pågældende indhold. Den generelle syntaks for at
-indstille et brugerdefineret anker er som følger:</p>
+<p>Hvis du har brug for at linke til et header-anker, skal du generere et brugerdefineret anker til det pågældende indhold. Den generelle syntaks for at indstille et brugerdefineret anker er som følger:</p>
 <div class="highlight"><pre><span></span><code><span class="gh"># Overskrift { #anchor-name }</span>
 </code></pre></div>
-<p>For eksempel kan ankeret for dette afsnit tilpasses til <code>custom-anchors</code> ved
-hjælp af følgende formatering:</p>
+<p>For eksempel kan ankeret for dette afsnit tilpasses til <code>custom-anchors</code> ved hjælp af følgende formatering:</p>
 <div class="highlight"><pre><span></span><code><span class="gu">## Brugerdefinerede Markdown-ankre { #custom-anchors }</span>
 </code></pre></div>
-<p>Du kan også oprette et anker på generelt indhold, herunder tekst og kodeblokke.
-Følgende formatering, med nye linjer ovenfor og nedenfor, skal inkluderes
-ovenfor det indhold, du ønsker at linke til:</p>
+<p>Du kan også oprette et anker på generelt indhold, herunder tekst og kodeblokke. Følgende formatering, med nye linjer ovenfor og nedenfor, skal inkluderes ovenfor det indhold, du ønsker at linke til:</p>
 <div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
 [](){ <span class="ni">#anchor</span>-name }
 
 Indhold nedenfor, som nu er knyttet til ankeret ovenfor.
 </code></pre></div>
-<p>Når de brugerdefinerede ankre er oprettet, kan du linke til dem fra det samme
-dokument eller fra andre dele af dokumentationen.</p>
-<p>Standard Markdown bruges til at linke til et anker <em>i samme fil</em>, som formateres
-som følger:</p>
+<p>Når de brugerdefinerede ankre er oprettet, kan du linke til dem fra det samme dokument eller fra andre dele af dokumentationen.</p>
+<p>Standard Markdown bruges til at linke til et anker <em>i samme fil</em>, som formateres som følger:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Linktekst</span>](<span class="na">#anchor-name</span>)
 </code></pre></div>
-<p>Link til et anker i et separat dokument bruger MkDocs-referencelinkstilen, som
-er formateret som følger:</p>
+<p>Link til et anker i et separat dokument bruger MkDocs-referencelinkstilen, som er formateret som følger:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Linktekst</span>][<span class="nl">ankernavn</span>]
 </code></pre></div>
 <h3 id="api-referencelinks">API-referencelinks<a class="headerlink" href="#api-referencelinks" title="Permanent link">&para;</a></h3>
-<p>MkDocs-referencelinkning understøtter også krydshenvisninger til
-API-dokumentation, herunder dokumenterede klasser, klassemetoder eller
-attributter og specifikke eksterne dokumentationshenvisninger.</p>
-<p>Der er flere muligheder for at linke til en dokumenteret klasse, en klassemetode
-eller et klasseattribut, uanset om du linker fra samme fil eller en separat fil.
-Når du linker til klasser osv., skal du inkludere backticks i det første sæt
-firkantede parenteser for at gengive navnet som indbygget kode. Backticks er kun
-unødvendige, hvis du bruger brugerdefineret tekst, der ikke skal gengives som
-indbygget kode. Backticks bør aldrig inkluderes i det andet sæt firkantede
-parenteser.</p>
+<p>MkDocs-referencelinkning understøtter også krydshenvisninger til API-dokumentation, herunder dokumenterede klasser, klassemetoder eller attributter og specifikke eksterne dokumentationshenvisninger.</p>
+<p>Der er flere muligheder for at linke til en dokumenteret klasse, en klassemetode eller et klasseattribut, uanset om du linker fra samme fil eller en separat fil. Når du linker til klasser osv., skal du inkludere backticks i det første sæt firkantede parenteser for at gengive navnet som indbygget kode. Backticks er kun unødvendige, hvis du bruger brugerdefineret tekst, der ikke skal gengives som indbygget kode. Backticks bør aldrig inkluderes i det andet sæt firkantede parenteser.</p>
 <p>Link til en klasse, mens navneområdet vises, formateres som følger:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`module.ClassName`</span>][]
 </code></pre></div>
 <p>Link til en klasse, hvor kun klassens navn vises, formateres som følger:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`ClassName`</span>][module.ClassName]
 </code></pre></div>
-<p>Attributterne er de samme som ovenfor, med attributnavnet inkluderet. Følgende
-viser navneområdet:</p>
+<p>Attributterne er de samme som ovenfor, med attributnavnet inkluderet. Følgende viser navneområdet:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`module.ClassName.attributename`</span>][]
 </code></pre></div>
 <p>Som med klasser formateres visning af kun attributnavnet som følger:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`attributename`</span>][module.ClassName.attributnavn]
 </code></pre></div>
-<p>Metoder skal vises med <code>()</code> efter navneområdet og skal derfor håndteres
-anderledes end attributter. Følgende er den korrekte måde at linke til en metode
-på:</p>
+<p>Metoder skal vises med <code>()</code> efter navneområdet og skal derfor håndteres anderledes end attributter. Følgende er den korrekte måde at linke til en metode på:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`module.ClassName.methodname()`</span>][module.ClassName.methodname]
 </code></pre></div>
-<p>Følgende viser kun klasse- og metodens navn. Dette kræver også, at parenteserne
-efter navnet medtages:</p>
+<p>Følgende viser kun klasse- og metodens navn. Dette kræver også, at parenteserne efter navnet medtages:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`Classname.methodname()`</span>][module.Classname.methodname]
 </code></pre></div>
-<p>Du kan linke til en klasse, metode eller attribut, mens du viser vilkårlig
-tekst, ved at bruge den samme metode med det relevante navnerum. Dette gøres med
-en klasse som følger:</p>
+<p>Du kan linke til en klasse, metode eller attribut, mens du viser vilkårlig tekst, ved at bruge den samme metode med det relevante navnerum. Dette gøres med en klasse som følger:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">linktekst</span>][<span class="nl">module.ClassName</span>]
 </code></pre></div>
-<p>Det er også muligt at linke direkte til Python-kernedokumentationen samt
-Pillow-dokumentationen. For eksempel for at linke til dokumentationen for <code>int</code>:</p>
+<p>Det er også muligt at linke direkte til Python-kernedokumentationen samt Pillow-dokumentationen. For eksempel for at linke til dokumentationen for <code>int</code>:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`int`</span>][]
 </code></pre></div>
 <p>For at linke til dokumentationen for Pillow <code>Image</code>:</p>
@@ -5439,42 +5399,24 @@ Pillow-dokumentationen. For eksempel for at linke til dokumentationen for <code>
 </code></pre></div>
 <h2 id="tips-til-kodeblokke">Tips til kodeblokke<a class="headerlink" href="#tips-til-kodeblokke" title="Permanent link">&para;</a></h2>
 <h3 id="sprog-og-kodefremhvning">Sprog og kodefremhævning<a class="headerlink" href="#sprog-og-kodefremhvning" title="Permanent link">&para;</a></h3>
-<p>Du kan angive sproget for koden i kodeblokken ved at indsætte sprognavnet efter
-de første tre backticks uden mellemrum. Dette resulterer i korrekt fremhævning
-af koden, når den vises. For eksempel skal du starte kodeblokken med <code>```python</code> for at angive Python.</p>
+<p>Du kan angive sproget for koden i kodeblokken ved at indsætte sprognavnet efter de første tre backticks uden mellemrum. Dette resulterer i korrekt fremhævning af koden, når den vises. For eksempel skal du starte kodeblokken med <code>```python</code> for at angive Python.</p>
 <h3 id="konsolkommandoer-og-kopieringsknappen">Konsolkommandoer og kopieringsknappen<a class="headerlink" href="#konsolkommandoer-og-kopieringsknappen" title="Permanent link">&para;</a></h3>
-<p>Hvis du inkluderer konsolkommandoer eller kommandoer med output, skal du mærke
-dem med <code>console</code> eller <code>doscon</code>, afhængigt af om du beskriver et Unix-lignende
-operativsystem (inklusive macOS) eller Windows. Du kan inkludere den prompt, der
-leveres af operativsystemet; kun kommandoen kopieres, når du klikker på
-kopieringsknappen. Hvis du f.eks. starter et kodeblok med <code>```console</code> og
-inkluderer følgende indhold:</p>
+<p>Hvis du inkluderer konsolkommandoer eller kommandoer med output, skal du mærke dem med <code>console</code> eller <code>doscon</code>, afhængigt af om du beskriver et Unix-lignende operativsystem (inklusive macOS) eller Windows. Du kan inkludere den prompt, der leveres af operativsystemet; kun kommandoen kopieres, når du klikker på kopieringsknappen. Hvis du f.eks. starter et kodeblok med <code>```console</code> og inkluderer følgende indhold:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>mkdir<span class="w"> </span><span class="nb">test</span>
 <span class="gp">$ </span>ls
 <span class="go">test</span>
 </code></pre></div>
-<p>Hvis du klikker på kopieringsknappen i kodeblokken, kopieres kun kommandoerne,
-og prompten og outputtet ignoreres. På denne måde kan du angive, at der er tale
-om konsolkommandoer, samtidig med at brugerne stadig kan bruge kopieringsknappen
-effektivt.</p>
+<p>Hvis du klikker på kopieringsknappen i kodeblokken, kopieres kun kommandoerne, og prompten og outputtet ignoreres. På denne måde kan du angive, at der er tale om konsolkommandoer, samtidig med at brugerne stadig kan bruge kopieringsknappen effektivt.</p>
 <h3 id="fremhvning-af-bestemte-kodelinjer">Fremhævning af bestemte kodelinjer<a class="headerlink" href="#fremhvning-af-bestemte-kodelinjer" title="Permanent link">&para;</a></h3>
-<p>Du kan fremhæve bestemte kodelinjer. For eksempel, for at fremhæve linje 2, skal
-du tilføje et mellemrum efter sproget, efterfulgt af <code>{hl_lines="2"}</code>. Så din
-kodeblok vil begynde med <code>```python {hl_lines="2"}</code>. Resultatet er:</p>
+<p>Du kan fremhæve bestemte kodelinjer. For eksempel, for at fremhæve linje 2, skal du tilføje et mellemrum efter sproget, efterfulgt af <code>{hl_lines="2"}</code>. Så din kodeblok vil begynde med <code>```python {hl_lines="2"}</code>. Resultatet er:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">toga</span>
 <span class="hll"><span class="n">fra</span> <span class="n">toga</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">pack</span> <span class="kn">import</span><span class="w"> </span><span class="nn">COLUMN</span><span class="o">,</span><span class="w"> </span><span class="nn">ROW</span>
 </span></code></pre></div>
-<p>Du kan fremhæve flere forskellige linjer. For eksempel vil <code>python {hl_lines="3
-5 9"}</code> fremhæve linjerne 3, 5 og 9. Du kan også fremhæve et interval af linjer.
-For eksempel fremhæver <code>python {hl_lines="3-8"}</code> linjerne 3 til 8. Du kan
-fremhæve flere intervaller med for eksempel <code>python {hl_lines="9-18 23-44"}</code>.</p>
+<p>Du kan fremhæve flere forskellige linjer. For eksempel vil <code>python {hl_lines="3 5 9"}</code> fremhæve linjerne 3, 5 og 9. Du kan også fremhæve et interval af linjer. For eksempel fremhæver <code>python {hl_lines="3-8"}</code> linjerne 3 til 8. Du kan fremhæve flere intervaller med for eksempel <code>python {hl_lines="9-18 23-44"}</code>.</p>
 <h2 id="markdown-elementer-der-krver-specifik-formatering">Markdown-elementer, der kræver specifik formatering<a class="headerlink" href="#markdown-elementer-der-krver-specifik-formatering" title="Permanent link">&para;</a></h2>
-<p>På grund af den måde, oversættelsesfilerne genereres på, er det vigtigt at
-inkludere de nødvendige nye linjer i Markdown-syntaksen for advarsler, noter,
-faner, Jinja-direktiver, billedtekster og justering osv.</p>
+<p>På grund af den måde, oversættelsesfilerne genereres på, er det vigtigt at inkludere de nødvendige nye linjer i Markdown-syntaksen for advarsler, noter, faner, Jinja-direktiver, billedtekster og justering osv.</p>
 <h3 id="advarsler-og-bemrkninger">Advarsler og bemærkninger<a class="headerlink" href="#advarsler-og-bemrkninger" title="Permanent link">&para;</a></h3>
-<p>Advarsler skal formateres som følger, herunder sikre en ny linje før og efter
-advarslens start og slutning:</p>
+<p>Advarsler skal formateres som følger, herunder sikre en ny linje før og efter advarslens start og slutning:</p>
 <div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
 /// advarsel | Titel
@@ -5487,8 +5429,7 @@ Et andet afsnit.
 
 Indhold nedenfor.
 </code></pre></div>
-<p>Dette fungerer på samme måde med alle understøttede advarselstyper. For eksempel
-kræver noteadvarsler den samme formatering og nye linjer:</p>
+<p>Dette fungerer på samme måde med alle understøttede advarselstyper. For eksempel kræver noteadvarsler den samme formatering og nye linjer:</p>
 <div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
 /// note | Notatets titel
@@ -5499,12 +5440,9 @@ Notattekst her.
 
 Indhold nedenfor.
 </code></pre></div>
-<p>Alle <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">understøttede
-advarselstyper</a>
-kan bruges som advarsler.</p>
+<p>Alle <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">understøttede advarselstyper</a> kan bruges som advarsler.</p>
 <h3 id="indhold-med-faner">Indhold med faner<a class="headerlink" href="#indhold-med-faner" title="Permanent link">&para;</a></h3>
-<p>Indhold med faner formateres som følger, inklusive en ny linje før starten og
-efter slutningen af indholdsblokken:</p>
+<p>Indhold med faner formateres som følger, inklusive en ny linje før starten og efter slutningen af indholdsblokken:</p>
 <div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
 /// fane | Fane 1 – titel
@@ -5527,8 +5465,7 @@ Fane 3 – tekst.
 
 Indhold nedenfor.
 </code></pre></div>
-<p>En fane med en indlejret advarsel vil blive formateret som følger, inklusive en
-ny linje før og efter indholdsblokken:</p>
+<p>En fane med en indlejret advarsel vil blive formateret som følger, inklusive en ny linje før og efter indholdsblokken:</p>
 <div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
 /// fane | Windows
@@ -5557,27 +5494,16 @@ Sammenklappet indhold.
 
 Indhold nedenfor.
 </code></pre></div>
-<p>Alle <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">understøttede
-advarselstyper</a>
-kan bruges med sammenklappet indhold, men du skal angive dem som
-<code>details-admonitiontype</code>. Så en sammenklappet blok af typen "note" vil være
-<code>details-note</code> (som vist ovenfor), en sammenklappet blok af typen "warning" vil
-være <code>details-warning</code>, og så videre.</p>
+<p>Alle <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">understøttede advarselstyper</a> kan bruges med sammenklappet indhold, men du skal angive dem som <code>details-admonitiontype</code>. Så en sammenklappet blok af typen "note" vil være <code>details-note</code> (som vist ovenfor), en sammenklappet blok af typen "warning" vil være <code>details-warning</code>, og så videre.</p>
 <h3 id="jinja-direktiver">Jinja-direktiver<a class="headerlink" href="#jinja-direktiver" title="Permanent link">&para;</a></h3>
-<p>Der er nogle få funktioner i dokumentationen, der bruger Jinja-direktiver i
-teksten. Alt, der bruger Jinja-direktivfunktionerne, skal indsættes i nye
-linjer. For eksempel indeholder BeeWare-vejledningen Jinja-betingelser baseret
-på variabler for at bestemme, hvilken advarsel der skal vises på hovedsiden.
-Disse er formateret som følger:</p>
+<p>Der er nogle få funktioner i dokumentationen, der bruger Jinja-direktiver i teksten. Alt, der bruger Jinja-direktivfunktionerne, skal indsættes i nye linjer. For eksempel indeholder BeeWare-vejledningen Jinja-betingelser baseret på variabler for at bestemme, hvilken advarsel der skal vises på hovedsiden. Disse er formateret som følger:</p>
 <div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
 
 
 Indhold nedenfor.
 </code></pre></div>
-<p>Der findes også en syntaks til erstatning af symboler eller tekst. Denne syntaks
-er en variabel indrammet af et par matchende dobbelte krøllede parenteser, og
-hvis den står på sin egen linje, skal den indeholde en ny linje før og efter.</p>
+<p>Der findes også en syntaks til erstatning af symboler eller tekst. Denne syntaks er en variabel indrammet af et par matchende dobbelte krøllede parenteser, og hvis den står på sin egen linje, skal den indeholde en ny linje før og efter.</p>
 <div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
 {{ variable }}
@@ -5585,18 +5511,14 @@ hvis den står på sin egen linje, skal den indeholde en ny linje før og efter.
 Indhold nedenfor.
 </code></pre></div>
 <h3 id="billedformatering">Billedformatering<a class="headerlink" href="#billedformatering" title="Permanent link">&para;</a></h3>
-<p>Billeder kan have en fast bredde og kan justeres til venstre, højre og midten
-(med et forbehold for "midten"). Billeder skal altid indeholde meningsfuld
-alternativ tekst af hensyn til tilgængeligheden.</p>
-<p>Indstilling af bredden på <nospell>300px</nospell> på et billede vil blive
-formateret som følger:</p>
+<p>Billeder kan have en fast bredde og kan justeres til venstre, højre og midten (med et forbehold for "midten"). Billeder skal altid indeholde meningsfuld alternativ tekst af hensyn til tilgængeligheden.</p>
+<p>Indstilling af bredden på <nospell>300px</nospell> på et billede vil blive formateret som følger:</p>
 <div class="highlight"><pre><span></span><code>![<span class="nt">Billedtekst</span>](<span class="na">../sti/til/billede.png</span>){ width=&quot;300px&quot; }
 </code></pre></div>
 <p>Justering af et billede til venstre (eller højre) formateres som følger:</p>
 <div class="highlight"><pre><span></span><code>![<span class="nt">Billedtekst</span>](<span class="na">../sti/til/billede.png</span>){ align=left }
 </code></pre></div>
-<p>Hvis du vil tilføje en billedtekst til et billede, skal du indsætte en ny linje
-før og efter billedet og formatere det som følger:</p>
+<p>Hvis du vil tilføje en billedtekst til et billede, skal du indsætte en ny linje før og efter billedet og formatere det som følger:</p>
 <div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
 ![<span class="nt">Billedtekst</span>](<span class="na">/sti/til/billede.png</span>)
@@ -5609,10 +5531,7 @@ Indhold i billedteksten.
 
 Indhold nedenfor.
 </code></pre></div>
-<p>Det er ikke muligt at centrere et billede med attributten <code>align</code>. Løsningen er
-at følge billedet med en tom billedtekst, så bliver det centreret. Du skal
-indsætte nye linjer mellem hver sektion og før og efter. Det formateres som
-følger:</p>
+<p>Det er ikke muligt at centrere et billede med attributten <code>align</code>. Løsningen er at følge billedet med en tom billedtekst, så bliver det centreret. Du skal indsætte nye linjer mellem hver sektion og før og efter. Det formateres som følger:</p>
 <div class="highlight"><pre><span></span><code>Indhold ovenfor.
 
 ![<span class="nt">Billedtekst</span>](<span class="na">../sti/til/billede.png</span>)
@@ -5624,66 +5543,33 @@ følger:</p>
 Indhold nedenfor.
 </code></pre></div>
 <h2 id="plugins-med-specifik-markdown-formatering">Plugins med specifik Markdown-formatering<a class="headerlink" href="#plugins-med-specifik-markdown-formatering" title="Permanent link">&para;</a></h2>
-<p>De følgende afsnit beskriver, hvordan man bruger plugins, der kræver specifik
-Markdown-formatering.</p>
+<p>De følgende afsnit beskriver, hvordan man bruger plugins, der kræver specifik Markdown-formatering.</p>
 <h3 id="brug-af-uddrag-til-at-inkludere-eksternt-indhold">Brug af uddrag til at inkludere eksternt indhold<a class="headerlink" href="#brug-af-uddrag-til-at-inkludere-eksternt-indhold" title="Permanent link">&para;</a></h3>
-<p>For detaljer om, hvordan du inkluderer eksternt indhold fra en lokal fil eller
-en URL, se
-<a href="https://facelessuser.github.io/pymdown-extensions/extensions/snippets/">Snippets-udvidelsesdokumentationen</a>.
-Snippets bør bruges, så længe dokumentet ikke indeholder Jinja-direktiver, der
-skal udføres (Jinja-udførelsen sker sideløbende med Snippets-behandlingen, og
-derfor vil Jinja i filen ikke blive behandlet). Snippets er nødvendigt, hvis du
-vil kunne bruge afgrænsere, der giver dig mulighed for at inkludere bestemte
-dele af en fil separat, f.eks. hvis kildedokumentet er opdelt i sektioner, der
-skal indsættes separat fra hinanden.</p>
+<p>For detaljer om, hvordan du inkluderer eksternt indhold fra en lokal fil eller en URL, se <a href="https://facelessuser.github.io/pymdown-extensions/extensions/snippets/">Snippets-udvidelsesdokumentationen</a>. Snippets bør bruges, så længe dokumentet ikke indeholder Jinja-direktiver, der skal udføres (Jinja-udførelsen sker sideløbende med Snippets-behandlingen, og derfor vil Jinja i filen ikke blive behandlet). Snippets er nødvendigt, hvis du vil kunne bruge afgrænsere, der giver dig mulighed for at inkludere bestemte dele af en fil separat, f.eks. hvis kildedokumentet er opdelt i sektioner, der skal indsættes separat fra hinanden.</p>
 <p>Vigtige bemærkninger:</p>
 <ul>
-<li>Vi bruger <code>-8&lt;-</code> som Snippets-identifikator. Dokumentationen viser flere
-  muligheder; følg venligst vores stil.</li>
-<li>Filer, der findes i BeeWare Docs Tools-delt indhold, behandles som "lokalt"
-  indhold. Derfor skal du enten kun bruge filnavnet, som i <code>-8&lt;-
-  "docs-style-guide.md"</code>, eller, hvis indholdet findes i en undermappe, kun
-  mappen og filnavnet, som i <code>-8&lt;- "style/docs-style-guide.md"</code>.</li>
-<li>Hvis du inkluderer eksternt indhold fra en fil på GitHub via en URL, skal du
-  <em>bruge</em> den rå indholds-URL, ellers vil hele websiden blive indlejret, uanset
-  hvor du inkluderer den.</li>
+<li>Vi bruger <code>-8&lt;-</code> som Snippets-identifikator. Dokumentationen viser flere muligheder; følg venligst vores stil.</li>
+<li>Filer, der findes i BeeWare Docs Tools-delt indhold, behandles som "lokalt" indhold. Derfor skal du enten kun bruge filnavnet, som i <code>-8&lt;- "docs-style-guide.md"</code>, eller, hvis indholdet findes i en undermappe, kun mappen og filnavnet, som i <code>-8&lt;- "style/docs-style-guide.md"</code>.</li>
+<li>Hvis du inkluderer eksternt indhold fra en fil på GitHub via en URL, skal du <em>bruge</em> den rå indholds-URL, ellers vil hele websiden blive indlejret, uanset hvor du inkluderer den.</li>
 </ul>
 <h3 id="brug-af-makroer-til-at-inkludere-indhold-fra-beeware-docs-tools-delt-indhold">Brug af makroer til at inkludere indhold fra BeeWare Docs Tools delt indhold<a class="headerlink" href="#brug-af-makroer-til-at-inkludere-indhold-fra-beeware-docs-tools-delt-indhold" title="Permanent link">&para;</a></h3>
-<p>Du kan også inkludere indhold fra BeeWare Docs-værktøjernes delte indholdsmappe
-ved hjælp af <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">Macros
-MkDocs-plugin</a>.
-Denne metode er nødvendig, hvis dokumentet indeholder Jinja-direktiver, der skal
-udføres, og bør kun bruges i denne situation. Den fungerer ikke med eksternt
-indhold via en URL.
-<a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/#1-variable">Macros-variabeludskiftningsmekanismen</a>
-fungerer med denne metode.</p>
+<p>Du kan også inkludere indhold fra BeeWare Docs-værktøjernes delte indholdsmappe ved hjælp af <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">Macros MkDocs-plugin</a>. Denne metode er nødvendig, hvis dokumentet indeholder Jinja-direktiver, der skal udføres, og bør kun bruges i denne situation. Den fungerer ikke med eksternt indhold via en URL. <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/#1-variable">Macros-variabeludskiftningsmekanismen</a> fungerer med denne metode.</p>
 <p>Der er muligheder for at inkludere indhold ved hjælp af makroer:</p>
 <ol>
 <li>
-<p>Brug <a href="https://jinja.palletsprojects.com/en/stable/templates/#include">Jinja-syntaksen
-   <code>include</code></a>,
-   hvis du vil inkludere dokumentet uden andre manuelle ændringer.</p>
+<p>Brug <a href="https://jinja.palletsprojects.com/en/stable/templates/#include">Jinja-syntaksen <code>include</code></a>, hvis du vil inkludere dokumentet uden andre manuelle ændringer.</p>
 </li>
 <li>
-<p>Brug <a href="https://jinja.palletsprojects.com/en/stable/templates/#child-template">Jinja-syntaksen
-   <code>extends</code></a>,
-   hvis du har inkluderet Jinja <code>block</code> -syntaksen i dokumentet, hvilket giver
-   dig mulighed for at overskrive eller tilføje til bestemte afsnit.</p>
+<p>Brug <a href="https://jinja.palletsprojects.com/en/stable/templates/#child-template">Jinja-syntaksen <code>extends</code></a>, hvis du har inkluderet Jinja <code>block</code> -syntaksen i dokumentet, hvilket giver dig mulighed for at overskrive eller tilføje til bestemte afsnit.</p>
 </li>
 </ol>
 <h2 id="pyspelling"><code>pyspelling</code><a class="headerlink" href="#pyspelling" title="Permanent link">&para;</a></h2>
 <p>Vi bruger stavekontrollen <code>pyspelling</code>. Den køres under lint-kontrollen.</p>
-<p>Når <code>pyspelling</code> identificerer et forkert stavet ord, skal det i de fleste
-tilfælde rettes i dokumentationsindholdet.</p>
-<p>I det sjældne tilfælde, at det identificerer et gyldigt ord, der ikke findes i
-<code>pyspelling</code> ordbogen, har du to muligheder:</p>
+<p>Når <code>pyspelling</code> identificerer et forkert stavet ord, skal det i de fleste tilfælde rettes i dokumentationsindholdet.</p>
+<p>I det sjældne tilfælde, at det identificerer et gyldigt ord, der ikke findes i <code>pyspelling</code> ordbogen, har du to muligheder:</p>
 <ol>
-<li>Hvis det er et ord, der sandsynligvis vil blive genbrugt flere gange, bør du
-   tilføje ordet til <code>spelling_wordlist</code> dokumentet i <code>docs</code> mappen, i
-   alfabetisk rækkefølge.</li>
-<li>Hvis det er et ord, der sandsynligvis ikke vil blive brugt igen, kan du
-   indsætte det i en <code>&lt;nospell&gt;</code> / <code>&lt;/nospell&gt;</code> tag, og <code>pyspelling</code> vil
-   ignorere det inline.</li>
+<li>Hvis det er et ord, der sandsynligvis vil blive genbrugt flere gange, bør du tilføje ordet til <code>spelling_wordlist</code> dokumentet i <code>docs</code> mappen, i alfabetisk rækkefølge.</li>
+<li>Hvis det er et ord, der sandsynligvis ikke vil blive brugt igen, kan du indsætte det i en <code>&lt;nospell&gt;</code> / <code>&lt;/nospell&gt;</code> tag, og <code>pyspelling</code> vil ignorere det inline.</li>
 </ol>
 
 

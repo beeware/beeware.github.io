@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Záhlaví"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/style/code-style-guide/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/style/code-style-guide/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4966,33 +4974,13 @@ aria-label="Záhlaví"
 <h1 id="pravidla-pro-styl-kodu">Pravidla pro styl kódu<a class="headerlink" href="#pravidla-pro-styl-kodu" title="Permanent link">&para;</a></h1>
 <p>Tato příručka obsahuje informace a pokyny pro psaní kódu pro BeeWare.</p>
 <h3 id="code-style">Styl kódu<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h3>
-<p>BeeWare se řídí <a href="https://peps.python.org/pep-0008/">PEP 8</a> v našem kódovém
-základu, s výjimkou délky řádku, která byla rozšířena z 79 na 88 znaků. K
-prosazování konvencí PEP 8 používáme <a href="https://docs.astral.sh/ruff/">Ruff</a>, kde
-je to možné. Když odesíláte svůj kód, pre-commit provede kontroly, včetně Ruff.
-Pokud je to možné, automaticky naformátuje váš kód, aby splňoval naše standardy
-formátování a stylu. Některé IDE můžete nastavit tak, aby při ukládání
-automaticky spouštěly Ruff, což vám může s tímto procesem pomoci.</p>
-<p>Mějte na paměti, že nejdůležitější částí PEP 8 je <a href="https://peps.python.org/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">Sekce 0: Pošetilá konzistence
-je strašákem malých
-myslí</a>.
-Existují situace, kdy dodržování PEP 8 nedává smysl, a je důležité pochopit, že
-v takových případech je přijatelné, a někdy dokonce žádoucí, psát kód, který
-není v souladu s uvedenými pravidly. Vědět, <em>kdy být nekonzistentní</em> s těmito
-pravidly, je stejně důležité jako udržovat konzistenci ve většině situací.</p>
-<p>Jedním z projevů tohoto přístupu jsou konvence pojmenování. Knihovny BeeWare
-často potřebují propojit s jinými jazyky. Při vytváření obalových funkcí pro
-jiné jazyky je žádoucí (a v některých případech i nezbytné) řídit se konvencemi
-pojmenování cílového jazyka, nikoli jazyka Python. Například při volání nebo
-odkazování na kód v Javě by funkce měly používat v Javě preferované značky
-<code>mixedCase</code>, nikoli značky <code>snake_case</code>, které doporučuje PEP 8.</p>
+<p>BeeWare se řídí <a href="https://peps.python.org/pep-0008/">PEP 8</a> v našem kódovém základu, s výjimkou délky řádku, která byla rozšířena z 79 na 88 znaků. K prosazování konvencí PEP 8 používáme <a href="https://docs.astral.sh/ruff/">Ruff</a>, kde je to možné. Když odesíláte svůj kód, pre-commit provede kontroly, včetně Ruff. Pokud je to možné, automaticky naformátuje váš kód, aby splňoval naše standardy formátování a stylu. Některé IDE můžete nastavit tak, aby při ukládání automaticky spouštěly Ruff, což vám může s tímto procesem pomoci.</p>
+<p>Mějte na paměti, že nejdůležitější částí PEP 8 je <a href="https://peps.python.org/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">Sekce 0: Pošetilá konzistence je strašákem malých myslí</a>. Existují situace, kdy dodržování PEP 8 nedává smysl, a je důležité pochopit, že v takových případech je přijatelné, a někdy dokonce žádoucí, psát kód, který není v souladu s uvedenými pravidly. Vědět, <em>kdy být nekonzistentní</em> s těmito pravidly, je stejně důležité jako udržovat konzistenci ve většině situací.</p>
+<p>Jedním z projevů tohoto přístupu jsou konvence pojmenování. Knihovny BeeWare často potřebují propojit s jinými jazyky. Při vytváření obalových funkcí pro jiné jazyky je žádoucí (a v některých případech i nezbytné) řídit se konvencemi pojmenování cílového jazyka, nikoli jazyka Python. Například při volání nebo odkazování na kód v Javě by funkce měly používat v Javě preferované značky <code>mixedCase</code>, nikoli značky <code>snake_case</code>, které doporučuje PEP 8.</p>
 <p>Při pojmenovávání API, proměnných atd. se řídíme americkým pravopisem.</p>
 <p>K PEP 8 existují také některé doplňky specifické pro BeeWare:</p>
-<p>Ačkoli je typová anotace v souladu s <a href="https://peps.python.org/pep-0484/">PEP
-484</a> volitelná, její použití se i nadále
-důrazně doporučuje, zejména v rámci všech veřejných rozhraní API.</p>
-<p>Níže je uveden příklad definice standardní funkce s odpovídajícími typovými
-poznámkami a dokumentačním řetězcem Sphinx:</p>
+<p>Ačkoli je typová anotace v souladu s <a href="https://peps.python.org/pep-0484/">PEP 484</a> volitelná, její použití se i nadále důrazně doporučuje, zejména v rámci všech veřejných rozhraní API.</p>
+<p>Níže je uveden příklad definice standardní funkce s odpovídajícími typovými poznámkami a dokumentačním řetězcem Sphinx:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="sd">&quot;&quot;&quot;Příklad funkce s typy a dokumentačním řetězcem.</span>
 
@@ -5003,16 +4991,12 @@ poznámkami a dokumentačním řetězcem Sphinx:</p>
 <span class="sd">&quot;&quot;&quot;</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">Rozdělení dlouhých volání funkcí<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
-<p>Pokud se volání funkce s více než jedním argumentem nevejde na jeden řádek,
-umístěte každý argument na samostatný řádek a za poslední argument vložte čárku.
-Ruff povoluje (a dokonce doporučuje) formátování více argumentů na jednom řádku
-s přenosem:</p>
+<p>Pokud se volání funkce s více než jedním argumentem nevejde na jeden řádek, umístěte každý argument na samostatný řádek a za poslední argument vložte čárku. Ruff povoluje (a dokonce doporučuje) formátování více argumentů na jednom řádku s přenosem:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>Tento styl by se neměl používat. Místo toho rozložte argumenty tak, aby byl
-každý na samostatném řádku, a to přidáním čárky na konec posledního argumentu:</p>
+<p>Tento styl by se neměl používat. Místo toho rozložte argumenty tak, aby byl každý na samostatném řádku, a to přidáním čárky na konec posledního argumentu:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
     <span class="n">arg2</span><span class="p">,</span>
@@ -5020,9 +5004,7 @@ každý na samostatném řádku, a to přidáním čárky na konec posledního a
 <span class="p">)</span>
 </code></pre></div>
 <h4 id="split-long-strings">Rozdělení dlouhých řetězců<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
-<p>Pokud je třeba řetězcový argument rozdělit na více řádků, aby splňoval požadavky
-na délku řádku, uzavřete zřetězené řetězcové literály do závorek, aby bylo
-zřejmé, že se jedná o jediný argument. Upřednostňujeme tedy:</p>
+<p>Pokud je třeba řetězcový argument rozdělit na více řádků, aby splňoval požadavky na délku řádku, uzavřete zřetězené řetězcové literály do závorek, aby bylo zřejmé, že se jedná o jediný argument. Upřednostňujeme tedy:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
  <span class="s2">&quot;toto je velmi dlouhý řetězec&quot;</span>
@@ -5039,21 +5021,11 @@ zřejmé, že se jedná o jediný argument. Upřednostňujeme tedy:</p>
 <span class="p">)</span>
 </code></pre></div>
 <h3 id="veci-kterym-je-treba-se-vyhnout">Věci, kterým je třeba se vyhnout<a class="headerlink" href="#veci-kterym-je-treba-se-vyhnout" title="Permanent link">&para;</a></h3>
-<p>Snažíme se co nejvíce vyhýbat modulům <code>utils</code>, ale chápeme, že někdy jsou
-nevyhnutelné. Preferovanou alternativou je najít danou funkci jinde ve zdrojovém
-kódu, místo použití modulu <code>utils</code>.</p>
-<p>Obecně se snažíme vyhnout nebo odložit jakýkoli nákladný inicializační kód,
-abychom dosáhli rychlejšího spuštění aplikace. Například moduly v balíčku
-toga-core jsou „načítány až při potřebě“ – jsou importovány až po vyžádání,
-nikoli předem. To urychluje spuštění a čas se věnuje pouze tomu, co aplikace
-skutečně používá.</p>
-<p>Při psaní komentářů se vyhýbejte používání zájmen první osoby množného čísla,
-jako je „my“ (napište například „Projít cyklem“ místo „Projdeme cyklem“).</p>
-<p>V popisech testů uveďte očekávané chování, které každý test ověřuje. Nevkládejte
-úvodní fráze jako „Testuje, zda“ nebo „Zajišťuje, že“.</p>
-<p>Odkazy na lístky si schovejte pro méně běžné případy, kdy lístek obsahuje další
-podrobnosti, které nelze snadno popsat v dokumentačních řetězcích nebo
-komentářích. Číslo lístku uveďte na konci věty, například takto:</p>
+<p>Snažíme se co nejvíce vyhýbat modulům <code>utils</code>, ale chápeme, že někdy jsou nevyhnutelné. Preferovanou alternativou je najít danou funkci jinde ve zdrojovém kódu, místo použití modulu <code>utils</code>.</p>
+<p>Obecně se snažíme vyhnout nebo odložit jakýkoli nákladný inicializační kód, abychom dosáhli rychlejšího spuštění aplikace. Například moduly v balíčku toga-core jsou „načítány až při potřebě“ – jsou importovány až po vyžádání, nikoli předem. To urychluje spuštění a čas se věnuje pouze tomu, co aplikace skutečně používá.</p>
+<p>Při psaní komentářů se vyhýbejte používání zájmen první osoby množného čísla, jako je „my“ (napište například „Projít cyklem“ místo „Projdeme cyklem“).</p>
+<p>V popisech testů uveďte očekávané chování, které každý test ověřuje. Nevkládejte úvodní fráze jako „Testuje, zda“ nebo „Zajišťuje, že“.</p>
+<p>Odkazy na lístky si schovejte pro méně běžné případy, kdy lístek obsahuje další podrobnosti, které nelze snadno popsat v dokumentačních řetězcích nebo komentářích. Číslo lístku uveďte na konci věty, například takto:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
 <span class="w"> </span><span class="sd">&quot;&quot;&quot;Testovací dokumentační řetězec vypadá takto (#123456).&quot;&quot;&quot;</span>
 </code></pre></div>

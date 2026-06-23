@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Đầu trang"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/change-note/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/change-note/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4770,71 +4778,33 @@ aria-label="Đầu trang"
 
 
 <h1 id="them-thong-tin-thay-oi-vao-ghi-chu-phat-hanh">Thêm thông tin thay đổi vào ghi chú phát hành<a class="headerlink" href="#them-thong-tin-thay-oi-vao-ghi-chu-phat-hanh" title="Permanent link">&para;</a></h1>
-<p>Nhiều công cụ BeeWare sử dụng <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a>
-để hỗ trợ việc soạn thảo ghi chú phát hành cho từng bản phát hành. Khi bạn gửi
-yêu cầu pull đến một trong các công cụ này, yêu cầu đó cần phải bao gồm một <em>ghi
-chú thay đổi</em> — ghi chú thay đổi này sẽ trở thành mục trong ghi chú phát hành mô
-tả những thay đổi đã được thực hiện.</p>
-<p>Mỗi yêu cầu kéo (pull request) phải bao gồm ít nhất một tệp trong thư mục
-<code>changes/</code> chứa mô tả ngắn gọn về thay đổi được thực hiện bởi yêu cầu kéo đó.
-Ghi chú thay đổi phải ở định dạng Markdown, trong một tệp có tên theo định dạng
-<code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Nếu thay đổi bạn đề xuất nhằm sửa lỗi hoặc triển khai
-tính năng đã có số vấn đề (issue number) tương ứng, thì ID sẽ là số của phiếu
-đó. Nếu thay đổi không có vấn đề tương ứng, số PR có thể được sử dụng làm ID.
-Bạn sẽ không biết số PR này cho đến khi đẩy yêu cầu kéo, do đó lần chạy CI đầu
-tiên sẽ không qua được kiểm tra <code>towncrier</code>; hãy thêm ghi chú thay đổi và đẩy
-bản cập nhật PR, sau đó CI sẽ chạy thành công.</p>
+<p>Nhiều công cụ BeeWare sử dụng <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> để hỗ trợ việc soạn thảo ghi chú phát hành cho từng bản phát hành. Khi bạn gửi yêu cầu pull đến một trong các công cụ này, yêu cầu đó cần phải bao gồm một <em>ghi chú thay đổi</em> — ghi chú thay đổi này sẽ trở thành mục trong ghi chú phát hành mô tả những thay đổi đã được thực hiện.</p>
+<p>Mỗi yêu cầu kéo (pull request) phải bao gồm ít nhất một tệp trong thư mục <code>changes/</code> chứa mô tả ngắn gọn về thay đổi được thực hiện bởi yêu cầu kéo đó. Ghi chú thay đổi phải ở định dạng Markdown, trong một tệp có tên theo định dạng <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Nếu thay đổi bạn đề xuất nhằm sửa lỗi hoặc triển khai tính năng đã có số vấn đề (issue number) tương ứng, thì ID sẽ là số của phiếu đó. Nếu thay đổi không có vấn đề tương ứng, số PR có thể được sử dụng làm ID. Bạn sẽ không biết số PR này cho đến khi đẩy yêu cầu kéo, do đó lần chạy CI đầu tiên sẽ không qua được kiểm tra <code>towncrier</code>; hãy thêm ghi chú thay đổi và đẩy bản cập nhật PR, sau đó CI sẽ chạy thành công.</p>
 <p>Có năm loại đoạn văn:</p>
 <ul>
-<li><code>feature</code>: Bản PR bổ sung một tính năng hoặc khả năng mới mà trước đây chưa có
-  (ví dụ: bổ sung hỗ trợ cho một định dạng gói mới, hoặc một tính năng mới trong
-  một định dạng gói hiện có);</li>
+<li><code>feature</code>: Bản PR bổ sung một tính năng hoặc khả năng mới mà trước đây chưa có (ví dụ: bổ sung hỗ trợ cho một định dạng gói mới, hoặc một tính năng mới trong một định dạng gói hiện có);</li>
 <li><code>bugfix</code>: Bản cập nhật này khắc phục một lỗi trong phiên bản hiện tại;</li>
 <li><code>doc</code>: Bản tin báo chí là một bước cải tiến đáng kể đối với tài liệu;</li>
-<li><code>removal</code>; Bản PR này mang lại một thay đổi không tương thích ngược trong API
-  BeeWare; hoặc</li>
-<li><code>misc</code>; Một thay đổi nhỏ hoặc mang tính hành chính (ví dụ: sửa lỗi chính tả,
-  làm rõ một chi tiết ngôn ngữ nhỏ hoặc cập nhật phiên bản phụ thuộc) mà không
-  cần phải thông báo trong ghi chú phát hành.</li>
+<li><code>removal</code>; Bản PR này mang lại một thay đổi không tương thích ngược trong API BeeWare; hoặc</li>
+<li><code>misc</code>; Một thay đổi nhỏ hoặc mang tính hành chính (ví dụ: sửa lỗi chính tả, làm rõ một chi tiết ngôn ngữ nhỏ hoặc cập nhật phiên bản phụ thuộc) mà không cần phải thông báo trong ghi chú phát hành.</li>
 </ul>
-<p>Mô tả trong ghi chú thay đổi này nên là một bản tóm tắt "tiếp thị" ở cấp độ cao
-về thay đổi đó từ góc độ của người dùng, chứ không phải là một mô tả kỹ thuật
-chuyên sâu hay chi tiết triển khai. Nó khác biệt với thông điệp cam kết (commit
-message) – thông điệp cam kết mô tả những gì đã được thực hiện để các nhà phát
-triển sau này có thể theo dõi lý do đằng sau một thay đổi; trong khi đó, ghi chú
-thay đổi là mô tả dành cho người dùng, những người có thể không am hiểu về cơ
-chế hoạt động bên trong.</p>
-<p>Ví dụ: nếu bạn sửa một lỗi liên quan đến việc đặt tên dự án, nội dung thông báo
-cam kết có thể như sau:</p>
+<p>Mô tả trong ghi chú thay đổi này nên là một bản tóm tắt "tiếp thị" ở cấp độ cao về thay đổi đó từ góc độ của người dùng, chứ không phải là một mô tả kỹ thuật chuyên sâu hay chi tiết triển khai. Nó khác biệt với thông điệp cam kết (commit message) – thông điệp cam kết mô tả những gì đã được thực hiện để các nhà phát triển sau này có thể theo dõi lý do đằng sau một thay đổi; trong khi đó, ghi chú thay đổi là mô tả dành cho người dùng, những người có thể không am hiểu về cơ chế hoạt động bên trong.</p>
+<p>Ví dụ: nếu bạn sửa một lỗi liên quan đến việc đặt tên dự án, nội dung thông báo cam kết có thể như sau:</p>
 <blockquote>
-<p>Áp dụng quy tắc kiểm tra biểu thức chính quy nghiêm ngặt hơn để không cho phép
-tên dự án bắt đầu bằng số.</p>
+<p>Áp dụng quy tắc kiểm tra biểu thức chính quy nghiêm ngặt hơn để không cho phép tên dự án bắt đầu bằng số.</p>
 </blockquote>
 <p>Ghi chú thay đổi tương ứng sẽ có nội dung như sau:</p>
 <blockquote>
 <p>Tên dự án không được bắt đầu bằng số nữa.</p>
 </blockquote>
-<p>Một số yêu cầu kéo (PR) có thể giới thiệu nhiều tính năng và sửa nhiều lỗi, hoặc
-đưa ra nhiều thay đổi không tương thích ngược. Trong trường hợp đó, PR có thể có
-nhiều tệp ghi chú thay đổi. Nếu bạn cần liên kết hai loại ghi chú thay đổi với
-cùng một ID, bạn có thể thêm một hậu tố số. Ví dụ: nếu PR 789 thêm một tính năng
-được mô tả trong ticket 123, khắc phục một lỗi được mô tả trong ticket 234, và
-cũng thực hiện hai thay đổi không tương thích ngược, bạn có thể có 4 tệp ghi chú
-thay đổi:</p>
+<p>Một số yêu cầu kéo (PR) có thể giới thiệu nhiều tính năng và sửa nhiều lỗi, hoặc đưa ra nhiều thay đổi không tương thích ngược. Trong trường hợp đó, PR có thể có nhiều tệp ghi chú thay đổi. Nếu bạn cần liên kết hai loại ghi chú thay đổi với cùng một ID, bạn có thể thêm một hậu tố số. Ví dụ: nếu PR 789 thêm một tính năng được mô tả trong ticket 123, khắc phục một lỗi được mô tả trong ticket 234, và cũng thực hiện hai thay đổi không tương thích ngược, bạn có thể có 4 tệp ghi chú thay đổi:</p>
 <ul>
 <li><code>123.feature.md</code></li>
 <li><code>234.bugfix.md</code></li>
 <li><code>789.removal.1.md</code></li>
 <li><code>789.removal.2.md</code></li>
 </ul>
-<p>Để biết thêm thông tin về <code>towncrier</code> và các loại đoạn tin, hãy xem <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Đoạn tin
-tức</a>.
-Bạn cũng có thể xem các ví dụ hiện có về đoạn tin tức trong thư mục <code>changes</code>
-của kho lưu trữ BeeWare. Nếu thư mục này trống, có thể là do BeeWare vừa phát hành một phiên bản mới; các tệp ghi chú thay đổi sẽ bị
-xóa và hợp nhất để cập nhật <a href="https://github.com/beeware/beeware/releases">ghi chú phát hành</a> với mỗi phiên bản. Bạn có thể xem tệp đó để biết kiểu
-bình luận được yêu cầu; bạn có thể xem <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">các PR được hợp nhất gần
-đây</a>
-để biết cách định dạng ghi chú thay đổi của mình.</p>
+<p>Để biết thêm thông tin về <code>towncrier</code> và các loại đoạn tin, hãy xem <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Đoạn tin tức</a>. Bạn cũng có thể xem các ví dụ hiện có về đoạn tin tức trong thư mục <code>changes</code> của kho lưu trữ BeeWare. Nếu thư mục này trống, có thể là do BeeWare vừa phát hành một phiên bản mới; các tệp ghi chú thay đổi sẽ bị xóa và hợp nhất để cập nhật <a href="https://github.com/beeware/beeware/releases">ghi chú phát hành</a> với mỗi phiên bản. Bạn có thể xem tệp đó để biết kiểu bình luận được yêu cầu; bạn có thể xem <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">các PR được hợp nhất gần đây</a> để biết cách định dạng ghi chú thay đổi của mình.</p>
 
 
 

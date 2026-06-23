@@ -90,6 +90,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -532,6 +534,12 @@ aria-label="Đầu trang"
           <li class="md-select__item">
             <a href="../../../../../ru/news/buzz/2025/june-2025-status-update/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/news/buzz/2025/june-2025-status-update/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4819,121 +4827,41 @@ aria-label="Đầu trang"
 
   <h1>June 2025 Status Update</h1>
 
-<p>June has been a busy month, with some big improvements to BeeWare's websites and
-documentation, and some major milestones reached in our work on mobile
-packaging.</p>
+<p>June has been a busy month, with some big improvements to BeeWare's websites and documentation, and some major milestones reached in our work on mobile packaging.</p>
 <!-- more -->
 
 <h2 id="what-weve-done">What we've done<a class="headerlink" href="#what-weve-done" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="https://pypi.org/project/cibuildwheel/3.0.0/"><code>cibuildwheel</code> 3.0</a> has been
-  released - including iOS support! As a result, we've been able to submit pull
-  requests for <a href="https://github.com/amitdev/lru-dict/pull/73"><code>lru-dict</code></a> and
-  <a href="https://github.com/python-pillow/Pillow/pull/9030">Pillow</a>, proposing the
-  addition of iOS support. Work on <a href="https://github.com/pypa/cibuildwheel/pull/2349">adding Android
-  support</a> is still underway.</li>
-<li>An <a href="https://buildbot.python.org/#/builders/1810">Emscripten CPython buildbot is now
-  live</a>! The buildbot is currently
-  failing 2 tests; but having a buildbot <em>at all</em> is a major step towards
-  restoring Tier-3 support, and will help detect regressions on Emscripten as a
-  platform.</li>
-<li>We've started a big review of the structure of our documentation, with a view
-  to resolving a number of inconsistencies between platforms. This review will
-  also involve a visual refresh, making BeeWare docs have a style consistent
-  with the homepage; and improvements to how the documentation for BeeWare's
-  individual projects fit into the overall BeeWare website.</li>
-<li>We added <a href="https://github.com/beeware/briefcase/pull/2336">iCloud detection to
-  Briefcase</a>. iCloud Drive
-  synchronization adds metadata to some folders that prevents signing
-  infrastructure from working; this has been a recurring source of problems
-  during tutorials.</li>
-<li>We massively <a href="https://github.com/beeware/briefcase/pull/2284">improved file type associations for
-  macOS</a>. Briefcase previously
-  supported macOS file associations, but expressed some very specific opinions
-  on how files would be used. With these new improvements, it should be possible
-  to support almost any macOS file type association requirements that an
-  application might have.</li>
-<li>We modified Briefcase so <a href="https://github.com/beeware/briefcase/pull/2333">it can package, sign and notarize applications that
-  weren't built with Briefcase</a>.
-  We've spent a lot of time automating the processes for building installers,
-  and for managing signing and notarization - and almost none of that work
-  depends on using Briefcase to build the app being packaged. With these
-  modifications, you can now point Briefcase at an app that was built with a
-  different tool, and Briefcase will manage the packaging and signing that is
-  required.</li>
-<li>We've started the process of <a href="https://github.com/beeware/briefcase/pull/2355">upgrading Briefcase to use a newer version of
-  WiX for Windows MSI
-  packaging</a>.</li>
-<li>We added a <a href="https://github.com/beeware/toga/pull/3527">Slider widget to the Web
-  backend</a>.</li>
-<li>We added a <code>DateInput</code> widget to the
-  <a href="https://github.com/beeware/toga/pull/3483">iOS</a> and
-  <a href="https://github.com/beeware/toga/pull/3574">macOS</a> backends.</li>
-<li>We added a <code>TimeInput</code> widget to the
-  <a href="https://github.com/beeware/toga/pull/3536">iOS</a> and
-  <a href="https://github.com/beeware/toga/pull/3574">macOS</a> backends.</li>
-<li>We added an <a href="https://github.com/beeware/toga/pull/3473"><code>ActivityIndicator</code> widget to the WinForms
-  backend</a>.</li>
-<li>We modified the handling of Toga app paths so that <a href="https://github.com/beeware/toga/pull/3543">requesting a path
-  guarantees that it exists</a>. This is
-  a significant improvement to user experience, as it's no longer necessary to
-  "check and create" every time you access an app path.</li>
-<li>We resolved a long-standing instability in the macOS and iOS testbed app that
-  <a href="https://github.com/beeware/toga/pull/3557">caused intermittent failures in the <code>WebView</code>
-  tests</a></li>
-<li>We added a new <a href="https://github.com/beeware/toga/pull/3552">topic guide on managing file system access in Toga
-  apps</a>.</li>
-<li>We modified the handling of font specifications in Toga apps. You can now
-  provide <a href="https://github.com/beeware/toga/pull/3526">a list of fonts</a>, as you
-  would in CSS, and the first available font in that list will be used.</li>
-<li>We <a href="https://github.com/beeware/toga/pull/3570">corrected a number of issues with document-based
-  apps</a>. This was detected while
-  upgrading Podium, BeeWare's slide presentation tool, to use a recent version
-  of Toga.</li>
-<li>Our Curtin students <a href="../2025-curtin-university-capstone-project---semester-end/">delivered their mid-year
-  report</a> - including plans for the
-  work they're intending to complete in the second half of the year.</li>
-<li>We completed the process of migrating BeeWare's core projects to use Ruff,
-  rather than a combination of <code>flake8</code>, <code>sort</code>, <code>pyupgrade</code>, and more.</li>
+<li><a href="https://pypi.org/project/cibuildwheel/3.0.0/"><code>cibuildwheel</code> 3.0</a> has been released - including iOS support! As a result, we've been able to submit pull requests for <a href="https://github.com/amitdev/lru-dict/pull/73"><code>lru-dict</code></a> and <a href="https://github.com/python-pillow/Pillow/pull/9030">Pillow</a>, proposing the addition of iOS support. Work on <a href="https://github.com/pypa/cibuildwheel/pull/2349">adding Android support</a> is still underway.</li>
+<li>An <a href="https://buildbot.python.org/#/builders/1810">Emscripten CPython buildbot is now live</a>! The buildbot is currently failing 2 tests; but having a buildbot <em>at all</em> is a major step towards restoring Tier-3 support, and will help detect regressions on Emscripten as a platform.</li>
+<li>We've started a big review of the structure of our documentation, with a view to resolving a number of inconsistencies between platforms. This review will also involve a visual refresh, making BeeWare docs have a style consistent with the homepage; and improvements to how the documentation for BeeWare's individual projects fit into the overall BeeWare website.</li>
+<li>We added <a href="https://github.com/beeware/briefcase/pull/2336">iCloud detection to Briefcase</a>. iCloud Drive synchronization adds metadata to some folders that prevents signing infrastructure from working; this has been a recurring source of problems during tutorials.</li>
+<li>We massively <a href="https://github.com/beeware/briefcase/pull/2284">improved file type associations for macOS</a>. Briefcase previously supported macOS file associations, but expressed some very specific opinions on how files would be used. With these new improvements, it should be possible to support almost any macOS file type association requirements that an application might have.</li>
+<li>We modified Briefcase so <a href="https://github.com/beeware/briefcase/pull/2333">it can package, sign and notarize applications that weren't built with Briefcase</a>. We've spent a lot of time automating the processes for building installers, and for managing signing and notarization - and almost none of that work depends on using Briefcase to build the app being packaged. With these modifications, you can now point Briefcase at an app that was built with a different tool, and Briefcase will manage the packaging and signing that is required.</li>
+<li>We've started the process of <a href="https://github.com/beeware/briefcase/pull/2355">upgrading Briefcase to use a newer version of WiX for Windows MSI packaging</a>.</li>
+<li>We added a <a href="https://github.com/beeware/toga/pull/3527">Slider widget to the Web backend</a>.</li>
+<li>We added a <code>DateInput</code> widget to the <a href="https://github.com/beeware/toga/pull/3483">iOS</a> and <a href="https://github.com/beeware/toga/pull/3574">macOS</a> backends.</li>
+<li>We added a <code>TimeInput</code> widget to the <a href="https://github.com/beeware/toga/pull/3536">iOS</a> and <a href="https://github.com/beeware/toga/pull/3574">macOS</a> backends.</li>
+<li>We added an <a href="https://github.com/beeware/toga/pull/3473"><code>ActivityIndicator</code> widget to the WinForms backend</a>.</li>
+<li>We modified the handling of Toga app paths so that <a href="https://github.com/beeware/toga/pull/3543">requesting a path guarantees that it exists</a>. This is a significant improvement to user experience, as it's no longer necessary to "check and create" every time you access an app path.</li>
+<li>We resolved a long-standing instability in the macOS and iOS testbed app that <a href="https://github.com/beeware/toga/pull/3557">caused intermittent failures in the <code>WebView</code> tests</a></li>
+<li>We added a new <a href="https://github.com/beeware/toga/pull/3552">topic guide on managing file system access in Toga apps</a>.</li>
+<li>We modified the handling of font specifications in Toga apps. You can now provide <a href="https://github.com/beeware/toga/pull/3526">a list of fonts</a>, as you would in CSS, and the first available font in that list will be used.</li>
+<li>We <a href="https://github.com/beeware/toga/pull/3570">corrected a number of issues with document-based apps</a>. This was detected while upgrading Podium, BeeWare's slide presentation tool, to use a recent version of Toga.</li>
+<li>Our Curtin students <a href="../2025-curtin-university-capstone-project---semester-end/">delivered their mid-year report</a> - including plans for the work they're intending to complete in the second half of the year.</li>
+<li>We completed the process of migrating BeeWare's core projects to use Ruff, rather than a combination of <code>flake8</code>, <code>sort</code>, <code>pyupgrade</code>, and more.</li>
 </ul>
 <h2 id="whats-next">What's next?<a class="headerlink" href="#whats-next" title="Permanent link">&para;</a></h2>
-<p>With the public release of <code>cibuildwheel</code> 3.0, we've been able to start
-submitting pull requests upstream for projects to officially support iOS. In
-July, we'll continue that work, with the aim of having some official iOS wheels
-for major projects that <em>aren't</em> published by BeeWare. We'll also continue
-working on adding Android support to <code>cibuildwheel</code>, with the hope that it will
-be included in version 3.1.</p>
-<p>We're also hoping to start the process of integrating the production of iOS and
-Android binary artefacts into Python releases. This will hopefully also involve
-integrating iOS and Android into CPython's pre-merge CI tooling, which will
-hopefully limit the incidence of changes that are landed into CPython that break
-iOS and Android.</p>
-<p>We'll also be attending EuroPython, where we will be <a href="https://ep2025.europython.eu/session/building-a-cross-platform-app-with-beeware">giving a
-tutorial</a>,
-attending the <a href="https://ep2025.europython.eu/session/webassembly-summit">WebAssembly
-summit</a>, and <a href="https://ep2025.europython.eu/sprints/">running a
-BeeWare sprint</a>. If you can make it to
-Prague in July, <a href="https://ep2025.europython.eu/tickets/">tickets are still
-available</a> - we hope to see you there!</p>
+<p>With the public release of <code>cibuildwheel</code> 3.0, we've been able to start submitting pull requests upstream for projects to officially support iOS. In July, we'll continue that work, with the aim of having some official iOS wheels for major projects that <em>aren't</em> published by BeeWare. We'll also continue working on adding Android support to <code>cibuildwheel</code>, with the hope that it will be included in version 3.1.</p>
+<p>We're also hoping to start the process of integrating the production of iOS and Android binary artefacts into Python releases. This will hopefully also involve integrating iOS and Android into CPython's pre-merge CI tooling, which will hopefully limit the incidence of changes that are landed into CPython that break iOS and Android.</p>
+<p>We'll also be attending EuroPython, where we will be <a href="https://ep2025.europython.eu/session/building-a-cross-platform-app-with-beeware">giving a tutorial</a>, attending the <a href="https://ep2025.europython.eu/session/webassembly-summit">WebAssembly summit</a>, and <a href="https://ep2025.europython.eu/sprints/">running a BeeWare sprint</a>. If you can make it to Prague in July, <a href="https://ep2025.europython.eu/tickets/">tickets are still available</a> - we hope to see you there!</p>
 <h2 id="want-to-get-involved">Want to get involved?<a class="headerlink" href="#want-to-get-involved" title="Permanent link">&para;</a></h2>
-<p>Want to get involved? We curate issues that should be approachable for
-first-time contributors to BeeWare. They're all relatively minor changes, but
-would provide a big improvement to the lives of BeeWare users:</p>
+<p>Want to get involved? We curate issues that should be approachable for first-time contributors to BeeWare. They're all relatively minor changes, but would provide a big improvement to the lives of BeeWare users:</p>
 <ul>
-<li>If you're interested in the tooling for deploying applications to various
-  platforms, take a look at
-  <a href="https://github.com/beeware/briefcase/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22">Briefcase</a></li>
-<li>Or, if you're interested in GUI widgets, take a look at
-  <a href="https://github.com/beeware/toga/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22">Toga</a></li>
+<li>If you're interested in the tooling for deploying applications to various platforms, take a look at <a href="https://github.com/beeware/briefcase/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22">Briefcase</a></li>
+<li>Or, if you're interested in GUI widgets, take a look at <a href="https://github.com/beeware/toga/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22">Toga</a></li>
 </ul>
-<p>These lists can also be filtered by platform - so you can find issues that are
-specific to your preferred operating system. Pick one of these tickets, drop a
-comment on the ticket to let others know you're looking at it, and try your hand
-at a PR! We have a <a href="https://briefcase.beeware.org/en/latest/how-to/contribute/how/dev-environment/">guide on setting up a Briefcase development
-environment</a>;
-but if you need any additional assistance or guidance, you can ask on the
-ticket, or join us on the <a href="https://beeware.org/bee/chat/">BeeWare Discord
-server</a>.</p>
+<p>These lists can also be filtered by platform - so you can find issues that are specific to your preferred operating system. Pick one of these tickets, drop a comment on the ticket to let others know you're looking at it, and try your hand at a PR! We have a <a href="https://briefcase.beeware.org/en/latest/how-to/contribute/how/dev-environment/">guide on setting up a Briefcase development environment</a>; but if you need any additional assistance or guidance, you can ask on the ticket, or join us on the <a href="https://beeware.org/bee/chat/">BeeWare Discord server</a>.</p>
 
 
 

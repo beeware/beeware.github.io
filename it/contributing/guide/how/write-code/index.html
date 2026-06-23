@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Intestazione"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/write-code/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/write-code/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -5218,33 +5226,16 @@ aria-label="Intestazione"
 
 
 <h1 id="scrivere-eseguire-e-testare-il-codice">Scrivere, eseguire e testare il codice<a class="headerlink" href="#scrivere-eseguire-e-testare-il-codice" title="Permanent link">&para;</a></h1>
-<p>Per correggere un bug o implementare una funzionalità dovrai scrivere del codice
-nuovo.</p>
-<p>Per iniziare a lavorare sul codice, assicurati di avere un <a href="../dev-environment/">ambiente di
-sviluppo</a> configurato e di <a href="../branches/">lavorare su un
-ramo</a>.</p>
-<p>Abbiamo una <a href="../../style/code-style-guide/">guida allo stile del codice</a> che
-illustra le nostre linee guida per la scrittura del codice per BeeWare.</p>
+<p>Per correggere un bug o implementare una funzionalità dovrai scrivere del codice nuovo.</p>
+<p>Per iniziare a lavorare sul codice, assicurati di avere un <a href="../dev-environment/">ambiente di sviluppo</a> configurato e di <a href="../branches/">lavorare su un ramo</a>.</p>
+<p>Abbiamo una <a href="../../style/code-style-guide/">guida allo stile del codice</a> che illustra le nostre linee guida per la scrittura del codice per BeeWare.</p>
 <h3 id="sviluppo-guidato-dai-test">Sviluppo guidato dai test<a class="headerlink" href="#sviluppo-guidato-dai-test" title="Permanent link">&para;</a></h3>
-<p>Un buon modo per assicurarsi che il codice funzioni come previsto è quello di
-scrivere innanzitutto un caso di test per verificarlo. Inizialmente questo caso
-di test dovrebbe fallire, poiché il codice che sta verificando non è ancora
-presente. A quel punto è possibile apportare le modifiche necessarie affinché il
-test abbia esito positivo, con la certezza che ciò che è stato scritto risolva
-effettivamente il problema previsto.</p>
+<p>Un buon modo per assicurarsi che il codice funzioni come previsto è quello di scrivere innanzitutto un caso di test per verificarlo. Inizialmente questo caso di test dovrebbe fallire, poiché il codice che sta verificando non è ancora presente. A quel punto è possibile apportare le modifiche necessarie affinché il test abbia esito positivo, con la certezza che ciò che è stato scritto risolva effettivamente il problema previsto.</p>
 <h3 id="esegui-il-tuo-codice">Esegui il tuo codice<a class="headerlink" href="#esegui-il-tuo-codice" title="Permanent link">&para;</a></h3>
-<p>Una volta scritto il codice, devi assicurarti che funzioni. Dovrai eseguire
-manualmente il codice per verificare che faccia ciò che ti aspetti. Se non l'hai
-già fatto, ti consigliamo di scrivere un caso di test per le modifiche
-apportate; come accennato in precedenza, questo test dovrebbe fallire se il
-codice è commentato o non è presente.</p>
-<p>Aggiungi il tuo caso di test alla suite di test, in modo che possa essere
-eseguito insieme agli altri test. Il passo successivo consiste nell'eseguire la
-suite di test.</p>
+<p>Una volta scritto il codice, devi assicurarti che funzioni. Dovrai eseguire manualmente il codice per verificare che faccia ciò che ti aspetti. Se non l'hai già fatto, ti consigliamo di scrivere un caso di test per le modifiche apportate; come accennato in precedenza, questo test dovrebbe fallire se il codice è commentato o non è presente.</p>
+<p>Aggiungi il tuo caso di test alla suite di test, in modo che possa essere eseguito insieme agli altri test. Il passo successivo consiste nell'eseguire la suite di test.</p>
 <h3 id="run-test-suite">Esecuzione dei test  e della copertura<a class="headerlink" href="#run-test-suite" title="Permanent link">&para;</a></h3>
-<p>BeeWare utilizza <a href="https://tox.wiki/en/latest/"><code>tox</code></a> per gestire il
-processo di test e <a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> per la propria
-suite di test.</p>
+<p>BeeWare utilizza <a href="https://tox.wiki/en/latest/"><code>tox</code></a> per gestire il processo di test e <a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> per la propria suite di test.</p>
 <p>Il comando predefinito <code>tox</code> prevede l'esecuzione di:</p>
 <ul>
 <li>hook pre-commit</li>
@@ -5259,8 +5250,7 @@ suite di test.</p>
 <p>reportistica sulla copertura del codice</p>
 </li>
 </ul>
-<p>Questo è sostanzialmente ciò che viene eseguito da CI quando si invia una pull
-request.</p>
+<p>Questo è sostanzialmente ciò che viene eseguito da CI quando si invia una pull request.</p>
 <p>Per eseguire l'intera suite di test, digitare:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
 <div class="tabbed-content">
@@ -5278,34 +5268,13 @@ request.</p>
 </div>
 </div>
 </div>
-<p>L'esecuzione della suite di test completa può richiedere un po' di tempo. È
-possibile accelerarla notevolmente eseguendo <code>tox</code> in parallelo, ovvero <code>tox p</code>
-(o <code>tox run-parallel</code>). Quando si esegue la suite di test in parallelo, si
-riceveranno meno aggiornamenti sullo stato di avanzamento durante l'esecuzione,
-ma alla fine della sessione di test si otterrà comunque un riepilogo di
-eventuali problemi rilevati. Dovresti ricevere un messaggio che indica che i
-test sono stati eseguiti. Potresti vedere <code>SKIPPED</code> test, ma non dovresti mai
-ottenere risultati di test <code>FAIL</code> o <code>ERROR</code>. Eseguiamo la nostra suite di test
-completa prima di unire ogni patch. Se tale processo rileva dei problemi, non
-uniamo la patch. Se trovi un errore o un fallimento nel test, o c'è qualcosa di
-strano nel tuo ambiente di test, oppure hai trovato un caso limite che non
-abbiamo mai visto prima: in entrambi i casi, faccelo sapere!</p>
-<p>Oltre al superamento dei test, questo dovrebbe indicare una <a class="autorefs autorefs-internal" title="Copertura del codice" href="#code-coverage">copertura dei test
-del 100%</a>.</p>
+<p>L'esecuzione della suite di test completa può richiedere un po' di tempo. È possibile accelerarla notevolmente eseguendo <code>tox</code> in parallelo, ovvero <code>tox p</code> (o <code>tox run-parallel</code>). Quando si esegue la suite di test in parallelo, si riceveranno meno aggiornamenti sullo stato di avanzamento durante l'esecuzione, ma alla fine della sessione di test si otterrà comunque un riepilogo di eventuali problemi rilevati. Dovresti ricevere un messaggio che indica che i test sono stati eseguiti. Potresti vedere <code>SKIPPED</code> test, ma non dovresti mai ottenere risultati di test <code>FAIL</code> o <code>ERROR</code>. Eseguiamo la nostra suite di test completa prima di unire ogni patch. Se tale processo rileva dei problemi, non uniamo la patch. Se trovi un errore o un fallimento nel test, o c'è qualcosa di strano nel tuo ambiente di test, oppure hai trovato un caso limite che non abbiamo mai visto prima: in entrambi i casi, faccelo sapere!</p>
+<p>Oltre al superamento dei test, questo dovrebbe indicare una <a class="autorefs autorefs-internal" title="Copertura del codice" href="#code-coverage">copertura dei test del 100%</a>.</p>
 <h3 id="esecuzione-delle-varianti-di-test">Esecuzione delle varianti di test<a class="headerlink" href="#esecuzione-delle-varianti-di-test" title="Permanent link">&para;</a></h3>
 <h4 id="eseguire-i-test-su-piu-versioni-di-python">Eseguire i test su più versioni di Python<a class="headerlink" href="#eseguire-i-test-su-piu-versioni-di-python" title="Permanent link">&para;</a></h4>
-<p>Per impostazione predefinita, molti dei comandi <code>tox</code> tenteranno di eseguire la
-suite di test più volte, una volta per ciascuna versione di Python supportata da
-BeeWare. Per farlo, tuttavia, ciascuna versione di Python deve essere
-installata sul tuo computer ed essere disponibile per il processo di
-[rilevamento]<code>tox</code> di Python da parte di
-(https://virtualenv.pypa.io/en/latest/explanation.html#python-discovery). In
-generale, se una versione di Python è disponibile tramite <code>PATH</code>, allora <code>tox</code>
-dovrebbe essere in grado di individuarla e utilizzarla.</p>
+<p>Per impostazione predefinita, molti dei comandi <code>tox</code> tenteranno di eseguire la suite di test più volte, una volta per ciascuna versione di Python supportata da BeeWare. Per farlo, tuttavia, ciascuna versione di Python deve essere installata sul tuo computer ed essere disponibile per il processo di [rilevamento]<code>tox</code> di Python da parte di (https://virtualenv.pypa.io/en/latest/explanation.html#python-discovery). In generale, se una versione di Python è disponibile tramite <code>PATH</code>, allora <code>tox</code> dovrebbe essere in grado di individuarla e utilizzarla.</p>
 <h4 id="esegui-solo-la-suite-di-test">Esegui solo la suite di test<a class="headerlink" href="#esegui-solo-la-suite-di-test" title="Permanent link">&para;</a></h4>
-<p>Se stai sviluppando rapidamente una nuova funzionalità, non è necessario
-eseguire l'intera suite di test; puoi eseguire <em>solo</em> i test unitari. Per farlo,
-esegui:</p>
+<p>Se stai sviluppando rapidamente una nuova funzionalità, non è necessario eseguire l'intera suite di test; puoi eseguire <em>solo</em> i test unitari. Per farlo, esegui:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5323,13 +5292,7 @@ esegui:</p>
 </div>
 </div>
 <h4 id="test-subset">Eseguire un sottoinsieme di test<a class="headerlink" href="#test-subset" title="Permanent link">&para;</a></h4>
-<p>Per impostazione predefinita, <code>tox</code> esegue tutti i test della suite di test
-unitari. Quando si sviluppa un nuovo test, può essere utile eseguire <em>solo</em> quel
-test specifico. Per farlo, è possibile passare <a href="https://docs.pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run">qualsiasi specificatore
-<code>pytest</code></a>
-come argomento a <code>tox</code>. Questi percorsi dei test sono relativi alla directory
-<code>briefcase</code>. Ad esempio, per eseguire solo i test contenuti in un singolo file,
-digitare:</p>
+<p>Per impostazione predefinita, <code>tox</code> esegue tutti i test della suite di test unitari. Quando si sviluppa un nuovo test, può essere utile eseguire <em>solo</em> quel test specifico. Per farlo, è possibile passare <a href="https://docs.pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run">qualsiasi specificatore <code>pytest</code></a> come argomento a <code>tox</code>. Questi percorsi dei test sono relativi alla directory <code>briefcase</code>. Ad esempio, per eseguire solo i test contenuti in un singolo file, digitare:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5346,16 +5309,9 @@ digitare:</p>
 </div>
 </div>
 </div>
-<p>Anche se esegui solo una parte della suite di test, riceverai comunque un
-rapporto sulla copertura; tuttavia, i risultati della copertura riporteranno
-solo le righe di codice eseguite dai test specifici che hai eseguito.</p>
+<p>Anche se esegui solo una parte della suite di test, riceverai comunque un rapporto sulla copertura; tuttavia, i risultati della copertura riporteranno solo le righe di codice eseguite dai test specifici che hai eseguito.</p>
 <h4 id="test-py-version">Esegui la suite di test per una versione specifica di Python<a class="headerlink" href="#test-py-version" title="Permanent link">&para;</a></h4>
-<p>Per impostazione predefinita, <code>tox -e py</code> verrà eseguito utilizzando
-l'interprete che il sistema riconosce come <code>python</code> sul tuo computer. Se hai
-installato più versioni di Python e desideri testare una versione specifica tra
-quelle installate, puoi specificare la versione di Python da utilizzare. Ad
-esempio, per eseguire la suite di test su Python 3.10,
-digita:</p>
+<p>Per impostazione predefinita, <code>tox -e py</code> verrà eseguito utilizzando l'interprete che il sistema riconosce come <code>python</code> sul tuo computer. Se hai installato più versioni di Python e desideri testare una versione specifica tra quelle installate, puoi specificare la versione di Python da utilizzare. Ad esempio, per eseguire la suite di test su Python 3.10, digita:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5372,14 +5328,9 @@ digita:</p>
 </div>
 </div>
 </div>
-<p>È possibile eseguire un <a class="autorefs autorefs-internal" title="Eseguire un sottoinsieme di test" href="#test-subset">insieme parziale di test</a> aggiungendo <code>--</code>
-e una specifica di test alla riga di comando.</p>
+<p>È possibile eseguire un <a class="autorefs autorefs-internal" title="Eseguire un sottoinsieme di test" href="#test-subset">insieme parziale di test</a> aggiungendo <code>--</code> e una specifica di test alla riga di comando.</p>
 <h4 id="esegui-la-suite-di-test-senza-copertura-veloce">Esegui la suite di test senza copertura (veloce)<a class="headerlink" href="#esegui-la-suite-di-test-senza-copertura-veloce" title="Permanent link">&para;</a></h4>
-<p>Per impostazione predefinita, <code>tox</code> esegue la suite di test pytest in modalità a
-thread singolo. È possibile velocizzare l'esecuzione della suite di test
-eseguendola in parallelo. Questa modalità non genera file di copertura a causa
-delle difficoltà nel rilevare la copertura all'interno dei processi generati.
-Per eseguire una singola versione di Python in modalità "fast", digitare:</p>
+<p>Per impostazione predefinita, <code>tox</code> esegue la suite di test pytest in modalità a thread singolo. È possibile velocizzare l'esecuzione della suite di test eseguendola in parallelo. Questa modalità non genera file di copertura a causa delle difficoltà nel rilevare la copertura all'interno dei processi generati. Per eseguire una singola versione di Python in modalità "fast", digitare:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5396,48 +5347,21 @@ Per eseguire una singola versione di Python in modalità "fast", digitare:</p>
 </div>
 </div>
 </div>
-<p>È possibile eseguire un <a class="autorefs autorefs-internal" title="Eseguire un sottoinsieme di test" href="#test-subset">sottoinsieme di test</a> aggiungendo <code>--</code> e
-una specifica di test alla riga di comando; è possibile utilizzare una <a class="autorefs autorefs-internal" title="Esegui la suite di test per una versione specifica di Python" href="#test-py-version">versione
-specifica di Python</a> aggiungendo la versione al target di test
-(ad es., <code>py310-fast</code> per eseguire fast su Python 3.10).</p>
+<p>È possibile eseguire un <a class="autorefs autorefs-internal" title="Eseguire un sottoinsieme di test" href="#test-subset">sottoinsieme di test</a> aggiungendo <code>--</code> e una specifica di test alla riga di comando; è possibile utilizzare una <a class="autorefs autorefs-internal" title="Esegui la suite di test per una versione specifica di Python" href="#test-py-version">versione specifica di Python</a> aggiungendo la versione al target di test (ad es., <code>py310-fast</code> per eseguire fast su Python 3.10).</p>
 <h3 id="code-coverage">Copertura del codice<a class="headerlink" href="#code-coverage" title="Permanent link">&para;</a></h3>
-<p>BeeWare garantisce una copertura del codice del 100% nel proprio
-codice sorgente. Quando si aggiunge o si modifica del codice nel progetto, è
-necessario aggiungere del codice di test per garantire la copertura di tutte le
-modifiche apportate.</p>
-<p>Tuttavia, BeeWare è destinato a più piattaforme e a più versioni di
-Python, pertanto non è possibile verificare la copertura completa su una singola
-piattaforma e versione di Python. Per ovviare a questo problema, nella sezione
-<code>tool.coverage.coverage_conditional_plugin.rules</code> di <code>pyproject.toml</code> sono
-definite diverse regole di copertura condizionali (ad esempio,
-<code>no-cover-if-is-windows</code> può essere utilizzato per contrassegnare un blocco di
-codice che non verrà eseguito durante l'esecuzione della suite di test su
-Windows). Queste regole vengono utilizzate per identificare sezioni di codice
-coperte solo su particolari piattaforme o versioni di Python.</p>
-<p>È importante notare che la generazione dei report di copertura tra diverse
-versioni di Python può presentare alcune anomalie. Ad esempio, se i file di
-copertura vengono generati utilizzando una versione di Python ma la generazione
-dei report avviene su un'altra versione, il report potrebbe includere falsi
-positivi relativi a rami non eseguiti. Per questo motivo, per la generazione dei
-report di copertura si dovrebbe sempre utilizzare la versione più vecchia di
-Python impiegata per generare i file di copertura.</p>
+<p>BeeWare garantisce una copertura del codice del 100% nel proprio codice sorgente. Quando si aggiunge o si modifica del codice nel progetto, è necessario aggiungere del codice di test per garantire la copertura di tutte le modifiche apportate.</p>
+<p>Tuttavia, BeeWare è destinato a più piattaforme e a più versioni di Python, pertanto non è possibile verificare la copertura completa su una singola piattaforma e versione di Python. Per ovviare a questo problema, nella sezione <code>tool.coverage.coverage_conditional_plugin.rules</code> di <code>pyproject.toml</code> sono definite diverse regole di copertura condizionali (ad esempio, <code>no-cover-if-is-windows</code> può essere utilizzato per contrassegnare un blocco di codice che non verrà eseguito durante l'esecuzione della suite di test su Windows). Queste regole vengono utilizzate per identificare sezioni di codice coperte solo su particolari piattaforme o versioni di Python.</p>
+<p>È importante notare che la generazione dei report di copertura tra diverse versioni di Python può presentare alcune anomalie. Ad esempio, se i file di copertura vengono generati utilizzando una versione di Python ma la generazione dei report avviene su un'altra versione, il report potrebbe includere falsi positivi relativi a rami non eseguiti. Per questo motivo, per la generazione dei report di copertura si dovrebbe sempre utilizzare la versione più vecchia di Python impiegata per generare i file di copertura.</p>
 <h4 id="comprendere-i-risultati-della-copertura">Comprendere i risultati della copertura<a class="headerlink" href="#comprendere-i-risultati-della-copertura" title="Permanent link">&para;</a></h4>
-<p>Alla fine dell'output del test di copertura dovrebbe comparire un rapporto
-contenente i dati di copertura raccolti:</p>
+<p>Alla fine dell'output del test di copertura dovrebbe comparire un rapporto contenente i dati di copertura raccolti:</p>
 <!-- The extra space at the start of this line is needed to prevent translate-toolkit from parsing the dashes as a markdown document split -->
 
 <div class="highlight"><pre><span></span><code><span class="go">Nome    Dichiarazioni   Mancato Branch BrPart   Copertura   Mancanti</span>
 <span class="go"> ---------------------------------------------------</span>
 <span class="go"> TOTALE    7540 0   1040 0  100,0%</span>
 </code></pre></div>
-<p>Questo ci indica che la suite di test ha eseguito ogni possibile percorso di
-ramificazione nel codice. Non è una garanzia al 100% dell'assenza di bug, ma
-significa che stiamo verificando ogni riga di codice del codice sorgente.</p>
-<p>Se apporti modifiche al codice, è possibile che si crei una lacuna nella
-copertura. In tal caso, il rapporto sulla copertura ti indicherà quali righe non
-vengono eseguite. Ad esempio, supponiamo di aver apportato una modifica a
-<code>some/interesting_file.py</code>, aggiungendo una nuova logica. Il rapporto sulla
-copertura potrebbe apparire più o meno così:</p>
+<p>Questo ci indica che la suite di test ha eseguito ogni possibile percorso di ramificazione nel codice. Non è una garanzia al 100% dell'assenza di bug, ma significa che stiamo verificando ogni riga di codice del codice sorgente.</p>
+<p>Se apporti modifiche al codice, è possibile che si crei una lacuna nella copertura. In tal caso, il rapporto sulla copertura ti indicherà quali righe non vengono eseguite. Ad esempio, supponiamo di aver apportato una modifica a <code>some/interesting_file.py</code>, aggiungendo una nuova logica. Il rapporto sulla copertura potrebbe apparire più o meno così:</p>
 <!-- The extra space at the start of this line is needed to prevent translate-toolkit from parsing the dashes as a markdown document split -->
 
 <div class="highlight"><pre><span></span><code><span class="go">Nome Istr.   Errore Ramo BrPart  Copertura   Mancante</span>
@@ -5446,14 +5370,9 @@ copertura potrebbe apparire più o meno così:</p>
 <span class="go"> -------------------------------------------------------------------------------</span>
 <span class="go"> TOTALE 7540 1   1726 0  99,9%</span>
 </code></pre></div>
-<p>Questo ci indica che la riga 170, le righe da 302 a 307 e un salto di ramo dalla
-riga 320 alla riga 335 non vengono eseguiti dalla suite di test. Per
-ripristinare questa copertura, dovrai aggiungere nuovi test (o modificare un
-test esistente).</p>
+<p>Questo ci indica che la riga 170, le righe da 302 a 307 e un salto di ramo dalla riga 320 alla riga 335 non vengono eseguiti dalla suite di test. Per ripristinare questa copertura, dovrai aggiungere nuovi test (o modificare un test esistente).</p>
 <h4 id="rapporto-sulla-copertura-per-la-piattaforma-ospitante-e-la-versione-di-python">Rapporto sulla copertura per la piattaforma ospitante e la versione di Python<a class="headerlink" href="#rapporto-sulla-copertura-per-la-piattaforma-ospitante-e-la-versione-di-python" title="Permanent link">&para;</a></h4>
-<p>È possibile generare un rapporto di copertura per la propria piattaforma e
-versione di Python. Ad esempio, per eseguire la suite di test e generare un
-rapporto di copertura su Python 3.10, eseguire:</p>
+<p>È possibile generare un rapporto di copertura per la propria piattaforma e versione di Python. Ad esempio, per eseguire la suite di test e generare un rapporto di copertura su Python 3.10, eseguire:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5471,9 +5390,7 @@ rapporto di copertura su Python 3.10, eseguire:</p>
 </div>
 </div>
 <h4 id="rapporto-sulla-copertura-per-la-piattaforma-ospitante">Rapporto sulla copertura per la piattaforma ospitante<a class="headerlink" href="#rapporto-sulla-copertura-per-la-piattaforma-ospitante" title="Permanent link">&para;</a></h4>
-<p>Se tutte le versioni supportate di Python sono disponibili per <code>tox</code>, è
-possibile ottenere un rapporto sulla copertura per la piattaforma ospitante
-eseguendo:</p>
+<p>Se tutte le versioni supportate di Python sono disponibili per <code>tox</code>, è possibile ottenere un rapporto sulla copertura per la piattaforma ospitante eseguendo:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">macOS</label><label for="__tabbed_7_2">Linux</label><label for="__tabbed_7_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5491,8 +5408,7 @@ eseguendo:</p>
 </div>
 </div>
 <h4 id="reportistica-sulla-copertura-in-html">Reportistica sulla copertura in HTML<a class="headerlink" href="#reportistica-sulla-copertura-in-html" title="Permanent link">&para;</a></h4>
-<p>È possibile generare un rapporto di copertura HTML aggiungendo <code>-html</code> a uno
-qualsiasi dei nomi degli ambienti di copertura <code>tox</code>, ad esempio:</p>
+<p>È possibile generare un rapporto di copertura HTML aggiungendo <code>-html</code> a uno qualsiasi dei nomi degli ambienti di copertura <code>tox</code>, ad esempio:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">macOS</label><label for="__tabbed_8_2">Linux</label><label for="__tabbed_8_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5510,19 +5426,9 @@ qualsiasi dei nomi degli ambienti di copertura <code>tox</code>, ad esempio:</p>
 </div>
 </div>
 <h3 id="non-si-tratta-solo-di-scrivere-test">Non si tratta solo di scrivere test!<a class="headerlink" href="#non-si-tratta-solo-di-scrivere-test" title="Permanent link">&para;</a></h3>
-<p>Sebbene ci assicuriamo di testare tutto il nostro codice, il compito non
-consiste <em>solo</em> nel mantenere quel livello di test. Parte del lavoro consiste
-nel verificare il codice man mano che si procede. Si potrebbe scrivere una serie
-completa di test per un giubbotto di salvataggio di cemento… ma un giubbotto di
-salvataggio di cemento sarebbe comunque inutile per lo scopo a cui è destinato!</p>
-<p>Mentre sviluppi i test, dovresti verificare che anche il modulo principale sia
-<strong>coerente</strong> al suo interno. Se noti nomi di metodi che non sono internamente
-coerenti (ad esempio, qualcosa chiamato <code>on_select</code> in un modulo, ma chiamato
-<code>on_selected</code> in un altro), o casi in cui i dati non vengono gestiti in modo
-coerente, segnalacelo aprendo un ticket. Oppure, se sei sicuro di sapere cosa
-bisogna fare, crea una pull request che risolva il problema che hai trovato.</p>
-<p>Una volta che tutto funziona, puoi <a href="../submit-pr/">inviare una richiesta
-pull</a> con le tue modifiche.</p>
+<p>Sebbene ci assicuriamo di testare tutto il nostro codice, il compito non consiste <em>solo</em> nel mantenere quel livello di test. Parte del lavoro consiste nel verificare il codice man mano che si procede. Si potrebbe scrivere una serie completa di test per un giubbotto di salvataggio di cemento… ma un giubbotto di salvataggio di cemento sarebbe comunque inutile per lo scopo a cui è destinato!</p>
+<p>Mentre sviluppi i test, dovresti verificare che anche il modulo principale sia <strong>coerente</strong> al suo interno. Se noti nomi di metodi che non sono internamente coerenti (ad esempio, qualcosa chiamato <code>on_select</code> in un modulo, ma chiamato <code>on_selected</code> in un altro), o casi in cui i dati non vengono gestiti in modo coerente, segnalacelo aprendo un ticket. Oppure, se sei sicuro di sapere cosa bisogna fare, crea una pull request che risolva il problema che hai trovato.</p>
+<p>Una volta che tutto funziona, puoi <a href="../submit-pr/">inviare una richiesta pull</a> con le tue modifiche.</p>
 
 
 

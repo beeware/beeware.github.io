@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Intestazione"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/change-note/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/change-note/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4770,78 +4778,33 @@ aria-label="Intestazione"
 
 
 <h1 id="aggiunta-di-informazioni-sulle-modifiche-per-le-note-di-rilascio">Aggiunta di informazioni sulle modifiche per le note di rilascio<a class="headerlink" href="#aggiunta-di-informazioni-sulle-modifiche-per-le-note-di-rilascio" title="Permanent link">&para;</a></h1>
-<p>Molti strumenti di BeeWare usano
-<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> per aiutare a costruire le
-note di rilascio per ogni release. Quando si invia una richiesta di pull a uno
-degli strumenti applicabili, questa dovrà includere una <em>nota di modifica</em>;
-questa nota di modifica diventerà la voce nelle note di rilascio che descriverà
-la modifica apportata.</p>
-<p>Ogni richiesta di pull deve includere almeno un file nella cartella <code>changes/</code>
-che fornisca una breve descrizione della modifica implementata dalla richiesta
-di pull. La nota di modifica deve essere in formato Markdown, in un file dal
-nome <code>&lt;id&gt;.&lt;tipo di frammento&gt;.md</code>. Se la modifica proposta risolve un bug o
-implementa una funzionalità per la quale esiste un numero di problema esistente,
-l'ID sarà il numero di quel ticket. Se la modifica non ha un problema
-corrispondente, il numero di PR può essere usato come ID. Non si conosce il
-numero di PR finché non si invia la richiesta di pull, quindi il primo passaggio
-di CI non supererà il controllo <code>towncrier</code>; aggiungendo la nota di modifica e
-inviando un aggiornamento della PR, il CI dovrebbe passare.</p>
+<p>Molti strumenti di BeeWare usano <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> per aiutare a costruire le note di rilascio per ogni release. Quando si invia una richiesta di pull a uno degli strumenti applicabili, questa dovrà includere una <em>nota di modifica</em>; questa nota di modifica diventerà la voce nelle note di rilascio che descriverà la modifica apportata.</p>
+<p>Ogni richiesta di pull deve includere almeno un file nella cartella <code>changes/</code> che fornisca una breve descrizione della modifica implementata dalla richiesta di pull. La nota di modifica deve essere in formato Markdown, in un file dal nome <code>&lt;id&gt;.&lt;tipo di frammento&gt;.md</code>. Se la modifica proposta risolve un bug o implementa una funzionalità per la quale esiste un numero di problema esistente, l'ID sarà il numero di quel ticket. Se la modifica non ha un problema corrispondente, il numero di PR può essere usato come ID. Non si conosce il numero di PR finché non si invia la richiesta di pull, quindi il primo passaggio di CI non supererà il controllo <code>towncrier</code>; aggiungendo la nota di modifica e inviando un aggiornamento della PR, il CI dovrebbe passare.</p>
 <p>Esistono cinque tipi di frammenti:</p>
 <ul>
-<li><code>caratteristica</code>: La PR aggiunge un nuovo comportamento o una capacità che non
-  era possibile in precedenza (ad esempio, l'aggiunta del supporto per un nuovo
-  formato di pacchettizzazione o una nuova funzionalità in un formato di
-  pacchettizzazione esistente);</li>
+<li><code>caratteristica</code>: La PR aggiunge un nuovo comportamento o una capacità che non era possibile in precedenza (ad esempio, l'aggiunta del supporto per un nuovo formato di pacchettizzazione o una nuova funzionalità in un formato di pacchettizzazione esistente);</li>
 <li><code>bugfix</code>: La PR corregge un bug nell'implementazione esistente;</li>
 <li><code>doc</code>: Il PR rappresenta un miglioramento significativo della documentazione;</li>
-<li>La PR rappresenta una modifica incompatibile con le versioni precedenti
-  dell'API {{ nome_formale }}. API; oppure</li>
-<li><code>misc</code>; Una modifica minore o amministrativa (ad esempio, la correzione di un
-  errore di battitura, un chiarimento linguistico minore o l'aggiornamento della
-  versione di una dipendenza) che non deve essere annunciata nelle note di
-  rilascio.</li>
+<li>La PR rappresenta una modifica incompatibile con le versioni precedenti dell'API {{ nome_formale }}. API; oppure</li>
+<li><code>misc</code>; Una modifica minore o amministrativa (ad esempio, la correzione di un errore di battitura, un chiarimento linguistico minore o l'aggiornamento della versione di una dipendenza) che non deve essere annunciata nelle note di rilascio.</li>
 </ul>
-<p>Questa descrizione nella nota di modifica dovrebbe essere un riassunto di alto
-livello "marketing" della modifica dal punto di vista dell'utente, non una
-descrizione tecnica approfondita o un dettaglio di implementazione. Si distingue
-da un messaggio di commit: un messaggio di commit descrive ciò che è stato fatto
-in modo che i futuri sviluppatori possano seguire il ragionamento per una
-modifica; la nota di modifica è una descrizione a beneficio degli utenti, che
-potrebbero non avere conoscenze interne.</p>
-<p>Ad esempio, se si risolve un bug relativo alla denominazione del progetto, il
-messaggio di commit potrebbe essere il seguente:</p>
+<p>Questa descrizione nella nota di modifica dovrebbe essere un riassunto di alto livello "marketing" della modifica dal punto di vista dell'utente, non una descrizione tecnica approfondita o un dettaglio di implementazione. Si distingue da un messaggio di commit: un messaggio di commit descrive ciò che è stato fatto in modo che i futuri sviluppatori possano seguire il ragionamento per una modifica; la nota di modifica è una descrizione a beneficio degli utenti, che potrebbero non avere conoscenze interne.</p>
+<p>Ad esempio, se si risolve un bug relativo alla denominazione del progetto, il messaggio di commit potrebbe essere il seguente:</p>
 <blockquote>
-<p>Applicare un controllo di espressione regolare più forte per escludere i nomi
-di progetto che iniziano con cifre.</p>
+<p>Applicare un controllo di espressione regolare più forte per escludere i nomi di progetto che iniziano con cifre.</p>
 </blockquote>
 <p>La nota di modifica corrispondente sarebbe qualcosa di simile:</p>
 <blockquote>
 <p>I nomi dei progetti non possono più iniziare con un numero.</p>
 </blockquote>
-<p>Alcune PR introducono più funzionalità e correggono più bug, oppure introducono
-più modifiche incompatibili con il passato. In questo caso, la PR può avere più
-file di note di modifica. Se è necessario associare due tipi di frammenti allo
-stesso ID, è possibile aggiungere un suffisso numerico. Ad esempio, se la PR 789
-ha aggiunto una funzionalità descritta dal ticket 123, ha chiuso un bug
-descritto dal ticket 234 e ha apportato due modifiche incompatibili, si
-potrebbero avere 4 file di note di modifica:</p>
+<p>Alcune PR introducono più funzionalità e correggono più bug, oppure introducono più modifiche incompatibili con il passato. In questo caso, la PR può avere più file di note di modifica. Se è necessario associare due tipi di frammenti allo stesso ID, è possibile aggiungere un suffisso numerico. Ad esempio, se la PR 789 ha aggiunto una funzionalità descritta dal ticket 123, ha chiuso un bug descritto dal ticket 234 e ha apportato due modifiche incompatibili, si potrebbero avere 4 file di note di modifica:</p>
 <ul>
 <li>123.feature.md</li>
 <li>234.bugfix.md</li>
 <li><code>789.removal.1.md</code></li>
 <li><code>789.removal.2.md</code></li>
 </ul>
-<p>Per maggiori informazioni su <code>towncrier</code> e sui tipi di frammenti, vedere <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">News
-Fragments</a>.
-È anche possibile vedere esempi esistenti di frammenti di notizie nella cartella
-<code>changes</code> del repository {{ nome_formale }}. Se questa cartella è vuota, è
-probabile che sia perché {{ nome_formale }} ha recentemente pubblicato un nuovo
-rilascio; i file delle note di modifica vengono cancellati e combinati per
-aggiornare le <a href="https://github.com/beeware/{nome_progetto
-}}/releases">note di rilascio</a> a ogni rilascio. Si può guardare a quel file per vedere lo stile di
-commento richiesto; si può guardare a <a href="https://github.com/beeware/{{ nome_progetto }}/pulls?q=is%3Apr+is%3Amerged">recent merged
-PRs</a>
-per vedere come formattare le note di modifica.</p>
+<p>Per maggiori informazioni su <code>towncrier</code> e sui tipi di frammenti, vedere <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">News Fragments</a>. È anche possibile vedere esempi esistenti di frammenti di notizie nella cartella <code>changes</code> del repository {{ nome_formale }}. Se questa cartella è vuota, è probabile che sia perché {{ nome_formale }} ha recentemente pubblicato un nuovo rilascio; i file delle note di modifica vengono cancellati e combinati per aggiornare le <a href="https://github.com/beeware/{nome_progetto }}/releases">note di rilascio</a> a ogni rilascio. Si può guardare a quel file per vedere lo stile di commento richiesto; si può guardare a <a href="https://github.com/beeware/{{ nome_progetto }}/pulls?q=is%3Apr+is%3Amerged">recent merged PRs</a> per vedere come formattare le note di modifica.</p>
 
 
 

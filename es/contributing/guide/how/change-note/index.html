@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Cabecera"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/change-note/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/change-note/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4770,76 +4778,33 @@ aria-label="Cabecera"
 
 
 <h1 id="anadir-informacion-sobre-cambios-para-las-notas-de-la-version">Añadir información sobre cambios para las notas de la versión<a class="headerlink" href="#anadir-informacion-sobre-cambios-para-las-notas-de-la-version" title="Permanent link">&para;</a></h1>
-<p>Muchas herramientas de BeeWare utilizan
-<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> para asistir en la construir
-las notas de cada versión. Cuando envíe un pull request a una de las
-herramientas aplicables, necesitará incluir una <em>nota de cambio</em> — esta nota de
-cambio se convertirá en el apunte de las notas de la versión que describe el
-cambio que se ha realizado.</p>
-<p>Cada solicitud de extracción debe incluir al menos un archivo en el directorio
-<code>changes/</code> que proporcione una breve descripción del cambio implementado por la
-pull request. La nota de cambio debe estar en formato Markdown, en un archivo
-cuyo nombre tenga el formato <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Si el cambio que propone
-corregirá un defecto o implementará una prestación para la que existe un número
-de incidencia, el ID será el número de ese ticket. Si el cambio no tiene la
-incidencia correspondiente, se puede utilizar el número de PR como ID. No sabrá
-este número de RP hasta que envíe la solicitud de extracción, por lo que la
-primera pasada de CI fallará en la comprobación del <code>towncrier</code>; añada la nota
-de cambio y envíe una actualización del RP e IC debería entonces pasar.</p>
+<p>Muchas herramientas de BeeWare utilizan <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> para asistir en la construir las notas de cada versión. Cuando envíe un pull request a una de las herramientas aplicables, necesitará incluir una <em>nota de cambio</em> — esta nota de cambio se convertirá en el apunte de las notas de la versión que describe el cambio que se ha realizado.</p>
+<p>Cada solicitud de extracción debe incluir al menos un archivo en el directorio <code>changes/</code> que proporcione una breve descripción del cambio implementado por la pull request. La nota de cambio debe estar en formato Markdown, en un archivo cuyo nombre tenga el formato <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Si el cambio que propone corregirá un defecto o implementará una prestación para la que existe un número de incidencia, el ID será el número de ese ticket. Si el cambio no tiene la incidencia correspondiente, se puede utilizar el número de PR como ID. No sabrá este número de RP hasta que envíe la solicitud de extracción, por lo que la primera pasada de CI fallará en la comprobación del <code>towncrier</code>; añada la nota de cambio y envíe una actualización del RP e IC debería entonces pasar.</p>
 <p>Hay cinco tipos de fragmentos:</p>
 <ul>
-<li><code>prestación</code>: El RP añade un comportamiento nuevo o capacidad que antes no era
-  posible (p.ej., añadir mantenimiento para una formato nueva de empaquetado, o
-  una prestación nueva en un formato de empaquetado existente);</li>
+<li><code>prestación</code>: El RP añade un comportamiento nuevo o capacidad que antes no era posible (p.ej., añadir mantenimiento para una formato nueva de empaquetado, o una prestación nueva en un formato de empaquetado existente);</li>
 <li><code>bugfix</code>:El RP corrige un fallo en la implementación existente;</li>
 <li><code>doc</code>: El RP es una mejora significativa para la documentación;</li>
 <li><code>removal</code>; El RP representa un cambio hacia atrás incompatible en el API BeeWare; o</li>
-<li><code>misc</code>; Un cambio menor o administrativo (p.ej., corregir una tipografía, una
-  aclaración lingüística menor, o actualizar una versión de dependencia) que no
-  necesite anunciarse en las notas de la versión.</li>
+<li><code>misc</code>; Un cambio menor o administrativo (p.ej., corregir una tipografía, una aclaración lingüística menor, o actualizar una versión de dependencia) que no necesite anunciarse en las notas de la versión.</li>
 </ul>
-<p>Esta descripción en la nota de cambio sería un sumario “mercantil” de alto nivel
-del cambio desde la perspectiva del usuario, no una descripción técnica profunda
-o detalles de implementación. Es distinto de un mensaje de confirmación: un
-mensaje de confirmación describe lo que se ha hecho para que los futuros
-desarrolladores puedan seguir el razonamiento de un cambio; la nota de cambio es
-una descripción en beneficio de los usuarios, que pueden no tener conocimientos
-internos.</p>
-<p>Por ejemplo, si se corrige un fallo relacionado con el nombre del proyecto, el
-mensaje de confirmación puede ser el siguiente:</p>
+<p>Esta descripción en la nota de cambio sería un sumario “mercantil” de alto nivel del cambio desde la perspectiva del usuario, no una descripción técnica profunda o detalles de implementación. Es distinto de un mensaje de confirmación: un mensaje de confirmación describe lo que se ha hecho para que los futuros desarrolladores puedan seguir el razonamiento de un cambio; la nota de cambio es una descripción en beneficio de los usuarios, que pueden no tener conocimientos internos.</p>
+<p>Por ejemplo, si se corrige un fallo relacionado con el nombre del proyecto, el mensaje de confirmación puede ser el siguiente:</p>
 <blockquote>
-<p>Aplique una comprobación de expresión regular más fuerte para no permitir
-nombres de proyecto que empiecen por dígitos.</p>
+<p>Aplique una comprobación de expresión regular más fuerte para no permitir nombres de proyecto que empiecen por dígitos.</p>
 </blockquote>
 <p>La nota de cambio correspondiente leería algo así como:</p>
 <blockquote>
 <p>Los nombres del proyecto ya no pueden más comenzar con un número.</p>
 </blockquote>
-<p>Algunos de los RP introducirán múltiples prestaciones y corregirán múltiples
-fallos, o introducirán múltiples cambios incompatibles con versiones anteriores.
-En ese caso, el RP puede tener varios archivos de notas de cambio. Si necesita
-asociar dos tipos de fragmentos con el mismo ID, puede adjuntar un sufijo
-numérico. Por ejemplo, si el RP 789 añadió una prestación descrita por el ticket
-123, cerró un fallo descrito por el ticket 234, y también hizo dos cambios
-incompatibles hacia atrás, podría tener 4 archivos de notas de cambio:</p>
+<p>Algunos de los RP introducirán múltiples prestaciones y corregirán múltiples fallos, o introducirán múltiples cambios incompatibles con versiones anteriores. En ese caso, el RP puede tener varios archivos de notas de cambio. Si necesita asociar dos tipos de fragmentos con el mismo ID, puede adjuntar un sufijo numérico. Por ejemplo, si el RP 789 añadió una prestación descrita por el ticket 123, cerró un fallo descrito por el ticket 234, y también hizo dos cambios incompatibles hacia atrás, podría tener 4 archivos de notas de cambio:</p>
 <ul>
 <li><code>123.prestación.md</code></li>
 <li><code>234.bugfix.md</code></li>
 <li><code>789.removal.1.md</code></li>
 <li><code>789.removal.2.md</code></li>
 </ul>
-<p>Para obtener más información sobre <code>towncrier</code> y los tipos de fragmentos,
-consulte <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Fragmentos de
-noticias</a>.
-También puedes ver ejemplos existentes de fragmentos de noticias en el
-directorio <code>changes</code> del repositorio BeeWare. Si esta carpeta está
-vacía, es probable que se deba a que {{ nombre_del_proyecto }} ha publicado
-recientemente una versión nueva; los archivos de notas de cambio se eliminan y
-se combinan para actualizar las <a href="https://github.com/beeware/{ nombre_del_proyecto }}/releases">notas de la
-versión</a> con cada
-versión. Puedes mirar ese archivo para ver el estilo de comentario que se
-requiere; puedes mirar <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">los RP fundidos
-recientemente</a> para ver cómo formatear tus notas de cambio.</p>
+<p>Para obtener más información sobre <code>towncrier</code> y los tipos de fragmentos, consulte <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Fragmentos de noticias</a>. También puedes ver ejemplos existentes de fragmentos de noticias en el directorio <code>changes</code> del repositorio BeeWare. Si esta carpeta está vacía, es probable que se deba a que {{ nombre_del_proyecto }} ha publicado recientemente una versión nueva; los archivos de notas de cambio se eliminan y se combinan para actualizar las <a href="https://github.com/beeware/{ nombre_del_proyecto }}/releases">notas de la versión</a> con cada versión. Puedes mirar ese archivo para ver el estilo de comentario que se requiere; puedes mirar <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">los RP fundidos recientemente</a> para ver cómo formatear tus notas de cambio.</p>
 
 
 

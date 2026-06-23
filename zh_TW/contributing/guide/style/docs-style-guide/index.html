@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="頁首"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/style/docs-style-guide/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/style/docs-style-guide/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -5330,10 +5338,8 @@ aria-label="頁首"
 </code></pre></div>
 <p>參考檔案的特定區段或 API 文件需要使用 MkDocs 參考連結格式。</p>
 <h3 id="markdown">自訂 Markdown 錨點與內容交叉引用<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h3>
-<p>Markdown 會根據標題的內容，為所有標題 (以一到六個 <code>#</code> 符號開頭的單行上的任何內容) 產生錨點。例如，本節產生的錨點是
-<code>custom-markdown-anchors-and-content-cross--referencing</code>。然而，由於我們翻譯的工作方式，任何時候只要有節標頭被引用，就必須有自訂的錨點。</p>
-<p>MkDocs 支援渲染參考連結語法，可讓您使用修改過的 Markdown 連結來連結到文件中的各種其他元素。這包括連結到自訂 Markdown
-標題和文字錨點等。</p>
+<p>Markdown 會根據標題的內容，為所有標題 (以一到六個 <code>#</code> 符號開頭的單行上的任何內容) 產生錨點。例如，本節產生的錨點是 <code>custom-markdown-anchors-and-content-cross--referencing</code>。然而，由於我們翻譯的工作方式，任何時候只要有節標頭被引用，就必須有自訂的錨點。</p>
+<p>MkDocs 支援渲染參考連結語法，可讓您使用修改過的 Markdown 連結來連結到文件中的各種其他元素。這包括連結到自訂 Markdown 標題和文字錨點等。</p>
 <p>MkDocs 參考連結是格式如下的任何連結：</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">連結文字</span>][<span class="nl">連結目標</span>]
 </code></pre></div>
@@ -5393,12 +5399,9 @@ aria-label="頁首"
 </code></pre></div>
 <h2 id="_4">程式碼區塊提示<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="_5">語言和程式碼高亮顯示<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p>您可以在前三個反撇號之後加上語言名稱，指定代碼區塊中所含代碼的語言，兩者之間不留空格。這會在程式碼呈現時產生適當的程式碼高亮顯示。例如，若要指定
-Python，您可以用 <code>``python</code> 開始程式碼區塊。</p>
+<p>您可以在前三個反撇號之後加上語言名稱，指定代碼區塊中所含代碼的語言，兩者之間不留空格。這會在程式碼呈現時產生適當的程式碼高亮顯示。例如，若要指定 Python，您可以用 <code>``python</code> 開始程式碼區塊。</p>
 <h3 id="_6">控制台指令和複製按鈕<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>如果您要包含主控台指令，或具有輸出的指令，如果您標示為 <code>console</code> 或 <code>doscon</code>，取決於您描述的是類似 Unix (包括 macOS)
-作業系統，或是 Windows 作業系統。您可以包含作業系統提供的提示；點選複製按鈕時，只有命令會被複製。例如，如果您以 <code>``console</code>
-開始一個程式碼區塊，並包含下列內容：</p>
+<p>如果您要包含主控台指令，或具有輸出的指令，如果您標示為 <code>console</code> 或 <code>doscon</code>，取決於您描述的是類似 Unix (包括 macOS) 作業系統，或是 Windows 作業系統。您可以包含作業系統提供的提示；點選複製按鈕時，只有命令會被複製。例如，如果您以 <code>``console</code> 開始一個程式碼區塊，並包含下列內容：</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>mkdir<span class="w"> </span><span class="nb">test</span>
 <span class="gp">$ </span>ls
 <span class="go">test</span>
@@ -5409,9 +5412,7 @@ Python，您可以用 <code>``python</code> 開始程式碼區塊。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">toga</span>
 <span class="hll"><span class="kn">from</span><span class="w"> </span><span class="nn">toga.style.pack</span><span class="w"> </span><span class="kn">import</span> <span class="n">COLUMN</span><span class="p">,</span> <span class="n">ROW</span>
 </span></code></pre></div>
-<p>您可以高亮顯示多個不同的行。例如，<code>python {hl_lines="3 5 9"}</code> 將會高亮第 3、5 和 9
-行。您也可以高亮某一行。例如，<code>python {hl_lines="3-8"}</code> 會高亮顯示第 3 行至第 8 行。您可以高亮顯示多個範圍，例如，<code>python
-{hl_lines="9-18 23-44"}</code>。</p>
+<p>您可以高亮顯示多個不同的行。例如，<code>python {hl_lines="3 5 9"}</code> 將會高亮第 3、5 和 9 行。您也可以高亮某一行。例如，<code>python {hl_lines="3-8"}</code> 會高亮顯示第 3 行至第 8 行。您可以高亮顯示多個範圍，例如，<code>python {hl_lines="9-18 23-44"}</code>。</p>
 <h2 id="markdown_1">需要特定格式的 Markdown 元素<a class="headerlink" href="#markdown_1" title="Permanent link">&para;</a></h2>
 <p>由於翻譯檔案的產生方式，在 Markdown 語法中加入必要的換行線對於訓誡、註解、標籤、Jinja 指令、圖片標題和對齊方式等是很重要的。</p>
 <h3 id="_8">訓誡和注意事項<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
@@ -5439,9 +5440,7 @@ Python，您可以用 <code>``python</code> 開始程式碼區塊。</p>
 
 下方內容。
 </code></pre></div>
-<p>所有
-<a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">支援的告誡類型</a>
-皆可作為告誡使用。</p>
+<p>所有 <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">支援的告誡類型</a> 皆可作為告誡使用。</p>
 <h3 id="_9">標籤式內容<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>標籤內容的格式如下，包括在內容區塊的開始和結束之前包含一個換行符：</p>
 <div class="highlight"><pre><span></span><code>上方內容。
@@ -5495,13 +5494,9 @@ Python，您可以用 <code>``python</code> 開始程式碼區塊。</p>
 
 下方內容。
 </code></pre></div>
-<p>所有
-<a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">支援的警示類型</a>
-皆可與折疊內容搭配使用，但必須以 <code>details-admonitiontype</code> 形式宣告。因此，「註解」類型的折疊區塊應為
-<code>details-note</code>（如上所示），而「警告」類型的折疊區塊則為 <code>details-warning</code>，依此類推。</p>
+<p>所有 <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">支援的警示類型</a> 皆可與折疊內容搭配使用，但必須以 <code>details-admonitiontype</code> 形式宣告。因此，「註解」類型的折疊區塊應為 <code>details-note</code>（如上所示），而「警告」類型的折疊區塊則為 <code>details-warning</code>，依此類推。</p>
 <h3 id="_11">金賈指 令<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
-<p>文件中有一些功能在文字中使用了 Jinja 指令。任何使用 Jinja 指令功能的內容都需要用換行包裝。例如，BeeWare 教學包含基於變數的 Jinja
-條件，以決定在主頁上顯示什麼訓誡。其格式如下：</p>
+<p>文件中有一些功能在文字中使用了 Jinja 指令。任何使用 Jinja 指令功能的內容都需要用換行包裝。例如，BeeWare 教學包含基於變數的 Jinja 條件，以決定在主頁上顯示什麼訓誡。其格式如下：</p>
 <div class="highlight"><pre><span></span><code>上方內容。
 
 
@@ -5550,32 +5545,22 @@ Python，您可以用 <code>``python</code> 開始程式碼區塊。</p>
 <h2 id="markdown_2">具有特定 Markdown 格式的外掛程式<a class="headerlink" href="#markdown_2" title="Permanent link">&para;</a></h2>
 <p>以下各節將介紹如何利用需要特定 Markdown 格式的外掛程式。</p>
 <h3 id="_13">使用片段包含外部內容<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
-<p>有關如何從本機檔案或 URL 包含外部內容的詳細資訊，請參閱 <a href="https://facelessuser.github.io/pymdown-extensions/extensions/snippets/">Snippets
-延伸文件</a>。只要文件不包含需要執行的Jinja指令，就應該使用Snippets（Jinja的執行會與Snippets的處理同時進行，因此文件中的任何Jinja都不會被處理）。Snippets
-是必要的，如果您希望能夠使用分隔符，讓您可以分別包含檔案的特定部分，例如：將原始文件分割成不同的部分，彼此分開注入。</p>
+<p>有關如何從本機檔案或 URL 包含外部內容的詳細資訊，請參閱 <a href="https://facelessuser.github.io/pymdown-extensions/extensions/snippets/">Snippets 延伸文件</a>。只要文件不包含需要執行的Jinja指令，就應該使用Snippets（Jinja的執行會與Snippets的處理同時進行，因此文件中的任何Jinja都不會被處理）。Snippets 是必要的，如果您希望能夠使用分隔符，讓您可以分別包含檔案的特定部分，例如：將原始文件分割成不同的部分，彼此分開注入。</p>
 <p>重要注意事項：</p>
 <ul>
 <li>我們使用 <code>-8&lt;-</code> 作為 Snippets 標識符。文件顯示了多種選項；請遵循我們的風格。</li>
-<li>在 BeeWare Docs Tools 共用內容中找到的檔案被視為 「本地 」內容。因此，您可以只使用檔案名稱，如 <code>-8&lt;-
-  "docs-style-guide.md「</code>，或者如果內容在子目錄中，則只使用目錄和檔案名稱，如 <code>-8&lt;-
-  」style/docs-style-guide.md"</code>。</li>
+<li>在 BeeWare Docs Tools 共用內容中找到的檔案被視為 「本地 」內容。因此，您可以只使用檔案名稱，如 <code>-8&lt;- "docs-style-guide.md「</code>，或者如果內容在子目錄中，則只使用目錄和檔案名稱，如 <code>-8&lt;- 」style/docs-style-guide.md"</code>。</li>
 <li>如果您在 GitHub 上透過 URL 加入檔案中的外部內容，您 <em>must</em> 必須使用原始內容 URL，否則無論您在哪裡加入內容，都會呈現嵌入的完整網頁。</li>
 </ul>
 <h3 id="beeware-docs-tools">使用巨集從 BeeWare Docs Tools 共用內容中包含內容<a class="headerlink" href="#beeware-docs-tools" title="Permanent link">&para;</a></h3>
-<p>您也可以使用 <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">Macros MkDocs
-plugin</a> 包含 BeeWare
-Docs tools 共享內容目錄中的內容。如果文件中包含需要執行的Jinja指令，則必須使用此方法，並且只能在這種情況下使用。對於透過 URL
-取得的外部內容則無法使用。Macros
-變數替代機制](https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/#1-variable)可與此方法一起使用。</p>
+<p>您也可以使用 <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">Macros MkDocs plugin</a> 包含 BeeWare Docs tools 共享內容目錄中的內容。如果文件中包含需要執行的Jinja指令，則必須使用此方法，並且只能在這種情況下使用。對於透過 URL 取得的外部內容則無法使用。Macros 變數替代機制](https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/#1-variable)可與此方法一起使用。</p>
 <p>有使用巨集包含內容的選項：</p>
 <ol>
 <li>
-<p>如果您要包含文件而不對其進行其他手動變更，請使用
-   <a href="https://jinja.palletsprojects.com/en/stable/templates/#include"><code>include</code>金句語法</a>。</p>
+<p>如果您要包含文件而不對其進行其他手動變更，請使用 <a href="https://jinja.palletsprojects.com/en/stable/templates/#include"><code>include</code>金句語法</a>。</p>
 </li>
 <li>
-<p>如果您在文件中包含了 Jinja <code>block</code> 語法，可以使用<a href="https://jinja.palletsprojects.com/en/stable/templates/#child-template"><code>extends</code> Jinja
-   語法</a>，該語法允許您覆寫或添加到特定部分。</p>
+<p>如果您在文件中包含了 Jinja <code>block</code> 語法，可以使用<a href="https://jinja.palletsprojects.com/en/stable/templates/#child-template"><code>extends</code> Jinja 語法</a>，該語法允許您覆寫或添加到特定部分。</p>
 </li>
 </ol>
 <h2 id="pyspelling">「拼寫」(pyspelling)<a class="headerlink" href="#pyspelling" title="Permanent link">&para;</a></h2>

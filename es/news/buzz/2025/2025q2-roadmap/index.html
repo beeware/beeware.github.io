@@ -90,6 +90,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -532,6 +534,12 @@ aria-label="Cabecera"
           <li class="md-select__item">
             <a href="../../../../../ru/news/buzz/2025/2025q2-roadmap/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/news/buzz/2025/2025q2-roadmap/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4819,74 +4827,24 @@ aria-label="Cabecera"
 
   <h1>2025Q2 Roadmap</h1>
 
-<p>In Q1, BeeWare hit some major milestones for support of iOS and Android on
-mobile platforms; but we still have more work to do. As always, this roadmap
-should be read as a guide to what we aim to focus on over the coming quarter,
-rather than a hard commitment of features that will be made available on a
-specific deadline.</p>
+<p>In Q1, BeeWare hit some major milestones for support of iOS and Android on mobile platforms; but we still have more work to do. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment of features that will be made available on a specific deadline.</p>
 <!-- more -->
 
 <h2 id="q1-progress">Q1 progress<a class="headerlink" href="#q1-progress" title="Permanent link">&para;</a></h2>
-<p>In Q1, we made major progress in the state of binary packaging for iOS and
-Android. PyPI now accepts binary wheel uploads; and we have uploaded wheels for
-one package (<code>pyspamsum</code>) to prove that this support works. We've also
-contributed changes in <code>cibuildwheel</code> that supports the creation of iOS binary
-wheels. We need to wait until those changes are in an official <code>cibuildwheel</code>
-release before we can contribute patches upstream for other projects, but we
-have patches for a couple of projects ready to submit as soon as there is an
-official release to use. We've completed some preparatory work in CPython and
-pip to support building Android binary wheels, but the changes to <code>cibuildwheel</code>
-to support Android wheels are still in the early stages of development.</p>
-<p>Unfortunately, our collaboration with the PyScript team didn't work out as
-expected; the opportunity to work with the PyScript team that we anticipated did
-not eventuate. However, a group of students from Curtin University will be
-working on Toga's web backend as part of their final year capstone project. This
-will include making modifications to Briefcase to support testing web-based
-apps. This project will run until the end of the year; we look forward to seeing
-the progress they're able to make.</p>
-<p>However, we <em>have</em> made good progress on Emscripten support in CPython. A
-buildbot for Emscripten is almost ready to launch; having a stable buildbot is a
-major milestone in restoring Emscripten to Tier 3 support in CPython. Draft PEPs
-defining the Emscripten platform (PEP 776) and Emscripten wheel tagging (PEP
-783) are currently in discussion.</p>
+<p>In Q1, we made major progress in the state of binary packaging for iOS and Android. PyPI now accepts binary wheel uploads; and we have uploaded wheels for one package (<code>pyspamsum</code>) to prove that this support works. We've also contributed changes in <code>cibuildwheel</code> that supports the creation of iOS binary wheels. We need to wait until those changes are in an official <code>cibuildwheel</code> release before we can contribute patches upstream for other projects, but we have patches for a couple of projects ready to submit as soon as there is an official release to use. We've completed some preparatory work in CPython and pip to support building Android binary wheels, but the changes to <code>cibuildwheel</code> to support Android wheels are still in the early stages of development.</p>
+<p>Unfortunately, our collaboration with the PyScript team didn't work out as expected; the opportunity to work with the PyScript team that we anticipated did not eventuate. However, a group of students from Curtin University will be working on Toga's web backend as part of their final year capstone project. This will include making modifications to Briefcase to support testing web-based apps. This project will run until the end of the year; we look forward to seeing the progress they're able to make.</p>
+<p>However, we <em>have</em> made good progress on Emscripten support in CPython. A buildbot for Emscripten is almost ready to launch; having a stable buildbot is a major milestone in restoring Emscripten to Tier 3 support in CPython. Draft PEPs defining the Emscripten platform (PEP 776) and Emscripten wheel tagging (PEP 783) are currently in discussion.</p>
 <h2 id="q2-priorities">Q2 priorities<a class="headerlink" href="#q2-priorities" title="Permanent link">&para;</a></h2>
-<p>In Q2, we're planning to continue working on binary packaging for mobile
-platforms. This work will take three forms:</p>
+<p>In Q2, we're planning to continue working on binary packaging for mobile platforms. This work will take three forms:</p>
 <ul>
-<li>We'll continue working on the <code>cibuildwheel</code> patch to support building Android
-  wheels. Now that the iOS patch has landed in <code>cibuildwheel</code>, we're in a
-  position to use that patch as a template for the analogous changes needed to
-  support Android.</li>
-<li>We'll continue to work on generating patches to third-party projects to prove
-  that the tooling we've developed for mobile binary wheels is sufficient to
-  support the entire Python ecosystem. We're currently working on NumPy;
-  Cryptography will likely be the next project we look into.</li>
-<li>We will start the process of formalizing and standardizing the work that we've
-  done to support iOS and Android packaging. With PyCon US approaching rapidly,
-  we want to get these discussions underway so that we can make the most of the
-  opportunity provided by having a large portion of the Python community in one
-  place. There are two major areas that require formalization - the production
-  of official binaries for iOS and Android support; and the state of
-  cross-platform build environments.</li>
+<li>We'll continue working on the <code>cibuildwheel</code> patch to support building Android wheels. Now that the iOS patch has landed in <code>cibuildwheel</code>, we're in a position to use that patch as a template for the analogous changes needed to support Android.</li>
+<li>We'll continue to work on generating patches to third-party projects to prove that the tooling we've developed for mobile binary wheels is sufficient to support the entire Python ecosystem. We're currently working on NumPy; Cryptography will likely be the next project we look into.</li>
+<li>We will start the process of formalizing and standardizing the work that we've done to support iOS and Android packaging. With PyCon US approaching rapidly, we want to get these discussions underway so that we can make the most of the opportunity provided by having a large portion of the Python community in one place. There are two major areas that require formalization - the production of official binaries for iOS and Android support; and the state of cross-platform build environments.</li>
 </ul>
-<p>In addition to the work we're doing on mobile binary wheels, we're expecting to
-work on improving Briefcase, with a view to making Briefcase's tooling for
-packaging, signing and notarization useful as standalone utilities, without the
-need to use Briefcase to package the entire app.</p>
+<p>In addition to the work we're doing on mobile binary wheels, we're expecting to work on improving Briefcase, with a view to making Briefcase's tooling for packaging, signing and notarization useful as standalone utilities, without the need to use Briefcase to package the entire app.</p>
 <h2 id="longer-term-goals">Longer term goals<a class="headerlink" href="#longer-term-goals" title="Permanent link">&para;</a></h2>
-<p>The long term goals of BeeWare remain largely the same. Once we've developed a
-compelling story for mobile binary packaging, we'll be able to turn our focus
-back to Toga. There's a number of navigation and data organization widgets that
-need to be developed; we also need to improve documentation of some common
-development patterns that are sources of common questions in BeeWare support
-channels. Unless pull requests are submitted from the broader community, it is
-unlikely that we'll make any substantial progress on this front until the end of
-this year, or perhaps early next year.</p>
-<p>We're also intending to look at tooling other than <code>pip</code> and <code>venv</code> for building
-Briefcase packages. Integration with Conda is one obvious goal, as it provides
-rich tooling for distributing complex binary requirements. <code>uv</code> is another tool
-that might fit well in the Briefcase development story. Again, it is unlikely
-that we'll make any progress on this front before the end of this year.</p>
+<p>The long term goals of BeeWare remain largely the same. Once we've developed a compelling story for mobile binary packaging, we'll be able to turn our focus back to Toga. There's a number of navigation and data organization widgets that need to be developed; we also need to improve documentation of some common development patterns that are sources of common questions in BeeWare support channels. Unless pull requests are submitted from the broader community, it is unlikely that we'll make any substantial progress on this front until the end of this year, or perhaps early next year.</p>
+<p>We're also intending to look at tooling other than <code>pip</code> and <code>venv</code> for building Briefcase packages. Integration with Conda is one obvious goal, as it provides rich tooling for distributing complex binary requirements. <code>uv</code> is another tool that might fit well in the Briefcase development story. Again, it is unlikely that we'll make any progress on this front before the end of this year.</p>
 
 
 

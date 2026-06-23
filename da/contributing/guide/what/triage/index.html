@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Sidehoved"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/what/triage/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/what/triage/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4886,101 +4894,30 @@ aria-label="Sidehoved"
 
 
 <h1 id="prioritering-af-et-problem">Prioritering af et problem<a class="headerlink" href="#prioritering-af-et-problem" title="Permanent link">&para;</a></h1>
-<p>BeeWare modtager regelmæssigt fejlrapporter fra brugere, der oplever
-problemer. Når et nyt problem rapporteres, skal rapporten <em>prioriteres</em> – det
-vil sige, at vi har brug for nogen til at læse rapporten, indhente de
-oplysninger, som rapportøren har givet, og forsøge at genskabe det beskrevne
-problem.</p>
-<p>Desværre er problemrapporter, selvom de normalt er velmenende, ofte
-ufuldstændige eller forvirrende. Formålet med triageprocessen er at udfylde
-hullerne i den oprindelige rapport. Det betyder enten at generere tilstrækkelige
-detaljer, så vi kan bekræfte, hvordan problemet kan gengives, eller at bekræfte,
-at den oprindelige rapporterende person tog fejl i sin rapport.</p>
-<p>At sortere et problem betyder ikke, at du forventes at løse det. Afhængigt af
-problemet behøver sorteringen ikke engang at involvere kodning. Du kan sortere
-et problem med meget lidt viden om BeeWare, da du bør være i stand til
-at følge trinene i rapporten og gengive det beskrevne problem.</p>
+<p>BeeWare modtager regelmæssigt fejlrapporter fra brugere, der oplever problemer. Når et nyt problem rapporteres, skal rapporten <em>prioriteres</em> – det vil sige, at vi har brug for nogen til at læse rapporten, indhente de oplysninger, som rapportøren har givet, og forsøge at genskabe det beskrevne problem.</p>
+<p>Desværre er problemrapporter, selvom de normalt er velmenende, ofte ufuldstændige eller forvirrende. Formålet med triageprocessen er at udfylde hullerne i den oprindelige rapport. Det betyder enten at generere tilstrækkelige detaljer, så vi kan bekræfte, hvordan problemet kan gengives, eller at bekræfte, at den oprindelige rapporterende person tog fejl i sin rapport.</p>
+<p>At sortere et problem betyder ikke, at du forventes at løse det. Afhængigt af problemet behøver sorteringen ikke engang at involvere kodning. Du kan sortere et problem med meget lidt viden om BeeWare, da du bør være i stand til at følge trinene i rapporten og gengive det beskrevne problem.</p>
 <h2 id="bidrag-til-problemtriage">Bidrag til problemtriage<a class="headerlink" href="#bidrag-til-problemtriage" title="Permanent link">&para;</a></h2>
 <details class="abstract">
 <summary>Gengiv problemet</summary>
 <h1 id="gengivelse-af-et-problem">Gengivelse af et problem<a class="headerlink" href="#gengivelse-af-et-problem" title="Permanent link">&para;</a></h1>
-<p>Du kan ikke løse et problem, hvis du ikke har problemet i første omgang. Derfor
-er det en forudsætning for at løse problemet, at det kan gengives. I software
-betegnes problemer ofte som
-<a href="https://en.wikipedia.org/wiki/Software_bug">"bugs"</a>, og problemer kaldes ofte
-"bugrapporter".</p>
-<p>Nogen har indsendt en fejlrapport. Du skal kontrollere, at de trin, som
-rapportøren beskriver, resulterer i den fejl, der rapporteres. Kan du gengive
-det samme resultat ved at gøre nøjagtigt det, der er beskrevet i rapporten? Hvis
-du ikke kan, skal du finde ud af hvorfor.</p>
-<p>For at begynde at gengive et problem skal du have et
-<a href="../../how/dev-environment/">udviklingsmiljø</a> opsat.</p>
+<p>Du kan ikke løse et problem, hvis du ikke har problemet i første omgang. Derfor er det en forudsætning for at løse problemet, at det kan gengives. I software betegnes problemer ofte som <a href="https://en.wikipedia.org/wiki/Software_bug">"bugs"</a>, og problemer kaldes ofte "bugrapporter".</p>
+<p>Nogen har indsendt en fejlrapport. Du skal kontrollere, at de trin, som rapportøren beskriver, resulterer i den fejl, der rapporteres. Kan du gengive det samme resultat ved at gøre nøjagtigt det, der er beskrevet i rapporten? Hvis du ikke kan, skal du finde ud af hvorfor.</p>
+<p>For at begynde at gengive et problem skal du have et <a href="../../how/dev-environment/">udviklingsmiljø</a> opsat.</p>
 <h3 id="fejl-i-koden">Fejl i koden<a class="headerlink" href="#fejl-i-koden" title="Permanent link">&para;</a></h3>
-<p>I en ideel situation har du samme opsætning som den person, der har rapporteret
-fejlen, du følger trinene, og du kan gengive fejlen som beskrevet. I mange
-tilfælde er det dog ikke så ligetil. Mange fejlrapporter indeholder kun vage
-forklaringer og en række vage betingelser. Problemet er, at mange fejl varierer
-afhængigt af de involverede betingelser, herunder hvordan de interagerer,
-forskellige forudsætninger, operativsystem, operativsystemversion,
-CPU-arkitektur, eller om brugerens maskine er gammel og langsom eller ny og
-hurtig. Jo flere oplysninger vi har om situationen omkring fejlen, jo bedre.
-Forsøg at genskabe de betingelser, som rapportøren har angivet. Hvis du ikke er
-i stand til det, kan det næste skridt være at anmode om flere oplysninger fra
-den person, der har rapporteret fejlen.</p>
-<p>Den bedste måde at gengive en fejl på er med det mindst mulige eksempel, der
-stadig viser problemet. Oftest giver rapporterende personer ikke et minimalt
-brugbart eksempel; hvis de overhovedet giver et eksempel, vil det være kopieret
-direkte fra deres "virkelige" applikation. Dit mål vil være at reducere
-rapporten til den mest enkle form, der viser problemet. Den bedste
-reproduktionssag er det mindst mulige program. Denne reduktion er i sig selv
-nyttig, fordi den bestemmer, hvad det egentlige problem er. Alle kan tage det
-minimale eksempel, køre det og observere den beskrevne fejl.</p>
+<p>I en ideel situation har du samme opsætning som den person, der har rapporteret fejlen, du følger trinene, og du kan gengive fejlen som beskrevet. I mange tilfælde er det dog ikke så ligetil. Mange fejlrapporter indeholder kun vage forklaringer og en række vage betingelser. Problemet er, at mange fejl varierer afhængigt af de involverede betingelser, herunder hvordan de interagerer, forskellige forudsætninger, operativsystem, operativsystemversion, CPU-arkitektur, eller om brugerens maskine er gammel og langsom eller ny og hurtig. Jo flere oplysninger vi har om situationen omkring fejlen, jo bedre. Forsøg at genskabe de betingelser, som rapportøren har angivet. Hvis du ikke er i stand til det, kan det næste skridt være at anmode om flere oplysninger fra den person, der har rapporteret fejlen.</p>
+<p>Den bedste måde at gengive en fejl på er med det mindst mulige eksempel, der stadig viser problemet. Oftest giver rapporterende personer ikke et minimalt brugbart eksempel; hvis de overhovedet giver et eksempel, vil det være kopieret direkte fra deres "virkelige" applikation. Dit mål vil være at reducere rapporten til den mest enkle form, der viser problemet. Den bedste reproduktionssag er det mindst mulige program. Denne reduktion er i sig selv nyttig, fordi den bestemmer, hvad det egentlige problem er. Alle kan tage det minimale eksempel, køre det og observere den beskrevne fejl.</p>
 <h3 id="fejl-i-dokumentationen">Fejl i dokumentationen<a class="headerlink" href="#fejl-i-dokumentationen" title="Permanent link">&para;</a></h3>
-<p>Fejl i dokumentationen kan manifestere sig på forskellige måder. Der kan være
-problemer med formateringen, som medfører problemer med gengivelsen. Nogle gange
-er det ikke engang en fejl; personen har måske misforstået dokumentationen eller
-begået en ægte fejl. Det betyder ikke nødvendigvis, at der ikke er noget problem
-med dokumentationen. Indholdet kan være uklart eller upræcist, hvilket giver
-plads til forvirring eller fejlagtig fortolkning. Det er muligt, at et koncept,
-der burde diskuteres, ikke bliver det, fordi det er fuldstændig udokumenteret.</p>
-<p>Når der indberettes en fejl vedrørende et dokumentationsproblem, skal du
-kontrollere, at det indberettede problem stadig eksisterer. I tilfælde af
-gengivelsesproblemer skal du oprette dokumentationen for at se, om du kan
-gengive problemet. Indholdsproblemer skal læses igennem for at kontrollere, at
-ingen har indsendt en opdatering.</p>
+<p>Fejl i dokumentationen kan manifestere sig på forskellige måder. Der kan være problemer med formateringen, som medfører problemer med gengivelsen. Nogle gange er det ikke engang en fejl; personen har måske misforstået dokumentationen eller begået en ægte fejl. Det betyder ikke nødvendigvis, at der ikke er noget problem med dokumentationen. Indholdet kan være uklart eller upræcist, hvilket giver plads til forvirring eller fejlagtig fortolkning. Det er muligt, at et koncept, der burde diskuteres, ikke bliver det, fordi det er fuldstændig udokumenteret.</p>
+<p>Når der indberettes en fejl vedrørende et dokumentationsproblem, skal du kontrollere, at det indberettede problem stadig eksisterer. I tilfælde af gengivelsesproblemer skal du oprette dokumentationen for at se, om du kan gengive problemet. Indholdsproblemer skal læses igennem for at kontrollere, at ingen har indsendt en opdatering.</p>
 <h3 id="opdater-problemet">Opdater problemet<a class="headerlink" href="#opdater-problemet" title="Permanent link">&para;</a></h3>
-<p>Det sidste trin i triageprocessen er at dokumentere dine fund ved at skrive en
-kommentar til problemet.</p>
-<p>Hvis du kan gengive problemet nøjagtigt som beskrevet, er det alt, du behøver at
-sige. Skriv en kommentar om, at du har bekræftet, at du oplever det samme
-problem, præcis som den oprindelige rapporterende person beskriver det.</p>
-<p>Hvis du kan give yderligere kontekst, skal du medtage detaljer om denne
-kontekst. Dette kan omfatte muligheden for at gengive problemet på et andet
-operativsystem eller med en anden version af noget af den involverede software
-eller noget andet, der adskiller sig fra den oprindelige rapport.</p>
-<p>Hvis den oprindelige rapport manglede detaljer, som du havde brug for for at
-kunne gengive rapporten, skal du medtage <em>disse</em> detaljer. Dette kan omfatte
-oplysninger om operativsystem eller version, som den oprindelige rapport ikke
-indeholdt, mere komplette logfiler eller stack traces eller klarere
-instruktioner om den nøjagtige rækkefølge af handlinger, der er nødvendige for
-at gengive problemet. Hvis du har udviklet en enklere måde at gengive problemet
-på (eller hvis den oprindelige rapporterende ikke har angivet et
-reproduktionsscenario), kan du medtage detaljer om denne reproduktionsmetode.</p>
-<p>Hvis du <em>ikke</em> kan gengive problemet, skal du også skrive en kommentar, hvor du
-beskriver, hvad du har prøvet. Det er næsten lige så vigtigt at vide, hvor et
-problem <em>ikke</em> findes, som at vide, hvor det <em>findes</em>, fordi det hjælper med at
-indsnævre en mulig årsag. Hvis du har nogen teorier om, <em>hvorfor</em> du ikke kan
-genskabe problemet – for eksempel hvis du tror, det er en fejl i brugen, eller
-at problemet er blevet løst ved en nylig opdatering af operativsystemet – så
-medtag den spekulation i din kommentar.</p>
-<p>Til sidst kan du give eventuelle anbefalinger til kerneteamet. Hvis du mener, at
-den oprindelige rapport er forkert, kan du foreslå, at sagen lukkes. Hvis du har
-en teori om årsagen til problemet, kan du også foreslå den. Dine kommentarer vil
-hjælpe kerneteamet med at finde ud af, hvordan sagen kan føres videre til næste
-trin.</p>
-<p>På dette tidspunkt kan du vælge at forsøge at <a href="../fix-issue/">løse
-problemet</a>, du netop har gengivet. Alternativt kan du
-skrive dine fund ned og forsøge at gengive et andet problem.</p>
+<p>Det sidste trin i triageprocessen er at dokumentere dine fund ved at skrive en kommentar til problemet.</p>
+<p>Hvis du kan gengive problemet nøjagtigt som beskrevet, er det alt, du behøver at sige. Skriv en kommentar om, at du har bekræftet, at du oplever det samme problem, præcis som den oprindelige rapporterende person beskriver det.</p>
+<p>Hvis du kan give yderligere kontekst, skal du medtage detaljer om denne kontekst. Dette kan omfatte muligheden for at gengive problemet på et andet operativsystem eller med en anden version af noget af den involverede software eller noget andet, der adskiller sig fra den oprindelige rapport.</p>
+<p>Hvis den oprindelige rapport manglede detaljer, som du havde brug for for at kunne gengive rapporten, skal du medtage <em>disse</em> detaljer. Dette kan omfatte oplysninger om operativsystem eller version, som den oprindelige rapport ikke indeholdt, mere komplette logfiler eller stack traces eller klarere instruktioner om den nøjagtige rækkefølge af handlinger, der er nødvendige for at gengive problemet. Hvis du har udviklet en enklere måde at gengive problemet på (eller hvis den oprindelige rapporterende ikke har angivet et reproduktionsscenario), kan du medtage detaljer om denne reproduktionsmetode.</p>
+<p>Hvis du <em>ikke</em> kan gengive problemet, skal du også skrive en kommentar, hvor du beskriver, hvad du har prøvet. Det er næsten lige så vigtigt at vide, hvor et problem <em>ikke</em> findes, som at vide, hvor det <em>findes</em>, fordi det hjælper med at indsnævre en mulig årsag. Hvis du har nogen teorier om, <em>hvorfor</em> du ikke kan genskabe problemet – for eksempel hvis du tror, det er en fejl i brugen, eller at problemet er blevet løst ved en nylig opdatering af operativsystemet – så medtag den spekulation i din kommentar.</p>
+<p>Til sidst kan du give eventuelle anbefalinger til kerneteamet. Hvis du mener, at den oprindelige rapport er forkert, kan du foreslå, at sagen lukkes. Hvis du har en teori om årsagen til problemet, kan du også foreslå den. Dine kommentarer vil hjælpe kerneteamet med at finde ud af, hvordan sagen kan føres videre til næste trin.</p>
+<p>På dette tidspunkt kan du vælge at forsøge at <a href="../fix-issue/">løse problemet</a>, du netop har gengivet. Alternativt kan du skrive dine fund ned og forsøge at gengive et andet problem.</p>
 </details>
 
 

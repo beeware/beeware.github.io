@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Cabecera"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/what/triage/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/what/triage/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4886,104 +4894,30 @@ aria-label="Cabecera"
 
 
 <h1 id="clasificar-una-incidencia">Clasificar una incidencia<a class="headerlink" href="#clasificar-una-incidencia" title="Permanent link">&para;</a></h1>
-<p>{{ nombre_formal }} recibe regularmente informes de incidencia desde los
-usuarios quienes tienen problemas. Cuando se informa de una incidencia nueva,
-ese informe necesita estar en el <em>triage</em>, es decir, necesitamos a alguien que
-lea el informe proporcionado, tome la información proporcionado por el
-reportero, e intente reproducir el problema descrito.</p>
-<p>Por desgracia, aunque los informes de incidencias suelen tener buenas
-intenciones, a menudo están incompletos o son confusos. El objetivo del proceso
-de triaje es rellenar las lagunas del informe original. Esto significa generar
-suficientes detalles para que podamos confirmar cómo se puede reproducir el
-incidente, o confirmar que el incidente original se equivocó en su informe.</p>
-<p>Evaluar una incidencia no significa que debas solucionarlo. Dependiendo de la
-incidencia en el triaje puede que ni siquiera implique escribir código. Puedes
-realizar el triaje de una incidencia con muy poco conocimiento de BeeWare, ya que debes ser capaz de seguir los pasos incluidos en el informe y
-reproducir la incidencia que ha sido descrita.</p>
+<p>{{ nombre_formal }} recibe regularmente informes de incidencia desde los usuarios quienes tienen problemas. Cuando se informa de una incidencia nueva, ese informe necesita estar en el <em>triage</em>, es decir, necesitamos a alguien que lea el informe proporcionado, tome la información proporcionado por el reportero, e intente reproducir el problema descrito.</p>
+<p>Por desgracia, aunque los informes de incidencias suelen tener buenas intenciones, a menudo están incompletos o son confusos. El objetivo del proceso de triaje es rellenar las lagunas del informe original. Esto significa generar suficientes detalles para que podamos confirmar cómo se puede reproducir el incidente, o confirmar que el incidente original se equivocó en su informe.</p>
+<p>Evaluar una incidencia no significa que debas solucionarlo. Dependiendo de la incidencia en el triaje puede que ni siquiera implique escribir código. Puedes realizar el triaje de una incidencia con muy poco conocimiento de BeeWare, ya que debes ser capaz de seguir los pasos incluidos en el informe y reproducir la incidencia que ha sido descrita.</p>
 <h2 id="contribucion-al-triaje-de-incidencia">Contribución al triaje de incidencia<a class="headerlink" href="#contribucion-al-triaje-de-incidencia" title="Permanent link">&para;</a></h2>
 <details class="abstract">
 <summary>Reproduce la incidencia</summary>
 <h1 id="reproduccion-de-una-incidencia">Reproducción de una incidencia<a class="headerlink" href="#reproduccion-de-una-incidencia" title="Permanent link">&para;</a></h1>
-<p>No se puede solucionar un problema si no se tiene el problema en primer lugar.
-Por tanto, reproducir la incidencia es un requisito previo para solucionarlo. En
-software, los problemas suelen denominarse
-<a href="https://en.wikipedia.org/wiki/Software_bug">"bugs"</a>, y las incidencias,
-"informes de fallos".</p>
-<p>Alguien ha informado de un fallo. Necesitas validar que los pasos que describe
-el informador dan como resultado el fallo del que se informa. ¿Puedes reproducir
-el mismo resultado haciendo exactamente lo que fue descrito en el informe? Si no
-puedes, tienes que averiguar por qué.</p>
-<p>Para comenzar a reproducir una incidencia, necesitarás configurar un <a href="../../how/dev-environment/">entorno de
-desarrollo</a>.</p>
+<p>No se puede solucionar un problema si no se tiene el problema en primer lugar. Por tanto, reproducir la incidencia es un requisito previo para solucionarlo. En software, los problemas suelen denominarse <a href="https://en.wikipedia.org/wiki/Software_bug">"bugs"</a>, y las incidencias, "informes de fallos".</p>
+<p>Alguien ha informado de un fallo. Necesitas validar que los pasos que describe el informador dan como resultado el fallo del que se informa. ¿Puedes reproducir el mismo resultado haciendo exactamente lo que fue descrito en el informe? Si no puedes, tienes que averiguar por qué.</p>
+<p>Para comenzar a reproducir una incidencia, necesitarás configurar un <a href="../../how/dev-environment/">entorno de desarrollo</a>.</p>
 <h3 id="fallos-en-el-codigo">Fallos en el código<a class="headerlink" href="#fallos-en-el-codigo" title="Permanent link">&para;</a></h3>
-<p>En una situación ideal, tendrás la misma configuración que la persona que
-informó del fallo, seguirás los pasos y podrás reproducir el fallo tal y como se
-describe. En muchos casos, sin embargo, no será tan sencillo. Muchos informes de
-fallos sólo incluyen explicaciones vagas y un conjunto de condiciones vago. El
-problema es que muchos fallos varían en función del conjunto de condiciones
-implicadas, incluyendo como se interactúa con ellos, varias condiciones previas,
-el sistema operativo, la versión del sistema operativo, la arquitectura de la
-CPU, o si la máquina del usuario es antigua y lenta o nueva y rápida. Cuanta más
-información tengamos sobre la situación que rodea al fallo, mejor. Intenta
-reproducir el conjunto de condiciones que te ha proporcionado el informador. Si
-no puedes hacerlo, puede que tu siguiente paso sea solicitar más información a
-la persona que ha informado del fallo.</p>
-<p>La mejor forma de reproducir un fallo es con el ejemplo más pequeño posible que
-muestre la incidencia. La mayoría de las veces los informadores no
-proporcionarán un ejemplo mínimo viable; si proporcionan <em>algún</em> ejemplo, será
-copiado directamente de su aplicación del "mundo real". Tu propósito será
-reducir el informe a la forma más simple posible que exhiba la incidencia. El
-mejor caso de reproducción es el programa más pequeño posible. Esta reducción es
-útil en sí misma porque determina cuál es el problema real. Cualquiera puede
-tomar el ejemplo mínimo, ejecutarlo y observará el fallo que se describe.</p>
+<p>En una situación ideal, tendrás la misma configuración que la persona que informó del fallo, seguirás los pasos y podrás reproducir el fallo tal y como se describe. En muchos casos, sin embargo, no será tan sencillo. Muchos informes de fallos sólo incluyen explicaciones vagas y un conjunto de condiciones vago. El problema es que muchos fallos varían en función del conjunto de condiciones implicadas, incluyendo como se interactúa con ellos, varias condiciones previas, el sistema operativo, la versión del sistema operativo, la arquitectura de la CPU, o si la máquina del usuario es antigua y lenta o nueva y rápida. Cuanta más información tengamos sobre la situación que rodea al fallo, mejor. Intenta reproducir el conjunto de condiciones que te ha proporcionado el informador. Si no puedes hacerlo, puede que tu siguiente paso sea solicitar más información a la persona que ha informado del fallo.</p>
+<p>La mejor forma de reproducir un fallo es con el ejemplo más pequeño posible que muestre la incidencia. La mayoría de las veces los informadores no proporcionarán un ejemplo mínimo viable; si proporcionan <em>algún</em> ejemplo, será copiado directamente de su aplicación del "mundo real". Tu propósito será reducir el informe a la forma más simple posible que exhiba la incidencia. El mejor caso de reproducción es el programa más pequeño posible. Esta reducción es útil en sí misma porque determina cuál es el problema real. Cualquiera puede tomar el ejemplo mínimo, ejecutarlo y observará el fallo que se describe.</p>
 <h3 id="fallos-en-la-documentacion">Fallos en la documentación<a class="headerlink" href="#fallos-en-la-documentacion" title="Permanent link">&para;</a></h3>
-<p>Los defectos en la documentación pueden manifestarse de diferentes maneras. Hay
-problemas de formato que dan lugar a representar incidencias. A veces ni
-siquiera se trata de un fallo; la persona puede haber leído mal la documentación
-o haber cometido una equivocación genuino. Esto no significa necesariamente que
-no haya una incidencia con la documentación. El contenido puede ser poco claro o
-impreciso y dar lugar a confusiones o malas interpretaciones. Es posible que un
-concepto que debería tratarse no se trate, porque está completamente
-indocumentado.</p>
-<p>Cuando se archiva un error por una incidencia de documentación, querrá verificar
-que la incidencia notificada sigue existiendo realmente. En el caso de las
-incidencias de representación tendrá que crear la documentación para ver si
-puede reproducir la incidencia. Las incidencias del contenido son una cuestión
-de lectura para verificar que nadie ha enviado una actualización.</p>
+<p>Los defectos en la documentación pueden manifestarse de diferentes maneras. Hay problemas de formato que dan lugar a representar incidencias. A veces ni siquiera se trata de un fallo; la persona puede haber leído mal la documentación o haber cometido una equivocación genuino. Esto no significa necesariamente que no haya una incidencia con la documentación. El contenido puede ser poco claro o impreciso y dar lugar a confusiones o malas interpretaciones. Es posible que un concepto que debería tratarse no se trate, porque está completamente indocumentado.</p>
+<p>Cuando se archiva un error por una incidencia de documentación, querrá verificar que la incidencia notificada sigue existiendo realmente. En el caso de las incidencias de representación tendrá que crear la documentación para ver si puede reproducir la incidencia. Las incidencias del contenido son una cuestión de lectura para verificar que nadie ha enviado una actualización.</p>
 <h3 id="actualizar-la-incidencia">Actualizar la incidencia<a class="headerlink" href="#actualizar-la-incidencia" title="Permanent link">&para;</a></h3>
-<p>El último paso en el proceso de triaje es documentar los resultados dejando un
-comentario sobre la incidencia.</p>
-<p>Si eres capaz de reproducir la incidencia exactamente como se describe, eso es
-todo lo que necesitas decir. Deja un comentario diciendo que has confirmado que
-tienes el mismo problema, exactamente como lo describe el informe original.</p>
-<p>Si puedes aportar algún contexto adicional, incluye los detalles de ese
-contexto. Esto podría incluir la posibilidad de reproducir el problema en un
-sistema operativo diferente, o con una versión distinta de alguno de los
-programas implicados, o cualquier otra cosa que varíe con respecto al informe
-original.</p>
-<p>Si al informe original le faltaban detalles que usted necesitaba para
-reproducirlo, incluya <em>esos</em> detalles. Esto podría incluir detalles sobre el
-sistema operativo o la versión que el informe original no incluía, bitácoras o
-trazas de pila más completos, o instrucciones más claras sobre la secuencia
-exacta de operaciones necesarias para reproducir el problema. Si has
-desarrollado una forma más sencilla de reproducir el problema (o el informador
-original no proporcionó un caso de reproducción), puedes incluir detalles de esa
-metodología de reproducción.</p>
-<p>Si <em>no</em> puede reproducir la incidencia también deje un comentario detallando lo
-que ha intentado. Saber dónde <em>no</em> existe un problema es casi tan importante
-como saber dónde <em>sí</em> existe, ya que eso ayuda a reducir las posibles causas. Si
-tienes alguna teoría sobre <em>por qué</em> no puedes reproducir el problema (por
-ejemplo, si crees que se trata de un error de uso o que el problema se ha
-resuelto con una actualización reciente del sistema operativo), incluye esa
-especulación en tu comentario.</p>
-<p>Por último, puede hacer recomendaciones al equipo central. Si cree que el
-informe original es erróneo, sugiera que se cierre la incidencia; si tiene una
-teoría sobre la causa de la incidencia, también puede sugerirla. Sus comentarios
-ayudarán al equipo central a decidir cómo avanzar en la resolución de la
-incidencia.</p>
-<p>En este punto, puede optar por intentar <a href="../fix-issue/">solucionar la
-incidencia</a> que acaba de reproducir; alternativamente,
-puede anotar sus hallazgos e intentar reproducir otra incidencia.</p>
+<p>El último paso en el proceso de triaje es documentar los resultados dejando un comentario sobre la incidencia.</p>
+<p>Si eres capaz de reproducir la incidencia exactamente como se describe, eso es todo lo que necesitas decir. Deja un comentario diciendo que has confirmado que tienes el mismo problema, exactamente como lo describe el informe original.</p>
+<p>Si puedes aportar algún contexto adicional, incluye los detalles de ese contexto. Esto podría incluir la posibilidad de reproducir el problema en un sistema operativo diferente, o con una versión distinta de alguno de los programas implicados, o cualquier otra cosa que varíe con respecto al informe original.</p>
+<p>Si al informe original le faltaban detalles que usted necesitaba para reproducirlo, incluya <em>esos</em> detalles. Esto podría incluir detalles sobre el sistema operativo o la versión que el informe original no incluía, bitácoras o trazas de pila más completos, o instrucciones más claras sobre la secuencia exacta de operaciones necesarias para reproducir el problema. Si has desarrollado una forma más sencilla de reproducir el problema (o el informador original no proporcionó un caso de reproducción), puedes incluir detalles de esa metodología de reproducción.</p>
+<p>Si <em>no</em> puede reproducir la incidencia también deje un comentario detallando lo que ha intentado. Saber dónde <em>no</em> existe un problema es casi tan importante como saber dónde <em>sí</em> existe, ya que eso ayuda a reducir las posibles causas. Si tienes alguna teoría sobre <em>por qué</em> no puedes reproducir el problema (por ejemplo, si crees que se trata de un error de uso o que el problema se ha resuelto con una actualización reciente del sistema operativo), incluye esa especulación en tu comentario.</p>
+<p>Por último, puede hacer recomendaciones al equipo central. Si cree que el informe original es erróneo, sugiera que se cierre la incidencia; si tiene una teoría sobre la causa de la incidencia, también puede sugerirla. Sus comentarios ayudarán al equipo central a decidir cómo avanzar en la resolución de la incidencia.</p>
+<p>En este punto, puede optar por intentar <a href="../fix-issue/">solucionar la incidencia</a> que acaba de reproducir; alternativamente, puede anotar sus hallazgos e intentar reproducir otra incidencia.</p>
 </details>
 
 

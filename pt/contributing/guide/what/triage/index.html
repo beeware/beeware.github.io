@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Cabeçalho"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/what/triage/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/what/triage/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4886,102 +4894,30 @@ aria-label="Cabeçalho"
 
 
 <h1 id="triagem-a-um-problema">Triagem a um problema<a class="headerlink" href="#triagem-a-um-problema" title="Permanent link">&para;</a></h1>
-<p>BeeWare recebe regularmente relatórios de problemas de utilizadores
-que estão enfrentando problemas. Quando um novo problema é relatado, esse
-relatório precisa ser <em>triado</em>, ou seja, precisamos que alguém leia o relatório,
-pegue as informações fornecidas pelo relator e tente reproduzir o problema que
-está sendo descrito.</p>
-<p>Infelizmente, embora os relatórios de problemas sejam geralmente
-bem-intencionados, eles costumam ser incompletos ou confusos. O objetivo do
-processo de triagem é preencher as lacunas do relatório original. Isso significa
-gerar detalhes suficientes para que possamos confirmar como o problema pode ser
-reproduzido ou confirmar que o relator original estava enganado em seu
-relatório.</p>
-<p>Fazer a triagem de um problema não significa que se espera que você o corrija.
-Dependendo do problema, a triagem pode nem mesmo envolver a escrita de código.
-Você pode fazer a triagem de um problema com muito pouco conhecimento de BeeWare, pois deve ser capaz de seguir as etapas incluídas no relatório e
-reproduzir o problema que foi descrito.</p>
+<p>BeeWare recebe regularmente relatórios de problemas de utilizadores que estão enfrentando problemas. Quando um novo problema é relatado, esse relatório precisa ser <em>triado</em>, ou seja, precisamos que alguém leia o relatório, pegue as informações fornecidas pelo relator e tente reproduzir o problema que está sendo descrito.</p>
+<p>Infelizmente, embora os relatórios de problemas sejam geralmente bem-intencionados, eles costumam ser incompletos ou confusos. O objetivo do processo de triagem é preencher as lacunas do relatório original. Isso significa gerar detalhes suficientes para que possamos confirmar como o problema pode ser reproduzido ou confirmar que o relator original estava enganado em seu relatório.</p>
+<p>Fazer a triagem de um problema não significa que se espera que você o corrija. Dependendo do problema, a triagem pode nem mesmo envolver a escrita de código. Você pode fazer a triagem de um problema com muito pouco conhecimento de BeeWare, pois deve ser capaz de seguir as etapas incluídas no relatório e reproduzir o problema que foi descrito.</p>
 <h2 id="contribuicao-para-a-triagem-de-problemas">Contribuição para a triagem de problemas<a class="headerlink" href="#contribuicao-para-a-triagem-de-problemas" title="Permanent link">&para;</a></h2>
 <details class="abstract">
 <summary>Reproduza o problema</summary>
 <h1 id="reproduzir-um-problema">Reproduzir um problema<a class="headerlink" href="#reproduzir-um-problema" title="Permanent link">&para;</a></h1>
-<p>Não pode consertar um problema se não tiver o problema em primeiro lugar.Assim,
-reproduzir o problema é um pré-requisito para corrigi-lo. Em software, as
-situações irregulares são normalmente chamadas de
-<a href="https://en.wikipedia.org/wiki/Software_bug">"bugs"</a>, e os problemas são
-geralmente chamados de "relatórios de bugs".</p>
-<p>Alguém forneceu um relatório de bug. Você precisa de validar se os passos
-descritas pelo relator estão a resultar no bug relatado. Pode reproduzir o mesmo
-resultado fazendo exatamente o que foi descrito no relatório? Se não conseguir,
-precisa descobrir o motivo.</p>
-<p>Para começar a reprodução dum problema, vai precisar de configurar um [ambiente
-de desenvolvimento] .</p>
+<p>Não pode consertar um problema se não tiver o problema em primeiro lugar.Assim, reproduzir o problema é um pré-requisito para corrigi-lo. Em software, as situações irregulares são normalmente chamadas de <a href="https://en.wikipedia.org/wiki/Software_bug">"bugs"</a>, e os problemas são geralmente chamados de "relatórios de bugs".</p>
+<p>Alguém forneceu um relatório de bug. Você precisa de validar se os passos descritas pelo relator estão a resultar no bug relatado. Pode reproduzir o mesmo resultado fazendo exatamente o que foi descrito no relatório? Se não conseguir, precisa descobrir o motivo.</p>
+<p>Para começar a reprodução dum problema, vai precisar de configurar um [ambiente de desenvolvimento] .</p>
 <h3 id="bugs-no-codigo">Bugs no código<a class="headerlink" href="#bugs-no-codigo" title="Permanent link">&para;</a></h3>
-<p>Numa situação ideal, terá a mesma configuração que a pessoa que relatou o bug,
-vai seguir os passos e conseguir reproduzir o bug conforme descrito. Em muitos
-casos, porém, isto não será tão simples. Muitos relatórios de bugs incluem
-apenas explicações vagas e um conjunto vago de condições. O problema é que
-muitos bugs variam de acordo com o conjunto de condições envolvidas, incluindo a
-forma de interação, várias condições prévias, sistema operativo, versão do
-sistema operativo, arquitetura da CPU ou se a máquina do utilizador é antiga e
-lenta ou nova e rápida. Quanto mais informações tivermos sobre a situação que
-envolve o bug, melhor. Tente reproduzir o conjunto de condições que o relator
-forneceu. Se não conseguir fazer isso, no seu próximo passo talvez precise de
-solicitar mais informações à pessoa que relatou o bug.</p>
-<p>A melhor maneira de reproduzir um bug é com o menor exemplo possível que ainda
-exiba o problema. Na maioria das vezes, os relatores não fornecem um exemplo
-mínimo viável; se fornecerem <em>algum</em> exemplo, ele será copiado diretamente da
-sua aplicação do "mundo real". O seu objetivo será reduzir o relatório à forma
-mais simples possível que exiba o problema. O melhor caso de reprodução é o
-menor programa possível. Essa redução é útil porque determina qual é o problema
-real. Qualquer pessoa pode pegar no exemplo mínimo, executa-lo e observar o bug
-descrito.</p>
+<p>Numa situação ideal, terá a mesma configuração que a pessoa que relatou o bug, vai seguir os passos e conseguir reproduzir o bug conforme descrito. Em muitos casos, porém, isto não será tão simples. Muitos relatórios de bugs incluem apenas explicações vagas e um conjunto vago de condições. O problema é que muitos bugs variam de acordo com o conjunto de condições envolvidas, incluindo a forma de interação, várias condições prévias, sistema operativo, versão do sistema operativo, arquitetura da CPU ou se a máquina do utilizador é antiga e lenta ou nova e rápida. Quanto mais informações tivermos sobre a situação que envolve o bug, melhor. Tente reproduzir o conjunto de condições que o relator forneceu. Se não conseguir fazer isso, no seu próximo passo talvez precise de solicitar mais informações à pessoa que relatou o bug.</p>
+<p>A melhor maneira de reproduzir um bug é com o menor exemplo possível que ainda exiba o problema. Na maioria das vezes, os relatores não fornecem um exemplo mínimo viável; se fornecerem <em>algum</em> exemplo, ele será copiado diretamente da sua aplicação do "mundo real". O seu objetivo será reduzir o relatório à forma mais simples possível que exiba o problema. O melhor caso de reprodução é o menor programa possível. Essa redução é útil porque determina qual é o problema real. Qualquer pessoa pode pegar no exemplo mínimo, executa-lo e observar o bug descrito.</p>
 <h3 id="bugs-na-documentacao">Bugs na documentação<a class="headerlink" href="#bugs-na-documentacao" title="Permanent link">&para;</a></h3>
-<p>Os bugs na documentação podem se manifestar de diferentes maneiras. Há problemas
-de formatação que resultam em problemas de renderização. Às vezes, não se trata
-nem mesmo de um bug; a pessoa pode ter lido mal a documentação ou cometido um
-erro genuíno. Isso não significa necessariamente que não haja um problema com a
-documentação. O conteúdo pode ser pouco claro ou impreciso, dando margem a
-confusão ou má interpretação. É possível que um conceito que deveria ser
-discutido não o seja, porque não está completamente documentado.</p>
-<p>Quando um bug é preenchido para um problema de documentação, vai querer
-verificar se o problema relatado ainda existe. No caso de problemas de
-renderização, vai precisar de criar a documentação para ver se consegue
-reproduzir o problema. Os problemas de conteúdo são uma questão de leitura para
-verificar se ninguém enviou uma atualização.</p>
+<p>Os bugs na documentação podem se manifestar de diferentes maneiras. Há problemas de formatação que resultam em problemas de renderização. Às vezes, não se trata nem mesmo de um bug; a pessoa pode ter lido mal a documentação ou cometido um erro genuíno. Isso não significa necessariamente que não haja um problema com a documentação. O conteúdo pode ser pouco claro ou impreciso, dando margem a confusão ou má interpretação. É possível que um conceito que deveria ser discutido não o seja, porque não está completamente documentado.</p>
+<p>Quando um bug é preenchido para um problema de documentação, vai querer verificar se o problema relatado ainda existe. No caso de problemas de renderização, vai precisar de criar a documentação para ver se consegue reproduzir o problema. Os problemas de conteúdo são uma questão de leitura para verificar se ninguém enviou uma atualização.</p>
 <h3 id="atualizar-o-problema">Atualizar o problema<a class="headerlink" href="#atualizar-o-problema" title="Permanent link">&para;</a></h3>
-<p>O passo final do processo de triagem é documentar as suas descobertas deixando
-um comentário sobre o problema.</p>
-<p>Se conseguir reproduzir o problema exatamente como descrito, isso é tudo o que
-precisa dizer. Deixe um comentário dizendo que confirmou que está a ver o mesmo
-problema, exatamente da maneira descrita pelo relator original.</p>
-<p>Se puder fornecer algum contexto adicional, inclua os detalhes desse contexto.
-Isto pode incluir a possibilidade de reproduzir o problema num sistema operativo
-diferente, ou com uma versão diferente de algum dos softwares envolvidos, ou
-qualquer outra coisa que varie do relatório original.</p>
-<p>Se o relatório original não continha detalhes necessários para reproduzi-lo,
-inclua <em>esses</em> detalhes. Isso pode incluir o fornecimento de detalhes do sistema
-operativo ou da versão que o relatório original não forneceu, relatórios ou
-rastreios de pilha mais completos ou instruções mais claras sobre a sequência
-exata de operações necessárias para reproduzir o problema. Se desenvolveu uma
-maneira mais simples de reproduzir o problema (ou se o relator original não
-forneceu um caso de reprodução), pode incluir detalhes desse método de
-reprodução.</p>
-<p>Se não conseguir reproduzir o problema, deixe também um comentário detalhando o
-que tentou fazer. Saber onde um problema não existe é quase tão importante
-quanto saber onde ele existe, pois isso ajuda a restringir uma possível causa.
-Se tiver alguma teoria sobre <em>porque</em> não consegue reproduzir o problema — por
-exemplo, se acha que é um erro de utilização ou que o problema foi resolvido por
-uma atualização recente do sistema operativo — inclua essa especulação como
-parte do seu comentário.</p>
-<p>Por fim, pode fazer recomendações para a equipa principal. Se acha que o
-relatório original está errado, sugira que o problema seja encerrado; se tiver
-uma teoria sobre a causa do problema, também pode sugerir isso. Os seus
-comentários vão ajudar a equipa principal a descobrir como passar o problema
-para o próximo passo.</p>
-<p>Neste ponto, pode optar por tentar <a href="../fix-issue/">corrigir o problema</a>
-que acabou de reproduzir; em alternativa, pode anotar suas descobertas e tentar
-reproduzir outro problema.</p>
+<p>O passo final do processo de triagem é documentar as suas descobertas deixando um comentário sobre o problema.</p>
+<p>Se conseguir reproduzir o problema exatamente como descrito, isso é tudo o que precisa dizer. Deixe um comentário dizendo que confirmou que está a ver o mesmo problema, exatamente da maneira descrita pelo relator original.</p>
+<p>Se puder fornecer algum contexto adicional, inclua os detalhes desse contexto. Isto pode incluir a possibilidade de reproduzir o problema num sistema operativo diferente, ou com uma versão diferente de algum dos softwares envolvidos, ou qualquer outra coisa que varie do relatório original.</p>
+<p>Se o relatório original não continha detalhes necessários para reproduzi-lo, inclua <em>esses</em> detalhes. Isso pode incluir o fornecimento de detalhes do sistema operativo ou da versão que o relatório original não forneceu, relatórios ou rastreios de pilha mais completos ou instruções mais claras sobre a sequência exata de operações necessárias para reproduzir o problema. Se desenvolveu uma maneira mais simples de reproduzir o problema (ou se o relator original não forneceu um caso de reprodução), pode incluir detalhes desse método de reprodução.</p>
+<p>Se não conseguir reproduzir o problema, deixe também um comentário detalhando o que tentou fazer. Saber onde um problema não existe é quase tão importante quanto saber onde ele existe, pois isso ajuda a restringir uma possível causa. Se tiver alguma teoria sobre <em>porque</em> não consegue reproduzir o problema — por exemplo, se acha que é um erro de utilização ou que o problema foi resolvido por uma atualização recente do sistema operativo — inclua essa especulação como parte do seu comentário.</p>
+<p>Por fim, pode fazer recomendações para a equipa principal. Se acha que o relatório original está errado, sugira que o problema seja encerrado; se tiver uma teoria sobre a causa do problema, também pode sugerir isso. Os seus comentários vão ajudar a equipa principal a descobrir como passar o problema para o próximo passo.</p>
+<p>Neste ponto, pode optar por tentar <a href="../fix-issue/">corrigir o problema</a> que acabou de reproduzir; em alternativa, pode anotar suas descobertas e tentar reproduzir outro problema.</p>
 </details>
 
 

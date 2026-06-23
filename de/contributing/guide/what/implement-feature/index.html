@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Kopfzeile"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/what/implement-feature/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/what/implement-feature/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4886,68 +4894,28 @@ aria-label="Kopfzeile"
 
 
 <h1 id="implementierung-einer-neuen-funktion">Implementierung einer neuen Funktion<a class="headerlink" href="#implementierung-einer-neuen-funktion" title="Permanent link">&para;</a></h1>
-<p>Sobald der <a href="../propose-feature/">Vorschlagsprozess</a> abgeschlossen ist, sollten
-Sie einen vollständigen Entwurf für eine neue Funktion haben. Das bedeutet, dass
-es Zeit ist, mit dem Schreiben zu beginnen!</p>
-<p>Wenn Ihre Funktion eine plattformspezifische Implementierung erfordert, sollte
-der Vorschlagsprozess bestätigt haben, dass die Idee auf allen Plattformen
-implementiert werden <em>kann</em>. Als die Person, die eine neue Funktion zum ersten
-Mal implementiert, sind Sie jedoch nicht für die Implementierung der neuen
-Funktion für alle Plattformen verantwortlich. Sie müssen eine vollständige
-Implementierung für <em>mindestens</em> eine Plattform bereitstellen, einschließlich
-Tests. Für alle anderen Plattformen müssen Sie eine "Stub"-Implementierung
-bereitstellen - eine Implementierung, die die bloße Schnittstellendefinition
-bereitstellt, aber einen <code>NotImplementedError</code> auslöst oder eine Logmeldung
-ausgibt, dass das Verhalten auf dieser Plattform nicht implementiert ist.</p>
-<p>Ein wichtiger Teil der Implementierung einer neuen Funktion ist die
-Sicherstellung, dass diese Funktion vollständig dokumentiert ist. Dies bedeutet
-zumindest, dass es eine API-Dokumentation gibt, aber es kann auch erforderlich
-sein, eine Anleitung oder ein Themenhandbuch hinzuzufügen.</p>
+<p>Sobald der <a href="../propose-feature/">Vorschlagsprozess</a> abgeschlossen ist, sollten Sie einen vollständigen Entwurf für eine neue Funktion haben. Das bedeutet, dass es Zeit ist, mit dem Schreiben zu beginnen!</p>
+<p>Wenn Ihre Funktion eine plattformspezifische Implementierung erfordert, sollte der Vorschlagsprozess bestätigt haben, dass die Idee auf allen Plattformen implementiert werden <em>kann</em>. Als die Person, die eine neue Funktion zum ersten Mal implementiert, sind Sie jedoch nicht für die Implementierung der neuen Funktion für alle Plattformen verantwortlich. Sie müssen eine vollständige Implementierung für <em>mindestens</em> eine Plattform bereitstellen, einschließlich Tests. Für alle anderen Plattformen müssen Sie eine "Stub"-Implementierung bereitstellen - eine Implementierung, die die bloße Schnittstellendefinition bereitstellt, aber einen <code>NotImplementedError</code> auslöst oder eine Logmeldung ausgibt, dass das Verhalten auf dieser Plattform nicht implementiert ist.</p>
+<p>Ein wichtiger Teil der Implementierung einer neuen Funktion ist die Sicherstellung, dass diese Funktion vollständig dokumentiert ist. Dies bedeutet zumindest, dass es eine API-Dokumentation gibt, aber es kann auch erforderlich sein, eine Anleitung oder ein Themenhandbuch hinzuzufügen.</p>
 <h2 id="beitrag-zu-neuen-funktionen">Beitrag zu neuen Funktionen<a class="headerlink" href="#beitrag-zu-neuen-funktionen" title="Permanent link">&para;</a></h2>
 <details class="abstract">
 <summary>Entwicklungsumgebung einrichten</summary>
 <h1 id="einrichten-einer-entwicklungsumgebung">Einrichten einer Entwicklungsumgebung<a class="headerlink" href="#einrichten-einer-entwicklungsumgebung" title="Permanent link">&para;</a></h1>
-<p>Die Schritte zum Einrichten einer Entwicklungsumgebung variieren je nach dem
-Projekt, an dem Sie mitarbeiten. Wählen Sie eine der folgenden Optionen:</p>
+<p>Die Schritte zum Einrichten einer Entwicklungsumgebung variieren je nach dem Projekt, an dem Sie mitarbeiten. Wählen Sie eine der folgenden Optionen:</p>
 <ul>
 <li><a href="https://briefcase.beeware.org/en/stable/how-to/contribute/how/dev-environment/">Briefcase</a></li>
 <li><a href="https://toga.beeware.org/en/stable/how-to/contribute/how/dev-environment/">Toga</a></li>
-<li><a href="https://rubicon-objc.beeware.org/en/stable/how-to/contribute/how/dev-environment/">Rubicon
-  Objective-C</a></li>
+<li><a href="https://rubicon-objc.beeware.org/en/stable/how-to/contribute/how/dev-environment/">Rubicon Objective-C</a></li>
 </ul>
-<p>Falls das Repository, zu dem Sie beitragen möchten, nicht in dieser Liste
-aufgeführt ist, befolgen Sie bitte die Entwicklungsanleitung für das
-entsprechende Projekt. Wenn Sie beispielsweise an einem
-Briefcase-Vorlagen-Repository arbeiten möchten, sollten Sie die Anleitung für
-Briefcase befolgen.</p>
+<p>Falls das Repository, zu dem Sie beitragen möchten, nicht in dieser Liste aufgeführt ist, befolgen Sie bitte die Entwicklungsanleitung für das entsprechende Projekt. Wenn Sie beispielsweise an einem Briefcase-Vorlagen-Repository arbeiten möchten, sollten Sie die Anleitung für Briefcase befolgen.</p>
 </details>
 <details class="abstract">
 <summary>Arbeiten von einem Zweig aus</summary>
 <h1 id="arbeiten-sie-mit-einem-feature-zweig-nicht-mit-ihrem-main-zweig">Arbeiten Sie mit einem Feature-Zweig, nicht mit Ihrem <code>main</code> Zweig.<a class="headerlink" href="#arbeiten-sie-mit-einem-feature-zweig-nicht-mit-ihrem-main-zweig" title="Permanent link">&para;</a></h1>
-<p>Bevor Sie mit der Arbeit an Ihrer Änderung beginnen, stellen Sie sicher, dass
-Sie einen Zweig erstellt haben. Wenn Sie Ihren Repository Fork klonen, werden
-Sie standardmäßig in Ihrem <code>main</code>-Zweig ausgecheckt. Dies ist eine direkte Kopie
-des BeeWare's <code>main</code> branch.</p>
-<p>Sie <em>können</em> zwar einen Pull Request von Ihrem <code>main</code> einreichen, aber es ist
-besser, wenn Sie das <em>nicht</em> tun. Wenn Sie einen Pull Request einreichen, der
-<em>fast</em> richtig ist, kann das Mitglied des Kernteams, das Ihren Pull Request
-prüft, die notwendigen Änderungen vornehmen, anstatt eine Rückmeldung zu geben,
-in der um eine kleine Änderung gebeten wird. Wenn Sie jedoch Ihren Pull Request
-von Ihrem <code>main</code> einreichen, werden die Prüfer daran gehindert Änderungen
-vorzunehmen.</p>
-<p>Von Ihrem Hauptzweig aus zu arbeiten, macht es auch für <em>Sie</em> schwierig, nachdem
-Sie Ihren ersten Pull Request fertiggestellt haben. Wenn Sie an einem zweiten
-Pull Request arbeiten wollen, brauchen Sie eine "saubere" Kopie des Hauptzweigs
-des Upstream-Projekts, auf der Sie Ihren zweiten Beitrag aufbauen können; wenn
-Sie Ihren ersten Beitrag von Ihrem <code>main</code> gemacht haben, haben Sie diese saubere
-Version nicht mehr zur Verfügung.</p>
-<p>Stattdessen sollten Sie Ihre Änderungen in einem <em>Funktionszweig</em> vornehmen. Ein
-Funktionszweig hat einen einfachen Namen, um die Änderung zu identifizieren, die
-Sie vorgenommen haben. Wenn Sie zum Beispiel einen Fehler beheben, der
-Build-Probleme unter Windows 11 verursacht, könnten Sie einen Feature-Zweig
-<code>fix-win11-build</code> erstellen. Wenn sich Ihr Fehler auf ein bestimmtes Problem
-bezieht, das gemeldet wurde, ist es auch üblich, die Nummer des Problems im
-Zweignamen zu erwähnen (z.B. <code>fix-1234</code>).</p>
+<p>Bevor Sie mit der Arbeit an Ihrer Änderung beginnen, stellen Sie sicher, dass Sie einen Zweig erstellt haben. Wenn Sie Ihren Repository Fork klonen, werden Sie standardmäßig in Ihrem <code>main</code>-Zweig ausgecheckt. Dies ist eine direkte Kopie des BeeWare's <code>main</code> branch.</p>
+<p>Sie <em>können</em> zwar einen Pull Request von Ihrem <code>main</code> einreichen, aber es ist besser, wenn Sie das <em>nicht</em> tun. Wenn Sie einen Pull Request einreichen, der <em>fast</em> richtig ist, kann das Mitglied des Kernteams, das Ihren Pull Request prüft, die notwendigen Änderungen vornehmen, anstatt eine Rückmeldung zu geben, in der um eine kleine Änderung gebeten wird. Wenn Sie jedoch Ihren Pull Request von Ihrem <code>main</code> einreichen, werden die Prüfer daran gehindert Änderungen vorzunehmen.</p>
+<p>Von Ihrem Hauptzweig aus zu arbeiten, macht es auch für <em>Sie</em> schwierig, nachdem Sie Ihren ersten Pull Request fertiggestellt haben. Wenn Sie an einem zweiten Pull Request arbeiten wollen, brauchen Sie eine "saubere" Kopie des Hauptzweigs des Upstream-Projekts, auf der Sie Ihren zweiten Beitrag aufbauen können; wenn Sie Ihren ersten Beitrag von Ihrem <code>main</code> gemacht haben, haben Sie diese saubere Version nicht mehr zur Verfügung.</p>
+<p>Stattdessen sollten Sie Ihre Änderungen in einem <em>Funktionszweig</em> vornehmen. Ein Funktionszweig hat einen einfachen Namen, um die Änderung zu identifizieren, die Sie vorgenommen haben. Wenn Sie zum Beispiel einen Fehler beheben, der Build-Probleme unter Windows 11 verursacht, könnten Sie einen Feature-Zweig <code>fix-win11-build</code> erstellen. Wenn sich Ihr Fehler auf ein bestimmtes Problem bezieht, das gemeldet wurde, ist es auch üblich, die Nummer des Problems im Zweignamen zu erwähnen (z.B. <code>fix-1234</code>).</p>
 <p>Um einen <code>fix-win11-build</code> Funktionszweig zu erstellen, führen Sie aus:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
 <div class="tabbed-content">
@@ -4969,76 +4937,26 @@ Zweignamen zu erwähnen (z.B. <code>fix-1234</code>).</p>
 <details class="abstract">
 <summary>Vermeiden Sie Scope Creep</summary>
 <h1 id="vermeidung-von-scope-creep">Vermeidung von Scope Creep<a class="headerlink" href="#vermeidung-von-scope-creep" title="Permanent link">&para;</a></h1>
-<p>"Scope creep" passiert, wenn die Liste der gelösten Probleme oder
-implementierten Funktionen durch einen einzelnen Beitrag deutlich über das
-hinausgeht, was zu Beginn der Arbeit beabsichtigt war. Sie fangen mit einem
-einfachen Problem an; Sie entdecken ein eng verwandtes Problem und beschließen,
-auch diese Lösung einzubeziehen; dann ein drittes&hellip; bevor Sie es merken, haben
-Sie einen Pull Request, der 5 Probleme schließt und 3 neue Funktionen hinzufügt,
-einschließlich Dutzende von Dateien.</p>
-<p>Scope Creep passiert jedem. Ein Konzept, das erfahrenen Entwicklern nur allzu
-vertraut ist. Wir alle haben es schon mehrfach erlebt und alle damit verbundenen
-Probleme erfahren.</p>
-<p>Es gibt sehr praktische Gründe, eine Ausweitung des Umfangs zu vermeiden. Je
-größer ein Beitrag wird, desto schwieriger ist es, mit ihm zu arbeiten. Es wird
-schwieriger, Randfälle oder potenzielle Probleme zu erkennen, was bedeutet, dass
-die Qualität des Beitrags insgesamt gemindert werden kann. Auch die Überprüfung
-wird schwieriger, wenn sich der Prüfer mit mehreren, möglicherweise nicht
-zusammenhängenden Kontexten befassen muss. Ein größerer Beitrag bedeutet mehr
-Überprüfungskommentare, und als Mitwirkender kann es schwierig werden, mehreren
-Überprüfungssträngen zu folgen. Sogar Ihre GitHub-Erfahrung wird darunter leiden
-- die Benutzeroberfläche von GitHub wird mit zunehmender Größe eines PR
-langsamer, was bedeutet, dass die Navigation durch die Dateien auf der
-GitHub-Benutzeroberfläche und der Versuch, Überprüfungskommentare zu
-hinterlassen, immer schwieriger wird.</p>
-<p>Jedes Mal, wenn Sie einen Grund finden, etwas zu Ihrem Beitrag hinzuzufügen, das
-nicht explizit Teil des ursprünglichen Vorschlags oder Fehlerberichts ist,
-sollten Sie überlegen, ob Sie sich auf eine Ausweitung des Umfangs zubewegen.
-Gibt es zwei verschiedene Funktionen, die separat implementiert werden könnten?
-Könnte eine Funktion mit einer bekannten Einschränkung oder einem Fehler
-implementiert werden, und dieser Fehler in einem nachfolgenden Pull Request
-behoben werden? Ist ein Teil einer Fehlerbehebung unabhängig von einem anderen?
-Wenn ein Teil einer Änderung weggelassen werden kann, ohne den ursprünglichen
-Beitrag zu verändern, sollte es wahrscheinlich sein.</p>
-<p>Die Entwicklung von Software ist immer ein Prozess der schrittweisen
-Verbesserung. Jeder einzelne Beitrag sollte die Codebasis in einem besseren
-Zustand hinterlassen, aber es ist völlig akzeptabel, Fehler oder Teile von
-Funktionen als Arbeit für zukünftige Verbesserungen zu hinterlassen. Das kann
-bedeuten, dass man eine Anfrage in mehrere Teile aufteilt, die unabhängig
-voneinander überprüft werden können, oder dass man einen Fehler protokolliert,
-damit jemand anderes das Problem untersuchen und beheben kann.</p>
-<p>Die Begrenzung des Umfangs der einzelnen Beiträge hilft allen Beteiligten, auch
-Ihnen. Ihre Prüfer und auch Sie selbst werden es zu schätzen wissen.</p>
+<p>"Scope creep" passiert, wenn die Liste der gelösten Probleme oder implementierten Funktionen durch einen einzelnen Beitrag deutlich über das hinausgeht, was zu Beginn der Arbeit beabsichtigt war. Sie fangen mit einem einfachen Problem an; Sie entdecken ein eng verwandtes Problem und beschließen, auch diese Lösung einzubeziehen; dann ein drittes&hellip; bevor Sie es merken, haben Sie einen Pull Request, der 5 Probleme schließt und 3 neue Funktionen hinzufügt, einschließlich Dutzende von Dateien.</p>
+<p>Scope Creep passiert jedem. Ein Konzept, das erfahrenen Entwicklern nur allzu vertraut ist. Wir alle haben es schon mehrfach erlebt und alle damit verbundenen Probleme erfahren.</p>
+<p>Es gibt sehr praktische Gründe, eine Ausweitung des Umfangs zu vermeiden. Je größer ein Beitrag wird, desto schwieriger ist es, mit ihm zu arbeiten. Es wird schwieriger, Randfälle oder potenzielle Probleme zu erkennen, was bedeutet, dass die Qualität des Beitrags insgesamt gemindert werden kann. Auch die Überprüfung wird schwieriger, wenn sich der Prüfer mit mehreren, möglicherweise nicht zusammenhängenden Kontexten befassen muss. Ein größerer Beitrag bedeutet mehr Überprüfungskommentare, und als Mitwirkender kann es schwierig werden, mehreren Überprüfungssträngen zu folgen. Sogar Ihre GitHub-Erfahrung wird darunter leiden - die Benutzeroberfläche von GitHub wird mit zunehmender Größe eines PR langsamer, was bedeutet, dass die Navigation durch die Dateien auf der GitHub-Benutzeroberfläche und der Versuch, Überprüfungskommentare zu hinterlassen, immer schwieriger wird.</p>
+<p>Jedes Mal, wenn Sie einen Grund finden, etwas zu Ihrem Beitrag hinzuzufügen, das nicht explizit Teil des ursprünglichen Vorschlags oder Fehlerberichts ist, sollten Sie überlegen, ob Sie sich auf eine Ausweitung des Umfangs zubewegen. Gibt es zwei verschiedene Funktionen, die separat implementiert werden könnten? Könnte eine Funktion mit einer bekannten Einschränkung oder einem Fehler implementiert werden, und dieser Fehler in einem nachfolgenden Pull Request behoben werden? Ist ein Teil einer Fehlerbehebung unabhängig von einem anderen? Wenn ein Teil einer Änderung weggelassen werden kann, ohne den ursprünglichen Beitrag zu verändern, sollte es wahrscheinlich sein.</p>
+<p>Die Entwicklung von Software ist immer ein Prozess der schrittweisen Verbesserung. Jeder einzelne Beitrag sollte die Codebasis in einem besseren Zustand hinterlassen, aber es ist völlig akzeptabel, Fehler oder Teile von Funktionen als Arbeit für zukünftige Verbesserungen zu hinterlassen. Das kann bedeuten, dass man eine Anfrage in mehrere Teile aufteilt, die unabhängig voneinander überprüft werden können, oder dass man einen Fehler protokolliert, damit jemand anderes das Problem untersuchen und beheben kann.</p>
+<p>Die Begrenzung des Umfangs der einzelnen Beiträge hilft allen Beteiligten, auch Ihnen. Ihre Prüfer und auch Sie selbst werden es zu schätzen wissen.</p>
 </details>
 <details class="abstract">
 <summary>Die neue Funktion implementieren</summary>
 <h1 id="code-schreiben-ausfuhren-und-testen">Code schreiben, ausführen und testen<a class="headerlink" href="#code-schreiben-ausfuhren-und-testen" title="Permanent link">&para;</a></h1>
-<p>Um einen Fehler zu beheben oder eine Funktion zu implementieren, musst du neuen
-Code schreiben.</p>
-<p>Bevor Sie mit der Arbeit am Code beginnen, stellen Sie sicher, dass Sie eine
-<a href="../../how/dev-environment/">Entwicklungsumgebung</a> eingerichtet haben und dass
-Sie <a href="../../how/branches/">an einem Branch arbeiten</a>.</p>
-<p>Wir haben einen <a href="../../style/code-style-guide/">Code-Styleguide</a>, der unsere
-Richtlinien für das Schreiben von Code für BeeWare enthält.</p>
+<p>Um einen Fehler zu beheben oder eine Funktion zu implementieren, musst du neuen Code schreiben.</p>
+<p>Bevor Sie mit der Arbeit am Code beginnen, stellen Sie sicher, dass Sie eine <a href="../../how/dev-environment/">Entwicklungsumgebung</a> eingerichtet haben und dass Sie <a href="../../how/branches/">an einem Branch arbeiten</a>.</p>
+<p>Wir haben einen <a href="../../style/code-style-guide/">Code-Styleguide</a>, der unsere Richtlinien für das Schreiben von Code für BeeWare enthält.</p>
 <h3 id="testgetriebene-entwicklung">Testgetriebene Entwicklung<a class="headerlink" href="#testgetriebene-entwicklung" title="Permanent link">&para;</a></h3>
-<p>Eine gute Methode, um sicherzustellen, dass Ihr Code das tut, was Sie erwarten,
-besteht darin, zunächst einen Testfall zu schreiben, um dies zu überprüfen.
-Dieser Testfall sollte zunächst fehlschlagen, da der zu testende Code noch nicht
-vorhanden ist. Anschließend können Sie die erforderlichen Codeänderungen
-vornehmen, damit der Test erfolgreich verläuft, und so sicher sein, dass das,
-was Sie geschrieben haben, das erwartete Problem löst.</p>
+<p>Eine gute Methode, um sicherzustellen, dass Ihr Code das tut, was Sie erwarten, besteht darin, zunächst einen Testfall zu schreiben, um dies zu überprüfen. Dieser Testfall sollte zunächst fehlschlagen, da der zu testende Code noch nicht vorhanden ist. Anschließend können Sie die erforderlichen Codeänderungen vornehmen, damit der Test erfolgreich verläuft, und so sicher sein, dass das, was Sie geschrieben haben, das erwartete Problem löst.</p>
 <h3 id="fuhren-sie-ihren-code-aus">Führen Sie Ihren Code aus<a class="headerlink" href="#fuhren-sie-ihren-code-aus" title="Permanent link">&para;</a></h3>
-<p>Sobald Ihr Code geschrieben ist, müssen Sie sicherstellen, dass er auch
-funktioniert. Sie müssen Ihren Code manuell ausführen, um zu überprüfen, ob er
-das tut, was Sie erwarten. Falls Sie dies noch nicht getan haben, sollten Sie
-einen Testfall für Ihre Änderungen erstellen; wie oben erwähnt, sollte dieser
-Test fehlschlagen, wenn Ihr Code auskommentiert ist oder fehlt.</p>
-<p>Sie fügen Ihren Testfall zur Testsuite hinzu, damit er zusammen mit den anderen
-Tests ausgeführt werden kann. Als Nächstes führen Sie die Testsuite aus.</p>
+<p>Sobald Ihr Code geschrieben ist, müssen Sie sicherstellen, dass er auch funktioniert. Sie müssen Ihren Code manuell ausführen, um zu überprüfen, ob er das tut, was Sie erwarten. Falls Sie dies noch nicht getan haben, sollten Sie einen Testfall für Ihre Änderungen erstellen; wie oben erwähnt, sollte dieser Test fehlschlagen, wenn Ihr Code auskommentiert ist oder fehlt.</p>
+<p>Sie fügen Ihren Testfall zur Testsuite hinzu, damit er zusammen mit den anderen Tests ausgeführt werden kann. Als Nächstes führen Sie die Testsuite aus.</p>
 <h3 id="run-test-suite">Tests und Abdeckung<a class="headerlink" href="#run-test-suite" title="Permanent link">&para;</a></h3>
-<p>BeeWare nutzt <a href="https://tox.wiki/en/latest/"><code>tox</code></a> zur Verwaltung des
-Testprozesses und <a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> für seine eigene
-Testsuite.</p>
+<p>BeeWare nutzt <a href="https://tox.wiki/en/latest/"><code>tox</code></a> zur Verwaltung des Testprozesses und <a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> für seine eigene Testsuite.</p>
 <p>Der Standardbefehl <code>tox</code> umfasst die Ausführung von:</p>
 <ul>
 <li>Pre-Commit-Hooks</li>
@@ -5053,8 +4971,7 @@ Testsuite.</p>
 <p>Berichte zur Codeabdeckung</p>
 </li>
 </ul>
-<p>Das ist im Wesentlichen das, was CI ausführt, wenn du einen Pull-Request
-einreichst.</p>
+<p>Das ist im Wesentlichen das, was CI ausführt, wenn du einen Pull-Request einreichst.</p>
 <p>Um die gesamte Testsuite auszuführen, geben Sie Folgendes ein:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
 <div class="tabbed-content">
@@ -5072,35 +4989,13 @@ einreichst.</p>
 </div>
 </div>
 </div>
-<p>Die Ausführung der vollständigen Testsuite kann eine Weile dauern. Sie können
-den Vorgang erheblich beschleunigen, indem Sie <code>tox</code> parallel ausführen, und
-zwar mit <code>tox p</code> (oder <code>tox run-parallel</code>). Wenn Sie die Testsuite parallel
-ausführen, erhalten Sie während der Ausführung weniger Rückmeldung zum
-Fortschritt, aber am Ende des Testlaufs erhalten Sie dennoch eine
-Zusammenfassung aller gefundenen Probleme. Sie sollten eine Ausgabe erhalten,
-die anzeigt, dass die Tests ausgeführt wurden. Möglicherweise sehen Sie
-<code>SKIPPED</code> Tests, sollten aber niemals <code>FAIL</code> oder <code>ERROR</code> Testergebnisse
-erhalten. Wir führen unsere vollständige Testsuite vor dem Zusammenführen jedes
-Patches aus. Wenn dabei Probleme entdeckt werden, führen wir den Patch nicht
-zusammen. Sollten Sie einen Testfehler oder einen Testausfall feststellen, liegt
-entweder ein Problem in Ihrer Testumgebung vor oder Sie haben einen Randfall
-entdeckt, den wir bisher noch nicht gesehen haben – in jedem Fall lassen Sie es
-uns wissen!</p>
-<p>Neben dem Bestehen der Tests sollte hier eine <a class="autorefs autorefs-internal" title="Codeabdeckung" href="#code-coverage">100 %ige
-Testabdeckung</a> angezeigt werden.</p>
+<p>Die Ausführung der vollständigen Testsuite kann eine Weile dauern. Sie können den Vorgang erheblich beschleunigen, indem Sie <code>tox</code> parallel ausführen, und zwar mit <code>tox p</code> (oder <code>tox run-parallel</code>). Wenn Sie die Testsuite parallel ausführen, erhalten Sie während der Ausführung weniger Rückmeldung zum Fortschritt, aber am Ende des Testlaufs erhalten Sie dennoch eine Zusammenfassung aller gefundenen Probleme. Sie sollten eine Ausgabe erhalten, die anzeigt, dass die Tests ausgeführt wurden. Möglicherweise sehen Sie <code>SKIPPED</code> Tests, sollten aber niemals <code>FAIL</code> oder <code>ERROR</code> Testergebnisse erhalten. Wir führen unsere vollständige Testsuite vor dem Zusammenführen jedes Patches aus. Wenn dabei Probleme entdeckt werden, führen wir den Patch nicht zusammen. Sollten Sie einen Testfehler oder einen Testausfall feststellen, liegt entweder ein Problem in Ihrer Testumgebung vor oder Sie haben einen Randfall entdeckt, den wir bisher noch nicht gesehen haben – in jedem Fall lassen Sie es uns wissen!</p>
+<p>Neben dem Bestehen der Tests sollte hier eine <a class="autorefs autorefs-internal" title="Codeabdeckung" href="#code-coverage">100 %ige Testabdeckung</a> angezeigt werden.</p>
 <h3 id="testvarianten-ausfuhren">Testvarianten ausführen<a class="headerlink" href="#testvarianten-ausfuhren" title="Permanent link">&para;</a></h3>
 <h4 id="tests-fur-mehrere-python-versionen-ausfuhren">Tests für mehrere Python-Versionen ausführen<a class="headerlink" href="#tests-fur-mehrere-python-versionen-ausfuhren" title="Permanent link">&para;</a></h4>
-<p>Standardmäßig versuchen viele der <code>tox</code>-Befehle, die Testsuite mehrmals
-auszuführen – einmal für jede von BeeWare unterstützte Python-Version.
-Dazu muss jedoch jede dieser Python-Versionen auf Ihrem Rechner installiert und
-für den Python-Erkennungsprozess von <code>tox</code> verfügbar sein. Im Allgemeinen gilt:
-Wenn eine Python-Version über
-(https://virtualenv.pypa.io/en/latest/explanation.html#python-discovery)
-verfügbar ist, sollte <code>PATH</code> in der Lage sein, sie zu finden und zu verwenden.</p>
+<p>Standardmäßig versuchen viele der <code>tox</code>-Befehle, die Testsuite mehrmals auszuführen – einmal für jede von BeeWare unterstützte Python-Version. Dazu muss jedoch jede dieser Python-Versionen auf Ihrem Rechner installiert und für den Python-Erkennungsprozess von <code>tox</code> verfügbar sein. Im Allgemeinen gilt: Wenn eine Python-Version über (https://virtualenv.pypa.io/en/latest/explanation.html#python-discovery) verfügbar ist, sollte <code>PATH</code> in der Lage sein, sie zu finden und zu verwenden.</p>
 <h4 id="fuhre-nur-die-testsuite-aus">Führe nur die Testsuite aus<a class="headerlink" href="#fuhre-nur-die-testsuite-aus" title="Permanent link">&para;</a></h4>
-<p>Wenn Sie an einer neuen Funktion zügig arbeiten, müssen Sie nicht die gesamte
-Testsuite ausführen; Sie können <em>nur</em> die Unit-Tests ausführen. Führen Sie dazu
-folgenden Befehl aus:</p>
+<p>Wenn Sie an einer neuen Funktion zügig arbeiten, müssen Sie nicht die gesamte Testsuite ausführen; Sie können <em>nur</em> die Unit-Tests ausführen. Führen Sie dazu folgenden Befehl aus:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5118,13 +5013,7 @@ folgenden Befehl aus:</p>
 </div>
 </div>
 <h4 id="test-subset">Eine Teilmenge von Tests ausführen<a class="headerlink" href="#test-subset" title="Permanent link">&para;</a></h4>
-<p>Standardmäßig führt <code>tox</code> alle Tests der Unit-Test-Suite aus. Wenn Sie einen
-neuen Test entwickeln, kann es hilfreich sein, <em>nur</em> diesen einen Test
-auszuführen. Dazu können Sie <a href="https://docs.pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run">beliebige <code>pytest</code>
-Spezifikatoren</a>
-als Argument an <code>tox</code> übergeben. Diese Testpfade beziehen sich relativ auf das
-<code>briefcase</code> Verzeichnis. Um beispielsweise nur die Tests in einer einzelnen
-Datei auszuführen, geben Sie Folgendes ein:</p>
+<p>Standardmäßig führt <code>tox</code> alle Tests der Unit-Test-Suite aus. Wenn Sie einen neuen Test entwickeln, kann es hilfreich sein, <em>nur</em> diesen einen Test auszuführen. Dazu können Sie <a href="https://docs.pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run">beliebige <code>pytest</code> Spezifikatoren</a> als Argument an <code>tox</code> übergeben. Diese Testpfade beziehen sich relativ auf das <code>briefcase</code> Verzeichnis. Um beispielsweise nur die Tests in einer einzelnen Datei auszuführen, geben Sie Folgendes ein:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5141,17 +5030,9 @@ Datei auszuführen, geben Sie Folgendes ein:</p>
 </div>
 </div>
 </div>
-<p>Auch wenn Sie nur einen Teil der Testsuite ausführen, erhalten Sie einen
-Abdeckungsbericht – allerdings werden in den Abdeckungsergebnissen nur die
-Codezeilen aufgeführt, die von den konkret ausgeführten Tests verarbeitet
-wurden.</p>
+<p>Auch wenn Sie nur einen Teil der Testsuite ausführen, erhalten Sie einen Abdeckungsbericht – allerdings werden in den Abdeckungsergebnissen nur die Codezeilen aufgeführt, die von den konkret ausgeführten Tests verarbeitet wurden.</p>
 <h4 id="test-py-version">Führe die Testsuite für eine bestimmte Python-Version aus<a class="headerlink" href="#test-py-version" title="Permanent link">&para;</a></h4>
-<p>Standardmäßig wird <code>tox -e py</code> mit dem Interpreter ausgeführt, der auf Ihrem
-Rechner als <code>python</code> erkannt wird. Wenn Sie mehrere Python-Versionen installiert
-haben und eine bestimmte Python-Version aus den installierten Versionen testen
-möchten, können Sie eine bestimmte Python-Version angeben. Um beispielsweise die
-Testsuite unter Python 3.10 auszuführen, geben Sie Folgendes
-ein:</p>
+<p>Standardmäßig wird <code>tox -e py</code> mit dem Interpreter ausgeführt, der auf Ihrem Rechner als <code>python</code> erkannt wird. Wenn Sie mehrere Python-Versionen installiert haben und eine bestimmte Python-Version aus den installierten Versionen testen möchten, können Sie eine bestimmte Python-Version angeben. Um beispielsweise die Testsuite unter Python 3.10 auszuführen, geben Sie Folgendes ein:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5168,15 +5049,9 @@ ein:</p>
 </div>
 </div>
 </div>
-<p>Eine <a class="autorefs autorefs-internal" title="Eine Teilmenge von Tests ausführen" href="#test-subset">Teilmenge von Tests</a> kann ausgeführt werden, indem man <code>--</code>
-und eine Testspezifikation an die Befehlszeile anhängt.</p>
+<p>Eine <a class="autorefs autorefs-internal" title="Eine Teilmenge von Tests ausführen" href="#test-subset">Teilmenge von Tests</a> kann ausgeführt werden, indem man <code>--</code> und eine Testspezifikation an die Befehlszeile anhängt.</p>
 <h4 id="die-testsuite-ohne-abdeckung-ausfuhren-schnell">Die Testsuite ohne Abdeckung ausführen (schnell)<a class="headerlink" href="#die-testsuite-ohne-abdeckung-ausfuhren-schnell" title="Permanent link">&para;</a></h4>
-<p>Standardmäßig führt <code>tox</code> die pytest-Suite im Single-Thread-Modus aus. Sie
-können die Ausführung der Testsuite beschleunigen, indem Sie sie parallel
-ausführen. In diesem Modus werden keine Abdeckungsdateien erstellt, da die
-Erfassung der Abdeckung innerhalb der gestarteten Prozesse zu komplex ist. Um
-eine einzelne Python-Version im „Fast“-Modus auszuführen, geben Sie Folgendes
-ein:</p>
+<p>Standardmäßig führt <code>tox</code> die pytest-Suite im Single-Thread-Modus aus. Sie können die Ausführung der Testsuite beschleunigen, indem Sie sie parallel ausführen. In diesem Modus werden keine Abdeckungsdateien erstellt, da die Erfassung der Abdeckung innerhalb der gestarteten Prozesse zu komplex ist. Um eine einzelne Python-Version im „Fast“-Modus auszuführen, geben Sie Folgendes ein:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5193,51 +5068,21 @@ ein:</p>
 </div>
 </div>
 </div>
-<p>Eine <a class="autorefs autorefs-internal" title="Eine Teilmenge von Tests ausführen" href="#test-subset">Teilmenge von Tests</a> kann ausgeführt werden, indem <code>--</code> und
-eine Testspezifikation an die Befehlszeile angehängt werden; eine <a class="autorefs autorefs-internal" title="Führe die Testsuite für eine bestimmte Python-Version aus" href="#test-py-version">bestimmte
-Python-Version</a> kann verwendet werden, indem die Version zum
-Testziel hinzugefügt wird (z. B. <code>py310-fast</code> für die
-Ausführung mit Python 3.10).</p>
+<p>Eine <a class="autorefs autorefs-internal" title="Eine Teilmenge von Tests ausführen" href="#test-subset">Teilmenge von Tests</a> kann ausgeführt werden, indem <code>--</code> und eine Testspezifikation an die Befehlszeile angehängt werden; eine <a class="autorefs autorefs-internal" title="Führe die Testsuite für eine bestimmte Python-Version aus" href="#test-py-version">bestimmte Python-Version</a> kann verwendet werden, indem die Version zum Testziel hinzugefügt wird (z. B. <code>py310-fast</code> für die Ausführung mit Python 3.10).</p>
 <h3 id="code-coverage">Codeabdeckung<a class="headerlink" href="#code-coverage" title="Permanent link">&para;</a></h3>
-<p>BeeWare gewährleistet eine 100-prozentige Testabdeckung in seiner
-Codebasis. Wenn Sie Code zum Projekt hinzufügen oder ändern, müssen Sie Testcode
-hinzufügen, um sicherzustellen, dass alle vorgenommenen Änderungen abgedeckt
-sind.</p>
-<p>Da BeeWare jedoch auf mehrere Plattformen sowie auf mehrere
-Python-Versionen abzielt, kann eine vollständige Abdeckung nicht auf einer
-einzigen Plattform und Python-Version überprüft werden. Um dem Rechnung zu
-tragen, sind im Abschnitt <code>tool.coverage.coverage_conditional_plugin.rules</code> von
-<code>pyproject.toml</code> mehrere bedingte Abdeckungsregeln definiert (z. B. kann
-<code>no-cover-if-is-windows</code> verwendet werden, um einen Code-Block zu kennzeichnen,
-der bei der Ausführung der Testsuite unter Windows nicht ausgeführt wird). Diese
-Regeln dienen dazu, Codeabschnitte zu identifizieren, die nur auf bestimmten
-Plattformen oder Python-Versionen abgedeckt sind.</p>
-<p>Es ist zu beachten, dass die Berichterstellung zur Codeabdeckung bei
-verschiedenen Python-Versionen zu Unregelmäßigkeiten führen kann. Wenn
-beispielsweise die Codeabdeckungsdateien mit einer Python-Version erstellt
-wurden, die Berichterstellung jedoch mit einer anderen erfolgt, kann der Bericht
-falsche positive Ergebnisse für nicht abgedeckte Verzweigungen enthalten. Aus
-diesem Grund sollte für die Berichterstellung zur Codeabdeckung stets die
-älteste Python-Version verwendet werden, mit der die Codeabdeckungsdateien
-erstellt wurden.</p>
+<p>BeeWare gewährleistet eine 100-prozentige Testabdeckung in seiner Codebasis. Wenn Sie Code zum Projekt hinzufügen oder ändern, müssen Sie Testcode hinzufügen, um sicherzustellen, dass alle vorgenommenen Änderungen abgedeckt sind.</p>
+<p>Da BeeWare jedoch auf mehrere Plattformen sowie auf mehrere Python-Versionen abzielt, kann eine vollständige Abdeckung nicht auf einer einzigen Plattform und Python-Version überprüft werden. Um dem Rechnung zu tragen, sind im Abschnitt <code>tool.coverage.coverage_conditional_plugin.rules</code> von <code>pyproject.toml</code> mehrere bedingte Abdeckungsregeln definiert (z. B. kann <code>no-cover-if-is-windows</code> verwendet werden, um einen Code-Block zu kennzeichnen, der bei der Ausführung der Testsuite unter Windows nicht ausgeführt wird). Diese Regeln dienen dazu, Codeabschnitte zu identifizieren, die nur auf bestimmten Plattformen oder Python-Versionen abgedeckt sind.</p>
+<p>Es ist zu beachten, dass die Berichterstellung zur Codeabdeckung bei verschiedenen Python-Versionen zu Unregelmäßigkeiten führen kann. Wenn beispielsweise die Codeabdeckungsdateien mit einer Python-Version erstellt wurden, die Berichterstellung jedoch mit einer anderen erfolgt, kann der Bericht falsche positive Ergebnisse für nicht abgedeckte Verzweigungen enthalten. Aus diesem Grund sollte für die Berichterstellung zur Codeabdeckung stets die älteste Python-Version verwendet werden, mit der die Codeabdeckungsdateien erstellt wurden.</p>
 <h4 id="die-ergebnisse-der-abdeckung-verstehen">Die Ergebnisse der Abdeckung verstehen<a class="headerlink" href="#die-ergebnisse-der-abdeckung-verstehen" title="Permanent link">&para;</a></h4>
-<p>Am Ende der Ausgabe des Abdeckungstests sollte ein Bericht über die erfassten
-Abdeckungsdaten erscheinen:</p>
+<p>Am Ende der Ausgabe des Abdeckungstests sollte ein Bericht über die erfassten Abdeckungsdaten erscheinen:</p>
 <!-- The extra space at the start of this line is needed to prevent translate-toolkit from parsing the dashes as a markdown document split -->
 
 <div class="highlight"><pre><span></span><code><span class="go">Name    Stmts   Miss Branch BrPart   Deckung   Fehlende</span>
 <span class="go"> ---------------------------------------------------</span>
 <span class="go"> GESAMT    7540 0   1040 0  100,0 %</span>
 </code></pre></div>
-<p>Das bedeutet, dass die Testsuite jeden möglichen Verzweigungsweg im Code
-durchlaufen hat. Das ist zwar keine hundertprozentige Garantie dafür, dass keine
-Fehler vorhanden sind, aber es bedeutet, dass wir jede einzelne Zeile des Codes
-in der Codebasis testen.</p>
-<p>Wenn Sie Änderungen am Code vornehmen, kann es sein, dass dadurch eine Lücke in
-der Codeabdeckung entsteht. In diesem Fall zeigt Ihnen der Abdeckungsbericht an,
-welche Zeilen nicht ausgeführt werden. Nehmen wir zum Beispiel an, wir hätten
-eine Änderung an <code>some/interesting_file.py</code> vorgenommen und dabei neue Logik
-hinzugefügt. Der Abdeckungsbericht könnte dann etwa so aussehen:</p>
+<p>Das bedeutet, dass die Testsuite jeden möglichen Verzweigungsweg im Code durchlaufen hat. Das ist zwar keine hundertprozentige Garantie dafür, dass keine Fehler vorhanden sind, aber es bedeutet, dass wir jede einzelne Zeile des Codes in der Codebasis testen.</p>
+<p>Wenn Sie Änderungen am Code vornehmen, kann es sein, dass dadurch eine Lücke in der Codeabdeckung entsteht. In diesem Fall zeigt Ihnen der Abdeckungsbericht an, welche Zeilen nicht ausgeführt werden. Nehmen wir zum Beispiel an, wir hätten eine Änderung an <code>some/interesting_file.py</code> vorgenommen und dabei neue Logik hinzugefügt. Der Abdeckungsbericht könnte dann etwa so aussehen:</p>
 <!-- The extra space at the start of this line is needed to prevent translate-toolkit from parsing the dashes as a markdown document split -->
 
 <div class="highlight"><pre><span></span><code><span class="go">Name Anweisungen   Fehlende Verzweigung BrPart  Abdeckung   Fehlende</span>
@@ -5246,15 +5091,9 @@ hinzugefügt. Der Abdeckungsbericht könnte dann etwa so aussehen:</p>
 <span class="go"> -------------------------------------------------------------------------------</span>
 <span class="go"> GESAMT 7540 1   1726 0  99,9 %</span>
 </code></pre></div>
-<p>Dies bedeutet, dass Zeile 170, die Zeilen 302–307 sowie ein Sprung von Zeile 320
-nach Zeile 335 von der Testsuite nicht ausgeführt werden. Sie müssen neue Tests
-hinzufügen (oder einen bestehenden Test anpassen), um diese Abdeckung
-wiederherzustellen.</p>
+<p>Dies bedeutet, dass Zeile 170, die Zeilen 302–307 sowie ein Sprung von Zeile 320 nach Zeile 335 von der Testsuite nicht ausgeführt werden. Sie müssen neue Tests hinzufügen (oder einen bestehenden Test anpassen), um diese Abdeckung wiederherzustellen.</p>
 <h4 id="bericht-zur-abdeckung-fur-die-host-plattform-und-die-python-version">Bericht zur Abdeckung für die Host-Plattform und die Python-Version<a class="headerlink" href="#bericht-zur-abdeckung-fur-die-host-plattform-und-die-python-version" title="Permanent link">&para;</a></h4>
-<p>Sie können einen Abdeckungsbericht für Ihre Plattform und Python-Version
-erstellen. Um beispielsweise die Testsuite auszuführen und einen
-Abdeckungsbericht für Python 3.10 zu erstellen, geben Sie
-Folgendes ein:</p>
+<p>Sie können einen Abdeckungsbericht für Ihre Plattform und Python-Version erstellen. Um beispielsweise die Testsuite auszuführen und einen Abdeckungsbericht für Python 3.10 zu erstellen, geben Sie Folgendes ein:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">macOS</label><label for="__tabbed_7_2">Linux</label><label for="__tabbed_7_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5272,9 +5111,7 @@ Folgendes ein:</p>
 </div>
 </div>
 <h4 id="bericht-zur-abdeckung-der-host-plattform">Bericht zur Abdeckung der Host-Plattform<a class="headerlink" href="#bericht-zur-abdeckung-der-host-plattform" title="Permanent link">&para;</a></h4>
-<p>Wenn alle unterstützten Python-Versionen für <code>tox</code> verfügbar sind, kann die
-Abdeckung für die Host-Plattform durch Ausführen des folgenden Befehls ermittelt
-werden:</p>
+<p>Wenn alle unterstützten Python-Versionen für <code>tox</code> verfügbar sind, kann die Abdeckung für die Host-Plattform durch Ausführen des folgenden Befehls ermittelt werden:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">macOS</label><label for="__tabbed_8_2">Linux</label><label for="__tabbed_8_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5292,8 +5129,7 @@ werden:</p>
 </div>
 </div>
 <h4 id="berichterstattung-in-html">Berichterstattung in HTML<a class="headerlink" href="#berichterstattung-in-html" title="Permanent link">&para;</a></h4>
-<p>Ein HTML-Abdeckungsbericht kann erstellt werden, indem man an einen beliebigen
-Namen der Abdeckungsumgebung <code>-html</code> den Zusatz <code>tox</code> anhängt, zum Beispiel:</p>
+<p>Ein HTML-Abdeckungsbericht kann erstellt werden, indem man an einen beliebigen Namen der Abdeckungsumgebung <code>-html</code> den Zusatz <code>tox</code> anhängt, zum Beispiel:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="9:3"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><input id="__tabbed_9_3" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">macOS</label><label for="__tabbed_9_2">Linux</label><label for="__tabbed_9_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5311,51 +5147,23 @@ Namen der Abdeckungsumgebung <code>-html</code> den Zusatz <code>tox</code> anh�
 </div>
 </div>
 <h3 id="es-geht-nicht-nur-darum-tests-zu-schreiben">Es geht nicht nur darum, Tests zu schreiben!<a class="headerlink" href="#es-geht-nicht-nur-darum-tests-zu-schreiben" title="Permanent link">&para;</a></h3>
-<p>Obwohl wir darauf achten, unseren gesamten Code zu testen, geht es bei dieser
-Aufgabe nicht <em>nur</em> darum, dieses Testniveau aufrechtzuerhalten. Ein Teil der
-Aufgabe besteht darin, den Code während der Entwicklung fortlaufend zu
-überprüfen. Man könnte zwar eine umfassende Reihe von Tests für eine bestimmte
-Rettungsweste schreiben … aber eine solche Rettungsweste wäre für den
-vorgesehenen Zweck dennoch unbrauchbar!</p>
-<p>Bei der Entwicklung von Tests sollten Sie auch darauf achten, dass das Kernmodul
-intern <strong>konsistent</strong> ist. Wenn dir Methodennamen auffallen, die intern nicht
-konsistent sind (z. B. etwas, das in einem Modul <code>on_select</code> heißt, in einem
-anderen aber <code>on_selected</code>), oder wenn Daten nicht konsistent behandelt werden,
-markiere dies und mache uns darauf aufmerksam, indem du ein Ticket erstellst.
-Oder, wenn du dir sicher bist, was zu tun ist, erstelle einen Pull Request, der
-das von dir gefundene Problem behebt.</p>
-<p>Sobald alles funktioniert, können Sie <a href="../../how/submit-pr/">einen Pull Request
-einreichen</a> mit Ihren Änderungen.</p>
+<p>Obwohl wir darauf achten, unseren gesamten Code zu testen, geht es bei dieser Aufgabe nicht <em>nur</em> darum, dieses Testniveau aufrechtzuerhalten. Ein Teil der Aufgabe besteht darin, den Code während der Entwicklung fortlaufend zu überprüfen. Man könnte zwar eine umfassende Reihe von Tests für eine bestimmte Rettungsweste schreiben … aber eine solche Rettungsweste wäre für den vorgesehenen Zweck dennoch unbrauchbar!</p>
+<p>Bei der Entwicklung von Tests sollten Sie auch darauf achten, dass das Kernmodul intern <strong>konsistent</strong> ist. Wenn dir Methodennamen auffallen, die intern nicht konsistent sind (z. B. etwas, das in einem Modul <code>on_select</code> heißt, in einem anderen aber <code>on_selected</code>), oder wenn Daten nicht konsistent behandelt werden, markiere dies und mache uns darauf aufmerksam, indem du ein Ticket erstellst. Oder, wenn du dir sicher bist, was zu tun ist, erstelle einen Pull Request, der das von dir gefundene Problem behebt.</p>
+<p>Sobald alles funktioniert, können Sie <a href="../../how/submit-pr/">einen Pull Request einreichen</a> mit Ihren Änderungen.</p>
 </details>
 <details class="abstract">
 <summary>Dokumentation erstellen</summary>
 <h1 id="gebaudedokumentation">Gebäudedokumentation<a class="headerlink" href="#gebaudedokumentation" title="Permanent link">&para;</a></h1>
-<p>Bevor Sie Änderungen an der Dokumentation von BeeWare vornehmen,
-sollten Sie sich vergewissern, dass Sie die vorhandene Dokumentation erstellen
-können.</p>
-<p>Bevor Sie die Dokumentation erstellen, richten Sie eine
-<a href="../../how/dev-environment/">Entwicklungsumgebung</a> ein.</p>
-<p>Sie <strong>müssen</strong> einen Python 3.13 Interpreter installiert
-und in Ihrem Pfad verfügbar haben (d.h. <code>python3.13</code> muss
-einen Python 3.13 Interpreter starten).</p>
-<p>BeeWare verwendet <code>tox</code> zur Erstellung der Dokumentation. Die
-folgenden <code>tox</code>-Befehle müssen von demselben Ort aus ausgeführt werden wie die
-<code>tox.ini</code>-Datei, die sich im Stammverzeichnis des Projekts befindet.</p>
+<p>Bevor Sie Änderungen an der Dokumentation von BeeWare vornehmen, sollten Sie sich vergewissern, dass Sie die vorhandene Dokumentation erstellen können.</p>
+<p>Bevor Sie die Dokumentation erstellen, richten Sie eine <a href="../../how/dev-environment/">Entwicklungsumgebung</a> ein.</p>
+<p>Sie <strong>müssen</strong> einen Python 3.13 Interpreter installiert und in Ihrem Pfad verfügbar haben (d.h. <code>python3.13</code> muss einen Python 3.13 Interpreter starten).</p>
+<p>BeeWare verwendet <code>tox</code> zur Erstellung der Dokumentation. Die folgenden <code>tox</code>-Befehle müssen von demselben Ort aus ausgeführt werden wie die <code>tox.ini</code>-Datei, die sich im Stammverzeichnis des Projekts befindet.</p>
 <h3 id="live-vorschau-der-dokumentation">Live-Vorschau der Dokumentation<a class="headerlink" href="#live-vorschau-der-dokumentation" title="Permanent link">&para;</a></h3>
 <p>Um die schnelle Bearbeitung der Dokumentation zu unterstützen, verfügt BeeWare über einen "Live-Vorschau"-Modus.</p>
 <div class="admonition warning">
 <p class="admonition-title">Die Live-Vorschau wird mit Warnungen erstellt!</p>
-<p>Der Live-Serve steht Ihnen zur Verfügung, um Ihre Dokumentationsaktualisierungen
-zu wiederholen. Während Sie Dinge aktualisieren, können Sie ein
-Auszeichnungsproblem einführen. Probleme, die als <code>WARNING</code> eingestuft werden,
-führen dazu, dass ein Standard-Build fehlschlägt. Der Live-Serve ist jedoch so
-eingerichtet, dass er Warnungen in der Konsolenausgabe anzeigt, während der
-Build fortgesetzt wird. So können Sie iterieren, ohne die Live-Vorschau neu
-starten zu müssen.</p>
-<p>Eine <code>WARNING</code> unterscheidet sich von einem <code>ERROR</code>. Wenn Sie ein Problem
-einführen, das als "ERROR" eingestuft wird, schlägt der Live-Service fehl und
-erfordert einen Neustart. Er wird erst dann wieder gestartet, wenn das
-<code>WARNING</code>-Problem behoben ist.</p>
+<p>Der Live-Serve steht Ihnen zur Verfügung, um Ihre Dokumentationsaktualisierungen zu wiederholen. Während Sie Dinge aktualisieren, können Sie ein Auszeichnungsproblem einführen. Probleme, die als <code>WARNING</code> eingestuft werden, führen dazu, dass ein Standard-Build fehlschlägt. Der Live-Serve ist jedoch so eingerichtet, dass er Warnungen in der Konsolenausgabe anzeigt, während der Build fortgesetzt wird. So können Sie iterieren, ohne die Live-Vorschau neu starten zu müssen.</p>
+<p>Eine <code>WARNING</code> unterscheidet sich von einem <code>ERROR</code>. Wenn Sie ein Problem einführen, das als "ERROR" eingestuft wird, schlägt der Live-Service fehl und erfordert einen Neustart. Er wird erst dann wieder gestartet, wenn das <code>WARNING</code>-Problem behoben ist.</p>
 </div>
 <p>So starten Sie den Live-Server:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">macOS</label><label for="__tabbed_10_2">Linux</label><label for="__tabbed_10_3">Windows</label></div>
@@ -5374,28 +5182,17 @@ erfordert einen Neustart. Er wird erst dann wieder gestartet, wenn das
 </div>
 </div>
 </div>
-<p>Dadurch wird die Dokumentation erstellt, ein Webserver gestartet, um die
-Dokumentation bereitzustellen, und das Dateisystem auf Änderungen an der
-Dokumentationsquelle überwacht.</p>
-<p>Sobald der Server gestartet ist, sehen Sie in der Konsolenausgabe etwas wie das
-Folgende:</p>
+<p>Dadurch wird die Dokumentation erstellt, ein Webserver gestartet, um die Dokumentation bereitzustellen, und das Dateisystem auf Änderungen an der Dokumentationsquelle überwacht.</p>
+<p>Sobald der Server gestartet ist, sehen Sie in der Konsolenausgabe etwas wie das Folgende:</p>
 <div class="highlight"><pre><span></span><code><span class="go">INFO    -  [11:18:51] Wird unter http://127.0.0.1:8000/ bereitgestellt</span>
 </code></pre></div>
-<p>Öffnen Sie einen Browser, und navigieren Sie zu der angegebenen URL. Nun können
-Sie mit der Bearbeitung der Dokumentation beginnen. Wenn eine Änderung
-festgestellt wird, wird die Dokumentation neu erstellt, und jeder Browser, der
-die geänderte Seite anzeigt, wird automatisch aktualisiert.</p>
+<p>Öffnen Sie einen Browser, und navigieren Sie zu der angegebenen URL. Nun können Sie mit der Bearbeitung der Dokumentation beginnen. Wenn eine Änderung festgestellt wird, wird die Dokumentation neu erstellt, und jeder Browser, der die geänderte Seite anzeigt, wird automatisch aktualisiert.</p>
 <div class="admonition note">
 <p class="admonition-title">docs-live" ist ein erster Schritt</p>
-<p>Das Ausführen von <code>docs-live</code>, um mit dem Live-Server zu arbeiten, ist für erste
-Iterationen gedacht. Sie sollten <em>immer</em> einen lokalen Build ausführen, bevor
-Sie einen Pull-Request einreichen.</p>
+<p>Das Ausführen von <code>docs-live</code>, um mit dem Live-Server zu arbeiten, ist für erste Iterationen gedacht. Sie sollten <em>immer</em> einen lokalen Build ausführen, bevor Sie einen Pull-Request einreichen.</p>
 </div>
 <h3 id="lokales-gebaude">Lokales Gebäude<a class="headerlink" href="#lokales-gebaude" title="Permanent link">&para;</a></h3>
-<p>Sobald Sie mit der Iteration fertig sind, müssen Sie einen lokalen Build der
-Dokumentation durchführen. Dieser Build-Prozess ist so konzipiert, dass er bei
-Auszeichnungsproblemen fehlschlägt. So können Sie alles auffangen, was Sie auf
-dem Live-Server übersehen haben könnten.</p>
+<p>Sobald Sie mit der Iteration fertig sind, müssen Sie einen lokalen Build der Dokumentation durchführen. Dieser Build-Prozess ist so konzipiert, dass er bei Auszeichnungsproblemen fehlschlägt. So können Sie alles auffangen, was Sie auf dem Live-Server übersehen haben könnten.</p>
 <h4 id="erzeugen-eines-lokalen-builds">Erzeugen eines lokalen Builds<a class="headerlink" href="#erzeugen-eines-lokalen-builds" title="Permanent link">&para;</a></h4>
 <p>Um ein lokales Build zu erstellen:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">macOS</label><label for="__tabbed_11_2">Linux</label><label for="__tabbed_11_3">Windows</label></div>
@@ -5414,13 +5211,9 @@ dem Live-Server übersehen haben könnten.</p>
 </div>
 </div>
 </div>
-<p>Die Ausgabe dieses Builds befindet sich im Verzeichnis <code>_build</code> im
-Stammverzeichnis des Projekts.</p>
+<p>Die Ausgabe dieses Builds befindet sich im Verzeichnis <code>_build</code> im Stammverzeichnis des Projekts.</p>
 <h4 id="erzeugen-eines-lokal-ubersetzten-builds">Erzeugen eines lokal übersetzten Builds<a class="headerlink" href="#erzeugen-eines-lokal-ubersetzten-builds" title="Permanent link">&para;</a></h4>
-<p>Die Dokumentation von BeeWare ist in mehrere Sprachen übersetzt.
-Aktualisierungen der englischen Dokumentation können zu Problemen in den anderen
-Sprach-Builds führen. Es ist wichtig, dass Sie überprüfen, ob alle Builds
-funktionieren, bevor Sie einen Pull Request einreichen.</p>
+<p>Die Dokumentation von BeeWare ist in mehrere Sprachen übersetzt. Aktualisierungen der englischen Dokumentation können zu Problemen in den anderen Sprach-Builds führen. Es ist wichtig, dass Sie überprüfen, ob alle Builds funktionieren, bevor Sie einen Pull Request einreichen.</p>
 <p>Um ein Build aller verfügbaren Übersetzungen zu erstellen:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">macOS</label><label for="__tabbed_12_2">Linux</label><label for="__tabbed_12_3">Windows</label></div>
 <div class="tabbed-content">
@@ -5438,14 +5231,8 @@ funktionieren, bevor Sie einen Pull Request einreichen.</p>
 </div>
 </div>
 </div>
-<p>Die Ausgabe jedes Sprach-Builds befindet sich im zugehörigen Verzeichnis
-<code>_build/html/&lt;languagecode&gt;</code>, wobei <code>&lt;languagecode&gt;</code> der zwei- oder fünfstellige
-Sprachcode ist, der der jeweiligen Sprache zugeordnet ist (z.B. <code>fr</code> für
-Französisch, <code>it</code> für Italienisch, usw.).</p>
-<p>Wenn Sie ein Problem mit einem einzelnen Build finden, können Sie diesen
-einzelnen Build separat ausführen, indem Sie <code>tox -e docs-&lt;Sprachcode&gt;</code>
-ausführen. Um zum Beispiel nur die französische Dokumentation zu erstellen,
-führen Sie aus:</p>
+<p>Die Ausgabe jedes Sprach-Builds befindet sich im zugehörigen Verzeichnis <code>_build/html/&lt;languagecode&gt;</code>, wobei <code>&lt;languagecode&gt;</code> der zwei- oder fünfstellige Sprachcode ist, der der jeweiligen Sprache zugeordnet ist (z.B. <code>fr</code> für Französisch, <code>it</code> für Italienisch, usw.).</p>
+<p>Wenn Sie ein Problem mit einem einzelnen Build finden, können Sie diesen einzelnen Build separat ausführen, indem Sie <code>tox -e docs-&lt;Sprachcode&gt;</code> ausführen. Um zum Beispiel nur die französische Dokumentation zu erstellen, führen Sie aus:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">macOS</label><label for="__tabbed_13_2">Linux</label><label for="__tabbed_13_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5464,9 +5251,7 @@ führen Sie aus:</p>
 </div>
 <p>Die Ausgabe eines einsprachigen Builds befindet sich im Verzeichnis <code>_build</code>.</p>
 <h3 id="linting-der-dokumentation">Linting der Dokumentation<a class="headerlink" href="#linting-der-dokumentation" title="Permanent link">&para;</a></h3>
-<p>Der Erstellungsprozess erkennt Markdown-Probleme, aber BeeWare führt
-einige zusätzliche Prüfungen für Stil und Formatierung durch, die als "Linting"
-bekannt sind. So führen Sie die Lint-Prüfungen durch:</p>
+<p>Der Erstellungsprozess erkennt Markdown-Probleme, aber BeeWare führt einige zusätzliche Prüfungen für Stil und Formatierung durch, die als "Linting" bekannt sind. So führen Sie die Lint-Prüfungen durch:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">macOS</label><label for="__tabbed_14_2">Linux</label><label for="__tabbed_14_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5488,150 +5273,72 @@ bekannt sind. So führen Sie die Lint-Prüfungen durch:</p>
 <li>tote Hyperlinks</li>
 <li>falsch geschriebene Wörter</li>
 </ul>
-<p>Wenn eine gültige Schreibweise eines Wortes als falsch erkannt wird, dann fügen
-Sie das Wort der Liste in <code>docs/spelling_wordlist</code> hinzu. Dadurch wird das Wort
-in das Wörterbuch der Rechtschreibprüfung aufgenommen. Denken Sie beim
-Hinzufügen zu dieser Liste daran:</p>
+<p>Wenn eine gültige Schreibweise eines Wortes als falsch erkannt wird, dann fügen Sie das Wort der Liste in <code>docs/spelling_wordlist</code> hinzu. Dadurch wird das Wort in das Wörterbuch der Rechtschreibprüfung aufgenommen. Denken Sie beim Hinzufügen zu dieser Liste daran:</p>
 <ul>
-<li>Wir bevorzugen die US-amerikanische Rechtschreibung, mit einigen Freiheiten
-  für programmierspezifische Umgangssprache (z. B. "Apps") und Verben von
-  Substantiven (z. B. "scrollable")</li>
-<li>Jeder Verweis auf einen Produktnamen sollte die bevorzugte Großschreibung des
-  Produkts verwenden. (z. B. "macOS", "GTK", "pytest", "Pygame", "PyScript").</li>
-<li>Wenn ein Begriff "als Code" verwendet wird, sollte er als Literal zitiert
-  werden (<code>wie dies</code>) und nicht in das Wörterbuch aufgenommen werden.</li>
+<li>Wir bevorzugen die US-amerikanische Rechtschreibung, mit einigen Freiheiten für programmierspezifische Umgangssprache (z. B. "Apps") und Verben von Substantiven (z. B. "scrollable")</li>
+<li>Jeder Verweis auf einen Produktnamen sollte die bevorzugte Großschreibung des Produkts verwenden. (z. B. "macOS", "GTK", "pytest", "Pygame", "PyScript").</li>
+<li>Wenn ein Begriff "als Code" verwendet wird, sollte er als Literal zitiert werden (<code>wie dies</code>) und nicht in das Wörterbuch aufgenommen werden.</li>
 </ul>
-<p>Sobald Sie die Dokumentation erfolgreich erstellt haben, können Sie mit dem
-<a href="../../how/write-docs/">Verfassen der Dokumentation</a> beginnen.</p>
+<p>Sobald Sie die Dokumentation erfolgreich erstellt haben, können Sie mit dem <a href="../../how/write-docs/">Verfassen der Dokumentation</a> beginnen.</p>
 </details>
 <details class="abstract">
 <summary>Dokumentation schreiben</summary>
 <h1 id="dokumentation-schreiben">Dokumentation schreiben<a class="headerlink" href="#dokumentation-schreiben" title="Permanent link">&para;</a></h1>
-<p>Dies sind die Schritte, die Sie befolgen müssen, um Ihren Dokumentationsbeitrag
-zu BeeWare zu schreiben.</p>
-<p>Bevor Sie mit dem Verfassen der Dokumentation beginnen, stellen Sie sicher, dass
-Sie in der Lage sind, <a href="../../how/build-docs/">die Dokumentation zu erstellen</a>,
-und dass Sie <a href="../../how/branches/">an einem Zweig arbeiten</a>.</p>
+<p>Dies sind die Schritte, die Sie befolgen müssen, um Ihren Dokumentationsbeitrag zu BeeWare zu schreiben.</p>
+<p>Bevor Sie mit dem Verfassen der Dokumentation beginnen, stellen Sie sicher, dass Sie in der Lage sind, <a href="../../how/build-docs/">die Dokumentation zu erstellen</a>, und dass Sie <a href="../../how/branches/">an einem Zweig arbeiten</a>.</p>
 <h3 id="aktualisierung-der-bestehenden-dokumentation">Aktualisierung der bestehenden Dokumentation<a class="headerlink" href="#aktualisierung-der-bestehenden-dokumentation" title="Permanent link">&para;</a></h3>
-<p>Wenn Sie die vorhandenen Dokumente bearbeiten, müssen Sie die Datei im
-Verzeichnis <code>/docs/de</code> suchen. Die Dateistruktur folgt der Seitenstruktur, so
-dass Sie die Datei über die URL der Dokumentation finden können.</p>
+<p>Wenn Sie die vorhandenen Dokumente bearbeiten, müssen Sie die Datei im Verzeichnis <code>/docs/de</code> suchen. Die Dateistruktur folgt der Seitenstruktur, so dass Sie die Datei über die URL der Dokumentation finden können.</p>
 <h3 id="hinzufugen-einer-neuen-dokumentation">Hinzufügen einer neuen Dokumentation<a class="headerlink" href="#hinzufugen-einer-neuen-dokumentation" title="Permanent link">&para;</a></h3>
-<p>Wenn Sie ein neues Dokument hinzufügen, sind ein paar weitere Schritte
-erforderlich.</p>
-<p>Sie müssen das Dokument an der entsprechenden Stelle im Verzeichnis <code>docs/de</code>
-erstellen. Für die Diskussion nehmen wir an, Sie fügen ein neues Dokument mit
-dem Dateinamen "new_doc.md" hinzu.</p>
-<p>Dann müssen Sie die Datei <code>docs/de/SUMMARY.md</code> aktualisieren, um Ihre neue Datei
-aufzunehmen. Die Datei <code>SUMMARY.md</code> ist so organisiert, dass sie im Wesentlichen
-die Verzeichnisstruktur von <code>docs/de</code> widerspiegelt, aber, was noch wichtiger
-ist, sie bestimmt direkt die Struktur der linken Seitenleiste. Wenn Sie den
-Abschnitt finden, in den Sie <code>new_doc.md</code> einbinden wollen, brauchen Sie nichts
-in <code>SUMMARY.md</code> zu ändern, wenn Sie einen Platzhalterpfad aufgeführt sehen. Zum
-Beispiel:</p>
+<p>Wenn Sie ein neues Dokument hinzufügen, sind ein paar weitere Schritte erforderlich.</p>
+<p>Sie müssen das Dokument an der entsprechenden Stelle im Verzeichnis <code>docs/de</code> erstellen. Für die Diskussion nehmen wir an, Sie fügen ein neues Dokument mit dem Dateinamen "new_doc.md" hinzu.</p>
+<p>Dann müssen Sie die Datei <code>docs/de/SUMMARY.md</code> aktualisieren, um Ihre neue Datei aufzunehmen. Die Datei <code>SUMMARY.md</code> ist so organisiert, dass sie im Wesentlichen die Verzeichnisstruktur von <code>docs/de</code> widerspiegelt, aber, was noch wichtiger ist, sie bestimmt direkt die Struktur der linken Seitenleiste. Wenn Sie den Abschnitt finden, in den Sie <code>new_doc.md</code> einbinden wollen, brauchen Sie nichts in <code>SUMMARY.md</code> zu ändern, wenn Sie einen Platzhalterpfad aufgeführt sehen. Zum Beispiel:</p>
 <div class="highlight"><pre><span></span><code><span class="k">-</span><span class="w"> </span>./Pfad/zum/Verzeichnis/*
 </code></pre></div>
-<p>Wenn der Abschnitt, in den Sie <code>new_doc.md</code> einfügen wollen, eine Liste von
-einzelnen Markdown-Links ist, müssen Sie einen expliziten Link zu Ihrem eigenen
-hinzufügen. Zum Beispiel:</p>
+<p>Wenn der Abschnitt, in den Sie <code>new_doc.md</code> einfügen wollen, eine Liste von einzelnen Markdown-Links ist, müssen Sie einen expliziten Link zu Ihrem eigenen hinzufügen. Zum Beispiel:</p>
 <div class="highlight"><pre><span></span><code><span class="k">-</span><span class="w"> </span>[<span class="nt">Mein neues Dokument</span>](<span class="na">new_doc.md</span>)
 </code></pre></div>
 <h3 id="verfassen-ihrer-dokumentation">Verfassen Ihrer Dokumentation<a class="headerlink" href="#verfassen-ihrer-dokumentation" title="Permanent link">&para;</a></h3>
-<p>Sie können nun die gewünschte Datei in Ihrem Editor öffnen und mit dem Schreiben
-beginnen.</p>
-<p>Wir haben einen <a href="../../style/docs-style-guide/">Dokumentationsleitfaden</a>, der
-unsere Richtlinien für die Erstellung der Dokumentation für BeeWare umreißt.</p>
-<p>Sobald Sie mit Ihrer neuen Dokumentation zufrieden sind, können Sie <a href="../../how/submit-pr/">einen Pull
-Request einreichen</a> mit Ihren vorgeschlagenen Änderungen.</p>
+<p>Sie können nun die gewünschte Datei in Ihrem Editor öffnen und mit dem Schreiben beginnen.</p>
+<p>Wir haben einen <a href="../../style/docs-style-guide/">Dokumentationsleitfaden</a>, der unsere Richtlinien für die Erstellung der Dokumentation für BeeWare umreißt.</p>
+<p>Sobald Sie mit Ihrer neuen Dokumentation zufrieden sind, können Sie <a href="../../how/submit-pr/">einen Pull Request einreichen</a> mit Ihren vorgeschlagenen Änderungen.</p>
 </details>
 <details class="abstract">
 <summary>Änderungsnotiz hinzufügen</summary>
 <h1 id="anderungsinformationen-fur-versionshinweise-hinzufugen">Änderungsinformationen für Versionshinweise hinzufügen<a class="headerlink" href="#anderungsinformationen-fur-versionshinweise-hinzufugen" title="Permanent link">&para;</a></h1>
-<p>Viele BeeWare-Werkzeuge verwenden
-<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a>, um bei der Erstellung der
-Versionshinweise für jede Version zu helfen. Wenn Sie eine Pull-Anfrage an eines
-der entsprechenden Werkzeuge senden, muss diese eine <em>Änderungsnotiz</em> enthalten
-- diese Änderungsnotiz wird der Eintrag in den Versionshinweisen, der die
-vorgenommene Änderung beschreibt.</p>
-<p>Jeder Pull Request muss mindestens eine Datei im Verzeichnis <code>changes/</code>
-enthalten, die eine kurze Beschreibung der durch den Pull Request
-implementierten Änderung enthält. Die Änderungsnotiz sollte im Markdown-Format
-sein, in einer Datei, die den Namen <code>&lt;id&gt;.&lt;Fragmenttyp&gt;.md</code> hat. Wenn die
-Änderung, die Sie vorschlagen, einen Fehler behebt oder eine Funktion
-implementiert, für die es bereits eine Ticketnummer gibt, ist die ID die Nummer
-dieses Tickets. Wenn die Änderung kein entsprechendes Ticket hat, kann die
-PR-Nummer als ID verwendet werden. Sie werden diese PR-Nummer nicht kennen, bis
-Sie den Pull-Request veröffentlichen, so dass der erste CI-Durchlauf die
-`towncrier'-Prüfung nicht bestehen wird; fügen Sie die Änderungsnotiz hinzu und
-veröffentlichen Sie ein PR-Update und CI sollte dann bestehen.</p>
+<p>Viele BeeWare-Werkzeuge verwenden <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a>, um bei der Erstellung der Versionshinweise für jede Version zu helfen. Wenn Sie eine Pull-Anfrage an eines der entsprechenden Werkzeuge senden, muss diese eine <em>Änderungsnotiz</em> enthalten - diese Änderungsnotiz wird der Eintrag in den Versionshinweisen, der die vorgenommene Änderung beschreibt.</p>
+<p>Jeder Pull Request muss mindestens eine Datei im Verzeichnis <code>changes/</code> enthalten, die eine kurze Beschreibung der durch den Pull Request implementierten Änderung enthält. Die Änderungsnotiz sollte im Markdown-Format sein, in einer Datei, die den Namen <code>&lt;id&gt;.&lt;Fragmenttyp&gt;.md</code> hat. Wenn die Änderung, die Sie vorschlagen, einen Fehler behebt oder eine Funktion implementiert, für die es bereits eine Ticketnummer gibt, ist die ID die Nummer dieses Tickets. Wenn die Änderung kein entsprechendes Ticket hat, kann die PR-Nummer als ID verwendet werden. Sie werden diese PR-Nummer nicht kennen, bis Sie den Pull-Request veröffentlichen, so dass der erste CI-Durchlauf die `towncrier'-Prüfung nicht bestehen wird; fügen Sie die Änderungsnotiz hinzu und veröffentlichen Sie ein PR-Update und CI sollte dann bestehen.</p>
 <p>Es gibt fünf Fragmenttypen:</p>
 <ul>
-<li>Funktion": Der PR fügt ein neues Verhalten oder eine Fähigkeit hinzu, die
-  vorher nicht möglich war (z.B. Unterstützung für ein neues Verpackungsformat
-  oder eine neue Funktion in einem bestehenden Verpackungsformat);</li>
-<li>Fehlerbehebung": Der PR behebt einen Fehler in der bestehenden
-  Implementierung;</li>
+<li>Funktion": Der PR fügt ein neues Verhalten oder eine Fähigkeit hinzu, die vorher nicht möglich war (z.B. Unterstützung für ein neues Verpackungsformat oder eine neue Funktion in einem bestehenden Verpackungsformat);</li>
+<li>Fehlerbehebung": Der PR behebt einen Fehler in der bestehenden Implementierung;</li>
 <li><code>doc</code>: Der PR ist eine wesentliche Verbesserung der Dokumentation;</li>
 <li><code>Entfernung</code>; Der PR stellt eine rückwärts inkompatible Änderung der BeeWare API; oder</li>
-<li><code>misc</code>; Eine geringfügige oder administrative Änderung (z.B. das Beheben eines
-  Tippfehlers, eine geringfügige sprachliche Klarstellung oder die
-  Aktualisierung einer Abhängigkeitsversion), die nicht in den Versionshinweisen
-  angekündigt werden muss.</li>
+<li><code>misc</code>; Eine geringfügige oder administrative Änderung (z.B. das Beheben eines Tippfehlers, eine geringfügige sprachliche Klarstellung oder die Aktualisierung einer Abhängigkeitsversion), die nicht in den Versionshinweisen angekündigt werden muss.</li>
 </ul>
-<p>Diese Beschreibung in der Änderungsnotiz sollte eine hochrangige
-"Marketing"-Zusammenfassung der Änderung aus der Sicht des Benutzers sein, keine
-tiefgehende technische Beschreibung oder Implementierungsdetails. Sie
-unterscheidet sich von einer Commit-Nachricht - eine Commit-Nachricht
-beschreibt, was getan wurde, so dass zukünftige Entwickler die Gründe für eine
-Änderung nachvollziehen können; die Änderungsnotiz ist eine Beschreibung zum
-Nutzen der Benutzer, die möglicherweise keine Kenntnisse über Interna haben.</p>
-<p>Wenn Sie zum Beispiel einen Fehler im Zusammenhang mit der Projektbenennung
-beheben, könnte die Commit-Nachricht lauten:</p>
+<p>Diese Beschreibung in der Änderungsnotiz sollte eine hochrangige "Marketing"-Zusammenfassung der Änderung aus der Sicht des Benutzers sein, keine tiefgehende technische Beschreibung oder Implementierungsdetails. Sie unterscheidet sich von einer Commit-Nachricht - eine Commit-Nachricht beschreibt, was getan wurde, so dass zukünftige Entwickler die Gründe für eine Änderung nachvollziehen können; die Änderungsnotiz ist eine Beschreibung zum Nutzen der Benutzer, die möglicherweise keine Kenntnisse über Interna haben.</p>
+<p>Wenn Sie zum Beispiel einen Fehler im Zusammenhang mit der Projektbenennung beheben, könnte die Commit-Nachricht lauten:</p>
 <blockquote>
-<p>Wenden Sie eine stärkere Prüfung auf reguläre Ausdrücke an, um Projektnamen,
-die mit Ziffern beginnen, zu verbieten.</p>
+<p>Wenden Sie eine stärkere Prüfung auf reguläre Ausdrücke an, um Projektnamen, die mit Ziffern beginnen, zu verbieten.</p>
 </blockquote>
 <p>Der entsprechende Änderungsvermerk würde etwa so lauten:</p>
 <blockquote>
 <p>Projektnamen können nicht mehr mit einer Nummer beginnen.</p>
 </blockquote>
-<p>Einige PRs führen mehrere Funktionen ein und beheben mehrere Fehler oder führen
-mehrere rückwärtskompatible Änderungen ein. In diesem Fall kann der PR mehrere
-Änderungsnotizdateien haben. Wenn Sie zwei Fragmenttypen mit der gleichen ID
-verknüpfen müssen, können Sie ein numerisches Suffix anhängen. Wenn z.B. PR 789
-eine Funktion hinzugefügt hat, die in Ticket 123 beschrieben wurde, einen Fehler
-geschlossen hat, der in Ticket 234 beschrieben wurde, und außerdem zwei
-rückwärts inkompatible Änderungen vorgenommen hat, könnten Sie 4
-Änderungsnotizdateien haben:</p>
+<p>Einige PRs führen mehrere Funktionen ein und beheben mehrere Fehler oder führen mehrere rückwärtskompatible Änderungen ein. In diesem Fall kann der PR mehrere Änderungsnotizdateien haben. Wenn Sie zwei Fragmenttypen mit der gleichen ID verknüpfen müssen, können Sie ein numerisches Suffix anhängen. Wenn z.B. PR 789 eine Funktion hinzugefügt hat, die in Ticket 123 beschrieben wurde, einen Fehler geschlossen hat, der in Ticket 234 beschrieben wurde, und außerdem zwei rückwärts inkompatible Änderungen vorgenommen hat, könnten Sie 4 Änderungsnotizdateien haben:</p>
 <ul>
 <li><code>123.feature.md</code></li>
 <li>234.bugfix.md</li>
 <li>789.Umzug.1.md</li>
 <li>789.Umzug.2.md</li>
 </ul>
-<p>Für weitere Informationen über <code>towncrier</code> und Fragmenttypen siehe <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">News
-Fragments</a>.
-Sie können auch bestehende Beispiele von Nachrichtenfragmenten im Verzeichnis
-<code>changes</code> des BeeWare Repositorys sehen. Wenn dieser Ordner leer ist,
-liegt das wahrscheinlich daran, dass BeeWare vor kurzem eine neue
-Version veröffentlicht hat; Änderungsnotizdateien werden gelöscht und
-kombiniert, um die <a href="https://github.com/beeware/beeware/releases">release notes</a> mit jeder Version zu aktualisieren. Sie können sich diese Datei
-ansehen, um zu sehen, welche Art von Kommentar erforderlich ist; Sie können sich
-<a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">recently merged PRs</a> ansehen, um zu sehen, wie Sie Ihre
-Änderungsnotizen formatieren sollten.</p>
+<p>Für weitere Informationen über <code>towncrier</code> und Fragmenttypen siehe <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">News Fragments</a>. Sie können auch bestehende Beispiele von Nachrichtenfragmenten im Verzeichnis <code>changes</code> des BeeWare Repositorys sehen. Wenn dieser Ordner leer ist, liegt das wahrscheinlich daran, dass BeeWare vor kurzem eine neue Version veröffentlicht hat; Änderungsnotizdateien werden gelöscht und kombiniert, um die <a href="https://github.com/beeware/beeware/releases">release notes</a> mit jeder Version zu aktualisieren. Sie können sich diese Datei ansehen, um zu sehen, welche Art von Kommentar erforderlich ist; Sie können sich <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">recently merged PRs</a> ansehen, um zu sehen, wie Sie Ihre Änderungsnotizen formatieren sollten.</p>
 </details>
 <details class="abstract">
 <summary>Einen Pull-Request einreichen</summary>
 <h1 id="ein-pull-request-einreichen">Ein Pull-Request einreichen<a class="headerlink" href="#ein-pull-request-einreichen" title="Permanent link">&para;</a></h1>
-<p>Jetzt, wo Sie alle Ihre Änderungen übertragen haben, können Sie einen
-Pull-Request einreichen. Um einen reibungslosen Überprüfungsprozess zu
-gewährleisten, sollten Sie eine Reihe von Schritten unternehmen.</p>
+<p>Jetzt, wo Sie alle Ihre Änderungen übertragen haben, können Sie einen Pull-Request einreichen. Um einen reibungslosen Überprüfungsprozess zu gewährleisten, sollten Sie eine Reihe von Schritten unternehmen.</p>
 <h3 id="arbeiten-mit-pre-commit">Arbeiten mit Pre-Commit<a class="headerlink" href="#arbeiten-mit-pre-commit" title="Permanent link">&para;</a></h3>
-<p>Wenn Sie eine Änderung übertragen, wird automatisch ein Pre-Commit durchgeführt.
-Wenn bei der Übergabe Probleme gefunden werden, schlägt die Übergabe fehl. Wenn
-möglich, nimmt pre-commit die notwendigen Änderungen vor, um die gefundenen
-Probleme zu beheben. Im folgenden Beispiel wurde durch die "ruff"-Prüfung ein
-Fehler in der Codeformatierung gefunden:</p>
+<p>Wenn Sie eine Änderung übertragen, wird automatisch ein Pre-Commit durchgeführt. Wenn bei der Übergabe Probleme gefunden werden, schlägt die Übergabe fehl. Wenn möglich, nimmt pre-commit die notwendigen Änderungen vor, um die gefundenen Probleme zu beheben. Im folgenden Beispiel wurde durch die "ruff"-Prüfung ein Fehler in der Codeformatierung gefunden:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="15:3"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><input id="__tabbed_15_3" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">macOS</label><label for="__tabbed_15_2">Linux</label><label for="__tabbed_15_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5693,12 +5400,7 @@ Fehler in der Codeformatierung gefunden:</p>
 </div>
 </div>
 </div>
-<p>In diesem Fall hat <code>ruff</code> das Problem automatisch behoben, so dass Sie alle
-Dateien, die als Ergebnis der Pre-Commit-Prüfungen geändert wurden, wieder
-hinzufügen und die Änderung erneut committen können. Bei einigen Prüfungen
-müssen Sie jedoch manuelle Änderungen vornehmen. Sobald Sie diese Änderungen
-vorgenommen haben, fügen Sie alle geänderten Dateien wieder hinzu und übertragen
-die Änderung erneut.</p>
+<p>In diesem Fall hat <code>ruff</code> das Problem automatisch behoben, so dass Sie alle Dateien, die als Ergebnis der Pre-Commit-Prüfungen geändert wurden, wieder hinzufügen und die Änderung erneut committen können. Bei einigen Prüfungen müssen Sie jedoch manuelle Änderungen vornehmen. Sobald Sie diese Änderungen vorgenommen haben, fügen Sie alle geänderten Dateien wieder hinzu und übertragen die Änderung erneut.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="16:3"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><input id="__tabbed_16_2" name="__tabbed_16" type="radio" /><input id="__tabbed_16_3" name="__tabbed_16" type="radio" /><div class="tabbed-labels"><label for="__tabbed_16_1">macOS</label><label for="__tabbed_16_2">Linux</label><label for="__tabbed_16_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5751,15 +5453,10 @@ die Änderung erneut.</p>
 </div>
 </div>
 </div>
-<p>Wenn alles erfolgreich war, sehen Sie eine Meldung, dass der Commit
-abgeschlossen wurde, und Ihr Git-Protokoll zeigt Ihren Commit als die neueste
-Ergänzung an. Sie sind nun bereit, die Datei auf GitHub zu veröffentlichen.</p>
+<p>Wenn alles erfolgreich war, sehen Sie eine Meldung, dass der Commit abgeschlossen wurde, und Ihr Git-Protokoll zeigt Ihren Commit als die neueste Ergänzung an. Sie sind nun bereit, die Datei auf GitHub zu veröffentlichen.</p>
 <h3 id="pushen-sie-ihre-anderungen-auf-github-und-erstellen-sie-ihre-pull-anfrage">Pushen Sie Ihre Änderungen auf GitHub und erstellen Sie Ihre Pull-Anfrage<a class="headerlink" href="#pushen-sie-ihre-anderungen-auf-github-und-erstellen-sie-ihre-pull-anfrage" title="Permanent link">&para;</a></h3>
-<p>Wenn Sie das erste Mal auf GitHub pushen, erhalten Sie eine URL, die Sie direkt
-zur GitHub-Seite führt, um eine neue Pull-Anfrage zu erstellen. Folgen Sie der
-URL und erstellen Sie Ihre Pull-Anfrage.</p>
-<p>Das folgende Beispiel zeigt, was bei <code>push</code> zu erwarten ist, wobei die URL
-hervorgehoben ist.</p>
+<p>Wenn Sie das erste Mal auf GitHub pushen, erhalten Sie eine URL, die Sie direkt zur GitHub-Seite führt, um eine neue Pull-Anfrage zu erstellen. Folgen Sie der URL und erstellen Sie Ihre Pull-Anfrage.</p>
+<p>Das folgende Beispiel zeigt, was bei <code>push</code> zu erwarten ist, wobei die URL hervorgehoben ist.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="17:3"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio" /><input id="__tabbed_17_2" name="__tabbed_17" type="radio" /><input id="__tabbed_17_3" name="__tabbed_17" type="radio" /><div class="tabbed-labels"><label for="__tabbed_17_1">macOS</label><label for="__tabbed_17_2">Linux</label><label for="__tabbed_17_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5815,136 +5512,45 @@ hervorgehoben ist.</p>
 </div>
 </div>
 </div>
-<p>Wenn Sie den aktuellen Zweig bereits auf GitHub gepusht haben, werden Sie die
-URL nicht mehr erhalten. Es gibt jedoch andere Möglichkeiten, die URL für die
-PR-Erstellung zu erhalten:</p>
+<p>Wenn Sie den aktuellen Zweig bereits auf GitHub gepusht haben, werden Sie die URL nicht mehr erhalten. Es gibt jedoch andere Möglichkeiten, die URL für die PR-Erstellung zu erhalten:</p>
 <ul>
-<li>Navigieren Sie zum Upstream-Repository, klicken Sie auf "Pull Requests" und
-  anschließend auf "New pull request" und wählen Sie das Repository aus, von dem
-  aus Sie Ihren Pull Request einreichen möchten.</li>
-<li>Wenn Sie kürzlich gepusht haben, navigieren Sie zum Upstream-Repository,
-  suchen Sie das Banner über der Liste der Dateien, das anzeigt, dass das
-  Projektarchiv "kürzlich gepusht" wurde, und klicken Sie auf die Schaltfläche
-  "Vergleichen &amp; Pull-Anfrage".</li>
-<li>Verwenden Sie den GitHub CLI-Befehl "gh pr create &ndash;web", um einen Webbrowser
-  zu öffnen, der die PR-Erstellungsseite anzeigt.</li>
+<li>Navigieren Sie zum Upstream-Repository, klicken Sie auf "Pull Requests" und anschließend auf "New pull request" und wählen Sie das Repository aus, von dem aus Sie Ihren Pull Request einreichen möchten.</li>
+<li>Wenn Sie kürzlich gepusht haben, navigieren Sie zum Upstream-Repository, suchen Sie das Banner über der Liste der Dateien, das anzeigt, dass das Projektarchiv "kürzlich gepusht" wurde, und klicken Sie auf die Schaltfläche "Vergleichen &amp; Pull-Anfrage".</li>
+<li>Verwenden Sie den GitHub CLI-Befehl "gh pr create &ndash;web", um einen Webbrowser zu öffnen, der die PR-Erstellungsseite anzeigt.</li>
 </ul>
 <div class="admonition info">
 <p class="admonition-title">Die GitHub-CLI: <code>gh</code></p>
-<p>GitHub stellt die <a href="https://cli.github.com/">GitHub CLI</a> zur Verfügung, mit der
-Sie von Ihrem Terminal aus über den Befehl "gh" auf viele Funktionen von GitHub
-zugreifen können. Die <a href="https://cli.github.com/manual/">GitHub CLI-Dokumentation</a>
-behandelt alle Funktionen.</p>
+<p>GitHub stellt die <a href="https://cli.github.com/">GitHub CLI</a> zur Verfügung, mit der Sie von Ihrem Terminal aus über den Befehl "gh" auf viele Funktionen von GitHub zugreifen können. Die <a href="https://cli.github.com/manual/">GitHub CLI-Dokumentation</a> behandelt alle Funktionen.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title"><code>gh pr create</code></p>
-<p>Verwende <em>bitte</em> nicht den Befehl <code>gh pr create</code> allein, um deinen Pull-Request
-zu erstellen. BeeWare-Projekte verwenden eine Vorlage für Pull-Requests, und wir
-verlangen, dass alle Beiträge dieser Vorlage entsprechen. Der Befehl <code>gh pr
-create</code> umgeht die Verwendung dieser Vorlage.</p>
+<p>Verwende <em>bitte</em> nicht den Befehl <code>gh pr create</code> allein, um deinen Pull-Request zu erstellen. BeeWare-Projekte verwenden eine Vorlage für Pull-Requests, und wir verlangen, dass alle Beiträge dieser Vorlage entsprechen. Der Befehl <code>gh pr create</code> umgeht die Verwendung dieser Vorlage.</p>
 </div>
 <h3 id="pr-content">Inhalt des Pull-Requests<a class="headerlink" href="#pr-content" title="Permanent link">&para;</a></h3>
-<p>Der Titel einer Pull-Anfrage muss informativ, klar und prägnant sein. Versuchen
-Sie, ihn möglichst kurz zu halten, aber längere Titel sind akzeptabel, wenn
-nötig. Ein guter PR-Titel sollte einer Person ohne jeglichen Kontext eine
-einigermaßen solide Vorstellung davon geben, welcher Fehler oder welche Funktion
-durch Ihren PR implementiert wird.</p>
-<p>Ihr Pull-Request <strong>muss</strong> der
-BeeWare-<a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">Pull-Request-Vorlage</a>
-entsprechen. Wenn Sie Ihren Pull-Request über die GitHub-Weboberfläche erstellt
-haben, wird diese Vorlage als Ausgangspunkt für die Beschreibung Ihres
-Pull-Requests bereitgestellt. Sollten Sie versehentlich einen Pull-Request
-erstellen, ohne diese Vorlage zu verwenden, können Sie den Pull-Request
-bearbeiten, um den Vorlageninhalt hinzuzufügen – der Vorlageninhalt <em>muss</em>
-jedoch vorhanden sein und ordnungsgemäß ausgefüllt werden.</p>
-<p>Die PR-Beschreibung muss die Änderungen in der PR klar widerspiegeln. Eine
-Person ohne jeglichen Kontext sollte in der Lage sein, Ihre Beschreibung zu
-lesen und relativ vollständig zu verstehen, warum die Änderung vorgenommen wird.
-Vermeiden Sie Witze, Redewendungen, umgangssprachliche Ausdrücke und unnötige
-Formatierungen, wie z. B. Großbuchstaben oder übermäßige Interpunktion; dies
-soll eine direkte Erklärung dessen sein, was in Ihrer PR geschieht, und die
-Vermeidung dieser Dinge macht die Beschreibung für andere leichter verständlich.</p>
-<p>Wenn es Reproduktionsfälle oder Testverfahren gibt, die Sie verwendet haben und
-die nicht bereits Teil der Änderungen in der PR sind, sollten diese erläutert
-und in die PR aufgenommen werden. Die Erklärung sollte beinhalten, wie man sie
-durchführt und was man tun muss, um das gewünschte Ergebnis zu reproduzieren.</p>
-<p>Wenn Ihr Pull Request den Fehler #1234 behebt, sollten Sie den Text `Fixes</p>
-<h1 id="1234-in-ihre-pull-request-beschreibung-einfugen-dies-wird-dazu-fuhren-dass">1234` in Ihre Pull Request Beschreibung einfügen. Dies wird dazu führen, dass<a class="headerlink" href="#1234-in-ihre-pull-request-beschreibung-einfugen-dies-wird-dazu-fuhren-dass" title="Permanent link">&para;</a></h1>
-<p>das Problem automatisch geschlossen wird, wenn der Pull Request zusammengeführt
-wird. Sie können auf andere Diskussionen, Issues oder Pull Requests verweisen,
-indem Sie die gleiche Syntax <code>#1234</code> verwenden. Sie können auf eine Ausgabe in
-einem anderen Repository verweisen, indem Sie der Nummer ein Präfix voranstellen
-- zum Beispiel würde <code>python/cpython#1234</code> auf die Ausgabe 1234 im CPython
-Repository verweisen.</p>
-<p>KI-Tools neigen besonders dazu, ausführliche, wenig hilfreiche
-Pull-Request-Nachrichten zu verfassen. Wenn du ein KI-Tool zur Erstellung deines
-PR verwendest, bist <em>du</em> dafür verantwortlich, sicherzustellen, dass die
-Pull-Request-Beschreibung prägnant ist und nur Informationen enthält, die für
-den Überprüfungsprozess hilfreich sind. Du musst beispielsweise keine Details zu
-einem „Testablauf“ angeben, der beschreibt, wie die Testsuite ausgeführt wird,
-oder eine „Begründung“ dafür liefern, warum ein Fehler behoben werden muss.
-Übermäßig ausführliche Pull-Request-Texte können dazu führen, dass dein Pull
-Request geschlossen wird, ohne geprüft zu werden, da sie die begrenzten
-Ressourcen des Kernteams nicht berücksichtigen.</p>
+<p>Der Titel einer Pull-Anfrage muss informativ, klar und prägnant sein. Versuchen Sie, ihn möglichst kurz zu halten, aber längere Titel sind akzeptabel, wenn nötig. Ein guter PR-Titel sollte einer Person ohne jeglichen Kontext eine einigermaßen solide Vorstellung davon geben, welcher Fehler oder welche Funktion durch Ihren PR implementiert wird.</p>
+<p>Ihr Pull-Request <strong>muss</strong> der BeeWare-<a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">Pull-Request-Vorlage</a> entsprechen. Wenn Sie Ihren Pull-Request über die GitHub-Weboberfläche erstellt haben, wird diese Vorlage als Ausgangspunkt für die Beschreibung Ihres Pull-Requests bereitgestellt. Sollten Sie versehentlich einen Pull-Request erstellen, ohne diese Vorlage zu verwenden, können Sie den Pull-Request bearbeiten, um den Vorlageninhalt hinzuzufügen – der Vorlageninhalt <em>muss</em> jedoch vorhanden sein und ordnungsgemäß ausgefüllt werden.</p>
+<p>Die PR-Beschreibung muss die Änderungen in der PR klar widerspiegeln. Eine Person ohne jeglichen Kontext sollte in der Lage sein, Ihre Beschreibung zu lesen und relativ vollständig zu verstehen, warum die Änderung vorgenommen wird. Vermeiden Sie Witze, Redewendungen, umgangssprachliche Ausdrücke und unnötige Formatierungen, wie z. B. Großbuchstaben oder übermäßige Interpunktion; dies soll eine direkte Erklärung dessen sein, was in Ihrer PR geschieht, und die Vermeidung dieser Dinge macht die Beschreibung für andere leichter verständlich.</p>
+<p>Wenn es Reproduktionsfälle oder Testverfahren gibt, die Sie verwendet haben und die nicht bereits Teil der Änderungen in der PR sind, sollten diese erläutert und in die PR aufgenommen werden. Die Erklärung sollte beinhalten, wie man sie durchführt und was man tun muss, um das gewünschte Ergebnis zu reproduzieren.</p>
+<p>Wenn Ihr Pull Request den Fehler #1234 behebt, sollten Sie den Text <code>Fixes #1234</code> in Ihre Pull Request Beschreibung einfügen. Dies wird dazu führen, dass das Problem automatisch geschlossen wird, wenn der Pull Request zusammengeführt wird. Sie können auf andere Diskussionen, Issues oder Pull Requests verweisen, indem Sie die gleiche Syntax <code>#1234</code> verwenden. Sie können auf eine Ausgabe in einem anderen Repository verweisen, indem Sie der Nummer ein Präfix voranstellen - zum Beispiel würde <code>python/cpython#1234</code> auf die Ausgabe 1234 im CPython Repository verweisen.</p>
+<p>KI-Tools neigen besonders dazu, ausführliche, wenig hilfreiche Pull-Request-Nachrichten zu verfassen. Wenn du ein KI-Tool zur Erstellung deines PR verwendest, bist <em>du</em> dafür verantwortlich, sicherzustellen, dass die Pull-Request-Beschreibung prägnant ist und nur Informationen enthält, die für den Überprüfungsprozess hilfreich sind. Du musst beispielsweise keine Details zu einem „Testablauf“ angeben, der beschreibt, wie die Testsuite ausgeführt wird, oder eine „Begründung“ dafür liefern, warum ein Fehler behoben werden muss. Übermäßig ausführliche Pull-Request-Texte können dazu führen, dass dein Pull Request geschlossen wird, ohne geprüft zu werden, da sie die begrenzten Ressourcen des Kernteams nicht berücksichtigen.</p>
 <div class="admonition warning">
 <p class="admonition-title">Die BeeWare-Vorlage für Pull-Anfragen</p>
-<p>Die BeeWare-Vorlage für Pull-Anfragen
-<a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">Pull-Request-Vorlage</a>
-ist <strong>keine</strong> Option. Wir verlangen, dass <strong>alle</strong> Pull-Requests dieser Vorlage
-entsprechen. Ihr Pull-Request wird nicht geprüft, wenn der Abschnitt
-„PR-Checkliste“ fehlt oder Ihre Antworten auf die Fragen mit Kontrollkästchen
-unvollständig oder widersprüchlich sind. Wenn Sie ein KI-Tool zur Erstellung
-Ihres Pull-Requests verwendet haben, <em>müssen</em> Sie das entsprechende Kästchen
-ankreuzen und in der Zeile „Assisted-by:“ Details angeben.</p>
+<p>Die BeeWare-Vorlage für Pull-Anfragen <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">Pull-Request-Vorlage</a> ist <strong>keine</strong> Option. Wir verlangen, dass <strong>alle</strong> Pull-Requests dieser Vorlage entsprechen. Ihr Pull-Request wird nicht geprüft, wenn der Abschnitt „PR-Checkliste“ fehlt oder Ihre Antworten auf die Fragen mit Kontrollkästchen unvollständig oder widersprüchlich sind. Wenn Sie ein KI-Tool zur Erstellung Ihres Pull-Requests verwendet haben, <em>müssen</em> Sie das entsprechende Kästchen ankreuzen und in der Zeile „Assisted-by:“ Details angeben.</p>
 </div>
 <h3 id="kontinuierliche-integration">Kontinuierliche Integration<a class="headerlink" href="#kontinuierliche-integration" title="Permanent link">&para;</a></h3>
-<p><em>Kontinuierliche Integration</em>, oder <em>CI</em>, ist der Prozess, bei dem
-automatisierte Prüfungen für Ihre Pull-Anfrage durchgeführt werden. Dazu können
-einfache Prüfungen gehören, wie z. B. die Sicherstellung, dass der Code richtig
-formatiert ist, aber auch die Durchführung der Testsuite und die Erstellung der
-Dokumentation.</p>
-<p>Es gibt eine Vielzahl von Änderungen, die zu CI-Fehlern führen können. Generell
-gilt, dass wir einen PR, der die KI nicht durchläuft, nicht prüfen werden. Wenn
-Sie eine Pull-Anforderung erstellen und die KI fehlschlägt, beginnen wir erst
-mit der Überprüfung, wenn sie erfolgreich ist. Wenn Ihre Änderungen zu einem
-Fehler führen, liegt es in Ihrer Verantwortung, den Grund zu untersuchen und das
-Problem zu beheben.</p>
-<p>Wenn die CI fehlschlägt, werden die Fehlerlinks unten auf der PR-Seite unter der
-Überschrift "Einige Prüfungen waren nicht erfolgreich" angezeigt. Sie sehen eine
-Liste der fehlgeschlagenen Prüfungen, die am Anfang der Liste aller Prüfungen
-angezeigt wird, wenn es auch erfolgreiche Prüfungen gibt. Wenn Sie auf den Link
-"Fehler" klicken, gelangen Sie zum Protokoll. Das Protokoll enthält oft alle
-Informationen, die Sie benötigen, um herauszufinden, was den Fehler verursacht
-hat. Lesen Sie das Protokoll durch und versuchen Sie herauszufinden, warum der
-Fehler auftritt, und tun Sie dann das Nötige, um ihn zu beheben.</p>
-<p>Gelegentlich schlägt ein CI-Check aus Gründen fehl, die nichts mit Ihren
-Änderungen zu tun haben. Das kann an einem Problem auf dem Rechner liegen, der
-die CI-Prüfung durchführt, oder daran, dass eine CI-Prüfung instabil ist. Wenn
-Sie einen Fehler feststellen und sich ziemlich sicher sind, dass er nichts mit
-Ihren Änderungen zu tun hat, fügen Sie Ihrem PR einen entsprechenden Kommentar
-hinzu, und wir werden uns die Sache ansehen.</p>
-<p>Um einen neuen CI-Lauf auszulösen, müssen Sie neue Änderungen in Ihren Zweig
-übertragen.</p>
-<p>Wenn Sie sich in einer Situation befinden, in der Sie Hilfe benötigen, um eine
-Informatisierung zu erreichen, hinterlassen Sie einen Kommentar auf der
-PR-Website, und wir werden tun, was wir können, um zu helfen.</p>
+<p><em>Kontinuierliche Integration</em>, oder <em>CI</em>, ist der Prozess, bei dem automatisierte Prüfungen für Ihre Pull-Anfrage durchgeführt werden. Dazu können einfache Prüfungen gehören, wie z. B. die Sicherstellung, dass der Code richtig formatiert ist, aber auch die Durchführung der Testsuite und die Erstellung der Dokumentation.</p>
+<p>Es gibt eine Vielzahl von Änderungen, die zu CI-Fehlern führen können. Generell gilt, dass wir einen PR, der die KI nicht durchläuft, nicht prüfen werden. Wenn Sie eine Pull-Anforderung erstellen und die KI fehlschlägt, beginnen wir erst mit der Überprüfung, wenn sie erfolgreich ist. Wenn Ihre Änderungen zu einem Fehler führen, liegt es in Ihrer Verantwortung, den Grund zu untersuchen und das Problem zu beheben.</p>
+<p>Wenn die CI fehlschlägt, werden die Fehlerlinks unten auf der PR-Seite unter der Überschrift "Einige Prüfungen waren nicht erfolgreich" angezeigt. Sie sehen eine Liste der fehlgeschlagenen Prüfungen, die am Anfang der Liste aller Prüfungen angezeigt wird, wenn es auch erfolgreiche Prüfungen gibt. Wenn Sie auf den Link "Fehler" klicken, gelangen Sie zum Protokoll. Das Protokoll enthält oft alle Informationen, die Sie benötigen, um herauszufinden, was den Fehler verursacht hat. Lesen Sie das Protokoll durch und versuchen Sie herauszufinden, warum der Fehler auftritt, und tun Sie dann das Nötige, um ihn zu beheben.</p>
+<p>Gelegentlich schlägt ein CI-Check aus Gründen fehl, die nichts mit Ihren Änderungen zu tun haben. Das kann an einem Problem auf dem Rechner liegen, der die CI-Prüfung durchführt, oder daran, dass eine CI-Prüfung instabil ist. Wenn Sie einen Fehler feststellen und sich ziemlich sicher sind, dass er nichts mit Ihren Änderungen zu tun hat, fügen Sie Ihrem PR einen entsprechenden Kommentar hinzu, und wir werden uns die Sache ansehen.</p>
+<p>Um einen neuen CI-Lauf auszulösen, müssen Sie neue Änderungen in Ihren Zweig übertragen.</p>
+<p>Wenn Sie sich in einer Situation befinden, in der Sie Hilfe benötigen, um eine Informatisierung zu erreichen, hinterlassen Sie einen Kommentar auf der PR-Website, und wir werden tun, was wir können, um zu helfen.</p>
 <div class="admonition note">
 <p class="admonition-title">Die "Pre-Commit"- und "Citycrier"-Kontrollen</p>
-<p>Wenn entweder die <code>pre-commit</code>- oder die <code>towncrier</code>-Prüfung fehlschlägt, werden
-die meisten anderen CI-Prüfungen nicht ausgeführt. Sie müssen die entsprechenden
-Probleme beheben, bevor der gesamte Satz von Prüfungen ausgeführt werden kann.</p>
+<p>Wenn entweder die <code>pre-commit</code>- oder die <code>towncrier</code>-Prüfung fehlschlägt, werden die meisten anderen CI-Prüfungen nicht ausgeführt. Sie müssen die entsprechenden Probleme beheben, bevor der gesamte Satz von Prüfungen ausgeführt werden kann.</p>
 </div>
-<p>Wir haben nur begrenzte KI-Ressourcen. Es ist wichtig zu verstehen, dass jedes
-Mal, wenn Sie in den Zweig pushen, CI gestartet wird. Wenn Sie eine Reihe von
-Änderungen vornehmen wollen, ist es besser, diese Änderungen lokal vorzunehmen
-und sie alle auf einmal zu pushen. CI wird nur die letzte Übergabe in einem
-Batch ausführen, um die Belastung unseres CI-Systems zu minimieren.</p>
-<p>Der Prozess der Einreichung Ihres PR ist erst dann abgeschlossen, wenn er von
-der Kommission genehmigt wurde oder Sie eine Erklärung dafür abgeben können,
-warum er nicht genehmigt wurde.</p>
-<p>Ihr Pull-Request erfordert möglicherweise zusätzliche Inhalte, wie z. B. eine
-<a href="../../how/change-note/">Änderungsnotiz</a>, bevor er
-<a href="../../next/pr-review/">überprüft</a> werden kann.</p>
+<p>Wir haben nur begrenzte KI-Ressourcen. Es ist wichtig zu verstehen, dass jedes Mal, wenn Sie in den Zweig pushen, CI gestartet wird. Wenn Sie eine Reihe von Änderungen vornehmen wollen, ist es besser, diese Änderungen lokal vorzunehmen und sie alle auf einmal zu pushen. CI wird nur die letzte Übergabe in einem Batch ausführen, um die Belastung unseres CI-Systems zu minimieren.</p>
+<p>Der Prozess der Einreichung Ihres PR ist erst dann abgeschlossen, wenn er von der Kommission genehmigt wurde oder Sie eine Erklärung dafür abgeben können, warum er nicht genehmigt wurde.</p>
+<p>Ihr Pull-Request erfordert möglicherweise zusätzliche Inhalte, wie z. B. eine <a href="../../how/change-note/">Änderungsnotiz</a>, bevor er <a href="../../next/pr-review/">überprüft</a> werden kann.</p>
 </details>
 
 

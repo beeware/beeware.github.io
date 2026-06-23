@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Záhlaví"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/change-note/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/change-note/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4770,70 +4778,33 @@ aria-label="Záhlaví"
 
 
 <h1 id="pridani-informaci-o-zmenach-do-poznamek-k-vydani">Přidání informací o změnách do poznámek k vydání<a class="headerlink" href="#pridani-informaci-o-zmenach-do-poznamek-k-vydani" title="Permanent link">&para;</a></h1>
-<p>Mnoho nástrojů BeeWare používá
-<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> k pomoci při vytváření
-poznámek k vydání pro každé vydání. Když odešlete žádost o stažení do jednoho z
-příslušných nástrojů, bude nutné zahrnout <em>poznámku o změně</em> – tato poznámka o
-změně se stane záznamem v poznámkách k vydání popisujícím provedenou změnu.</p>
-<p>Každý pull request musí obsahovat alespoň jeden soubor v adresáři <code>changes/</code>,
-který obsahuje krátký popis změny implementované pull requestem. Poznámka ke
-změně by měla být ve formátu Markdown, v souboru s názvem ve formátu
-<code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Pokud změna, kterou navrhujete, opraví chybu nebo
-implementuje funkci, pro kterou již existuje číslo problému, bude ID číslem
-tohoto tiketu. Pokud změna nemá odpovídající problém, lze jako ID použít číslo
-PR. Toto číslo PR nebudete znát, dokud neodešlete žádost o stažení, takže první
-CI test selže při kontrole <code>towncrier</code>; přidejte poznámku o změně a odešlete
-aktualizaci PR a CI by pak mělo projít.</p>
+<p>Mnoho nástrojů BeeWare používá <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> k pomoci při vytváření poznámek k vydání pro každé vydání. Když odešlete žádost o stažení do jednoho z příslušných nástrojů, bude nutné zahrnout <em>poznámku o změně</em> – tato poznámka o změně se stane záznamem v poznámkách k vydání popisujícím provedenou změnu.</p>
+<p>Každý pull request musí obsahovat alespoň jeden soubor v adresáři <code>changes/</code>, který obsahuje krátký popis změny implementované pull requestem. Poznámka ke změně by měla být ve formátu Markdown, v souboru s názvem ve formátu <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Pokud změna, kterou navrhujete, opraví chybu nebo implementuje funkci, pro kterou již existuje číslo problému, bude ID číslem tohoto tiketu. Pokud změna nemá odpovídající problém, lze jako ID použít číslo PR. Toto číslo PR nebudete znát, dokud neodešlete žádost o stažení, takže první CI test selže při kontrole <code>towncrier</code>; přidejte poznámku o změně a odešlete aktualizaci PR a CI by pak mělo projít.</p>
 <p>Existuje pět typů fragmentů:</p>
 <ul>
-<li><code>feature</code>: PR přidává nové chování nebo schopnost, která dříve nebyla možná
-  (např. přidání podpory pro nový formát balení nebo novou funkci ve stávajícím
-  formátu balení);</li>
+<li><code>feature</code>: PR přidává nové chování nebo schopnost, která dříve nebyla možná (např. přidání podpory pro nový formát balení nebo novou funkci ve stávajícím formátu balení);</li>
 <li><code>bugfix</code>: PR opravuje chybu ve stávající implementaci;</li>
 <li><code>doc</code>: PR představuje významné zlepšení dokumentace;</li>
-<li><code>removal</code>; PR představuje zpětně nekompatibilní změnu v API BeeWare;
-  nebo</li>
-<li><code>misc</code>; Drobná nebo administrativní změna (např. oprava překlepu, drobné
-  jazykové upřesnění nebo aktualizace verze závislosti), kterou není nutné
-  oznamovat v poznámkách k vydání.</li>
+<li><code>removal</code>; PR představuje zpětně nekompatibilní změnu v API BeeWare; nebo</li>
+<li><code>misc</code>; Drobná nebo administrativní změna (např. oprava překlepu, drobné jazykové upřesnění nebo aktualizace verze závislosti), kterou není nutné oznamovat v poznámkách k vydání.</li>
 </ul>
-<p>Tento popis v poznámce ke změně by měl být obecný „marketingový“ souhrn změny z
-pohledu uživatele, nikoli podrobný technický popis nebo podrobnosti
-implementace. Liší se od zprávy o potvrzení – zpráva o potvrzení popisuje, co
-bylo provedeno, aby budoucí vývojáři mohli sledovat důvody změny; poznámka ke
-změně je popis pro uživatele, kteří nemusí mít znalosti o vnitřním fungování.</p>
-<p>Například pokud opravíte chybu související s pojmenováním projektu, zpráva o
-potvrzení může znít:</p>
+<p>Tento popis v poznámce ke změně by měl být obecný „marketingový“ souhrn změny z pohledu uživatele, nikoli podrobný technický popis nebo podrobnosti implementace. Liší se od zprávy o potvrzení – zpráva o potvrzení popisuje, co bylo provedeno, aby budoucí vývojáři mohli sledovat důvody změny; poznámka ke změně je popis pro uživatele, kteří nemusí mít znalosti o vnitřním fungování.</p>
+<p>Například pokud opravíte chybu související s pojmenováním projektu, zpráva o potvrzení může znít:</p>
 <blockquote>
-<p>Použijte přísnější kontrolu regulárních výrazů, aby nebyly povoleny názvy
-projektů začínající číslicemi.</p>
+<p>Použijte přísnější kontrolu regulárních výrazů, aby nebyly povoleny názvy projektů začínající číslicemi.</p>
 </blockquote>
 <p>Odpovídající poznámka o změně by zněla přibližně takto:</p>
 <blockquote>
 <p>Názvy projektů již nemohou začínat číslicí.</p>
 </blockquote>
-<p>Některé PR zavádějí více funkcí a opravují více chyb nebo zavádějí více změn,
-které nejsou zpětně kompatibilní. V takovém případě může PR obsahovat více
-souborů se změnami. Pokud potřebujete spojit dva typy fragmentů se stejným ID,
-můžete přidat číselnou příponu. Například pokud PR 789 přidalo funkci popsanou v
-ticketu 123, opravilo chybu popsanou v ticketu 234 a také provedlo dvě zpětně
-nekompatibilní změny, můžete mít 4 soubory se změnami:</p>
+<p>Některé PR zavádějí více funkcí a opravují více chyb nebo zavádějí více změn, které nejsou zpětně kompatibilní. V takovém případě může PR obsahovat více souborů se změnami. Pokud potřebujete spojit dva typy fragmentů se stejným ID, můžete přidat číselnou příponu. Například pokud PR 789 přidalo funkci popsanou v ticketu 123, opravilo chybu popsanou v ticketu 234 a také provedlo dvě zpětně nekompatibilní změny, můžete mít 4 soubory se změnami:</p>
 <ul>
 <li><code>123.feature.md</code></li>
 <li><code>234.bugfix.md</code></li>
 <li><code>789.removal.1.md</code></li>
 <li><code>789.removal.2.md</code></li>
 </ul>
-<p>Další informace o typech fragmentů <code>towncrier</code> a fragmentů najdete v části
-<a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Fragmenty
-zpráv</a>.
-Stávající příklady fragmentů zpráv najdete také v adresáři <code>changes</code> repozitáře
-BeeWare. Pokud je tato složka prázdná, je to pravděpodobně proto, že
-BeeWare nedávno vydalo novou verzi; soubory se změnami jsou smazány a
-sloučeny, aby se aktualizovaly <a href="https://github.com/beeware/beeware/releases">poznámky k vydání</a> s každým vydáním. V tomto souboru si můžete
-prohlédnout požadovaný styl komentářů; v <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">nedávno sloučených
-PR</a>
-si můžete prohlédnout, jak formátovat poznámky ke změnám.</p>
+<p>Další informace o typech fragmentů <code>towncrier</code> a fragmentů najdete v části <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Fragmenty zpráv</a>. Stávající příklady fragmentů zpráv najdete také v adresáři <code>changes</code> repozitáře BeeWare. Pokud je tato složka prázdná, je to pravděpodobně proto, že BeeWare nedávno vydalo novou verzi; soubory se změnami jsou smazány a sloučeny, aby se aktualizovaly <a href="https://github.com/beeware/beeware/releases">poznámky k vydání</a> s každým vydáním. V tomto souboru si můžete prohlédnout požadovaný styl komentářů; v <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">nedávno sloučených PR</a> si můžete prohlédnout, jak formátovat poznámky ke změnám.</p>
 
 
 

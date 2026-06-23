@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Kopfzeile"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/style/code-style-guide/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/style/code-style-guide/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4964,41 +4972,15 @@ aria-label="Kopfzeile"
 
 
 <h1 id="code-stilrichtlinien">Code-Stilrichtlinien<a class="headerlink" href="#code-stilrichtlinien" title="Permanent link">&para;</a></h1>
-<p>Dieser Leitfaden enthält Informationen und Richtlinien zum Schreiben von Code
-für BeeWare.</p>
+<p>Dieser Leitfaden enthält Informationen und Richtlinien zum Schreiben von Code für BeeWare.</p>
 <h3 id="code-style">Codierungsstil<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h3>
-<p>BeeWare folgt <a href="https://peps.python.org/pep-0008/">PEP 8</a> in unserer Codebasis,
-außer dass die Zeilenlänge von 79 auf 88 Zeichen erweitert wurde. Wir verwenden
-<a href="https://docs.astral.sh/ruff/">Ruff</a>, um die PEP 8-Konventionen nach Möglichkeit
-durchzusetzen. Wenn Sie Ihren Code committen, führt pre-commit Überprüfungen
-durch, darunter auch Ruff. Wenn möglich, wird Ihr Code automatisch formatiert,
-um sicherzustellen, dass er unseren Formatierungs- und Stilstandards entspricht.
-Sie können einige IDEs so einrichten, dass Ruff beim Speichern automatisch
-ausgeführt wird, was den Prozess erleichtern kann.</p>
-<p>Denken Sie daran, dass der wichtigste Teil von PEP 8 <a href="https://peps.python.org/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">Abschnitt 0: Eine törichte
-Konsistenz ist der Kobold der
-Kleingeister</a>
-ist. Es gibt Situationen, in denen es keinen Sinn macht, sich an PEP 8 zu
-halten, und es ist wichtig zu verstehen, dass es akzeptabel und manchmal sogar
-vorzuziehen ist, Code zu schreiben, der nicht mit den aufgeführten Regeln
-übereinstimmt. Zu wissen, <em>wann</em> man sich nicht an diese Regeln halten sollte,
-ist in den meisten Situationen genauso wichtig wie die Einhaltung der
-Konsistenz.</p>
-<p>Dies zeigt sich unter anderem in den Namenskonventionen. BeeWare-Bibliotheken
-müssen häufig eine Brücke zu anderen Sprachen schlagen. Beim Erstellen von
-Wrappern für andere Sprachen ist es wünschenswert (und in manchen Fällen sogar
-erforderlich), die Namenskonventionen der Zielsprache zu befolgen und nicht die
-von Python. Wenn beispielsweise Java-Code aufgerufen oder referenziert wird,
-sollten Funktionen der in Java bevorzugten Schreibweise <code>mixedCase</code> folgen und
-nicht der in PEP 8 empfohlenen Schreibweise <code>snake_case</code>.</p>
-<p>Wir halten uns bei der Benennung von APIs, Variablen usw. an die
-US-Rechtschreibung.</p>
+<p>BeeWare folgt <a href="https://peps.python.org/pep-0008/">PEP 8</a> in unserer Codebasis, außer dass die Zeilenlänge von 79 auf 88 Zeichen erweitert wurde. Wir verwenden <a href="https://docs.astral.sh/ruff/">Ruff</a>, um die PEP 8-Konventionen nach Möglichkeit durchzusetzen. Wenn Sie Ihren Code committen, führt pre-commit Überprüfungen durch, darunter auch Ruff. Wenn möglich, wird Ihr Code automatisch formatiert, um sicherzustellen, dass er unseren Formatierungs- und Stilstandards entspricht. Sie können einige IDEs so einrichten, dass Ruff beim Speichern automatisch ausgeführt wird, was den Prozess erleichtern kann.</p>
+<p>Denken Sie daran, dass der wichtigste Teil von PEP 8 <a href="https://peps.python.org/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">Abschnitt 0: Eine törichte Konsistenz ist der Kobold der Kleingeister</a> ist. Es gibt Situationen, in denen es keinen Sinn macht, sich an PEP 8 zu halten, und es ist wichtig zu verstehen, dass es akzeptabel und manchmal sogar vorzuziehen ist, Code zu schreiben, der nicht mit den aufgeführten Regeln übereinstimmt. Zu wissen, <em>wann</em> man sich nicht an diese Regeln halten sollte, ist in den meisten Situationen genauso wichtig wie die Einhaltung der Konsistenz.</p>
+<p>Dies zeigt sich unter anderem in den Namenskonventionen. BeeWare-Bibliotheken müssen häufig eine Brücke zu anderen Sprachen schlagen. Beim Erstellen von Wrappern für andere Sprachen ist es wünschenswert (und in manchen Fällen sogar erforderlich), die Namenskonventionen der Zielsprache zu befolgen und nicht die von Python. Wenn beispielsweise Java-Code aufgerufen oder referenziert wird, sollten Funktionen der in Java bevorzugten Schreibweise <code>mixedCase</code> folgen und nicht der in PEP 8 empfohlenen Schreibweise <code>snake_case</code>.</p>
+<p>Wir halten uns bei der Benennung von APIs, Variablen usw. an die US-Rechtschreibung.</p>
 <p>Es gibt außerdem einige BeeWare-spezifische Ergänzungen zu PEP 8:</p>
-<p>Auch wenn die Typangabe gemäß <a href="https://peps.python.org/pep-0484/">PEP 484</a>
-optional ist, wird sie nach wie vor dringend empfohlen, insbesondere bei
-öffentlichen API-Schnittstellen.</p>
-<p>Nachfolgend finden Sie ein Beispiel für eine Standardfunktionsdefinition mit
-korrekten Typangaben und einem Sphinx-Docstring:</p>
+<p>Auch wenn die Typangabe gemäß <a href="https://peps.python.org/pep-0484/">PEP 484</a> optional ist, wird sie nach wie vor dringend empfohlen, insbesondere bei öffentlichen API-Schnittstellen.</p>
+<p>Nachfolgend finden Sie ein Beispiel für eine Standardfunktionsdefinition mit korrekten Typangaben und einem Sphinx-Docstring:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="sd">&quot;&quot;&quot;Beispielfunktion mit Typen und einer Docstring.</span>
 
@@ -5009,17 +4991,12 @@ korrekten Typangaben und einem Sphinx-Docstring:</p>
 <span class="sd">&quot;&quot;&quot;</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">Aufteilung langer Funktionsaufrufe<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
-<p>Wenn ein Funktionsaufruf mit mehr als einem Argument nicht in eine einzige Zeile
-passt, setzen Sie jedes Argument in eine eigene Zeile und fügen Sie am Ende des
-letzten Arguments ein Komma ein. Ruff erlaubt (und schlägt vor) eine
-Formatierung mit mehreren Argumenten in einer umgebrochenen Zeile:</p>
+<p>Wenn ein Funktionsaufruf mit mehr als einem Argument nicht in eine einzige Zeile passt, setzen Sie jedes Argument in eine eigene Zeile und fügen Sie am Ende des letzten Arguments ein Komma ein. Ruff erlaubt (und schlägt vor) eine Formatierung mit mehreren Argumenten in einer umgebrochenen Zeile:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>Dieser Stil sollte nicht verwendet werden. Verteilen Sie die Argumente
-stattdessen auf jeweils eine Zeile, indem Sie am Ende des letzten Arguments ein
-Komma setzen:</p>
+<p>Dieser Stil sollte nicht verwendet werden. Verteilen Sie die Argumente stattdessen auf jeweils eine Zeile, indem Sie am Ende des letzten Arguments ein Komma setzen:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
     <span class="n">arg2</span><span class="p">,</span>
@@ -5027,10 +5004,7 @@ Komma setzen:</p>
 <span class="p">)</span>
 </code></pre></div>
 <h4 id="split-long-strings">Lange Zeichenfolgen aufteilen<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
-<p>Wenn ein String-Argument auf mehrere Zeilen aufgeteilt werden muss, um die
-Anforderungen an die Zeilenlänge zu erfüllen, setzen Sie die verketteten
-String-Literale in Klammern, damit klar ist, dass es sich um ein einziges
-Argument handelt. Das heißt, wir bevorzugen:</p>
+<p>Wenn ein String-Argument auf mehrere Zeilen aufgeteilt werden muss, um die Anforderungen an die Zeilenlänge zu erfüllen, setzen Sie die verketteten String-Literale in Klammern, damit klar ist, dass es sich um ein einziges Argument handelt. Das heißt, wir bevorzugen:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
  <span class="s2">&quot;Dies ist eine sehr lange Zeichenfolge&quot;</span>
@@ -5047,25 +5021,11 @@ Argument handelt. Das heißt, wir bevorzugen:</p>
 <span class="p">)</span>
 </code></pre></div>
 <h3 id="zu-vermeidende-dinge">Zu vermeidende Dinge<a class="headerlink" href="#zu-vermeidende-dinge" title="Permanent link">&para;</a></h3>
-<p>Wir versuchen, "utils"-Module so weit wie möglich zu vermeiden, mit dem
-Verständnis, dass sie manchmal unvermeidbar sind. Die bevorzugte Alternative
-ist, die Funktion an anderer Stelle im Quellcode zu finden, anstatt ein
-"utils"-Modul zu verwenden.</p>
-<p>Generell versuchen wir, teuren Initialisierungscode zu vermeiden oder
-aufzuschieben, um einen schnelleren Start der App zu erreichen. Beispielsweise
-werden Module im toga-core-Paket „lazy loaded“ – sie werden erst bei Bedarf
-importiert und nicht alle im Voraus. Dies beschleunigt den Start und es wird nur
-Zeit für das aufgewendet, was die App tatsächlich nutzt.</p>
-<p>Vermeiden Sie beim Verfassen von Kommentaren die Verwendung von Pronomen der
-ersten Person Plural wie „wir“ (schreiben Sie beispielsweise „Loop over“ statt
-„We loop over“).</p>
-<p>Geben Sie in den Test-Docstrings das erwartete Verhalten an, das der jeweilige
-Test demonstriert. Verzichten Sie auf Einleitungen wie „Tests, dass“ oder
-„Stellt sicher, dass“.</p>
-<p>Verwenden Sie Ticket-Referenzen für schwer fassbare Probleme, bei denen das
-Ticket zusätzliche Details enthält, die sich nicht ohne Weiteres in Docstrings
-oder Kommentaren beschreiben lassen. Fügen Sie die Ticketnummer am Ende eines
-Satzes wie folgt ein:</p>
+<p>Wir versuchen, "utils"-Module so weit wie möglich zu vermeiden, mit dem Verständnis, dass sie manchmal unvermeidbar sind. Die bevorzugte Alternative ist, die Funktion an anderer Stelle im Quellcode zu finden, anstatt ein "utils"-Modul zu verwenden.</p>
+<p>Generell versuchen wir, teuren Initialisierungscode zu vermeiden oder aufzuschieben, um einen schnelleren Start der App zu erreichen. Beispielsweise werden Module im toga-core-Paket „lazy loaded“ – sie werden erst bei Bedarf importiert und nicht alle im Voraus. Dies beschleunigt den Start und es wird nur Zeit für das aufgewendet, was die App tatsächlich nutzt.</p>
+<p>Vermeiden Sie beim Verfassen von Kommentaren die Verwendung von Pronomen der ersten Person Plural wie „wir“ (schreiben Sie beispielsweise „Loop over“ statt „We loop over“).</p>
+<p>Geben Sie in den Test-Docstrings das erwartete Verhalten an, das der jeweilige Test demonstriert. Verzichten Sie auf Einleitungen wie „Tests, dass“ oder „Stellt sicher, dass“.</p>
+<p>Verwenden Sie Ticket-Referenzen für schwer fassbare Probleme, bei denen das Ticket zusätzliche Details enthält, die sich nicht ohne Weiteres in Docstrings oder Kommentaren beschreiben lassen. Fügen Sie die Ticketnummer am Ende eines Satzes wie folgt ein:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
 <span class="w"> </span><span class="sd">&quot;&quot;&quot;Ein Test-Docstring sieht so aus (#123456).&quot;&quot;&quot;</span>
 </code></pre></div>

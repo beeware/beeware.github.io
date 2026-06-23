@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Nagłówek"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/build-docs/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/build-docs/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4986,30 +4994,16 @@ aria-label="Nagłówek"
 
 
 <h1 id="dokumentacja-budowlana">Dokumentacja budowlana<a class="headerlink" href="#dokumentacja-budowlana" title="Permanent link">&para;</a></h1>
-<p>Przed wprowadzeniem jakichkolwiek zmian w dokumentacji BeeWare, warto
-sprawdzić, czy można skompilować istniejącą dokumentację.</p>
-<p>Przed przystąpieniem do tworzenia dokumentacji należy skonfigurować <a href="../dev-environment/">środowisko
-programistyczne</a>.</p>
-<p><strong>Musisz</strong> mieć zainstalowany interpreter języka Python 3.13 i dostępny w ścieżce (tj. <code>python3.13</code> musi uruchamiać
-interpreter języka Python 3.13).</p>
-<p>BeeWare używa <code>tox</code> do tworzenia dokumentacji. Poniższe polecenia
-<code>tox</code> muszą być uruchamiane z tej samej lokalizacji co plik <code>tox.ini</code>, który
-znajduje się w katalogu głównym projektu.</p>
+<p>Przed wprowadzeniem jakichkolwiek zmian w dokumentacji BeeWare, warto sprawdzić, czy można skompilować istniejącą dokumentację.</p>
+<p>Przed przystąpieniem do tworzenia dokumentacji należy skonfigurować <a href="../dev-environment/">środowisko programistyczne</a>.</p>
+<p><strong>Musisz</strong> mieć zainstalowany interpreter języka Python 3.13 i dostępny w ścieżce (tj. <code>python3.13</code> musi uruchamiać interpreter języka Python 3.13).</p>
+<p>BeeWare używa <code>tox</code> do tworzenia dokumentacji. Poniższe polecenia <code>tox</code> muszą być uruchamiane z tej samej lokalizacji co plik <code>tox.ini</code>, który znajduje się w katalogu głównym projektu.</p>
 <h3 id="podglad-dokumentacji-na-zywo">Podgląd dokumentacji na żywo<a class="headerlink" href="#podglad-dokumentacji-na-zywo" title="Permanent link">&para;</a></h3>
-<p>Aby ułatwić szybką edycję dokumentacji, BeeWare posiada tryb „podglądu
-na żywo”.</p>
+<p>Aby ułatwić szybką edycję dokumentacji, BeeWare posiada tryb „podglądu na żywo”.</p>
 <div class="admonition warning">
 <p class="admonition-title">Podgląd na żywo zostanie utworzony wraz z ostrzeżeniami!</p>
-<p>Usługa Live Serve umożliwia iterację aktualizacji dokumentacji. Podczas
-aktualizacji może pojawić się problem z oznaczeniami. Problemy oznaczone jako
-<code>WARNING</code> spowodują niepowodzenie standardowej kompilacji, jednak usługa Live
-Serve jest skonfigurowana tak, aby wyświetlać ostrzeżenia w konsoli, kontynuując
-jednocześnie kompilację. Dzięki temu można przeprowadzać iteracje bez
-konieczności ponownego uruchamiania podglądu na żywo.</p>
-<p><code>WARNING</code> różni się od <code>ERROR</code>. Jeśli wprowadzisz problem uznawany za <code>ERROR</code>,
-serwis na żywo nie będzie działał i konieczne będzie jego ponowne uruchomienie.
-Nie zostanie on ponownie uruchomiony, dopóki problem <code>WARNING</code> nie zostanie
-rozwiązany.</p>
+<p>Usługa Live Serve umożliwia iterację aktualizacji dokumentacji. Podczas aktualizacji może pojawić się problem z oznaczeniami. Problemy oznaczone jako <code>WARNING</code> spowodują niepowodzenie standardowej kompilacji, jednak usługa Live Serve jest skonfigurowana tak, aby wyświetlać ostrzeżenia w konsoli, kontynuując jednocześnie kompilację. Dzięki temu można przeprowadzać iteracje bez konieczności ponownego uruchamiania podglądu na żywo.</p>
+<p><code>WARNING</code> różni się od <code>ERROR</code>. Jeśli wprowadzisz problem uznawany za <code>ERROR</code>, serwis na żywo nie będzie działał i konieczne będzie jego ponowne uruchomienie. Nie zostanie on ponownie uruchomiony, dopóki problem <code>WARNING</code> nie zostanie rozwiązany.</p>
 </div>
 <p>Aby uruchomić serwer na żywo:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
@@ -5028,27 +5022,17 @@ rozwiązany.</p>
 </div>
 </div>
 </div>
-<p>Spowoduje to utworzenie dokumentacji, uruchomienie serwera WWW do obsługi
-dokumentacji oraz monitorowanie systemu plików pod kątem wszelkich zmian w
-źródłach dokumentacji.</p>
+<p>Spowoduje to utworzenie dokumentacji, uruchomienie serwera WWW do obsługi dokumentacji oraz monitorowanie systemu plików pod kątem wszelkich zmian w źródłach dokumentacji.</p>
 <p>Po uruchomieniu serwera w konsoli pojawi się następujący komunikat:</p>
 <div class="highlight"><pre><span></span><code><span class="go">INFO    -  [11:18:51] Obsługa na stronie http://127.0.0.1:8000/</span>
 </code></pre></div>
-<p>Otwórz przeglądarkę i przejdź do podanego adresu URL. Teraz możesz rozpocząć
-iterację dokumentacji. W przypadku wykrycia zmiany dokumentacja zostanie
-ponownie zbudowana, a każda przeglądarka wyświetlająca zmodyfikowaną stronę
-zostanie automatycznie odświeżona.</p>
+<p>Otwórz przeglądarkę i przejdź do podanego adresu URL. Teraz możesz rozpocząć iterację dokumentacji. W przypadku wykrycia zmiany dokumentacja zostanie ponownie zbudowana, a każda przeglądarka wyświetlająca zmodyfikowaną stronę zostanie automatycznie odświeżona.</p>
 <div class="admonition note">
 <p class="admonition-title"><code>docs-live</code> to pierwszy krok</p>
-<p>Uruchomienie <code>docs-live</code> w celu pracy z serwerem na żywo służy do wstępnej
-iteracji. Przed przesłaniem pull requestu należy <em>zawsze</em> uruchomić lokalną
-kompilację.</p>
+<p>Uruchomienie <code>docs-live</code> w celu pracy z serwerem na żywo służy do wstępnej iteracji. Przed przesłaniem pull requestu należy <em>zawsze</em> uruchomić lokalną kompilację.</p>
 </div>
 <h3 id="lokalna-kompilacja">Lokalna kompilacja<a class="headerlink" href="#lokalna-kompilacja" title="Permanent link">&para;</a></h3>
-<p>Po zakończeniu iteracji należy wykonać lokalną kompilację dokumentacji. Proces
-kompilacji jest zaprojektowany tak, aby zakończył się niepowodzeniem w przypadku
-wystąpienia jakichkolwiek problemów z oznaczeniami. Pozwala to wychwycić
-wszystko, co mogło zostać przeoczone na serwerze produkcyjnym.</p>
+<p>Po zakończeniu iteracji należy wykonać lokalną kompilację dokumentacji. Proces kompilacji jest zaprojektowany tak, aby zakończył się niepowodzeniem w przypadku wystąpienia jakichkolwiek problemów z oznaczeniami. Pozwala to wychwycić wszystko, co mogło zostać przeoczone na serwerze produkcyjnym.</p>
 <h4 id="generowanie-lokalnej-kompilacji">Generowanie lokalnej kompilacji<a class="headerlink" href="#generowanie-lokalnej-kompilacji" title="Permanent link">&para;</a></h4>
 <p>Aby wygenerować lokalną kompilację:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
@@ -5067,13 +5051,9 @@ wszystko, co mogło zostać przeoczone na serwerze produkcyjnym.</p>
 </div>
 </div>
 </div>
-<p>Wynik tej kompilacji zostanie zapisany w katalogu <code>_build</code> w katalogu głównym
-projektu.</p>
+<p>Wynik tej kompilacji zostanie zapisany w katalogu <code>_build</code> w katalogu głównym projektu.</p>
 <h4 id="generowanie-lokalnej-przetumaczonej-kompilacji">Generowanie lokalnej, przetłumaczonej kompilacji<a class="headerlink" href="#generowanie-lokalnej-przetumaczonej-kompilacji" title="Permanent link">&para;</a></h4>
-<p>Dokumentacja BeeWare' jest tłumaczona na wiele języków. Aktualizacje
-dokumentacji angielskiej mogą powodować problemy w wersjach w innych językach.
-Przed przesłaniem pull requestu należy sprawdzić, czy wszystkie wersje działają
-poprawnie.</p>
+<p>Dokumentacja BeeWare' jest tłumaczona na wiele języków. Aktualizacje dokumentacji angielskiej mogą powodować problemy w wersjach w innych językach. Przed przesłaniem pull requestu należy sprawdzić, czy wszystkie wersje działają poprawnie.</p>
 <p>Aby wygenerować kompilację wszystkich dostępnych tłumaczeń:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
 <div class="tabbed-content">
@@ -5091,13 +5071,8 @@ poprawnie.</p>
 </div>
 </div>
 </div>
-<p>Wynik każdej kompilacji języka będzie znajdował się w powiązanym katalogu
-<code>_build/html/&lt;languagecode&gt;</code>, gdzie <code>&lt;languagecode&gt;</code> to dwu- lub pięcioznakowy
-kod języka powiązany z konkretnym językiem (np. <code>fr</code> dla francuskiego, <code>it</code> dla
-włoskiego itp.).</p>
-<p>Jeśli wykryjesz problem z pojedynczą kompilacją, możesz uruchomić tę kompilację
-osobno, wykonując polecenie <code>tox -e docs-&lt;languagecode&gt;</code>. Na przykład, aby
-skompilować tylko dokumentację w języku francuskim, uruchom:</p>
+<p>Wynik każdej kompilacji języka będzie znajdował się w powiązanym katalogu <code>_build/html/&lt;languagecode&gt;</code>, gdzie <code>&lt;languagecode&gt;</code> to dwu- lub pięcioznakowy kod języka powiązany z konkretnym językiem (np. <code>fr</code> dla francuskiego, <code>it</code> dla włoskiego itp.).</p>
+<p>Jeśli wykryjesz problem z pojedynczą kompilacją, możesz uruchomić tę kompilację osobno, wykonując polecenie <code>tox -e docs-&lt;languagecode&gt;</code>. Na przykład, aby skompilować tylko dokumentację w języku francuskim, uruchom:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5116,8 +5091,7 @@ skompilować tylko dokumentację w języku francuskim, uruchom:</p>
 </div>
 <p>Wynik kompilacji w jednym języku zostanie zapisany w katalogu <code>_build</code>.</p>
 <h3 id="sprawdzanie-poprawnosci-dokumentacji">Sprawdzanie poprawności dokumentacji<a class="headerlink" href="#sprawdzanie-poprawnosci-dokumentacji" title="Permanent link">&para;</a></h3>
-<p>Proces kompilacji wykrywa problemy związane z formatowaniem Markdown, ale BeeWare wykonuje dodatkowe kontrole stylu i formatowania, znane jako
-„linting”. Aby uruchomić kontrole lintingowe:</p>
+<p>Proces kompilacji wykrywa problemy związane z formatowaniem Markdown, ale BeeWare wykonuje dodatkowe kontrole stylu i formatowania, znane jako „linting”. Aby uruchomić kontrole lintingowe:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5139,21 +5113,13 @@ skompilować tylko dokumentację w języku francuskim, uruchom:</p>
 <li>nieaktywne hiperłącza</li>
 <li>błędnie napisane słowa</li>
 </ul>
-<p>Jeśli poprawna pisownia słowa zostanie uznana za błędną, dodaj to słowo do listy
-w <code>docs/spelling_wordlist</code>. Spowoduje to dodanie słowa do słownika modułu
-sprawdzania pisowni. Dodając słowo do tej listy, pamiętaj:</p>
+<p>Jeśli poprawna pisownia słowa zostanie uznana za błędną, dodaj to słowo do listy w <code>docs/spelling_wordlist</code>. Spowoduje to dodanie słowa do słownika modułu sprawdzania pisowni. Dodając słowo do tej listy, pamiętaj:</p>
 <ul>
-<li>Preferujemy pisownię amerykańską, z pewnymi swobodami w przypadku
-  kolokwializmów związanych z programowaniem (np. „apps”) oraz czasownikowania
-  rzeczowników (np. „scrollable”).</li>
-<li>Wszelkie odniesienia do nazw produktów powinny być zapisywane zgodnie z
-  preferowaną wielkością liter (np. „macOS”, „GTK”, „pytest”, „Pygame”,
-  „PyScript”).</li>
-<li>Jeśli termin jest używany „jako kod”, należy go cytować jako literał (<code>like
-  this</code>), a nie dodawać do słownika.</li>
+<li>Preferujemy pisownię amerykańską, z pewnymi swobodami w przypadku kolokwializmów związanych z programowaniem (np. „apps”) oraz czasownikowania rzeczowników (np. „scrollable”).</li>
+<li>Wszelkie odniesienia do nazw produktów powinny być zapisywane zgodnie z preferowaną wielkością liter (np. „macOS”, „GTK”, „pytest”, „Pygame”, „PyScript”).</li>
+<li>Jeśli termin jest używany „jako kod”, należy go cytować jako literał (<code>like this</code>), a nie dodawać do słownika.</li>
 </ul>
-<p>Po pomyślnym utworzeniu dokumentacji możesz przystąpić do <a href="../write-docs/">pisania
-dokumentacji</a>.</p>
+<p>Po pomyślnym utworzeniu dokumentacji możesz przystąpić do <a href="../write-docs/">pisania dokumentacji</a>.</p>
 
 
 

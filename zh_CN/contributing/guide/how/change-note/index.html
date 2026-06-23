@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="页眉"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/change-note/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/change-note/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4771,21 +4779,16 @@ aria-label="页眉"
 
 <h1 id="_1">为发布说明添加变更信息<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>许多BeeWare工具都使用<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a>来帮助为每个版本创建发布说明。当您向相关工具提交拉取请求时，需要包含<em>变更说明</em>&ndash;该变更说明将成为发行说明中描述变更的条目。</p>
-<p>每个拉取请求都必须在 <code>changes/</code> 目录中包含至少一个文件，对拉取请求实施的变更进行简短描述。变更说明应采用 Markdown 格式，文件名应为
-<code>&lt;id&gt;.&lt;片段类型&gt;.md</code>。如果您提出的变更将修复一个已有问题编号的错误或实现一个已有问题编号的功能，ID
-就是该问题编号。如果变更没有对应的问题，则可以使用 PR 编号作为 ID。在推送拉取请求之前，您不会知道 PR 编号，因此第一次 CI
-通过时，"towncrier "检查会失败；添加变更注释并推送 PR 更新后，CI 应该会通过。</p>
+<p>每个拉取请求都必须在 <code>changes/</code> 目录中包含至少一个文件，对拉取请求实施的变更进行简短描述。变更说明应采用 Markdown 格式，文件名应为 <code>&lt;id&gt;.&lt;片段类型&gt;.md</code>。如果您提出的变更将修复一个已有问题编号的错误或实现一个已有问题编号的功能，ID 就是该问题编号。如果变更没有对应的问题，则可以使用 PR 编号作为 ID。在推送拉取请求之前，您不会知道 PR 编号，因此第一次 CI 通过时，"towncrier "检查会失败；添加变更注释并推送 PR 更新后，CI 应该会通过。</p>
 <p>有五种片段类型：</p>
 <ul>
 <li><code>特征</code>:PR 增加了以前不可能实现的新行为或功能（例如，增加了对新包装格式的支持，或在现有包装格式中增加了新功能）；</li>
 <li>"bugfix"：该 PR 修复了现有实现中的一个错误；</li>
 <li>doc`：PR 是对文档的重大改进；</li>
-<li>移除"； PR 代表 BeeWare 应用程序接口向后不兼容的更改；或 PR 代表 BeeWare
-  应用程序接口向后不兼容的更改。应用程序接口；或</li>
+<li>移除"； PR 代表 BeeWare 应用程序接口向后不兼容的更改；或 PR 代表 BeeWare 应用程序接口向后不兼容的更改。应用程序接口；或</li>
 <li><code>misc</code>; 不需要在发布说明中公布的细微或管理性变更（如修正错字、细微的语言澄清或更新依赖版本）。</li>
 </ul>
-<p>变更说明中的描述应从用户角度出发，对变更进行高层次的 "营销
-"总结，而不是深层次的技术描述或实现细节。它有别于提交信息&ndash;提交信息描述的是所做的工作，以便未来的开发人员了解变更的原因；而变更说明则是为了用户的利益而描述，因为用户可能并不了解内部知识。</p>
+<p>变更说明中的描述应从用户角度出发，对变更进行高层次的 "营销 "总结，而不是深层次的技术描述或实现细节。它有别于提交信息&ndash;提交信息描述的是所做的工作，以便未来的开发人员了解变更的原因；而变更说明则是为了用户的利益而描述，因为用户可能并不了解内部知识。</p>
 <p>例如，如果您修复了一个与项目命名有关的 Bug，提交信息可能会写成这样："......"：</p>
 <blockquote>
 <p>应用更强的正则表达式检查，禁止使用以数字开头的项目名称。</p>
@@ -4794,20 +4797,14 @@ aria-label="页眉"
 <blockquote>
 <p>项目名称不能再以数字开头。</p>
 </blockquote>
-<p>有些 PR 会引入多个功能并修复多个错误，或者引入多个向后不兼容的变更。在这种情况下，PR 可能会有多个变更注释文件。如果需要将两个片段类型与同一个 ID
-关联，可以添加一个数字后缀。例如，如果 PR 789 添加了 ticket 123 所描述的功能，关闭了 ticket 234
-所描述的错误，还做了两项向后不兼容的更改，那么可能会有 4 个更改说明文件：</p>
+<p>有些 PR 会引入多个功能并修复多个错误，或者引入多个向后不兼容的变更。在这种情况下，PR 可能会有多个变更注释文件。如果需要将两个片段类型与同一个 ID 关联，可以添加一个数字后缀。例如，如果 PR 789 添加了 ticket 123 所描述的功能，关闭了 ticket 234 所描述的错误，还做了两项向后不兼容的更改，那么可能会有 4 个更改说明文件：</p>
 <ul>
 <li>123.feature.md</li>
 <li>234.bugfix.md</li>
 <li><code>789.removal.1.md</code></li>
 <li><code>789.removal.2.md</code></li>
 </ul>
-<p>有关 <code>towncrier</code> 和片段类型的更多信息，请参阅
-<a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">新闻片段</a>。你还可以在
-BeeWare 版本库的 <code>changes</code> 目录中查看现有的新闻片段示例。如果该文件夹是空的，很可能是因为 BeeWare 最近发布了新版本；每次发布都会删除变更注释文件，然后合并更新 <a href="https://github.com/beeware/{{ 项目名称 }}/releases">release
-notes</a>。您可以查看该文件，了解所需的注释样式；也可以查看
-<a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">最近合并的 PRs</a> ，了解变更注释的格式。</p>
+<p>有关 <code>towncrier</code> 和片段类型的更多信息，请参阅 <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">新闻片段</a>。你还可以在 BeeWare 版本库的 <code>changes</code> 目录中查看现有的新闻片段示例。如果该文件夹是空的，很可能是因为 BeeWare 最近发布了新版本；每次发布都会删除变更注释文件，然后合并更新 <a href="https://github.com/beeware/{{ 项目名称 }}/releases">release notes</a>。您可以查看该文件，了解所需的注释样式；也可以查看 <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">最近合并的 PRs</a> ，了解变更注释的格式。</p>
 
 
 

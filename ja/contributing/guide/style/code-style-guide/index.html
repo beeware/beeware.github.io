@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="ヘッダー"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/style/code-style-guide/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/style/code-style-guide/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4966,20 +4974,12 @@ aria-label="ヘッダー"
 <h1 id="_1">コードスタイルガイド<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>このガイドには、BeeWare のコードを書くための情報とガイドラインが含まれています。</p>
 <h3 id="code-style">コーディングスタイル<a class="headerlink" href="#code-style" title="Permanent link">&para;</a></h3>
-<p>BeeWareのコードベースでは<a href="https://peps.python.org/pep-0008/">PEP
-8</a>に準拠していますが、行長は79文字から88文字に拡張されています。
-可能な限り<a href="https://docs.astral.sh/ruff/">Ruff</a>を使用してPEP
-8の規約を強制します。コードをコミットする際、pre-commitがRuffを含むチェックを実行します。可能な場合、これによりコードが自動整形され、当社のフォーマットおよびスタイル基準を満たすことが保証されます。一部のIDEでは保存時にRuffを自動実行するよう設定でき、このプロセスを支援できます。</p>
-<p>PEP 8で最も重要な部分は<a href="https://peps.python.org/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">セクション0:
-愚かな一貫性は小物の悪霊である</a>であることを心に留めておいてください。PEP
-8との一貫性を保つことが意味をなさない状況も存在し、適用可能な場合には、記載された規則に沿わないコードを書くことが許容され、時には望ましい場合もあることを理解することが重要です。
-それらのルールに<em>いつ不整合を許容すべきか</em>を知ることは、ほとんどの状況で一貫性を保つことと同じくらい重要です。</p>
-<p>この傾向は、命名規則にも表れています。BeeWareライブラリは、他の言語との橋渡しを必要とすることがよくあります。他の言語向けのラッパーを構築する際には、Pythonの命名規則ではなく、対象言語の命名規則に従うことが望ましい（場合によっては必須）です。例えば、Javaコードを呼び出したり参照したりする場合、関数名はPEP
-8で推奨されている<code>mixedCase</code>ではなく、Javaで推奨されている<code>snake_case</code>に従うべきです。</p>
+<p>BeeWareのコードベースでは<a href="https://peps.python.org/pep-0008/">PEP 8</a>に準拠していますが、行長は79文字から88文字に拡張されています。 可能な限り<a href="https://docs.astral.sh/ruff/">Ruff</a>を使用してPEP 8の規約を強制します。コードをコミットする際、pre-commitがRuffを含むチェックを実行します。可能な場合、これによりコードが自動整形され、当社のフォーマットおよびスタイル基準を満たすことが保証されます。一部のIDEでは保存時にRuffを自動実行するよう設定でき、このプロセスを支援できます。</p>
+<p>PEP 8で最も重要な部分は<a href="https://peps.python.org/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">セクション0: 愚かな一貫性は小物の悪霊である</a>であることを心に留めておいてください。PEP 8との一貫性を保つことが意味をなさない状況も存在し、適用可能な場合には、記載された規則に沿わないコードを書くことが許容され、時には望ましい場合もあることを理解することが重要です。 それらのルールに<em>いつ不整合を許容すべきか</em>を知ることは、ほとんどの状況で一貫性を保つことと同じくらい重要です。</p>
+<p>この傾向は、命名規則にも表れています。BeeWareライブラリは、他の言語との橋渡しを必要とすることがよくあります。他の言語向けのラッパーを構築する際には、Pythonの命名規則ではなく、対象言語の命名規則に従うことが望ましい（場合によっては必須）です。例えば、Javaコードを呼び出したり参照したりする場合、関数名はPEP 8で推奨されている<code>mixedCase</code>ではなく、Javaで推奨されている<code>snake_case</code>に従うべきです。</p>
 <p>APIの命名規則、変数名などについては米国式スペルを採用します。</p>
 <p>また、PEP 8にはBeeWare固有の追加事項もいくつかあります：</p>
-<p><a href="https://peps.python.org/pep-0484/">PEP 484</a>
-に準拠した型注釈は任意ですが、特に公開APIのインターフェースにおいては、引き続き強く推奨されます。</p>
+<p><a href="https://peps.python.org/pep-0484/">PEP 484</a> に準拠した型注釈は任意ですが、特に公開APIのインターフェースにおいては、引き続き強く推奨されます。</p>
 <p>適切な型ヒントとSphinxドキュメント文字列を含む標準関数の定義例を以下に示します：</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="sd">&quot;&quot;&quot;型とdocstringを指定した関数の例。</span>
@@ -5023,8 +5023,7 @@ aria-label="ヘッダー"
 <h3 id="_2">避けるべきこと<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>可能な限り<code>utils</code>モジュールは避けるように努めていますが、場合によっては避けられないこともあると認識しています。望ましい代替策は、<code>utils</code>モジュールを使用する代わりに、ソースコード内の別の場所でその機能を実現できる箇所を見つけることです。</p>
 <p>一般的なルールとして、アプリの起動を高速化するため、高コストな初期化コードは回避または遅延させるよう努めています。例えば、toga-coreパッケージのモジュールは「遅延読み込み」されており、最初から全て読み込まれるのではなく、要求された時点で初めてインポートされます。これにより起動が高速化され、アプリが実際に使用している部分のみに時間を費やすことができます。</p>
-<p>コメントを書く際は、「we」などの一人称複数代名詞の使用を避けてください（例えば、「We loop over」ではなく「Loop
-over」と記述してください）。</p>
+<p>コメントを書く際は、「we」などの一人称複数代名詞の使用を避けてください（例えば、「We loop over」ではなく「Loop over」と記述してください）。</p>
 <p>テストのdocstringでは、各テストが実証する期待される動作を記述してください。「～をテストする」や「～であることを確認する」といった前置きは含めないでください。</p>
 <p>ドキュメントの記述やコメントでは簡単に説明しきれない詳細情報が記載されている、あまり知られていない問題については、チケットの参照情報を記載してください。次のように、文の最後にチケット番号を記載してください：</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>

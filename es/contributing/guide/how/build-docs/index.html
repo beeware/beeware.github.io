@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Cabecera"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/build-docs/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/build-docs/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4986,31 +4994,16 @@ aria-label="Cabecera"
 
 
 <h1 id="documentacion-de-construccion">Documentación de construcción<a class="headerlink" href="#documentacion-de-construccion" title="Permanent link">&para;</a></h1>
-<p>Antes de realizar cualquier cambio en la documentación de BeeWare, es
-útil confirmar que se puede construir la documentación existente.</p>
-<p>Antes de crear la documentación, y tener una configura de un <a href="../dev-environment/">entorno de
-desarrollo</a>.</p>
-<p><strong>Debes</strong> tener un intérprete de Python 3.13 instalado y
-disponible en su ruta (p,ej., <code>python3.13</code> debe iniciar un
-intérprete 3.13) de Python.</p>
-<p>BeeWare utiliza <code>tox</code> para construir la documentación. Las
-instrucciones de <code>tox</code> siguientes deben ser ejecutadas desde el mismo lugar que
-el archivo <code>tox.ini</code>, el cual está dentro del directorio raíz del proyecto.</p>
+<p>Antes de realizar cualquier cambio en la documentación de BeeWare, es útil confirmar que se puede construir la documentación existente.</p>
+<p>Antes de crear la documentación, y tener una configura de un <a href="../dev-environment/">entorno de desarrollo</a>.</p>
+<p><strong>Debes</strong> tener un intérprete de Python 3.13 instalado y disponible en su ruta (p,ej., <code>python3.13</code> debe iniciar un intérprete 3.13) de Python.</p>
+<p>BeeWare utiliza <code>tox</code> para construir la documentación. Las instrucciones de <code>tox</code> siguientes deben ser ejecutadas desde el mismo lugar que el archivo <code>tox.ini</code>, el cual está dentro del directorio raíz del proyecto.</p>
 <h3 id="vista-previa-en-directo-de-la-documentacion">Vista previa en directo de la documentación<a class="headerlink" href="#vista-previa-en-directo-de-la-documentacion" title="Permanent link">&para;</a></h3>
-<p>Para facilitar la edición rápida de la documentación, BeeWare dispone
-de un modo de «vista previa en directo».</p>
+<p>Para facilitar la edición rápida de la documentación, BeeWare dispone de un modo de «vista previa en directo».</p>
 <div class="admonition warning">
 <p class="admonition-title">¡La vista previa en directo se generará con advertencias!</p>
-<p>El servidor en vivo está disponible para iterar sobre las actualizaciones de tu
-documentación. Mientras estás en el proceso de actualizar cosas, puedes
-introducir una incidencia de marcado. Las incidencias consideradas como
-<code>ADVERTENCIA</code> harán que la compilación estándar falle, sin embargo, el servidor
-en vivo está configurado para indicar advertencias en la salida de la consola,
-mientras continúa la compilación. Esto le permite iterar sin necesidad de
-reiniciar la vista previa en directo.</p>
-<p>Un <code>WARNING</code> es diferente de un <code>ERROR</code>. Si introduce una incidencia que se
-considera un <code>ERROR</code>, el servicio en directo fallará, y será necesario
-reiniciarlo. No se reiniciará hasta que la incidencia de <code>WARNING</code> se resuelva.</p>
+<p>El servidor en vivo está disponible para iterar sobre las actualizaciones de tu documentación. Mientras estás en el proceso de actualizar cosas, puedes introducir una incidencia de marcado. Las incidencias consideradas como <code>ADVERTENCIA</code> harán que la compilación estándar falle, sin embargo, el servidor en vivo está configurado para indicar advertencias en la salida de la consola, mientras continúa la compilación. Esto le permite iterar sin necesidad de reiniciar la vista previa en directo.</p>
+<p>Un <code>WARNING</code> es diferente de un <code>ERROR</code>. Si introduce una incidencia que se considera un <code>ERROR</code>, el servicio en directo fallará, y será necesario reiniciarlo. No se reiniciará hasta que la incidencia de <code>WARNING</code> se resuelva.</p>
 </div>
 <p>Para iniciar el servidor en directo:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
@@ -5029,28 +5022,17 @@ reiniciarlo. No se reiniciará hasta que la incidencia de <code>WARNING</code> s
 </div>
 </div>
 </div>
-<p>Esto creará la documentación, iniciará un servidor web para servir la
-documentación, y vigilará el sistema de archivos para detectar cualquier cambio
-en el origen de la documentación.</p>
-<p>Una vez iniciado el servidor, verá algo como lo siguiente en la salida de la
-consola:</p>
+<p>Esto creará la documentación, iniciará un servidor web para servir la documentación, y vigilará el sistema de archivos para detectar cualquier cambio en el origen de la documentación.</p>
+<p>Una vez iniciado el servidor, verá algo como lo siguiente en la salida de la consola:</p>
 <div class="highlight"><pre><span></span><code><span class="go">INFO    -  [11:18:51] Servido en http://127.0.0.1:8000/</span>
 </code></pre></div>
-<p>Abre un navegador, y ve a la URL proporcionada. Ahora puedes empezar a iterar
-sobre la documentación. Si se detecta un cambio, la documentación será
-reconstruida y cualquier navegador que vea la página modificada se recargada
-automáticamente.</p>
+<p>Abre un navegador, y ve a la URL proporcionada. Ahora puedes empezar a iterar sobre la documentación. Si se detecta un cambio, la documentación será reconstruida y cualquier navegador que vea la página modificada se recargada automáticamente.</p>
 <div class="admonition note">
 <p class="admonition-title"><code>docs-live</code> es un paso inicial</p>
-<p>Ejecuta <code>docs-live</code> para funcionar con el servidor en directo está pensado para
-la iteración inicial. Tú debes ejecutar <em>siempre</em> una compilación local antes de
-enviar un pull request.</p>
+<p>Ejecuta <code>docs-live</code> para funcionar con el servidor en directo está pensado para la iteración inicial. Tú debes ejecutar <em>siempre</em> una compilación local antes de enviar un pull request.</p>
 </div>
 <h3 id="construccion-local">Construcción local<a class="headerlink" href="#construccion-local" title="Permanent link">&para;</a></h3>
-<p>Una vez que hayas terminado de iterar, tendrás que hacer una compilación local
-de la documentación. Este proceso de compilación está diseñado para fallar si
-hay algún problema de marcado. Esto le permite detectar cualquier cosa que
-habría perdido con el servidor en directo.</p>
+<p>Una vez que hayas terminado de iterar, tendrás que hacer una compilación local de la documentación. Este proceso de compilación está diseñado para fallar si hay algún problema de marcado. Esto le permite detectar cualquier cosa que habría perdido con el servidor en directo.</p>
 <h4 id="generar-de-una-compilacion-local">Generar de una compilación local<a class="headerlink" href="#generar-de-una-compilacion-local" title="Permanent link">&para;</a></h4>
 <p>Para generar una compilación local:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
@@ -5069,13 +5051,9 @@ habría perdido con el servidor en directo.</p>
 </div>
 </div>
 </div>
-<p>La salida de esta compilación estará en el directorio <code>_build</code> en la raíz del
-proyecto.</p>
+<p>La salida de esta compilación estará en el directorio <code>_build</code> en la raíz del proyecto.</p>
 <h4 id="generar-una-compilacion-local-traducida">Generar una compilación local traducida<a class="headerlink" href="#generar-una-compilacion-local-traducida" title="Permanent link">&para;</a></h4>
-<p>La documentación de BeeWare está traducida a varios idiomas. Las
-actualizaciones de la documentación en inglés pueden provocar incidencias en las
-versiones en otros idiomas. Es importante verificar que todas las versiones
-funcionan antes de enviar un pull request.</p>
+<p>La documentación de BeeWare está traducida a varios idiomas. Las actualizaciones de la documentación en inglés pueden provocar incidencias en las versiones en otros idiomas. Es importante verificar que todas las versiones funcionan antes de enviar un pull request.</p>
 <p>Para generar una compilación de todas las traducciones disponibles:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
 <div class="tabbed-content">
@@ -5093,13 +5071,8 @@ funcionan antes de enviar un pull request.</p>
 </div>
 </div>
 </div>
-<p>El resultado de la compilación de cada idioma estará en el directorio asociado
-<code>_build/html/&lt;languagecode&gt;</code>, donde <code>&lt;languagecode&gt;</code> es el código de idioma de
-dos o cinco caracteres asociado al idioma específico (p.ej., <code>fr</code> para el
-francés, <code>it</code> para el italiano, etc.).</p>
-<p>Si encuentra una incidencia con una sola compilación, puede ejecutar esa
-compilación separadamente ejecutando <code>tox -e docs-&lt;languagecode&gt;</code>. Por ejemplo,
-para compilar solo la documentación en francés, ejecute:</p>
+<p>El resultado de la compilación de cada idioma estará en el directorio asociado <code>_build/html/&lt;languagecode&gt;</code>, donde <code>&lt;languagecode&gt;</code> es el código de idioma de dos o cinco caracteres asociado al idioma específico (p.ej., <code>fr</code> para el francés, <code>it</code> para el italiano, etc.).</p>
+<p>Si encuentra una incidencia con una sola compilación, puede ejecutar esa compilación separadamente ejecutando <code>tox -e docs-&lt;languagecode&gt;</code>. Por ejemplo, para compilar solo la documentación en francés, ejecute:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5118,8 +5091,7 @@ para compilar solo la documentación en francés, ejecute:</p>
 </div>
 <p>La salida de una compilación en un solo idioma estará en el directorio <code>_build</code>.</p>
 <h3 id="analisis-de-documentacion">Análisis de documentación<a class="headerlink" href="#analisis-de-documentacion" title="Permanent link">&para;</a></h3>
-<p>El proceso de compilación identificará los problemas de Markdown, pero BeeWare realiza algunas comprobaciones adicionales de estilo y formato,
-conocidas como "hilado". Para ejecutar las comprobaciones de hilado:</p>
+<p>El proceso de compilación identificará los problemas de Markdown, pero BeeWare realiza algunas comprobaciones adicionales de estilo y formato, conocidas como "hilado". Para ejecutar las comprobaciones de hilado:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5141,21 +5113,13 @@ conocidas como "hilado". Para ejecutar las comprobaciones de hilado:</p>
 <li>hiperenlaces muertos</li>
 <li>palabras mal escritas</li>
 </ul>
-<p>Si se identifica un deletreo de palabra válida como mal escrita, añádala a la
-lista de <code>docs/spelling_wordlist</code>. Esto añadirá la palabra al diccionario del
-corrector ortográfico. Al añadir a este listado, recuerda:</p>
+<p>Si se identifica un deletreo de palabra válida como mal escrita, añádala a la lista de <code>docs/spelling_wordlist</code>. Esto añadirá la palabra al diccionario del corrector ortográfico. Al añadir a este listado, recuerda:</p>
 <ul>
-<li>Preferimos la deletreo estadounidense, con algunas libertades para el
-  coloquialismo específico de la programación (p.ej., "apps") y la verborrea de
-  los sustantivos (p.ej., "scrollable")</li>
-<li>Cualquier referencia a un nombre de producto utilizaría la capitalización
-  preferida del producto. (p.ej., “macOS”, “GTK”, “pytest”, “Pygame”,
-  “PyScript”).</li>
-<li>Si un término se utiliza «como código», debe citarse como un literal (<code>como
-  esto</code>) en lugar de ser añadido al diccionario.</li>
+<li>Preferimos la deletreo estadounidense, con algunas libertades para el coloquialismo específico de la programación (p.ej., "apps") y la verborrea de los sustantivos (p.ej., "scrollable")</li>
+<li>Cualquier referencia a un nombre de producto utilizaría la capitalización preferida del producto. (p.ej., “macOS”, “GTK”, “pytest”, “Pygame”, “PyScript”).</li>
+<li>Si un término se utiliza «como código», debe citarse como un literal (<code>como esto</code>) en lugar de ser añadido al diccionario.</li>
 </ul>
-<p>Una vez que hayas creado correctamente los documentos, estarás listo para
-<a href="../write-docs/">escribir la documentación</a>.</p>
+<p>Una vez que hayas creado correctamente los documentos, estarás listo para <a href="../write-docs/">escribir la documentación</a>.</p>
 
 
 

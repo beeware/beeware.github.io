@@ -90,6 +90,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -532,6 +534,12 @@ aria-label="Đầu trang"
           <li class="md-select__item">
             <a href="../../../../../ru/news/buzz/2022/2022q4-roadmap/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/news/buzz/2022/2022q4-roadmap/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4897,114 +4905,46 @@ aria-label="Đầu trang"
 
   <h1>2022Q4 Roadmap</h1>
 
-<p>With Q3 completed, it's time to provide an update on the long term goals and
-priorities of the BeeWare project. As always, this roadmap should be read as a
-guide to what we aim to focus on over the coming quarter, rather than a hard
-commitment of features that will be made available on a specific deadline.</p>
+<p>With Q3 completed, it's time to provide an update on the long term goals and priorities of the BeeWare project. As always, this roadmap should be read as a guide to what we aim to focus on over the coming quarter, rather than a hard commitment of features that will be made available on a specific deadline.</p>
 <!-- more -->
 
 <h2 id="q3-progress">Q3 progress<a class="headerlink" href="#q3-progress" title="Permanent link">&para;</a></h2>
 <p>We were able to hit our biggest Q3 goals:</p>
 <ul>
-<li><strong>Linux packaging</strong> - We've investigated and addressed all the known issues
-  with Linux packaging. There's <a href="https://github.com/beeware/briefcase/issues/886">one pending
-  enhancement</a> that would
-  expand the range of third-party binary packages that can be included in
-  Briefcase projects.</li>
-<li><strong>Windows packaging</strong> - We've introduced a stub binary for Windows apps (as
-  well as a Visual Studio target for Windows projects). This allowed us to
-  significantly improve log capture, so when a Windows app crashes it's a lot
-  easier to obtain diagnostic information. This change also corrected <em>most</em> of
-  the issues with the way Windows apps were using the site module; however,
-  there is still <a href="https://github.com/beeware/briefcase/issues/381">one issue related to the handling of packages that have
-  complex post-installation
-  processes</a>.</li>
-<li><strong>Binary modules</strong> - By far the biggest achievement of Q3. With the release of
-  Briefcase 0.3.10, we now support binary modules on iOS and Android. We have
-  also published 40 of the most popular binary modules, compiled for iOS and
-  Android.</li>
+<li><strong>Linux packaging</strong> - We've investigated and addressed all the known issues with Linux packaging. There's <a href="https://github.com/beeware/briefcase/issues/886">one pending enhancement</a> that would expand the range of third-party binary packages that can be included in Briefcase projects.</li>
+<li><strong>Windows packaging</strong> - We've introduced a stub binary for Windows apps (as well as a Visual Studio target for Windows projects). This allowed us to significantly improve log capture, so when a Windows app crashes it's a lot easier to obtain diagnostic information. This change also corrected <em>most</em> of the issues with the way Windows apps were using the site module; however, there is still <a href="https://github.com/beeware/briefcase/issues/381">one issue related to the handling of packages that have complex post-installation processes</a>.</li>
+<li><strong>Binary modules</strong> - By far the biggest achievement of Q3. With the release of Briefcase 0.3.10, we now support binary modules on iOS and Android. We have also published 40 of the most popular binary modules, compiled for iOS and Android.</li>
 </ul>
 <p>However, we didn't hit all our goals:</p>
 <ul>
-<li><strong>Testing</strong> - Testing support has improved substantially. We have a much more
-  thorough CI configuration on Briefcase that verifies that templates generate
-  valid projects. We also have <a href="https://github.com/beeware/Python-support-testbed">a testbed
-  project</a> that we can use to
-  check that support packages are behaving correctly. However, we are not yet
-  able to run this test project in CI, so we don't have automated validation of
-  PRs against the support packages. We also made very little progress in GUI
-  testing.</li>
-<li><strong>Conda integration</strong> - We began initial discussions around Conda integration,
-  on two fronts: firstly, to investigate the possibility of using Conda as a
-  base for package management in apps; and secondly, about using <code>conda-forge</code>
-  as a framework for managing community contributions. Both of these
-  conversations are ongoing; it will likely take some time before these efforts
-  bear fruit.</li>
+<li><strong>Testing</strong> - Testing support has improved substantially. We have a much more thorough CI configuration on Briefcase that verifies that templates generate valid projects. We also have <a href="https://github.com/beeware/Python-support-testbed">a testbed project</a> that we can use to check that support packages are behaving correctly. However, we are not yet able to run this test project in CI, so we don't have automated validation of PRs against the support packages. We also made very little progress in GUI testing.</li>
+<li><strong>Conda integration</strong> - We began initial discussions around Conda integration, on two fronts: firstly, to investigate the possibility of using Conda as a base for package management in apps; and secondly, about using <code>conda-forge</code> as a framework for managing community contributions. Both of these conversations are ongoing; it will likely take some time before these efforts bear fruit.</li>
 </ul>
 <h2 id="q4-priorities">Q4 priorities<a class="headerlink" href="#q4-priorities" title="Permanent link">&para;</a></h2>
 <p>In Q4, we're planning to focus on:</p>
 <h3 id="toga">Toga<a class="headerlink" href="#toga" title="Permanent link">&para;</a></h3>
-<p>The primary focus for Q4 will be Toga. There are a number of pieces of work
-involved with this:</p>
+<p>The primary focus for Q4 will be Toga. There are a number of pieces of work involved with this:</p>
 <ul>
-<li><strong>Housekeeping</strong> - Basic repository maintenance tasks, like enabling <code>black</code>,
-  introducing pre-commit hooks, <code>towncrier</code>, and automating release
-  infrastructure.</li>
-<li><strong>Example consolidation</strong> - Toga's examples folder has become a sprawling
-  collection of code that is part documentation, part testbed. We need to start
-  consolidating these examples into 2 apps - one that is a user-facing
-  demonstrator of Toga features, and one that can be used as a functional test
-  of Toga features.</li>
-<li><strong>Testing</strong> - Modernizing and cleaning up the existing test suite, and working
-  out how to automate GUI tests</li>
-<li><strong>Documentation</strong> - Toga's documentation has lagged behind an acceptable
-  standard for a long time,</li>
+<li><strong>Housekeeping</strong> - Basic repository maintenance tasks, like enabling <code>black</code>, introducing pre-commit hooks, <code>towncrier</code>, and automating release infrastructure.</li>
+<li><strong>Example consolidation</strong> - Toga's examples folder has become a sprawling collection of code that is part documentation, part testbed. We need to start consolidating these examples into 2 apps - one that is a user-facing demonstrator of Toga features, and one that can be used as a functional test of Toga features.</li>
+<li><strong>Testing</strong> - Modernizing and cleaning up the existing test suite, and working out how to automate GUI tests</li>
+<li><strong>Documentation</strong> - Toga's documentation has lagged behind an acceptable standard for a long time,</li>
 <li><strong>Planning</strong> - Developing a clear plan for what will be in Toga 1.0</li>
-<li><strong>Cross-platform hardware</strong> - While it has always been <em>technically</em> possible
-  to support the APIs needed to access device hardware, there hasn't been a
-  cross-platform API for this work. In Q4, we hope to demonstrate at least 1
-  interesting piece of mobile device hardware.</li>
+<li><strong>Cross-platform hardware</strong> - While it has always been <em>technically</em> possible to support the APIs needed to access device hardware, there hasn't been a cross-platform API for this work. In Q4, we hope to demonstrate at least 1 interesting piece of mobile device hardware.</li>
 </ul>
-<p>Although we won't get to Toga v1.0 in Q4, we <em>will</em> land a v0.3 final, after
-several years of maintaining dev pre-releases as the main way to use Toga.</p>
+<p>Although we won't get to Toga v1.0 in Q4, we <em>will</em> land a v0.3 final, after several years of maintaining dev pre-releases as the main way to use Toga.</p>
 <h3 id="web-support">Web support<a class="headerlink" href="#web-support" title="Permanent link">&para;</a></h3>
-<p>Toga has historically had support for the Web as a platform; however, that
-effort was put on hold because the approach we were taking wasn't proving
-viable. However, with the release of Python 3.11, WASM becomes an officially
-supported CPython platform. We've also seen the release of
-<a href="https://pyscript.net">PyScript</a>, demonstrating that client-side Python in the
-browser is an extremely viable proposition. The time has come to resurrect
-BeeWare's support for the web as a deployment platform. This will involve
-getting Toga's web backend into a working state, and adding a web deployment
-backend for Briefcase.</p>
+<p>Toga has historically had support for the Web as a platform; however, that effort was put on hold because the approach we were taking wasn't proving viable. However, with the release of Python 3.11, WASM becomes an officially supported CPython platform. We've also seen the release of <a href="https://pyscript.net">PyScript</a>, demonstrating that client-side Python in the browser is an extremely viable proposition. The time has come to resurrect BeeWare's support for the web as a deployment platform. This will involve getting Toga's web backend into a working state, and adding a web deployment backend for Briefcase.</p>
 <h2 id="longer-term-goals">Longer term goals<a class="headerlink" href="#longer-term-goals" title="Permanent link">&para;</a></h2>
 <p>Looking into next year, the big items on the horizon are:</p>
 <h3 id="upstreaming">Upstreaming<a class="headerlink" href="#upstreaming" title="Permanent link">&para;</a></h3>
-<p>With binary modules now being supported on both iOS and Android, and the
-introduction of a <a href="https://peps.python.org/pep-0011/">Tier 3 support level in
-PEP11</a>, the prospect of elevating iOS and
-Android to official supported platforms is seeming increasingly plausible. Our
-hope is to go to PyCon US next year in a position to make a concrete proposal to
-the CPython core team.</p>
+<p>With binary modules now being supported on both iOS and Android, and the introduction of a <a href="https://peps.python.org/pep-0011/">Tier 3 support level in PEP11</a>, the prospect of elevating iOS and Android to official supported platforms is seeming increasingly plausible. Our hope is to go to PyCon US next year in a position to make a concrete proposal to the CPython core team.</p>
 <h3 id="toga-10">Toga 1.0<a class="headerlink" href="#toga-10" title="Permanent link">&para;</a></h3>
-<p>The broad goal for "Toga 1.0" could be considered "<nospell>Tkinter</nospell>,
-but with some additional bells to show off". We want to deliver a core widget
-set of the "essentials", plus some nice features to show off, like <code>WebView</code>s
-and camera or GPS integration. We hope to establish the feature list for Toga
-1.0 in Q4; once that plan is in place, we'll have a better idea of when we will
-be able to deliver on that plan.</p>
+<p>The broad goal for "Toga 1.0" could be considered "<nospell>Tkinter</nospell>, but with some additional bells to show off". We want to deliver a core widget set of the "essentials", plus some nice features to show off, like <code>WebView</code>s and camera or GPS integration. We hope to establish the feature list for Toga 1.0 in Q4; once that plan is in place, we'll have a better idea of when we will be able to deliver on that plan.</p>
 <h3 id="a-forge-for-mobile-packages">A Forge for mobile packages<a class="headerlink" href="#a-forge-for-mobile-packages" title="Permanent link">&para;</a></h3>
-<p>As of today, all binary modules for mobile platforms are being maintained by the
-BeeWare team. This isn't a viable solution long term; we need to move to an
-environment where the community can manage binary packages for mobile platforms.</p>
+<p>As of today, all binary modules for mobile platforms are being maintained by the BeeWare team. This isn't a viable solution long term; we need to move to an environment where the community can manage binary packages for mobile platforms.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>For the last 6 months, the focus of BeeWare has been on Briefcase and the
-support packages - ensuring that we have a feature complete, robust set of tools
-for deploying apps on any platform. In Q4, our focus is shifting to the tools we
-need to build apps <em>on</em> those platforms, and ensuring we have a stable
-foundation for future development. It's taken a long time for BeeWare to get
-this far - but we're getting very close to unlocking the remarkable potential of
-the Python ecosystem on mobile devices.</p>
+<p>For the last 6 months, the focus of BeeWare has been on Briefcase and the support packages - ensuring that we have a feature complete, robust set of tools for deploying apps on any platform. In Q4, our focus is shifting to the tools we need to build apps <em>on</em> those platforms, and ensuring we have a stable foundation for future development. It's taken a long time for BeeWare to get this far - but we're getting very close to unlocking the remarkable potential of the Python ecosystem on mobile devices.</p>
 
 
 

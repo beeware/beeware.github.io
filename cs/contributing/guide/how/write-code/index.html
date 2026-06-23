@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Záhlaví"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/write-code/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/write-code/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -5218,31 +5226,16 @@ aria-label="Záhlaví"
 
 
 <h1 id="psani-spousteni-a-testovani-kodu">Psaní, spouštění a testování kódu<a class="headerlink" href="#psani-spousteni-a-testovani-kodu" title="Permanent link">&para;</a></h1>
-<p>Oprava chyby nebo implementace nové funkce bude vyžadovat, abyste napsali nový
-kód.</p>
-<p>Než začnete pracovat na kódu, ujistěte se, že máte nastavené <a href="../dev-environment/">vývojové
-prostředí</a> a že <a href="../branches/">pracujete na
-větvi</a>.</p>
-<p>Máme <a href="../../style/code-style-guide/">příručku pro psaní kódu</a>, která obsahuje
-pokyny pro psaní kódu pro BeeWare.</p>
+<p>Oprava chyby nebo implementace nové funkce bude vyžadovat, abyste napsali nový kód.</p>
+<p>Než začnete pracovat na kódu, ujistěte se, že máte nastavené <a href="../dev-environment/">vývojové prostředí</a> a že <a href="../branches/">pracujete na větvi</a>.</p>
+<p>Máme <a href="../../style/code-style-guide/">příručku pro psaní kódu</a>, která obsahuje pokyny pro psaní kódu pro BeeWare.</p>
 <h3 id="vyvoj-rizeny-testy">Vývoj řízený testy<a class="headerlink" href="#vyvoj-rizeny-testy" title="Permanent link">&para;</a></h3>
-<p>Dobrým způsobem, jak zajistit, že váš kód bude fungovat podle vašich představ,
-je nejprve napsat testovací případ, který to ověří. Tento testovací případ by
-měl zpočátku selhat, protože kód, který má otestovat, ještě neexistuje. Poté
-můžete provést změny v kódu potřebné k tomu, aby test proběhl úspěšně, a mít
-jistotu, že to, co jste napsali, řeší problém tak, jak jste očekávali.</p>
+<p>Dobrým způsobem, jak zajistit, že váš kód bude fungovat podle vašich představ, je nejprve napsat testovací případ, který to ověří. Tento testovací případ by měl zpočátku selhat, protože kód, který má otestovat, ještě neexistuje. Poté můžete provést změny v kódu potřebné k tomu, aby test proběhl úspěšně, a mít jistotu, že to, co jste napsali, řeší problém tak, jak jste očekávali.</p>
 <h3 id="spustte-svuj-kod">Spusťte svůj kód<a class="headerlink" href="#spustte-svuj-kod" title="Permanent link">&para;</a></h3>
-<p>Jakmile kód napíšete, musíte se ujistit, že funguje. Budete jej muset spustit
-ručně, abyste ověřili, zda dělá to, co očekáváte. Pokud jste tak ještě
-neučinili, měli byste pro své změny napsat testovací případ; jak již bylo
-zmíněno výše, tento test by měl selhat, pokud je váš kód zakomentován nebo
-chybí.</p>
-<p>Svůj testovací případ přidáte do testovací sady, aby mohl být spuštěn společně s
-ostatními testy. Dalším krokem je spuštění testovací sady.</p>
+<p>Jakmile kód napíšete, musíte se ujistit, že funguje. Budete jej muset spustit ručně, abyste ověřili, zda dělá to, co očekáváte. Pokud jste tak ještě neučinili, měli byste pro své změny napsat testovací případ; jak již bylo zmíněno výše, tento test by měl selhat, pokud je váš kód zakomentován nebo chybí.</p>
+<p>Svůj testovací případ přidáte do testovací sady, aby mohl být spuštěn společně s ostatními testy. Dalším krokem je spuštění testovací sady.</p>
 <h3 id="run-test-suite">Spuštění testů  a pokrytí<a class="headerlink" href="#run-test-suite" title="Permanent link">&para;</a></h3>
-<p>BeeWare využívá <a href="https://tox.wiki/en/latest/"><code>tox</code></a> ke správě
-testovacího procesu a <a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> pro svou
-vlastní sadu testů.</p>
+<p>BeeWare využívá <a href="https://tox.wiki/en/latest/"><code>tox</code></a> ke správě testovacího procesu a <a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> pro svou vlastní sadu testů.</p>
 <p>Výchozí příkaz <code>tox</code> zahrnuje spuštění:</p>
 <ul>
 <li>háčky před potvrzením</li>
@@ -5275,32 +5268,13 @@ vlastní sadu testů.</p>
 </div>
 </div>
 </div>
-<p>Spuštění celé testovací sady může chvíli trvat. Můžete jej výrazně urychlit
-spuštěním <code>tox</code> paralelně, a to pomocí příkazu <code>tox p</code> (nebo <code>tox
-run-parallel</code>). Při paralelním spuštění testovací sady budete dostávat méně
-informací o jejím průběhu, ale na konci testování se vám i tak zobrazí souhrn
-všech zjištěných problémů. Měl by se zobrazit výpis potvrzující, že testy
-proběhly. Můžete vidět <code>SKIPPED</code> testů, ale nikdy byste neměli dostat žádné
-výsledky testů <code>FAIL</code> nebo <code>ERROR</code>. Před sloučením každé opravy spouštíme naši
-kompletní sadu testů. Pokud tento proces odhalí nějaké problémy, opravu
-nesloučíme. Pokud narazíte na chybu nebo selhání testu, buď je ve vašem
-testovacím prostředí něco v nepořádku, nebo jste narazili na okrajový případ,
-který jsme dosud nezaznamenali – v každém případě nám to dejte vědět!</p>
-<p>Kromě úspěšného absolvování testů by mělo být vykazováno <a class="autorefs autorefs-internal" title="Pokrytí kódu" href="#code-coverage">100% pokrytí
-testy</a>.</p>
+<p>Spuštění celé testovací sady může chvíli trvat. Můžete jej výrazně urychlit spuštěním <code>tox</code> paralelně, a to pomocí příkazu <code>tox p</code> (nebo <code>tox run-parallel</code>). Při paralelním spuštění testovací sady budete dostávat méně informací o jejím průběhu, ale na konci testování se vám i tak zobrazí souhrn všech zjištěných problémů. Měl by se zobrazit výpis potvrzující, že testy proběhly. Můžete vidět <code>SKIPPED</code> testů, ale nikdy byste neměli dostat žádné výsledky testů <code>FAIL</code> nebo <code>ERROR</code>. Před sloučením každé opravy spouštíme naši kompletní sadu testů. Pokud tento proces odhalí nějaké problémy, opravu nesloučíme. Pokud narazíte na chybu nebo selhání testu, buď je ve vašem testovacím prostředí něco v nepořádku, nebo jste narazili na okrajový případ, který jsme dosud nezaznamenali – v každém případě nám to dejte vědět!</p>
+<p>Kromě úspěšného absolvování testů by mělo být vykazováno <a class="autorefs autorefs-internal" title="Pokrytí kódu" href="#code-coverage">100% pokrytí testy</a>.</p>
 <h3 id="spousteni-ruznych-variant-testu">Spouštění různých variant testů<a class="headerlink" href="#spousteni-ruznych-variant-testu" title="Permanent link">&para;</a></h3>
 <h4 id="spustit-testy-pro-vice-verzi-jazyka-python">Spustit testy pro více verzí jazyka Python<a class="headerlink" href="#spustit-testy-pro-vice-verzi-jazyka-python" title="Permanent link">&para;</a></h4>
-<p>Ve výchozím nastavení se mnoho příkazů <code>tox</code> pokusí spustit sadu testů
-několikrát, a to jednou pro každou verzi jazyka Python, kterou BeeWare
-podporuje. K tomu je však nutné, aby byly všechny tyto verze jazyka Python
-nainstalovány ve vašem počítači a byly dostupné pro proces [vyhledávání]<code>tox</code>
-jazyka Python v
-(https://virtualenv.pypa.io/en/latest/explanation.html#python-discovery). Obecně
-platí, že pokud je nějaká verze jazyka Python dostupná prostřednictvím <code>PATH</code>,
-měl by ji <code>tox</code> dokázat najít a použít.</p>
+<p>Ve výchozím nastavení se mnoho příkazů <code>tox</code> pokusí spustit sadu testů několikrát, a to jednou pro každou verzi jazyka Python, kterou BeeWare podporuje. K tomu je však nutné, aby byly všechny tyto verze jazyka Python nainstalovány ve vašem počítači a byly dostupné pro proces [vyhledávání]<code>tox</code> jazyka Python v (https://virtualenv.pypa.io/en/latest/explanation.html#python-discovery). Obecně platí, že pokud je nějaká verze jazyka Python dostupná prostřednictvím <code>PATH</code>, měl by ji <code>tox</code> dokázat najít a použít.</p>
 <h4 id="spustit-pouze-sadu-testu">Spustit pouze sadu testů<a class="headerlink" href="#spustit-pouze-sadu-testu" title="Permanent link">&para;</a></h4>
-<p>Pokud na nové funkci pracujete v rychlém cyklu, nemusíte spouštět celou sadu
-testů; stačí spustit <em>pouze</em> jednotkové testy. K tomu zadejte:</p>
+<p>Pokud na nové funkci pracujete v rychlém cyklu, nemusíte spouštět celou sadu testů; stačí spustit <em>pouze</em> jednotkové testy. K tomu zadejte:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5318,13 +5292,7 @@ testů; stačí spustit <em>pouze</em> jednotkové testy. K tomu zadejte:</p>
 </div>
 </div>
 <h4 id="test-subset">Spustit podmnožinu testů<a class="headerlink" href="#test-subset" title="Permanent link">&para;</a></h4>
-<p>Ve výchozím nastavení příkaz <code>tox</code> spustí všechny testy v sadě jednotkových
-testů. Při vývoji nového testu může být užitečné spustit <em>pouze</em> tento jeden
-test. K tomu můžete jako argument příkazu <code>pytest</code> předat [libovolný
-specifikátor
-(https://docs.pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run)]<code>tox</code>.
-Tyto cesty k testům jsou relativní vůči adresáři <code>briefcase</code>. Chcete-li
-například spustit pouze testy v jednom souboru, zadejte:</p>
+<p>Ve výchozím nastavení příkaz <code>tox</code> spustí všechny testy v sadě jednotkových testů. Při vývoji nového testu může být užitečné spustit <em>pouze</em> tento jeden test. K tomu můžete jako argument příkazu <code>pytest</code> předat [libovolný specifikátor (https://docs.pytest.org/en/latest/how-to/usage.html#specifying-which-tests-to-run)]<code>tox</code>. Tyto cesty k testům jsou relativní vůči adresáři <code>briefcase</code>. Chcete-li například spustit pouze testy v jednom souboru, zadejte:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5341,15 +5309,9 @@ například spustit pouze testy v jednom souboru, zadejte:</p>
 </div>
 </div>
 </div>
-<p>I při spuštění pouze části testovací sady obdržíte zprávu o pokrytí – výsledky
-pokrytí však budou zahrnovat pouze řádky kódu, které byly provedeny konkrétními
-testy, které jste spustili.</p>
+<p>I při spuštění pouze části testovací sady obdržíte zprávu o pokrytí – výsledky pokrytí však budou zahrnovat pouze řádky kódu, které byly provedeny konkrétními testy, které jste spustili.</p>
 <h4 id="test-py-version">Spustit sadu testů pro konkrétní verzi jazyka Python<a class="headerlink" href="#test-py-version" title="Permanent link">&para;</a></h4>
-<p>Ve výchozím nastavení se <code>tox -e py</code> spustí pomocí interpretu, který se na vašem
-počítači přiřazuje k <code>python</code>. Pokud máte nainstalováno více verzí jazyka Python
-a chcete otestovat konkrétní verzi z těch, které máte nainstalované, můžete
-určit konkrétní verzi jazyka Python, která se má použít. Chcete-li například
-spustit sadu testů v jazyce Python 3.10, zadejte:</p>
+<p>Ve výchozím nastavení se <code>tox -e py</code> spustí pomocí interpretu, který se na vašem počítači přiřazuje k <code>python</code>. Pokud máte nainstalováno více verzí jazyka Python a chcete otestovat konkrétní verzi z těch, které máte nainstalované, můžete určit konkrétní verzi jazyka Python, která se má použít. Chcete-li například spustit sadu testů v jazyce Python 3.10, zadejte:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5366,14 +5328,9 @@ spustit sadu testů v jazyce Python 3.10, zadejte:</p>
 </div>
 </div>
 </div>
-<p>Podskupinu testů [test-subset] lze spustit tak, že do příkazového řádku přidáte
-<code>--</code> a specifikaci testu.</p>
+<p>Podskupinu testů [test-subset] lze spustit tak, že do příkazového řádku přidáte <code>--</code> a specifikaci testu.</p>
 <h4 id="spustit-sadu-testu-bez-mereni-pokryti-rychle">Spustit sadu testů bez měření pokrytí (rychle)<a class="headerlink" href="#spustit-sadu-testu-bez-mereni-pokryti-rychle" title="Permanent link">&para;</a></h4>
-<p>Ve výchozím nastavení spustí <code>tox</code> sadu testů v jednovláknovém režimu. Spuštěním
-sady testů paralelně můžete její provedení zrychlit. V tomto režimu se
-nevytvářejí soubory s pokrytím, a to kvůli složitosti zaznamenávání pokrytí v
-rámci spuštěných procesů. Chcete-li spustit jednu verzi Pythonu v „rychlém“
-režimu, zadejte:</p>
+<p>Ve výchozím nastavení spustí <code>tox</code> sadu testů v jednovláknovém režimu. Spuštěním sady testů paralelně můžete její provedení zrychlit. V tomto režimu se nevytvářejí soubory s pokrytím, a to kvůli složitosti zaznamenávání pokrytí v rámci spuštěných procesů. Chcete-li spustit jednu verzi Pythonu v „rychlém“ režimu, zadejte:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5390,44 +5347,21 @@ režimu, zadejte:</p>
 </div>
 </div>
 </div>
-<p><a class="autorefs autorefs-internal" title="Spustit podmnožinu testů" href="#test-subset">Podmnožinu testů</a> lze spustit přidáním <code>--</code> a specifikace testu do
-příkazového řádku; <a class="autorefs autorefs-internal" title="Spustit sadu testů pro konkrétní verzi jazyka Python" href="#test-py-version">konkrétní verzi Pythonu</a> lze použít
-přidáním této verze do cíle testu (např. <code>py310-fast</code>
-pro spuštění testu fast v Pythonu 3.10).</p>
+<p><a class="autorefs autorefs-internal" title="Spustit podmnožinu testů" href="#test-subset">Podmnožinu testů</a> lze spustit přidáním <code>--</code> a specifikace testu do příkazového řádku; <a class="autorefs autorefs-internal" title="Spustit sadu testů pro konkrétní verzi jazyka Python" href="#test-py-version">konkrétní verzi Pythonu</a> lze použít přidáním této verze do cíle testu (např. <code>py310-fast</code> pro spuštění testu fast v Pythonu 3.10).</p>
 <h3 id="code-coverage">Pokrytí kódu<a class="headerlink" href="#code-coverage" title="Permanent link">&para;</a></h3>
-<p>BeeWare udržuje ve svém kódovém základu 100% pokrytí větví. Pokud v
-projektu přidáváte nebo upravujete kód, musíte přidat testovací kód, abyste
-zajistili pokrytí všech provedených změn.</p>
-<p>Nicméně BeeWare je určen pro více platforem i pro více verzí jazyka
-Python, takže úplné pokrytí nelze ověřit pouze na jedné platformě a jedné verzi
-Pythonu. Aby se tomuto přizpůsobilo, je v sekci
-<code>tool.coverage.coverage_conditional_plugin.rules</code> definováno několik podmíněných
-pravidel pokrytí (např. <code>pyproject.toml</code> lze použít k označení bloku kódu, který
-nebude proveden při spuštění testovací sady na Windows). Tato pravidla se
-používají k identifikaci částí kódu, které jsou pokryty pouze na určitých
-platformách nebo verzích Pythonu.</p>
-<p>Je třeba poznamenat, že generování zpráv o pokrytí v různých verzích jazyka
-Python může být poněkud nevyzpytatelné. Pokud jsou například soubory pokrytí
-vytvořeny v jedné verzi jazyka Python, ale zpráva o pokrytí je generována v jiné
-verzi, může zpráva obsahovat falešně pozitivní výsledky u vynechaných větví. Z
-tohoto důvodu by se při generování zpráv o pokrytí měla vždy používat nejstarší
-verze jazyka Python, která byla použita k vytvoření souborů pokrytí.</p>
+<p>BeeWare udržuje ve svém kódovém základu 100% pokrytí větví. Pokud v projektu přidáváte nebo upravujete kód, musíte přidat testovací kód, abyste zajistili pokrytí všech provedených změn.</p>
+<p>Nicméně BeeWare je určen pro více platforem i pro více verzí jazyka Python, takže úplné pokrytí nelze ověřit pouze na jedné platformě a jedné verzi Pythonu. Aby se tomuto přizpůsobilo, je v sekci <code>tool.coverage.coverage_conditional_plugin.rules</code> definováno několik podmíněných pravidel pokrytí (např. <code>pyproject.toml</code> lze použít k označení bloku kódu, který nebude proveden při spuštění testovací sady na Windows). Tato pravidla se používají k identifikaci částí kódu, které jsou pokryty pouze na určitých platformách nebo verzích Pythonu.</p>
+<p>Je třeba poznamenat, že generování zpráv o pokrytí v různých verzích jazyka Python může být poněkud nevyzpytatelné. Pokud jsou například soubory pokrytí vytvořeny v jedné verzi jazyka Python, ale zpráva o pokrytí je generována v jiné verzi, může zpráva obsahovat falešně pozitivní výsledky u vynechaných větví. Z tohoto důvodu by se při generování zpráv o pokrytí měla vždy používat nejstarší verze jazyka Python, která byla použita k vytvoření souborů pokrytí.</p>
 <h4 id="porozumeni-vysledkum-kryti">Porozumění výsledkům krytí<a class="headerlink" href="#porozumeni-vysledkum-kryti" title="Permanent link">&para;</a></h4>
-<p>Na konci výstupu testu pokrytí by měla být uvedena zpráva o shromážděných
-údajích o pokrytí:</p>
+<p>Na konci výstupu testu pokrytí by měla být uvedena zpráva o shromážděných údajích o pokrytí:</p>
 <!-- The extra space at the start of this line is needed to prevent translate-toolkit from parsing the dashes as a markdown document split -->
 
 <div class="highlight"><pre><span></span><code><span class="go">Jméno    Výkazy   Chybějící pobočka BrPart   Krytí   Chybějící</span>
 <span class="go"> ---------------------------------------------------</span>
 <span class="go"> CELKEM    7540 0   1040 0  100,0 %</span>
 </code></pre></div>
-<p>To nám říká, že testovací sada prověřila všechny možné větvení v kódu. Neznamená
-to sice stoprocentní záruku, že v kódu nejsou žádné chyby, ale znamená to, že
-prověřujeme každý řádek kódu v kódové základně.</p>
-<p>Pokud provedete změny v kódu, může se stát, že v pokrytí vznikne mezera. V
-takovém případě vám zpráva o pokrytí ukáže, které řádky se neprovádějí. Řekněme
-například, že jsme provedli změnu v <code>some/interesting_file.py</code>, kde jsme přidali
-novou logiku. Zpráva o pokrytí by mohla vypadat například takto:</p>
+<p>To nám říká, že testovací sada prověřila všechny možné větvení v kódu. Neznamená to sice stoprocentní záruku, že v kódu nejsou žádné chyby, ale znamená to, že prověřujeme každý řádek kódu v kódové základně.</p>
+<p>Pokud provedete změny v kódu, může se stát, že v pokrytí vznikne mezera. V takovém případě vám zpráva o pokrytí ukáže, které řádky se neprovádějí. Řekněme například, že jsme provedli změnu v <code>some/interesting_file.py</code>, kde jsme přidali novou logiku. Zpráva o pokrytí by mohla vypadat například takto:</p>
 <!-- The extra space at the start of this line is needed to prevent translate-toolkit from parsing the dashes as a markdown document split -->
 
 <div class="highlight"><pre><span></span><code><span class="go">Název Příkazy   Chybějící větev BrPart  Pokrytí   Chybějící</span>
@@ -5436,13 +5370,9 @@ novou logiku. Zpráva o pokrytí by mohla vypadat například takto:</p>
 <span class="go"> -------------------------------------------------------------------------------</span>
 <span class="go"> CELKEM 7540 1   1726 0  99,9 %</span>
 </code></pre></div>
-<p>Z toho vyplývá, že řádek 170, řádky 302–307 a skok z řádku 320 na řádek 335
-nejsou v testovací sadě provedeny. Abyste toto pokrytí obnovili, budete muset
-přidat nové testy (nebo upravit stávající test).</p>
+<p>Z toho vyplývá, že řádek 170, řádky 302–307 a skok z řádku 320 na řádek 335 nejsou v testovací sadě provedeny. Abyste toto pokrytí obnovili, budete muset přidat nové testy (nebo upravit stávající test).</p>
 <h4 id="zprava-o-kompatibilite-s-hostitelskou-platformou-a-verzi-jazyka-python">Zpráva o kompatibilitě s hostitelskou platformou a verzí jazyka Python<a class="headerlink" href="#zprava-o-kompatibilite-s-hostitelskou-platformou-a-verzi-jazyka-python" title="Permanent link">&para;</a></h4>
-<p>Můžete vygenerovat zprávu o pokrytí pro vaši platformu a verzi jazyka Python.
-Chcete-li například spustit sadu testů a vygenerovat zprávu o pokrytí v Pythonu
-3.10, zadejte:</p>
+<p>Můžete vygenerovat zprávu o pokrytí pro vaši platformu a verzi jazyka Python. Chcete-li například spustit sadu testů a vygenerovat zprávu o pokrytí v Pythonu 3.10, zadejte:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="6:3"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">macOS</label><label for="__tabbed_6_2">Linux</label><label for="__tabbed_6_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5460,9 +5390,7 @@ Chcete-li například spustit sadu testů a vygenerovat zprávu o pokrytí v Pyt
 </div>
 </div>
 <h4 id="zprava-o-pokryti-pro-hostitelskou-platformu">Zpráva o pokrytí pro hostitelskou platformu<a class="headerlink" href="#zprava-o-pokryti-pro-hostitelskou-platformu" title="Permanent link">&para;</a></h4>
-<p>Pokud má <code>tox</code> k dispozici všechny podporované verze jazyka Python, lze
-vygenerovat přehled pokrytí pro danou hostitelskou platformu spuštěním
-následujícího příkazu:</p>
+<p>Pokud má <code>tox</code> k dispozici všechny podporované verze jazyka Python, lze vygenerovat přehled pokrytí pro danou hostitelskou platformu spuštěním následujícího příkazu:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="7:3"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><input id="__tabbed_7_3" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">macOS</label><label for="__tabbed_7_2">Linux</label><label for="__tabbed_7_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5480,8 +5408,7 @@ následujícího příkazu:</p>
 </div>
 </div>
 <h4 id="zpravy-o-pokryti-v-html">Zprávy o pokrytí v HTML<a class="headerlink" href="#zpravy-o-pokryti-v-html" title="Permanent link">&para;</a></h4>
-<p>Zprávu o pokrytí HTML lze vygenerovat připojením <code>-html</code> k libovolnému názvu
-prostředí pokrytí <code>tox</code>, například:</p>
+<p>Zprávu o pokrytí HTML lze vygenerovat připojením <code>-html</code> k libovolnému názvu prostředí pokrytí <code>tox</code>, například:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="8:3"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><input id="__tabbed_8_3" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">macOS</label><label for="__tabbed_8_2">Linux</label><label for="__tabbed_8_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5499,18 +5426,9 @@ prostředí pokrytí <code>tox</code>, například:</p>
 </div>
 </div>
 <h3 id="nejde-jen-o-psani-testu">Nejde jen o psaní testů!<a class="headerlink" href="#nejde-jen-o-psani-testu" title="Permanent link">&para;</a></h3>
-<p>I když dbáme na to, abychom otestovali veškerý náš kód, nejde <em>jen</em> o to, udržet
-tuto úroveň testování. Součástí úkolu je také průběžná kontrola kódu. Mohli
-byste napsat komplexní sadu testů pro konkrétní záchrannou vestu&hellip; ale
-konkrétní záchranná vesta by i tak byla k zamýšlenému účelu k ničemu!</p>
-<p>Při vývoji testů byste měli také kontrolovat, zda je základní modul vnitřně
-<strong>konzistentní</strong>. Pokud si všimnete názvů metod, které nejsou vnitřně
-konzistentní (např. něco, co se v jednom modulu jmenuje <code>on_select</code>, ale v jiném
-<code>on_selected</code>), nebo kde se s daty nezachází konzistentně, označte to a
-upozorněte nás na to vytvořením ticketu. Nebo, pokud jste si jisti, že víte, co
-je třeba udělat, vytvořte pull request, který opraví problém, který jste našli.</p>
-<p>Jakmile máte vše funkční, můžete <a href="../submit-pr/">odeslat žádost o stažení</a>
-se svými změnami.</p>
+<p>I když dbáme na to, abychom otestovali veškerý náš kód, nejde <em>jen</em> o to, udržet tuto úroveň testování. Součástí úkolu je také průběžná kontrola kódu. Mohli byste napsat komplexní sadu testů pro konkrétní záchrannou vestu&hellip; ale konkrétní záchranná vesta by i tak byla k zamýšlenému účelu k ničemu!</p>
+<p>Při vývoji testů byste měli také kontrolovat, zda je základní modul vnitřně <strong>konzistentní</strong>. Pokud si všimnete názvů metod, které nejsou vnitřně konzistentní (např. něco, co se v jednom modulu jmenuje <code>on_select</code>, ale v jiném <code>on_selected</code>), nebo kde se s daty nezachází konzistentně, označte to a upozorněte nás na to vytvořením ticketu. Nebo, pokud jste si jisti, že víte, co je třeba udělat, vytvořte pull request, který opraví problém, který jste našli.</p>
+<p>Jakmile máte vše funkční, můžete <a href="../submit-pr/">odeslat žádost o stažení</a> se svými změnami.</p>
 
 
 

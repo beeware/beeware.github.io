@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Sidehoved"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/new-issue/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/new-issue/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4986,126 +4994,52 @@ aria-label="Sidehoved"
 
 
 <h1 id="indsendelse-af-et-nyt-problem">Indsendelse af et nyt problem<a class="headerlink" href="#indsendelse-af-et-nyt-problem" title="Permanent link">&para;</a></h1>
-<p>At skrive en god fejlrapport kan gøre hele forskellen, når det gælder om at løse
-et problem. Her er en guide til, hvordan du indsender en god fejlrapport til BeeWare.</p>
+<p>At skrive en god fejlrapport kan gøre hele forskellen, når det gælder om at løse et problem. Her er en guide til, hvordan du indsender en god fejlrapport til BeeWare.</p>
 <h3 id="sg-efter-eksisterende-problemer">Søg efter eksisterende problemer<a class="headerlink" href="#sg-efter-eksisterende-problemer" title="Permanent link">&para;</a></h3>
-<p>Inden du indsender et nyt problem, skal du søge i indekset efter eksisterende
-problemer, der matcher dit eget. Hvis der findes et eksisterende åbent problem,
-der synes at matche dit problem, skal du tilføje en kommentar til det pågældende
-problem med yderligere oplysninger om din oplevelse. Hvis du f.eks. oplever
-problemet på en anden Python-version eller et andet operativsystem, kan disse
-yderligere oplysninger være nyttige til at fastslå problemets omfang eller
-årsag.</p>
-<p>Hvis du finder et <em>lukket</em> problem, der synes at matche dit problem, skal du
-kontrollere, hvor nyligt problemet blev lukket. Hvis problemet blev lukket for
-nylig, betyder det sandsynligvis, at din fejl er blevet rettet og vil blive
-korrigeret i den næste udgivelse. Hvis problemet blev lukket for mere end 4
-måneder siden, er det sandsynligt, at det, du oplever, er et andet problem –
-uanset hvor ens fejlmeddelelsen måtte synes at være.</p>
-<p>Hvis du ikke finder et problem, der svarer til det, du ser, kan det være en god
-idé at oprette et nyt problem.</p>
+<p>Inden du indsender et nyt problem, skal du søge i indekset efter eksisterende problemer, der matcher dit eget. Hvis der findes et eksisterende åbent problem, der synes at matche dit problem, skal du tilføje en kommentar til det pågældende problem med yderligere oplysninger om din oplevelse. Hvis du f.eks. oplever problemet på en anden Python-version eller et andet operativsystem, kan disse yderligere oplysninger være nyttige til at fastslå problemets omfang eller årsag.</p>
+<p>Hvis du finder et <em>lukket</em> problem, der synes at matche dit problem, skal du kontrollere, hvor nyligt problemet blev lukket. Hvis problemet blev lukket for nylig, betyder det sandsynligvis, at din fejl er blevet rettet og vil blive korrigeret i den næste udgivelse. Hvis problemet blev lukket for mere end 4 måneder siden, er det sandsynligt, at det, du oplever, er et andet problem – uanset hvor ens fejlmeddelelsen måtte synes at være.</p>
+<p>Hvis du ikke finder et problem, der svarer til det, du ser, kan det være en god idé at oprette et nyt problem.</p>
 <h3 id="start-med-en-diskussion">Start med en diskussion<a class="headerlink" href="#start-med-en-diskussion" title="Permanent link">&para;</a></h3>
-<p>Før du indsender et problem på GitHub, bør du overveje at starte med en
-diskussion for at spørge, om det, du oplever, faktisk er en fejl eller et
-problem med din opsætning eller proces. Medmindre du ser en adfærd, der er i
-direkte modstrid med den dokumenterede adfærd, er det sandsynligvis en god idé
-at stille et spørgsmål, før du går direkte til at indsende en fejlrapport. Hvis
-det viser sig, at du <em>har</em> fundet et problem, kan et diskussionsemne nemt
-omdannes til et problem.</p>
-<p>At starte en diskussion kan også hjælpe med at sikre, at du rapporterer et
-problem det bedste sted. Selvom du måske har oplevet et problem, mens du brugte
-BeeWare, kan problemet være forårsaget af en fejl i et andet projekt i
-BeeWare-økosystemet.</p>
+<p>Før du indsender et problem på GitHub, bør du overveje at starte med en diskussion for at spørge, om det, du oplever, faktisk er en fejl eller et problem med din opsætning eller proces. Medmindre du ser en adfærd, der er i direkte modstrid med den dokumenterede adfærd, er det sandsynligvis en god idé at stille et spørgsmål, før du går direkte til at indsende en fejlrapport. Hvis det viser sig, at du <em>har</em> fundet et problem, kan et diskussionsemne nemt omdannes til et problem.</p>
+<p>At starte en diskussion kan også hjælpe med at sikre, at du rapporterer et problem det bedste sted. Selvom du måske har oplevet et problem, mens du brugte BeeWare, kan problemet være forårsaget af en fejl i et andet projekt i BeeWare-økosystemet.</p>
 <h3 id="skrivning-af-en-god-fejlrapport">Skrivning af en god fejlrapport<a class="headerlink" href="#skrivning-af-en-god-fejlrapport" title="Permanent link">&para;</a></h3>
-<p>Hvis et nyt problem <em>er</em> nødvendigt, er det vigtigt at give så mange detaljer
-som muligt. En god fejlrapport indeholder alle oplysninger, der potentielt kan
-have relation til fejlen, samt det mindst mulige eksempel på reproduktion.</p>
-<p>Reproduktionseksemplet skal være så kort og præcist som muligt, samtidig med at
-det stadig viser fejlen. Et omfattende eksempel gør det betydeligt sværere at
-fejlfinde, især hvis det er afhængigt af andre biblioteker eller kræver
-omfattende viden om den forventede adfærd eller interne logik i eksemplet.</p>
-<p>Vi har brug for så mange detaljer som muligt. Dette omfatter, men er bestemt
-ikke begrænset til:</p>
+<p>Hvis et nyt problem <em>er</em> nødvendigt, er det vigtigt at give så mange detaljer som muligt. En god fejlrapport indeholder alle oplysninger, der potentielt kan have relation til fejlen, samt det mindst mulige eksempel på reproduktion.</p>
+<p>Reproduktionseksemplet skal være så kort og præcist som muligt, samtidig med at det stadig viser fejlen. Et omfattende eksempel gør det betydeligt sværere at fejlfinde, især hvis det er afhængigt af andre biblioteker eller kræver omfattende viden om den forventede adfærd eller interne logik i eksemplet.</p>
+<p>Vi har brug for så mange detaljer som muligt. Dette omfatter, men er bestemt ikke begrænset til:</p>
 <ul>
-<li>Din operativsystemversion – ned til mikroversionen (for eksempel macOS
-  15.7.2).</li>
+<li>Din operativsystemversion – ned til mikroversionen (for eksempel macOS 15.7.2).</li>
 <li>Din Python-version, også ned til mikroversionen (for eksempel 3.14.1).</li>
-<li>Hvordan installerede du Python? Downloadede du det fra python.org? Brugte du
-  Homebrew? <code>uv</code>? <code>pyenv</code>? <code>conda</code>? Noget andet?</li>
-<li>Den specifikke version af BeeWare-værktøjerne, du bruger (for eksempel Toga
-  0.5.3). Hvis du bruger en udviklingsversion, hvilken Git-hash bruger du? Det
-  er ikke nok at sige "den aktuelle hovedgren", fordi den kan ændre sig dagligt.</li>
-<li>De specifikke versioner af andre pakker, der skal installeres for at udløse
-  problemet. Du kan inkludere resultaterne af at køre <code>python -m pip freeze</code> for
-  at give disse oplysninger.</li>
+<li>Hvordan installerede du Python? Downloadede du det fra python.org? Brugte du Homebrew? <code>uv</code>? <code>pyenv</code>? <code>conda</code>? Noget andet?</li>
+<li>Den specifikke version af BeeWare-værktøjerne, du bruger (for eksempel Toga 0.5.3). Hvis du bruger en udviklingsversion, hvilken Git-hash bruger du? Det er ikke nok at sige "den aktuelle hovedgren", fordi den kan ændre sig dagligt.</li>
+<li>De specifikke versioner af andre pakker, der skal installeres for at udløse problemet. Du kan inkludere resultaterne af at køre <code>python -m pip freeze</code> for at give disse oplysninger.</li>
 <li>Hvis der er genereret en logfil, skal <em>hele</em> logfilen vedhæftes.</li>
-<li>Hvis der er genereret et stack trace, skal du angive <em>hele</em> stack trace. Angiv
-  ikke kun den endelige fejlmeddelelse – det er vigtigt at angive hele
-  konteksten for stack trace. Det er også bedst at angive dette i <em>tekstformat</em>
-  og <em>ikke</em> som et skærmbillede.</li>
-<li>Er der andet ved din computer eller netværksopsætning, der kan have
-  indflydelse på problemet? Er din computer ældre eller langsommere? Er det en
-  arbejdscomputer, der muligvis har firewalls, viruscheckere eller andre
-  begrænsninger? Er dit netværk særligt langsomt? Kører du dit operativsystem
-  med usædvanlige systemindstillinger (f.eks. en meget stor skriftstørrelse
-  eller anden hjælpende teknologi aktiveret)?</li>
+<li>Hvis der er genereret et stack trace, skal du angive <em>hele</em> stack trace. Angiv ikke kun den endelige fejlmeddelelse – det er vigtigt at angive hele konteksten for stack trace. Det er også bedst at angive dette i <em>tekstformat</em> og <em>ikke</em> som et skærmbillede.</li>
+<li>Er der andet ved din computer eller netværksopsætning, der kan have indflydelse på problemet? Er din computer ældre eller langsommere? Er det en arbejdscomputer, der muligvis har firewalls, viruscheckere eller andre begrænsninger? Er dit netværk særligt langsomt? Kører du dit operativsystem med usædvanlige systemindstillinger (f.eks. en meget stor skriftstørrelse eller anden hjælpende teknologi aktiveret)?</li>
 </ul>
-<p>Prøv at tænke ud af boksen og medtag alt, hvad du kan komme i tanke om, der kan
-have indflydelse på det problem, du oplever. Hvis du giver os mere, end vi har
-brug for, kan vi nemt ignorere det, vi ikke har brug for. Vi kan ikke finde på
-noget, du har udeladt.</p>
+<p>Prøv at tænke ud af boksen og medtag alt, hvad du kan komme i tanke om, der kan have indflydelse på det problem, du oplever. Hvis du giver os mere, end vi har brug for, kan vi nemt ignorere det, vi ikke har brug for. Vi kan ikke finde på noget, du har udeladt.</p>
 <h4 id="et-minimalt-eksempel">Et minimalt eksempel<a class="headerlink" href="#et-minimalt-eksempel" title="Permanent link">&para;</a></h4>
-<p>Den vigtigste del af en fejlrapport er et minimalt reproduktionsscenario. Det
-skal være muligt for en tredjepart at læse instruktionerne til dit
-reproduktionsscenario, følge disse instruktioner og observere det samme problem.
-Dette kan betyde, at du skal levere et eksempelprojekt, der viser problemet –
-eller, endnu bedre, bruge et eksisterende eksempel (f.eks. en tutorial eller et
-eksempelprojekt, der er en del af den eksisterende kodebase).</p>
-<p>Dit fulde projekt <strong>er ikke</strong> et minimalt reproduktionscase. Et minimalt
-reproduktionscase bør ikke indeholde kode, der ikke er absolut nødvendig for at
-skabe et problem. Vær kompromisløs, når du sammensætter dit reproduktionscase –
-hvis en knap ikke er nødvendig for at skabe problemet, skal du ikke medtage den
-knap.</p>
-<p>Ofte vil processen med at udvikle dette minimale reproduktionscase afsløre
-årsagen til problemet, fordi det at skabe det minimale eksempel tvinger dig til
-at finde ud af, hvad der præcist forårsager problemet, uanset om det er en fejl
-i koden eller skyldes forkerte antagelser eller API-brug.</p>
-<p>Du bør også være <strong>eksplicit</strong> i alle reproduktionsinstruktioner. At sige "Luk
-eksempelappen" kan betyde at klikke på luk-knappen i vinduet, vælge "afslut" i
-en menu eller skrive Control-C i en terminal. Din rapport bør ikke give
-anledning til tvetydighed med hensyn til, hvad der skal gøres for at reproducere
-problemet.</p>
+<p>Den vigtigste del af en fejlrapport er et minimalt reproduktionsscenario. Det skal være muligt for en tredjepart at læse instruktionerne til dit reproduktionsscenario, følge disse instruktioner og observere det samme problem. Dette kan betyde, at du skal levere et eksempelprojekt, der viser problemet – eller, endnu bedre, bruge et eksisterende eksempel (f.eks. en tutorial eller et eksempelprojekt, der er en del af den eksisterende kodebase).</p>
+<p>Dit fulde projekt <strong>er ikke</strong> et minimalt reproduktionscase. Et minimalt reproduktionscase bør ikke indeholde kode, der ikke er absolut nødvendig for at skabe et problem. Vær kompromisløs, når du sammensætter dit reproduktionscase – hvis en knap ikke er nødvendig for at skabe problemet, skal du ikke medtage den knap.</p>
+<p>Ofte vil processen med at udvikle dette minimale reproduktionscase afsløre årsagen til problemet, fordi det at skabe det minimale eksempel tvinger dig til at finde ud af, hvad der præcist forårsager problemet, uanset om det er en fejl i koden eller skyldes forkerte antagelser eller API-brug.</p>
+<p>Du bør også være <strong>eksplicit</strong> i alle reproduktionsinstruktioner. At sige "Luk eksempelappen" kan betyde at klikke på luk-knappen i vinduet, vælge "afslut" i en menu eller skrive Control-C i en terminal. Din rapport bør ikke give anledning til tvetydighed med hensyn til, hvad der skal gøres for at reproducere problemet.</p>
 <h3 id="indsendelse-af-rapporten">Indsendelse af rapporten<a class="headerlink" href="#indsendelse-af-rapporten" title="Permanent link">&para;</a></h3>
-<p>Naviger til projektets problemoversigt, klik på knappen "Nyt problem" og vælg "Fejlrapport" for
-at starte processen.</p>
-<p><strong>Du skal udfylde <em>alle felter</em> i skabelonen til problemmeldingen.</strong> Vi stiller
-skabelonen til rådighed som en hjælp til at indtaste de nødvendige oplysninger.
-Husk, at du altid kan (og bør!) indtaste flere oplysninger, end skabelonen
-kræver, men vi har som minimum brug for alle de oplysninger, der er angivet i
-skabelonen.</p>
-<p>Når du inkluderer kode, kan du angive et link, hvis du kan gengive den med et
-eksisterende eksempel, såsom BeeWare-vejledningen. Ellers skal du angive koden i
-rapporten. Den skal være formateret i Markdown; en kodeblok skal have tre
-backticks (```) før og efter.</p>
-<p>Hvis du har brug for at inkludere en lang tekstblok, kan du gøre den til
-sammenklappet indhold ved hjælp af følgende syntaks:</p>
+<p>Naviger til projektets problemoversigt, klik på knappen "Nyt problem" og vælg "Fejlrapport" for at starte processen.</p>
+<p><strong>Du skal udfylde <em>alle felter</em> i skabelonen til problemmeldingen.</strong> Vi stiller skabelonen til rådighed som en hjælp til at indtaste de nødvendige oplysninger. Husk, at du altid kan (og bør!) indtaste flere oplysninger, end skabelonen kræver, men vi har som minimum brug for alle de oplysninger, der er angivet i skabelonen.</p>
+<p>Når du inkluderer kode, kan du angive et link, hvis du kan gengive den med et eksisterende eksempel, såsom BeeWare-vejledningen. Ellers skal du angive koden i rapporten. Den skal være formateret i Markdown; en kodeblok skal have tre backticks (```) før og efter.</p>
+<p>Hvis du har brug for at inkludere en lang tekstblok, kan du gøre den til sammenklappet indhold ved hjælp af følgende syntaks:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">details</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">summary</span><span class="p">&gt;</span>Titel på sammenklappet indhold<span class="p">&lt;/</span><span class="nt">summary</span><span class="p">&gt;</span>
 Lang tekstblok.
 <span class="p">&lt;/</span><span class="nt">details</span><span class="p">&gt;</span>
 </code></pre></div>
-<p>Når du har angivet så mange oplysninger som muligt, skal du klikke på "Opret"
-for at indsende rapporten.</p>
+<p>Når du har angivet så mange oplysninger som muligt, skal du klikke på "Opret" for at indsende rapporten.</p>
 <div class="admonition warning">
 <p class="admonition-title">Oprettelse af en issue ved hjælp af GitHub CLI</p>
-<p>Hvis man bruger GitHub CLI direkte (<code>gh</code>), omgår man de skabeloner, vi har
-oprettet. Disse skabeloner er der for at sikre, at vi ender med de nødvendige
-oplysninger til at kunne behandle sagen.</p>
+<p>Hvis man bruger GitHub CLI direkte (<code>gh</code>), omgår man de skabeloner, vi har oprettet. Disse skabeloner er der for at sikre, at vi ender med de nødvendige oplysninger til at kunne behandle sagen.</p>
 <p><strong>Hvis du vil bruge <code>gh</code> til at oprette en ny sag, skal du bruge følgende:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="go">gh issue create --web</span>
 </code></pre></div>
-<p>Hvis du bruger <code>--web</code>, åbnes en browser med siden med problemskabeloner, og du
-kan oprette et problem ved hjælp af den relevante skabelon.</p>
+<p>Hvis du bruger <code>--web</code>, åbnes en browser med siden med problemskabeloner, og du kan oprette et problem ved hjælp af den relevante skabelon.</p>
 </div>
 
 

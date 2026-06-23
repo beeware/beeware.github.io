@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Záhlaví"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/style/docs-style-guide/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/style/docs-style-guide/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -5308,129 +5316,82 @@ aria-label="Záhlaví"
 
 
 <h1 id="pravidla-pro-styl-dokumentace">Pravidla pro styl dokumentace<a class="headerlink" href="#pravidla-pro-styl-dokumentace" title="Permanent link">&para;</a></h1>
-<p>Tato příručka obsahuje informace o očekávaném stylu, syntaxi specifické pro
-MkDocs, různých požadovaných nástrojích a překladu dokumentace, s ohledem na
-psaní nového obsahu a překlad stávajícího obsahu.</p>
+<p>Tato příručka obsahuje informace o očekávaném stylu, syntaxi specifické pro MkDocs, různých požadovaných nástrojích a překladu dokumentace, s ohledem na psaní nového obsahu a překlad stávajícího obsahu.</p>
 <h2 id="obecny-styl">Obecný styl<a class="headerlink" href="#obecny-styl" title="Permanent link">&para;</a></h2>
 <ul>
 <li>V záhlavích a nadpisech by mělo být velké písmeno pouze v prvním slově.</li>
-<li>Upřednostňujeme americkou pravopisnou normu, s určitými výjimkami pro
-  programátorské slangové výrazy (např. „apps“) a slovesné tvary podstatných
-  jmen (např. „scrollable“).</li>
+<li>Upřednostňujeme americkou pravopisnou normu, s určitými výjimkami pro programátorské slangové výrazy (např. „apps“) a slovesné tvary podstatných jmen (např. „scrollable“).</li>
 <li>Pravopis slov „artefact“ a „artefacts“ je uvedený.</li>
 <li>Po tečce používáme jednoduché mezery.</li>
-<li>Jako dlouhou pomlčku používáme jednu pomlčku obklopenou mezerami (nebo HTML
-  <code>&amp;mdash;</code> literal).</li>
-<li>Při odkazování na název produktu je třeba používat preferované velká písmena
-  (např. <nospell>„macOS“, „GTK“, „pytest“, „Pygame“, „PyScript“</nospell>).</li>
-<li>Pokud je termín používán „jako kód“, měl by být uveden jako inline kód, a to
-  tak, že se obklopí jednoduchými zpětnými lomítky, místo aby byl přidán do
-  slovníku.</li>
-<li>Při popisu akcí, které by měl uživatel provést, se vyhýbáme používání výrazů
-  jako „jednoduše“, „jen“ nebo „snadno“. Tyto výrazy mohou být vnímány jako
-  pejorativní, zejména pokud uživatel narazí na potíže.</li>
+<li>Jako dlouhou pomlčku používáme jednu pomlčku obklopenou mezerami (nebo HTML <code>&amp;mdash;</code> literal).</li>
+<li>Při odkazování na název produktu je třeba používat preferované velká písmena (např. <nospell>„macOS“, „GTK“, „pytest“, „Pygame“, „PyScript“</nospell>).</li>
+<li>Pokud je termín používán „jako kód“, měl by být uveden jako inline kód, a to tak, že se obklopí jednoduchými zpětnými lomítky, místo aby byl přidán do slovníku.</li>
+<li>Při popisu akcí, které by měl uživatel provést, se vyhýbáme používání výrazů jako „jednoduše“, „jen“ nebo „snadno“. Tyto výrazy mohou být vnímány jako pejorativní, zejména pokud uživatel narazí na potíže.</li>
 </ul>
 <h2 id="krizove-odkazy-na-informace">Křížové odkazy na informace<a class="headerlink" href="#krizove-odkazy-na-informace" title="Permanent link">&para;</a></h2>
-<p>V dokumentaci byste měli pokud možno používat křížové odkazy na obsah. Tato část
-popisuje různé způsoby, jak toho dosáhnout, přičemž každý z nich závisí na typu
-informací, na které odkazujete.</p>
-<p>MkDocs vykresluje standardní odkazy ve formátu Markdown. Standardní webové
-hypertextové odkazy ve formátu Markdown mají následující podobu:</p>
+<p>V dokumentaci byste měli pokud možno používat křížové odkazy na obsah. Tato část popisuje různé způsoby, jak toho dosáhnout, přičemž každý z nich závisí na typu informací, na které odkazujete.</p>
+<p>MkDocs vykresluje standardní odkazy ve formátu Markdown. Standardní webové hypertextové odkazy ve formátu Markdown mají následující podobu:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Text odkazu</span>](<span class="na">https://example.com/</span>)
 </code></pre></div>
 <p>Tento formát můžete také použít pro odkaz na místní soubor:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Text odkazu</span>](<span class="na">cesta/k/souboru.md</span>)
 </code></pre></div>
-<p>Odkazování na konkrétní části souborů nebo dokumentace API vyžaduje použití
-formátu odkazů MkDocs.</p>
+<p>Odkazování na konkrétní části souborů nebo dokumentace API vyžaduje použití formátu odkazů MkDocs.</p>
 <h3 id="vlastni-kotvy-markdown-a-krizove-odkazy-na-obsah">Vlastní kotvy Markdown a křížové odkazy na obsah<a class="headerlink" href="#vlastni-kotvy-markdown-a-krizove-odkazy-na-obsah" title="Permanent link">&para;</a></h3>
-<p>Markdown generuje kotvy pro všechny záhlaví (vše, co je na jednom řádku a začíná
-jedním až šesti symboly <code>#</code>), na základě obsahu záhlaví. Například kotva
-generovaná pro tuto sekci je
-<code>custom-markdown-anchors-and-content-cross---referencing</code>. Avšak vzhledem k
-tomu, jak fungují naše překlady, musí mít každé záhlaví sekce, na které se
-odkazuje, vlastní kotvu.</p>
-<p>MkDocs podporuje vykreslování syntaxe odkazů, která umožňuje propojit různé
-prvky v dokumentaci pomocí upraveného odkazu Markdown. To zahrnuje mimo jiné
-propojení s vlastními záhlavími Markdown a textovými kotvami.</p>
+<p>Markdown generuje kotvy pro všechny záhlaví (vše, co je na jednom řádku a začíná jedním až šesti symboly <code>#</code>), na základě obsahu záhlaví. Například kotva generovaná pro tuto sekci je <code>custom-markdown-anchors-and-content-cross---referencing</code>. Avšak vzhledem k tomu, jak fungují naše překlady, musí mít každé záhlaví sekce, na které se odkazuje, vlastní kotvu.</p>
+<p>MkDocs podporuje vykreslování syntaxe odkazů, která umožňuje propojit různé prvky v dokumentaci pomocí upraveného odkazu Markdown. To zahrnuje mimo jiné propojení s vlastními záhlavími Markdown a textovými kotvami.</p>
 <p>Odkazy MkDocs jsou jakékoli odkazy ve formátu:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Text odkazu</span>][<span class="nl">cíl odkazu</span>]
 </code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Je nutné zadat vlastní záhlaví a obsahové kotvy.</p>
-<p>Každá sekce záhlaví nebo obsahu, na kterou se odkazuje v textovém obsahu
-prostřednictvím odkazu MkDocs v dokumentaci BeeWare, musí mít připojenou vlastní
-kotvu. V opačném případě hrozí, že při překladu obsahu záhlaví dojde k poškození
-odkazů.</p>
+<p>Každá sekce záhlaví nebo obsahu, na kterou se odkazuje v textovém obsahu prostřednictvím odkazu MkDocs v dokumentaci BeeWare, musí mít připojenou vlastní kotvu. V opačném případě hrozí, že při překladu obsahu záhlaví dojde k poškození odkazů.</p>
 </div>
-<p>Pokud potřebujete odkazovat na kotvu v záhlaví, budete muset pro daný obsah
-vytvořit vlastní kotvu. Obecná syntaxe pro nastavení vlastní kotvy je
-následující:</p>
+<p>Pokud potřebujete odkazovat na kotvu v záhlaví, budete muset pro daný obsah vytvořit vlastní kotvu. Obecná syntaxe pro nastavení vlastní kotvy je následující:</p>
 <div class="highlight"><pre><span></span><code><span class="gh"># Text záhlaví { #anchor-name }</span>
 </code></pre></div>
-<p>Například přizpůsobení kotvy pro tuto sekci na <code>custom-anchors</code> by se provedlo
-pomocí následujícího formátování:</p>
+<p>Například přizpůsobení kotvy pro tuto sekci na <code>custom-anchors</code> by se provedlo pomocí následujícího formátování:</p>
 <div class="highlight"><pre><span></span><code><span class="gu">## Vlastní kotvy v Markdownu { #custom-anchors }</span>
 </code></pre></div>
-<p>Můžete také vytvořit odkaz na obecný obsah, včetně textu a bloků kódu.
-Následující formátování s novými řádky nad a pod by mělo být zahrnuto nad
-obsahem, na který chcete odkazovat:</p>
+<p>Můžete také vytvořit odkaz na obecný obsah, včetně textu a bloků kódu. Následující formátování s novými řádky nad a pod by mělo být zahrnuto nad obsahem, na který chcete odkazovat:</p>
 <div class="highlight"><pre><span></span><code>Obsah nahoře.
 
 [](){ <span class="ni">#anchor</span>-name }
 
 Obsah dole, který je nyní připojen k výše uvedené kotvě.
 </code></pre></div>
-<p>Jakmile jsou vlastní kotvy vytvořeny, můžete na ně odkazovat ze stejného
-dokumentu nebo z jiných částí dokumentace.</p>
-<p>Standardní Markdown se používá k odkazování na kotvu <em>ve stejném souboru</em>, která
-je formátována následovně:</p>
+<p>Jakmile jsou vlastní kotvy vytvořeny, můžete na ně odkazovat ze stejného dokumentu nebo z jiných částí dokumentace.</p>
+<p>Standardní Markdown se používá k odkazování na kotvu <em>ve stejném souboru</em>, která je formátována následovně:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Text odkazu</span>](<span class="na">#anchor-name</span>)
 </code></pre></div>
-<p>Odkaz na kotvu v samostatném dokumentu používá styl odkazu MkDocs, který je
-formátován následovně:</p>
+<p>Odkaz na kotvu v samostatném dokumentu používá styl odkazu MkDocs, který je formátován následovně:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Text odkazu</span>][<span class="nl">název odkazu</span>]
 </code></pre></div>
 <h3 id="odkazy-na-referencni-api">Odkazy na referenční API<a class="headerlink" href="#odkazy-na-referencni-api" title="Permanent link">&para;</a></h3>
-<p>Odkazy MkDocs také podporují křížové odkazy na dokumentaci API, včetně
-dokumentovaných tříd, metod nebo atributů tříd a konkrétních odkazů na externí
-dokumentaci.</p>
-<p>Existuje několik možností pro odkazování na dokumentovanou třídu, metodu třídy
-nebo atribut, bez ohledu na to, zda odkazujete ze stejného souboru nebo z jiného
-souboru. Při odkazování na třídy atd. musíte do první sady hranatých závorek
-vložit zpětné lomítko, aby se název zobrazil jako vložený kód. Zpětné lomítko
-není nutné pouze v případě, že používáte vlastní text, který se nemá zobrazovat
-jako vložený kód. Zpětné lomítko by nikdy nemělo být zahrnuto do druhé sady
-hranatých závorek.</p>
+<p>Odkazy MkDocs také podporují křížové odkazy na dokumentaci API, včetně dokumentovaných tříd, metod nebo atributů tříd a konkrétních odkazů na externí dokumentaci.</p>
+<p>Existuje několik možností pro odkazování na dokumentovanou třídu, metodu třídy nebo atribut, bez ohledu na to, zda odkazujete ze stejného souboru nebo z jiného souboru. Při odkazování na třídy atd. musíte do první sady hranatých závorek vložit zpětné lomítko, aby se název zobrazil jako vložený kód. Zpětné lomítko není nutné pouze v případě, že používáte vlastní text, který se nemá zobrazovat jako vložený kód. Zpětné lomítko by nikdy nemělo být zahrnuto do druhé sady hranatých závorek.</p>
 <p>Odkaz na třídu při zobrazení jmenného prostoru je formátován následovně:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`module.ClassName`</span>][]
 </code></pre></div>
 <p>Odkaz na třídu při zobrazení pouze názvu třídy je formátován následovně:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`ClassName`</span>][module.ClassName]
 </code></pre></div>
-<p>Atributy jsou stejné jako výše, včetně názvu atributu. Následující příklad
-zobrazuje jmenný prostor:</p>
+<p>Atributy jsou stejné jako výše, včetně názvu atributu. Následující příklad zobrazuje jmenný prostor:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`module.ClassName.attributename`</span>][]
 </code></pre></div>
 <p>Stejně jako u tříd je zobrazení pouze názvu atributu formátováno následovně:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`attributename`</span>][název_modulu.název_atributu]
 </code></pre></div>
-<p>Metody by měly být zobrazeny s <code>()</code> za jmenným prostorem, a proto musí být
-zpracovány jinak než atributy. Následující postup je správným způsobem pro
-odkazování na metodu:</p>
+<p>Metody by měly být zobrazeny s <code>()</code> za jmenným prostorem, a proto musí být zpracovány jinak než atributy. Následující postup je správným způsobem pro odkazování na metodu:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`module.ClassName.methodname()`</span>][název_modulu.název_metody]
 </code></pre></div>
-<p>Následující příklad zobrazuje pouze název třídy a metody. To také vyžaduje
-zahrnutí závorek za názvem:</p>
+<p>Následující příklad zobrazuje pouze název třídy a metody. To také vyžaduje zahrnutí závorek za názvem:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`Classname.methodname()`</span>][název_modulu.název_metody]
 </code></pre></div>
-<p>Můžete odkazovat na třídu, metodu nebo atribut a zároveň zobrazovat libovolný
-text pomocí stejné metody s příslušným jmenným prostorem. U třídy se to
-formátuje následovně:</p>
+<p>Můžete odkazovat na třídu, metodu nebo atribut a zároveň zobrazovat libovolný text pomocí stejné metody s příslušným jmenným prostorem. U třídy se to formátuje následovně:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">text odkazu</span>][<span class="nl">module.ClassName</span>]
 </code></pre></div>
-<p>Je také možné odkazovat přímo na dokumentaci jádra Pythonu, stejně jako na
-dokumentaci Pillow. Například pro odkaz na dokumentaci pro <code>int</code>:</p>
+<p>Je také možné odkazovat přímo na dokumentaci jádra Pythonu, stejně jako na dokumentaci Pillow. Například pro odkaz na dokumentaci pro <code>int</code>:</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`int`</span>][]
 </code></pre></div>
 <p>Odkaz na dokumentaci Pillow <code>Image</code>:</p>
@@ -5438,42 +5399,24 @@ dokumentaci Pillow. Například pro odkaz na dokumentaci pro <code>int</code>:</
 </code></pre></div>
 <h2 id="tipy-pro-bloky-kodu">Tipy pro bloky kódu<a class="headerlink" href="#tipy-pro-bloky-kodu" title="Permanent link">&para;</a></h2>
 <h3 id="zvyrazneni-jazyka-a-kodu">Zvýraznění jazyka a kódu<a class="headerlink" href="#zvyrazneni-jazyka-a-kodu" title="Permanent link">&para;</a></h3>
-<p>Jazyk kódu obsaženého v bloku kódu můžete určit tak, že za prvními třemi
-zpětnými lomítky uvedete název jazyka bez mezery. Výsledkem bude správné
-zvýraznění kódu při jeho vykreslení. Chcete-li například určit jazyk Python,
-začněte blok kódu znaky <code>```python</code>.</p>
+<p>Jazyk kódu obsaženého v bloku kódu můžete určit tak, že za prvními třemi zpětnými lomítky uvedete název jazyka bez mezery. Výsledkem bude správné zvýraznění kódu při jeho vykreslení. Chcete-li například určit jazyk Python, začněte blok kódu znaky <code>```python</code>.</p>
 <h3 id="prikazy-konzole-a-tlacitko-kopirovani">Příkazy konzole a tlačítko kopírování<a class="headerlink" href="#prikazy-konzole-a-tlacitko-kopirovani" title="Permanent link">&para;</a></h3>
-<p>Pokud zahrnujete příkazy konzole nebo příkazy s výstupem, označte je jako
-<code>console</code> nebo <code>doscon</code>, v závislosti na tom, zda popisujete operační systém
-typu Unix (včetně macOS) nebo Windows. Můžete zahrnout výzvu poskytovanou
-operačním systémem; po kliknutí na tlačítko Kopírovat se zkopíruje pouze příkaz.
-Například pokud začnete blok kódu znaky <code>```console</code> a zahrnete následující
-obsah:</p>
+<p>Pokud zahrnujete příkazy konzole nebo příkazy s výstupem, označte je jako <code>console</code> nebo <code>doscon</code>, v závislosti na tom, zda popisujete operační systém typu Unix (včetně macOS) nebo Windows. Můžete zahrnout výzvu poskytovanou operačním systémem; po kliknutí na tlačítko Kopírovat se zkopíruje pouze příkaz. Například pokud začnete blok kódu znaky <code>```console</code> a zahrnete následující obsah:</p>
 <div class="highlight"><pre><span></span><code><span class="gp">$ </span>mkdir<span class="w"> </span><span class="nb">test</span>
 <span class="gp">$ </span>ls
 <span class="go">test</span>
 </code></pre></div>
-<p>Poté kliknutím na tlačítko Kopírovat v bloku kódu zkopírujete pouze příkazy a
-ignorujete výzvy a výstup. Tímto způsobem můžete označit, že se jedná o příkazy
-konzoly, a zároveň umožnit uživatelům efektivní používání tlačítka Kopírovat.</p>
+<p>Poté kliknutím na tlačítko Kopírovat v bloku kódu zkopírujete pouze příkazy a ignorujete výzvy a výstup. Tímto způsobem můžete označit, že se jedná o příkazy konzoly, a zároveň umožnit uživatelům efektivní používání tlačítka Kopírovat.</p>
 <h3 id="zvyrazneni-konkretnich-radku-kodu">Zvýraznění konkrétních řádků kódu<a class="headerlink" href="#zvyrazneni-konkretnich-radku-kodu" title="Permanent link">&para;</a></h3>
-<p>Můžete zvýraznit konkrétní řádky kódu. Chcete-li například zvýraznit řádek 2,
-přidejte za jazyk mezeru a za ni <code>{hl_lines="2"}</code>. Váš blok kódu tak bude
-začínat <code>```python {hl_lines="2"}</code>. Výsledek je následující:</p>
+<p>Můžete zvýraznit konkrétní řádky kódu. Chcete-li například zvýraznit řádek 2, přidejte za jazyk mezeru a za ni <code>{hl_lines="2"}</code>. Váš blok kódu tak bude začínat <code>```python {hl_lines="2"}</code>. Výsledek je následující:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">toga</span>
 <span class="hll"><span class="kn">from</span><span class="w"> </span><span class="nn">toga.style.pack</span><span class="w"> </span><span class="kn">import</span> <span class="n">COLUMN</span><span class="p">,</span> <span class="n">ROW</span>
 </span></code></pre></div>
-<p>Můžete zvýraznit více různých řádků. Například <code>python {hl_lines="3 5 9"}</code>
-zvýrazní řádky 3, 5 a 9. Můžete také zvýraznit rozsah řádků. Například <code>python
-{hl_lines="3-8"}</code> zvýrazní řádky 3 až 8. Můžete zvýraznit více rozsahů,
-například <code>python {hl_lines="9-18 23-44"}</code>.</p>
+<p>Můžete zvýraznit více různých řádků. Například <code>python {hl_lines="3 5 9"}</code> zvýrazní řádky 3, 5 a 9. Můžete také zvýraznit rozsah řádků. Například <code>python {hl_lines="3-8"}</code> zvýrazní řádky 3 až 8. Můžete zvýraznit více rozsahů, například <code>python {hl_lines="9-18 23-44"}</code>.</p>
 <h2 id="prvky-markdown-ktere-vyzaduji-specificke-formatovani">Prvky Markdown, které vyžadují specifické formátování<a class="headerlink" href="#prvky-markdown-ktere-vyzaduji-specificke-formatovani" title="Permanent link">&para;</a></h2>
-<p>Vzhledem ke způsobu generování překladových souborů je důležité zahrnout
-požadované nové řádky do syntaxe Markdown pro upozornění, poznámky, záložky,
-direktivy Jinja, popisky obrázků a zarovnání atd.</p>
+<p>Vzhledem ke způsobu generování překladových souborů je důležité zahrnout požadované nové řádky do syntaxe Markdown pro upozornění, poznámky, záložky, direktivy Jinja, popisky obrázků a zarovnání atd.</p>
 <h3 id="napomenuti-a-poznamky">Napomenutí a poznámky<a class="headerlink" href="#napomenuti-a-poznamky" title="Permanent link">&para;</a></h3>
-<p>Upozornění musí být formátována následovně, včetně zajištění nového řádku před a
-za začátkem a koncem upozornění:</p>
+<p>Upozornění musí být formátována následovně, včetně zajištění nového řádku před a za začátkem a koncem upozornění:</p>
 <div class="highlight"><pre><span></span><code>Obsah nahoře.
 
 /// upozornění | Název
@@ -5486,8 +5429,7 @@ Druhý odstavec.
 
 Obsah dole.
 </code></pre></div>
-<p>To funguje stejným způsobem u všech podporovaných typů upozornění. Například
-poznámky k upozorněním vyžadují stejné formátování a nové řádky:</p>
+<p>To funguje stejným způsobem u všech podporovaných typů upozornění. Například poznámky k upozorněním vyžadují stejné formátování a nové řádky:</p>
 <div class="highlight"><pre><span></span><code>Obsah nahoře.
 
 /// poznámka | Název poznámky
@@ -5498,12 +5440,9 @@ Zde zadejte text poznámky.
 
 Obsah dole.
 </code></pre></div>
-<p>Všechny <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">podporované typy
-napomenutí</a>
-jsou k dispozici pro použití jako napomenutí.</p>
+<p>Všechny <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">podporované typy napomenutí</a> jsou k dispozici pro použití jako napomenutí.</p>
 <h3 id="obsah-v-zalozkach">Obsah v záložkách<a class="headerlink" href="#obsah-v-zalozkach" title="Permanent link">&para;</a></h3>
-<p>Obsah s tabulátory je formátován následovně, včetně nového řádku před začátkem a
-po konci bloku obsahu:</p>
+<p>Obsah s tabulátory je formátován následovně, včetně nového řádku před začátkem a po konci bloku obsahu:</p>
 <div class="highlight"><pre><span></span><code>Obsah nahoře.
 
 /// záložka | Název první záložky
@@ -5526,8 +5465,7 @@ Text třetí záložky.
 
 Obsah dole.
 </code></pre></div>
-<p>Záložka s vnořeným upozorněním by byla formátována následovně, včetně nového
-řádku před a za blokem obsahu:</p>
+<p>Záložka s vnořeným upozorněním by byla formátována následovně, včetně nového řádku před a za blokem obsahu:</p>
 <div class="highlight"><pre><span></span><code>Obsah nahoře.
 
 /// záložka | Windows
@@ -5556,27 +5494,16 @@ Sbalený obsah.
 
 Obsah dole.
 </code></pre></div>
-<p>Všechny <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">podporované typy
-upozornění</a>
-jsou k dispozici pro použití se sbaleným obsahem, musíte je však deklarovat jako
-<code>details-admonitiontype</code>. Takže sbalený blok typu „poznámka“ by byl
-<code>details-note</code> (jak je uvedeno výše), sbalený blok typu „varování“ by byl
-<code>details-warning</code> a tak dále.</p>
+<p>Všechny <a href="https://squidfunk.github.io/mkdocs-material/reference/admonitions/#supported-types">podporované typy upozornění</a> jsou k dispozici pro použití se sbaleným obsahem, musíte je však deklarovat jako <code>details-admonitiontype</code>. Takže sbalený blok typu „poznámka“ by byl <code>details-note</code> (jak je uvedeno výše), sbalený blok typu „varování“ by byl <code>details-warning</code> a tak dále.</p>
 <h3 id="jinja-direktivy">Jinja direktivy<a class="headerlink" href="#jinja-direktivy" title="Permanent link">&para;</a></h3>
-<p>V dokumentaci je několik prvků, které v textu používají direktivy Jinja. Vše, co
-používá prvky direktivy Jinja, musí být zabaleno do nových řádků. Například
-tutoriál BeeWare obsahuje podmíněné výrazy Jinja založené na proměnných, které
-určují, jaké upozornění se má zobrazit na hlavní stránce. Ty jsou formátovány
-následovně:</p>
+<p>V dokumentaci je několik prvků, které v textu používají direktivy Jinja. Vše, co používá prvky direktivy Jinja, musí být zabaleno do nových řádků. Například tutoriál BeeWare obsahuje podmíněné výrazy Jinja založené na proměnných, které určují, jaké upozornění se má zobrazit na hlavní stránce. Ty jsou formátovány následovně:</p>
 <div class="highlight"><pre><span></span><code>Obsah nahoře.
 
 
 
 Obsah dole.
 </code></pre></div>
-<p>Existuje také syntaxe pro nahrazování symbolů nebo textu. Tato syntaxe je
-proměnná uzavřená v páru shodných dvojitých složených závorek a pokud je na
-samostatném řádku, musí před a za ní být nový řádek.</p>
+<p>Existuje také syntaxe pro nahrazování symbolů nebo textu. Tato syntaxe je proměnná uzavřená v páru shodných dvojitých složených závorek a pokud je na samostatném řádku, musí před a za ní být nový řádek.</p>
 <div class="highlight"><pre><span></span><code>Obsah nahoře.
 
 {{ variable }}
@@ -5584,18 +5511,14 @@ samostatném řádku, musí před a za ní být nový řádek.</p>
 Obsah dole.
 </code></pre></div>
 <h3 id="formatovani-obrazku">Formátování obrázků<a class="headerlink" href="#formatovani-obrazku" title="Permanent link">&para;</a></h3>
-<p>U obrázků lze nastavit šířku a zarovnat je vlevo, vpravo nebo na střed (s
-výhradou u „středu“). Obrázky by měly vždy obsahovat smysluplný alternativní
-text pro účely přístupnosti.</p>
-<p>Nastavení šířky <nospell>300px</nospell> u obrázku by bylo formátováno
-následovně:</p>
+<p>U obrázků lze nastavit šířku a zarovnat je vlevo, vpravo nebo na střed (s výhradou u „středu“). Obrázky by měly vždy obsahovat smysluplný alternativní text pro účely přístupnosti.</p>
+<p>Nastavení šířky <nospell>300px</nospell> u obrázku by bylo formátováno následovně:</p>
 <div class="highlight"><pre><span></span><code>![<span class="nt">Alternativní text obrázku</span>](<span class="na">../cesta/k/obrázku.png</span>){ width=&quot;300px&quot; }
 </code></pre></div>
 <p>Zarovnání obrázku vlevo (nebo vpravo) by bylo formátováno následovně:</p>
 <div class="highlight"><pre><span></span><code>![<span class="nt">Alternativní text obrázku</span>](<span class="na">../cesta/k/obrázku.png</span>){ align=left }
 </code></pre></div>
-<p>Přidání popisku k obrázku vyžaduje nový řádek před a za popiskem a je
-formátováno následovně:</p>
+<p>Přidání popisku k obrázku vyžaduje nový řádek před a za popiskem a je formátováno následovně:</p>
 <div class="highlight"><pre><span></span><code>Obsah nahoře.
 
 ![<span class="nt">Alternativní text obrázku</span>](<span class="na">/cesta/k/obrázku.png</span>)
@@ -5608,9 +5531,7 @@ Obsah popisku.
 
 Obsah dole.
 </code></pre></div>
-<p>Zarovnání středu obrázku pomocí atributu <code>align</code> není možné. Řešením je vložit
-za obrázek prázdný titulek, který bude zarovnán na střed. Mezi jednotlivými
-částmi a před a za nimi musíte vložit nové řádky. Formátování je následující:</p>
+<p>Zarovnání středu obrázku pomocí atributu <code>align</code> není možné. Řešením je vložit za obrázek prázdný titulek, který bude zarovnán na střed. Mezi jednotlivými částmi a před a za nimi musíte vložit nové řádky. Formátování je následující:</p>
 <div class="highlight"><pre><span></span><code>Obsah nahoře.
 
 ![<span class="nt">Alternativní text obrázku</span>](<span class="na">../cesta/k/obrázku.png</span>)
@@ -5622,65 +5543,33 @@ za obrázek prázdný titulek, který bude zarovnán na střed. Mezi jednotlivý
 Obsah dole.
 </code></pre></div>
 <h2 id="pluginy-se-specifickym-formatovanim-markdown">Pluginy se specifickým formátováním Markdown<a class="headerlink" href="#pluginy-se-specifickym-formatovanim-markdown" title="Permanent link">&para;</a></h2>
-<p>Následující části popisují, jak používat pluginy, které vyžadují specifické
-formátování Markdown.</p>
+<p>Následující části popisují, jak používat pluginy, které vyžadují specifické formátování Markdown.</p>
 <h3 id="pouziti-uryvku-k-vlozeni-externiho-obsahu">Použití úryvků k vložení externího obsahu<a class="headerlink" href="#pouziti-uryvku-k-vlozeni-externiho-obsahu" title="Permanent link">&para;</a></h3>
-<p>Podrobnosti o tom, jak zahrnout externí obsah z lokálního souboru nebo URL,
-naleznete v <a href="https://facelessuser.github.io/pymdown-extensions/extensions/snippets/">dokumentaci k rozšíření
-Snippets</a>.
-Snippets by se měly používat, pokud dokument neobsahuje direktivy Jinja, které
-je třeba provést (provedení Jinja probíhá souběžně se zpracováním Snippets, a
-proto nebude žádný Jinja v souboru zpracován). Snippets je nezbytný, pokud
-chcete používat oddělovače, které vám umožňují zahrnout konkrétní části souboru
-samostatně, např. zdrojový dokument je rozdělen do sekcí, které mají být vloženy
-samostatně od sebe.</p>
+<p>Podrobnosti o tom, jak zahrnout externí obsah z lokálního souboru nebo URL, naleznete v <a href="https://facelessuser.github.io/pymdown-extensions/extensions/snippets/">dokumentaci k rozšíření Snippets</a>. Snippets by se měly používat, pokud dokument neobsahuje direktivy Jinja, které je třeba provést (provedení Jinja probíhá souběžně se zpracováním Snippets, a proto nebude žádný Jinja v souboru zpracován). Snippets je nezbytný, pokud chcete používat oddělovače, které vám umožňují zahrnout konkrétní části souboru samostatně, např. zdrojový dokument je rozdělen do sekcí, které mají být vloženy samostatně od sebe.</p>
 <p>Důležité poznámky:</p>
 <ul>
-<li>Jako identifikátor úryvků používáme <code>-8&lt;-</code>. Dokumentace uvádí několik
-  možností; prosím, řiďte se naším stylem.</li>
-<li>Soubory nalezené ve sdíleném obsahu nástrojů BeeWare Docs Tools jsou
-  považovány za „lokální“ obsah. Proto budete používat buď pouze název souboru,
-  jako v <code>-8&lt;- "docs-style-guide.md"</code>, nebo pokud je obsah v podadresáři, pouze
-  adresář a název souboru, jako v <code>-8&lt;- "style/docs-style-guide.md"</code>.</li>
-<li>Pokud zahrnujete externí obsah ze souboru na GitHubu prostřednictvím URL,
-  musíte použít URL surového obsahu, jinak se zobrazí celá webová stránka,
-  kamkoli ji vložíte.</li>
+<li>Jako identifikátor úryvků používáme <code>-8&lt;-</code>. Dokumentace uvádí několik možností; prosím, řiďte se naším stylem.</li>
+<li>Soubory nalezené ve sdíleném obsahu nástrojů BeeWare Docs Tools jsou považovány za „lokální“ obsah. Proto budete používat buď pouze název souboru, jako v <code>-8&lt;- "docs-style-guide.md"</code>, nebo pokud je obsah v podadresáři, pouze adresář a název souboru, jako v <code>-8&lt;- "style/docs-style-guide.md"</code>.</li>
+<li>Pokud zahrnujete externí obsah ze souboru na GitHubu prostřednictvím URL, musíte použít URL surového obsahu, jinak se zobrazí celá webová stránka, kamkoli ji vložíte.</li>
 </ul>
 <h3 id="pouziti-maker-k-vlozeni-obsahu-z-beeware-docs-tools-sdileny-obsah">Použití maker k vložení obsahu z BeeWare Docs Tools sdílený obsah<a class="headerlink" href="#pouziti-maker-k-vlozeni-obsahu-z-beeware-docs-tools-sdileny-obsah" title="Permanent link">&para;</a></h3>
-<p>Můžete také zahrnout obsah ze sdíleného adresáře nástrojů BeeWare Docs pomocí
-<a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">pluginu Macros
-MkDocs</a>. Tato
-metoda je nezbytná, pokud dokument obsahuje direktivy Jinja, které je třeba
-provést, a měla by být použita pouze v této situaci. Nefunguje s externím
-obsahem přes URL. S touto metodou funguje <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/#1-variable">mechanismus nahrazování proměnných
-Macros</a>.</p>
+<p>Můžete také zahrnout obsah ze sdíleného adresáře nástrojů BeeWare Docs pomocí <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">pluginu Macros MkDocs</a>. Tato metoda je nezbytná, pokud dokument obsahuje direktivy Jinja, které je třeba provést, a měla by být použita pouze v této situaci. Nefunguje s externím obsahem přes URL. S touto metodou funguje <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/#1-variable">mechanismus nahrazování proměnných Macros</a>.</p>
 <p>Existují možnosti pro zahrnutí obsahu pomocí maker:</p>
 <ol>
 <li>
-<p>Použijte <a href="https://jinja.palletsprojects.com/en/stable/templates/#include">syntaxi Jinja
-   <code>include</code></a>,
-   pokud chcete dokument vložit bez dalších ručních změn.</p>
+<p>Použijte <a href="https://jinja.palletsprojects.com/en/stable/templates/#include">syntaxi Jinja <code>include</code></a>, pokud chcete dokument vložit bez dalších ručních změn.</p>
 </li>
 <li>
-<p>Použijte <a href="https://jinja.palletsprojects.com/en/stable/templates/#child-template">syntaxi Jinja
-   <code>extends</code></a>,
-   pokud jste do dokumentu zahrnuli syntaxi Jinja <code>block</code>, která vám umožňuje
-   přepsat nebo doplnit konkrétní části.</p>
+<p>Použijte <a href="https://jinja.palletsprojects.com/en/stable/templates/#child-template">syntaxi Jinja <code>extends</code></a>, pokud jste do dokumentu zahrnuli syntaxi Jinja <code>block</code>, která vám umožňuje přepsat nebo doplnit konkrétní části.</p>
 </li>
 </ol>
 <h2 id="pyspelling"><code>pyspelling</code><a class="headerlink" href="#pyspelling" title="Permanent link">&para;</a></h2>
 <p>Používáme spellchecker <code>pyspelling</code>. Spouští se během lint-checků.</p>
-<p>Pokud <code>pyspelling</code> označuje chybně napsané slovo, ve většině případů by mělo být
-opraveno v obsahu dokumentace.</p>
-<p>V ojedinělých případech, kdy identifikuje platné slovo, které není ve slovníku
-<code>pyspelling</code>, máte dvě možnosti:</p>
+<p>Pokud <code>pyspelling</code> označuje chybně napsané slovo, ve většině případů by mělo být opraveno v obsahu dokumentace.</p>
+<p>V ojedinělých případech, kdy identifikuje platné slovo, které není ve slovníku <code>pyspelling</code>, máte dvě možnosti:</p>
 <ol>
-<li>Pokud se jedná o slovo, které bude pravděpodobně použito vícekrát, měli byste
-   jej přidat do dokumentu <code>spelling_wordlist</code> v adresáři <code>docs</code> v abecedním
-   pořadí.</li>
-<li>Pokud se jedná o slovo, které pravděpodobně nebude znovu použito, můžete jej
-   obalit značkou <code>&lt;nospell&gt;</code> / <code>&lt;/nospell&gt;</code> a <code>pyspelling</code> jej v textu
-   ignoruje.</li>
+<li>Pokud se jedná o slovo, které bude pravděpodobně použito vícekrát, měli byste jej přidat do dokumentu <code>spelling_wordlist</code> v adresáři <code>docs</code> v abecedním pořadí.</li>
+<li>Pokud se jedná o slovo, které pravděpodobně nebude znovu použito, můžete jej obalit značkou <code>&lt;nospell&gt;</code> / <code>&lt;/nospell&gt;</code> a <code>pyspelling</code> jej v textu ignoruje.</li>
 </ol>
 
 

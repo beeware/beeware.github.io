@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Intestazione"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/translate/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/translate/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -5109,14 +5117,10 @@ aria-label="Intestazione"
 
 <h1 id="traduzione-dei-contenuti">Traduzione dei contenuti<a class="headerlink" href="#traduzione-dei-contenuti" title="Permanent link">&para;</a></h1>
 <h3 id="come-iniziare-a-tradurre">Come iniziare a tradurre<a class="headerlink" href="#come-iniziare-a-tradurre" title="Permanent link">&para;</a></h3>
-<p>Se vuoi contribuire agli sforzi di traduzione di BeeWare, devi avere un account
-su <a href="https://hosted.weblate.org">Weblate</a>. <a href="https://hosted.weblate.org/accounts/register/">Crea un nuovo
-account</a> se non ne hai ancora
-uno; poi facci sapere che sei interessato a dare una mano con le traduzioni.</p>
+<p>Se vuoi contribuire agli sforzi di traduzione di BeeWare, devi avere un account su <a href="https://hosted.weblate.org">Weblate</a>. <a href="https://hosted.weblate.org/accounts/register/">Crea un nuovo account</a> se non ne hai ancora uno; poi facci sapere che sei interessato a dare una mano con le traduzioni.</p>
 <p>Ci sono due opzioni per farci sapere che volete aiutarci con le traduzioni:</p>
 <ul>
-<li>Se sei su Discord, unisciti al <a href="https://beeware.org/bee/chat/">server BeeWare</a>
-  e vai al canale <code>#translations</code>.</li>
+<li>Se sei su Discord, unisciti al <a href="https://beeware.org/bee/chat/">server BeeWare</a> e vai al canale <code>#translations</code>.</li>
 <li>Se non sei su Discord, puoi creare un nuovo problema sul repository BeeWare.</li>
 </ul>
 <p>In entrambi i casi, lasciate un messaggio con le seguenti informazioni:</p>
@@ -5126,22 +5130,15 @@ uno; poi facci sapere che sei interessato a dare una mano con le traduzioni.</p>
 </ul>
 <p>Una volta ottenute queste informazioni, ti aggiungeremo alla squadra.</p>
 <h3 id="aggiunta-di-una-nuova-traduzione">Aggiunta di una nuova traduzione<a class="headerlink" href="#aggiunta-di-una-nuova-traduzione" title="Permanent link">&para;</a></h3>
-<p>Se la lingua che si intende aiutare non esiste già, sono necessari alcuni
-passaggi aggiuntivi prima di poter iniziare:</p>
+<p>Se la lingua che si intende aiutare non esiste già, sono necessari alcuni passaggi aggiuntivi prima di poter iniziare:</p>
 <ul>
-<li>Creare il file <code>/docs/mkdocs.language-code.yml</code>, con il contenuto specifico
-  della lingua.</li>
-<li>Aggiornare <code>tox.ini</code> per includere i comandi di compilazione della nuova
-  lingua.</li>
-<li>Aggiornare <code>/docs/config.yml</code> per includere la lingua sotto <code>extra:
-  alternate:</code>.</li>
+<li>Creare il file <code>/docs/mkdocs.language-code.yml</code>, con il contenuto specifico della lingua.</li>
+<li>Aggiornare <code>tox.ini</code> per includere i comandi di compilazione della nuova lingua.</li>
+<li>Aggiornare <code>/docs/config.yml</code> per includere la lingua sotto <code>extra: alternate:</code>.</li>
 </ul>
-<p>Di seguito vengono illustrate le modifiche necessarie, utilizzando come esempio
-il tedesco; una traduzione in tedesco esiste già; sostituire i riferimenti al
-tedesco, a <code>de</code> o ad altri contenuti per la lingua a cui ci si rivolge.</p>
+<p>Di seguito vengono illustrate le modifiche necessarie, utilizzando come esempio il tedesco; una traduzione in tedesco esiste già; sostituire i riferimenti al tedesco, a <code>de</code> o ad altri contenuti per la lingua a cui ci si rivolge.</p>
 <h4 id="un-nuovo-file-di-configurazione-di-mkdocs">Un nuovo file di configurazione di MkDocs<a class="headerlink" href="#un-nuovo-file-di-configurazione-di-mkdocs" title="Permanent link">&para;</a></h4>
-<p>Per prima cosa, creare un nuovo file chiamato <code>mkdocs.de.yml</code> nella cartella
-<code>docs</code>, con il seguente contenuto:</p>
+<p>Per prima cosa, creare un nuovo file chiamato <code>mkdocs.de.yml</code> nella cartella <code>docs</code>, con il seguente contenuto:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">INHERIT</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">config.yml</span>
 <span class="nt">site_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BeeWare Documentazione</span>
 <span class="nt">site_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://beeware.org/de</span>
@@ -5165,115 +5162,60 @@ tedesco, a <code>de</code> o ad altri contenuti per la lingua a cui ci si rivolg
 <ul>
 <li>Questo file eredita il contenuto della configurazione da <code>config.yml</code>.</li>
 <li>Il valore <code>site_name</code> viene tradotto.</li>
-<li>Il valore <code>site_url</code> è l'URL del sito del progetto, seguito dal codice della
-  lingua.</li>
+<li>Il valore <code>site_url</code> è l'URL del sito del progetto, seguito dal codice della lingua.</li>
 <li>La <code>docs_dir</code> dovrebbe essere il codice della lingua.</li>
-<li>Il valore <code>tema: language:</code> dovrebbe essere il codice della lingua, come
-  <a href="https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/">specificato dal tema MkDocs
-  Material</a>.
-  Per la maggior parte delle lingue, questo sarà uguale al codice della lingua
-  <code>docs_dir</code>; ma per alcune (in particolare le lingue con varianti di locale
-  come <code>zh_CN</code>), ci sono differenze.</li>
-<li>Il <code>extra: language_url:</code> dovrebbe essere il codice della lingua, seguito da
-  una singola barra, ad esempio <code>de/</code> per il tedesco.</li>
-<li>L'opzione <code>extra: translation_type:</code> dovrebbe essere <code>machine</code> fino a quando
-  la traduzione non raggiunge il 100% per la prima volta, a quel punto dovrebbe
-  essere <code>human</code>. Si tornerà a <code>machine</code> da <code>human</code> se si scende sotto il 90%.</li>
-<li>Il contenuto tra <code>extra: header</code> è la traduzione dei titoli che compaiono
-  nella barra di intestazione. Questa definizione <em>non</em> è richiesta sul sito web
-  principale di BeeWare; è richiesta solo su <em>altri</em> siti (come il tutorial o la
-  documentazione del progetto).</li>
+<li>Il valore <code>tema: language:</code> dovrebbe essere il codice della lingua, come <a href="https://squidfunk.github.io/mkdocs-material/setup/changing-the-language/">specificato dal tema MkDocs Material</a>. Per la maggior parte delle lingue, questo sarà uguale al codice della lingua <code>docs_dir</code>; ma per alcune (in particolare le lingue con varianti di locale come <code>zh_CN</code>), ci sono differenze.</li>
+<li>Il <code>extra: language_url:</code> dovrebbe essere il codice della lingua, seguito da una singola barra, ad esempio <code>de/</code> per il tedesco.</li>
+<li>L'opzione <code>extra: translation_type:</code> dovrebbe essere <code>machine</code> fino a quando la traduzione non raggiunge il 100% per la prima volta, a quel punto dovrebbe essere <code>human</code>. Si tornerà a <code>machine</code> da <code>human</code> se si scende sotto il 90%.</li>
+<li>Il contenuto tra <code>extra: header</code> è la traduzione dei titoli che compaiono nella barra di intestazione. Questa definizione <em>non</em> è richiesta sul sito web principale di BeeWare; è richiesta solo su <em>altri</em> siti (come il tutorial o la documentazione del progetto).</li>
 </ul>
 <h4 id="aggiornare-toxini">Aggiornare `tox.ini<a class="headerlink" href="#aggiornare-toxini" title="Permanent link">&para;</a></h4>
 <p>È necessario apportare diverse modifiche al file <code>tox.ini</code>.</p>
 <p>Si aggiunge quanto segue:</p>
 <ul>
-<li>Il nuovo flag di ambiente del codice della lingua alla riga di intestazione
-  che inizia con <code>[testenv:docs</code>, con il codice della lingua preceduto da un
-  <code>-</code>, senza spazi inclusi, ad esempio <code>-de</code>.</li>
-<li>Il nuovo codice linguistico esclude il primo comando, che inizia con <code>!lint</code>,
-  preceduto da <code>-!</code>, senza spazi, ad esempio <code>-!de</code>.</li>
-<li>Il nuovo codice lingua alla riga che inizia con <code>translate :
-  build_po_translations</code>.</li>
-<li>Il nuovo codice linguistico alla riga che inizia con <code>translate :
-  update_machine_translations</code></li>
-<li>Un nuovo comando, che inizia ad esempio con <code>de : build_md_translations</code> per
-  il tedesco, in ordine alfabetico all'interno dei comandi specifici della
-  lingua esistente che corrispondono al contenuto di tali comandi, con il nuovo
-  codice lingua.</li>
+<li>Il nuovo flag di ambiente del codice della lingua alla riga di intestazione che inizia con <code>[testenv:docs</code>, con il codice della lingua preceduto da un <code>-</code>, senza spazi inclusi, ad esempio <code>-de</code>.</li>
+<li>Il nuovo codice linguistico esclude il primo comando, che inizia con <code>!lint</code>, preceduto da <code>-!</code>, senza spazi, ad esempio <code>-!de</code>.</li>
+<li>Il nuovo codice lingua alla riga che inizia con <code>translate : build_po_translations</code>.</li>
+<li>Il nuovo codice linguistico alla riga che inizia con <code>translate : update_machine_translations</code></li>
+<li>Un nuovo comando, che inizia ad esempio con <code>de : build_md_translations</code> per il tedesco, in ordine alfabetico all'interno dei comandi specifici della lingua esistente che corrispondono al contenuto di tali comandi, con il nuovo codice lingua.</li>
 <li>Il nuovo codice lingua alla riga che inizia con <code>all:</code>.</li>
 </ul>
 <h4 id="aggiornare-configyml">Aggiornare `config.yml<a class="headerlink" href="#aggiornare-configyml" title="Permanent link">&para;</a></h4>
-<p>Aggiungere la lingua a <code>config.yml</code>, in modo che appaia nel selettore della
-lingua nell'intestazione. Trovare la sezione che inizia con <code>extra:</code> e quindi
-individuare la sottosezione che inizia con <code>alternate:</code>. Per il tedesco, si
-dovrebbe aggiungere quanto segue:</p>
+<p>Aggiungere la lingua a <code>config.yml</code>, in modo che appaia nel selettore della lingua nell'intestazione. Trovare la sezione che inizia con <code>extra:</code> e quindi individuare la sottosezione che inizia con <code>alternate:</code>. Per il tedesco, si dovrebbe aggiungere quanto segue:</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">nome</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tedesco</span>
 <span class="w w-Error"> </span><span class="nt">link</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/de/</span>
 <span class="w"> </span><span class="nt">lingua</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">de</span>
 </code></pre></div>
-<p>Il nome della lingua deve essere tradotto nella lingua. Il link deve includere
-le <code>/</code>.</p>
+<p>Il nome della lingua deve essere tradotto nella lingua. Il link deve includere le <code>/</code>.</p>
 <h4 id="esegui-tox-translate">Esegui <code>tox translate</code><a class="headerlink" href="#esegui-tox-translate" title="Permanent link">&para;</a></h4>
-<p>Ora puoi eseguire <code>tox -e docs-translate</code>. Questo genererà un file di traduzione
-vuoto; se hai un account DeepL, puoi utilizzarlo per popolare le traduzioni
-automatiche iniziali. Se non hai un account DeepL, non preoccuparti: eseguiremo
-noi stessi le traduzioni iniziali prima di accettare la richiesta pull.</p>
+<p>Ora puoi eseguire <code>tox -e docs-translate</code>. Questo genererà un file di traduzione vuoto; se hai un account DeepL, puoi utilizzarlo per popolare le traduzioni automatiche iniziali. Se non hai un account DeepL, non preoccuparti: eseguiremo noi stessi le traduzioni iniziali prima di accettare la richiesta pull.</p>
 <h3 id="linee-guida-per-la-traduzione">Linee guida per la traduzione<a class="headerlink" href="#linee-guida-per-la-traduzione" title="Permanent link">&para;</a></h3>
-<p>Una volta aggiunti al team, è il momento di accedere a
-<a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> e iniziare a tradurre le
-stringhe.</p>
+<p>Una volta aggiunti al team, è il momento di accedere a <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> e iniziare a tradurre le stringhe.</p>
 <h4 id="il-tono-rispetto-alla-traduzione-parola-per-parola">Il tono rispetto alla traduzione parola per parola<a class="headerlink" href="#il-tono-rispetto-alla-traduzione-parola-per-parola" title="Permanent link">&para;</a></h4>
-<p>È più importante mantenere il tono del testo inglese che sforzarsi di tradurre
-parola per parola. Cerchiamo di essere amichevoli e un po' colloquiali nei
-nostri contenuti; cercate di mantenere questo spirito nelle vostre traduzioni.</p>
-<p>Se il testo inglese contiene un forte idioma inglese, non sentitevi obbligati a
-mantenerlo, se esiste un analogo nella vostra lingua che funzionerebbe
-altrettanto bene. Se il termine o la frase del testo inglese è un termine
-particolarmente idiomatico o gergale, non abbiate paura di dirci che dovremmo
-prendere in considerazione una modifica. Anche per chi parla inglese, le
-espressioni idiomatiche e gergali possono creare difficoltà. A volte è
-necessario modificare il testo inglese per renderlo più semplice sia per i
-traduttori che per i lettori.</p>
+<p>È più importante mantenere il tono del testo inglese che sforzarsi di tradurre parola per parola. Cerchiamo di essere amichevoli e un po' colloquiali nei nostri contenuti; cercate di mantenere questo spirito nelle vostre traduzioni.</p>
+<p>Se il testo inglese contiene un forte idioma inglese, non sentitevi obbligati a mantenerlo, se esiste un analogo nella vostra lingua che funzionerebbe altrettanto bene. Se il termine o la frase del testo inglese è un termine particolarmente idiomatico o gergale, non abbiate paura di dirci che dovremmo prendere in considerazione una modifica. Anche per chi parla inglese, le espressioni idiomatiche e gergali possono creare difficoltà. A volte è necessario modificare il testo inglese per renderlo più semplice sia per i traduttori che per i lettori.</p>
 <h4 id="devo-tradurlo">Devo tradurlo?<a class="headerlink" href="#devo-tradurlo" title="Permanent link">&para;</a></h4>
 <p>I seguenti elementi <em>non</em> devono essere tradotti o aggiornati:</p>
 <ul>
-<li><strong>Comandi</strong>. Ad esempio, in "You should run `briefcase create`", solo "You
-  should run" deve essere tradotto.</li>
+<li><strong>Comandi</strong>. Ad esempio, in "You should run `briefcase create`", solo "You should run" deve essere tradotto.</li>
 <li><strong>Spazi di nomi</strong>, come i nomi di classi, metodi o attributi.</li>
-<li><strong>URL dei link</strong>. I link Markdown standard dovrebbero apparire in Weblate come
-  <code>[Link text]{1}</code>, dove <code>1</code> indica la posizione del link nella stringa rispetto
-  ad altri possibili link. Se nella stringa è presente l'URL completo, come
-  <code>[Link text](https://example.com/)</code>, tale URL non deve essere tradotto.</li>
+<li><strong>URL dei link</strong>. I link Markdown standard dovrebbero apparire in Weblate come <code>[Link text]{1}</code>, dove <code>1</code> indica la posizione del link nella stringa rispetto ad altri possibili link. Se nella stringa è presente l'URL completo, come <code>[Link text](https://example.com/)</code>, tale URL non deve essere tradotto.</li>
 <li>
-<p><strong>Link di riferimento contenenti nomi di classi, metodi o attributi</strong>. Questi
-  dovrebbero essere lasciati così come sono, compresi i backtick. Tutte le parti
-  del link di esempio qui mostrato non verrebbero tradotte.</p>
+<p><strong>Link di riferimento contenenti nomi di classi, metodi o attributi</strong>. Questi dovrebbero essere lasciati così come sono, compresi i backtick. Tutte le parti del link di esempio qui mostrato non verrebbero tradotte.</p>
 <div class="highlight"><pre><span></span><code>[<span class="sb">`Class.attribute`</span>][Attributo di classe]
 </code></pre></div>
 </li>
 <li>
-<p><strong>Il contenuto del link di un link di riferimento</strong>. Ad esempio,
-  <code>link-content</code> verrebbe saltato nel seguente caso:</p>
+<p><strong>Il contenuto del link di un link di riferimento</strong>. Ad esempio, <code>link-content</code> verrebbe saltato nel seguente caso:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Testo del link</span>][<span class="nl">Contenuto del link</span>]
 </code></pre></div>
 </li>
 <li>
-<p><strong>Direttive Jinja</strong>. Si tratta di qualsiasi contenuto avvolto all'interno di
-  due coppie di parentesi graffe corrispondenti, o di una coppia corrispondente
-  di parentesi graffe singole con segni di percentuale all'interno di ciascuna
-  estremità. Nota: l'inclusione di un esempio della sintassi provoca il
-  tentativo di renderla da parte del plugin Macros; si veda la <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">documentazione
-  di Macros</a> per
-  gli esempi.</p>
+<p><strong>Direttive Jinja</strong>. Si tratta di qualsiasi contenuto avvolto all'interno di due coppie di parentesi graffe corrispondenti, o di una coppia corrispondente di parentesi graffe singole con segni di percentuale all'interno di ciascuna estremità. Nota: l'inclusione di un esempio della sintassi provoca il tentativo di renderla da parte del plugin Macros; si veda la <a href="https://mkdocs-macros-plugin.readthedocs.io/en/latest/pages/">documentazione di Macros</a> per gli esempi.</p>
 </li>
-<li><strong>Ancore personalizzate</strong>. Si trovano dopo le intestazioni o sopra alcuni
-  contenuti e sono formattati come <code>{ #ancora }</code>.</li>
+<li><strong>Ancore personalizzate</strong>. Si trovano dopo le intestazioni o sopra alcuni contenuti e sono formattati come <code>{ #ancora }</code>.</li>
 <li>
-<p><strong>Sintassi dell'ammonizione</strong>. Nell'esempio seguente, la parola "ammonizione"
-  non deve essere tradotta. Questo vale per tutti gli stili di ammonizione,
-  comprese le note, gli avvertimenti, ecc. Vedere la sezione successiva per
-  informazioni sulla traduzione del resto del contenuto.</p>
+<p><strong>Sintassi dell'ammonizione</strong>. Nell'esempio seguente, la parola "ammonizione" non deve essere tradotta. Questo vale per tutti gli stili di ammonizione, comprese le note, gli avvertimenti, ecc. Vedere la sezione successiva per informazioni sulla traduzione del resto del contenuto.</p>
 <div class="highlight"><pre><span></span><code>/// admonition | Titolo della pagina
 
 Contenuto.
@@ -5282,53 +5224,26 @@ Contenuto.
 </code></pre></div>
 </li>
 <li>
-<p><strong>Backticks</strong>. Sono destinati a rimanere come backtick; sono usati per
-  formattare sia il codice in linea che i blocchi di codice.</p>
+<p><strong>Backticks</strong>. Sono destinati a rimanere come backtick; sono usati per formattare sia il codice in linea che i blocchi di codice.</p>
 </li>
-<li><strong>La sintassi per includere contenuti esterni</strong>. Si tratta di qualsiasi cosa
-  sulla stessa riga di <code>-8&lt;-</code>, o sulle righe tra due <code>-8&lt;-</code> su righe separate.</li>
+<li><strong>La sintassi per includere contenuti esterni</strong>. Si tratta di qualsiasi cosa sulla stessa riga di <code>-8&lt;-</code>, o sulle righe tra due <code>-8&lt;-</code> su righe separate.</li>
 </ul>
 <p>I seguenti elementi <em>dovrebbero</em> essere tradotti:</p>
 <ul>
-<li><strong>Testo del collegamento</strong>. Nella sintassi dei link, il testo viene prima
-  dell'URL ed è racchiuso tra parentesi, come in <code>[Link text](URL)</code>. I link
-  Markdown standard dovrebbero apparire in Weblate come <code>[Testo del link]{1}</code>,
-  dove <code>1</code> è la posizione del link nella stringa con riferimento ad altri
-  possibili link.</li>
+<li><strong>Testo del collegamento</strong>. Nella sintassi dei link, il testo viene prima dell'URL ed è racchiuso tra parentesi, come in <code>[Link text](URL)</code>. I link Markdown standard dovrebbero apparire in Weblate come <code>[Testo del link]{1}</code>, dove <code>1</code> è la posizione del link nella stringa con riferimento ad altri possibili link.</li>
 <li>
-<p><strong>Testo del link di riferimento</strong>. Ad esempio, <code>Link text</code> verrebbe tradotto
-  come segue:</p>
+<p><strong>Testo del link di riferimento</strong>. Ad esempio, <code>Link text</code> verrebbe tradotto come segue:</p>
 <div class="highlight"><pre><span></span><code>[<span class="nt">Testo del link</span>][<span class="nl">Contenuto del link</span>]
 </code></pre></div>
 </li>
 <li>
-<p><strong>Titoli e contenuti delle ammonizioni</strong>. Nell'esempio precedente, "Titolo
-  della pagina" e "Contenuto" devono essere tradotti.</p>
+<p><strong>Titoli e contenuti delle ammonizioni</strong>. Nell'esempio precedente, "Titolo della pagina" e "Contenuto" devono essere tradotti.</p>
 </li>
 </ul>
 <h3 id="weblate">Weblate<a class="headerlink" href="#weblate" title="Permanent link">&para;</a></h3>
-<p>Utilizziamo <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> per la
-traduzione dei contenuti. Quando aggiungiamo una nuova traduzione, usiamo
-<a href="https://www.deepl.com/en/translator">DeepL</a> per la traduzione automatica per
-produrre un primo passaggio di traduzioni. Ciò significa che, in genere, il
-contenuto che tradurrete è già tradotto automaticamente. L'aspettativa è che il
-traduttore riveda, modifichi e migliori la traduzione automatica esistente.</p>
-<p>Weblate elabora tutto su base stringa per stringa. Le modifiche vengono
-raggruppate e ogni due ore viene inviato un commit di massa con tutte le
-stringhe modificate in quell'intervallo. Quindi, potrebbero volerci un paio
-d'ore prima che le modifiche vengano visualizzate sul sito web, ma si può
-prevedere che l'aggiornamento venga visualizzato entro quattro ore.</p>
-<p>Se dopo tale periodo le modifiche non sono ancora state pubblicate, la causa
-probabile è un errore di markup che ha causato un errore nella compilazione dei
-documenti per quella lingua. Qualsiasi problema di markup in una stringa
-bloccherà la pubblicazione dell'intera traduzione. È possibile tenere d'occhio
-la pagina di compilazione della propria lingua per verificare se la compilazione
-è stata completata con successo. Il link ha un formato simile a questo link alla
-pagina di compilazione francese <a href="https://app.readthedocs.org/projects/beewareorg/">https://app.readthedocs.org/projects/beewareorg/</a>;
-modifica il codice della lingua con quello della tua lingua per visualizzare la
-pagina di compilazione appropriata. Verrà mostrato lo stato della compilazione
-più recente del sito. Se la compilazione non va a buon fine, consulta il log di
-compilazione e verifica se riesci a identificare la causa del problema.</p>
+<p>Utilizziamo <a href="https://hosted.weblate.org/projects/beeware/">Weblate</a> per la traduzione dei contenuti. Quando aggiungiamo una nuova traduzione, usiamo <a href="https://www.deepl.com/en/translator">DeepL</a> per la traduzione automatica per produrre un primo passaggio di traduzioni. Ciò significa che, in genere, il contenuto che tradurrete è già tradotto automaticamente. L'aspettativa è che il traduttore riveda, modifichi e migliori la traduzione automatica esistente.</p>
+<p>Weblate elabora tutto su base stringa per stringa. Le modifiche vengono raggruppate e ogni due ore viene inviato un commit di massa con tutte le stringhe modificate in quell'intervallo. Quindi, potrebbero volerci un paio d'ore prima che le modifiche vengano visualizzate sul sito web, ma si può prevedere che l'aggiornamento venga visualizzato entro quattro ore.</p>
+<p>Se dopo tale periodo le modifiche non sono ancora state pubblicate, la causa probabile è un errore di markup che ha causato un errore nella compilazione dei documenti per quella lingua. Qualsiasi problema di markup in una stringa bloccherà la pubblicazione dell'intera traduzione. È possibile tenere d'occhio la pagina di compilazione della propria lingua per verificare se la compilazione è stata completata con successo. Il link ha un formato simile a questo link alla pagina di compilazione francese <a href="https://app.readthedocs.org/projects/beewareorg/">https://app.readthedocs.org/projects/beewareorg/</a>; modifica il codice della lingua con quello della tua lingua per visualizzare la pagina di compilazione appropriata. Verrà mostrato lo stato della compilazione più recente del sito. Se la compilazione non va a buon fine, consulta il log di compilazione e verifica se riesci a identificare la causa del problema.</p>
 
 
 

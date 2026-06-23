@@ -68,6 +68,8 @@
         
           <link rel="alternate" href="/ru/" hreflang="ru">
         
+          <link rel="alternate" href="/ta/" hreflang="ta">
+        
           <link rel="alternate" href="/tr/" hreflang="tr">
         
           <link rel="alternate" href="/vi/" hreflang="vi">
@@ -510,6 +512,12 @@ aria-label="Kopfzeile"
           <li class="md-select__item">
             <a href="../../../../../ru/contributing/guide/how/change-note/" hreflang="ru" class="md-select__link">
               Русский
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../ta/contributing/guide/how/change-note/" hreflang="ta" class="md-select__link">
+              தமிழ்
             </a>
           </li>
         
@@ -4770,78 +4778,33 @@ aria-label="Kopfzeile"
 
 
 <h1 id="anderungsinformationen-fur-versionshinweise-hinzufugen">Änderungsinformationen für Versionshinweise hinzufügen<a class="headerlink" href="#anderungsinformationen-fur-versionshinweise-hinzufugen" title="Permanent link">&para;</a></h1>
-<p>Viele BeeWare-Werkzeuge verwenden
-<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a>, um bei der Erstellung der
-Versionshinweise für jede Version zu helfen. Wenn Sie eine Pull-Anfrage an eines
-der entsprechenden Werkzeuge senden, muss diese eine <em>Änderungsnotiz</em> enthalten
-- diese Änderungsnotiz wird der Eintrag in den Versionshinweisen, der die
-vorgenommene Änderung beschreibt.</p>
-<p>Jeder Pull Request muss mindestens eine Datei im Verzeichnis <code>changes/</code>
-enthalten, die eine kurze Beschreibung der durch den Pull Request
-implementierten Änderung enthält. Die Änderungsnotiz sollte im Markdown-Format
-sein, in einer Datei, die den Namen <code>&lt;id&gt;.&lt;Fragmenttyp&gt;.md</code> hat. Wenn die
-Änderung, die Sie vorschlagen, einen Fehler behebt oder eine Funktion
-implementiert, für die es bereits eine Ticketnummer gibt, ist die ID die Nummer
-dieses Tickets. Wenn die Änderung kein entsprechendes Ticket hat, kann die
-PR-Nummer als ID verwendet werden. Sie werden diese PR-Nummer nicht kennen, bis
-Sie den Pull-Request veröffentlichen, so dass der erste CI-Durchlauf die
-`towncrier'-Prüfung nicht bestehen wird; fügen Sie die Änderungsnotiz hinzu und
-veröffentlichen Sie ein PR-Update und CI sollte dann bestehen.</p>
+<p>Viele BeeWare-Werkzeuge verwenden <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a>, um bei der Erstellung der Versionshinweise für jede Version zu helfen. Wenn Sie eine Pull-Anfrage an eines der entsprechenden Werkzeuge senden, muss diese eine <em>Änderungsnotiz</em> enthalten - diese Änderungsnotiz wird der Eintrag in den Versionshinweisen, der die vorgenommene Änderung beschreibt.</p>
+<p>Jeder Pull Request muss mindestens eine Datei im Verzeichnis <code>changes/</code> enthalten, die eine kurze Beschreibung der durch den Pull Request implementierten Änderung enthält. Die Änderungsnotiz sollte im Markdown-Format sein, in einer Datei, die den Namen <code>&lt;id&gt;.&lt;Fragmenttyp&gt;.md</code> hat. Wenn die Änderung, die Sie vorschlagen, einen Fehler behebt oder eine Funktion implementiert, für die es bereits eine Ticketnummer gibt, ist die ID die Nummer dieses Tickets. Wenn die Änderung kein entsprechendes Ticket hat, kann die PR-Nummer als ID verwendet werden. Sie werden diese PR-Nummer nicht kennen, bis Sie den Pull-Request veröffentlichen, so dass der erste CI-Durchlauf die `towncrier'-Prüfung nicht bestehen wird; fügen Sie die Änderungsnotiz hinzu und veröffentlichen Sie ein PR-Update und CI sollte dann bestehen.</p>
 <p>Es gibt fünf Fragmenttypen:</p>
 <ul>
-<li>Funktion": Der PR fügt ein neues Verhalten oder eine Fähigkeit hinzu, die
-  vorher nicht möglich war (z.B. Unterstützung für ein neues Verpackungsformat
-  oder eine neue Funktion in einem bestehenden Verpackungsformat);</li>
-<li>Fehlerbehebung": Der PR behebt einen Fehler in der bestehenden
-  Implementierung;</li>
+<li>Funktion": Der PR fügt ein neues Verhalten oder eine Fähigkeit hinzu, die vorher nicht möglich war (z.B. Unterstützung für ein neues Verpackungsformat oder eine neue Funktion in einem bestehenden Verpackungsformat);</li>
+<li>Fehlerbehebung": Der PR behebt einen Fehler in der bestehenden Implementierung;</li>
 <li><code>doc</code>: Der PR ist eine wesentliche Verbesserung der Dokumentation;</li>
 <li><code>Entfernung</code>; Der PR stellt eine rückwärts inkompatible Änderung der BeeWare API; oder</li>
-<li><code>misc</code>; Eine geringfügige oder administrative Änderung (z.B. das Beheben eines
-  Tippfehlers, eine geringfügige sprachliche Klarstellung oder die
-  Aktualisierung einer Abhängigkeitsversion), die nicht in den Versionshinweisen
-  angekündigt werden muss.</li>
+<li><code>misc</code>; Eine geringfügige oder administrative Änderung (z.B. das Beheben eines Tippfehlers, eine geringfügige sprachliche Klarstellung oder die Aktualisierung einer Abhängigkeitsversion), die nicht in den Versionshinweisen angekündigt werden muss.</li>
 </ul>
-<p>Diese Beschreibung in der Änderungsnotiz sollte eine hochrangige
-"Marketing"-Zusammenfassung der Änderung aus der Sicht des Benutzers sein, keine
-tiefgehende technische Beschreibung oder Implementierungsdetails. Sie
-unterscheidet sich von einer Commit-Nachricht - eine Commit-Nachricht
-beschreibt, was getan wurde, so dass zukünftige Entwickler die Gründe für eine
-Änderung nachvollziehen können; die Änderungsnotiz ist eine Beschreibung zum
-Nutzen der Benutzer, die möglicherweise keine Kenntnisse über Interna haben.</p>
-<p>Wenn Sie zum Beispiel einen Fehler im Zusammenhang mit der Projektbenennung
-beheben, könnte die Commit-Nachricht lauten:</p>
+<p>Diese Beschreibung in der Änderungsnotiz sollte eine hochrangige "Marketing"-Zusammenfassung der Änderung aus der Sicht des Benutzers sein, keine tiefgehende technische Beschreibung oder Implementierungsdetails. Sie unterscheidet sich von einer Commit-Nachricht - eine Commit-Nachricht beschreibt, was getan wurde, so dass zukünftige Entwickler die Gründe für eine Änderung nachvollziehen können; die Änderungsnotiz ist eine Beschreibung zum Nutzen der Benutzer, die möglicherweise keine Kenntnisse über Interna haben.</p>
+<p>Wenn Sie zum Beispiel einen Fehler im Zusammenhang mit der Projektbenennung beheben, könnte die Commit-Nachricht lauten:</p>
 <blockquote>
-<p>Wenden Sie eine stärkere Prüfung auf reguläre Ausdrücke an, um Projektnamen,
-die mit Ziffern beginnen, zu verbieten.</p>
+<p>Wenden Sie eine stärkere Prüfung auf reguläre Ausdrücke an, um Projektnamen, die mit Ziffern beginnen, zu verbieten.</p>
 </blockquote>
 <p>Der entsprechende Änderungsvermerk würde etwa so lauten:</p>
 <blockquote>
 <p>Projektnamen können nicht mehr mit einer Nummer beginnen.</p>
 </blockquote>
-<p>Einige PRs führen mehrere Funktionen ein und beheben mehrere Fehler oder führen
-mehrere rückwärtskompatible Änderungen ein. In diesem Fall kann der PR mehrere
-Änderungsnotizdateien haben. Wenn Sie zwei Fragmenttypen mit der gleichen ID
-verknüpfen müssen, können Sie ein numerisches Suffix anhängen. Wenn z.B. PR 789
-eine Funktion hinzugefügt hat, die in Ticket 123 beschrieben wurde, einen Fehler
-geschlossen hat, der in Ticket 234 beschrieben wurde, und außerdem zwei
-rückwärts inkompatible Änderungen vorgenommen hat, könnten Sie 4
-Änderungsnotizdateien haben:</p>
+<p>Einige PRs führen mehrere Funktionen ein und beheben mehrere Fehler oder führen mehrere rückwärtskompatible Änderungen ein. In diesem Fall kann der PR mehrere Änderungsnotizdateien haben. Wenn Sie zwei Fragmenttypen mit der gleichen ID verknüpfen müssen, können Sie ein numerisches Suffix anhängen. Wenn z.B. PR 789 eine Funktion hinzugefügt hat, die in Ticket 123 beschrieben wurde, einen Fehler geschlossen hat, der in Ticket 234 beschrieben wurde, und außerdem zwei rückwärts inkompatible Änderungen vorgenommen hat, könnten Sie 4 Änderungsnotizdateien haben:</p>
 <ul>
 <li><code>123.feature.md</code></li>
 <li>234.bugfix.md</li>
 <li>789.Umzug.1.md</li>
 <li>789.Umzug.2.md</li>
 </ul>
-<p>Für weitere Informationen über <code>towncrier</code> und Fragmenttypen siehe <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">News
-Fragments</a>.
-Sie können auch bestehende Beispiele von Nachrichtenfragmenten im Verzeichnis
-<code>changes</code> des BeeWare Repositorys sehen. Wenn dieser Ordner leer ist,
-liegt das wahrscheinlich daran, dass BeeWare vor kurzem eine neue
-Version veröffentlicht hat; Änderungsnotizdateien werden gelöscht und
-kombiniert, um die <a href="https://github.com/beeware/beeware/releases">release notes</a> mit jeder Version zu aktualisieren. Sie können sich diese Datei
-ansehen, um zu sehen, welche Art von Kommentar erforderlich ist; Sie können sich
-<a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">recently merged PRs</a> ansehen, um zu sehen, wie Sie Ihre
-Änderungsnotizen formatieren sollten.</p>
+<p>Für weitere Informationen über <code>towncrier</code> und Fragmenttypen siehe <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">News Fragments</a>. Sie können auch bestehende Beispiele von Nachrichtenfragmenten im Verzeichnis <code>changes</code> des BeeWare Repositorys sehen. Wenn dieser Ordner leer ist, liegt das wahrscheinlich daran, dass BeeWare vor kurzem eine neue Version veröffentlicht hat; Änderungsnotizdateien werden gelöscht und kombiniert, um die <a href="https://github.com/beeware/beeware/releases">release notes</a> mit jeder Version zu aktualisieren. Sie können sich diese Datei ansehen, um zu sehen, welche Art von Kommentar erforderlich ist; Sie können sich <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">recently merged PRs</a> ansehen, um zu sehen, wie Sie Ihre Änderungsnotizen formatieren sollten.</p>
 
 
 
