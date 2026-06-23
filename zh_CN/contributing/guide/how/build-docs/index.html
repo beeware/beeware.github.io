@@ -860,7 +860,7 @@ aria-label="页眉"
 
   <!-- Typeset title -->
   
-    什么是BeeWare？
+    什么是 BeeWare？
   
 
 
@@ -4996,14 +4996,14 @@ aria-label="页眉"
 <h1 id="_1">建筑文件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>在对 BeeWare 的文档进行任何更改之前，最好先确认您可以构建现有文档。</p>
 <p>在构建文档之前，请确保已设置好<a href="../dev-environment/">开发环境</a>。</p>
-<p>您必须***在您的路径上安装了 Python 3.13 解释器并可用（即 <code>python3.13</code> 必须启动 Python 3.13 解释器）。</p>
+<p>你<strong>必须</strong>在你的 <code>PATH</code> 上安装 Python 3.13 解释器，并确保它可用（即确保 <code>python3.13</code> 可以启动 Python 3.13 解释器）。</p>
 <p>BeeWare 使用 <code>tox</code> 构建文档。以下 <code>tox</code> 命令必须在与 <code>tox.ini</code> 文件相同的位置运行，也就是在项目的根目录下。</p>
 <h3 id="_2">实时文档预览<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>为支持文档的快速编辑，BeeWare 文档具有“实时预览”模式。</p>
 <div class="admonition warning">
 <p class="admonition-title">实时预览构建不受警告影响！</p>
-<p>实时服务可用于迭代文档更新。在更新过程中，可能会引入标记问题。被视为 "警告 "的问题会导致标准构建失败，但实时服务会在控制台输出中显示警告，同时继续构建。这样，您就可以进行迭代，而无需重新启动实时预览。</p>
-<p>警告 "不同于 "错误"。如果引入了一个被认为是 "错误 "的问题，实时服务就会失败，需要重新启动。在<code>警告</code>问题解决之前，它不会再次启动。</p>
+<p>实时预览服务器可用于迭代文档更改。在更改过程中，你可能会引入标记问题。被视为 <code>WARNING</code> 的问题会导致标准构建失败，但实时预览服务器只会在控制台输出中显示警告，并同时继续构建。这样，你可以继续进行迭代，而无需重新启动实时预览。</p>
+<p><code>WARNING</code> 不同于 <code>ERROR</code>。如果你引入了一个 <code>ERROR</code> 类问题，实时预览服务器就会失败，需要重新启动。在 <code>WARNING</code> 问题解决之前，它无法被重新启动。</p>
 </div>
 <p>启动实时服务器：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
@@ -5022,17 +5022,17 @@ aria-label="页眉"
 </div>
 </div>
 </div>
-<p>这将构建文档，启动网络服务器为文档提供服务，并监视文件系统是否对文档源进行了任何更改。</p>
+<p>这将构建文档，启动网络服务器以提供它，并监视文件系统是否对文档源代码进行了任何更改。</p>
 <p>服务器启动后，你会在控制台输出中看到类似下面的内容：</p>
-<div class="highlight"><pre><span></span><code><span class="go">INFO    -  [11:18:51] 正在访问 http://127.0.0.1:8000/</span>
+<div class="highlight"><pre><span></span><code><span class="go">INFO    -  [11:18:51] Serving on http://127.0.0.1:8000/</span>
 </code></pre></div>
-<p>打开浏览器，导航到提供的 URL。现在你可以开始迭代文档了。如果检测到更改，文档将被重建，任何查看修改后页面的浏览器都将自动刷新。</p>
+<p>打开浏览器，并导航到显示的 URL。现在你就可以开始迭代文档了。如果检测到更改，文档将被重新构建，任何查看修改后页面的浏览器都将被自动刷新。</p>
 <div class="admonition note">
 <p class="admonition-title"><code>docs-live</code> 只是第一步</p>
-<p>运行 "docs-live "来使用实时服务器是为了进行初始迭代。在提交拉取请求之前，您应该**运行本地构建。</p>
+<p>使用 <code>docs-live</code> 使用实时预览服务器是为了进行初始迭代。在提交拉取请求之前，你<em>务必</em>运行本地构建。</p>
 </div>
 <h3 id="_3">本地构建<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>完成迭代后，您需要对文档进行本地构建。如果出现任何标记问题，这个构建过程就会失败。这样，您就可以捕捉到在实时服务器上可能遗漏的任何内容。</p>
+<p>完成迭代后，你需要对文档进行本地构建。如果出现任何标记问题，这个构建过程就会失败。这样，您就可以发现在实时预览构建上可能遗漏的任何问题。</p>
 <h4 id="_4">生成本地构建<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
 <p>若想要生成本地构建：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
@@ -5051,9 +5051,9 @@ aria-label="页眉"
 </div>
 </div>
 </div>
-<p>编译的输出结果将保存在项目根目录下的 <code>_build</code> 目录中。</p>
+<p>构建的输出结果将保存在项目根目录下的 <code>_build</code> 目录中。</p>
 <h4 id="_5">构建本地翻译版本<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
-<p>BeeWare 的文档被翻译成多种语言。英文文档的更新有可能导致其他语言版本出现问题。在提交拉取请求之前，请务必确认所有版本都能正常运行。</p>
+<p>BeeWare 的文档被翻译成多种语言。对英文文档的更改有可能导致其他语言版本出现构建问题。因此，在提交拉取请求之前，请务必确认所有语言版本都能正常构建。</p>
 <p>构建所有可用翻译：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
 <div class="tabbed-content">
@@ -5071,7 +5071,7 @@ aria-label="页眉"
 </div>
 </div>
 </div>
-<p>每种语言编译的输出结果将保存在相关的 <code>_build/html/&lt;languagecode&gt;</code>目录中，其中 <code>&lt;languagecode&gt;</code>是与特定语言相关的两个或五个字符的语言代码（例如 <code>fr</code> 表示法语，<code>it</code> 表示意大利语等）。</p>
+<p>每种语言文档构建的输出结果将保存在语言相关的 <code>_build/html/&lt;languagecode&gt;</code> 目录中，其中 <code>&lt;languagecode&gt;</code> 是与特定语言相关的两个或五个字符的语言代码（例如 <code>fr</code> 表示法语，<code>it</code> 表示意大利语等）。</p>
 <p>如果您发现单个编译存在问题，可以运行 <code>tox -e docs-&lt;languagecode&gt;</code> 单独运行该单个编译。例如，要只编译法语文档，请运行：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
@@ -5089,7 +5089,7 @@ aria-label="页眉"
 </div>
 </div>
 </div>
-<p>单语言编译的输出将位于 <code>_build</code> 目录中。</p>
+<p>单语言构建的输出将位于 <code>_build</code> 目录中。</p>
 <h3 id="lint">运行文档 lint<a class="headerlink" href="#lint" title="Permanent link">&para;</a></h3>
 <p>构建过程会识别 Markdown 问题，但 BeeWare 还会执行一些额外的样式和格式检查，即所谓的 "linting"。要运行 "linting "检查:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
@@ -5108,7 +5108,7 @@ aria-label="页眉"
 </div>
 </div>
 </div>
-<p>这将验证文件是否包含：</p>
+<p>这将确保文件没有：</p>
 <ul>
 <li>死超链接</li>
 <li>错别字</li>
@@ -5116,8 +5116,8 @@ aria-label="页眉"
 <p>如果一个单词的有效拼写被识别为拼写错误，则将该单词添加到 <code>docs/spelling_wordlist</code> 中的列表中。这将把该词添加到拼写检查程序的词典中。添加到该列表时，请记住：</p>
 <ul>
 <li>我们倾向于使用美式拼写法，但对程序特定的口语（如 "apps"）和名词的动词化（如 "scrollable"）有一定的自由度</li>
-<li>任何对产品名称的引用都应使用该产品的首选大写字母。(例如，"macOS"、"GTK"、"pytest"、"Pygame"、"PyScript"）。</li>
-<li>如果一个术语是 "作为代码 "使用的，那么它就应该作为字面意义（"像这样"）被引用，而不是被添加到词典中。</li>
+<li>任何对产品名称的引用都应使用该产品的首选大写方式。(例如，"macOS"、"GTK"、"pytest"、"Pygame"、"PyScript"）。</li>
+<li>如果一个术语被“作为代码”使用，那么它就应该作为字面格式（<code>像这样</code>）被引用，而不是被添加到拼写词典中。</li>
 </ul>
 <p>成功构建文档后，您就可以开始<a href="../write-docs/">编写文档</a>了。</p>
 

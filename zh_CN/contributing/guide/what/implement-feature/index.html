@@ -860,7 +860,7 @@ aria-label="页眉"
 
   <!-- Typeset title -->
   
-    什么是BeeWare？
+    什么是 BeeWare？
   
 
 
@@ -4915,8 +4915,8 @@ aria-label="页眉"
 <p>在你开始修改内容以前，请务必确保你已创建了一个新的分支。当你克隆你的派生 (fork) 版本库时，你将会默认在 <code>main</code> 分支上，即为 BeeWare 的 <code>main</code> 分支的直接副本。</p>
 <p>虽然你<em>可以</em>从你的 <code>main</code> 分支提交拉取请求，但这不是最佳方法。如果你提交的拉取请求基本正确，那么审查你的拉取请求的核心团队成员将会直接在你的拉取请求上做出所需的更改，而不会给出反馈以要求你做细微的改动。但是，如果你从你的 <code>main</code> 分支提交拉取请求，审核人员将无法进行直接修改。</p>
 <p>在 main 分支上工作也会给<em>你</em>自己完成第一个拉取请求后时带来困难。如果你想贡献第二个拉取请求，你需要有一份上游项目 main 分支的“干净”版本为基础；如果你已经从你的 <code>main</code> 分支做了第一次贡献，你也就不会有另一个干净的版本可用了。</p>
-<p>相反，你应该在<em>特性分支</em>上进行修改。特性分支有一个简单的名称，用来识别你所做的更改。例如，如果您要修复一个会导致 Windows 11 上构建问题的错误，您可以创建一个特性分支 "fix-win11-build"。如果您的错误与已报告的特定问题有关，在分支名称中引用该问题编号也很常见（例如，<code>fix-1234</code>）。</p>
-<p>要创建 "fix-win11-build "功能分支，请运行：</p>
+<p>相反，你应该在<em>功能分支</em>上进行修改。功能分支有简单的名称，用来辨别你将会做的更改。例如，如果你要修复一个会导致 Windows 11 上构建问题的错误，您可以创建一个名为 <code>fix-win11-build</code> 的功能分支。如果你修复的问题与已报告的特定工单有关，在分支名称中引用该工单编号也很常见（例如，<code>fix-1234</code>）。</p>
+<p>要创建 <code>fix-win11-build</code> 功能分支，运行：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5156,14 +5156,14 @@ aria-label="页眉"
 <h1 id="_14">建筑文件<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h1>
 <p>在对 BeeWare 的文档进行任何更改之前，最好先确认您可以构建现有文档。</p>
 <p>在构建文档之前，请确保已设置好<a href="../../how/dev-environment/">开发环境</a>。</p>
-<p>您必须***在您的路径上安装了 Python 3.13 解释器并可用（即 <code>python3.13</code> 必须启动 Python 3.13 解释器）。</p>
+<p>你<strong>必须</strong>在你的 <code>PATH</code> 上安装 Python 3.13 解释器，并确保它可用（即确保 <code>python3.13</code> 可以启动 Python 3.13 解释器）。</p>
 <p>BeeWare 使用 <code>tox</code> 构建文档。以下 <code>tox</code> 命令必须在与 <code>tox.ini</code> 文件相同的位置运行，也就是在项目的根目录下。</p>
 <h3 id="_15">实时文档预览<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <p>为支持文档的快速编辑，BeeWare 文档具有“实时预览”模式。</p>
 <div class="admonition warning">
 <p class="admonition-title">实时预览构建不受警告影响！</p>
-<p>实时服务可用于迭代文档更新。在更新过程中，可能会引入标记问题。被视为 "警告 "的问题会导致标准构建失败，但实时服务会在控制台输出中显示警告，同时继续构建。这样，您就可以进行迭代，而无需重新启动实时预览。</p>
-<p>警告 "不同于 "错误"。如果引入了一个被认为是 "错误 "的问题，实时服务就会失败，需要重新启动。在<code>警告</code>问题解决之前，它不会再次启动。</p>
+<p>实时预览服务器可用于迭代文档更改。在更改过程中，你可能会引入标记问题。被视为 <code>WARNING</code> 的问题会导致标准构建失败，但实时预览服务器只会在控制台输出中显示警告，并同时继续构建。这样，你可以继续进行迭代，而无需重新启动实时预览。</p>
+<p><code>WARNING</code> 不同于 <code>ERROR</code>。如果你引入了一个 <code>ERROR</code> 类问题，实时预览服务器就会失败，需要重新启动。在 <code>WARNING</code> 问题解决之前，它无法被重新启动。</p>
 </div>
 <p>启动实时服务器：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">macOS</label><label for="__tabbed_10_2">Linux</label><label for="__tabbed_10_3">Windows</label></div>
@@ -5182,17 +5182,17 @@ aria-label="页眉"
 </div>
 </div>
 </div>
-<p>这将构建文档，启动网络服务器为文档提供服务，并监视文件系统是否对文档源进行了任何更改。</p>
+<p>这将构建文档，启动网络服务器以提供它，并监视文件系统是否对文档源代码进行了任何更改。</p>
 <p>服务器启动后，你会在控制台输出中看到类似下面的内容：</p>
-<div class="highlight"><pre><span></span><code><span class="go">INFO    -  [11:18:51] 正在访问 http://127.0.0.1:8000/</span>
+<div class="highlight"><pre><span></span><code><span class="go">INFO    -  [11:18:51] Serving on http://127.0.0.1:8000/</span>
 </code></pre></div>
-<p>打开浏览器，导航到提供的 URL。现在你可以开始迭代文档了。如果检测到更改，文档将被重建，任何查看修改后页面的浏览器都将自动刷新。</p>
+<p>打开浏览器，并导航到显示的 URL。现在你就可以开始迭代文档了。如果检测到更改，文档将被重新构建，任何查看修改后页面的浏览器都将被自动刷新。</p>
 <div class="admonition note">
 <p class="admonition-title"><code>docs-live</code> 只是第一步</p>
-<p>运行 "docs-live "来使用实时服务器是为了进行初始迭代。在提交拉取请求之前，您应该**运行本地构建。</p>
+<p>使用 <code>docs-live</code> 使用实时预览服务器是为了进行初始迭代。在提交拉取请求之前，你<em>务必</em>运行本地构建。</p>
 </div>
 <h3 id="_16">本地构建<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
-<p>完成迭代后，您需要对文档进行本地构建。如果出现任何标记问题，这个构建过程就会失败。这样，您就可以捕捉到在实时服务器上可能遗漏的任何内容。</p>
+<p>完成迭代后，你需要对文档进行本地构建。如果出现任何标记问题，这个构建过程就会失败。这样，您就可以发现在实时预览构建上可能遗漏的任何问题。</p>
 <h4 id="_17">生成本地构建<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
 <p>若想要生成本地构建：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="11:3"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><input id="__tabbed_11_3" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">macOS</label><label for="__tabbed_11_2">Linux</label><label for="__tabbed_11_3">Windows</label></div>
@@ -5211,9 +5211,9 @@ aria-label="页眉"
 </div>
 </div>
 </div>
-<p>编译的输出结果将保存在项目根目录下的 <code>_build</code> 目录中。</p>
+<p>构建的输出结果将保存在项目根目录下的 <code>_build</code> 目录中。</p>
 <h4 id="_18">构建本地翻译版本<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
-<p>BeeWare 的文档被翻译成多种语言。英文文档的更新有可能导致其他语言版本出现问题。在提交拉取请求之前，请务必确认所有版本都能正常运行。</p>
+<p>BeeWare 的文档被翻译成多种语言。对英文文档的更改有可能导致其他语言版本出现构建问题。因此，在提交拉取请求之前，请务必确认所有语言版本都能正常构建。</p>
 <p>构建所有可用翻译：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">macOS</label><label for="__tabbed_12_2">Linux</label><label for="__tabbed_12_3">Windows</label></div>
 <div class="tabbed-content">
@@ -5231,7 +5231,7 @@ aria-label="页眉"
 </div>
 </div>
 </div>
-<p>每种语言编译的输出结果将保存在相关的 <code>_build/html/&lt;languagecode&gt;</code>目录中，其中 <code>&lt;languagecode&gt;</code>是与特定语言相关的两个或五个字符的语言代码（例如 <code>fr</code> 表示法语，<code>it</code> 表示意大利语等）。</p>
+<p>每种语言文档构建的输出结果将保存在语言相关的 <code>_build/html/&lt;languagecode&gt;</code> 目录中，其中 <code>&lt;languagecode&gt;</code> 是与特定语言相关的两个或五个字符的语言代码（例如 <code>fr</code> 表示法语，<code>it</code> 表示意大利语等）。</p>
 <p>如果您发现单个编译存在问题，可以运行 <code>tox -e docs-&lt;languagecode&gt;</code> 单独运行该单个编译。例如，要只编译法语文档，请运行：</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="13:3"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><input id="__tabbed_13_3" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">macOS</label><label for="__tabbed_13_2">Linux</label><label for="__tabbed_13_3">Windows</label></div>
 <div class="tabbed-content">
@@ -5249,7 +5249,7 @@ aria-label="页眉"
 </div>
 </div>
 </div>
-<p>单语言编译的输出将位于 <code>_build</code> 目录中。</p>
+<p>单语言构建的输出将位于 <code>_build</code> 目录中。</p>
 <h3 id="lint">运行文档 lint<a class="headerlink" href="#lint" title="Permanent link">&para;</a></h3>
 <p>构建过程会识别 Markdown 问题，但 BeeWare 还会执行一些额外的样式和格式检查，即所谓的 "linting"。要运行 "linting "检查:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="14:3"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><input id="__tabbed_14_3" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">macOS</label><label for="__tabbed_14_2">Linux</label><label for="__tabbed_14_3">Windows</label></div>
@@ -5268,7 +5268,7 @@ aria-label="页眉"
 </div>
 </div>
 </div>
-<p>这将验证文件是否包含：</p>
+<p>这将确保文件没有：</p>
 <ul>
 <li>死超链接</li>
 <li>错别字</li>
@@ -5276,8 +5276,8 @@ aria-label="页眉"
 <p>如果一个单词的有效拼写被识别为拼写错误，则将该单词添加到 <code>docs/spelling_wordlist</code> 中的列表中。这将把该词添加到拼写检查程序的词典中。添加到该列表时，请记住：</p>
 <ul>
 <li>我们倾向于使用美式拼写法，但对程序特定的口语（如 "apps"）和名词的动词化（如 "scrollable"）有一定的自由度</li>
-<li>任何对产品名称的引用都应使用该产品的首选大写字母。(例如，"macOS"、"GTK"、"pytest"、"Pygame"、"PyScript"）。</li>
-<li>如果一个术语是 "作为代码 "使用的，那么它就应该作为字面意义（"像这样"）被引用，而不是被添加到词典中。</li>
+<li>任何对产品名称的引用都应使用该产品的首选大写方式。(例如，"macOS"、"GTK"、"pytest"、"Pygame"、"PyScript"）。</li>
+<li>如果一个术语被“作为代码”使用，那么它就应该作为字面格式（<code>像这样</code>）被引用，而不是被添加到拼写词典中。</li>
 </ul>
 <p>成功构建文档后，您就可以开始<a href="../../how/write-docs/">编写文档</a>了。</p>
 </details>
@@ -5305,14 +5305,14 @@ aria-label="页眉"
 <details class="abstract">
 <summary>添加变更说明</summary>
 <h1 id="_23">为发布说明添加变更信息<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h1>
-<p>许多BeeWare工具都使用<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a>来帮助为每个版本创建发布说明。当您向相关工具提交拉取请求时，需要包含<em>变更说明</em>&ndash;该变更说明将成为发行说明中描述变更的条目。</p>
-<p>每个拉取请求都必须在 <code>changes/</code> 目录中包含至少一个文件，对拉取请求实施的变更进行简短描述。变更说明应采用 Markdown 格式，文件名应为 <code>&lt;id&gt;.&lt;片段类型&gt;.md</code>。如果您提出的变更将修复一个已有问题编号的错误或实现一个已有问题编号的功能，ID 就是该问题编号。如果变更没有对应的问题，则可以使用 PR 编号作为 ID。在推送拉取请求之前，您不会知道 PR 编号，因此第一次 CI 通过时，"towncrier "检查会失败；添加变更注释并推送 PR 更新后，CI 应该会通过。</p>
-<p>有五种片段类型：</p>
+<p>许多 BeeWare 工具都使用 <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> 来帮助编写版本发布说明。当您向相关工具提交拉取请求时，需要包含<em>变更说明</em>——该变更说明将成为发行说明中描述变更的条目。</p>
+<p>每个拉取请求（PR）都必须在 <code>changes/</code> 目录中包含至少一个文件，对拉取请求中的变更进行简短描述。变更说明应采用 Markdown 格式，文件名应为 <code>&lt;id&gt;.&lt;片段类型&gt;.md</code>。如果你提出的变更将修复一个已有工单编号的问题或实现一个已有工单编号的功能，ID 就是该工单编号。如果变更没有对应的工单，则可以使用 PR 编号作为 ID。在推送拉取请求之前，您不会知道 PR 编号，因此第一次 CI 通过时，<code>towncrier</code> 检查会失败；添加变更注释并推送 PR 更新后，CI 才应该会通过。</p>
+<p>有五种变更片段类型：</p>
 <ul>
-<li><code>特征</code>:PR 增加了以前不可能实现的新行为或功能（例如，增加了对新包装格式的支持，或在现有包装格式中增加了新功能）；</li>
-<li>"bugfix"：该 PR 修复了现有实现中的一个错误；</li>
-<li>doc`：PR 是对文档的重大改进；</li>
-<li>移除"； PR 代表 BeeWare 应用程序接口向后不兼容的更改；或 PR 代表 BeeWare 应用程序接口向后不兼容的更改。应用程序接口；或</li>
+<li><code>feature</code>：拉取请求（PR）增加了以前不可能的新行为或功能（例如，增加了对新包装格式的支持，或在现有包装格式中增加了新功能）；</li>
+<li><code>bugfix</code>：该 PR 修复了现有实现中的一个错误；</li>
+<li><code>doc</code>：PR 是对文档的重大改进；</li>
+<li><code>removal</code>； PR 代表 BeeWare API 向后不兼容的更改；或</li>
 <li><code>misc</code>; 不需要在发布说明中公布的细微或管理性变更（如修正错字、细微的语言澄清或更新依赖版本）。</li>
 </ul>
 <p>变更说明中的描述应从用户角度出发，对变更进行高层次的 "营销 "总结，而不是深层次的技术描述或实现细节。它有别于提交信息&ndash;提交信息描述的是所做的工作，以便未来的开发人员了解变更的原因；而变更说明则是为了用户的利益而描述，因为用户可能并不了解内部知识。</p>

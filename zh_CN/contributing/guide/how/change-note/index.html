@@ -860,7 +860,7 @@ aria-label="页眉"
 
   <!-- Typeset title -->
   
-    什么是BeeWare？
+    什么是 BeeWare？
   
 
 
@@ -4778,14 +4778,14 @@ aria-label="页眉"
 
 
 <h1 id="_1">为发布说明添加变更信息<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>许多BeeWare工具都使用<a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a>来帮助为每个版本创建发布说明。当您向相关工具提交拉取请求时，需要包含<em>变更说明</em>&ndash;该变更说明将成为发行说明中描述变更的条目。</p>
-<p>每个拉取请求都必须在 <code>changes/</code> 目录中包含至少一个文件，对拉取请求实施的变更进行简短描述。变更说明应采用 Markdown 格式，文件名应为 <code>&lt;id&gt;.&lt;片段类型&gt;.md</code>。如果您提出的变更将修复一个已有问题编号的错误或实现一个已有问题编号的功能，ID 就是该问题编号。如果变更没有对应的问题，则可以使用 PR 编号作为 ID。在推送拉取请求之前，您不会知道 PR 编号，因此第一次 CI 通过时，"towncrier "检查会失败；添加变更注释并推送 PR 更新后，CI 应该会通过。</p>
-<p>有五种片段类型：</p>
+<p>许多 BeeWare 工具都使用 <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> 来帮助编写版本发布说明。当您向相关工具提交拉取请求时，需要包含<em>变更说明</em>——该变更说明将成为发行说明中描述变更的条目。</p>
+<p>每个拉取请求（PR）都必须在 <code>changes/</code> 目录中包含至少一个文件，对拉取请求中的变更进行简短描述。变更说明应采用 Markdown 格式，文件名应为 <code>&lt;id&gt;.&lt;片段类型&gt;.md</code>。如果你提出的变更将修复一个已有工单编号的问题或实现一个已有工单编号的功能，ID 就是该工单编号。如果变更没有对应的工单，则可以使用 PR 编号作为 ID。在推送拉取请求之前，您不会知道 PR 编号，因此第一次 CI 通过时，<code>towncrier</code> 检查会失败；添加变更注释并推送 PR 更新后，CI 才应该会通过。</p>
+<p>有五种变更片段类型：</p>
 <ul>
-<li><code>特征</code>:PR 增加了以前不可能实现的新行为或功能（例如，增加了对新包装格式的支持，或在现有包装格式中增加了新功能）；</li>
-<li>"bugfix"：该 PR 修复了现有实现中的一个错误；</li>
-<li>doc`：PR 是对文档的重大改进；</li>
-<li>移除"； PR 代表 BeeWare 应用程序接口向后不兼容的更改；或 PR 代表 BeeWare 应用程序接口向后不兼容的更改。应用程序接口；或</li>
+<li><code>feature</code>：拉取请求（PR）增加了以前不可能的新行为或功能（例如，增加了对新包装格式的支持，或在现有包装格式中增加了新功能）；</li>
+<li><code>bugfix</code>：该 PR 修复了现有实现中的一个错误；</li>
+<li><code>doc</code>：PR 是对文档的重大改进；</li>
+<li><code>removal</code>； PR 代表 BeeWare API 向后不兼容的更改；或</li>
 <li><code>misc</code>; 不需要在发布说明中公布的细微或管理性变更（如修正错字、细微的语言澄清或更新依赖版本）。</li>
 </ul>
 <p>变更说明中的描述应从用户角度出发，对变更进行高层次的 "营销 "总结，而不是深层次的技术描述或实现细节。它有别于提交信息&ndash;提交信息描述的是所做的工作，以便未来的开发人员了解变更的原因；而变更说明则是为了用户的利益而描述，因为用户可能并不了解内部知识。</p>
