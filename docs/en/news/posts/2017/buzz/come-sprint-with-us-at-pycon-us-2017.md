@@ -58,4 +58,4 @@ If you have any questions, just ask [myself](https://twitter.com/glasnt) or [Rus
 
 We'd love to see you there! ✨
 
-This article has been cross-posted on [glasnt.com/blog](http://glasnt.com/blog/2017/02/01/come-sprint-with-beeware.html).
+This article has been cross-posted on [glasnt.com/blog](https://glasnt.com/blog/come-sprint-with-beeware/).

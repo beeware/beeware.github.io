@@ -17,3 +17,10 @@ updates:
     directory: "/"
     patterns: ["*"]
     multi-ecosystem-group: "dependencies"
+
+  - package-ecosystem: "pre-commit"
+    directory: "/"
+    schedule:
+      # Check for updates on the first Sunday of every month, 8PM UTC
+      interval: "cron"
+      cronjob: "0 20 * * sun#1"

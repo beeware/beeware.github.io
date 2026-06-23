@@ -1,3 +1,3 @@
 # Contribution guide
 
-{% extends "contribute/index.md" %}
+{% extends "_shared/contribute/index.md" %}

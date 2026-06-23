@@ -70,7 +70,7 @@ Filtering GitHub issues by the "good first issue" label.
 
 ///
 
-Once you've found an issue that looks interesting, read through any comments on the post, and post a comment in the discussion saying that you're looking into the issue (e.g., "Looking into this at the PyCon US 2025 sprints"). BeeWare doesn't explicitly "assign" issues - we accept contributions from anyone. However, in a sprint situation, we need to make sure that we don't end up with two people working on the same issue - leaving a comment is a light-weight way to coordinate between contributors.
+Once you've found an issue that looks interesting, read through any comments on the post, and post a comment in the discussion saying that you're looking into the issue (e.g., "Looking into this at the PyCon US 2026 sprints"). BeeWare doesn't explicitly "assign" issues - we accept contributions from anyone. However, in a sprint situation, we need to make sure that we don't end up with two people working on the same issue - leaving a comment is a light-weight way to coordinate between contributors.
 
 If you still can't find anything you'd like to do, find a Bee Team member and they'll help you narrow down to a specific issue.
 

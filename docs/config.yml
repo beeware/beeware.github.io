@@ -7,6 +7,7 @@ nav:
       - What is BeeWare?: about/overview.md
       - The Bee Team: about/team.md
       - History and Philosophy: about/history.md
+      - Success stories: about/success.md
       - Contact: about/contact.md
       - Branding guidelines: about/branding.md
   - Documentation:
@@ -58,7 +59,8 @@ not_in_nav: |
   /titles.md
   /project/README.md
 
-exclude_docs: |  # This is the only way to keep the build from parsing the team bio files.
+exclude_docs:
+  | # This is the only way to keep the build from parsing the team bio files.
   !.*
   /about/team/
 
@@ -74,10 +76,11 @@ extra:
   hide_dev_links: true
   website: true
   translated: true
-  min_python_version: "3.10"  # The oldest supported Python version
-  min_python_version_tag: "310"  # The tag version of the minimum python version
-  recent_python_version: "3.13"  # The newest Python version known to work on all platforms
-  docs_python_version: "3.13"  # The version of Python required to build the documentation
+  min_python_version: "3.10" # The oldest supported Python version
+  min_python_version_tag: "310" # The tag version of the minimum python version
+  recent_python_version: "3.13" # The newest Python version known to work on all platforms
+  docs_python_version: "3.13" # The version of Python required to build the documentation
+  contribution_guide_root: contributing/guide/
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/beeware
@@ -149,7 +152,6 @@ extra:
       link: /zh_TW/
       lang: zh-TW
 
-
 extra_css:
   - stylesheets/beeware.css
 
@@ -213,18 +215,18 @@ markdown_extensions:
       - quote
   pymdownx.blocks.details:
     types:
-      - {name: details-note, class: note}
-      - {name: details-abstract, class: abstract}
-      - {name: details-info, class: info}
-      - {name: details-tip, class: tip}
-      - {name: details-success, class: success}
-      - {name: details-question, class: question}
-      - {name: details-warning, class: warning}
-      - {name: details-failure, class: failure}
-      - {name: details-danger, class: danger}
-      - {name: details-bug, class: bug}
-      - {name: details-example, class: example}
-      - {name: details-quote, class: quote}
+      - { name: details-note, class: note }
+      - { name: details-abstract, class: abstract }
+      - { name: details-info, class: info }
+      - { name: details-tip, class: tip }
+      - { name: details-success, class: success }
+      - { name: details-question, class: question }
+      - { name: details-warning, class: warning }
+      - { name: details-failure, class: failure }
+      - { name: details-danger, class: danger }
+      - { name: details-bug, class: bug }
+      - { name: details-example, class: example }
+      - { name: details-quote, class: quote }
   pymdownx.blocks.tab:
     alternate_style: true
   pymdownx.snippets:
@@ -253,17 +255,17 @@ plugins:
       - Events
       - Resources
   autorefs:
-    resolve_closest: true  # autorefs warns of the Usage headings begin duplicates without this - we will have to assign unique ids to all of them otherwise
+    resolve_closest: true # autorefs warns of the Usage headings begin duplicates without this - we will have to assign unique ids to all of them otherwise
   macros:
     module_name: macros
     include_yaml:
-        - team: en/news/.authors.yml
+      - team: en/news/.authors.yml
   meta: {}
   rss:
     feed_title: "BeeWare: The Buzz"
     feed_description: News and events for the BeeWare project.
     match_path: "news/posts/.*"
-    use_git: false  # Forces it to read the dates from the frontmatter.
+    use_git: false # Forces it to read the dates from the frontmatter.
     date_from_meta:
       as_creation: "date"
       datetime_format: "%Y-%m-%d"
@@ -271,18 +273,41 @@ plugins:
       - categories
     feeds_filenames:
       rss_created: news/buzz/atom.xml
-#    image: images/brutus.png  # Update to a Brutus URL
+    #    image: images/brutus.png  # Update to a Brutus URL
     abstract_chars_count: -1
   redirects:
     redirect_maps:
+      # Toga project references
+      "toga.md": "https://toga.beeware.org/"
+      "project/toga.md": "https://toga.beeware.org/"
+      "project/projects/libraries/toga.md": "https://toga.beeware.org/"
+      # Briefcase project references
+      "briefcase.md": "https://briefcase.beeware.org/"
+      "project/briefcase.md": "https://briefcase.beeware.org/"
+      "project/projects/tools/briefcase.md": "https://briefcase.beeware.org/"
+      # Rubicon-ObjC project references
+      "rubicon.md": "https://rubicon-objc.beeware.org/"
+      "project/utilities/rubicon.md": "https://rubicon-objc.beeware.org/"
+      "project/projects/bridges/rubicon.md": "https://rubicon-objc.beeware.org/"
+      # Podium project references
+      "project/applications/podium.md": "https://github.com/beeware/podium"
+      "project/projects/applications/podium.md": "https://github.com/beeware/podium"
       # shortlinks
       "bee/briefcase-bootstraps.md": "https://briefcase.beeware.org/en/latest/reference/commands/new.html#third-party-bootstraps"
       "bee/chat.md": "https://discord.gg/AjYYm8cyQM"
       "bee/coc.md": "community/code-of-conduct.md"
       "bee/join.md": "membership/index.md"
       "bee/podium.md": "https://github.com/beeware/podium"
+      "bee/ready.md": "https://github.com/orgs/beeware/projects/1/views/7"
       "bee/signup.md": "about/contact.md"
       "bee/sprint.md": "contributing/sprint-guide.md"
       "bee/sprints.md": "contributing/sprint-guide.md"
+      # Short shortlinks
+      "b/ready.md": "https://github.com/orgs/beeware/projects/1/views/7"
+      "b/sprints.md": "contributing/sprint-guide.md"
+      "b/sprint.md": "contributing/sprint-guide.md"
       # Historical links of significance
       "community/behavior/code-of-conduct.md": "community/code-of-conduct.md"
+      "community/behavior.md": "community/code-of-conduct.md"
+      "community/members.md": "membership/index.md"
+      "contributing/membership.md": "membership/index.md"
