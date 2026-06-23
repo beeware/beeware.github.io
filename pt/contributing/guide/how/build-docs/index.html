@@ -70,6 +70,8 @@
         
           <link rel="alternate" href="/tr/" hreflang="tr">
         
+          <link rel="alternate" href="/vi/" hreflang="vi">
+        
           <link rel="alternate" href="/zh_CN/" hreflang="zh-Hant">
         
           <link rel="alternate" href="/zh_TW/" hreflang="zh-TW">
@@ -514,6 +516,12 @@ aria-label="Cabeçalho"
           <li class="md-select__item">
             <a href="../../../../../tr/contributing/guide/how/build-docs/" hreflang="tr" class="md-select__link">
               Türkçe
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../../../vi/contributing/guide/how/build-docs/" hreflang="vi" class="md-select__link">
+              Tiếng Việt
             </a>
           </li>
         
@@ -2601,10 +2609,10 @@ aria-label="Cabeçalho"
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#visualizacao-da-documentacao-em-tempo-real" class="md-nav__link">
+  <a href="#antevisao-da-documentacao-em-tempo-real" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visualização da documentação em tempo real
+        Antevisão da documentação em tempo real
       
     </span>
   </a>
@@ -2612,22 +2620,22 @@ aria-label="Cabeçalho"
 </li>
       
         <li class="md-nav__item">
-  <a href="#construcao-local" class="md-nav__link">
+  <a href="#compilacao-local" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Construção local
+        Compilação local
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Construção local">
+    <nav class="md-nav" aria-label="Compilação local">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#geracao-de-uma-compilacao-local" class="md-nav__link">
+  <a href="#gerar-uma-compilacao-local" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Geração de uma compilação local
+        Gerar uma compilação local
       
     </span>
   </a>
@@ -2635,10 +2643,10 @@ aria-label="Cabeçalho"
 </li>
         
           <li class="md-nav__item">
-  <a href="#geracao-de-uma-compilacao-local-traduzida" class="md-nav__link">
+  <a href="#gerar-uma-compilacao-local-traduzida" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Geração de uma compilação local traduzida
+        Gerar uma compilação local traduzida
       
     </span>
   </a>
@@ -2651,10 +2659,10 @@ aria-label="Cabeçalho"
 </li>
       
         <li class="md-nav__item">
-  <a href="#linting-de-documentacao" class="md-nav__link">
+  <a href="#analise-sintatica-da-documentacao" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Linting de documentação
+        Análise sintática da documentação
       
     </span>
   </a>
@@ -4793,10 +4801,10 @@ aria-label="Cabeçalho"
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#visualizacao-da-documentacao-em-tempo-real" class="md-nav__link">
+  <a href="#antevisao-da-documentacao-em-tempo-real" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Visualização da documentação em tempo real
+        Antevisão da documentação em tempo real
       
     </span>
   </a>
@@ -4804,22 +4812,22 @@ aria-label="Cabeçalho"
 </li>
       
         <li class="md-nav__item">
-  <a href="#construcao-local" class="md-nav__link">
+  <a href="#compilacao-local" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Construção local
+        Compilação local
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Construção local">
+    <nav class="md-nav" aria-label="Compilação local">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#geracao-de-uma-compilacao-local" class="md-nav__link">
+  <a href="#gerar-uma-compilacao-local" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Geração de uma compilação local
+        Gerar uma compilação local
       
     </span>
   </a>
@@ -4827,10 +4835,10 @@ aria-label="Cabeçalho"
 </li>
         
           <li class="md-nav__item">
-  <a href="#geracao-de-uma-compilacao-local-traduzida" class="md-nav__link">
+  <a href="#gerar-uma-compilacao-local-traduzida" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Geração de uma compilação local traduzida
+        Gerar uma compilação local traduzida
       
     </span>
   </a>
@@ -4843,10 +4851,10 @@ aria-label="Cabeçalho"
 </li>
       
         <li class="md-nav__item">
-  <a href="#linting-de-documentacao" class="md-nav__link">
+  <a href="#analise-sintatica-da-documentacao" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Linting de documentação
+        Análise sintática da documentação
       
     </span>
   </a>
@@ -4979,32 +4987,32 @@ aria-label="Cabeçalho"
 
 <h1 id="construir-documentacao">Construir documentação<a class="headerlink" href="#construir-documentacao" title="Permanent link">&para;</a></h1>
 <p>Antes de fazer qualquer alteração na documentação de BeeWare, é útil
-confirmar que você pode criar a documentação existente.</p>
+confirmar que pode compilar a documentação existente.</p>
 <p>Antes de criar a documentação, e ter um [ambiente de desenvolvimento]
 configurado.</p>
-<p>Você <strong>deve</strong> ter um interpretador Python 3.13 instalado e
-disponível em seu caminho (ou seja, <code>python3.13</code> deve
+<p>Você <strong>tem de</strong> ter um interpretador Python 3.13 instalado
+e disponível em seu caminho (isto é, <code>python3.13</code> tem de
 iniciar um interpretador Python 3.13).</p>
-<p>BeeWare utiliza o <code>tox</code> para criar a documentação. Os comandos <code>tox</code> a
-seguir devem ser executados no mesmo local que o ficheiro <code>tox.ini</code>, que está no
+<p>BeeWare usa o <code>tox</code> para criar a documentação. Os seguintes comandos
+<code>tox</code> têm de ser executados no mesmo local que o ficheiro <code>tox.ini</code>, que está no
 diretório raiz do projeto.</p>
-<h3 id="visualizacao-da-documentacao-em-tempo-real">Visualização da documentação em tempo real<a class="headerlink" href="#visualizacao-da-documentacao-em-tempo-real" title="Permanent link">&para;</a></h3>
-<p>Para dar suporte à edição rápida da documentação, BeeWare tem um modo
-de "visualização ao vivo".</p>
+<h3 id="antevisao-da-documentacao-em-tempo-real">Antevisão da documentação em tempo real<a class="headerlink" href="#antevisao-da-documentacao-em-tempo-real" title="Permanent link">&para;</a></h3>
+<p>Para suportar edição rápida da documentação, BeeWare tem um modo de
+"antevisão em tempo real".</p>
 <div class="admonition warning">
-<p class="admonition-title">A pré-visualização ao vivo será criada com avisos!</p>
-<p>O serviço ao vivo está disponível para iterar em suas atualizações de
-documentação. Enquanto estiver no processo de atualização, você poderá
-introduzir um problema de marcação. Os problemas considerados <code>WARNING</code> farão
-com que uma compilação padrão falhe; no entanto, o serviço ao vivo está
-configurado para indicar avisos na saída do console, enquanto continua a
-compilação. Isso permite que você faça iterações sem precisar reiniciar a
-visualização ao vivo.</p>
-<p>Um <code>WARNING</code> é diferente de um <code>ERROR</code>. Se você introduzir um problema que seja
-considerado um <code>ERROR</code>, o serviço ao vivo falhará e precisará ser reiniciado.
-Ele não será iniciado novamente até que o problema <code>WARNING</code> seja resolvido.</p>
+<p class="admonition-title">A pré-visualização em tempo real vai compilar com avisos!</p>
+<p>O serviço em tempo real está disponível para iteração nas suas atualizações de
+documentação. Enquanto estiver no processo de atualizar coisas, pode introduzir
+um problema de marcação. Os problemas considerados <code>WARNING</code> farão com que uma
+compilação standard falhe; no entanto, o serviço em tempo real está configurado
+para indicar avisos na saída da consola, enquanto continua a compilar. Isto
+permite que faça iterações sem precisar reiniciar a antevisão em tempo real.</p>
+<p>Um <code>WARNING</code> é diferente de um <code>ERROR</code>. Se introduzir um problema que seja
+considerado um <code>ERROR</code>, o serviço em tempo real vai falhar e precisar de ser
+reiniciado. Ele não será iniciado novamente até que o problema <code>WARNING</code> esteja
+resolvido.</p>
 </div>
-<p>Para iniciar o servidor ativo:</p>
+<p>Para iniciar o servidor de tempo real:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">macOS</label><label for="__tabbed_1_2">Linux</label><label for="__tabbed_1_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5021,29 +5029,29 @@ Ele não será iniciado novamente até que o problema <code>WARNING</code> seja 
 </div>
 </div>
 </div>
-<p>Isso criará a documentação, iniciará um servidor da Web para servir a
-documentação e observará o sistema de ficheiros em busca de alterações na fonte
+<p>Isto vai compilar a documentação, iniciar um servidor Web para servir a
+documentação, e observar o sistema de ficheiros em busca de alterações na fonte
 da documentação.</p>
-<p>Quando o servidor for iniciado, você verá algo parecido com o seguinte na saída
-do console:</p>
-<div class="highlight"><pre><span></span><code><span class="go">INFORMAÇÕES    -  [11:18:51] Servindo em http://127.0.0.1:8000/</span>
+<p>Após o servidor ter arrancado, vai ver algo parecido com o seguinte na saída da
+consola:</p>
+<div class="highlight"><pre><span></span><code><span class="go">INFORMAÇÃO    -  [11:18:51] A servir em http://127.0.0.1:8000/</span>
 </code></pre></div>
-<p>Abra um navegador e navegue até o URL fornecido. Agora você pode começar a
-iterar na documentação. Se uma alteração for detectada, a documentação será
-reconstruída e qualquer navegador que estiver visualizando a página modificada
-será atualizado automaticamente.</p>
+<p>Abra um navegador e navegue até ao URL fornecido. Agora pode começar a iteração
+na documentação. Se uma alteração for detetada, a documentação será recompilada
+e qualquer navegador que estiver a visualizar a página modificada será
+atualizado automaticamente.</p>
 <div class="admonition note">
-<p class="admonition-title">O <code>docs-live</code> é uma etapa inicial</p>
-<p>A execução do <code>docs-live</code> para trabalhar com o servidor ativo destina-se à
+<p class="admonition-title">O <code>docs-live</code> é um passo inicial</p>
+<p>A execução do <code>docs-live</code> para trabalhar com o servidor ativo destina-se a
 iteração inicial. Você deve <em>sempre</em> executar uma compilação local antes de
-enviar uma solicitação pull.</p>
+enviar um pedido de puxar.</p>
 </div>
-<h3 id="construcao-local">Construção local<a class="headerlink" href="#construcao-local" title="Permanent link">&para;</a></h3>
-<p>Quando terminar a iteração, você precisará fazer uma compilação local da
-documentação. Esse processo de compilação foi projetado para falhar se houver
-algum problema de marcação. Isso permite que você capture qualquer coisa que
-possa ter passado despercebida no servidor ativo.</p>
-<h4 id="geracao-de-uma-compilacao-local">Geração de uma compilação local<a class="headerlink" href="#geracao-de-uma-compilacao-local" title="Permanent link">&para;</a></h4>
+<h3 id="compilacao-local">Compilação local<a class="headerlink" href="#compilacao-local" title="Permanent link">&para;</a></h3>
+<p>Quando terminar a iteração, vai precisar fazer uma compilação local da
+documentação. Este processo de compilação foi desenhado para falhar se houver
+algum problema de marcação. Isso permite-lhe capturar qualquer coisa que possa
+ter passado despercebida com o servidor em tempo real.</p>
+<h4 id="gerar-uma-compilacao-local">Gerar uma compilação local<a class="headerlink" href="#gerar-uma-compilacao-local" title="Permanent link">&para;</a></h4>
 <p>Para gerar uma compilação local:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">macOS</label><label for="__tabbed_2_2">Linux</label><label for="__tabbed_2_3">Windows</label></div>
 <div class="tabbed-content">
@@ -5061,21 +5069,21 @@ possa ter passado despercebida no servidor ativo.</p>
 </div>
 </div>
 </div>
-<p>O resultado dessa compilação estará no diretório <code>_build</code> na raiz do projeto.</p>
-<h4 id="geracao-de-uma-compilacao-local-traduzida">Geração de uma compilação local traduzida<a class="headerlink" href="#geracao-de-uma-compilacao-local-traduzida" title="Permanent link">&para;</a></h4>
-<p>A documentação da BeeWare está traduzida em vários idiomas. As
-atualizações na documentação em inglês podem levar a problemas nas compilações
-em outros idiomas. É importante verificar se todas as compilações estão
-funcionando antes de enviar uma solicitação pull.</p>
+<p>O resultado desta compilação vai estar no diretório <code>_build</code> na raiz do projeto.</p>
+<h4 id="gerar-uma-compilacao-local-traduzida">Gerar uma compilação local traduzida<a class="headerlink" href="#gerar-uma-compilacao-local-traduzida" title="Permanent link">&para;</a></h4>
+<p>A documentação de BeeWare está traduzida em vários idiomas. As
+atualizações na documentação em Inglês têm o potencial de provocar problemas nas
+compilações dos outros idiomas. É importante verificar se todas as compilações
+estão a funcionar antes de submeter um pedido de puxar.</p>
 <p>Para gerar uma compilação de todas as traduções disponíveis:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">macOS</label><label for="__tabbed_3_2">Linux</label><label for="__tabbed_3_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(verbo)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-all
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-all
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(verbo)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-all
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-all
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -5084,13 +5092,13 @@ funcionando antes de enviar uma solicitação pull.</p>
 </div>
 </div>
 </div>
-<p>A saída de cada compilação de idioma estará no diretório
-<code>_build/html/&lt;languagecode&gt;</code> associado, em que <code>&lt;languagecode&gt;</code> é o código de
-idioma de dois ou cinco caracteres associado ao idioma específico (por exemplo,
-<code>fr</code> para francês, <code>it</code> para italiano etc.).</p>
-<p>Se você encontrar um problema com uma única compilação, poderá executar essa
-compilação individual separadamente, executando <code>tox -e docs-&lt;languagecode&gt;</code>.
-Por exemplo, para compilar somente a documentação em francês, execute:</p>
+<p>O resultado de cada compilação de idioma vai estar no diretório
+<code>_build/html/&lt;languagecode&gt;</code> associado, onde <code>&lt;languagecode&gt;</code> é o código de
+idioma de dois ou cinco caracteres associado ao idioma específico (ex., <code>fr</code>
+para Francês, <code>it</code> para Italiano, etc.).</p>
+<p>Se encontrar um problema com uma única compilação, poderá executar essa
+compilação individual em separado, executando <code>tox -e docs-&lt;languagecode&gt;</code>. Por
+exemplo, para compilar somente a documentação em Francês, execute:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">macOS</label><label for="__tabbed_4_2">Linux</label><label for="__tabbed_4_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5107,10 +5115,11 @@ Por exemplo, para compilar somente a documentação em francês, execute:</p>
 </div>
 </div>
 </div>
-<p>A saída de uma compilação em um único idioma estará no diretório <code>_build</code>.</p>
-<h3 id="linting-de-documentacao">Linting de documentação<a class="headerlink" href="#linting-de-documentacao" title="Permanent link">&para;</a></h3>
-<p>O processo de compilação identificará problemas de Markdown, mas BeeWare realiza algumas verificações adicionais de estilo e formatação, conhecidas
-como "linting". Para executar as verificações de linting:</p>
+<p>O resultado de uma compilação num único idioma vai estar no diretório <code>_build</code>.</p>
+<h3 id="analise-sintatica-da-documentacao">Análise sintática da documentação<a class="headerlink" href="#analise-sintatica-da-documentacao" title="Permanent link">&para;</a></h3>
+<p>O processo de compilação vai identificar problemas de Markdown, mas BeeWare realiza algumas verificações adicionais de estilo e formatação,
+análises sintáticas conhecidas como "linting". Para executar as verificações de
+linting:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:3"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><input id="__tabbed_5_3" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">macOS</label><label for="__tabbed_5_2">Linux</label><label for="__tabbed_5_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -5127,24 +5136,24 @@ como "linting". Para executar as verificações de linting:</p>
 </div>
 </div>
 </div>
-<p>Isso validará que a documentação não contém:</p>
+<p>Isso vai validar que a documentação não contém:</p>
 <ul>
-<li>hiperlinks mortos</li>
+<li>hiperligações mortas</li>
 <li>palavras com erros ortográficos</li>
 </ul>
 <p>Se uma ortografia válida de uma palavra for identificada como incorreta,
-adicione a palavra à lista em <code>docs/spelling_wordlist</code>. Isso adicionará a
+adicione a palavra à lista em <code>docs/spelling_wordlist</code>. Isto vai adicionar a
 palavra ao dicionário do corretor ortográfico. Ao adicionar palavras a essa
 lista, lembre-se:</p>
 <ul>
-<li>Preferimos a ortografia dos EUA, com algumas liberdades para o coloquialismo
-  específico da programação (por exemplo, "apps") e a verbalização de
-  substantivos (por exemplo, "scrollable")</li>
-<li>Qualquer referência ao nome de um produto deve usar a capitalização
+<li>Preferimos a ortografia dos EUA, com algumas liberdades para o coloquial
+  específico da programação (ex., "apps") e a verbalização de substantivos (ex.,
+  "scrollable")</li>
+<li>Qualquer referência a um nome de um produto deve usar a capitalização
   preferencial do produto. (por exemplo, "macOS", "GTK", "pytest", "Pygame",
   "PyScript").</li>
-<li>Se um termo estiver sendo usado "como código", ele deverá ser citado como um
-  literal (<code>como este</code>) em vez de ser adicionado ao dicionário.</li>
+<li>Se um termo estiver a ser usado "como código", ele deverá ser citado como
+  literal (<code>assim</code>) em vez de ser adicionado ao dicionário.</li>
 </ul>
 <p>Depois de criar os documentos com sucesso, vai estar pronto para <a href="../write-docs/">escrever a
 documentação</a>.</p>
