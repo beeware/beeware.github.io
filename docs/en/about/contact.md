@@ -30,7 +30,7 @@ Want to receive updates, hints, tips, and announcements related to BeeWare? [Sig
 
 Need help with your commercial BeeWare project?
 
-Although BeeWare is an open source project, there are companies and individuals who can provide paid support, training, and consulting.
+Although BeeWare is an open source project, there are [companies and individuals](../community/for-hire.md) who can provide paid support, training, and consulting.
 
 Note that the core team will *not* provide free support or debugging help for commercial projects. If you're not able to post your question on a public forum due to the content being commercially sensitive, you'll need to seek out someone willing to provide commercial support to meet for your needs.
 

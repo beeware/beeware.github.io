@@ -19,3 +19,7 @@ There is a group that [sponsors](../membership/index.md) the project financially
 ## [Governance](governance.md)
 
 What is the core team, and [what do they do](governance.md)?
+
+## [Available for hire](for-hire.md)
+
+Are you looking for someone to help you with your project? These are [companies and individuals](for-hire.md) available for hire.
