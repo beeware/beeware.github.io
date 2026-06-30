@@ -4836,23 +4836,27 @@ aria-label="页眉"
 <li><code>removal</code>； PR 代表 BeeWare API 向后不兼容的更改；或</li>
 <li><code>misc</code>; 不需要在发布说明中公布的细微或管理性变更（如修正错字、细微的语言澄清或更新依赖版本）。</li>
 </ul>
-<p>变更说明中的描述应从用户角度出发，对变更进行高层次的 "营销 "总结，而不是深层次的技术描述或实现细节。它有别于提交信息&ndash;提交信息描述的是所做的工作，以便未来的开发人员了解变更的原因；而变更说明则是为了用户的利益而描述，因为用户可能并不了解内部知识。</p>
-<p>例如，如果您修复了一个与项目命名有关的 Bug，提交信息可能会写成这样："......"：</p>
+<p>变更说明中的描述应从用户角度出发，使用“营销”的方式总结变更，且不包含深层次的技术描述或实现细节。它有别于提交信息（commit message）——提交信息丛“以便未来的开发人员了解变更的原因”的角度描述了所做的工作；而变更说则直接描述了对用户的好处，因为用户可能并不了解内部知识。</p>
+<p>例如，如果你修复了一个与项目命名有关的问题，那么提交信息可能会写成这样：</p>
 <blockquote>
-<p>应用更强的正则表达式检查，禁止使用以数字开头的项目名称。</p>
+<p>Apply stronger regular expression check to disallow project names that begin with digits.\
+\
+（应用更强的正则表达式以禁用任何以数字开始的项目名称。）</p>
 </blockquote>
-<p>相应的变更说明内容如下</p>
+<p>相应的变更说明内容如下：</p>
 <blockquote>
-<p>项目名称不能再以数字开头。</p>
+<p>Project names can no longer begin with a number.\
+\
+（项目名称不能再以数字开头。）</p>
 </blockquote>
-<p>有些 PR 会引入多个功能并修复多个错误，或者引入多个向后不兼容的变更。在这种情况下，PR 可能会有多个变更注释文件。如果需要将两个片段类型与同一个 ID 关联，可以添加一个数字后缀。例如，如果 PR 789 添加了 ticket 123 所描述的功能，关闭了 ticket 234 所描述的错误，还做了两项向后不兼容的更改，那么可能会有 4 个更改说明文件：</p>
+<p>有些 PR 会引入多个功能并修复多个错误，或者引入多个向后不兼容的变更。在这种情况下，PR 可以包括多个变更说明片段。如果需要将两个片段类型与同一个工单编号关联，可以在文件名中添加一个数字后缀。例如，如果 PR #789 添加了工单 #123 所描述的功能，修复了工单 #234 所描述的错误，还做了两项向后不兼容的更改，那么 PR 中就会有 4 个变更说明文件：</p>
 <ul>
-<li>123.feature.md</li>
-<li>234.bugfix.md</li>
+<li><code>123.feature.md</code></li>
+<li><code>234.bugfix.md</code></li>
 <li><code>789.removal.1.md</code></li>
 <li><code>789.removal.2.md</code></li>
 </ul>
-<p>有关 <code>towncrier</code> 和片段类型的更多信息，请参阅 <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">新闻片段</a>。你还可以在 BeeWare 版本库的 <code>changes</code> 目录中查看现有的新闻片段示例。如果该文件夹是空的，很可能是因为 BeeWare 最近发布了新版本；每次发布都会删除变更注释文件，然后合并更新 <a href="https://github.com/beeware/{{ 项目名称 }}/releases">release notes</a>。您可以查看该文件，了解所需的注释样式；也可以查看 <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">最近合并的 PRs</a> ，了解变更注释的格式。</p>
+<p>有关 <code>towncrier</code> 和片段类型的更多信息，请参阅<a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">新闻片段</a>节。你还可以在 BeeWare 仓库的 <code>changes</code> 目录中查看现有的变更片段示例。如果该文件夹是空的，很可能是因为 BeeWare 刚刚发布了新版本；每次发布版本时，<code>towncrier</code> 都会删除变更说明文件，并将它们的内容合并为<a href="https://github.com/beeware/beeware/releases">版本发布说明</a>。您可以查看该文件，了解变更说明所需的编写格式；也可以查看<a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">最近合并的拉取请求</a> ，了解变更说明的格式。</p>
 
 
 
