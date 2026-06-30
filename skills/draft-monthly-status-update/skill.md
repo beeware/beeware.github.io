@@ -5,11 +5,11 @@ description: Generate a draft blog post that describes the notable project updat
 
 # Generate monthly status update
 
-Produce a blog post draft in a file named `docs/en/news/posts/<year>/<month>-<year>-status-update.md`, substituting the year and month as appropriate. If this skill is run after the 20th day of the month it will be a summary of the current month. At any other time, it will be a summary of the previous month.
+Produce a blog post draft in a file named `docs/en/news/posts/<year>/buzz/<month>-<year>-status-update.md`, substituting the year and month as appropriate. If this skill is run after the 20th day of the month it will be a summary of the current month. At any other time, it will be a summary of the previous month.
 
 ## Steps
 
-1. Generate a stub `docs/en/news/posts/<year>/<month>-<year>-status-update.md` that follows the following template:
+1. Generate a stub `docs/en/news/posts/<year>/buzz/<month>-<year>-status-update.md` that follows the following template:
 
 ```markdown
 ---
