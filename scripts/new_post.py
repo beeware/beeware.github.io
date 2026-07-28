@@ -125,9 +125,11 @@ def request_event_metadata():
                 "Keynote",
                 "Talk",
                 "Tutorial",
+                "Workshop",
                 "Sprint",
                 "Booth",
                 "Organizing",
+                "Track",
             ],
         )
         involvement_metadata["type"] = involvement_type
@@ -141,11 +143,11 @@ def request_event_metadata():
         involvement_metadata["team_members"] = team_member_list
         authors.update(team_member_list)
 
-        if involvement_type in ["keynote", "talk", "tutorial"]:
+        if involvement_type in ["keynote", "talk", "tutorial", "workshop", "track"]:
             presentation_title = input("Presentation title: ")
             involvement_metadata["title"] = presentation_title
 
-        if involvement_type in ["keynote", "talk", "tutorial", "sprint", "booth"]:
+        if involvement_type in ["keynote", "talk", "tutorial", "workshop", "sprint", "booth", "track"]:
             involvement_metadata["url"] = input_url(
                 f"{involvement_type} URL (leave blank if unavailable): ", event_url
             )
@@ -159,7 +161,7 @@ def request_event_metadata():
             involvement_metadata["date"],
         )
 
-        if involvement_type in ["keynote", "talk", "tutorial", "sprint", "booth"]:
+        if involvement_type in ["keynote", "talk", "tutorial", "workshop", "sprint", "booth", "track"]:
             # if statement duplicated for the purposes of preserving desired metadata order
             involvement_metadata["description"] = dedent(f"""\
                 TODO: Remove this content and update with {involvement_type} description.
