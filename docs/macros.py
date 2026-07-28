@@ -106,23 +106,39 @@ def define_env(env):
                 f"- {event.end_date.strftime('%B %d, %Y')}"
             )
 
+        highlight_authors = set()
+        show_participation = False
         for inv in involvement:
-            if inv["type"] == "keynote":
+            if inv["type"] == "organizing":
+                highlight_authors.update({m for m in inv["team_members"]})
+                content.append(
+                    dedent(f"""\
+                        {attendees(inv["team_members"], team)} will be organizing [{event.name}]({event.url}), which will happen {event_timeframe}!\n\n
+                    """)
+                )
+            elif inv["type"] == "keynote":
+                highlight_authors.update({m for m in inv["team_members"]})
                 content.append(dedent(f"""
                     {attendees(inv["team_members"], team)} will be keynoting {event.name}, giving a presentation entitled [{talk_title_punctuation(inv["title"])}]({inv["url"]})
 
                     <!-- more -->\n\n
                     """))
+            elif inv["type"] != "attending":
+                show_participation = True
 
         inv_types = {inv["type"] for inv in involvement}
 
-        if "organizing" in inv_types:
-            content.append(
-                dedent(f"""\
-                    {attendees(authors, team)} will be organizing [{event.name}]({event.url}), which will happen {event_timeframe}!\n\n
-                """)
-            )
-        elif inv_types != {"keynote"}:
+        if "keynote" in inv_types or "organizing" in inv_types:
+            other_authors = [author for author in authors if author not in highlight_authors]
+            if other_authors:
+                content.append(
+                    dedent(f"""\
+                        {attendees(other_authors, team)} will also be attending.
+
+                        <!-- more -->\n\n
+                    """)
+                )
+        else:
             content.append(
                 dedent(f"""\
                     {attendees(authors, team)} will be attending [{event.name}]({event.url}) {event_timeframe}!
@@ -135,11 +151,12 @@ def define_env(env):
 
         _, first_pronoun, second_pronoun = pronouns(team["authors"][authors[-1]]["pronoun"])
 
-        if inv_types != {"attending"} and inv_types != {"organizing"} and inv_types != {"keynote"}:
+
+        if show_participation:
             if len(authors) > 1:
-                content.append(f"You can find us throughout {event.name}:\n\n")
+                content.append(f"You can find us throughout the event:\n\n")
             else:
-                content.append(f"You can find {second_pronoun} throughout {event.name}:\n\n")
+                content.append(f"You can find {second_pronoun} throughout the event:\n\n")
 
         for inv in involvement:
             if len(authors) > 1:
@@ -161,6 +178,13 @@ def define_env(env):
                     """)
                 content.append(tutorial)
 
+            elif inv["type"] == "workshop":
+                tutorial = dedent(f"""
+                    - {team_members} will be hosting a workshop entitled [{talk_title_punctuation(inv["title"])}]({inv["url"]})
+
+                    """)
+                content.append(tutorial)
+
             elif inv["type"] == "sprint":
                 sprint = dedent(f"""
                     - {team_members} will be hosting a [sprint]({inv["url"]}).
@@ -174,6 +198,13 @@ def define_env(env):
 
                     """)
                 content.append(booth)
+
+            elif inv["type"] == "track":
+                tutorial = dedent(f"""
+                    - {team_members} will be hosting the [{talk_title_punctuation(inv["title"])}]({inv["url"]})
+
+                    """)
+                content.append(tutorial)
 
         if len(authors) > 1:
             content.append(
