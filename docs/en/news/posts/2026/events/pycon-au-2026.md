@@ -50,7 +50,7 @@ involvement:
   description: |
     Python wouldn’t have gotten to where it is without a welcoming community of developers building cool things together. The development sprints are an open space for people to work on projects with a particular focus on open source projects.
 
-    The sprints are a place for everyone, from experienced open source contributors, to interested first-time contributors, and anyone really! Maybe you want to hang out and try out an idea you have, maybe you’d like to find collaborators for a project you want to start, maybe you’d like someone to help you through your first attempts at open source. We’ll provide tables, chairs, wifi, power and a community of supportive developers.
+    The sprints are a place for everyone, from experienced open source contributors, to interested first-time contributors, and anyone really! Maybe you want to hang out and try out an idea you have, maybe you’d like to find collaborators for a project you want to start, maybe you’d like someone to help you through your first attempts at open source. We’ll provide tables, chairs, WiFi, power and a community of supportive developers.
 - type: tutorial
   team_members:
   - freakboy3742
