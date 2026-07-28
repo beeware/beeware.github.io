@@ -161,6 +161,13 @@ def define_env(env):
                     """)
                 content.append(tutorial)
 
+            elif inv["type"] == "workshop":
+                tutorial = dedent(f"""
+                    - {team_members} will be hosting a workshop entitled [{talk_title_punctuation(inv["title"])}]({inv["url"]})
+
+                    """)
+                content.append(tutorial)
+
             elif inv["type"] == "sprint":
                 sprint = dedent(f"""
                     - {team_members} will be hosting a [sprint]({inv["url"]}).
@@ -174,6 +181,13 @@ def define_env(env):
 
                     """)
                 content.append(booth)
+
+            elif inv["type"] == "track":
+                tutorial = dedent(f"""
+                    - {team_members} will be hosting the [{talk_title_punctuation(inv["title"])}]({inv["url"]})
+
+                    """)
+                content.append(tutorial)
 
         if len(authors) > 1:
             content.append(
