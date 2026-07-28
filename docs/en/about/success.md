@@ -6,15 +6,15 @@ Have you designed your own app? Would you like to see it below? Submit your app 
 
 <div class="success-story" markdown="1">
 
-## ![Travel Tips icon](../images/success_stories/travel_tips/travel_tips_logo.webp){ .success-story-icon } [Travel Tips](https://apps.apple.com/au/app/travel-tips/id1336372310)
+## ![Travel Tips icon](../images/success_stories/travel_tips/travel_tips_logo.webp){ .success-story-icon } [Travel Tips](https://github.com/freakboy3742/traveltips)
 
 <div class="success-story-content" markdown="1">
 
 [![Travel Tips iPad screenshot](../images/success_stories/travel_tips/travel_tips_ipad_screenshot.webp)](../images/success_stories/travel_tips/travel_tips_ipad_screenshot.webp){ .success-story-screenshot }
 
-**Platform:** iOS
+**Platform:** [iOS](https://apps.apple.com/app/id1336372310), [Android](https://play.google.com/store/apps/details?id=com.keith_magee.traveltips)
 
-App Store app that uses Toga to define its user interface.
+A combination currency conversion tool and tip calculator. Travel Tips uses Toga to define its user interface, and is built using Briefcase.
 
 </div>
 </div>
@@ -25,7 +25,7 @@ App Store app that uses Toga to define its user interface.
 
 <div class="success-story-content" markdown="1">
 
-**Platform:** iOS
+**Platform:** [iOS](https://apps.apple.com/app/id1462586500)
 
 Juno is a Python IDE for iPhone and iPad that ships Rubicon ObjC so users can access UIKit and the rest of the Objective-C runtime from Python.
 
@@ -38,7 +38,7 @@ Juno is a Python IDE for iPhone and iPad that ships Rubicon ObjC so users can ac
 
 <div class="success-story-content" markdown="1">
 
-**Platforms:** Android, Windows
+**Platforms:** [Android](https://play.google.com/store/apps/details?id=com.insanesharpness.chariotgazer), [Windows](https://apps.microsoft.com/detail/9n0g1z4wssvd)
 
 Provides detailed information about UK registered vehicles.
 
@@ -51,7 +51,7 @@ Provides detailed information about UK registered vehicles.
 
 <div class="success-story-content" markdown="1">
 
-**Platforms:** Windows, macOS
+**Platforms:** [Windows](https://patenttk.com/go/microsoft-store), [macOS](https://patenttk.com/go/mac-app-store)
 
 Suite of productivity tools for patent professionals.
 
@@ -77,7 +77,7 @@ DLNA media server for streaming content to devices such as Smart TVs.
 
 <div class="success-story-content" markdown="1">
 
-**Platform:** macOS
+**Platform:** [macOS](https://apps.apple.com/us/app/beanquick/id6748978029)
 
 Fast desktop app for double-entry bookkeeping.
 
