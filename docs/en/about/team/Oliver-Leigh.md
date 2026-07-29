@@ -1,0 +1,1 @@
+Dr Oliver Leigh is a mathematician, coder, and problem solver who is curious about anything and everything. He enjoys a challenge and is not afraid to deconstruct things and reconstruct them from the ground up to understand how they work. When not in front of a screen or blackboard, he tries to be outside hiking in the mountains.
