@@ -246,6 +246,11 @@ def define_env(env):
 
                     pronoun_logo, first_pronoun, second_pronoun = pronouns(member_details["pronoun"])
 
+                    try:
+                        member_email_details = f"""<div class="team-email" markdown="1">{fa("envelope", "lg", "solid")} <{member_details["email"]}></div>"""
+                    except KeyError:
+                        member_email_details = ""
+
                     member_image_details = dedent(
                         f"""\
                         <div class="team-image-details" markdown="1">
@@ -256,7 +261,7 @@ def define_env(env):
                         <div class="team-pronouns" markdown="1">{fa("regular", pronoun_logo)} {first_pronoun}/{second_pronoun}</div>
                         <div class="team-github-handle" markdown="1">{fa("github", "lg", "brands")} [{github_id}](https://github.com/{github_id})</div>
                         {member_image_details_mastodon}
-                        <div class="team-email" markdown="1">{fa("envelope", "lg", "solid")} <{member_details["email"]}></div>
+                        {member_email_details}
                         </div>
                         </div>
 
