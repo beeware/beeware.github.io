@@ -7,7 +7,7 @@ categories:
 - Buzz
 ---
 
-In July, we added of `uv` support to Briefcase, landed some patches for mobile support in some major Python projects, and welcomed a new member to the BeeWare core team.
+In July, we added `uv` support to Briefcase, landed some patches for mobile support in some major Python projects, and welcomed a new member to the BeeWare core team.
 
 <!-- more -->
 
