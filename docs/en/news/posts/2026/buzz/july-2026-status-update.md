@@ -42,9 +42,9 @@ Much of this work is due to the contributions of members of the BeeWare communit
 
 ## What's next?
 
-In the coming month, we'll be looking at Briefcase's handling of downloads. The main improvement will be adding support for hash verification of downloads; but we're also hoping to develop a better workflow for bootstrapping a Briefcase installation, especially in tutorial situations.
+In the coming month, we'll be looking at Briefcase's handling of downloads. The main improvement will be adding support for hash verification of downloads. We're also hoping to develop a better workflow for bootstrapping a Briefcase installation, especially in tutorial situations.
 
-We will also be performing some updates to Toga's Android backend. Android SDK 36 introduced some changes to the visual layout of apps. Until recently, we've been able to work around these issues; but by the end of August, Google will require all apps to be fully compliant with SDK 36 to be submitted to the App Store.
+We will also be performing some updates to Toga's Android backend. Android SDK 36 introduced some changes to the visual layout of apps. Until recently, we've been able to work around these issues. By the end of August, Google will require all apps to be fully compliant with SDK 36 to be submitted to the App Store.
 
 At the end of the month, we will be attending [PyCon AU](https://2026.pycon.org.au), where we'll be presenting a [workshop on building cross-platform GUI apps](https://2026.pycon.org.au/schedule/H33RW8/), plus talks on [mechanisms for distributing Python code](https://2026.pycon.org.au/schedule/AVCYHU/) and [switching your project documentation from Sphinx to Markdown](https://2026.pycon.org.au/schedule/ZYSPB3/). We'll also be there for [the Development Sprint day](https://2026.pycon.org.au/schedule/sunday/). If you're able to make it, make sure you say hello!
 
