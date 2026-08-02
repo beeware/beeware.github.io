@@ -5234,7 +5234,7 @@ aria-label="Záhlaví"
 <div class="admonition warning">
 <p class="admonition-title">Průběžný náhled se vytvoří s varováními!</p>
 <p>Pro testování aktualizací dokumentace je k dispozici živý server. Během provádění aktualizací může dojít k chybám ve značkování. Chyby označené jako <code>WARNING</code> způsobí selhání standardního sestavení, živý server je však nastaven tak, aby v konzole zobrazoval varování a zároveň pokračoval v sestavování. To vám umožňuje provádět iterace, aniž byste museli restartovat živý náhled.</p>
-<p><code>WARNING</code> se liší od <code>ERROR</code>. Pokud do systému zavedete problém, který je považován za <code>ERROR</code>, dojde k selhání produkčního serveru a bude nutné jej restartovat. Server se znovu nespustí, dokud nebude problém <code>ERROR</code> vyřešen.</p>
+<p><code>WARNING</code> se liší od <code>ERROR</code>. Pokud do systému zavedete problém, který je považován za <code>ERROR</code>, dojde k selhání živého serveru a bude nutné jej restartovat. Server se znovu nespustí, dokud nebude problém <code>ERROR</code> vyřešen.</p>
 </div>
 <p>Spuštění lokálního vývojového serveru:</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="10:3"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><input id="__tabbed_10_3" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">macOS</label><label for="__tabbed_10_2">Linux</label><label for="__tabbed_10_3">Windows</label></div>
@@ -5289,11 +5289,11 @@ aria-label="Záhlaví"
 <div class="tabbed-set tabbed-alternate" data-tabs="12:3"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><input id="__tabbed_12_3" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">macOS</label><label for="__tabbed_12_2">Linux</label><label for="__tabbed_12_3">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(sloveso)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-all
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-all
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(sloveso)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-all
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(venv)</span> <span class="gp">$ </span>tox<span class="w"> </span>-e<span class="w"> </span>docs-all
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -5377,8 +5377,8 @@ aria-label="Záhlaví"
 <details class="abstract">
 <summary>Přidat poznámku o změně</summary>
 <h1 id="doplneni-informaci-o-zmenach-do-poznamek-k-vydani">Doplnění informací o změnách do poznámek k vydání<a class="headerlink" href="#doplneni-informaci-o-zmenach-do-poznamek-k-vydani" title="Permanent link">&para;</a></h1>
-<p>Mnoho nástrojů BeeWare používá <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> k pomoci při vytváření poznámek k vydání pro každé vydání. Když odešlete žádost o stažení do jednoho z příslušných nástrojů, bude nutné zahrnout <em>poznámku o změně</em> – tato poznámka o změně se stane záznamem v poznámkách k vydání popisujícím provedenou změnu.</p>
-<p>Každý pull request musí obsahovat alespoň jeden soubor v adresáři <code>changes/</code>, který obsahuje krátký popis změny implementované pull requestem. Poznámka ke změně by měla být ve formátu Markdown, v souboru s názvem ve formátu <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Pokud změna, kterou navrhujete, opraví chybu nebo implementuje funkci, pro kterou již existuje číslo problému, bude ID číslem tohoto tiketu. Pokud změna nemá odpovídající problém, lze jako ID použít číslo PR. Toto číslo PR nebudete znát, dokud neodešlete žádost o stažení, takže první CI test selže při kontrole <code>towncrier</code>; přidejte poznámku o změně a odešlete aktualizaci PR a CI by pak mělo projít.</p>
+<p>Mnoho nástrojů BeeWare používá <a href="https://pypi.org/project/towncrier/"><code>towncrier</code></a> k pomoci při vytváření poznámek k vydání pro každé vydání. Když odešlete pull request do jednoho z příslušných nástrojů, bude nutné zahrnout <em>poznámku o změně</em> – tato poznámka o změně se stane záznamem v poznámkách k vydání popisujícím provedenou změnu.</p>
+<p>Každý pull request musí obsahovat alespoň jeden soubor v adresáři <code>changes/</code>, který obsahuje krátký popis změny implementované pull requestem. Poznámka ke změně by měla být ve formátu Markdown, v souboru s názvem ve formátu <code>&lt;id&gt;.&lt;fragment type&gt;.md</code>. Pokud změna, kterou navrhujete, opraví chybu nebo implementuje funkci, pro kterou již existuje číslo problému, bude ID číslem tohoto tiketu. Pokud změna nemá odpovídající problém, lze jako ID použít číslo PR. Toto číslo PR nebudete znát, dokud neodešlete pull request, takže první CI test selže při kontrole <code>towncrier</code>; přidejte poznámku o změně a odešlete aktualizaci PR a CI by pak mělo projít.</p>
 <p>Existuje pět typů fragmentů:</p>
 <ul>
 <li><code>feature</code>: PR přidává nové chování nebo schopnost, která dříve nebyla možná (např. přidání podpory pro nový formát balení nebo novou funkci ve stávajícím formátu balení);</li>
@@ -5388,7 +5388,7 @@ aria-label="Záhlaví"
 <li><code>misc</code>; Drobná nebo administrativní změna (např. oprava překlepu, drobné jazykové upřesnění nebo aktualizace verze závislosti), kterou není nutné oznamovat v poznámkách k vydání.</li>
 </ul>
 <p>Tento popis v poznámce ke změně by měl být obecný „marketingový“ souhrn změny z pohledu uživatele, nikoli podrobný technický popis nebo podrobnosti implementace. Liší se od zprávy o potvrzení – zpráva o potvrzení popisuje, co bylo provedeno, aby budoucí vývojáři mohli sledovat důvody změny; poznámka ke změně je popis pro uživatele, kteří nemusí mít znalosti o vnitřním fungování.</p>
-<p>Například pokud opravíte chybu související s pojmenováním projektu, zpráva o potvrzení může znít:</p>
+<p>Například pokud opravíte chybu související s pojmenováním projektu, zpráva commitu může znít:</p>
 <blockquote>
 <p>Použijte přísnější kontrolu regulárních výrazů, aby nebyly povoleny názvy projektů začínající číslicemi.</p>
 </blockquote>
@@ -5403,7 +5403,7 @@ aria-label="Záhlaví"
 <li><code>789.removal.1.md</code></li>
 <li><code>789.removal.2.md</code></li>
 </ul>
-<p>Další informace o typech fragmentů <code>towncrier</code> a fragmentů najdete v části <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Fragmenty zpráv</a>. Stávající příklady fragmentů zpráv najdete také v adresáři <code>changes</code> repozitáře BeeWare. Pokud je tato složka prázdná, je to pravděpodobně proto, že BeeWare nedávno vydalo novou verzi; soubory se změnami jsou smazány a sloučeny, aby se aktualizovaly <a href="https://github.com/beeware/beeware/releases">poznámky k vydání</a> s každým vydáním. V tomto souboru si můžete prohlédnout požadovaný styl komentářů; v <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">nedávno sloučených PR</a> si můžete prohlédnout, jak formátovat poznámky ke změnám.</p>
+<p>Další informace o <code>towncrier</code> a typech fragmentů najdete v části <a href="https://towncrier.readthedocs.io/en/stable/tutorial.html#creating-news-fragments">Fragmenty zpráv</a>. Stávající příklady fragmentů zpráv najdete také v adresáři <code>changes</code> repozitáře BeeWare. Pokud je tato složka prázdná, je to pravděpodobně proto, že BeeWare nedávno vydalo novou verzi; soubory se změnami jsou smazány a sloučeny, aby se aktualizovaly <a href="https://github.com/beeware/beeware/releases">poznámky k vydání</a> s každým vydáním. V tomto souboru si můžete prohlédnout požadovaný styl komentářů; v <a href="https://github.com/beeware/beeware/pulls?q=is%3Apr+is%3Amerged">nedávno sloučených PR</a> si můžete prohlédnout, jak formátovat poznámky ke změnám.</p>
 </details>
 <details class="abstract">
 <summary>Odeslat žádost o stažení</summary>
@@ -5593,7 +5593,7 @@ aria-label="Záhlaví"
 <li>Pomocí příkazu GitHub CLI <code>gh pr create --web</code> otevřete webový prohlížeč na stránce pro vytvoření PR.</li>
 </ul>
 <div class="admonition info">
-<p class="admonition-title">CLI GitHub: <code>gh</code></p>
+<p class="admonition-title">The GitHub CLI: <code>gh</code></p>
 <p>GitHub poskytuje <a href="https://cli.github.com/">GitHub CLI</a>, které vám umožňuje přístup k mnoha funkcím GitHubu z vašeho terminálu pomocí příkazu <code>gh</code>. <a href="https://cli.github.com/manual/">Dokumentace GitHub CLI</a> popisuje všechny funkce.</p>
 </div>
 <div class="admonition warning">
@@ -5608,7 +5608,7 @@ aria-label="Záhlaví"
 <p>Pokud váš pull request vyřeší problém #1234, měli byste do popisu pull requestu zahrnout text <code>Fixes #1234</code>. Tím se problém automaticky uzavře, jakmile bude pull request sloučen. Stejnou syntaxi <code>#1234</code> můžete použít i pro odkazy na jiné diskuze, problémy nebo pull requesty. Pro odkaz na problém v jiném repozitáři před číslo vložte znak - například <code>python/cpython#1234</code> odkazuje na problém 1234 v repozitáři CPython.</p>
 <p>Nástroje s umělou inteligencí mají obzvláště sklon psát rozvláčné a nepoužitelné zprávy k žádostem o začlenění. Pokud k vytvoření žádosti o začlenění používáte nástroj s umělou inteligencí, <em>vy</em> nesete odpovědnost za to, aby popis žádosti byl stručný a obsahoval pouze informace, které jsou užitečné pro proces posuzování. Například nemusíte uvádět podrobnosti o „testovacím režimu“, který popisuje, jak spustit sadu testů, ani „zdůvodnění“, proč je třeba chybu opravit. Příliš podrobné texty pull requestů mohou vést k tomu, že váš pull request bude uzavřen bez přezkoumání, protože nerespektují omezené zdroje jádrového týmu.</p>
 <div class="admonition warning">
-<p class="admonition-title">Šablona žádosti o začlenění pro BeeWare</p>
+<p class="admonition-title">The BeeWare Pull Request template</p>
 <p>Šablona pull requestu pro BeeWare <a href="https://github.com/beeware/.github/blob/main/.github/pull_request_template.md">pull request template</a> <strong>není</strong> volitelná. Požadujeme, aby <strong>všechny</strong> žádosti o pull request dodržovaly tuto šablonu. Vaše žádost o pull request nebude posouzena, pokud v ní chybí část „PR Checklist“ nebo pokud jsou vaše odpovědi na otázky s zaškrtávacími políčky neúplné nebo nekonzistentní. Pokud jste k vytvoření žádosti o pull request použili nástroj AI, <em>musíte</em> zaškrtnout příslušné políčko a uvést podrobnosti v řádku „Assisted-by:“.</p>
 </div>
 <h3 id="kontinualni-integrace">Kontinuální integrace<a class="headerlink" href="#kontinualni-integrace" title="Permanent link">&para;</a></h3>
@@ -5619,7 +5619,7 @@ aria-label="Záhlaví"
 <p>Chcete-li spustit nový běh CI, musíte do své větve odeslat nové změny.</p>
 <p>Pokud se ocitnete v situaci, kdy potřebujete pomoc s úspěšným absolvováním CI, zanechte komentář k PR, dejte nám vědět a my uděláme, co bude v našich silách, abychom vám pomohli.</p>
 <div class="admonition note">
-<p class="admonition-title">Kontroly <code>pre-commit</code> a <code>towncrier</code></p>
+<p class="admonition-title">The <code>pre-commit</code> and <code>towncrier</code> checks</p>
 <p>Pokud kontrola <code>pre-commit</code> nebo <code>towncrier</code> selže, zablokuje to spuštění většiny zbývajících kontrol CI. Než bude možné spustit kompletní sadu kontrol, je nutné vyřešit příslušné problémy.</p>
 </div>
 <p>Máme omezené zdroje CI. Je důležité si uvědomit, že pokaždé, když provedete push do větve, spustí se CI. Pokud hodláte provést několik změn, je lepší je provést lokálně a poté je všechny najednou odeslat. CI se spustí pouze na nejnovější commit v dávce, čímž se minimalizuje zatížení našeho systému CI.</p>
