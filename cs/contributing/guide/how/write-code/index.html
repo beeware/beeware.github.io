@@ -5291,11 +5291,11 @@ aria-label="Záhlaví"
 <p>Jakmile kód napíšete, musíte se ujistit, že funguje. Budete jej muset spustit ručně, abyste ověřili, zda dělá to, co očekáváte. Pokud jste tak ještě neučinili, měli byste pro své změny napsat testovací případ; jak již bylo zmíněno výše, tento test by měl selhat, pokud je váš kód zakomentován nebo chybí.</p>
 <p>Svůj testovací případ přidáte do testovací sady, aby mohl být spuštěn společně s ostatními testy. Dalším krokem je spuštění testovací sady.</p>
 <h3 id="run-test-suite">Spuštění testů  a pokrytí<a class="headerlink" href="#run-test-suite" title="Permanent link">&para;</a></h3>
-<p>BeeWare využívá <a href="https://tox.wiki/en/latest/"><code>tox</code></a> ke správě testovacího procesu a <a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> pro svou vlastní sadu testů.</p>
+<p>BeeWare uses <a href="https://tox.wiki/en/latest/"><code>tox</code></a> to manage the testing process and <a href="https://docs.pytest.org/en/latest"><code>pytest</code></a> for its own test suite.</p>
 <p>Výchozí příkaz <code>tox</code> zahrnuje spuštění:</p>
 <ul>
 <li>háčky před potvrzením</li>
-<li><code>towncrier</code> kontrola poznámek k verzi</li>
+<li><code>towncrier</code> release note check</li>
 <li>
 <p>kontrola dokumentace</p>
 </li>
@@ -5405,7 +5405,7 @@ aria-label="Záhlaví"
 </div>
 <p><a class="autorefs autorefs-internal" title="Spustit podmnožinu testů" href="#test-subset">Podmnožinu testů</a> lze spustit přidáním <code>--</code> a specifikace testu do příkazového řádku; <a class="autorefs autorefs-internal" title="Spustit sadu testů pro konkrétní verzi jazyka Python" href="#test-py-version">konkrétní verzi Pythonu</a> lze použít přidáním této verze do cíle testu (např. <code>py310-fast</code> pro spuštění testu fast v Pythonu 3.10).</p>
 <h3 id="code-coverage">Pokrytí kódu<a class="headerlink" href="#code-coverage" title="Permanent link">&para;</a></h3>
-<p>BeeWare udržuje ve svém kódovém základu 100% pokrytí větví. Pokud v projektu přidáváte nebo upravujete kód, musíte přidat testovací kód, abyste zajistili pokrytí všech provedených změn.</p>
+<p>BeeWare maintains 100% branch coverage in its codebase. When you add or modify code in the project, you must add test code to ensure coverage of any changes you make.</p>
 <p>Nicméně BeeWare je určen pro více platforem i pro více verzí jazyka Python, takže úplné pokrytí nelze ověřit pouze na jedné platformě a jedné verzi Pythonu. Aby se tomuto přizpůsobilo, je v sekci <code>tool.coverage.coverage_conditional_plugin.rules</code> definováno několik podmíněných pravidel pokrytí (např. <code>pyproject.toml</code> lze použít k označení bloku kódu, který nebude proveden při spuštění testovací sady na Windows). Tato pravidla se používají k identifikaci částí kódu, které jsou pokryty pouze na určitých platformách nebo verzích Pythonu.</p>
 <p>Je třeba poznamenat, že generování zpráv o pokrytí v různých verzích jazyka Python může být poněkud nevyzpytatelné. Pokud jsou například soubory pokrytí vytvořeny v jedné verzi jazyka Python, ale zpráva o pokrytí je generována v jiné verzi, může zpráva obsahovat falešně pozitivní výsledky u vynechaných větví. Z tohoto důvodu by se při generování zpráv o pokrytí měla vždy používat nejstarší verze jazyka Python, která byla použita k vytvoření souborů pokrytí.</p>
 <h4 id="porozumeni-vysledkum-kryti">Porozumění výsledkům krytí<a class="headerlink" href="#porozumeni-vysledkum-kryti" title="Permanent link">&para;</a></h4>

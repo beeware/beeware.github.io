@@ -5038,13 +5038,13 @@ aria-label="Đầu trang"
 <p>Mặc dù việc chú thích kiểu tuân theo <a href="https://peps.python.org/pep-0484/">PEP 484</a> là tùy chọn, nhưng vẫn được khuyến khích mạnh mẽ, đặc biệt là đối với các giao diện API công khai.</p>
 <p>Dưới đây là một ví dụ về định nghĩa hàm tiêu chuẩn kèm theo các gợi ý kiểu dữ liệu phù hợp và chuỗi tài liệu Sphinx:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="sd">&quot;&quot;&quot;Ví dụ về hàm có kiểu dữ liệu và chuỗi tài liệu.</span>
+<span class="sd">"""Ví dụ về hàm có kiểu dữ liệu và chuỗi tài liệu.</span>
 
 <span class="sd">:param param1: Tham số đầu tiên.</span>
 <span class="sd">:param param2: Tham số thứ hai.</span>
 
 <span class="sd">:returns: Giá trị trả về. True nếu thành công, False nếu không.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">Chia nhỏ các lệnh gọi hàm dài<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Khi một lệnh gọi hàm có nhiều hơn một đối số không thể nằm gọn trong một dòng, hãy đặt mỗi đối số vào một dòng riêng biệt và thêm dấu phẩy ở cuối dòng chứa đối số cuối cùng. Ruff cho phép (và sẽ đề xuất) cách trình bày nhiều đối số trên cùng một dòng được xuống dòng:</p>
@@ -5063,16 +5063,16 @@ aria-label="Đầu trang"
 <p>Khi một đối số chuỗi phải được chia thành nhiều dòng để đáp ứng yêu cầu về độ dài dòng, hãy đặt các hằng số chuỗi được nối lại với nhau vào trong dấu ngoặc đơn để cho thấy rõ rằng chuỗi đó là một đối số duy nhất. Nói cách khác, chúng tôi khuyến nghị:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
- <span class="s2">&quot;đây là một chuỗi rất dài&quot;</span>
- <span class="s2">&quot;được chia thành hai dòng&quot;</span>
+ <span class="s2">"đây là một chuỗi rất dài"</span>
+ <span class="s2">"được chia thành hai dòng"</span>
     <span class="p">),</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>trên:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
-    <span class="s2">&quot;đây là một chuỗi rất dài &quot;</span>
-    <span class="s2">&quot;được chia thành hai dòng&quot;</span><span class="p">,</span>
+    <span class="s2">"đây là một chuỗi rất dài "</span>
+    <span class="s2">"được chia thành hai dòng"</span><span class="p">,</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -5083,7 +5083,7 @@ aria-label="Đầu trang"
 <p>Trong các chuỗi mô tả bài kiểm thử, hãy nêu rõ hành vi mong đợi mà mỗi bài kiểm thử thể hiện. Không nên thêm các cụm từ mở đầu như "Kiểm tra xem" hoặc "Đảm bảo rằng".</p>
 <p>Hãy lưu lại mã số vé cho các vấn đề phức tạp, trong đó vé chứa các chi tiết bổ sung không thể mô tả một cách dễ dàng trong các chuỗi tài liệu (docstrings) hoặc bình luận. Hãy ghi số vé vào cuối câu như sau:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;Một chuỗi mô tả kiểm thử trông như thế này (#123456).&quot;&quot;&quot;</span>
+<span class="w"> </span><span class="sd">"""Một chuỗi mô tả kiểm thử trông như thế này (#123456)."""</span>
 </code></pre></div>
 
 

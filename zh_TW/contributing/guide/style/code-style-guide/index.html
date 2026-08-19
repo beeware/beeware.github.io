@@ -5038,13 +5038,13 @@ aria-label="頁首"
 <p>雖然遵循 <a href="https://peps.python.org/pep-0484/">PEP 484</a> 的類型註解屬選用性質，但仍強烈建議使用，特別是在任何公開的 API 介面上。</p>
 <p>以下是一個包含正確類型提示和 Sphinx 文件字串的標準函式定義範例：</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="sd">&quot;&quot;&quot;帶有類型和說明字串的範例函式。</span>
+<span class="sd">"""帶有類型和說明字串的範例函式。</span>
 
 <span class="sd">:param param1: 第一個參數。</span>
 <span class="sd">:param param2: 第二個參數。</span>
 
 <span class="sd">:returns: 回傳值。成功時為 True，否則為 False。</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">拆分冗長的函式呼叫<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>當包含多個參數的函式呼叫無法置於單一行時，請將每個參數置於獨立的一行，並在最後一個參數後加上逗號。Ruff 允許（並會建議）將多個參數置於同一行並進行換行：</p>
@@ -5063,16 +5063,16 @@ aria-label="頁首"
 <p>當字串參數必須跨行分割以符合行長限制時，請將串接的字串文字用括號包起來，以便明確表示該字串是一個單一參數。也就是說，我們建議使用：</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
- <span class="s2">&quot;這是一串非常長的字串 &quot;</span>
- <span class="s2">&quot;它被換行分成了兩行&quot;</span>
+ <span class="s2">"這是一串非常長的字串 "</span>
+ <span class="s2">"它被換行分成了兩行"</span>
     <span class="p">),</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>翻譯：</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
-    <span class="s2">&quot;這是一串非常長的字串 &quot;</span>
-    <span class="s2">&quot;它被換行分成了兩行&quot;</span><span class="p">,</span>
+    <span class="s2">"這是一串非常長的字串 "</span>
+    <span class="s2">"它被換行分成了兩行"</span><span class="p">,</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -5083,7 +5083,7 @@ aria-label="頁首"
 <p>在測試文檔字串中，請說明每項測試所驗證的預期行為。請勿包含「測試是否」或「確保」等開場白。</p>
 <p>請將票證參考編號保留給那些較為冷門的問題，這些問題的票證中包含無法在文檔字串或註解中輕鬆描述的額外細節。請像這樣在句尾加入票證編號：</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;測試用 docstring 如下所示 (#123456)。&quot;&quot;&quot;</span>
+<span class="w"> </span><span class="sd">"""測試用 docstring 如下所示 (#123456)。"""</span>
 </code></pre></div>
 
 

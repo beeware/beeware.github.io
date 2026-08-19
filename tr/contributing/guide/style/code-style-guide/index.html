@@ -5038,13 +5038,13 @@ aria-label="Başlık"
 <p><a href="https://peps.python.org/pep-0484/">PEP 484</a> standardına uygun tip açıklamaları isteğe bağlı olmakla birlikte, özellikle herkese açık API arayüzlerinde kullanılması şiddetle tavsiye edilmektedir.</p>
 <p>Aşağıda, uygun tür ipuçları ve bir Sphinx docstring içeren standart bir işlev tanımına örnek verilmiştir:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="sd">&quot;&quot;&quot;Türleri ve bir docstring içeren örnek işlev.</span>
+<span class="sd">"""Türleri ve bir docstring içeren örnek işlev.</span>
 
 <span class="sd">:param param1: İlk parametre.</span>
 <span class="sd">:param param2: İkinci parametre.</span>
 
 <span class="sd">:returns: Dönüş değeri. Başarılı olursa True, aksi takdirde False.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">Uzun işlev çağrılarını bölme<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Birden fazla argüman içeren bir işlev çağrısı tek bir satıra sığmadığında, her argümanı ayrı bir satıra yerleştirin ve son argümanın sonuna virgül ekleyin. Ruff, birden fazla argümanın tek bir satıra sığdırılmasına izin verir (ve bunu önerir):</p>
@@ -5063,16 +5063,16 @@ aria-label="Başlık"
 <p>Bir dize argümanının satır uzunluğu kısıtlamalarına uymak için satırlara bölünmesi gerektiğinde, birleştirilmiş dize sabitlerini parantez içine alın; böylece dizenin tek bir argüman olduğu açıkça anlaşılır. Yani, şu şekilde yazmayı tercih ederiz:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
- <span class="s2">&quot;bu, iki satıra yayılmış</span>
- <span class="s2">&quot;çok uzun bir dize&quot;</span>
+ <span class="s2">"bu, iki satıra yayılmış</span>
+ <span class="s2">"çok uzun bir dize"</span>
     <span class="p">),</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>yukarıda:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
-    <span class="s2">&quot;Bu, iki satıra yayılmış çok uzun bir dize&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;ikinci_argüman,</span>
+    <span class="s2">"Bu, iki satıra yayılmış çok uzun bir dize"</span><span class="p">,</span>
+    <span class="s2">"ikinci_argüman,</span>
 <span class="p">)</span>
 </code></pre></div>
 <h3 id="kacnlmas-gerekenler">Kaçınılması gerekenler<a class="headerlink" href="#kacnlmas-gerekenler" title="Permanent link">&para;</a></h3>
@@ -5082,7 +5082,7 @@ aria-label="Başlık"
 <p>Test açıklamalarında, her bir testin sergilediği beklenen davranışı belirtin. "Şunu test eder" veya "Şunu sağlar" gibi giriş cümlelerini eklemeyin.</p>
 <p>Belgelerde veya yorumlarda kolayca açıklanamayan ek ayrıntılar içeren, daha az bilinen sorunlar için bilet referanslarını saklayın. Bilet numarasını şu şekilde cümlenin sonuna ekleyin:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;Bir test docstring&#39;i şöyle görünür (#123456).&quot;&quot;&quot;</span>
+<span class="w"> </span><span class="sd">"""Bir test docstring'i şöyle görünür (#123456)."""</span>
 </code></pre></div>
 
 

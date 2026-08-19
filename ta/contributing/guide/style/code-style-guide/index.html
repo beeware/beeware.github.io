@@ -5038,13 +5038,13 @@ aria-label="தலைப்பு"
 <p><a href="https://peps.python.org/pep-0484/">PEP 484</a>-ஐப் பின்பற்றும் வகைக் குறிப்பு விருப்பத்தேர்வாக இருந்தாலும், குறிப்பாக எந்தவொரு பொது API பரப்புகளிலும் அது வலுவாகப் பரிந்துரைக்கப்படுகிறது.</p>
 <p>சரியான டைப் ஹிண்ட்கள் மற்றும் ஒரு ஸ்பிங்க்ஸ் டாಕ್ஸ்ட்ரிங் உடன் கூடிய ஒரு ஸ்டாண்டர்ட் ஃபங்ஷன் வரையறையின் உதாரணம் கீழே காட்டப்பட்டுள்ளது:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="sd">&quot;&quot;&quot;வகைகள் மற்றும் ஒரு docstring உடன் கூடிய எடுத்துக்காட்டுச் செயல்பாடு.</span>
+<span class="sd">"""வகைகள் மற்றும் ஒரு docstring உடன் கூடிய எடுத்துக்காட்டுச் செயல்பாடு.</span>
 
 <span class="sd">:param param1: முதல் பராமீட்டர்.</span>
 <span class="sd">:param param2: இரண்டாவது பராமீட்டர்.</span>
 
 <span class="sd">:returns: திரும்பப்பெறும் மதிப்பு. வெற்றி பெற்றால் True, மற்றபடி False.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">நீண்ட செயல்பாட்டு அழைப்புகளைப் பிரித்தல்<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>ஒன்றுக்கு மேற்பட்ட வாதங்களைக் கொண்ட ஒரு செயல்பாட்டு அழைப்பு ஒரே வரியில் பொருந்தாதபோது, ஒவ்வொரு வாதத்தையும் அதன் சொந்த வரியில் வைக்கவும், கடைசி வாதத்தில் ஒரு இறுதி கோமா இடவும். Ruff பல வாதங்களை ஒரே சுருட்டப்பட்ட வரியில் வைக்கும் வடிவத்தை அனுமதிக்கிறது (மற்றும் பரிந்துரைக்கும்):</p>
@@ -5063,15 +5063,15 @@ aria-label="தலைப்பு"
 <p>ஒரு சர வாதம் (string argument) வரி நீளத் தேவைகளைப் பூர்த்தி செய்ய வரிகளில் பிரிக்கப்பட வேண்டியிருக்கும்போது, அந்தச் சரங்கள் ஒற்றை வாதம் என்பதைத் தெளிவுபடுத்த, இணைக்கப்பட்ட சர மாறிகளைக் (concatenated string literals) கோட்டைக்குறிக்குள் (parentheses) வைக்கவும். அதாவது, நாங்கள் இதை விரும்புகிறோம்:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
- <span class="s2">&quot;இது மிகவும் நீண்ட சரமாகும்&quot;</span>
- <span class="s2">&quot;இது இரண்டு வரிகளுக்குப் பிரிக்கப்பட்டுள்ளது&quot;</span>
+ <span class="s2">"இது மிகவும் நீண்ட சரமாகும்"</span>
+ <span class="s2">"இது இரண்டு வரிகளுக்குப் பிரிக்கப்பட்டுள்ளது"</span>
     <span class="p">),</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>மேலே:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
-    <span class="s2">&quot;இது இரண்டு வரிகளுக்குப் பிரிக்கப்பட்ட ஒரு மிக நீண்ட சரமாகும்&quot;</span><span class="p">,</span>
+    <span class="s2">"இது இரண்டு வரிகளுக்குப் பிரிக்கப்பட்ட ஒரு மிக நீண்ட சரமாகும்"</span><span class="p">,</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -5082,7 +5082,7 @@ aria-label="தலைப்பு"
 <p>சோதனை டாக்குஸ்ட்ரிங்குகளில், ஒவ்வொரு சோதனையும் வெளிப்படுத்தும் எதிர்பார்க்கப்படும் நடத்தையைக் குறிப்பிடவும். "Tests that" அல்லது "Ensures that" போன்ற முன்னுரைகளைச் சேர்க்க வேண்டாம்.</p>
 <p>ஆவணச் சரடுகள் (docstrings) அல்லது கருத்துகளில் எளிதாக விவரிக்க முடியாத கூடுதல் விவரங்களைக் கொண்ட, தெளிவற்ற சிக்கல்களுக்கான டிக்கெட் குறிப்புகளைச் சேர்க்கவும். இது போன்ற ஒரு வாக்கியத்தின் முடிவில் டிக்கெட் எண்ணைச் சேர்க்கவும்:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;ஒரு சோதனை டாக்குஸ்ட்ரிங் இதுபோல இருக்கும் (#123456).&quot;&quot;&quot;</span>
+<span class="w"> </span><span class="sd">"""ஒரு சோதனை டாக்குஸ்ட்ரிங் இதுபோல இருக்கும் (#123456)."""</span>
 </code></pre></div>
 
 

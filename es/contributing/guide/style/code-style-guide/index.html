@@ -5038,13 +5038,13 @@ aria-label="Cabecera"
 <p>Aunque la anotación de tipos conforme a <a href="https://peps.python.org/pep-0484/">PEP 484</a> es opcional, se recomienda encarecidamente su uso, sobre todo en las API públicas.</p>
 <p>A continuación se muestra un ejemplo de definición de función estándar con las indicaciones de tipo adecuadas y una cadena de documentación de Sphinx:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">nombre_función</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="sd">&quot;&quot;&quot;Función de ejemplo con tipos y una cadena de documentación.</span>
+<span class="sd">"""Función de ejemplo con tipos y una cadena de documentación.</span>
 
 <span class="sd">:param param1: El primer parámetro.</span>
 <span class="sd">:param param2: El segundo parámetro.</span>
 
 <span class="sd">:returns: El valor de retorno. True si se ejecuta correctamente, False en caso contrario.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">Desglosas invocaciones a funciones largas<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Cuando una función invoca con más de un argumento que no cabe en una sola línea, coloca cada argumento en una propia línea separada y añade una coma al final del último argumento. Ruff permite (y sugerirá) un formato de múltiples argumentos sobre una línea envuelta:</p>
@@ -5063,16 +5063,16 @@ aria-label="Cabecera"
 <p>Cuando debe desglosar un argumento de cadena en varias líneas para cumplir con los requisitos de longitud de línea, cubre los literales de cadena concatenados entre paréntesis para que quede claro que la cadena es un único argumento. Es decir, preferimos:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
- <span class="s2">&quot;esta es una cadena muy larga&quot;</span>
- <span class="s2">&quot;que se divide en dos líneas&quot;</span>
+ <span class="s2">"esta es una cadena muy larga"</span>
+ <span class="s2">"que se divide en dos líneas"</span>
     <span class="p">),</span>
     <span class="n">segundo_argumento</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>sobre:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
-    <span class="s2">&quot;esta es una cadena muy larga&quot;</span>
-    <span class="s2">&quot;que se divide en dos líneas&quot;</span><span class="p">,</span>
+    <span class="s2">"esta es una cadena muy larga"</span>
+    <span class="s2">"que se divide en dos líneas"</span><span class="p">,</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -5083,7 +5083,7 @@ aria-label="Cabecera"
 <p>En las cadenas de documentación de las pruebas, describe el comportamiento esperado que demuestra cada prueba. No incluyas introducciones del tipo «Comprueba que» o «Asegura que».</p>
 <p>Reserva las referencias a tickets para incidencias poco comunes en los que el ticket contenga detalles adicionales que no se puedan describir fácilmente en las cadenas de documentación o en los comentarios. Incluye el número de ticket al final de una frase de esta manera:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
-<span class="w">                  </span><span class="sd">&quot;&quot;&quot;Una cadena de documentación de prueba tiene este aspecto (#123456).&quot;&quot;&quot;</span>
+<span class="w">                  </span><span class="sd">"""Una cadena de documentación de prueba tiene este aspecto (#123456)."""</span>
 </code></pre></div>
 
 

@@ -5038,13 +5038,13 @@ aria-label="En-tête"
 <p>Bien que l'annotation des types conforme à la <a href="https://peps.python.org/pep-0484/">PEP 484</a> soit facultative, elle reste vivement recommandée, en particulier pour toutes les interfaces API publiques.</p>
 <p>Voici un exemple de définition de fonction standard comportant des indications de type appropriées et une chaîne de documentation Sphinx :</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">nom_de_fonction</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="sd">&quot;&quot;&quot;Exemple de fonction avec des types et une chaîne de documentation.</span>
+<span class="sd">"""Exemple de fonction avec des types et une chaîne de documentation.</span>
 
 <span class="sd">:param param1: Le premier paramètre.</span>
 <span class="sd">:param param2: Le deuxième paramètre.</span>
 
 <span class="sd">:returns: La valeur de retour. True en cas de succès, False dans le cas contraire.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">Fractionnement des appels de fonction longs<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Lorsqu'un appel de fonction comportant plusieurs arguments ne tient pas sur une seule ligne, placez chaque argument sur une ligne distincte en terminant le dernier argument par une virgule. Ruff autorise (et suggère) un format permettant de regrouper plusieurs arguments sur une seule ligne :</p>
@@ -5063,16 +5063,16 @@ aria-label="En-tête"
 <p>Lorsqu'un argument de type chaîne doit être réparti sur plusieurs lignes pour respecter les contraintes de longueur de ligne, placez les littéraux de chaîne concaténés entre parenthèses afin qu'il soit clair que la chaîne constitue un seul argument. En d'autres termes, nous préférons :</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
- <span class="err">«</span> <span class="n">C</span><span class="s1">&#39;est une chaîne très longue »</span>
- <span class="err">«</span> <span class="n">qui</span> <span class="n">s</span><span class="s1">&#39;étend sur deux lignes »</span>
+ <span class="err">«</span> <span class="n">C</span><span class="s1">'est une chaîne très longue »</span>
+ <span class="err">«</span> <span class="n">qui</span> <span class="n">s</span><span class="s1">'étend sur deux lignes »</span>
     <span class="p">),</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>au-dessus de :</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
-    <span class="s2">&quot;C&#39;est une chaîne très longue &quot;</span>
-    <span class="s2">&quot;qui s&#39;étend sur deux lignes&quot;</span><span class="p">,</span>
+    <span class="s2">"C'est une chaîne très longue "</span>
+    <span class="s2">"qui s'étend sur deux lignes"</span><span class="p">,</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -5083,7 +5083,7 @@ aria-label="En-tête"
 <p>Dans les chaînes de documentation des tests, décrivez le comportement attendu que chaque test doit vérifier. Évitez les formules d'introduction telles que « Vérifie que » ou « S'assure que ».</p>
 <p>Réservez les références aux tickets pour les problèmes peu courants, lorsque le ticket contient des détails supplémentaires difficiles à décrire dans les chaînes de documentation ou les commentaires. Indiquez le numéro du ticket à la fin d'une phrase, comme ceci :</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;Voici à quoi ressemble une chaîne de documentation de test (#123456).&quot;&quot;&quot;</span>
+<span class="w"> </span><span class="sd">"""Voici à quoi ressemble une chaîne de documentation de test (#123456)."""</span>
 </code></pre></div>
 
 

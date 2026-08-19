@@ -5038,13 +5038,13 @@ aria-label="Sidehoved"
 <p>Selvom typeannotering i overensstemmelse med <a href="https://peps.python.org/pep-0484/">PEP 484</a> er valgfri, anbefales det på det kraftigste, især i forbindelse med offentlige API-grænseflader.</p>
 <p>Nedenfor ses et eksempel på en standardfunktionsdefinition med korrekte typeangivelser og en Sphinx-docstring:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="sd">&quot;&quot;&quot;Eksempelfunktion med typer og en docstring.</span>
+<span class="sd">"""Eksempelfunktion med typer og en docstring.</span>
 
 <span class="sd">:param param1: Den første parameter.</span>
 <span class="sd">:param param2: Den anden parameter.</span>
 
 <span class="sd">:returns: Returværdien. True ved succes, ellers False.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">Opdeling af lange funktionskald<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Når et funktionskald med mere end ét argument ikke kan være på én linje, skal hvert argument placeres på sin egen linje med et komma efter det sidste argument. Ruff tillader (og foreslår) et format med flere argumenter på én linje, der går over på næste linje:</p>
@@ -5063,16 +5063,16 @@ aria-label="Sidehoved"
 <p>Når et strengargument skal deles op på flere linjer for at overholde kravene til linjelængde, skal du sætte de sammenkædede strengliteraler i parentes, så det fremgår tydeligt, at strengen udgør et enkelt argument. Det vil sige, at vi foretrækker:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
- <span class="s2">&quot;dette er en meget lang streng&quot;</span>
- <span class="s2">&quot;der strækker sig over to linjer&quot;</span>
+ <span class="s2">"dette er en meget lang streng"</span>
+ <span class="s2">"der strækker sig over to linjer"</span>
     <span class="p">),</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>oversat til:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
-    <span class="s2">&quot;dette er en meget lang streng&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;der er delt over to linjer&quot;</span><span class="p">,</span>
+    <span class="s2">"dette er en meget lang streng"</span><span class="p">,</span>
+    <span class="s2">"der er delt over to linjer"</span><span class="p">,</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -5083,7 +5083,7 @@ aria-label="Sidehoved"
 <p>I test-docstrings skal du angive den forventede adfærd, som den enkelte test demonstrerer. Undlad at bruge indledende sætninger som »Tester, at« eller »Sikrer, at«.</p>
 <p>Gem henvisninger til tickets vedrørende uklarheder, hvor ticketet indeholder yderligere oplysninger, der ikke let kan beskrives i docstrings eller kommentarer. Angiv ticketnummeret i slutningen af en sætning på følgende måde:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;En test-docstring ser sådan ud (#123456).&quot;&quot;&quot;</span>
+<span class="w"> </span><span class="sd">"""En test-docstring ser sådan ud (#123456)."""</span>
 </code></pre></div>
 
 

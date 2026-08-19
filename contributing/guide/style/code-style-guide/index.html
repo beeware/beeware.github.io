@@ -5038,13 +5038,13 @@ aria-label="Header"
 <p>While type annotation adhering to <a href="https://peps.python.org/pep-0484/">PEP 484</a> is optional, it remains strongly encouraged, particularly across any public API surfaces.</p>
 <p>An example of a standard function definition with proper type hints and a Sphinx docstring is shown below:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="sd">&quot;&quot;&quot;Example function with types and a docstring.</span>
+<span class="sd">"""Example function with types and a docstring.</span>
 
 <span class="sd">:param param1: The first parameter.</span>
 <span class="sd">:param param2: The second parameter.</span>
 
 <span class="sd">:returns: The return value. True for success, False otherwise.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">Splitting long function calls<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>When a function call with more than one argument cannot fit on a single line, place each argument on its own line with a trailing comma on the last argument. Ruff permits (and will suggest) a format of multiple arguments on one wrapped line:</p>
@@ -5063,16 +5063,16 @@ aria-label="Header"
 <p>When a string argument must be split across lines to satisfy line length requirements, wrap the concatenated string literals in parentheses so it is clear the string is a single argument. That is, we prefer:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
-        <span class="s2">&quot;this is a very long string &quot;</span>
-        <span class="s2">&quot;that is wrapped over two lines&quot;</span>
+        <span class="s2">"this is a very long string "</span>
+        <span class="s2">"that is wrapped over two lines"</span>
     <span class="p">),</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>over:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
-    <span class="s2">&quot;this is a very long string &quot;</span>
-    <span class="s2">&quot;that is wrapped over two lines&quot;</span><span class="p">,</span>
+    <span class="s2">"this is a very long string "</span>
+    <span class="s2">"that is wrapped over two lines"</span><span class="p">,</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -5083,7 +5083,7 @@ aria-label="Header"
 <p>In test docstrings, state the expected behavior that each test demonstrates. Don't include preambles such as "Tests that" or "Ensures that".</p>
 <p>Reserve ticket references for obscure issues where the ticket has additional details that can't be easily described in docstrings or comments. Include the ticket number at the end of a sentence like this:</p>
 <div class="highlight"><pre><span></span><code>      <span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
-<span class="w">          </span><span class="sd">&quot;&quot;&quot;A test docstring looks like this (#123456).&quot;&quot;&quot;</span>
+<span class="w">          </span><span class="sd">"""A test docstring looks like this (#123456)."""</span>
 </code></pre></div>
 
 

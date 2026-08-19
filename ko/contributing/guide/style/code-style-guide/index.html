@@ -5038,13 +5038,13 @@ aria-label="상단/헤더"
 <p><a href="https://peps.python.org/pep-0484/">PEP 484</a>을 따르는 유형 주석은 선택 사항이지만, 특히 공개 API 전반에 걸쳐 이를 적극 권장합니다.</p>
 <p>올바른 형상 힌트와 Sphinx 문서 문자열이 포함된 표준 함수 정의의 예는 다음과 같습니다:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="sd">&quot;&quot;&quot;형식과 설명 문자열이 포함된 예제 함수입니다.</span>
+<span class="sd">"""형식과 설명 문자열이 포함된 예제 함수입니다.</span>
 
 <span class="sd">:param param1: 첫 번째 매개변수입니다.</span>
 <span class="sd">:param param2: 두 번째 매개변수입니다.</span>
 
 <span class="sd">:returns: 반환 값입니다. 성공 시 True, 그렇지 않으면 False입니다.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">긴 함수 호출 분할하기<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>인수가 두 개 이상인 함수 호출이 한 줄에 다 들어가지 않을 경우, 각 인수를 별도의 줄에 배치하고 마지막 인수의 뒤에는 쉼표를 붙이십시오. Ruff는 여러 인수를 한 줄에 줄바꿈하여 배치하는 형식을 허용하며(그리고 이를 권장합니다):</p>
@@ -5063,15 +5063,15 @@ aria-label="상단/헤더"
 <p>문자열 인수를 줄 길이 제한을 충족하기 위해 여러 줄로 나누어야 할 경우, 연결된 문자열 리터럴을 괄호로 묶어 해당 문자열이 단일 인수임을 명확히 표시해야 합니다. 즉, 다음과 같은 형식을 권장합니다:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
- <span class="s2">&quot;이것은 두 줄로 나뉘어 있는 매우 긴 문자열입니다&quot;</span>
- <span class="s2">&quot;이것은 두 줄로 나뉘어 있습니다&quot;</span>
+ <span class="s2">"이것은 두 줄로 나뉘어 있는 매우 긴 문자열입니다"</span>
+ <span class="s2">"이것은 두 줄로 나뉘어 있습니다"</span>
     <span class="p">),</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>번역:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
-    <span class="s2">&quot;이것은 두 줄로 나뉘어 있는 매우 긴 문자열입니다&quot;</span><span class="p">,</span>
+    <span class="s2">"이것은 두 줄로 나뉘어 있는 매우 긴 문자열입니다"</span><span class="p">,</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -5082,7 +5082,7 @@ aria-label="상단/헤더"
 <p>테스트 문서 문자열에서는 각 테스트가 보여주는 예상 동작을 명시하십시오. “~을 테스트합니다”나 “~을 확인합니다”와 같은 서두 문구는 포함하지 마십시오.</p>
 <p>문서 문자열이나 주석으로는 쉽게 설명하기 어려운 세부 정보가 포함된, 잘 알려지지 않은 문제에 대해서는 티켓 참조 번호를 남겨 두십시오. 다음과 같이 문장 끝에 티켓 번호를 포함시키십시오:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;테스트 문서 문자열은 다음과 같습니다 (#123456).&quot;&quot;&quot;</span>
+<span class="w"> </span><span class="sd">"""테스트 문서 문자열은 다음과 같습니다 (#123456)."""</span>
 </code></pre></div>
 
 

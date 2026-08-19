@@ -5038,13 +5038,13 @@ aria-label="Верхний колонтитул"
 <p>Хотя аннотация типов в соответствии с <a href="https://peps.python.org/pep-0484/">PEP 484</a> не является обязательной, её использование по-прежнему настоятельно рекомендуется, особенно в публичных интерфейсах API.</p>
 <p>Ниже приведен пример стандартного определения функции с правильными указаниями на типы и строкой документации Sphinx:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="sd">&quot;&quot;&quot;Пример функции с указанием типов и описанием.</span>
+<span class="sd">"""Пример функции с указанием типов и описанием.</span>
 
 <span class="sd">:param param1: Первый параметр.</span>
 <span class="sd">:param param2: Второй параметр.</span>
 
 <span class="sd">:returns: Возвращаемое значение. True в случае успеха, False в противном случае.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">Разделение длинных вызовов функций<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Если вызов функции с несколькими аргументами не помещается в одной строке, каждый аргумент следует размещать в отдельной строке, а после последнего аргумента ставить запятую. Ruff допускает (и будет предлагать) формат, при котором несколько аргументов помещаются в одной строке с переносом:</p>
@@ -5063,16 +5063,16 @@ aria-label="Верхний колонтитул"
 <p>Если строковый аргумент необходимо разбить на несколько строк, чтобы соблюсти ограничения по длине строки, заключите соединенные строковые литералы в скобки, чтобы было ясно, что эта строка представляет собой один аргумент. То есть мы предпочитаем:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
- <span class="s2">&quot;это очень длинная строка&quot;</span>
- <span class="s2">&quot;которая разбита на две строки&quot;</span>
+ <span class="s2">"это очень длинная строка"</span>
+ <span class="s2">"которая разбита на две строки"</span>
     <span class="p">),</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>перевод:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
-    <span class="s2">&quot;это очень длинная строка&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;которая разбита на две строки&quot;</span><span class="p">,</span>
+    <span class="s2">"это очень длинная строка"</span><span class="p">,</span>
+    <span class="s2">"которая разбита на две строки"</span><span class="p">,</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -5083,7 +5083,7 @@ aria-label="Верхний колонтитул"
 <p>В описаниях тестов укажите ожидаемое поведение, которое демонстрирует каждый тест. Не включайте вступительные фразы типа «Проверяет, что» или «Убеждается, что».</p>
 <p>Сохраняйте ссылки на тикеты для нестандартных случаев, когда в тикете содержатся дополнительные сведения, которые сложно описать в документации или комментариях. Указывайте номер тикета в конце предложения следующим образом:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;Тестовая строка документации выглядит так (#123456).&quot;&quot;&quot;</span>
+<span class="w"> </span><span class="sd">"""Тестовая строка документации выглядит так (#123456)."""</span>
 </code></pre></div>
 
 

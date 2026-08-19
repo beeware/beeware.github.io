@@ -5038,13 +5038,13 @@ aria-label="سرتیتر"
 <p>اگرچه پینوشت نوع مطابق با <a href="https://peps.python.org/pep-0484/">PEP 484</a> اختیاری است، اما همچنان قویاً توصیه می‌شود، به‌ویژه در تمامی سطوح رابط برنامه‌نویسی کاربردی عمومی.</p>
 <p>یک مثال از تعریف یک تابع استاندارد با سرنخ‌های نوع مناسب و یک رشتهٔ مستندسازی Sphinx در زیر نشان داده شده است:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="sd">&quot;&quot;&quot;مثال یک تابع با انواع داده و یک docstring.</span>
+<span class="sd">"""مثال یک تابع با انواع داده و یک docstring.</span>
 
 <span class="sd">:param param1: پارامتر اول.</span>
 <span class="sd">:param param2: پارامتر دوم.</span>
 
 <span class="sd">:returns: مقدار بازگشتی. در صورت موفقیت True، در غیر این صورت False.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">تفکیک فراخوانی‌های طولانی تابع<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>وقتی فراخوانی یک تابع با بیش از یک آرگومان در یک خط جا نمی‌شود، هر آرگومان را در یک خط جداگانه قرار دهید و برای آخرین آرگومان یک ویرگول انتهایی بگذارید. Ruff اجازه می‌دهد (و پیشنهاد می‌کند) قالب آرگومان‌های چندگانه در یک خط پیچ‌خورده:</p>
@@ -5063,16 +5063,16 @@ aria-label="سرتیتر"
 <p>وقتی یک آرگومان رشته‌ای باید برای رعایت محدودیت طول خط به چند خط تقسیم شود، رشته‌های متنی متصل‌شده را در پرانتز قرار دهید تا واضح باشد که این رشته یک آرگومان واحد است. یعنی ترجیح می‌دهیم:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
- <span class="s2">&quot;این یک رشته بسیار طولانی است &quot;</span>
- <span class="s2">&quot;که به دو خط تقسیم شده است&quot;</span>
+ <span class="s2">"این یک رشته بسیار طولانی است "</span>
+ <span class="s2">"که به دو خط تقسیم شده است"</span>
     <span class="p">),</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>ترجمه‌شده به:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
-    <span class="s2">&quot;این یک رشته بسیار طولانی است &quot;</span>
-    <span class="s2">&quot;که به دو خط شکسته شده است&quot;</span><span class="err">،</span>
+    <span class="s2">"این یک رشته بسیار طولانی است "</span>
+    <span class="s2">"که به دو خط شکسته شده است"</span><span class="err">،</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -5083,7 +5083,7 @@ aria-label="سرتیتر"
 <p>در مستندات تست، رفتار مورد انتظار را که هر تست نشان می‌دهد بیان کنید. از مقدماتی مانند «تست می‌کند» یا «تضمین می‌کند» استفاده نکنید.</p>
 <p>ارجاعات تیکت رزرو را برای مسائل مبهم که تیکت دارای جزئیات اضافی است و نمی‌توان آن‌ها را به‌سادگی در مستندات یا توضیحات توصیف کرد، درج کنید. شماره تیکت را در انتهای جمله‌ای مانند این قرار دهید:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;یک docstring تست به این شکل است (#123456).&quot;&quot;&quot;</span>
+<span class="w"> </span><span class="sd">"""یک docstring تست به این شکل است (#123456)."""</span>
 </code></pre></div>
 
 

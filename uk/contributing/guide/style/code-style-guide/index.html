@@ -5038,13 +5038,13 @@ aria-label="Хедер"
 <p>Хоча анотація типів відповідно до <a href="https://peps.python.org/pep-0484/">PEP 484</a> є необов’язковою, її все ж настійно рекомендується застосовувати, особливо у всіх публічних інтерфейсах API.</p>
 <p>Нижче наведено приклад стандартного визначення функції з правильними вказівками щодо типів та документаційним рядком Sphinx:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">function_name</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="sd">&quot;&quot;&quot;Приклад функції з типами та документаційним рядком.</span>
+<span class="sd">"""Приклад функції з типами та документаційним рядком.</span>
 
 <span class="sd">:param param1: Перший параметр.</span>
 <span class="sd">:param param2: Другий параметр.</span>
 
 <span class="sd">:returns: Значення, що повертається. True у разі успіху, False в іншому випадку.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">Розбиття довгих викликів функцій<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Якщо виклик функції з кількома аргументами не вміщується в одному рядку, розміщуйте кожен аргумент у окремому рядку, ставлячи кому після останнього аргументу. Ruff дозволяє (і пропонуватиме) формат, за яким кілька аргументів розміщуються в одному рядку з перенесенням:</p>
@@ -5063,16 +5063,16 @@ aria-label="Хедер"
 <p>Якщо аргумент у вигляді рядка потрібно розділити на кілька рядків, щоб дотриматися вимог щодо довжини рядка, обведіть з’єднані рядкові літерали дужками, щоб було зрозуміло, що цей рядок є одним аргументом. Тобто ми віддаємо перевагу такому варіанту:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
- <span class="s2">&quot;це дуже довгий рядок&quot;</span>
- <span class="s2">&quot;який розбитий на два рядки&quot;</span>
+ <span class="s2">"це дуже довгий рядок"</span>
+ <span class="s2">"який розбитий на два рядки"</span>
     <span class="p">),</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>переклад:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
-    <span class="s2">&quot;це дуже довгий рядок&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;який розбитий на два рядки&quot;</span><span class="p">,</span>
+    <span class="s2">"це дуже довгий рядок"</span><span class="p">,</span>
+    <span class="s2">"який розбитий на два рядки"</span><span class="p">,</span>
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -5083,7 +5083,7 @@ aria-label="Хедер"
 <p>У описі тестів вкажіть очікувану поведінку, яку демонструє кожен тест. Не використовуйте вступні фрази на кшталт «Перевіряє, чи» або «Гарантує, що».</p>
 <p>Зберігайте посилання на квитки для нестандартних випадків, коли квиток містить додаткові деталі, які важко описати в документації або коментарях. Вказуйте номер квитка в кінці речення, наприклад, так:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;Тестовий docstring виглядає так (#123456).&quot;&quot;&quot;</span>
+<span class="w"> </span><span class="sd">"""Тестовий docstring виглядає так (#123456)."""</span>
 </code></pre></div>
 
 

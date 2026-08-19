@@ -5038,13 +5038,13 @@ aria-label="Cabeçalho"
 <p>Embora a anotação de tipos em conformidade com a <a href="https://peps.python.org/pep-0484/">PEP 484</a> seja opcional, ela continua sendo fortemente recomendada, especialmente em todas as interfaces de API públicas.</p>
 <p>Segue abaixo um exemplo de definição de função normalizada com indicações de tipo adequadas e uma string de documentação do Sphinx:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">nome_da_função</span><span class="p">(</span><span class="n">param1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">param2</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="sd">&quot;&quot;&quot;Exemplo de função com tipos e uma string de documentação.</span>
+<span class="sd">"""Exemplo de função com tipos e uma string de documentação.</span>
 
 <span class="sd">:param param1: O primeiro parâmetro.</span>
 <span class="sd">:param param2: O segundo parâmetro.</span>
 
 <span class="sd">:returns: O valor de retorno. True em caso de sucesso, False caso contrário.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 </code></pre></div>
 <h4 id="split-long-function-calls">Dividir chamadas de função longas<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Quando uma chamada de função com mais de um argumento não couber numa única linha, coloque cada argumento numa linha separada, com uma vírgula no final do último argumento. O Ruff permite (e sugere) um formato com vários argumentos em uma única linha quebrada:</p>
@@ -5063,16 +5063,16 @@ aria-label="Cabeçalho"
 <p>Quando uma string argumento precisar ser dividida em várias linhas para atender aos requisitos de comprimento de linha, coloque os literais de string concatenados entre parênteses para que fique claro que a string é um único argumento. Ou seja, preferimos:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
-        <span class="s2">&quot;esta é uma string longa &quot;</span>
-        <span class="s2">&quot;que está partida em duas linhas&quot;</span>
+        <span class="s2">"esta é uma string longa "</span>
+        <span class="s2">"que está partida em duas linhas"</span>
     <span class="p">),</span>
     <span class="n">segundo_argumento</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>sobre:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
-    <span class="s2">&quot;esta é uma string muito longa&quot;</span>
-    <span class="s2">&quot;que se estende por duas linhas&quot;</span><span class="p">,</span>
+    <span class="s2">"esta é uma string muito longa"</span>
+    <span class="s2">"que se estende por duas linhas"</span><span class="p">,</span>
     <span class="n">segundo_argumento</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
@@ -5083,7 +5083,7 @@ aria-label="Cabeçalho"
 <p>Nas descrições dos testes, indique o comportamento esperado que cada teste demonstra. Não inclua introduções como “Testa se” ou “Assegura que”.</p>
 <p>Reserve as referências a bilhetes para questões pouco conhecidas, nas quais o bilhete contenha detalhes adicionais que não possam ser facilmente descritos em strings documento ou comentários. Inclua o número do bilhete no final de uma frase, desta forma:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">test_foo</span><span class="p">():</span>
-<span class="w"> </span><span class="sd">&quot;&quot;&quot;Uma string de documentação de teste tem este formato (#123456).&quot;&quot;&quot;</span>
+<span class="w"> </span><span class="sd">"""Uma string de documentação de teste tem este formato (#123456)."""</span>
 </code></pre></div>
 
 
