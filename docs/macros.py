@@ -1,6 +1,7 @@
 import datetime
 from pathlib import Path
 from textwrap import dedent
+
 import yaml
 
 
@@ -110,26 +111,30 @@ def define_env(env):
         show_participation = False
         for inv in involvement:
             if inv["type"] == "organizing":
-                highlight_authors.update({m for m in inv["team_members"]})
+                highlight_authors.update(set(inv["team_members"]))
                 content.append(
                     dedent(f"""\
                         {attendees(inv["team_members"], team)} will be organizing [{event.name}]({event.url}), which will happen {event_timeframe}!\n\n
                     """)
                 )
             elif inv["type"] == "keynote":
-                highlight_authors.update({m for m in inv["team_members"]})
-                content.append(dedent(f"""
+                highlight_authors.update(set(inv["team_members"]))
+                content.append(
+                    dedent(f"""
                     {attendees(inv["team_members"], team)} will be keynoting {event.name}, giving a presentation entitled [{talk_title_punctuation(inv["title"])}]({inv["url"]})
 
                     <!-- more -->\n\n
-                    """))
+                    """)
+                )
             elif inv["type"] != "attending":
                 show_participation = True
 
         inv_types = {inv["type"] for inv in involvement}
 
         if "keynote" in inv_types or "organizing" in inv_types:
-            other_authors = [author for author in authors if author not in highlight_authors]
+            other_authors = [
+                author for author in authors if author not in highlight_authors
+            ]
             if other_authors:
                 content.append(
                     dedent(f"""\
@@ -149,14 +154,17 @@ def define_env(env):
 
         content.append(f"{event.description}\n\n")
 
-        _, first_pronoun, second_pronoun = pronouns(team["authors"][authors[-1]]["pronoun"])
-
+        _, first_pronoun, second_pronoun = pronouns(
+            team["authors"][authors[-1]]["pronoun"]
+        )
 
         if show_participation:
             if len(authors) > 1:
-                content.append(f"You can find us throughout the event:\n\n")
+                content.append("You can find us throughout the event:\n\n")
             else:
-                content.append(f"You can find {second_pronoun} throughout the event:\n\n")
+                content.append(
+                    f"You can find {second_pronoun} throughout the event:\n\n"
+                )
 
         for inv in involvement:
             if len(authors) > 1:
@@ -216,11 +224,11 @@ def define_env(env):
                 f"Please come say hello, {first_pronoun}'d love to meet you. "
             )
             if first_pronoun == "he":
-                content.append(f"He's looking forward to seeing you there!")
+                content.append("He's looking forward to seeing you there!")
             elif first_pronoun == "she":
-                content.append(f"She's looking forward to seeing you there!")
+                content.append("She's looking forward to seeing you there!")
             elif first_pronoun == "they":
-                content.append(f"They're looking forward to seeing you there!")
+                content.append("They're looking forward to seeing you there!")
 
         return "".join(content)
 
@@ -244,7 +252,9 @@ def define_env(env):
                     except KeyError:
                         member_image_details_mastodon = ""
 
-                    pronoun_logo, first_pronoun, second_pronoun = pronouns(member_details["pronoun"])
+                    pronoun_logo, first_pronoun, second_pronoun = pronouns(
+                        member_details["pronoun"]
+                    )
 
                     try:
                         member_email_details = f"""<div class="team-email" markdown="1">{fa("envelope", "lg", "solid")} <{member_details["email"]}></div>"""
@@ -273,7 +283,12 @@ def define_env(env):
                         Path(page.file.src_dir) / f"about/team/{github_id}.md"
                     ).read_text()
 
-                    team_member = member_title + member_image_details + member_bio + "</div></div>"
+                    team_member = (
+                        member_title
+                        + member_image_details
+                        + member_bio
+                        + "</div></div>"
+                    )
 
                     if not current and "emeritus_date" in member_details:
                         team_member_content.append(

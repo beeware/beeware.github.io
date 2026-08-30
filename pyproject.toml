@@ -1,3 +1,9 @@
+[tool.uv]
+# On Windows, uv's isolated build environments don't include tzdata, but
+# beeware-docs-tools' build backend (autocalver) calls zoneinfo.ZoneInfo("UTC"),
+# which fails without it. Extend the build environment with tzdata on Windows.
+extra-build-dependencies = { "beeware-docs-tools" = ["tzdata; sys_platform == 'win32'"] }
+
 [dependency-groups]
 pre-commit = [
     "pre-commit == 4.6.1",
@@ -30,6 +36,31 @@ translate = [
     {include-group = "tox-uv"},
     {include-group = "wlc"},
 ]
+
+[tool.ruff.lint]
+# In addition to the default rules, these additional rules will be used:
+extend-select = [
+    "E",      # pycodestyle
+    "W",      # pycodestyle
+    "F",      # pyflakes
+    "UP",     # pyupgrade
+    "B",      # flake8-bugbear
+    "ASYNC",  # flake8-async
+    "C4",     # flake8-comprehensions
+    "I",      # isort
+]
+ignore = [
+    # Blog/event post metadata is date-only and never needs timezone awareness.
+    "DTZ005",
+    "DTZ007",
+    "DTZ011",
+]
+
+[tool.ruff.lint.per-file-ignores]
+# These files build long Markdown/HTML content from f-strings; splitting the
+# lines to satisfy the line-length limit would break the generated content.
+"docs/macros.py" = ["E501"]
+"scripts/new_post.py" = ["E501"]
 
 [tool.rumdl]
 flavor = "mkdocs"

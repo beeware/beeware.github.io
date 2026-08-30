@@ -1,8 +1,8 @@
+import datetime
 import re
 from pathlib import Path
-import datetime
 from textwrap import dedent
-from urllib.error import URLError, HTTPError
+from urllib.error import HTTPError, URLError
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
@@ -147,7 +147,15 @@ def request_event_metadata():
             presentation_title = input("Presentation title: ")
             involvement_metadata["title"] = presentation_title
 
-        if involvement_type in ["keynote", "talk", "tutorial", "workshop", "sprint", "booth", "track"]:
+        if involvement_type in [
+            "keynote",
+            "talk",
+            "tutorial",
+            "workshop",
+            "sprint",
+            "booth",
+            "track",
+        ]:
             involvement_metadata["url"] = input_url(
                 f"{involvement_type} URL (leave blank if unavailable): ", event_url
             )
@@ -161,7 +169,15 @@ def request_event_metadata():
             involvement_metadata["date"],
         )
 
-        if involvement_type in ["keynote", "talk", "tutorial", "workshop", "sprint", "booth", "track"]:
+        if involvement_type in [
+            "keynote",
+            "talk",
+            "tutorial",
+            "workshop",
+            "sprint",
+            "booth",
+            "track",
+        ]:
             # if statement duplicated for the purposes of preserving desired metadata order
             involvement_metadata["description"] = dedent(f"""\
                 TODO: Remove this content and update with {involvement_type} description.
@@ -177,14 +193,14 @@ def request_event_metadata():
     return {
         "title": f"We'll be at {event_name}!",
         "date": datetime.date.today(),
-        "authors": sorted(list(authors)),
+        "authors": sorted(authors),
         "categories": ["Events"],
         "event": {
             "name": event_name,
             "url": event_url,
             "date": event_start_date,
             "end_date": event_end_date,
-            "description": dedent(f"""\
+            "description": dedent("""\
                 TODO: Remove this content and update with event description.
 
                 Description should begin on the line below 'description: |-' with that line left intact."""),
@@ -213,7 +229,7 @@ def request_resource_metadata():
         resource_metadata["event_name"] = input("Event name: ")
         resource_metadata["event_url"] = input_url("Event URL: ")
 
-    resource_metadata["description"] = dedent(f"""\
+    resource_metadata["description"] = dedent("""\
         TODO: Remove this content and update with resource description.
 
         Description should begin on the line below 'description: |-' with that line left intact.""")
