@@ -1,8 +1,8 @@
+import datetime
 import re
 from pathlib import Path
-import datetime
 from textwrap import dedent
-from urllib.error import URLError, HTTPError
+from urllib.error import HTTPError, URLError
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
@@ -62,7 +62,11 @@ def input_date(prompt: str, default: datetime.date | None = None) -> datetime.da
         if not date and default:
             return default
         try:
-            return datetime.datetime.strptime(date, "%Y-%m-%d").date()
+            return (
+                datetime.datetime.strptime(date, "%Y-%m-%d")
+                .replace(tzinfo=datetime.UTC)
+                .date()
+            )
         except ValueError:
             print("Invalid date format. Must be YYYY-DD-MM format.")
 
@@ -147,27 +151,46 @@ def request_event_metadata():
             presentation_title = input("Presentation title: ")
             involvement_metadata["title"] = presentation_title
 
-        if involvement_type in ["keynote", "talk", "tutorial", "workshop", "sprint", "booth", "track"]:
+        if involvement_type in [
+            "keynote",
+            "talk",
+            "tutorial",
+            "workshop",
+            "sprint",
+            "booth",
+            "track",
+        ]:
             involvement_metadata["url"] = input_url(
                 f"{involvement_type} URL (leave blank if unavailable): ", event_url
             )
 
         involvement_metadata["date"] = input_date(
-            f"Start date of {involvement_type} at {event_name} (e.g. 2026-01-01, leave blank if same as {event_name} start date): ",
+            f"Start date of {involvement_type} at {event_name} (e.g. 2026-01-01, leave blank if same as {event_name} start date): ",  # noqa
             event_start_date,
         )
         involvement_metadata["end_date"] = input_date(
-            f"End date of {involvement_type} (e.g. 2026-01-01; leave blank if same as {involvement_type} start date): ",
+            f"End date of {involvement_type} (e.g. 2026-01-01; leave blank if same as {involvement_type} start date): ",  # noqa
             involvement_metadata["date"],
         )
 
-        if involvement_type in ["keynote", "talk", "tutorial", "workshop", "sprint", "booth", "track"]:
-            # if statement duplicated for the purposes of preserving desired metadata order
-            involvement_metadata["description"] = dedent(f"""\
+        if involvement_type in [
+            "keynote",
+            "talk",
+            "tutorial",
+            "workshop",
+            "sprint",
+            "booth",
+            "track",
+        ]:
+            # if statement duplicated for the purposes of
+            # preserving desired metadata order
+            involvement_metadata["description"] = dedent(
+                f"""\
                 TODO: Remove this content and update with {involvement_type} description.
 
                 Description should begin on the line below 'description: |-' with that line left intact.
-                """)
+                """  # noqa
+            )
 
         involvements.append(involvement_metadata)
 
@@ -177,17 +200,19 @@ def request_event_metadata():
     return {
         "title": f"We'll be at {event_name}!",
         "date": datetime.date.today(),
-        "authors": sorted(list(authors)),
+        "authors": sorted(authors),
         "categories": ["Events"],
         "event": {
             "name": event_name,
             "url": event_url,
             "date": event_start_date,
             "end_date": event_end_date,
-            "description": dedent(f"""\
+            "description": dedent(
+                """\
                 TODO: Remove this content and update with event description.
 
-                Description should begin on the line below 'description: |-' with that line left intact."""),
+                Description should begin on the line below 'description: |-' with that line left intact."""  # noqa
+            ),
         },
         "involvement": involvements,
     }
@@ -213,10 +238,12 @@ def request_resource_metadata():
         resource_metadata["event_name"] = input("Event name: ")
         resource_metadata["event_url"] = input_url("Event URL: ")
 
-    resource_metadata["description"] = dedent(f"""\
+    resource_metadata["description"] = dedent(
+        """\
         TODO: Remove this content and update with resource description.
 
-        Description should begin on the line below 'description: |-' with that line left intact.""")
+        Description should begin on the line below 'description: |-' with that line left intact."""  # noqa
+    )
 
     authors = set()
     resource_authors = input(
@@ -293,13 +320,15 @@ if __name__ == "__main__":
     )
     if post_type == "blog":
         metadata = request_blog_metadata()
-        payload = dedent("""\
+        payload = dedent(
+            """\
 
             Add blog post introduction here. Leave newline between frontmatter and content.
 
             <!-- more -->
 
-            Add blog post content here.""")
+            Add blog post content here."""  # noqa
+        )
     elif post_type == "event":
         metadata = request_event_metadata()
         payload = "\n{{ generate_event_post(authors, event, involvement, team) }}"

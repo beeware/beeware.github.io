@@ -1,6 +1,7 @@
 import datetime
 from pathlib import Path
 from textwrap import dedent
+
 import yaml
 
 
@@ -54,7 +55,7 @@ def define_env(env):
                 <div class="resource-video">
                 <iframe class="video" src="{resource["url"]})" frameborder="0" allowfullscreen></iframe>
                 </div>
-            """)
+            """)  # noqa
             content.append(video_url)
 
         content.append(f"""{resource["description"]}\n""")
@@ -87,7 +88,7 @@ def define_env(env):
 
         elif resource["type"] == "video" and resource["embeddable"]:
             content.append(
-                f"\n\nAs seen at [{resource['event_name']}]({resource['event_url']}).\n\n"
+                f"\n\nAs seen at [{resource['event_name']}]({resource['event_url']}).\n\n"  # noqa
             )
 
         content.append("<!-- more -->")
@@ -110,26 +111,30 @@ def define_env(env):
         show_participation = False
         for inv in involvement:
             if inv["type"] == "organizing":
-                highlight_authors.update({m for m in inv["team_members"]})
+                highlight_authors.update(set(inv["team_members"]))
                 content.append(
                     dedent(f"""\
                         {attendees(inv["team_members"], team)} will be organizing [{event.name}]({event.url}), which will happen {event_timeframe}!\n\n
-                    """)
+                    """)  # noqa
                 )
             elif inv["type"] == "keynote":
-                highlight_authors.update({m for m in inv["team_members"]})
-                content.append(dedent(f"""
+                highlight_authors.update(set(inv["team_members"]))
+                content.append(
+                    dedent(f"""
                     {attendees(inv["team_members"], team)} will be keynoting {event.name}, giving a presentation entitled [{talk_title_punctuation(inv["title"])}]({inv["url"]})
 
                     <!-- more -->\n\n
-                    """))
+                    """)  # noqa
+                )
             elif inv["type"] != "attending":
                 show_participation = True
 
         inv_types = {inv["type"] for inv in involvement}
 
         if "keynote" in inv_types or "organizing" in inv_types:
-            other_authors = [author for author in authors if author not in highlight_authors]
+            other_authors = [
+                author for author in authors if author not in highlight_authors
+            ]
             if other_authors:
                 content.append(
                     dedent(f"""\
@@ -144,19 +149,22 @@ def define_env(env):
                     {attendees(authors, team)} will be attending [{event.name}]({event.url}) {event_timeframe}!
 
                     <!-- more -->\n\n
-                """)
+                """)  # noqa
             )
 
         content.append(f"{event.description}\n\n")
 
-        _, first_pronoun, second_pronoun = pronouns(team["authors"][authors[-1]]["pronoun"])
-
+        _, first_pronoun, second_pronoun = pronouns(
+            team["authors"][authors[-1]]["pronoun"]
+        )
 
         if show_participation:
             if len(authors) > 1:
-                content.append(f"You can find us throughout the event:\n\n")
+                content.append("You can find us throughout the event:\n\n")
             else:
-                content.append(f"You can find {second_pronoun} throughout the event:\n\n")
+                content.append(
+                    f"You can find {second_pronoun} throughout the event:\n\n"
+                )
 
         for inv in involvement:
             if len(authors) > 1:
@@ -165,24 +173,26 @@ def define_env(env):
                 team_members = first_pronoun.capitalize()
 
             if inv["type"] == "talk":
-                talk = dedent(f"""
+                talk = dedent(
+                    f"""
                     - {team_members} will be giving a talk entitled [{talk_title_punctuation(inv["title"])}]({inv["url"]})
 
-                    """)
+                    """  # noqa
+                )
                 content.append(talk)
 
             elif inv["type"] == "tutorial":
                 tutorial = dedent(f"""
                     - {team_members} will be hosting a tutorial entitled [{talk_title_punctuation(inv["title"])}]({inv["url"]})
 
-                    """)
+                    """)  # noqa
                 content.append(tutorial)
 
             elif inv["type"] == "workshop":
                 tutorial = dedent(f"""
                     - {team_members} will be hosting a workshop entitled [{talk_title_punctuation(inv["title"])}]({inv["url"]})
 
-                    """)
+                    """)  # noqa
                 content.append(tutorial)
 
             elif inv["type"] == "sprint":
@@ -203,7 +213,7 @@ def define_env(env):
                 tutorial = dedent(f"""
                     - {team_members} will be hosting the [{talk_title_punctuation(inv["title"])}]({inv["url"]})
 
-                    """)
+                    """)  # noqa
                 content.append(tutorial)
 
         if len(authors) > 1:
@@ -216,11 +226,11 @@ def define_env(env):
                 f"Please come say hello, {first_pronoun}'d love to meet you. "
             )
             if first_pronoun == "he":
-                content.append(f"He's looking forward to seeing you there!")
+                content.append("He's looking forward to seeing you there!")
             elif first_pronoun == "she":
-                content.append(f"She's looking forward to seeing you there!")
+                content.append("She's looking forward to seeing you there!")
             elif first_pronoun == "they":
-                content.append(f"They're looking forward to seeing you there!")
+                content.append("They're looking forward to seeing you there!")
 
         return "".join(content)
 
@@ -240,14 +250,16 @@ def define_env(env):
 
                     try:
                         mastodon = member_details["mastodon"].split("@")
-                        member_image_details_mastodon = f"""<div class="team-mastodon-handle" markdown="1">{fa("mastodon", "lg", "brands")} [{member_details["mastodon"]}](https://{mastodon[2]}/@{mastodon[1]})</div>"""
+                        member_image_details_mastodon = f"""<div class="team-mastodon-handle" markdown="1">{fa("mastodon", "lg", "brands")} [{member_details["mastodon"]}](https://{mastodon[2]}/@{mastodon[1]})</div>"""  # noqa
                     except KeyError:
                         member_image_details_mastodon = ""
 
-                    pronoun_logo, first_pronoun, second_pronoun = pronouns(member_details["pronoun"])
+                    pronoun_logo, first_pronoun, second_pronoun = pronouns(
+                        member_details["pronoun"]
+                    )
 
                     try:
-                        member_email_details = f"""<div class="team-email" markdown="1">{fa("envelope", "lg", "solid")} <{member_details["email"]}></div>"""
+                        member_email_details = f"""<div class="team-email" markdown="1">{fa("envelope", "lg", "solid")} <{member_details["email"]}></div>"""  # noqa
                     except KeyError:
                         member_email_details = ""
 
@@ -266,14 +278,19 @@ def define_env(env):
                         </div>
 
                         <div class="team-bio" markdown="1">
-                        """
+                        """  # noqa
                     )
 
                     member_bio = (
                         Path(page.file.src_dir) / f"about/team/{github_id}.md"
                     ).read_text()
 
-                    team_member = member_title + member_image_details + member_bio + "</div></div>"
+                    team_member = (
+                        member_title
+                        + member_image_details
+                        + member_bio
+                        + "</div></div>"
+                    )
 
                     if not current and "emeritus_date" in member_details:
                         team_member_content.append(
