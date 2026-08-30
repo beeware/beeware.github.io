@@ -52,23 +52,9 @@ Now, find a member of the Bee Team to share your answers. They might ask some fo
 
 ### Find Your Issue
 
-If you've spoken to a member of the Bee Team, they have probably pointed you at a part of the BeeWare project where you can contribute; they might have even suggested a specific issue to work on. If they haven't given you as specific issue, they've probably pointed you at the "[Good First Issues](https://github.com/search?q=user%3Abeeware+label%3A%22good%20first%20issue%22+is%3Aissue+is%3Aopen&type=issues)" for that project. What does that mean?
+If you've spoken to a member of the Bee Team, they have probably pointed you at a part of the BeeWare project where you can contribute; they might have even suggested a specific issue to work on. If they haven't given you as specific issue, they've probably pointed you at the "[Good First Issues](https://github.com/orgs/beeware/projects/1/views/7?filterQuery=status%3AReady+label%3A%22good+first+issue%22)" for that project. What does that mean?
 
-GitHub provides a list of issues that allows BeeWare (and other projects) to keep track of all the problems that have been reported - that includes explicit bugs, unexpected behavior that *might* be a bug, requests for new features, requests for more documentation - anything that might be a way that BeeWare could be improved. As new issues are reported, the Bee Team will flag some of them as issues that are well suited to a first time contributor - issues that don't demand an *immediate* fix, but are well defined or easy to reproduce, and probably have a good lead on the underlying cause. These issues are tagged "good first issue" to make them easier to find.
-
-To filter a GitHub issue list by the "[good first issue](https://github.com/search?q=user%3Abeeware+label%3A%22good%20first%20issue%22+is%3Aissue+is%3Aopen&type=issues)" label, follow these steps:
-
-1. Click on the "Labels" button above the list of issues to activate the drop-down menu.
-2. Type the word "good" into the search box at the top of the drop-down menu.
-3. Click on "good first issue" in the filtered list.
-
-![Filtering GitHub issues by label](images/github-good-first-issue-filter.png)
-
-/// caption
-
-Filtering GitHub issues by the "good first issue" label.
-
-///
+GitHub provides a list of issues that allows BeeWare (and other projects) to keep track of all the problems that have been reported - that includes explicit bugs, unexpected behavior that *might* be a bug, requests for new features, requests for more documentation - anything that might be a way that BeeWare could be improved. As new issues are reported, the Bee Team will flag some of them as issues that are well suited to a first time contributor - issues that don't demand an *immediate* fix, but are well-defined or easy to reproduce, and probably have a good lead on the underlying cause. These issues are tagged "good first issue" to make them easier to find.
 
 Once you've found an issue that looks interesting, read through any comments on the post, and post a comment in the discussion saying that you're looking into the issue (e.g., "Looking into this at the PyCon US 2026 sprints"). BeeWare doesn't explicitly "assign" issues - we accept contributions from anyone. However, in a sprint situation, we need to make sure that we don't end up with two people working on the same issue - leaving a comment is a light-weight way to coordinate between contributors.
 
