@@ -13,18 +13,23 @@ env:
 
 jobs:
   update-translations:
+    permissions:
+      contents: write
     name: Update Translations
     if: github.repository == 'beeware/beeware.github.io' && github.actor != 'brutusthebee'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v7.0.1
+        permissions:
+          contents: write
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 1
+          persist-credentials: false
           token: ${{ secrets.BRUTUS_PAT_TOKEN }}
 
       - name: Set up Python
-        uses: actions/setup-python@v7.0.0
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.X"
           cache: pip
