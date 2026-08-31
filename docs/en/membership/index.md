@@ -16,7 +16,7 @@ We have several levels of membership available, to fit a wide range of financial
 
 If you'd like to provide basic support of the BeeWare project, we offer three tiers of support:
 
-- **Fan**: 5/month
+- **Fan**: $5/month
 - **Enthusiast**: $10/month
 - **Super-Enthusiast**: $15/month
 
