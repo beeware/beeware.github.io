@@ -7,7 +7,7 @@ categories:
 - Buzz
 ---
 
-In August, made some major improvements hardening the security of BeeWare's tools, and attended PyCon AU 2026.
+In August, we made some major improvements hardening the security of BeeWare's tools, and attended PyCon AU 2026.
 
 <!-- more -->
 
