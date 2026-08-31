@@ -271,12 +271,12 @@ def define_env(env):
 
                         ![{member_details["name"]}](/{member_details["avatar"]})
 
-                            <div class="team-contact-details" markdown="1">
-                                <div class="team-pronouns" markdown="1">{fa("regular", pronoun_logo)} {first_pronoun}/{second_pronoun}</div>
-                                <div class="team-github-handle" markdown="1">{fa("github", "lg", "brands")} [{github_id}](https://github.com/{github_id})</div>
+                        <div class="team-contact-details" markdown="1">
+                        <div class="team-pronouns" markdown="1">{fa("regular", pronoun_logo)} {first_pronoun}/{second_pronoun}</div>
+                        <div class="team-github-handle" markdown="1">{fa("github", "lg", "brands")} [{github_id}](https://github.com/{github_id})</div>
                         {member_image_details_mastodon}
                         {member_email_details}
-                            </div>
+                        </div>
                         </div>
 
                         <div class="team-bio" markdown="1">
