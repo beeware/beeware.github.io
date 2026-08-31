@@ -53,9 +53,11 @@ def define_env(env):
         if resource["type"] == "video" and resource["embeddable"]:
             video_url = dedent(f"""\
                 <div class="resource-video">
-                <iframe class="video" src="{resource["url"]})" frameborder="0" allowfullscreen></iframe>
+                    <iframe class="video" src="{resource["url"]})"
+                            frameborder="0" allowfullscreen>
+                    </iframe>
                 </div>
-            """)  # noqa
+            """)
             content.append(video_url)
 
         content.append(f"""{resource["description"]}\n""")
@@ -88,7 +90,7 @@ def define_env(env):
 
         elif resource["type"] == "video" and resource["embeddable"]:
             content.append(
-                f"\n\nAs seen at [{resource['event_name']}]({resource['event_url']}).\n\n"  # noqa
+                f"\n\nAs seen at [{resource['event_name']}]({resource['event_url']}).\n\n"  # noqa: E501
             )
 
         content.append("<!-- more -->")
@@ -115,7 +117,7 @@ def define_env(env):
                 content.append(
                     dedent(f"""\
                         {attendees(inv["team_members"], team)} will be organizing [{event.name}]({event.url}), which will happen {event_timeframe}!\n\n
-                    """)  # noqa
+                    """)  # noqa: E501
                 )
             elif inv["type"] == "keynote":
                 highlight_authors.update(set(inv["team_members"]))
@@ -124,7 +126,7 @@ def define_env(env):
                     {attendees(inv["team_members"], team)} will be keynoting {event.name}, giving a presentation entitled [{talk_title_punctuation(inv["title"])}]({inv["url"]})
 
                     <!-- more -->\n\n
-                    """)  # noqa
+                    """)  # noqa: E501
                 )
             elif inv["type"] != "attending":
                 show_participation = True
@@ -149,7 +151,7 @@ def define_env(env):
                     {attendees(authors, team)} will be attending [{event.name}]({event.url}) {event_timeframe}!
 
                     <!-- more -->\n\n
-                """)  # noqa
+                """)  # noqa: E501
             )
 
         content.append(f"{event.description}\n\n")
@@ -177,7 +179,7 @@ def define_env(env):
                     f"""
                     - {team_members} will be giving a talk entitled [{talk_title_punctuation(inv["title"])}]({inv["url"]})
 
-                    """  # noqa
+                    """  # noqa: E501
                 )
                 content.append(talk)
 
@@ -185,14 +187,14 @@ def define_env(env):
                 tutorial = dedent(f"""
                     - {team_members} will be hosting a tutorial entitled [{talk_title_punctuation(inv["title"])}]({inv["url"]})
 
-                    """)  # noqa
+                    """)  # noqa: E501
                 content.append(tutorial)
 
             elif inv["type"] == "workshop":
                 tutorial = dedent(f"""
                     - {team_members} will be hosting a workshop entitled [{talk_title_punctuation(inv["title"])}]({inv["url"]})
 
-                    """)  # noqa
+                    """)  # noqa: E501
                 content.append(tutorial)
 
             elif inv["type"] == "sprint":
@@ -213,7 +215,7 @@ def define_env(env):
                 tutorial = dedent(f"""
                     - {team_members} will be hosting the [{talk_title_punctuation(inv["title"])}]({inv["url"]})
 
-                    """)  # noqa
+                    """)  # noqa: E501
                 content.append(tutorial)
 
         if len(authors) > 1:
@@ -250,7 +252,7 @@ def define_env(env):
 
                     try:
                         mastodon = member_details["mastodon"].split("@")
-                        member_image_details_mastodon = f"""<div class="team-mastodon-handle" markdown="1">{fa("mastodon", "lg", "brands")} [{member_details["mastodon"]}](https://{mastodon[2]}/@{mastodon[1]})</div>"""  # noqa
+                        member_image_details_mastodon = f"""<div class="team-mastodon-handle" markdown="1">{fa("mastodon", "lg", "brands")} [{member_details["mastodon"]}](https://{mastodon[2]}/@{mastodon[1]})</div>"""  # noqa: E501
                     except KeyError:
                         member_image_details_mastodon = ""
 
@@ -259,7 +261,7 @@ def define_env(env):
                     )
 
                     try:
-                        member_email_details = f"""<div class="team-email" markdown="1">{fa("envelope", "lg", "solid")} <{member_details["email"]}></div>"""  # noqa
+                        member_email_details = f"""<div class="team-email" markdown="1">{fa("envelope", "lg", "solid")} <{member_details["email"]}></div>"""  # noqa: E501
                     except KeyError:
                         member_email_details = ""
 
@@ -269,16 +271,16 @@ def define_env(env):
 
                         ![{member_details["name"]}](/{member_details["avatar"]})
 
-                        <div class="team-contact-details" markdown="1">
-                        <div class="team-pronouns" markdown="1">{fa("regular", pronoun_logo)} {first_pronoun}/{second_pronoun}</div>
-                        <div class="team-github-handle" markdown="1">{fa("github", "lg", "brands")} [{github_id}](https://github.com/{github_id})</div>
+                            <div class="team-contact-details" markdown="1">
+                                <div class="team-pronouns" markdown="1">{fa("regular", pronoun_logo)} {first_pronoun}/{second_pronoun}</div>
+                                <div class="team-github-handle" markdown="1">{fa("github", "lg", "brands")} [{github_id}](https://github.com/{github_id})</div>
                         {member_image_details_mastodon}
                         {member_email_details}
-                        </div>
+                            </div>
                         </div>
 
                         <div class="team-bio" markdown="1">
-                        """  # noqa
+                        """  # noqa: E501
                     )
 
                     member_bio = (

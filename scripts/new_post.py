@@ -165,11 +165,17 @@ def request_event_metadata():
             )
 
         involvement_metadata["date"] = input_date(
-            f"Start date of {involvement_type} at {event_name} (e.g. 2026-01-01, leave blank if same as {event_name} start date): ",  # noqa
+            (
+                f"Start date of {involvement_type} at {event_name} "
+                f"(e.g. 2026-01-01, leave blank if same as {event_name} start date): "
+            ),
             event_start_date,
         )
         involvement_metadata["end_date"] = input_date(
-            f"End date of {involvement_type} (e.g. 2026-01-01; leave blank if same as {involvement_type} start date): ",  # noqa
+            (
+                f"End date of {involvement_type} (e.g. 2026-01-01; "
+                f"leave blank if same as {involvement_type} start date): "
+            ),
             involvement_metadata["date"],
         )
 
@@ -189,7 +195,7 @@ def request_event_metadata():
                 TODO: Remove this content and update with {involvement_type} description.
 
                 Description should begin on the line below 'description: |-' with that line left intact.
-                """  # noqa
+                """  # noqa: E501
             )
 
         involvements.append(involvement_metadata)
@@ -211,7 +217,8 @@ def request_event_metadata():
                 """\
                 TODO: Remove this content and update with event description.
 
-                Description should begin on the line below 'description: |-' with that line left intact."""  # noqa
+                Description should begin on the line below 'description: |-' with that line left intact.
+                """  # noqa: E501
             ),
         },
         "involvement": involvements,
@@ -242,7 +249,8 @@ def request_resource_metadata():
         """\
         TODO: Remove this content and update with resource description.
 
-        Description should begin on the line below 'description: |-' with that line left intact."""  # noqa
+        Description should begin on the line below 'description: |-' with that line left intact.
+        """  # noqa: E501
     )
 
     authors = set()
@@ -327,7 +335,8 @@ if __name__ == "__main__":
 
             <!-- more -->
 
-            Add blog post content here."""  # noqa
+            Add blog post content here.
+            """  # noqa: E501
         )
     elif post_type == "event":
         metadata = request_event_metadata()
