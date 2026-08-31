@@ -31,6 +31,35 @@ translate = [
     {include-group = "wlc"},
 ]
 
+[tool.ruff.lint]
+# In addition to the default rules, these additional rules will be used:
+extend-select = [
+    "E",      # pycodestyle
+    "W",      # pycodestyle
+    "F",      # pyflakes
+    "UP",     # pyupgrade
+    "B",      # flake8-bugbear
+    "ASYNC",  # flake8-async
+    "C4",     # flake8-comprehensions
+    "I",      # isort
+    # The SIM rules are *very* opinionated, and don't necessarily make for better code.
+    # They may be worth occasionally turning on just to see if something could actually
+    # use improvement.
+    # "SIM",    # flake8-simplify
+]
+# Ignores needed to pass the Ruff 0.16 update.
+ignore = [
+    "BLE001",
+    "DTZ001",
+    "DTZ005",
+    "DTZ006",
+    "DTZ011",
+    "DTZ012",
+    "RUF009",
+    # The SIM rules are *very* opinionated, and don't necessarily make for better code.
+    "SIM102",  # collapsible-if makes code (and testing paths) harder to verify.
+]
+
 [tool.rumdl]
 flavor = "mkdocs"
 include = ["**/*.md"]
