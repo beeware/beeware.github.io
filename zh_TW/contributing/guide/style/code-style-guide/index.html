@@ -424,7 +424,7 @@ aria-label="頁首"
 
     <!-- Site language selector -->
     
-      <div class="md-header__option">
+      <div class="md-header__option lang-selector">
   <div class="md-select">
     
     <button class="md-header__button md-icon" aria-label="選擇語言">
@@ -5048,10 +5048,14 @@ aria-label="頁首"
 </code></pre></div>
 <h4 id="split-long-function-calls">拆分冗長的函式呼叫<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>當包含多個參數的函式呼叫無法置於單一行時，請將每個參數置於獨立的一行，並在最後一個參數後加上逗號。Ruff 允許（並會建議）將多個參數置於同一行並進行換行：</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <p>請勿使用此寫法。相反地，應在最後一個參數後加上尾逗號，將參數分開列於各行：</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
@@ -5061,6 +5065,8 @@ aria-label="頁首"
 </code></pre></div>
 <h4 id="split-long-strings">分割長字串<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
 <p>當字串參數必須跨行分割以符合行長限制時，請將串接的字串文字用括號包起來，以便明確表示該字串是一個單一參數。也就是說，我們建議使用：</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
  <span class="s2">"這是一串非常長的字串 "</span>
@@ -5076,6 +5082,8 @@ aria-label="頁首"
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <h3 id="_2">應避免的事項<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>我們儘量避免使用 <code>utils</code> 模組，但也了解到有時這些模組是無法避免的。比較可取的替代方法是在原始碼的其他地方為功能找地方，而不是使用 <code>utils</code> 模組。</p>
 <p>一般而言，我們會盡量避免或延遲執行任何耗費資源的初始化程式碼，以實現更快的應用程式啟動速度。例如，toga-core 套件中的模組採用「延遲載入」機制——僅在被請求時才進行匯入，而非預先全部載入。此設計不僅加速啟動流程，更能精準將資源集中於應用程式實際使用的部分。</p>

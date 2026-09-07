@@ -424,7 +424,7 @@ aria-label="Başlık"
 
     <!-- Site language selector -->
     
-      <div class="md-header__option">
+      <div class="md-header__option lang-selector">
   <div class="md-select">
     
     <button class="md-header__button md-icon" aria-label="Dil seç">
@@ -5048,10 +5048,14 @@ aria-label="Başlık"
 </code></pre></div>
 <h4 id="split-long-function-calls">Uzun işlev çağrılarını bölme<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Birden fazla argüman içeren bir işlev çağrısı tek bir satıra sığmadığında, her argümanı ayrı bir satıra yerleştirin ve son argümanın sonuna virgül ekleyin. Ruff, birden fazla argümanın tek bir satıra sığdırılmasına izin verir (ve bunu önerir):</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <p>Bu biçim kullanılmamalıdır. Bunun yerine, son argümana sondan virgül ekleyerek argümanları her satıra bir tane olacak şekilde dağıtın:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
@@ -5061,6 +5065,8 @@ aria-label="Başlık"
 </code></pre></div>
 <h4 id="split-long-strings">Uzun dizeleri bölme<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
 <p>Bir dize argümanının satır uzunluğu kısıtlamalarına uymak için satırlara bölünmesi gerektiğinde, birleştirilmiş dize sabitlerini parantez içine alın; böylece dizenin tek bir argüman olduğu açıkça anlaşılır. Yani, şu şekilde yazmayı tercih ederiz:</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
  <span class="s2">"bu, iki satıra yayılmış</span>
@@ -5075,6 +5081,8 @@ aria-label="Başlık"
     <span class="s2">"ikinci_argüman,</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <h3 id="kacnlmas-gerekenler">Kaçınılması gerekenler<a class="headerlink" href="#kacnlmas-gerekenler" title="Permanent link">&para;</a></h3>
 <p>Bazen kaçınılmaz olduklarını bilerek, <code>utils</code> modüllerini mümkün olduğunca kullanmamaya çalışıyoruz. Tercih edilen alternatif, <code>utils</code> modülünü kullanmak yerine, kaynak kodun başka bir yerinde bu özelliği bulmaktır.</p>
 <p>Genel bir kural olarak, uygulamanın daha hızlı başlatılması için pahalı başlatma kodlarını önlemeye veya ertelemeye çalışırız. Örneğin, toga-core paketindeki modüller "tembel yükleme" ile çalışır; yani, önceden değil, yalnızca talep edildiğinde içe aktarılır. Bu, başlatma sürecini hızlandırır ve yalnızca uygulamanın gerçekten kullandığı şeyler için zaman harcanmasını sağlar.</p>

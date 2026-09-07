@@ -424,7 +424,7 @@ aria-label="상단/헤더"
 
     <!-- Site language selector -->
     
-      <div class="md-header__option">
+      <div class="md-header__option lang-selector">
   <div class="md-select">
     
     <button class="md-header__button md-icon" aria-label="언어설정">
@@ -5048,10 +5048,14 @@ aria-label="상단/헤더"
 </code></pre></div>
 <h4 id="split-long-function-calls">긴 함수 호출 분할하기<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>인수가 두 개 이상인 함수 호출이 한 줄에 다 들어가지 않을 경우, 각 인수를 별도의 줄에 배치하고 마지막 인수의 뒤에는 쉼표를 붙이십시오. Ruff는 여러 인수를 한 줄에 줄바꿈하여 배치하는 형식을 허용하며(그리고 이를 권장합니다):</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <p>이 방식은 사용하지 마십시오. 대신, 마지막 인자에 쉼표를 추가하여 인자들을 한 줄에 하나씩 나열하십시오:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
@@ -5061,6 +5065,8 @@ aria-label="상단/헤더"
 </code></pre></div>
 <h4 id="split-long-strings">긴 문자열 분할<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
 <p>문자열 인수를 줄 길이 제한을 충족하기 위해 여러 줄로 나누어야 할 경우, 연결된 문자열 리터럴을 괄호로 묶어 해당 문자열이 단일 인수임을 명확히 표시해야 합니다. 즉, 다음과 같은 형식을 권장합니다:</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
  <span class="s2">"이것은 두 줄로 나뉘어 있는 매우 긴 문자열입니다"</span>
@@ -5075,6 +5081,8 @@ aria-label="상단/헤더"
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <h3 id="_2">피해야 할 것들<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>우리는 <code>utils</code> 모듈을 가능한 한 피하려고 노력하지만, 때로는 피할 수 없다는 점을 이해하고 있습니다. 선호하는 대안은 <code>utils</code> 모듈을 사용하는 대신 해당 기능을 소스 코드의 다른 곳에서 구현할 수 있는 장소를 찾는 것입니다.</p>
 <p>일반적으로 앱 시작 속도를 높이기 위해 비용이 많이 드는 초기화 코드는 피하거나 연기합니다. 예를 들어, toga-core 패키지의 모듈들은 "지연 로드"됩니다. 즉, 모든 모듈을 미리 불러오는 대신 요청이 있을 때만 불러옵니다. 이렇게 하면 시작 속도가 빨라지고, 앱이 실제로 사용하는 부분에만 시간을 투자하게 됩니다.</p>

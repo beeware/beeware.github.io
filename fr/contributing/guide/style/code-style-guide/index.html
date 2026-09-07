@@ -424,7 +424,7 @@ aria-label="En-tête"
 
     <!-- Site language selector -->
     
-      <div class="md-header__option">
+      <div class="md-header__option lang-selector">
   <div class="md-select">
     
     <button class="md-header__button md-icon" aria-label="Sélectionner la langue">
@@ -5048,10 +5048,14 @@ aria-label="En-tête"
 </code></pre></div>
 <h4 id="split-long-function-calls">Fractionnement des appels de fonction longs<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Lorsqu'un appel de fonction comportant plusieurs arguments ne tient pas sur une seule ligne, placez chaque argument sur une ligne distincte en terminant le dernier argument par une virgule. Ruff autorise (et suggère) un format permettant de regrouper plusieurs arguments sur une seule ligne :</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <p>Il ne faut pas utiliser ce style. Il vaut mieux répartir les arguments sur plusieurs lignes en ajoutant une virgule à la fin du dernier argument :</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
@@ -5061,6 +5065,8 @@ aria-label="En-tête"
 </code></pre></div>
 <h4 id="split-long-strings">Fractionnement de longues chaînes de caractères<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
 <p>Lorsqu'un argument de type chaîne doit être réparti sur plusieurs lignes pour respecter les contraintes de longueur de ligne, placez les littéraux de chaîne concaténés entre parenthèses afin qu'il soit clair que la chaîne constitue un seul argument. En d'autres termes, nous préférons :</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
  <span class="err">«</span> <span class="n">C</span><span class="s1">'est une chaîne très longue »</span>
@@ -5076,6 +5082,8 @@ aria-label="En-tête"
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <h3 id="ce-quil-faut-eviter">Ce qu'il faut éviter<a class="headerlink" href="#ce-quil-faut-eviter" title="Permanent link">&para;</a></h3>
 <p>Nous essayons d'éviter les modules <code>utils</code> autant que possible, tout en sachant qu'ils sont parfois inévitables. L'alternative préférée est de trouver la fonctionnalité ailleurs dans le code source, au lieu d'utiliser un module <code>utils</code>.</p>
 <p>En règle générale, nous essayons d'éviter ou de différer tout code d'initialisation coûteux, afin d'accélérer le démarrage de l'application. Par exemple, les modules du paquet toga-core sont « chargés à la demande » : ils ne sont importés qu'une fois demandés, plutôt que tous d'un coup. Cela accélère le démarrage et ne consacre du temps qu'à ce que l'application utilise réellement.</p>

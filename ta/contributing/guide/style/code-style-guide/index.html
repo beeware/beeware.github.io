@@ -424,7 +424,7 @@ aria-label="தலைப்பு"
 
     <!-- Site language selector -->
     
-      <div class="md-header__option">
+      <div class="md-header__option lang-selector">
   <div class="md-select">
     
     <button class="md-header__button md-icon" aria-label="மொழியைத் தேர்ந்தெடுக்கவும்">
@@ -5048,10 +5048,14 @@ aria-label="தலைப்பு"
 </code></pre></div>
 <h4 id="split-long-function-calls">நீண்ட செயல்பாட்டு அழைப்புகளைப் பிரித்தல்<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>ஒன்றுக்கு மேற்பட்ட வாதங்களைக் கொண்ட ஒரு செயல்பாட்டு அழைப்பு ஒரே வரியில் பொருந்தாதபோது, ஒவ்வொரு வாதத்தையும் அதன் சொந்த வரியில் வைக்கவும், கடைசி வாதத்தில் ஒரு இறுதி கோமா இடவும். Ruff பல வாதங்களை ஒரே சுருட்டப்பட்ட வரியில் வைக்கும் வடிவத்தை அனுமதிக்கிறது (மற்றும் பரிந்துரைக்கும்):</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <p>இந்த பாணியைப் பயன்படுத்தக் கூடாது. அதற்கு பதிலாக, கடைசி வாதத்தில் ஒரு பின்புற கோமா (trailing comma) சேர்த்து, ஒவ்வொரு வாதத்தையும் ஒரு வரியில் பிரிக்கவும்:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
@@ -5061,6 +5065,8 @@ aria-label="தலைப்பு"
 </code></pre></div>
 <h4 id="split-long-strings">நீண்ட சரங்களைப் பிரிப்பது<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
 <p>ஒரு சர வாதம் (string argument) வரி நீளத் தேவைகளைப் பூர்த்தி செய்ய வரிகளில் பிரிக்கப்பட வேண்டியிருக்கும்போது, அந்தச் சரங்கள் ஒற்றை வாதம் என்பதைத் தெளிவுபடுத்த, இணைக்கப்பட்ட சர மாறிகளைக் (concatenated string literals) கோட்டைக்குறிக்குள் (parentheses) வைக்கவும். அதாவது, நாங்கள் இதை விரும்புகிறோம்:</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
  <span class="s2">"இது மிகவும் நீண்ட சரமாகும்"</span>
@@ -5075,6 +5081,8 @@ aria-label="தலைப்பு"
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <h3 id="_2">தவிர்க்க வேண்டியவை<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p><code>utils</code> மாட்யூல்களை முடிந்தவரை தவிர்க்க முயற்சிக்கிறோம், சில சமயங்களில் அவற்றைத் தவிர்ப்பது சாத்தியமற்றது என்பதைப் புரிந்துகொண்டு. விரும்பப்படும் மாற்று வழி, ஒரு <code>utils</code> மாட்யூலைப் பயன்படுத்துவதற்குப் பதிலாக, மூலக் குறியீட்டில் வேறு எங்காவது அந்த அம்சத்தைக் கண்டறிவதாகும்.</p>
 <p>ஒரு பொதுவான விதியாக, வேகமான செயலித் தொடக்கத்தை அடைவதற்காக, எந்தவொரு விலையுயர்ந்த தொடக்கக் குறியீட்டையும் தவிர்க்க அல்லது தள்ளிப்போட நாங்கள் முயற்சி செய்கிறோம். உதாரணமாக, toga-core தொகுப்பிலுள்ள மாட்யூல்கள் "லேஸி லோட்" செய்யப்படுகின்றன — அவை அனைத்தும் முன்கூட்டியே இறக்குமதி செய்யப்படுவதற்குப் பதிலாக, கோரப்பட்டவுடன் மட்டுமே இறக்குமதி செய்யப்படுகின்றன. இது செயலியின் தொடக்க வேகத்தை அதிகரிக்கிறது, மேலும் செயலி உண்மையில் பயன்படுத்தும் பகுதிகளுக்கு மட்டுமே நேரத்தைச் செலவிடுகிறது.</p>

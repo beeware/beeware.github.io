@@ -424,7 +424,7 @@ aria-label="Cabeçalho"
 
     <!-- Site language selector -->
     
-      <div class="md-header__option">
+      <div class="md-header__option lang-selector">
   <div class="md-select">
     
     <button class="md-header__button md-icon" aria-label="Selecione o idioma">
@@ -5048,10 +5048,14 @@ aria-label="Cabeçalho"
 </code></pre></div>
 <h4 id="split-long-function-calls">Dividir chamadas de função longas<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Quando uma chamada de função com mais de um argumento não couber numa única linha, coloque cada argumento numa linha separada, com uma vírgula no final do último argumento. O Ruff permite (e sugere) um formato com vários argumentos em uma única linha quebrada:</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <p>Este estilo não deve ser usado. Em vez disso, distribua os argumentos numa linha por cada um, adicionando uma vírgula no final do último argumento:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
@@ -5061,6 +5065,8 @@ aria-label="Cabeçalho"
 </code></pre></div>
 <h4 id="split-long-strings">Dividir strings longas<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
 <p>Quando uma string argumento precisar ser dividida em várias linhas para atender aos requisitos de comprimento de linha, coloque os literais de string concatenados entre parênteses para que fique claro que a string é um único argumento. Ou seja, preferimos:</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
         <span class="s2">"esta é uma string longa "</span>
@@ -5076,6 +5082,8 @@ aria-label="Cabeçalho"
     <span class="n">segundo_argumento</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <h3 id="coisas-a-evitar">Coisas a evitar<a class="headerlink" href="#coisas-a-evitar" title="Permanent link">&para;</a></h3>
 <p>Tentamos evitar os módulos "utils" o máximo possível, com o entendimento de que, às vezes, eles são inevitáveis. A alternativa preferida é encontrar um lugar para o recurso noutra parte do código-fonte, em vez de usar um módulo <code>utils</code>.</p>
 <p>Como regra geral, tentamos evitar ou adiar qualquer código de inicialização caro, a fim de obter uma inicialização mais rápida da aplicação. Por exemplo, os módulos no pacote toga-core são “carregados de forma preguiçosa” — eles só são importados quando solicitados, em vez de todos de uma vez. Isso acelera a inicialização e apenas gasta tempo com o que a aplicação está realmente a usar.</p>

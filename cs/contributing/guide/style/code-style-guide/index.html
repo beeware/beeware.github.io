@@ -424,7 +424,7 @@ aria-label="Záhlaví"
 
     <!-- Site language selector -->
     
-      <div class="md-header__option">
+      <div class="md-header__option lang-selector">
   <div class="md-select">
     
     <button class="md-header__button md-icon" aria-label="Zvolte jazyk">
@@ -5048,10 +5048,14 @@ aria-label="Záhlaví"
 </code></pre></div>
 <h4 id="split-long-function-calls">Rozdělení dlouhých volání funkcí<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Pokud se volání funkce s více než jedním argumentem nevejde na jeden řádek, umístěte každý argument na samostatný řádek a za poslední argument vložte čárku. Ruff povoluje (a dokonce doporučuje) formátování více argumentů na jednom řádku s přenosem:</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <p>Tento styl by se neměl používat. Místo toho rozložte argumenty tak, aby byl každý na samostatném řádku, a to přidáním čárky na konec posledního argumentu:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
@@ -5061,6 +5065,8 @@ aria-label="Záhlaví"
 </code></pre></div>
 <h4 id="split-long-strings">Rozdělení dlouhých řetězců<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
 <p>Pokud je třeba řetězcový argument rozdělit na více řádků, aby splňoval požadavky na délku řádku, uzavřete zřetězené řetězcové literály do závorek, aby bylo zřejmé, že se jedná o jediný argument. Upřednostňujeme tedy:</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
  <span class="s2">"toto je velmi dlouhý řetězec"</span>
@@ -5076,6 +5082,8 @@ aria-label="Záhlaví"
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <h3 id="veci-kterym-je-treba-se-vyhnout">Věci, kterým je třeba se vyhnout<a class="headerlink" href="#veci-kterym-je-treba-se-vyhnout" title="Permanent link">&para;</a></h3>
 <p>Snažíme se co nejvíce vyhýbat modulům <code>utils</code>, ale chápeme, že někdy jsou nevyhnutelné. Preferovanou alternativou je najít danou funkci jinde ve zdrojovém kódu, místo použití modulu <code>utils</code>.</p>
 <p>Obecně se snažíme vyhnout nebo odložit jakýkoli nákladný inicializační kód, abychom dosáhli rychlejšího spuštění aplikace. Například moduly v balíčku toga-core jsou „načítány až při potřebě“ – jsou importovány až po vyžádání, nikoli předem. To urychluje spuštění a čas se věnuje pouze tomu, co aplikace skutečně používá.</p>

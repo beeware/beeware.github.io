@@ -424,7 +424,7 @@ aria-label="Đầu trang"
 
     <!-- Site language selector -->
     
-      <div class="md-header__option">
+      <div class="md-header__option lang-selector">
   <div class="md-select">
     
     <button class="md-header__button md-icon" aria-label="Chọn ngôn ngữ">
@@ -5048,10 +5048,14 @@ aria-label="Đầu trang"
 </code></pre></div>
 <h4 id="split-long-function-calls">Chia nhỏ các lệnh gọi hàm dài<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Khi một lệnh gọi hàm có nhiều hơn một đối số không thể nằm gọn trong một dòng, hãy đặt mỗi đối số vào một dòng riêng biệt và thêm dấu phẩy ở cuối dòng chứa đối số cuối cùng. Ruff cho phép (và sẽ đề xuất) cách trình bày nhiều đối số trên cùng một dòng được xuống dòng:</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <p>Không nên sử dụng kiểu này. Thay vào đó, hãy chia các đối số ra mỗi dòng một bằng cách thêm dấu phẩy ở cuối đối số cuối cùng:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
@@ -5061,6 +5065,8 @@ aria-label="Đầu trang"
 </code></pre></div>
 <h4 id="split-long-strings">Chia chuỗi dài<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
 <p>Khi một đối số chuỗi phải được chia thành nhiều dòng để đáp ứng yêu cầu về độ dài dòng, hãy đặt các hằng số chuỗi được nối lại với nhau vào trong dấu ngoặc đơn để cho thấy rõ rằng chuỗi đó là một đối số duy nhất. Nói cách khác, chúng tôi khuyến nghị:</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
  <span class="s2">"đây là một chuỗi rất dài"</span>
@@ -5076,6 +5082,8 @@ aria-label="Đầu trang"
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <h3 id="nhung-ieu-can-tranh">Những điều cần tránh<a class="headerlink" href="#nhung-ieu-can-tranh" title="Permanent link">&para;</a></h3>
 <p>Chúng tôi cố gắng tránh sử dụng các mô-đun <code>utils</code> càng nhiều càng tốt, nhưng cũng hiểu rằng đôi khi việc này là không thể tránh khỏi. Giải pháp thay thế được ưu tiên là tìm một vị trí khác trong mã nguồn để đặt tính năng đó, thay vì sử dụng mô-đun <code>utils</code>.</p>
 <p>Theo nguyên tắc chung, chúng tôi cố gắng tránh hoặc hoãn việc thực thi bất kỳ đoạn mã khởi tạo nào tốn nhiều tài nguyên, nhằm giúp ứng dụng khởi động nhanh hơn. Ví dụ, các mô-đun trong gói toga-core được "tải chậm" — chúng chỉ được nhập khi có yêu cầu, thay vì được tải sẵn từ đầu. Điều này giúp tăng tốc độ khởi động và chỉ dành thời gian cho những thành phần mà ứng dụng thực sự đang sử dụng.</p>

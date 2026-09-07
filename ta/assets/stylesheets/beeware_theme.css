@@ -651,3 +651,61 @@ footer.md-footer *, html .md-footer-meta.md-typeset a  {
 details.abstract h1 {
     display: none;
 }
+
+/* Have the language selector flow over multiple columns */
+header.md-header .md-header__option .md-select__list,
+.beeware-header .md-select__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  width: max-content;
+  max-width: 90vw;
+  gap: 0.25rem 0.75rem;
+  padding: 0.5rem;
+}
+
+/* Ensure language labels stay on a single line */
+header.md-header .md-select__item,
+.beeware-header .md-select__item {
+  white-space: nowrap;
+}
+
+/* Language selector: flow over multiple columns */
+header.md-header .md-header__option .md-select__list,
+.beeware-header .md-select__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  width: max-content;
+  max-width: 90vw;
+  gap: 0.25rem 0.75rem;
+  padding: 0.5rem;
+}
+
+/* For mobile, ensure columns don't overflow page */
+div.md-header__option.lang-selector > div > div {
+  left: -1rem;
+}
+
+/* Ensure language labels stay on a single line */
+header.md-header .md-select__item,
+.beeware-header .md-select__item {
+  white-space: nowrap;
+}
+
+/* Only on mobile, fix offset of little triangle thingy */
+@media screen and (max-width: 60rem) {
+    .md-header__option .md-select__inner::after {
+        left: 11rem
+    }
+}
+
+/* Only on desktop, three columns, no offset. */
+@media screen and (min-width: 60rem) {
+  header.md-header .md-header__option .md-select__list,
+  .beeware-header .md-select__list {
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
+  }
+
+  div.md-header__option.lang-selector > div > div {
+    left: 1.5rem;
+  }
+}

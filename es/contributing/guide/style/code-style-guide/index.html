@@ -424,7 +424,7 @@ aria-label="Cabecera"
 
     <!-- Site language selector -->
     
-      <div class="md-header__option">
+      <div class="md-header__option lang-selector">
   <div class="md-select">
     
     <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
@@ -5048,10 +5048,14 @@ aria-label="Cabecera"
 </code></pre></div>
 <h4 id="split-long-function-calls">Desglosas invocaciones a funciones largas<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Cuando una función invoca con más de un argumento que no cabe en una sola línea, coloca cada argumento en una propia línea separada y añade una coma al final del último argumento. Ruff permite (y sugerirá) un formato de múltiples argumentos sobre una línea envuelta:</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <p>Este estilo no sería utilizado. En su lugar, distribuye los argumentos de uno por línea añadiendo una coma al final del último argumento:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
@@ -5061,6 +5065,8 @@ aria-label="Cabecera"
 </code></pre></div>
 <h4 id="split-long-strings">Desglosa cadenas largas<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
 <p>Cuando debe desglosar un argumento de cadena en varias líneas para cumplir con los requisitos de longitud de línea, cubre los literales de cadena concatenados entre paréntesis para que quede claro que la cadena es un único argumento. Es decir, preferimos:</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
  <span class="s2">"esta es una cadena muy larga"</span>
@@ -5076,6 +5082,8 @@ aria-label="Cabecera"
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <h3 id="lo-que-hay-que-evitar">Lo que hay que evitar<a class="headerlink" href="#lo-que-hay-que-evitar" title="Permanent link">&para;</a></h3>
 <p>Intentamos evitar los módulos <code>utils</code> tanto como sea posible, con comprender que algunas veces son inevitables. La alternativa preferible es encontrar un lugar para la prestación en donde esté en el código fuente, en lugar de utilizar un módulo <code>utils</code>.</p>
 <p>Como regla general, intentamos evitar o aplazar cualquier código de inicialización costoso, con el fin de lograr un inicio más rápido de la aplicación. Por ejemplo, los módulos del paquete toga-core se cargan de forma diferida, es decir, solo se importan cuando se solicitan, en lugar de hacerlo por adelantado. Esto acelera el inicio y solo se dedica tiempo a lo que la aplicación está utilizando realmente.</p>

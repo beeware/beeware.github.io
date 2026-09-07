@@ -424,7 +424,7 @@ aria-label="Header"
 
     <!-- Site language selector -->
     
-      <div class="md-header__option">
+      <div class="md-header__option lang-selector">
   <div class="md-select">
     
     <button class="md-header__button md-icon" aria-label="Select language">
@@ -5048,10 +5048,14 @@ aria-label="Header"
 </code></pre></div>
 <h4 id="split-long-function-calls">Splitting long function calls<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>When a function call with more than one argument cannot fit on a single line, place each argument on its own line with a trailing comma on the last argument. Ruff permits (and will suggest) a format of multiple arguments on one wrapped line:</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <p>This style should not be used. Instead, spread arguments to one per line by adding a trailing comma on the last argument:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
@@ -5061,6 +5065,8 @@ aria-label="Header"
 </code></pre></div>
 <h4 id="split-long-strings">Splitting long strings<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
 <p>When a string argument must be split across lines to satisfy line length requirements, wrap the concatenated string literals in parentheses so it is clear the string is a single argument. That is, we prefer:</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
         <span class="s2">"this is a very long string "</span>
@@ -5076,6 +5082,8 @@ aria-label="Header"
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <h3 id="things-to-avoid">Things to avoid<a class="headerlink" href="#things-to-avoid" title="Permanent link">&para;</a></h3>
 <p>We try to avoid <code>utils</code> modules as much as possible, with the understanding that sometimes they are unavoidable. The preferred alternative is to find somewhere for the feature elsewhere in the source code, instead of using a <code>utils</code> module.</p>
 <p>As a general rule, we try to avoid or defer any expensive initialization code, in order to achieve faster app startup. For instance, modules in the toga-core package are "lazy loaded" — they're only imported once requested, rather than all up front. This speeds up startup, and only spends time on what the app is actually using.</p>

@@ -424,7 +424,7 @@ aria-label="عنوان العارضة"
 
     <!-- Site language selector -->
     
-      <div class="md-header__option">
+      <div class="md-header__option lang-selector">
   <div class="md-select">
     
     <button class="md-header__button md-icon" aria-label="إختر اللغة">
@@ -5048,10 +5048,14 @@ aria-label="عنوان العارضة"
 </code></pre></div>
 <h4 id="split-long-function-calls">تقسيم استدعاءات الدوال الطويلة<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>عندما لا يتسع استدعاء دالة تحتوي على أكثر من وسيطة واحدة في سطر واحد، ضع كل وسيطة في سطر منفصل مع وضع فاصلة في نهاية الويسيطة الأخيرة. يسمح Ruff (بل ويقترح) بتنسيق يضم عدة وسيطات في سطر واحد مع إعادة الأسطر:</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <p>لا ينبغي استخدام هذا الأسلوب. بدلاً من ذلك، قم بتوزيع الحجج بحيث يكون كل حجة في سطر واحد عن طريق إضافة فاصلة في نهاية الحجة الأخيرة:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
@@ -5061,6 +5065,8 @@ aria-label="عنوان العارضة"
 </code></pre></div>
 <h4 id="split-long-strings">تقسيم السلاسل الطويلة<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
 <p>عندما يتعين تقسيم حجة سلسلة عبر أسطر متعددة لتلبية متطلبات طول السطر، ضع القيم الثابتة للسلسلة المجمعة بين قوسين حتى يتضح أن السلسلة تمثل حجة واحدة. أي أننا نفضل:</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
  <span class="s2">"هذه سلسلة طويلة جدًا"</span>
@@ -5076,6 +5082,8 @@ aria-label="عنوان العارضة"
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <h3 id="_2">الأمور التي يجب تجنبها<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>نحاول تجنب وحدات <code>utils</code> قدر الإمكان، مع إدراك أن استخدامها قد يكون ضروريًا في بعض الأحيان. البديل المفضل هو البحث عن مكان آخر لهذه الميزة في شفرة المصدر، بدلاً من استخدام وحدة <code>utils</code>.</p>
 <p>كقاعدة عامة، نحاول تجنب أو تأجيل أي كود تهيئة مكلف، من أجل تحقيق بدء تشغيل أسرع للتطبيق. على سبيل المثال، يتم "تحميل" الوحدات النمطية في حزمة toga-core بشكل "متأخر" — حيث يتم استيرادها فقط عند الطلب، بدلاً من استيرادها مسبقًا. يؤدي ذلك إلى تسريع بدء التشغيل، ولا يستغرق وقتًا سوى ما يستخدمه التطبيق فعليًا.</p>

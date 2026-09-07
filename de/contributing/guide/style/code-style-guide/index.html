@@ -424,7 +424,7 @@ aria-label="Kopfzeile"
 
     <!-- Site language selector -->
     
-      <div class="md-header__option">
+      <div class="md-header__option lang-selector">
   <div class="md-select">
     
     <button class="md-header__button md-icon" aria-label="Sprache wechseln">
@@ -5048,10 +5048,14 @@ aria-label="Kopfzeile"
 </code></pre></div>
 <h4 id="split-long-function-calls">Aufteilung langer Funktionsaufrufe<a class="headerlink" href="#split-long-function-calls" title="Permanent link">&para;</a></h4>
 <p>Wenn ein Funktionsaufruf mit mehr als einem Argument nicht in eine einzige Zeile passt, setzen Sie jedes Argument in eine eigene Zeile und fügen Sie am Ende des letzten Arguments ein Komma ein. Ruff erlaubt (und schlägt vor) eine Formatierung mit mehreren Argumenten in einer umgebrochenen Zeile:</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <p>Dieser Stil sollte nicht verwendet werden. Verteilen Sie die Argumente stattdessen auf jeweils eine Zeile, indem Sie am Ende des letzten Arguments ein Komma setzen:</p>
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="n">arg1</span><span class="p">,</span>
@@ -5061,6 +5065,8 @@ aria-label="Kopfzeile"
 </code></pre></div>
 <h4 id="split-long-strings">Lange Zeichenfolgen aufteilen<a class="headerlink" href="#split-long-strings" title="Permanent link">&para;</a></h4>
 <p>Wenn ein String-Argument auf mehrere Zeilen aufgeteilt werden muss, um die Anforderungen an die Zeilenlänge zu erfüllen, setzen Sie die verketteten String-Literale in Klammern, damit klar ist, dass es sich um ein einziges Argument handelt. Das heißt, wir bevorzugen:</p>
+<!-- fmt:off -->
+
 <div class="highlight"><pre><span></span><code><span class="n">my_function</span><span class="p">(</span>
     <span class="p">(</span>
  <span class="s2">"Dies ist eine sehr lange Zeichenfolge"</span>
@@ -5076,6 +5082,8 @@ aria-label="Kopfzeile"
     <span class="n">second_argument</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
+<!-- fmt:on -->
+
 <h3 id="zu-vermeidende-dinge">Zu vermeidende Dinge<a class="headerlink" href="#zu-vermeidende-dinge" title="Permanent link">&para;</a></h3>
 <p>Wir versuchen, "utils"-Module so weit wie möglich zu vermeiden, mit dem Verständnis, dass sie manchmal unvermeidbar sind. Die bevorzugte Alternative ist, die Funktion an anderer Stelle im Quellcode zu finden, anstatt ein "utils"-Modul zu verwenden.</p>
 <p>Generell versuchen wir, teuren Initialisierungscode zu vermeiden oder aufzuschieben, um einen schnelleren Start der App zu erreichen. Beispielsweise werden Module im toga-core-Paket „lazy loaded“ – sie werden erst bei Bedarf importiert und nicht alle im Voraus. Dies beschleunigt den Start und es wird nur Zeit für das aufgewendet, was die App tatsächlich nutzt.</p>
