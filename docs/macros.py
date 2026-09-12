@@ -1,8 +1,22 @@
 import datetime
+from functools import cache
 from pathlib import Path
 from textwrap import dedent
 
+import material
 import yaml
+
+# The Font Awesome icon set bundled with mkdocs-material
+# This avoids the need for the Font Awesome kit/CDN).
+FONTAWESOME_ICONS_DIR = (
+    Path(material.__file__).parent / "templates" / ".icons" / "fontawesome"
+)
+
+
+@cache
+def _fontawesome_svg(style, name):
+    """Load (and cache) the raw SVG markup for a bundled Font Awesome icon."""
+    return (FONTAWESOME_ICONS_DIR / style / f"{name}.svg").read_text()
 
 
 def attendees(authors, team):
@@ -40,10 +54,11 @@ def talk_title_punctuation(talk_title):
 
 def define_env(env):
     @env.macro
-    def fa(*tags):
-        """Generates the fontawesome HTML i element."""
-        tags = " ".join(f"fa-{tag}" for tag in tags)
-        return f'<i class="{tags}"></i>'
+    def fa(style, name):
+        """Generates an inline Font Awesome icon, using the SVG bundled with
+        mkdocs-material, rather than depending on the Font Awesome kit/CDN.
+        """
+        return f'<span class="fa-icon">{_fontawesome_svg(style, name)}</span>'
 
     @env.macro
     def generate_resource_post(resource):
@@ -252,7 +267,7 @@ def define_env(env):
 
                     try:
                         mastodon = member_details["mastodon"].split("@")
-                        member_image_details_mastodon = f"""<div class="team-mastodon-handle" markdown="1">{fa("mastodon", "lg", "brands")} [{member_details["mastodon"]}](https://{mastodon[2]}/@{mastodon[1]})</div>"""  # noqa: E501
+                        member_image_details_mastodon = f"""<div class="team-mastodon-handle" markdown="1">{fa("brands", "mastodon")} [{member_details["mastodon"]}](https://{mastodon[2]}/@{mastodon[1]})</div>"""  # noqa: E501
                     except KeyError:
                         member_image_details_mastodon = ""
 
@@ -261,7 +276,7 @@ def define_env(env):
                     )
 
                     try:
-                        member_email_details = f"""<div class="team-email" markdown="1">{fa("envelope", "lg", "solid")} <{member_details["email"]}></div>"""  # noqa: E501
+                        member_email_details = f"""<div class="team-email" markdown="1">{fa("solid", "envelope")} <{member_details["email"]}></div>"""  # noqa: E501
                     except KeyError:
                         member_email_details = ""
 
@@ -272,8 +287,8 @@ def define_env(env):
                         ![{member_details["name"]}](/{member_details["avatar"]})
 
                         <div class="team-contact-details" markdown="1">
-                        <div class="team-pronouns" markdown="1">{fa("regular", pronoun_logo)} {first_pronoun}/{second_pronoun}</div>
-                        <div class="team-github-handle" markdown="1">{fa("github", "lg", "brands")} [{github_id}](https://github.com/{github_id})</div>
+                        <div class="team-pronouns" markdown="1">{fa("solid", pronoun_logo)} {first_pronoun}/{second_pronoun}</div>
+                        <div class="team-github-handle" markdown="1">{fa("brands", "github")} [{github_id}](https://github.com/{github_id})</div>
                         {member_image_details_mastodon}
                         {member_email_details}
                         </div>
