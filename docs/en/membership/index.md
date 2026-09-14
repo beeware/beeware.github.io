@@ -28,15 +28,15 @@ If you use BeeWare in a professional context, please consider sponsoring at the 
 
 ### Bronze Membership: $200/month
 
-If you use my work to support your small business, please consider sponsoring at this level to ensure to tools you're using to generate revenue receive the support they need. Your company's name, logo, and a short description will be displayed on the BeeWare sponsors page, and include your company on any list of companies offering BeeWare-related services.
+If you use BeeWare to support your small business, please consider sponsoring at this level to ensure to tools you're using to generate revenue receive the support they need. Your company's name, logo, and a short description will be displayed on the BeeWare sponsors page, and include your company on any list of companies offering BeeWare-related services.
 
 ### Silver Membership: $1000/month
 
-If you use my work to support your established business, please consider sponsoring at this level to ensure to tools you're using to generate revenue receive the support they need. Your company's name, logo, and a short description will be displayed on the BeeWare sponsors page, and include your company on any list of companies offering BeeWare-related services. Your company will also receive priority placement on any list offering BeeWare-related services.
+If you use BeeWare to support your established business, please consider sponsoring at this level to ensure to tools you're using to generate revenue receive the support they need. Your company's name, logo, and a short description will be displayed on the BeeWare sponsors page, and include your company on any list of companies offering BeeWare-related services. Your company will also receive priority placement on any list offering BeeWare-related services.
 
 ### Gold Membership: $5000/month
 
-If you use my work to support your large corporation, please consider sponsoring at this level to ensure to tools you're using to generate revenue receive the support they need. Your company's name, logo, and a short description will be displayed on the BeeWare sponsors page, and include your company on any list of companies offering BeeWare-related services. Your company will also receive premium placement on any list offering BeeWare-related services, and an annual meeting with a representative of the BeeWare core team.
+If you use BeeWare to support your large corporation, please consider sponsoring at this level to ensure to tools you're using to generate revenue receive the support they need. Your company's name, logo, and a short description will be displayed on the BeeWare sponsors page, and include your company on any list of companies offering BeeWare-related services. Your company will also receive premium placement on any list offering BeeWare-related services, and an annual meeting with a representative of the BeeWare core team.
 
 ## Alternative options
 
