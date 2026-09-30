@@ -39,7 +39,7 @@ Much of this work is due to the contributions of members of the BeeWare communit
 
 The final release of 3.15.0 is days away; once that release is out, we'll be able to make a Chaquopy, Briefcase and Toga release. We also want to explore whether `cibuildwheel` can make use of `xbuild`.
 
-Once that work is completed, we're expecting to turn our focus back to Toga. We've made *some* progress against the "big picture app navigation" plan that we published at the start of the year; with the 3.15 release behind us, we can now focus on delivering that plan, and adding other exciting features to Toga.
+Once that work is completed, we're expecting to turn our focus back to Toga. We've made *some* progress against the "big picture app navigation" plan that we published at the start of the year; once the 3.15 release is behind us, we will be able to focus on delivering that plan, and adding other exciting features to Toga.
 
 ## Want to get involved?
 
