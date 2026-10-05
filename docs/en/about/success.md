@@ -149,7 +149,7 @@ App for clipboard synchronization between desktop systems.
 
 <div class="success-story" markdown="1">
 
-## ![Play Dice Baseball icon](../images/success_stories/play_dice_baseball/logo.png){ .success-story-icon } Play Dice Baseball
+## ![Play Dice Baseball icon](../images/success_stories/play_dice_baseball/logo.png){ .success-story-icon } [Play Dice Baseball](https://apps.apple.com/us/app/play-dice-baseball/id6751746753)
 
 <div class="success-story-content" markdown="1">
 
