@@ -157,7 +157,7 @@ App for clipboard synchronization between desktop systems.
 
 **Platforms:** [iOS](https://apps.apple.com/us/app/play-dice-baseball/id6751746753), [Android](https://play.google.com/store/apps/details?id=com.pcsadventures.playdicebaseball)
 
-Play Dice Baseball is similar to a game at the kitchen table where dice was used to simulate batters up at the plate in baseball. The 36 possible rolls represent outcomes such as "Out", "Homerun", or "Single". Player also has the option to steal bases and use power ups to get a guaranteed hit, place a runner out third base or reset outs to zero.
+Play Dice Baseball is similar to a game at the kitchen table where dice was used to simulate batters up at the plate in baseball. The 36 possible rolls represent outcomes such as "Out", "Home Run", or "Single". Player also has the option to steal bases and use power ups to get a guaranteed hit, place a runner out third base or reset outs to zero.
 
 </div>
 </div>
