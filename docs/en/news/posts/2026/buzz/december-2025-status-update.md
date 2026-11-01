@@ -16,8 +16,7 @@ Even with the impediment of end-of-year holidays restricting the availability of
 - We adopted an [updated Code of Conduct](https://github.com/beeware/.github/pull/254), incorporating changes from [Contributor Covenant 3.0](https://www.contributor-covenant.org/version/3/0/code_of_conduct/).
 - We released [Briefcase 0.3.26](https://pypi.org/project/briefcase/0.3.26/), [Toga 0.5.3](https://pypi.org/project/toga/0.5.3/), and [Rubicon Objective-C 0.5.3](https://pypi.org/project/rubicon-objc/0.5.3/). These releases incorporate almost 4 months of changes.
 - We simplified our Dependabot and pre-commit update tasks to minimize the number of updates that need to be processed every week.
-- We rolled out a [massive rework of our contribution guides](https://github.com/beeware/beeware-docs-tools/pull/94). This update provides more comprehensive guidance on ways to contribute to BeeWare. It also allows us to share contribution content between projects, rather than duplicating that
-content.
+- We rolled out a [massive rework of our contribution guides](https://github.com/beeware/beeware-docs-tools/pull/94). This update provides more comprehensive guidance on ways to contribute to BeeWare. It also allows us to share contribution content between projects, rather than duplicating that content.
 - We [updated Briefcase to use Chaquopy 17.0.0](https://github.com/beeware/briefcase-android-gradle-template/pull/107), enabling support for Python 3.14.
 - We [added the ability to debug Android applications with Briefcase](https://github.com/beeware/briefcase/pull/2351).
 - We modified Briefcase to [verify system requirements when running `briefcase dev` on Linux](https://github.com/beeware/briefcase/pull/2592). This should eliminate a common source of errors when running the BeeWare tutorial on Linux.
