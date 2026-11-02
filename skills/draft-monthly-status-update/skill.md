@@ -63,7 +63,7 @@ These lists can also be filtered by platform - so you can find issues that are s
 
 ## Validation
 
-The final document should be a valid Markdown document with no spelling errors, as validated by running `tox -m pre-commit,docs-lint`.
+The final document should be a valid Markdown document with no spelling errors, as validated by running `tox -e pre-commit,docs-lint`.
 
 If any words are identified as spelling errors by the `docs-lint` step, the user should be prompted to approve those words for addition in the `docs/spelling_wordlist` file. If a word is approved, it should be added to the file in alphabetical order.
 
