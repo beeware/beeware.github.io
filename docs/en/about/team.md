@@ -4,8 +4,8 @@ So who are the people behind BeeWare? Well, there's a huge group of contributors
 
 ## Current team members
 
-{{ generate_team_members(team, page, current=True) }}
+{{ generate_team_members(team, current=True) }}
 
 ## Emeritus team members
 
-{{ generate_team_members(team, page, current=False) }}
+{{ generate_team_members(team, current=False) }}

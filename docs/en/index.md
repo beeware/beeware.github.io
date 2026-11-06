@@ -118,11 +118,11 @@ BeeWare is supported by users like you! Every little bit helps: [click here to c
 
 ### Latest news
 
-{{ latest_news(files) }}
+{{ latest_news() }}
 
 ### Upcoming events
 
-{% set events = upcoming_events(files) %}
+{% set events = upcoming_events() %}
 {% if events %}
 {{ events }}
 {% else %}

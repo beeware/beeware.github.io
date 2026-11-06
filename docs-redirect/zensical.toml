@@ -1,0 +1,18 @@
+[project]
+site_name = "BeeWare"
+site_url = "https://docs.beeware.org/"
+docs_dir = "en"
+site_dir = "_build/html"
+# README.md only exists so that the `en` directory exists. Excluding it leaves
+# the index page free for the redirect.
+exclude_docs = """
+README.md
+"""
+
+[project.theme]
+language = "en"
+# Provides the 404 page, which redirects any other URL on the site.
+custom_dir = "overrides"
+
+[project.plugins.redirects.redirect_maps]
+"index.md" = "https://beeware.org/docs"

@@ -1,22 +1,33 @@
 import datetime
-from functools import cache
 from pathlib import Path
 from textwrap import dedent
 
-import material
 import yaml
 
-# The Font Awesome icon set bundled with mkdocs-material
-# This avoids the need for the Font Awesome kit/CDN).
-FONTAWESOME_ICONS_DIR = (
-    Path(material.__file__).parent / "templates" / ".icons" / "fontawesome"
-)
+
+def as_date(value):
+    """Return a date, whether YAML parsed the value as a date or a string."""
+    if isinstance(value, datetime.date):
+        return value
+    return datetime.date.fromisoformat(str(value))
 
 
-@cache
-def _fontawesome_svg(style, name):
-    """Load (and cache) the raw SVG markup for a bundled Font Awesome icon."""
-    return (FONTAWESOME_ICONS_DIR / style / f"{name}.svg").read_text()
+def merge_team_details(team, team_details):
+    """Merge the blog author details with the team details for each author.
+
+    The blog only accepts a limited set of fields for each author, so the
+    remaining team details are stored separately, keyed by the same GitHub ID.
+    """
+    return {
+        "authors": {
+            github_id: {**author_details, **team_details.get(github_id, {})}
+            for github_id, author_details in team["authors"].items()
+        }
+    }
+
+
+def get_metadata(contents):
+    return next(yaml.load_all(contents, Loader=yaml.SafeLoader))
 
 
 def attendees(authors, team):
@@ -53,12 +64,25 @@ def talk_title_punctuation(talk_title):
 
 
 def define_env(env):
+    # The docs directory being built; for translations, this is the directory
+    # containing the translated content.
+    docs_dir = Path(env.project_dir) / env.conf["docs_dir"]
+
+    def full_team(team):
+        """Merge the team details into the blog author details."""
+        team_details = yaml.load(
+            (docs_dir / "news/.team.yml").read_text(encoding="utf-8"),
+            Loader=yaml.SafeLoader,
+        )
+        return merge_team_details(team, team_details)
+
     @env.macro
     def fa(style, name):
-        """Generates an inline Font Awesome icon, using the SVG bundled with
-        mkdocs-material, rather than depending on the Font Awesome kit/CDN.
+        """Generates an inline Font Awesome icon, using the icon shortcodes
+        provided by the emoji extension, rather than depending on the Font
+        Awesome kit/CDN.
         """
-        return f'<span class="fa-icon">{_fontawesome_svg(style, name)}</span>'
+        return f'<span class="fa-icon">:fontawesome-{style}-{name}:</span>'
 
     @env.macro
     def generate_resource_post(resource):
@@ -115,13 +139,16 @@ def define_env(env):
     @env.macro
     def generate_event_post(authors, event, involvement, team):
         """Generate an event post from event template."""
+        team = full_team(team)
         content = []
-        if event.date == event.end_date:
-            event_timeframe = f"on {event.date.strftime('%B %d, %Y')}"
-        elif event.date != event.end_date:
+        start_date = as_date(event["date"])
+        end_date = as_date(event["end_date"])
+        if start_date == end_date:
+            event_timeframe = f"on {start_date.strftime('%B %d, %Y')}"
+        else:
             event_timeframe = (
-                f"from {event.date.strftime('%B %d')} "
-                f"- {event.end_date.strftime('%B %d, %Y')}"
+                f"from {start_date.strftime('%B %d')} "
+                f"- {end_date.strftime('%B %d, %Y')}"
             )
 
         highlight_authors = set()
@@ -131,14 +158,14 @@ def define_env(env):
                 highlight_authors.update(set(inv["team_members"]))
                 content.append(
                     dedent(f"""\
-                        {attendees(inv["team_members"], team)} will be organizing [{event.name}]({event.url}), which will happen {event_timeframe}!\n\n
+                        {attendees(inv["team_members"], team)} will be organizing [{event["name"]}]({event["url"]}), which will happen {event_timeframe}!\n\n
                     """)  # noqa: E501
                 )
             elif inv["type"] == "keynote":
                 highlight_authors.update(set(inv["team_members"]))
                 content.append(
                     dedent(f"""
-                    {attendees(inv["team_members"], team)} will be keynoting {event.name}, giving a presentation entitled [{talk_title_punctuation(inv["title"])}]({inv["url"]})
+                    {attendees(inv["team_members"], team)} will be keynoting {event["name"]}, giving a presentation entitled [{talk_title_punctuation(inv["title"])}]({inv["url"]})
 
                     <!-- more -->\n\n
                     """)  # noqa: E501
@@ -163,13 +190,13 @@ def define_env(env):
         else:
             content.append(
                 dedent(f"""\
-                    {attendees(authors, team)} will be attending [{event.name}]({event.url}) {event_timeframe}!
+                    {attendees(authors, team)} will be attending [{event["name"]}]({event["url"]}) {event_timeframe}!
 
                     <!-- more -->\n\n
                 """)  # noqa: E501
             )
 
-        content.append(f"{event.description}\n\n")
+        content.append(f"{event['description']}\n\n")
 
         _, first_pronoun, second_pronoun = pronouns(
             team["authors"][authors[-1]]["pronoun"]
@@ -252,8 +279,11 @@ def define_env(env):
         return "".join(content)
 
     @env.macro
-    def generate_team_members(team, page, current):
-        """Generate the team page from the .authors.yml file metadata."""
+    def generate_team_members(team, current):
+        """Generate the team page from the .authors.yml and .team.yml file
+        metadata.
+        """
+        team = full_team(team)
         team_member_content = []
 
         for github_id, member_details in team["authors"].items():
@@ -298,9 +328,9 @@ def define_env(env):
                         """  # noqa: E501
                     )
 
-                    member_bio = (
-                        Path(page.file.src_dir) / f"about/team/{github_id}.md"
-                    ).read_text()
+                    member_bio = (docs_dir / f"about/team/{github_id}.md").read_text(
+                        encoding="utf-8"
+                    )
 
                     team_member = (
                         member_title
@@ -322,47 +352,51 @@ def define_env(env):
 
         return "".join(tmc[1] for tmc in sorted(team_member_content))
 
-    def get_metadata(contents):
-        return next(yaml.load_all(contents, Loader=yaml.SafeLoader))
+    def posts(*paths):
+        """Yield the docs-relative path and metadata of every post in the given
+        docs-relative directories.
+        """
+        for path in paths:
+            for post in sorted((docs_dir / path).glob("*.md")):
+                yield (
+                    post.relative_to(docs_dir).as_posix(),
+                    get_metadata(post.read_text(encoding="utf-8")),
+                )
 
     @env.macro
-    def upcoming_events(files):
+    def upcoming_events():
         """Generate upcoming events list for beeware.org homepage sidebar."""
         this_year = datetime.datetime.now().year
         next_year = this_year + 1
 
         events = []
-        for filename, file_data in files.src_uris.items():
-            if filename.startswith(
-                tuple(f"news/posts/{year}/events/" for year in [this_year, next_year])
-            ):
-                metadata = get_metadata(file_data.content_string)
+        for src_path, metadata in posts(
+            *(f"news/posts/{year}/events" for year in [this_year, next_year])
+        ):
+            start_date = as_date(metadata["event"]["date"])
+            end_date = as_date(metadata["event"]["end_date"])
 
-                if metadata["event"]["date"] > datetime.date.today():
-                    if metadata["event"]["date"] == metadata["event"]["end_date"]:
-                        event_date = metadata["event"]["date"].strftime("%B %d, %Y")
-                    else:
-                        event_date = (
-                            f"{metadata['event']['date'].strftime('%B %d')}"
-                            f"-{metadata['event']['end_date'].strftime('%d, %Y')}"
-                        )
-
-                    events.append(
-                        (
-                            metadata["event"]["date"],
-                            (
-                                f"- [{metadata['event']['name']}"
-                                f": {event_date}]({file_data.src_path})"
-                            ),
-                        )
+            if start_date > datetime.date.today():
+                if start_date == end_date:
+                    event_date = start_date.strftime("%B %d, %Y")
+                else:
+                    event_date = (
+                        f"{start_date.strftime('%B %d')}-{end_date.strftime('%d, %Y')}"
                     )
+
+                events.append(
+                    (
+                        start_date,
+                        f"- [{metadata['event']['name']}: {event_date}]({src_path})",
+                    )
+                )
 
         if events:
             return "\n".join(item[1] for item in sorted(events)[:5])
         return None
 
     @env.macro
-    def latest_news(files):
+    def latest_news():
         """Generate "Latest news" latest blog post link for beeware.org homepage
         sidebar.
         """
@@ -371,16 +405,12 @@ def define_env(env):
 
         latest_post = None
 
-        for filename, file_data in files.src_uris.items():
-            if filename.startswith(
-                tuple(f"news/posts/{year}/buzz/" for year in [last_year, this_year])
-            ):
-                metadata = get_metadata(file_data.content_string)
+        for src_path, metadata in posts(
+            *(f"news/posts/{year}/buzz" for year in [last_year, this_year])
+        ):
+            post_date = as_date(metadata["date"])
+            if latest_post is None or latest_post[0] < post_date:
+                latest_post = (post_date, metadata["title"], src_path)
 
-                if latest_post is None or latest_post[0]["date"] < metadata["date"]:
-                    latest_post = (metadata, file_data)
-
-        return (
-            f"{latest_post[0]['date'].strftime('%B %d')}"
-            f": [{latest_post[0]['title']}]({latest_post[1].src_path})"
-        )
+        post_date, title, src_path = latest_post
+        return f"{post_date.strftime('%B %d')}: [{title}]({src_path})"
