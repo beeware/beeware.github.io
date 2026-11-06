@@ -1,13 +1,15 @@
- version: 2
+version: 2
 
- build:
-   os: "ubuntu-24.04"
-   tools:
-     python: "3.12"
-   jobs:
-     pre_install:
-       - python -m pip install --upgrade pip
-       - python -m pip install --group redirects
-
- mkdocs:
-   configuration: docs-redirect/mkdocs.yml
+build:
+  os: "ubuntu-24.04"
+  tools:
+    python: "3.13"
+  jobs:
+    pre_install:
+      - python -m pip install --upgrade pip
+      - python -m pip install --group docs-redirect
+    build:
+      html:
+        - python -m zensical build --clean --strict --config-file docs-redirect/zensical.toml
+        - mkdir -p $READTHEDOCS_OUTPUT
+        - cp -r docs-redirect/_build/html $READTHEDOCS_OUTPUT/html
